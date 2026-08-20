@@ -35,6 +35,7 @@ Secondary: SOC lead or service delivery manager, who owns SLA and the decision t
 - Every fact about a competitor, a market or a benchmark comes from a page opened in the current session. Model memory has a cutoff, so anything from it is `[?]`, not a fact.
 - No invented numbers. No real figure means `[?]`, never a plausible one.
 - Critique runs on two instruments, Claude and Codex read-only, sets taken independently and deduplicated after. A third pass reads the stage contract as a checklist, because neither instrument can see a step that never happened.
+- **A page is accepted on the live URL, not on localhost.** A local static server serves the tree as-is and cannot reproduce host behaviour. GitHub Pages runs Jekyll, which drops underscore-prefixed files, and this project keeps `/_nav.js` and `/_nav.css` at the root; `.nojekyll` holds that open. Grounds in `docs/decisions.md`.
 
 ## MVP scope
 

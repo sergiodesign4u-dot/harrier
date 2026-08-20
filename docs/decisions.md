@@ -2,6 +2,16 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-20 - `.nojekyll` in the repository root, and why acceptance on localhost is not acceptance
+
+GitHub Pages runs Jekyll by default, and Jekyll silently drops any file or directory whose name starts with an underscore. `/_nav.css` and `/_nav.js` were therefore never built, and both returned 404 on the live site while every page returned 200. The sidebar did not render at all in production: no roadmap, no badges, no section links, just the content column.
+
+Nothing showed this locally. The `python3 -m http.server` used for acceptance serves the tree as-is, so every check passed there. This is a rule-of-evidence failure, not a hosting accident: acceptance was run against an instrument that could not reproduce the defect, which is the same class of mistake as measuring 360px in a 375px viewport.
+
+Fixed by adding an empty `.nojekyll` to the repository root, which disables Jekyll processing and serves files verbatim. Verified in a browser against the live URL, not the local one: 13 roadmap items, Foundation Research active, Next on User Research, 9 section links, 20 images loaded, muted colour resolving to `rgb(107, 113, 118)`, so the WCAG fix reached production too.
+
+Standing consequence for every later stage: this project's navigation lives in underscore-prefixed files at the root, and stage pages are only accepted after the **live** URL has been opened in a browser. The one remaining console error site-wide is a 404 on `/favicon.ico`, which stage 06 will resolve.
+
 ## 2026-08-20 - Stage 01 closed, and what left CLAUDE.md
 
 Added as rules: the strategic dimension, the riskiest assumption, the chosen UX pattern with its `CONDITIONAL` mark, the corrected differentiation (earned autonomy per tenant and visible across the fleet, not earned autonomy as such), and a new rule of evidence about product premises.
