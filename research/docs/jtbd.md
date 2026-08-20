@@ -51,7 +51,9 @@ Four, not five. Each has its own trigger and is a task alongside the main job ra
 > **When I take over a rotation somebody else was working, I want to know what changed and what is waiting on a decision, so that I do not spend my first hour rebuilding what the last shift already knew.**
 
 **Persona:** P1.
-**Grown from:** UCL handover study, where a bad handover means "you spend your first hour rediscovering context someone else already had", and where the record goes stale inside the shift. 79% of SOCs are operational 24/7 and 73% allow remote work at least some of the time [SANS SOC Survey 2025], so this handoff is written and asynchronous.
+**Grown from:** the UCL handover study. Three of its findings carry this job. An incoming team on a long incident faces an accumulating pile: "say there's been [an incident across] three days and three nights. Unless you go back and read, what, 6 handovers? You don't actually have that context of the week." The pile then stops being read: "The first day, second day, third day, they will start to ignore [the older handovers]." And the whole thing depends on one person's diligence: "it's still reliant on the person writing the handover. In a way, it's not foolproof: if they don't put down what they should be putting down, then the next team isn't aware, right?" 79% of SOCs are operational 24/7 [SANS SOC Survey 2025], and among the UCL participants who work remotely the handover has permanently replaced the verbal one.
+
+**Corrected at Step 5.** This job originally cited the UCL study for the phrase "you spend your first hour rediscovering context someone else already had". **That phrase does not appear in the paper.** It came from a search-result summary of a blog that was never opened. The job survives on the real quotes above; the attribution did not.
 
 ### R2. Answer for a decision made months ago
 
@@ -62,19 +64,23 @@ Four, not five. Each has its own trigger and is a task alongside the main job ra
 
 ### R3. Teach the agent where it was wrong
 
-> **When Clerk got it wrong, I want my disagreement to change what it does next time, so that I am not correcting the same mistake for the rest of the quarter.**
+> **When Clerk got it wrong, I want my disagreement to change what it does next time, so that I stop meeting the same mistake.**
 
 **Persona:** P1, with the detection engineer as the recipient.
 **Grown from:** design principle 3 in `CLAUDE.md` and the business outcome in `research.md` section 2, the share of rejections whose stated reason produced a tuning change within 14 days.
+
+**Corrected at Step 5.** The first wording said "for the rest of the quarter". The only horizon the source carries is 14 days, so the invented one was removed rather than replaced with another number.
 
 **Recorded tension.** The act of rejecting is a step inside the main job. What is a separate job here is the disagreement going somewhere. If stage 03a finds it cannot separate the two, this collapses back into the main job rather than earning a screen.
 
 ### R4. Tell the client what happened
 
-> **When a client needs to hear what we did about something on their estate, I want to hand them an account they can understand without my rewriting it, so that explaining the work does not cost more than doing it.**
+> **When a client needs to hear what we did about something on their estate, I want to give them an account they can understand, so that the work speaks for itself.**
 
 **Persona:** P1 writes it, P2 owns it, the client's security contact reads it and never logs in.
 **Grown from:** the non-user beneficiary in `research.md` section 2, the white-labelled tenant trust report in `aarrr.md` Revenue, and the open question of whether an analyst will accept liability for a summary Clerk wrote.
+
+**Corrected at Step 5.** The first wording carried two motivations the source does not: "without my rewriting it" and "explaining the work does not cost more than doing it". Both were assumptions about effort, and both were removed. Whether rewriting is the cost that matters here is `[?]`, and it is the same open question as liability for the summary.
 
 ---
 
@@ -92,6 +98,8 @@ Four, not five. Each has its own trigger and is a task alongside the main job ra
 
 **Grown from:** UCL, where handover quality varies widely between individuals, no organisation trains it formally, and seniors read and feed back on newer analysts' notes.
 
+**Partly ours.** The source establishes that the record is read by colleagues and judged by seniors. **It does not establish that the analyst is motivated by how competent the record makes them look** `[?]`. Assume the reputational motive; verify by asking analysts whether they write differently when they know who reads it.
+
 ### Emotional, P2
 
 > **When I give the agent more rope, I want to be able to point at why, so that I am not the person who guessed.**
@@ -104,9 +112,9 @@ Four, not five. Each has its own trigger and is a task alongside the main job ra
 
 These are not in the main list. They are written as jobs because that is the useful form, and each carries what would close it.
 
-**HJ1.** "When I start a shift, I want to know where the agent has earned latitude and where it has not, so that I know how much to check." `[?]` This comes from `research.md` section 2, which is our own writing rather than an analyst's. Verify by asking three MDR analysts what they check first at shift start.
+**HJ1.** **Persona:** P1. "When I start a shift, I want to know where the agent has earned latitude and where it has not, so that I know how much to check." `[?]` This comes from `research.md` section 2, which is our own writing rather than an analyst's. Verify by asking three MDR analysts what they check first at shift start.
 
-**HJ2.** "When Clerk files a verdict, I want to see how hard it looked before I decide how hard I look, so that my attention goes where the work was thin." `[?]` **This one is now contested rather than merely unverified.** The RIT study found analysts "rarely mentioned using the fine-grained feature contribution graphs or the prediction uncertainty fields in a real-time setting". That is evidence that a provenance strip may not be read at all under time pressure. **H3 in `research.md` is downgraded from unverified to contested**, and the first test is whether analysts consult effort-spent information when it is one glance away rather than one click away.
+**HJ2.** **Persona:** P1. "When Clerk files a verdict, I want to see how hard it looked before I decide how hard I look, so that my attention goes where the work was thin." `[?]` **This one is now contested rather than merely unverified.** The RIT study found analysts "rarely mentioned using the fine-grained feature contribution graphs or the prediction uncertainty fields in a real-time setting". That is evidence that a provenance strip may not be read at all under time pressure. **H3 in `research.md` is downgraded from unverified to contested**, and the first test is whether analysts consult effort-spent information when it is one glance away rather than one click away.
 
 ---
 
@@ -127,7 +135,7 @@ Coverage in the COMPETITORS column is derived from the matrix axes and the gaps 
 | Job | P1 | P2 | Signal behind the importance | FUNCTION, from the inventory | COMPETITORS |
 |---|---|---|---|---|---|
 | **MAIN.** Decide whether Clerk's verdict holds | **3** | 1 | P1: this is her whole shift, and the activation node is First Verdict. P2: reads outcomes rather than adjudicating each case | 3 Case file, 4 Verdict, 6 Autonomy state | **No.** Gap 2: nobody publishes the residual queue. Expel publishes a queue but is human-led |
-| **R1.** Pick up and hand off a shift | **3** | 2 | P1: UCL, a bad handover means "you spend your first hour rediscovering context someone else already had"; 79% of SOCs run 24/7. P2: owns coverage, and one UCL participant rebuilt shift cycles to cover the busiest hours | **empty**, see the finding below | **No.** Gap 6, verified across thirteen products |
+| **R1.** Pick up and hand off a shift | **3** | 2 | P1: UCL, an incoming team must read six handover reports to hold three days of context, and older reports stop being read; 79% of SOCs run 24/7. P2: owns coverage, and one UCL participant rebuilt shift cycles to cover the busiest hours | **empty**, see the finding below | **No.** Gap 6, verified across thirteen products |
 | **R2.** Answer for a decision made months ago | 2 | **3** | P1: rare per case, but it is why the record exists at all. P2: the question arrives through the client relationship and the SLA sits with them | 8 Append-only decision log | **Partly.** An evidence trail is table stakes and every competitor publishes one. Whether any holds a point-in-time snapshot is `[?]`, the consoles are behind login |
 | **R3.** Teach the agent where it was wrong | 2 | **3** | P1: under satisficing this happens only if it is cheap. P2: tuning quality is what lets them widen latitude | 4 Verdict, with the rejection reason routed to tuning | **Partly.** Dropzone shows a context-memory update in a worked narrative and Prophet says "nothing is learned silently". Whether a human rejection routes to tuning is `[?]` |
 | **R4.** Tell the client what happened | 2 | **3** | P1: writes it. P2: owns it, and it is the Revenue lever in `aarrr.md` | 5 Client summary | **Partly.** At Expel the client sees the same screen as the analyst. A summary drafted by the agent and sent under the analyst's name is `[?]` |
@@ -146,11 +154,15 @@ Derived from the matrix. The rule is: important to the primary persona **and** n
 | In the core | The cell that proves it |
 |---|---|
 | **MAIN** | P1 = 3, COMPETITORS = No |
-| **R1, the shift** | P1 = 3, COMPETITORS = No, and it is the one gap verified across all thirteen products |
+| **R1, the shift** | P1 = 3, COMPETITORS = No. Gap 6 is verified across all thirteen products, as is gap 2 behind the main job |
 
 The third slot does not qualify under the rule, and it is not filled with invented importance. It enters as a **deliberate exception**, named as one:
 
-> **P2-MAIN, the fleet view of trust, enters the core as an exception.** Not on importance to the primary persona, which is `[?]`, but because `CLAUDE.md` binds stage 04 to carry the strategic dimension with a concrete element on the reference screen. Removing it removes what makes the product different from Simbian.
+> **P2-MAIN, the fleet view of trust, enters the core as an exception.** Not on importance to the primary persona, which is `[?]`.
+>
+> **Corrected at Step 5.** The first version justified this by the rule binding stage 04 to carry the strategic dimension on the reference screen. That rule governs what stage 04 must **show**, not what belongs in an MVP core, so the chain did not reach the conclusion.
+>
+> **The reasoning that does reach it.** The strategic dimension recorded in `CLAUDE.md` is calibrated trust that is earned and visible per tenant, and gap 1 says nobody sells it. A core built only of MAIN and R1 is a good residual queue with a good handoff, and it is a product the market gap does not distinguish. The fleet job is what the differentiation rests on, so it enters the core **as the bet**, and it is named as a bet rather than as a qualified job.
 >
 > **This is H1, the riskiest hypothesis in the project.** The MVP core therefore holds the risk in the open rather than hiding it. If H1 falls, this is the job that leaves the core, and the product becomes a better residual queue rather than a fleet of earned trust.
 
@@ -174,14 +186,16 @@ The third slot does not qualify under the rule, and it is not filled with invent
 | 4 | Verdict | MAIN, R3 |
 | 5 | Client summary | R4 |
 | 6 | Autonomy state, armed and active | MAIN, P2-MAIN |
-| **7** | **Review lane for cases Clerk closed on its own, sampled rather than exhaustive** | **orphan** |
+| 7 | Review lane for cases Clerk closed on its own, sampled rather than exhaustive | P2-MAIN, **on the audit side only**. See the correction below |
 | 8 | Append-only decision log | R2 |
 
-**One orphan, number 7.** It appears in no FUNCTION cell. The need under it is real and is written in `aarrr.md`: knowing what the agent did while nobody was watching. But no job was formulated for it.
+**Corrected at Step 5.** The first version of this check called feature 7 an orphan that "appears in no FUNCTION cell". **The matrix two sections above assigns it to P2-MAIN**, so the file contradicted itself, and the contradiction was the only thing holding up the claim below it.
 
-The fork is honest: either a job is formulated at stage 03a, something like "check the work I never saw", or the feature goes. No third option is offered.
+**No orphan features.** All eight map to a formulated job.
 
-**Idle control passed.** The check found exactly one orphan out of eight, so it is not a check that can never fail.
+**What survives of the finding, in a smaller and more accurate form.** Feature 7 maps to P2-MAIN on the **audit** side: sampling what the agent closed alone is how a record earns latitude. Its **analyst** side, an operator checking work she never saw, maps to no job anybody formulated. The need is written in `aarrr.md` as knowing what the agent did while nobody was watching. Either that job is formulated at stage 03a, or the analyst-side review lane is not built.
+
+**Idle control, reported honestly.** This check returned **zero** orphans. A check that returns zero proves nothing about itself. The only thing that tested it here was the false positive it produced, and that was caught by the critique rather than by the check.
 
 **The mirror finding.** R1 has a job, has a product decision in `aarrr.md` for the shift handoff, and has **no line in the canonical list of eight**. One feature without a job, one job without a feature, both gaps in the same file.
 
@@ -286,3 +300,31 @@ A separate table, deliberately not merged into the one above. Claude with the fi
 | Closing ritual | **Not done.** Step 8 |
 
 **Idle control on this checklist.** It contains four "not done" and one "knowingly deferred". A contract checklist that never returns "not done" is being read as a formality rather than as an instrument.
+
+### Step 6: verification and what became of each finding
+
+Every line was re-read in the file before it was touched. **All nineteen held on verification. None was dropped.** That is worth saying plainly rather than treating as a good result: a critique where nothing is dropped means the findings were specific, and it also means the writing had that many real defects in it.
+
+| # | Was | Became | Status |
+|---|---|---|---|
+| 1 | A UCL attribution for a phrase that is not in the paper | Three real quotes from the paper carry R1 instead, and the false attribution is recorded above the job rather than deleted | Fixed |
+| 2 | The orphan check called feature 7 an orphan while the matrix assigned it to P2-MAIN | Feature 7 maps to P2-MAIN on the audit side. **No orphan features.** What survives is smaller and true: the analyst-side review lane has no job | Fixed |
+| 3 | RIT Finding 4 used both to characterise P1 and to separate P2 from P1 | Removed from P2. The claim that P2 audits rather than consumes is marked unsupported with a verification, and the Intercom manager dashboard replaces it as real evidence | Fixed |
+| 4 | "She starts sceptical, and that is measured" | What is measured is satisfaction with a tool category across SOCs. The leap to her personal starting point is marked as ours | Fixed |
+| 5 | "12-hour shifts" as a role attribute | "One UCL participant describing 12-hour shifts". The 10-hour line in `CLAUDE.md` is reconciled at the closing ritual | Fixed |
+| 6 | The fleet job entered the MVP core on a rule about what stage 04 must show | Reasoning rebuilt on gap 1 and the strategic dimension, and the job is named **as a bet** rather than as a qualified one | Fixed |
+| 7 | "the one gap verified across all thirteen products" | Gap 6 and gap 2 are both across thirteen | Fixed |
+| 8 | 79% 24/7 applied to a provider | Marked as measured across SOCs generally | Fixed |
+| 9 | H6 still read "composed at the end of every shift" | Corrected in `research.md`, with the original wording and the reason for the change kept | Fixed |
+| 10 | Intercom's separate manager dashboard absent from P2 | Now the lead row of P2's evidence table | Fixed |
+| 11 | "It is the first and last screen of her shift" as a finding | Marked as a design decision, with what the sources actually carry stated beside it | Fixed |
+| 12 | "69% report metrics manually. This is the person who does it" | The figure now has a chain in `research.md` section 8. The attribution to the lead is marked as inference with a verification | Fixed |
+| 13 | 62% retention with no chain in `research.md` | Added to `research.md` section 8 | Fixed |
+| 14 | R4 carried two invented motivations about effort | Removed. R4 now reads "so that the work speaks for itself", and the effort question is marked `[?]` alongside the liability question | Fixed |
+| 15 | The social job asserted a reputational motive | The motive is marked as ours, with a verification, beside what the source does establish | Fixed |
+| 16 | R3 said "for the rest of the quarter" against a 14-day source | The invented horizon was removed rather than swapped for another number | Fixed |
+| 17 | HJ1 and HJ2 written as jobs with no persona | Both now carry **Persona: P1** | Fixed |
+| 18 | The corrected behaviour "composed continuously" never left `research.md` | Carried into P1 with the participant's own quote | Fixed |
+| 19 | "The handoff is signposting, not a document" never left `research.md` | Carried into P1 with the participant's own quote | Fixed |
+
+**Job wording is verified in sync** between `personas.md` and `jtbd.md` after the changes to R3 and R4: four related jobs plus the main job, matched line for line.

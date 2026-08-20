@@ -38,7 +38,7 @@ The twenty screenshots in `research/screens/` prove **what vendors sell to buyer
 
 The last line was the important one in this block when it was written. Follow-up research replaced it.
 
-**Added at stage 02, and it outranks everything else in this section.** The analyst does not arrive curious about Clerk. **AI/ML tools rank at the bottom of the SOC satisfaction list. Of the three AI/ML technologies measured, two ranked at the very bottom, including generative language tools, which scored just a 2 out of 4**, while EDR/XDR is the only technology to score above 3 out of 4, because it is fully deployed, effective and backed by training. **42% of SOCs use AI/ML tools out of the box with no customization** [SANS SOC Survey 2025]. The operator has already been sold an AI tool that underdelivered, and the tool they trust most is the boring one that works.
+**Added at stage 02, and it outranks everything else in this section.** The category she is issued arrives with a poor record in her own profession's rating of it. **What is measured is satisfaction with a tool category across SOCs, not this individual's prior attitude toward a new tool** `[?]`; the direction is evidenced, the leap to her personal starting point is ours. **AI/ML tools rank at the bottom of the SOC satisfaction list. Of the three AI/ML technologies measured, two ranked at the very bottom, including generative language tools, which scored just a 2 out of 4**, while EDR/XDR is the only technology to score above 3 out of 4, because it is fully deployed, effective and backed by training. **42% of SOCs use AI/ML tools out of the box with no customization** [SANS SOC Survey 2025]. The operator has already been sold an AI tool that underdelivered, and the tool they trust most is the boring one that works.
 
 **And what they will accept from one is now known.** In a study of 248 surveyed and 24 interviewed SOC analysts, participants "were consistently willing to accept XAI outputs, even in cases of lower predictive accuracy, when explanations were perceived as relevant and evidence-backed" [`research.md` 8, RIT]. Trust follows evidence quality, not the accuracy number.
 
@@ -128,7 +128,7 @@ Personas are split by behaviour. A demographic fact appears only when it comes w
 | Fact | What it changes |
 |---|---|
 | Four years in operations, the most common tenure band, three to five years, at 31% [SANS SOC Survey 2025] | RIT found that analysts with three or more years want the system to augment their speed rather than reiterate fundamentals. **Clerk does not explain what she already knows** |
-| A 24/7 rotation [79% of SOCs, SANS], 12-hour shifts [UCL participant], remote at least part of the time [73%, SANS] | The handoff is written and asynchronous. It is the first and last screen of her shift, not an accessory to the product |
+| A 24/7 rotation [79% of SOCs, SANS, measured across SOCs generally rather than at providers specifically], **one** UCL participant describing 12-hour shifts, remote at least part of the time [73%, SANS] | The handoff is written and asynchronous, which is what the sources carry. **That it is therefore the first and last screen of her shift is a design decision, not a finding**, and it is recorded as one |
 | 40 or more tenants `PREMISE` | Every queue row has to carry which client it belongs to |
 
 ### Context and trigger
@@ -151,9 +151,9 @@ A shift starts with somebody else's unfinished work. She did not choose this too
 
 > **R2.** When a client or an auditor questions a decision made months ago, I want to show what was known at the time, so that the answer comes from the record instead of my memory.
 
-> **R3.** When Clerk got it wrong, I want my disagreement to change what it does next time, so that I am not correcting the same mistake for the rest of the quarter.
+> **R3.** When Clerk got it wrong, I want my disagreement to change what it does next time, so that I stop meeting the same mistake.
 
-> **R4.** When a client needs to hear what we did about something on their estate, I want to hand them an account they can understand without my rewriting it, so that explaining the work does not cost more than doing it.
+> **R4.** When a client needs to hear what we did about something on their estate, I want to give them an account they can understand, so that the work speaks for itself.
 
 **Emotional.** When I clear a case fast, I want to feel I was thorough rather than lucky, so that speed does not cost me my confidence in my own judgment.
 
@@ -171,6 +171,13 @@ Two steps that live **inside** the main job rather than beside it, knowing wheth
 - Tools explain a single alert while she needs the incident: "we have to find a connection between the critical and the high alerts to determine if it's an incident or part of an attack process" [RIT]
 - The tenant boundary is hard in the tool she uses today. Real work opens "in a new tab for that tenant", and "you can only assign multiple incidents from same tenant" [Microsoft Defender multitenant management]
 - The end of the shift corrupts the record: "over-utilised analysts are just gonna be ready to just get out and head home. So they just wanna get it done fast, and rush" [UCL]
+
+**How she actually keeps the record, added at Step 5 because the follow-up research established it and the first draft left it in `research.md`:**
+
+- **The record accumulates through the shift rather than being written at the end.** One UCL participant had already built it this way: "I've got it set up so it integrates with Teams, so you can actually write it in Teams as the day's going on." The alternative is what the quote above describes
+- **What she passes on is signposting, not a document.** Four of six UCL participants described the same division: detail stays in the ticket and the handover points at it. "Technical details would be in a ticket. So quite often when we hand over, we put loads of ticket references in so that way it keeps everything in one location... Handovers are more for signposting"
+
+Both are behaviours, not features, and they constrain how R1 can be built at all: a screen that asks her to compose a summary at 07:00 is asking for the failure mode.
 
 ### Trust triggers
 
@@ -206,12 +213,16 @@ SOC analyst, RIT study, 24 in-depth interviews. Verbatim, not synthesised.
 
 They do not **consume** Clerk's explanation, they **audit** it. And they decide where the agent earns more latitude. This is a different job, not a different job title.
 
+**Corrected at Step 5.** The first draft supported the auditing half with RIT Finding 4, that analysts with three or more years find step-by-step guidance irrelevant. **That finding describes P1**, who has four years, so it cannot be what separates P2 from P1. The same evidence was doing two contradictory jobs.
+
+**What actually supports P2 as a separate person:** the ownership evidence in the table below, and the Intercom manager dashboard. **The specific claim that they audit rather than consume has no source** `[?]`. Assume the person who moves autonomy reads Clerk's output to check it rather than to act on it; verify by asking three SOC leads what they open first in a weekly review.
+
 | Evidence | Source |
 |---|---|
-| Analysts with three or more years find step-by-step remediation guidance irrelevant and prefer the system to augment speed | RIT, Finding 4 |
+| Intercom ships **a separate manager dashboard reviewing AI use** | `research.md` evidence index, `intercom-copilot`. The closest thing in the whole package to evidence that this role needs a surface of its own rather than a permission level |
 | Access level changes what a person can see at all: "Based on their access, the information they can see changes... we want to add all of that into a summarized version" | RIT |
 | One participant owns their team's handover procedure and rebuilt shift cycles to put more people on the busiest part of the day; another organisation limits handover writing to senior staff | UCL |
-| 69% of SOCs still report metrics manually. This is the person who does it | SANS |
+| 69% of SOCs still rely on manual or mostly manual processes to report metrics | SANS. **That this person is the one who does it is our inference** `[?]`. Verify by asking three SOC leads who produces the monthly client report |
 | 62% of SOC professionals say their organisation is not doing enough to retain top talent | SANS |
 
 ### Job
