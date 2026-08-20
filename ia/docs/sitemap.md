@@ -125,3 +125,107 @@ Kept minimal.
 **Entity 2 has no screen on purpose.** That is a product decision from `CLAUDE.md`, not an omission. The object pass at Step 2 will hit it, and it should hit it consciously.
 
 **Eleven entities against a project boundary of roughly nine screens.** Objects and screens are not one to one, but it does mean several objects must share a screen. Step 2 has to name which ones, rather than opening a screen per object.
+
+---
+
+## Concept sitemap
+
+Screens grouped by the intent of the person, not by sections of a product. Structure is derived from jobs; no competitor's menu was copied.
+
+**Language fork resolved.** `CLAUDE.md` line 3 records one language, English. Nodes do not multiply per language.
+
+**Second declared substitution.** The MVP and LATER label normally comes from the backlog in `cjm-to-be.md`. That file is out of track, so the source here is the **MVP core in `jtbd.md`** (three jobs) plus the compliance requirement in `CLAUDE.md`. Different source, same test: what breaks the path if removed.
+
+### A. Take the shift
+
+*What happened here while I was away.*
+
+| Screen | Job | Persona | Scope |
+|---|---|---|---|
+| **A1 Shift brief.** What moved, what waits on a decision, what Clerk closed on its own, which tenants changed latitude | R1 | primary | **MVP** |
+
+One screen, two roles: the incoming analyst reads it, the outgoing one closes it. Not split into two screens, because closing is a state rather than a screen. Both constraints from the evidence live in the object rather than in the screen: it accumulates through the shift, and it is signposting into cases rather than a document.
+
+### B. Work the queue
+
+*What to touch next.*
+
+| Screen | Job | Persona | Scope |
+|---|---|---|---|
+| **B1 Case Queue.** A cross-tenant list where the row carries the shape of the case, the client, what Clerk concluded and what checking it will cost | MAIN | primary | **MVP** |
+| **B2 Fleet.** Latitude and accuracy trend per tenant | P2-MAIN | primary reads, secondary acts | **MVP** |
+
+**B2 is not a separate route.** It is the resting state of B1's detail pane, inherited from the pattern chosen at stage 01 and confirmed by the choice of primary persona at stage 02.
+
+### C. Rule on the case
+
+*Decide in a way I can defend later.*
+
+| Screen | Job | Persona | Scope |
+|---|---|---|---|
+| **C1 Case File.** Clerk's narrative in prose, the evidence, the tenant's base rate, the provenance strip, the signals that disagreed, and the verdict itself | MAIN | primary | **MVP** |
+
+**Rejecting with a reason does not become a screen.** Design principle 3 says one key. A separate screen for rejection is not one key, it is a route. R3 therefore lives inside C1, which is exactly what stage 02 concluded when it gave R3 no slot of its own in the core.
+
+### D. Answer for it later
+
+*Show what was known at the time.*
+
+| Screen | Job | Persona | Scope |
+|---|---|---|---|
+| **D1 Decision log.** The append-only record with evidence snapshots, readable across cases, from which a case can be opened **as it stood** | R2 | primary and secondary | **MVP** |
+
+In the MVP not on importance but because it is a compliance requirement in `CLAUDE.md`, which is not our decision to defer.
+
+### E. Tell the client
+
+| Screen | Job | Persona | Scope |
+|---|---|---|---|
+| **E1 Client summary.** Clerk's draft, the analyst's edits, sending | R4 | primary writes, secondary owns | **LATER** |
+
+### F. Grant the rope
+
+| Screen | Job | Persona | Scope |
+|---|---|---|---|
+| **F1 Tenant autonomy.** Grants per action class, the evidence under each, the history of changes | P2-MAIN | secondary | **LATER** `[?]` |
+| **F2 Tenant detail.** One client: their cases, base rates, accuracy trend | P2-MAIN, context for R4 | secondary | **LATER** |
+
+**F1 is deliberately LATER, and it is the most consequential decision on this map.** Open question 2, whether the autonomy control lives in the operator console at all, is still `[?]`, and stage 02 established that the market treats latitude as configuration under a permission rather than as a distinct job.
+
+So the MVP core carries the fleet **as a view (B2)** rather than as a control (F1). That is precisely what is left of the differentiator after stage 02: Simbian's per-tenant autonomy is configuration, and ours has to be a view. The map now enacts that sentence instead of repeating it.
+
+**Five screens in the MVP, three LATER.** The project boundary said roughly nine.
+
+### Pass 1: against the chosen UX pattern
+
+The pattern is split-pane review with the fleet as the resting state of the detail pane. **One thing works against it, and it is named rather than smoothed over.**
+
+**C1 as its own full-page route breaks reason 2 of the pattern**, which is that cheap override needs the list to survive the decision. A full page for the case does not leave the list standing.
+
+**The map is corrected, not the pattern.** C1 has **two renderings of one screen**: the detail pane inside the console, which is the primary one, and a standalone route for a permalink and for mobile. The console never leaves the split.
+
+**A1 does not hold the split, and that is deliberate.** It is the one screen read once and then abandoned, and it sits before the review loop rather than inside it. The pattern governs the review loop, not the entry.
+
+**At 360 the split collapses and the pattern stops being itself**, which `ux-patterns.md` already said at stage 01. Our mobile scenario is read and escalate, which is C1 as a standalone route. The two agree, so there is nothing to reconcile.
+
+### Pass 2: against the entity inventory
+
+The pass that is easy to skip, and without which the Step 1 inventory has no check at all.
+
+| Entity | Where it is seen or acted on |
+|---|---|
+| 1 Case | B1 as a row, C1 in full |
+| **2 Signal** | **only inside C1** |
+| 3 Evidence item | C1 |
+| 4 Verdict | made on C1, recorded in D1 |
+| 5 Tenant | a column on B1, a row on B2, in full on F2 |
+| 6 Autonomy grant | state on B2, changed on F1, history in D1 |
+| 7 Shift handoff | A1 |
+| 8 Rejection reason | entered on C1, recorded in D1, routed onward to a non-user |
+| 9 Client summary | E1 |
+| 10 Decision log entry | D1 |
+| 11 Analyst | seen on A1 and D1, needs no screen of its own |
+
+**The pass produced one finding: entity 2 is the only object with no screen where it is the subject.** That is not an omission. `CLAUDE.md` states the analyst never works raw alerts, and this pass was meant to hit that consciously rather than let it pass in silence.
+
+**The constraint that follows, and stage 04 inherits it.** If the signal is not readable inside the case, the object disappears from the product entirely. There is no other place for it.
