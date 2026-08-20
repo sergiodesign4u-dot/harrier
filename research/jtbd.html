@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier · Jobs to be done</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 02 · User research</p>
+<h1>What they are trying to get done</h1>
+<p class="lede">One main job, four adjacent ones, and a matrix that answers two different questions: what to build first, and what not to build at all. Every job is solution-agnostic, so a completely different product could be hired for it.</p>
+
+<dl class="facts">
+  <div><dt>Main jobs in the product</dt><dd><b>1</b> a second is recorded, not merged</dd></div>
+  <div><dt>Related jobs</dt><dd><b>4</b> a fifth was not written</dd></div>
+  <div><dt>MVP core</dt><dd><b>3</b> two qualified, one is a bet</dd></div>
+  <div><dt>Critique, two instruments</dt><dd><b>20</b> findings, one overlap</dd></div>
+</dl>
+<div class="note"><p>Wording here is canonical. <code>personas.md</code> carries the same formulations word for word, verified after the critique changed two of them. A job that exists in two editions is a job that gets built twice.</p></div>
+
+<section id="owner">
+<h2>01 &middot; Who owns the steps</h2>
+<p class="h2sub">A decision recorded before the jobs</p>
+<p><strong>Related jobs</strong> are separate adjacent tasks done in the same context. <strong>The steps of the journey</strong> toward the main job are normally CJM phases, and this project runs a shortened track where CJM is not included.</p>
+<div class="node"><span class="lbl">Decision</span><p>The steps of the journey are owned by the <strong>user flow at stage 03a</strong>. That flow already has to describe the path to the activation node, First Verdict, so it is the natural holder. The related jobs below are genuinely adjacent tasks, and stage 03a should not read them as a sequence.</p></div>
+</section>
+
+<section id="main">
+<h2>02 &middot; The main job</h2>
+<p class="h2sub">One, and it belongs to Rasha</p>
+
+<div class="job">
+<span class="n">Main &middot; P1</span>
+<blockquote>When Clerk hands me a case it has already investigated, I want to decide whether its verdict holds, so that the decision is made and I can still defend it months later.</blockquote>
+<p class="src"><strong>Solution-agnostic check.</strong> No function named. A peer review process, a checklist or a second analyst reading over a shoulder could all be hired for this. The job does not lock the answer.</p>
+</div>
+
+<h3>P2 has a different main job, and it is recorded rather than merged</h3>
+<div class="job">
+<span class="n">Main &middot; P2</span>
+<blockquote>When I am accountable for what the agent did across all my clients, I want to know where its record has earned more latitude and where it has lost it, so that I can widen or narrow its scope without guessing.</blockquote>
+<p class="src">Two main jobs is a signal of two products, so it is named here rather than glued into one formulation.</p>
+</div>
+<p><strong>The reading taken.</strong> The product has <strong>one</strong> main job, Rasha&rsquo;s, because she is primary and the activation node is First Verdict. Tomas&rsquo;s job is real and is served by the <strong>same substrate read at a different scale</strong>: she reads one case, he reads the trail across many. It stays one product for as long as the record underneath them is one record.</p>
+<p><strong>The alternative, rejected with a reason.</strong> Treating them as co-equal makes the information architecture build two navigations, and the product splits into a case console and a fleet console that happen to share a database.</p>
+</section>
+
+<section id="related">
+<h2>03 &middot; Related jobs</h2>
+<p class="h2sub">Four, not five</p>
+<p>Each has its own trigger and is a task alongside the main job rather than a stage of it. A fifth was not written: a related job added to reach a number arrives at stage 03a asking for its own screen, and by then nobody can tell it from a real one.</p>
+
+<div class="job">
+<span class="n">R1 &middot; Pick up and hand off a shift</span>
+<blockquote>When I take over a rotation somebody else was working, I want to know what changed and what is waiting on a decision, so that I do not spend my first hour rebuilding what the last shift already knew.</blockquote>
+<p class="src"><strong>Grown from</strong> three findings in the UCL study. The pile accumulates: &ldquo;Unless you go back and read, what, 6 handovers? You don&rsquo;t actually have that context of the week.&rdquo; The pile then stops being read: &ldquo;The first day, second day, third day, they will start to ignore the older handovers.&rdquo; And it all rests on one person: &ldquo;if they don&rsquo;t put down what they should be putting down, then the next team isn&rsquo;t aware.&rdquo;</p>
+</div>
+
+<div class="job">
+<span class="n">R2 &middot; Answer for a decision made months ago</span>
+<blockquote>When a client or an auditor questions a decision made months ago, I want to show what was known at the time, so that the answer comes from the record instead of my memory.</blockquote>
+<p class="src"><strong>Grown from</strong> the compliance requirement: an append-only log carrying the evidence snapshot as it stood at decision time.</p>
+</div>
+
+<div class="job">
+<span class="n">R3 &middot; Teach the agent where it was wrong</span>
+<blockquote>When Clerk got it wrong, I want my disagreement to change what it does next time, so that I stop meeting the same mistake.</blockquote>
+<p class="src"><strong>Recorded tension.</strong> The act of rejecting is a step inside the main job. What is separate here is the disagreement going somewhere. If stage 03a cannot separate the two, this collapses back rather than earning a screen.</p>
+</div>
+
+<div class="job">
+<span class="n">R4 &middot; Tell the client what happened</span>
+<blockquote>When a client needs to hear what we did about something on their estate, I want to give them an account they can understand, so that the work speaks for itself.</blockquote>
+<p class="src">Rasha writes it, Tomas owns it, the client&rsquo;s security contact reads it and never logs in.</p>
+</div>
+
+<h3>Emotional and social</h3>
+<div class="job">
+<span class="n">Emotional &middot; P1</span>
+<blockquote>When I clear a case fast, I want to feel I was thorough rather than lucky, so that speed does not cost me my confidence in my own judgment.</blockquote>
+<p class="src">Satisficing is supported by quotes in both studies. The specific fear of the one true positive closed as noise remains <code>PREMISE</code>.</p>
+</div>
+<div class="job">
+<span class="n">Social &middot; P1</span>
+<blockquote>When my verdict is read by the next shift or by a client, I want it to look like the work of someone who knew what they were doing, so that nobody has to redo it to be sure.</blockquote>
+<p class="src"><strong>Partly ours.</strong> The source establishes that the record is read by colleagues and judged by seniors. It does not establish the reputational motive <span class="q">[?]</span>.</p>
+</div>
+
+<h3>Hypotheses: jobs without data under them</h3>
+<div class="job">
+<span class="n hy">HJ1 &middot; P1</span>
+<blockquote>When I start a shift, I want to know where the agent has earned latitude and where it has not, so that I know how much to check.</blockquote>
+<p class="src"><span class="q">[?]</span> This is our own writing rather than an analyst&rsquo;s. Verify by asking three MDR analysts what they check first at shift start.</p>
+</div>
+<div class="job">
+<span class="n hy">HJ2 &middot; P1</span>
+<blockquote>When Clerk files a verdict, I want to see how hard it looked before I decide how hard I look, so that my attention goes where the work was thin.</blockquote>
+<p class="src"><strong>Contested, not merely unverified.</strong> Analysts &ldquo;rarely mentioned using the fine-grained feature contribution graphs or the prediction uncertainty fields in a real-time setting&rdquo;. A provenance strip may not be read at all under time pressure, which downgrades hypothesis H3 from unverified to contested.</p>
+</div>
+</section>
+
+<section id="matrix">
+<h2>04 &middot; The matrix</h2>
+<p class="h2sub">Jobs against personas, functions and the market</p>
+<p>Importance is <strong>inferred, not measured</strong>. No importance number exists in the research, so each row names the signal it rests on. Where there is no signal the cell is <span class="q">[?]</span> rather than an average.</p>
+
+<div class="tw"><table>
+<tr><th>Job</th><th class="sc">P1</th><th class="sc">P2</th><th>Signal behind the importance</th><th>Function</th><th>Competitors</th></tr>
+<tr><td>Main &middot; rule on the case</td><td class="sc s5">3</td><td class="sc s1">1</td><td>Her whole shift, and the activation node. He reads outcomes rather than adjudicating each case</td><td>Case file, Verdict, Autonomy state</td><td><strong>No.</strong> Nobody publishes the residual queue</td></tr>
+<tr><td>R1 &middot; the shift</td><td class="sc s5">3</td><td class="sc s3">2</td><td>An incoming team must read six reports to hold three days of context, and older ones stop being read. 79% of SOCs run 24/7</td><td><em>empty in the canonical list</em></td><td><strong>No.</strong> Verified across thirteen products</td></tr>
+<tr><td>R2 &middot; answer for a past decision</td><td class="sc s3">2</td><td class="sc s5">3</td><td>Rare per case, but it is why the record exists. The question arrives through the client relationship</td><td>Append-only decision log</td><td><strong>Partly.</strong> An evidence trail is table stakes. A point-in-time snapshot is <span class="q">[?]</span></td></tr>
+<tr><td>R3 &middot; teach the agent</td><td class="sc s3">2</td><td class="sc s5">3</td><td>Under satisficing this happens only if it is cheap. Tuning quality is what lets him widen latitude</td><td>Verdict, reason routed to tuning</td><td><strong>Partly.</strong> Dropzone shows a context-memory update; whether a human rejection routes to tuning is <span class="q">[?]</span></td></tr>
+<tr><td>R4 &middot; tell the client</td><td class="sc s3">2</td><td class="sc s5">3</td><td>She writes it, he owns it, and it is the revenue lever</td><td>Client summary</td><td><strong>Partly.</strong> At Expel the client sees the same screen as the analyst</td></tr>
+<tr><td>Main P2 &middot; where latitude was earned</td><td class="sc s1">[?]</td><td class="sc s5">3</td><td>Whether an analyst needs the fleet at all is unverified. For him it is the job</td><td>Fleet view, Autonomy state, Review lane</td><td><strong>Narrowed.</strong> See the correction below</td></tr>
+</table></div>
+<p>Emotional and social jobs are not scored here. They are satisfied by <em>how</em> the functional jobs are done rather than by functions of their own, and a row with no function cell would only be pretending to be a job.</p>
+</section>
+
+<section id="core">
+<h2>05 &middot; The MVP core</h2>
+<p class="h2sub">Two qualified. The third is a bet, and it is named as one</p>
+
+<div class="tw"><table>
+<tr><th>In the core</th><th>The cell that proves it</th></tr>
+<tr><td>Main</td><td>P1 = 3, competitors = No</td></tr>
+<tr><td>R1, the shift</td><td>P1 = 3, competitors = No. Verified across all thirteen products, as is the residual-queue gap behind the main job</td></tr>
+</table></div>
+
+<div class="node"><span class="lbl">The third slot, entered as an exception</span>
+<p><strong>The fleet view of trust enters the core as a bet, not on importance to the primary persona, which is <span class="q">[?]</span>.</strong> A core of only Main and R1 is a good residual queue with a good handoff, and the market gap does not distinguish that product. The differentiation rests on the fleet, so it enters the core and is named as the bet it is.</p>
+<p>This is also H1, the riskiest hypothesis in the project. If H1 falls, this is the job that leaves the core.</p></div>
+
+<div class="note"><p><strong>Narrowed a second time at Step 6.</strong> Simbian publishes &ldquo;per-tenant autonomy configuration&rdquo; with four named modes that progress per action and per alert type, and says latitude is earned in those words. So earned autonomy per tenant is <em>not</em> the gap. What nothing found publishes is the fleet as a <strong>readable operator surface</strong>: every tenant&rsquo;s current latitude and accuracy trend legible at one glance where the analyst works, rather than on a configuration page. That is a design claim, not a capability claim, and it puts the whole weight on stages 04 and 07.</p></div>
+
+<h3>Why the rest are out, and why little is lost</h3>
+<ul>
+<li><strong>R3</strong> does not need its own slot. Its function is the Verdict, already in the core through the main job, so design principle 3 does not end up without a feature behind it</li>
+<li><strong>R2</strong> likewise: the append-only log is a compliance requirement and ships regardless</li>
+<li><strong>R4</strong> is the only one genuinely deferred. The client summary is a revenue lever rather than something she does every shift</li>
+</ul>
+
+<h3>Orphan check, a different input</h3>
+<p>Not derived from the matrix. The eight planned features checked one by one against the jobs above. <strong>No orphans: all eight map to a formulated job.</strong></p>
+<div class="note"><p><strong>What survives of the finding, smaller and true.</strong> The review lane maps to Tomas&rsquo;s job on the <em>audit</em> side: sampling what the agent closed alone is how a record earns latitude. Its <em>analyst</em> side, an operator checking work she never saw, maps to no job anybody formulated. Either that job is written at stage 03a, or the analyst-side review lane is not built.</p>
+<p><strong>Idle control, reported honestly.</strong> This check returned zero. A check that returns zero proves nothing about itself. The only thing that tested it was a false positive it produced, and the critique caught that rather than the check.</p></div>
+</section>
+
+<section id="critique">
+<h2>06 &middot; Critique and risks</h2>
+<p class="h2sub">Three instruments, twenty findings, one overlap</p>
+<p>Claude ran a pass on broken chains from data to conclusion. Codex ran read-only against the research, looking for claims without support, drift from the source, and orphans in both directions. Neither saw the other&rsquo;s table before both were complete. A third pass read the stage contract itself, because neither of the first two can see a step that never happened.</p>
+
+<h3>The divergences, which are what a second instrument is for</h3>
+<div class="tw"><table>
+<tr><th>Line</th><th>Claude when writing</th><th>Codex</th><th>Resolution</th></tr>
+<tr><td>&ldquo;It is the first and last screen of her shift&rdquo;</td><td>A consequence of the 24/7 and remote data</td><td>No support. The research says nothing about first or last screens</td><td class="who done">Codex right</td></tr>
+<tr><td>&ldquo;69% report metrics manually. This is the person who does it&rdquo;</td><td>Sourced from SANS</td><td>Figure absent from the research file; nothing says the lead does it</td><td class="who done">Both halves stand</td></tr>
+<tr><td>&ldquo;62% say their organisation is not doing enough&rdquo;</td><td>Sourced from SANS</td><td>Figure absent from the research file</td><td class="who done">Real number, missing chain</td></tr>
+<tr><td>R4 &ldquo;without my rewriting it&hellip; does not cost more than doing it&rdquo;</td><td>Grounded in the beneficiary</td><td>Neither motivation exists in the source</td><td class="who done">Codex right</td></tr>
+</table></div>
+
+<h3>The heaviest finding, and it was ours</h3>
+<div class="note"><p>R1 cited the UCL handover study for the phrase &ldquo;you spend your first hour rediscovering context someone else already had&rdquo;. <strong>That phrase does not appear in the paper.</strong> It came from a search-result summary of a blog that was never opened, and it was signed with a source that had been. The job survives on three real quotes from the same study; the attribution did not. This is the rule of evidence failing in its purest form, and the failure is recorded above the job rather than quietly deleted.</p></div>
+
+<h3>What each instrument could not see</h3>
+<div class="tw"><table>
+<tr><th>Instrument</th><th>Found</th><th>Blind to</th></tr>
+<tr><td>Claude, chains from data to conclusion</td><td>10</td><td>Line-by-line drift from the source. Needs no memory of what was meant</td></tr>
+<tr><td>Codex, read-only against the source</td><td>10</td><td>Anything needing a reading of what the product is for. Also missed two cross-file contradictions inside its own radius</td></tr>
+<tr><td>The stage contract as a checklist</td><td>4 not done, 1 knowingly deferred</td><td>Defects in work that did happen</td></tr>
+</table></div>
+<p><strong>One overlap out of twenty.</strong> All nineteen distinct findings were re-read in the file before being touched, all nineteen held, and all nineteen were fixed. None was dropped on verification, which is not a result to celebrate: it means the writing had that many real defects in it.</p>
+
+<h3>The three questions that would close the most dangerous gaps</h3>
+<div class="tw"><table>
+<tr><th>Question</th><th>What it decides</th><th>Status after Step 6</th></tr>
+<tr><td>Does an analyst carrying many tenants actually consult a cross-tenant view of trust?</td><td>Whether the third job in the MVP core exists at all. This is H1</td><td class="who">Open. Needs a working analyst; not closable from public sources</td></tr>
+<tr><td>What does a Tier-2 analyst read in a queue row before opening it?</td><td>Behaviour 1, which decides what the first glance must deliver</td><td class="who">Partly. Defender engineers the row name to carry scope, which is the industry&rsquo;s belief, not a measurement of people</td></tr>
+<tr><td>Is the person who moves autonomy a different behaviour, or a permission level?</td><td>Whether Tomas is a persona or a role</td><td class="who">Open, and leaning toward permission. Authority sits with L3 analysts at Simbian</td></tr>
+</table></div>
+</section>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_SECTIONS = [
+    { id:'owner',    label:'Who owns the steps' },
+    { id:'main',     label:'The main job' },
+    { id:'related',  label:'Related jobs' },
+    { id:'matrix',   label:'The matrix' },
+    { id:'core',     label:'The MVP core' },
+    { id:'critique', label:'Critique and risks' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

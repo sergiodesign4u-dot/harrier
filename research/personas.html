@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier · Personas</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 02 · User research</p>
+<h1>Who this is for</h1>
+<p class="lede">Two personas, split by behaviour. A third group is named and deliberately excluded. Every block stands on a source, and where there is no source the line says so instead of guessing.</p>
+
+<dl class="facts">
+  <div><dt>Behavioural groups</dt><dd><b>2</b> a third named, not built for</dd></div>
+  <div><dt>Practitioner studies read</dt><dd><b>3</b> two with interviews</dd></div>
+  <div><dt>Verbatim analyst quotes held</dt><dd><b>5</b> was zero at stage 01</dd></div>
+  <div><dt>Critique findings on this file</dt><dd><b>19</b> all verified, all fixed</dd></div>
+</dl>
+<div class="note"><p>Stage 01 gathered evidence about the market and a frame about people. Stage 02 replaced part of that frame with data from studies of practitioners. Statements still resting on our own decisions carry <code>PREMISE</code>; statements with no source carry <span class="q">[?]</span> and a way to close them.</p></div>
+
+<section id="observations">
+<h2>01 &middot; Observations</h2>
+<p class="h2sub">What the research actually established about people</p>
+
+<p>The twenty screenshots gathered at stage 01 prove <strong>what vendors sell to buyers</strong>. Three of them show a working console from the inside. The other seventeen are marketing pages addressed to a SOC lead with a budget, or reference from outside security.</p>
+<p><strong>None of the twenty shows an analyst at work.</strong> So everything stage 01 produced about the market is evidence, and everything it produced about people was a frame that marked itself honestly. Stage 02 went and got the rest.</p>
+
+<h3>Premise replaced by measurement</h3>
+<div class="tw"><table>
+<tr><th>Line</th><th>Was</th><th>Now</th></tr>
+<tr><td>A 24/7 rotation</td><td><code>PREMISE</code></td><td><strong>79% of SOCs are operational 24/7</strong> [SANS SOC Survey 2025]</td></tr>
+<tr><td>Two to six years in operations</td><td><code>PREMISE</code></td><td><strong>Three to five years is the most common tenure.</strong> 31% stay three to five years, 4% stay ten or more</td></tr>
+<tr><td>MDR providers carry other companies&rsquo; triage</td><td><code>PREMISE</code></td><td><strong>183 of 443 respondents outsource alerting, meaning triage and escalation, fully or partially</strong></td></tr>
+<tr><td>The analyst arrives trusting the agent</td><td>never stated</td><td><strong>The opposite.</strong> AI/ML tools rank at the bottom of the SOC satisfaction list. Two of three AI/ML technologies measured rank at the very bottom, generative language tools score 2 out of 4, and 42% of SOCs run AI/ML out of the box with no customization. EDR/XDR is the only technology above 3 out of 4</td></tr>
+</table></div>
+<div class="note"><p><strong>The last row outranks the rest.</strong> The category Rasha is issued arrives with a poor record in her own profession&rsquo;s rating of it. What is measured is satisfaction with a tool category across SOCs, not this individual&rsquo;s prior attitude toward a new tool <span class="q">[?]</span>: the direction is evidenced, the leap to her personal starting point is ours. Every trust mechanism in Harrier argues with that rating rather than building on a blank slate.</p></div>
+
+<h3>The five behaviours, after follow-up research</h3>
+<div class="tw"><table>
+<tr><th>Behaviour</th><th>Status</th></tr>
+<tr><td>1. Pattern-matching before reading</td><td>Still <span class="q">[?]</span> as a claim about analysts. It now has a vendor&rsquo;s design bet behind it: Defender generates incident names so that &ldquo;this specific naming allows you to quickly understand the scope of the incident&rdquo;. Evidence about the industry&rsquo;s belief, not about people</td></tr>
+<tr><td>2. Satisficing under volume</td><td class="done">Supported, by quotes in both practitioner studies</td></tr>
+<tr><td>3. Trust set by the last failure</td><td>Still <span class="q">[?]</span> as stated, but the starting level is now known and it is low</td></tr>
+<tr><td>4. Tenant switching resets context</td><td>Supported in structure, not in cost. Microsoft carries Tenant name as a row column, yet opens real work &ldquo;in a new tab for that tenant&rdquo; and refuses to assign across tenants</td></tr>
+<tr><td>5. Writing for the future auditor</td><td class="dropped">Corrected. The reader is the next analyst, not an auditor</td></tr>
+</table></div>
+</section>
+
+<section id="p1">
+<h2>02 &middot; Primary persona</h2>
+<p class="h2sub">The adjudicator</p>
+
+<div class="persona primary">
+<span class="role">Primary</span>
+<h3>Rasha Idrissi</h3>
+<p class="who2">Tier-2 analyst at an MDR provider, four years in operations</p>
+
+<h4>Facts that change the design</h4>
+<div class="tw"><table>
+<tr><th>Fact</th><th>What it changes</th></tr>
+<tr><td>Four years in operations, inside the most common tenure band of three to five years, at 31%</td><td>Analysts with three or more years want the system to augment their speed rather than reiterate fundamentals. <strong>Clerk does not explain what she already knows</strong></td></tr>
+<tr><td>A 24/7 rotation at 79% of SOCs, measured across SOCs generally rather than at providers specifically. <strong>One</strong> interviewed responder describes 12-hour shifts. Remote at least part of the time, 73%</td><td>The handoff is written and asynchronous, which is what the sources carry. That it is therefore the first and last screen of her shift is a <strong>design decision, not a finding</strong></td></tr>
+<tr><td>40 or more tenants <code>PREMISE</code></td><td>Every queue row has to carry which client it belongs to</td></tr>
+</table></div>
+
+<h4>Where she starts</h4>
+<p>A shift starts with somebody else&rsquo;s unfinished work. She did not choose this tool; the provider bought it and entered through a bake-off.</p>
+
+<h4>What hurts today</h4>
+<ul>
+<li>The explanation is missing or too long: <em>&ldquo;During triage, I ignore lengthy explanations. What I need most are straightforward next steps&rdquo;</em>, and <em>&ldquo;diving into deep algorithm explanations slows me down&rdquo;</em></li>
+<li>A confidence percentage with no account of where it came from. An explanation is more meaningful <em>&ldquo;if I have some context about how that percentage was generated&rdquo;</em></li>
+<li>No organisational perspective. A detection platform <em>&ldquo;doesn&rsquo;t have the organizational perspective&hellip; if that is there then it is like wonders&rdquo;</em></li>
+<li>Tools explain one alert while she needs the incident: <em>&ldquo;we have to find a connection between the critical and the high alerts to determine if it&rsquo;s an incident&rdquo;</em></li>
+<li>The tenant boundary is hard in the tool she uses today: real work opens &ldquo;in a new tab for that tenant&rdquo;, and &ldquo;you can only assign multiple incidents from same tenant&rdquo;</li>
+<li>The end of the shift corrupts the record: <em>&ldquo;over-utilised analysts are just gonna be ready to just get out and head home. So they just wanna get it done fast, and rush&rdquo;</em></li>
+</ul>
+
+<h4>How she actually keeps the record</h4>
+<p>Two behaviours that constrain how the handoff can be built at all. A screen that asks her to compose a summary at 07:00 is asking for the failure mode above.</p>
+<ul>
+<li><strong>It accumulates through the shift.</strong> One responder had already built it that way: <em>&ldquo;I&rsquo;ve got it set up so it integrates with Teams, so you can actually write it in Teams as the day&rsquo;s going on&rdquo;</em></li>
+<li><strong>What she passes on is signposting, not a document.</strong> Four of six responders described the same division: <em>&ldquo;we put loads of ticket references in so that way it keeps everything in one location&hellip; Handovers are more for signposting&rdquo;</em></li>
+</ul>
+
+<h4>What earns her trust</h4>
+<p>Not accuracy. Analysts were <em>&ldquo;consistently willing to accept XAI outputs, even in cases of lower predictive accuracy, when explanations were perceived as relevant and evidence-backed&rdquo;</em>. And there is a ceiling: more explanation can <strong>reduce</strong> trust once it introduces confusion or doubt.</p>
+<div class="node"><span class="lbl">Design consequence</span><p>The first thing Clerk shows must be the cheapest correct thing. Depth is one keystroke away, not on screen.</p></div>
+
+<p class="quoteline">&ldquo;During triage, I ignore lengthy explanations. What I need most are straightforward next steps.&rdquo;<cite>SOC analyst, RIT study, 24 in-depth interviews. Verbatim, not synthesised.</cite></p>
+
+<h4>Still open, as hypotheses</h4>
+<div class="tw"><table>
+<tr><th>Assume</th><th>Verify by</th></tr>
+<tr><td>She recognises the shape of a case before reading it <span class="q">[?]</span></td><td>A timed first-glance test on a queue row with the detail hidden. Three design decisions rest on this</td></tr>
+<tr><td>40 or more tenants per analyst <code>PREMISE</code></td><td>Asking three MDR providers their analyst-to-client ratio. No public source gives one</td></tr>
+<tr><td>Tenant switching costs her measurably <span class="q">[?]</span></td><td>Timing verdicts on familiar against unfamiliar tenants</td></tr>
+</table></div>
+</div>
+</section>
+
+<section id="p2">
+<h2>03 &middot; Secondary persona</h2>
+<p class="h2sub">The rope-holder</p>
+
+<div class="persona">
+<span class="role sec">Secondary</span>
+<h3>Tomas Berg</h3>
+<p class="who2">SOC lead and service delivery manager</p>
+
+<p>They do not consume Clerk&rsquo;s explanation, they <strong>audit</strong> it. And they decide where the agent earns more latitude. A different job, not a different job title.</p>
+
+<div class="note"><p><strong>Corrected during critique.</strong> The first draft supported the auditing half with the finding that analysts with three or more years find step-by-step guidance irrelevant. <strong>That finding describes Rasha</strong>, who has four years, so it cannot be what separates Tomas from her. The same evidence was doing two contradictory jobs. <strong>The claim that they audit rather than consume has no source</strong> <span class="q">[?]</span>. Assume it; verify by asking three SOC leads what they open first in a weekly review.</p></div>
+
+<div class="tw"><table>
+<tr><th>Evidence that they are a separate person</th><th>Source</th></tr>
+<tr><td>Intercom ships <strong>a separate manager dashboard reviewing AI use</strong></td><td>The closest thing in the whole package to evidence that this role needs a surface of its own rather than a permission level</td></tr>
+<tr><td>Access level changes what a person can see at all: &ldquo;Based on their access, the information they can see changes&hellip; we want to add all of that into a summarized version&rdquo;</td><td>RIT</td></tr>
+<tr><td>One responder owns their team&rsquo;s handover procedure and rebuilt shift cycles to cover the busiest hours; another organisation limits handover writing to senior staff</td><td>UCL</td></tr>
+<tr><td>69% of SOCs still rely on manual or mostly manual processes to report metrics</td><td>SANS. That this person is the one who does it is our inference <span class="q">[?]</span></td></tr>
+<tr><td>62% say their organisation is not doing enough to retain top talent</td><td>SANS</td></tr>
+</table></div>
+
+<p class="quoteline">No verbatim line from a SOC lead exists in our sources.<cite>Left empty rather than synthesised. That absence is itself a finding.</cite></p>
+
+<div class="node"><span class="lbl">The risk this persona carries forward</span><p>Whether Tomas is a user of this console at all is unresolved <span class="q">[?]</span>, and stage 02 made it <em>less</em> likely rather than more. Simbian writes that &ldquo;L3 analysts keep containment authority for anything outside the pre-approved envelope&rdquo;, and Dropzone is reported to ship Administrator, Member and Restricted Read Only with no autonomy-approver role among them. The industry treats latitude as configuration under a permission, not as a distinct job.</p></div>
+</div>
+</section>
+
+<section id="excluded">
+<h2>04 &middot; Named and not built for</h2>
+<p class="h2sub">Three groups that exist and get no design</p>
+
+<div class="excl">
+<span class="n">Junior, Tier-1</span>
+<p>The evidence exists: an explainable dashboard could serve as a learning aid by &ldquo;talking to them like another colleague&rdquo;, and new analysts writing handovers &ldquo;talk about anything and everything that&rsquo;s happened&rdquo;.</p>
+<p>Not a persona, because Harrier&rsquo;s premise is the <strong>residual queue</strong>: what survives auto-resolution is precisely what needs judgment.</p>
+<p><strong>Consequence if this call is wrong.</strong> If providers staff the residual queue with juniors, the product needs a teaching mode, and Rasha&rsquo;s pain &ldquo;do not explain what I already know&rdquo; inverts into its opposite.</p>
+</div>
+
+<div class="excl">
+<span class="n">Detection engineer</span>
+<p>Consumes rejection reasons. No screen in this MVP. Consequence: the rejection interface has to emit something machine-routable, even though we build no surface for the person who receives it.</p>
+</div>
+
+<div class="excl">
+<span class="n">Client security contact</span>
+<p>Never logs in <code>PREMISE</code>. Their trust is built almost entirely out of the summaries they receive. Consequence: the summary is a product surface even though its reader is not a user.</p>
+</div>
+</section>
+
+<section id="primary-rule">
+<h2>05 &middot; What primary does</h2>
+<p class="h2sub">Not what it means. What it does</p>
+
+<div class="node"><span class="lbl">The rule stages 03a, 04 and 07 read</span><p>A conflict between decisions is resolved in favour of Rasha. She carries the higher risk and holds fewer levers. Tomas&rsquo;s scenarios must work, but the interface is not built around them.</p></div>
+
+<p><strong>Criterion used to choose.</strong> Primary is the person whose needs are not met by a design built for the other, and who stands closest to the activation node.</p>
+<p><strong>Why Rasha.</strong> The activation node is First Verdict, and the case file, the product&rsquo;s centre of gravity, is hers. A surface built for her serves Tomas; the reverse does not hold. This also settles what the main dashboard is: <strong>the queue, with the fleet as the resting state of the detail pane</strong>, rather than a fleet view with a queue underneath it.</p>
+<p><strong>Why Tomas is secondary rather than absent.</strong> He owns the SLA and the decision to widen Clerk&rsquo;s latitude, which is the differentiator itself. He is secondary because his decisions are periodic and considered, while hers are continuous and under time pressure, and an interface tuned for the second case survives the first better than the reverse.</p>
+</section>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_SECTIONS = [
+    { id:'observations',  label:'Observations' },
+    { id:'p1',            label:'Primary: the adjudicator' },
+    { id:'p2',            label:'Secondary: the rope-holder' },
+    { id:'excluded',      label:'Named, not built for' },
+    { id:'primary-rule',  label:'What primary does' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
