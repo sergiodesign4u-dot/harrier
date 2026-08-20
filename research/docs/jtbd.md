@@ -257,3 +257,32 @@ Ordered by danger.
 ### Verification rule for Step 6
 
 Every line above is re-read in the file before it is touched. A finding that does not hold on re-reading stays in this table marked **dropped on verification**, with the reason. A false finding deleted quietly comes back next time in the same words.
+
+---
+
+## Third instrument: the stage contract read as a checklist
+
+A separate table, deliberately not merged into the one above. Claude with the files and Codex with the source both read what **exists**. Neither can see a step that never happened, because a step that never happened leaves no line in any file. This pass reads the stage 02 contract, its gates and its "done when" list, and answers each line with done, not done, or knowingly skipped.
+
+| Contract line | Verdict |
+|---|---|
+| Entry gate as the first move, before Step 1 | **Done.** All six declared inputs verified present, and the weakness of the people material named rather than passed over |
+| One step, then show, then wait | **Done.** Every step was shown before it was written |
+| From data, not from the head | **Not done, and this is what the critique found.** Nineteen distinct findings, of which at least six are statements that stood as sourced and were not |
+| Hypotheses in the form "assume X, verify via Y" | **Done for the persona hypotheses. Not done for HJ1 and HJ2**, which carry no persona, finding 17 |
+| Ballast test on every persona block | **Done.** Every block answers its design question, and three groups were excluded because they had none |
+| Split by behaviour, not demography | **Done**, with a caveat now visible: finding 3 shows P2's behavioural separation rests on evidence that actually describes P1 |
+| Persona counts as guidance, not a minimum | **Done and said out loud.** Two groups, third named and excluded, and the reason recorded |
+| Job is not a feature | **Done.** Every job passes the solution-agnostic test. Findings 14 and 16 are about motivations and horizons, not about mechanisms leaking in |
+| Related jobs are adjacent tasks, not steps of the journey | **Done, and the missing owner was declared.** Stage 02+ CJM is not in this track, so the steps were assigned to the stage 03a user flow with the decision recorded in the file |
+| `PRIMARY` records what it does, not only what it means | **Done.** The conflict-resolution rule is written and stages 03a, 04 and 07 will read it |
+| Critique on two instruments, sets taken independently | **Done.** Codex read-only, its table not shown to Claude before both were complete. First run stalled and produced nothing for fifteen minutes; it was restarted rather than silently skipped |
+| Verification before fixing | **Pending, Step 6.** The rule is written into the table above |
+| Follow-up research on public, pre-login pages only | **Done.** Four sources, none behind a login, and one paper deliberately excluded as evidence about people because it is a simulation |
+| Every md gets a visible place in html at the step that creates it | **Not done, knowingly deferred.** `personas.md` was created at Step 1 and `jtbd.md` at Step 3; neither has a page yet. The pack schedules both for Step 7, so this is the pack's own deferral rather than an omission, but the base rule says "at the step that creates it" and it is recorded here rather than left unsaid |
+| A living md does not leave its html frozen | **Done for `research.md`**, which received a new section 09 on `research.html` in the same step that changed it |
+| Rough MVP scope narrowed rather than added alongside | **Done.** Eight features held as intent became three jobs in the core carrying six of them, with one deferred and one held pending |
+| Both pages deployed, `done:true` in `/_nav.js` | **Not done.** Step 7 |
+| Closing ritual | **Not done.** Step 8 |
+
+**Idle control on this checklist.** It contains four "not done" and one "knowingly deferred". A contract checklist that never returns "not done" is being read as a formality rather than as an instrument.
