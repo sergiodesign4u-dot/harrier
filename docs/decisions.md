@@ -2,6 +2,68 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-21 - Stage 02 closed, and what left CLAUDE.md
+
+Deleted as chronicle rather than rule: "Prophet Security already sells it" and "Codex found four; the first pass found none". Both describe how we arrived somewhere; the rules stand without them and the stories live here.
+
+Deleted as refuted: "What no competitor found does is make earned trust per client and readable at a glance across all of them." Stage 02 disproved the first half. A false rule is worse than a missing one, because a rule gets followed.
+
+Deleted by the ballast test: the analyst's age band, "26 to 40", which produced no design consequence anywhere in stage 02, and "10-hour shifts", which no source supports and which one interviewed responder contradicts with 12. Demography without a consequence is not written.
+
+Added: a People block carrying primary persona, main job, MVP core and the conflict rule, because stages 03a, 04 and 07 read those four things and nothing else settles a tie between personas. CLAUDE.md went from 69 to 82 lines against a 200 ceiling.
+
+## 2026-08-21 - The differentiator narrowed a second time, and what is left is a design claim
+
+Stage 01 recorded that whether any competitor carries a per-tenant trust level inside the product was `[?]`, because the consoles sit behind login. Simbian publishes it on a public page: four named autonomy modes (Read-only, Dry-run, Guided, Autopilot), latitude earned "on this specific action, on this specific alert type, inside these specific guardrails", progression that "is not linear and not global", and for MSSP and MDR deployments "per-tenant autonomy configuration".
+
+Prophet took "earned" at stage 01. Simbian takes "per tenant" at stage 02.
+
+What survives: nothing found publishes the fleet as a readable operator surface. Simbian's per-tenant autonomy is configuration; ours has to be a view. That moves the differentiator from a capability claim to a design claim, which means stages 04 and 07 now carry all of it. If the fleet does not read at a glance there is nothing left.
+
+Two side effects. Open question 6 is resolved by the market: two products ship named lanes, none ships a slider. Open question 4 is resolved as "both": Defender ships an ML-scored ordering that explains its own reasoning and saved filter sets, so treating those as alternatives was our framing rather than the market's.
+
+## 2026-08-21 - A quote was attributed to a paper that does not contain it
+
+R1 cited the UCL handover study for "you spend your first hour rediscovering context someone else already had". The phrase is not in that paper; "first hour", "rediscovering context" and "rediscover" are all absent. It came from a search tool's one-sentence summary of a blog that was never opened, and it was signed with a source that had been.
+
+The existing rule of evidence did not catch it, and could not: it requires facts to come from a page opened in the session, and the cited page had been opened. The failure was laundering a summary through a real source.
+
+New rule: a search-result summary is not a source. Open the page or mark it `[?]`.
+
+The job survived on three real quotes from the same study. The false attribution is recorded above the job in `jtbd.md` rather than deleted, because a defect removed silently returns in the same words.
+
+## 2026-08-21 - Follow-up research was moved ahead of drafting the personas
+
+The pack schedules follow-up research at Step 6, after personas exist. It ran before Step 2 instead.
+
+Reason: a persona built on premise and patched afterwards keeps its shape. A patch fixes wording, not the split. If real practitioners group differently from the way we would group them from the brief, that has to be visible before the split, not after.
+
+It paid. Four sources, three of them studies of practitioners, replaced four premises with measurements, corrected two stage 01 decisions about the shift handoff, and supplied the first verbatim SOC analyst quotes in the project. The persona split that came out (behaviour, not seniority) was not the one the brief implied.
+
+## 2026-08-21 - The steps of the journey belong to the stage 03a user flow
+
+Related jobs in this pipeline are adjacent tasks, and the steps toward the main job are CJM phases. The shortened track has no CJM, so those steps would have had no owner.
+
+They are assigned to `ia/flows.html` at stage 03a, which already has to describe the path to the activation node. Recorded so stage 03a knows what it inherited, and so the related jobs are not read as a sequence.
+
+## 2026-08-21 - The MVP core is two qualified jobs and one named bet
+
+The rule was: important to the primary persona and not closed by the market. Two jobs qualified, ruling on the case and the shift handoff. The third slot was not filled with invented importance.
+
+The fleet job entered as a declared exception, because a core of the first two is a good residual queue with a good handoff and the market gap does not distinguish that product. It is also H1, the riskiest hypothesis in the project, so the core holds the risk in the open rather than hiding it. If H1 falls, this is the job that leaves.
+
+## 2026-08-21 - Shared page stylesheet, and CJM marked out of track in the registry
+
+`research/_page.css` was extracted from `research.html` and is now read by all three research pages. Three copies of the theme tokens would have diverged first and been noticed last.
+
+Separately, the sidebar was putting its `Next` badge on CJM As-Is, which this track does not build, so the roadmap was lying about what comes next. Pages can now carry `skip:true`, which the renderer treats as neither done nor pending and badges `OFF`. README says "Out of track" rather than "Not started".
+
+## 2026-08-21 - `codex exec` piped into `tail` returns nothing
+
+The first Codex critique run stayed alive for fifteen minutes and produced zero bytes, because the pipeline buffered everything until exit and the process never got there. Rerunning with output redirected straight to a file worked and produced ten findings.
+
+Recorded because the pipeline rule says an unavailable Codex means stopping and asking, and the failure looked exactly like unavailability while being a plumbing problem.
+
 ## 2026-08-20 - `.nojekyll` in the repository root, and why acceptance on localhost is not acceptance
 
 GitHub Pages runs Jekyll by default, and Jekyll silently drops any file or directory whose name starts with an underscore. `/_nav.css` and `/_nav.js` were therefore never built, and both returned 404 on the live site while every page returned 200. The sidebar did not render at all in production: no roadmap, no badges, no section links, just the content column.
