@@ -2,6 +2,20 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-20 - Stage 01 closed, and what left CLAUDE.md
+
+Added as rules: the strategic dimension, the riskiest assumption, the chosen UX pattern with its `CONDITIONAL` mark, the corrected differentiation (earned autonomy per tenant and visible across the fleet, not earned autonomy as such), and a new rule of evidence about product premises.
+
+Removed, and this was half the work. The eight-bullet MVP scope became a pointer: the canonical list lives in `research.md` section 2, and a second copy is the one that goes stale. The six-line Goal block went out as description rather than rule; `research.md` section 1 holds it better. Business model shrank from three lines to one plus a contested marker. Geo and compliance kept only the line that shapes the design, the append-only log with an evidence snapshot.
+
+Budget: 74 lines to 68. The point was not the six lines saved but the eighteen that would have drifted from their source.
+
+## 2026-08-20 - Sidebar muted colour failed WCAG AA, caught by the contract checklist
+
+The stage-10 instruction to check panel contrast against WCAG AA had not been run. Measured after the fact: `--nav-muted #9aa0a6` on `#fbfbfa` gave 2.55:1 against a 4.5:1 requirement, so SOON badges and dimmed roadmap entries were below the line. Raised to `#6b7176`, 4.77:1. The same token fed `--faint` on both pages, so three files changed.
+
+Worth recording because of how it was found. Neither critique instrument could see it: the browser pass looks at what was drawn and Codex at what was written, and a step that never happened exists in neither. Only reading the stage contract as a checklist surfaces it, which is the argument for keeping that third pass even when everything looks green.
+
 ## 2026-08-20 - Stage 01 critique, two instruments, 17 findings
 
 Codex ran read-only over `research/docs` and returned 12 findings. A separate Claude pass ran on a class Codex cannot reach, conclusions whose chain back to a fact is broken, and returned 5. Zero overlap between the two sets.
