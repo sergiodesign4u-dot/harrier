@@ -16,7 +16,9 @@ Objects before screens. Screens only display objects, and objects grow out of jo
 
 The centre of gravity. `aarrr.md` records that every stage of the funnel is answered by this same object: replay shows a queue of them, activation is ruling on one, the trust report aggregates them, referral forwards one.
 
-**Parts:** identifier, tenant, alert class and the shape of the case, Clerk's narrative in prose, the evidence set, the proposed verdict, a confidence that names its claim and scope and window, a provenance strip of effort spent, the per-tenant base rate, status, timestamps.
+**Parts:** identifier, tenant, alert class and the shape of the case, Clerk's narrative in prose, the evidence set, the proposed verdict, a confidence that names its claim and scope and window, a provenance strip of effort spent, the per-tenant base rate, **status including `escalated` and `unrecorded`**, timestamps.
+
+**`escalated` and `unrecorded` were added at Step 7**, because the fixes at Step 6 gave two dead ends a way out and both exits leave a case in a condition nothing on the map could display. A case that left the analyst's hands and looks identical to one that did not is worse than no escalation at all.
 
 **Job:** MAIN. **Related to:** Tenant, Signal, Evidence item, Verdict.
 
@@ -94,7 +96,7 @@ The last part is not decoration. The business outcome in `research.md` is the sh
 
 ### 10. Decision log entry
 
-**Parts:** actor (Clerk or human), action, timestamp, **the evidence snapshot as it stood at that moment**. Append-only.
+**Parts:** actor (Clerk or human), action, timestamp, **the evidence snapshot as it stood at that moment**. Append-only. Actions include a **recorded gap**: evidence that no longer exists, written down as a fact rather than rendered as a blank that looks like an answer.
 
 **Job:** R2.
 
@@ -313,7 +315,7 @@ Rows are the functional jobs from `jtbd.md`. Columns are every screen in the con
 | Job | A1 Shift brief | B1 Case Queue | B2 Fleet | C1 Case File | D1 Decision log | E1 Client summary | F1 Tenant autonomy | F2 Tenant detail |
 |---|---|---|---|---|---|---|---|---|
 | **MAIN** rule on the case | ✓ *(flow node `Point`)* | ✓ | | ✓ | ✓ *(flow node `Log`)* | | | |
-| **R1** pick up and hand off a shift | ✓ | | | | | | | |
+| **R1** pick up and hand off a shift | ✓ | ✓ *(rebuild path)* | | | | | | |
 | **R2** answer for a past decision | | | | ✓ *(the case as it stood)* | ✓ | | | |
 | **R3** teach the agent | | | | ✓ *(flow nodes `Reject`, `Route`)* | ✓ | | | |
 | **R4** tell the client `LATER` | | | | ✓ *(entry point)* | | ✓ | | ✓ |

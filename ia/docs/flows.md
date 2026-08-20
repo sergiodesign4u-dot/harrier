@@ -31,12 +31,12 @@ flowchart TD
     Fleet --> Queue
     Any -->|yes| Case[C1 Case File in the detail pane]
     Point --> Case
-    Case --> Autonomy["Clerk's latitude on this tenant, in a fixed position"]
-    Autonomy --> Hold{Does Clerk's verdict hold?}
+    Case -.-> Autonomy["Clerk's latitude on this tenant, always on screen in a fixed position"]
+    Case --> Hold{Does Clerk's verdict hold?}
     Hold -->|not yet| Deeper[Evidence, one key deeper]
     Deeper --> Gone{Is the evidence still retrievable?}
     Gone -->|no| Dead["Dead end for this job: source expired, the decision cannot be defended later"]
-    Dead --> Esc[Escalate with the gap named]
+    Dead --> Esc[Escalate, the case stays open and flagged as escalated]
     Esc --> Queue
     Gone -->|yes| Base{Is this normal at this client?}
     Base -->|no base rate yet| NoBase["Empty: no baseline for this tenant"]
@@ -51,7 +51,10 @@ flowchart TD
     Route --> File
     File[File the verdict with the evidence snapshot] --> Ok{Did it write?}
     Ok -->|no| Fail["Error: the verdict did not write, and nothing was recorded"]
-    Fail --> File
+    Fail --> Retry{Still failing after a retry?}
+    Retry -->|no| File
+    Retry -->|yes| Kept["Verdict held locally, the case stays open and flagged as unrecorded"]
+    Kept --> Queue
     Ok -->|yes| Log["D1 Decision log entry written"]
     Log --> Win(["Job closed: decided, and answerable in April"])
 
@@ -60,21 +63,23 @@ flowchart TD
     classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
     class Start,Win success;
     class Dead dead;
-    class Entry,Queue,Brief,Point,Load,Live,Stale,Any,Fleet,Case,Autonomy,Hold,Deeper,Gone,Esc,Base,NoBase,Accept,Amend,Reject,Route,File,Ok,Fail,Log neutral;
-    linkStyle 0,1,2,3,4,5,8,11,12,13,14,24,25,26,27,28,29,30,31,34,35 stroke:#1c7a58,stroke-width:2px;
+    class Entry,Queue,Brief,Point,Load,Live,Stale,Any,Fleet,Case,Autonomy,Hold,Deeper,Gone,Esc,Base,NoBase,Accept,Amend,Reject,Route,File,Ok,Fail,Retry,Kept,Log neutral;
+    linkStyle 0,1,2,3,4,5,8,11,12,14,24,25,26,27,28,29,30,31,37,38 stroke:#1c7a58,stroke-width:2px;
 ```
 
 **Activation node: `File`.** From `aarrr.md`: the analyst rules on a Clerk-assembled case, with the evidence in view, and files it. It is a named node rather than something implied.
 
 **Distance from the start: two screens.** Queue, then Case File. The limit is three, so the route does not defer first value further than the research promised.
 
-**The element that carries the differentiator is now in the diagram.** `Autonomy` sits between opening the case and judging it, because Clerk's latitude on this tenant is what tells the analyst how hard to look. Critique #1 found it missing: it had been promised in the navigation model as a global element and appeared in no route. The one concrete thing stage 04 must carry was absent from every diagram.
+**The element that carries the differentiator is in the diagram, and it is attached rather than traversed.** `Autonomy` hangs off `Case` on a dotted link, because Clerk's latitude on this tenant is a fixed-position element that is always on screen, not a step somebody walks through. Critique #1 found it missing from every route; critique #2 found that drawing it in the chain contradicted the navigation model, which calls it global and always visible. Both corrections are in.
 
 **Decisions.** Is this the first screen of the shift. Is the live connection holding. Is anything waiting on a decision. Does Clerk's verdict hold. Is the evidence still retrievable. Is this normal at this client. Did the verdict write.
 
-**States.** `Loading` while the queue streams. `Error` when the live connection drops, where the queue must say it is stale rather than look healthy and lie. `Empty` when nothing waits, in which case the fleet fills the pane rather than a blank. `Empty` again when a tenant has no baseline yet, which is real for a newly onboarded client. `Error` when the verdict does not write, which in a product built on an append-only log is not an inconvenience.
+**States.** `Loading` while the queue streams. `Error` when the live connection drops, where the queue must say it is stale rather than look healthy and lie. `Empty` when nothing waits, in which case the fleet fills the pane rather than a blank. `Empty` again when a tenant has no baseline yet, which is real for a newly onboarded client. `Error` when the verdict does not write, which in a product built on an append-only log is not an inconvenience, **and it has a floor**: after a retry still fails, the verdict is held locally and the case stays open flagged as unrecorded rather than looping forever. Critique #2 caught that the first fix for dead ends had itself created an unbounded retry loop on the most critical operation in the product.
 
-**One dead end, and it now has a way out.** If the source has aged out the job cannot close, because the decision will not be defensible in April. The analyst escalates with the gap named and returns to the queue. The node stays red because the job failed, not because the person is stuck.
+**One dead end, and it now has a way out.** If the source has aged out the job cannot close, because the decision will not be defensible in April. The analyst escalates and the case **stays open, flagged as escalated**, then returns to the queue. The node stays red because the job failed, not because the person is stuck.
+
+**And the exit created a requirement.** Critique #2 found it: an escalated case has to carry a state that exists nowhere. `escalated` is now a named value of `Case.status` in the entity inventory, and the queue has to show it, because a case that left the analyst's hands and looks identical to one that did not is worse than no escalation at all.
 
 **All three verdicts are green.** Accept, amend and reject all lead to `Win`. This is design principle 3 rendered rather than asserted: rejecting Clerk is a first-class outcome, not a fallback. A flow that painted only `Accept` as the happy path would be arguing against its own product.
 

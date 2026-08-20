@@ -60,12 +60,12 @@
     Fleet --&gt; Queue
     Any --&gt;|yes| Case[C1 Case File in the detail pane]
     Point --&gt; Case
-    Case --&gt; Autonomy["Clerk's latitude on this tenant, in a fixed position"]
-    Autonomy --&gt; Hold{Does Clerk's verdict hold?}
+    Case -.-&gt; Autonomy["Clerk's latitude on this tenant, always on screen in a fixed position"]
+    Case --&gt; Hold{Does Clerk's verdict hold?}
     Hold --&gt;|not yet| Deeper[Evidence, one key deeper]
     Deeper --&gt; Gone{Is the evidence still retrievable?}
     Gone --&gt;|no| Dead["Dead end for this job: source expired, the decision cannot be defended later"]
-    Dead --&gt; Esc[Escalate with the gap named]
+    Dead --&gt; Esc[Escalate, the case stays open and flagged as escalated]
     Esc --&gt; Queue
     Gone --&gt;|yes| Base{Is this normal at this client?}
     Base --&gt;|no base rate yet| NoBase["Empty: no baseline for this tenant"]
@@ -80,7 +80,10 @@
     Route --&gt; File
     File[File the verdict with the evidence snapshot] --&gt; Ok{Did it write?}
     Ok --&gt;|no| Fail["Error: the verdict did not write, and nothing was recorded"]
-    Fail --&gt; File
+    Fail --&gt; Retry{Still failing after a retry?}
+    Retry --&gt;|no| File
+    Retry --&gt;|yes| Kept["Verdict held locally, the case stays open and flagged as unrecorded"]
+    Kept --&gt; Queue
     Ok --&gt;|yes| Log["D1 Decision log entry written"]
     Log --&gt; Win(["Job closed: decided, and answerable in April"])
 
@@ -89,15 +92,16 @@
     classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
     class Start,Win success;
     class Dead dead;
-    class Entry,Queue,Brief,Point,Load,Live,Stale,Any,Fleet,Case,Autonomy,Hold,Deeper,Gone,Esc,Base,NoBase,Accept,Amend,Reject,Route,File,Ok,Fail,Log neutral;
-    linkStyle 0,1,2,3,4,5,8,11,12,13,14,24,25,26,27,28,29,30,31,34,35 stroke:#1c7a58,stroke-width:2px;</pre></div>
+    class Entry,Queue,Brief,Point,Load,Live,Stale,Any,Fleet,Case,Autonomy,Hold,Deeper,Gone,Esc,Base,NoBase,Accept,Amend,Reject,Route,File,Ok,Fail,Retry,Kept,Log neutral;
+    linkStyle 0,1,2,3,4,5,8,11,12,14,24,25,26,27,28,29,30,31,37,38 stroke:#1c7a58,stroke-width:2px;</pre></div>
 
-<div class="node"><span class="lbl">Activation node</span><p><code>Filed</code>, a named node in the diagram rather than something implied. It is <strong>two screens</strong> from the start, Queue then Case File, against a limit of three. The route does not defer first value further than the research promised.</p></div>
+<div class="node"><span class="lbl">Activation node</span><p><code>File</code>, a named node in the diagram rather than something implied. It is <strong>two screens</strong> from the start, Queue then Case File, against a limit of three. The route does not defer first value further than the research promised.</p></div>
 
 <p><strong>Decisions.</strong> Is this the first screen of the shift. Is the live connection holding. Is anything waiting on a decision. Does Clerk&rsquo;s verdict hold. Is the evidence still retrievable. Is this normal at this client. Did the verdict write.</p>
-<p><strong>States.</strong> <code>Loading</code> while the queue streams. <code>Error</code> when the live connection drops, where the queue must say it is stale rather than look healthy and lie. <code>Empty</code> when nothing waits, in which case the fleet fills the pane rather than a blank. <code>Empty</code> again when a tenant has no baseline yet. <code>Error</code> when the verdict does not write, which in a product built on an append-only log is not an inconvenience.</p>
-<div class="node"><span class="lbl">The element that carries the differentiator is now in the route</span><p><code>Autonomy</code> sits between opening the case and judging it, because Clerk&rsquo;s latitude on this tenant is what tells the analyst how hard to look. Critique found it missing: it had been promised in the navigation model as a global element and appeared in no flow at all. The one concrete thing stage 04 is bound to carry was absent from every diagram.</p></div>
-<p><strong>One dead end, and it now has a way out.</strong> If the source has aged out the job cannot close, because the decision will not be defensible in April. The analyst escalates with the gap named and returns to the queue. The node stays red because the job failed, not because the person is stuck. <strong>Critique found the contradiction:</strong> this prose already promised an escalation the diagram did not have.</p>
+<p><strong>States.</strong> <code>Loading</code> while the queue streams. <code>Error</code> when the live connection drops, where the queue must say it is stale rather than look healthy and lie. <code>Empty</code> when nothing waits, in which case the fleet fills the pane rather than a blank. <code>Empty</code> again when a tenant has no baseline yet. <code>Error</code> when the verdict does not write, which in a product built on an append-only log is not an inconvenience, <strong>and it has a floor</strong>: after a retry still fails the verdict is held locally and the case stays open flagged as unrecorded rather than looping forever. Critique #2 caught that the first fix for dead ends had itself created an unbounded retry loop on the most critical operation in the product.</p>
+<div class="node"><span class="lbl">The element that carries the differentiator, attached rather than traversed</span><p><code>Autonomy</code> hangs off the case on a dotted link, because Clerk&rsquo;s latitude on this tenant is a fixed-position element that is always on screen, not a step somebody walks through. <strong>Critique #1</strong> found it missing from every route. <strong>Critique #2</strong> found that drawing it in the chain contradicted the navigation model, which calls it global and always visible. Both corrections are in.</p></div>
+<p><strong>One dead end, and it now has a way out.</strong> If the source has aged out the job cannot close. The analyst escalates, the case <strong>stays open flagged as escalated</strong>, and the queue returns. The node stays red because the job failed, not because the person is stuck. <strong>Critique #1 found the contradiction:</strong> this prose already promised an escalation the diagram did not have.</p>
+<p><strong>And the exit created a requirement, which critique #2 caught.</strong> An escalated case has to carry a state that existed nowhere. <code>escalated</code> and <code>unrecorded</code> are now named values of the case status, because a case that left the analyst&rsquo;s hands and looks identical to one that did not is worse than no escalation at all.</p>
 <div class="note"><p><strong>All three verdicts are green.</strong> Accept, amend and reject all lead to the closed job, and the highlighted arrows say so. This is design principle 3 drawn rather than asserted: rejecting Clerk is a first-class outcome, not a fallback. A flow that painted only <code>Accept</code> as the happy path would be arguing against its own product.</p>
 <p><strong>R3 gets no separate flow, on purpose.</strong> Teaching the agent lives on the <code>Reject</code> and <code>Route</code> nodes. The rest of that job leaves the analyst&rsquo;s screen and lands on a detection engineer, who is not a user here. Drawing it would be drawing somebody else&rsquo;s product.</p></div>
 </section>

@@ -52,7 +52,7 @@
 <tr><td>Shift handoff</td><td>The shift window, who hands over and who takes it, <strong>notes that accumulate through the shift</strong>, pointers to cases, what waits on a decision, what Clerk closed alone, which tenants changed latitude</td><td>R1</td><td>Case, Autonomy grant, Analyst</td></tr>
 <tr><td>Rejection reason</td><td>The case, what Clerk got wrong, the class of error, where it was routed, <strong>and whether a tuning change followed and when</strong></td><td>R3</td><td>Verdict, and a detection engineer who is not a user</td></tr>
 <tr><td>Client summary</td><td>Tenant, period or incident, Clerk&rsquo;s draft, the analyst&rsquo;s edits, sent state, who approved</td><td>R4</td><td>Tenant, Case</td></tr>
-<tr><td>Decision log entry</td><td>Actor, action, timestamp, <strong>the evidence snapshot as it stood at that moment</strong>. Append-only</td><td>R2</td><td>Verdict, Autonomy grant</td></tr>
+<tr><td>Decision log entry</td><td>Actor, action, timestamp, <strong>the evidence snapshot as it stood at that moment</strong>. Append-only. Actions include a <strong>recorded gap</strong>: evidence that no longer exists, written down as a fact rather than rendered as a blank that looks like an answer</td><td>R2</td><td>Verdict, Autonomy grant</td></tr>
 <tr><td>Analyst</td><td>Name, shift, assigned cases or queue</td><td>R1, R2, MAIN</td><td>Verdict, Shift handoff</td></tr>
 </table></div>
 
@@ -63,7 +63,7 @@
 <section id="map">
 <h2>02 &middot; Screens by intent</h2>
 <p class="h2sub">Six clusters, eight screens</p>
-<p class="dim">This is the concept layer. States live in the flows, page contents live in the detail layer, and neither is allowed here.</p>
+<p class="dim">This is the concept layer. <strong>The schema below carries no state nodes and no page contents</strong>: states live in the flows and contents live in the detail layer. Where a state is named in the prose on this page it is named as a constraint handed forward, not drawn as a node.</p>
 
 <div class="diagram"><pre class="mermaid">graph TD
     subgraph A["A. Take the shift"]
@@ -110,8 +110,7 @@ P2-MAIN / LATER"]
 
 <div class="node"><span class="lbl">The decision this map enacts</span><p><strong>F1 is deliberately LATER while B2 stays in the MVP.</strong> That is what is left of the differentiator after stage 02, put into structure rather than into a sentence: a competitor&rsquo;s per-tenant autonomy is <em>configuration</em>, and ours has to be a <em>view</em>. Whether the control belongs in an operator console at all is still <span class="q">[?]</span>.</p></div>
 
-<p><strong>Checked against the chosen UX pattern, and one conflict was found.</strong> C1 as its own full-page route breaks the reason that cheap override needs the list to survive the decision. The map was corrected rather than the pattern: C1 has two renderings of one screen, the detail pane inside the console and a standalone route for a permalink and for mobile. The console never leaves the split.</p>
-<p><strong>Checked against the entity inventory, and one finding came back.</strong> Signal is the only object with no screen where it is the subject, which is a product decision rather than an omission. The pass was built to hit that consciously instead of letting it slide.</p>
+
 </section>
 
 <section id="nav">
@@ -145,9 +144,9 @@ P2-MAIN / LATER"]
 <p class="h2sub">Proof that every job has somewhere to happen</p>
 
 <div class="tw"><table class="matrix">
-<tr><th>Job</th><th>A1 Shift brief</th><th>B1 Queue</th><th>B2 Fleet</th><th>C1 Case File</th><th>D1 Log</th><th>E1 Summary</th><th>F1 Autonomy</th><th>F2 Tenant</th></tr>
+<tr><th>Job</th><th>A1 Shift brief</th><th>B1 Case Queue</th><th>B2 Fleet</th><th>C1 Case File</th><th>D1 Decision log</th><th>E1 Client summary</th><th>F1 Tenant autonomy</th><th>F2 Tenant detail</th></tr>
 <tr><td>MAIN rule on the case</td><td class="tick">&check;<small>flow: Point</small></td><td class="tick">&check;</td><td class="blank"></td><td class="tick">&check;</td><td class="tick">&check;<small>flow: Log</small></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
-<tr><td>R1 hand off a shift</td><td class="tick">&check;</td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>R1 hand off a shift</td><td class="tick">&check;</td><td class="tick">&check;<small>rebuild path</small></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
 <tr><td>R2 answer for a past decision</td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="tick">&check;<small>as it stood</small></td><td class="tick">&check;</td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
 <tr><td>R3 teach the agent</td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="tick">&check;<small>Reject, Route</small></td><td class="tick">&check;</td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
 <tr class="later"><td>R4 tell the client</td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="tick">&check;<small>entry point</small></td><td class="blank"></td><td class="tick">&check;</td><td class="blank"></td><td class="tick">&check;</td></tr>
@@ -179,6 +178,42 @@ P2-MAIN / LATER"]
 <p><strong>Reconciled with the flows.</strong> They produced no new screens: every screen node already existed on this map. <code>Pointer</code>, <code>Overlap</code> and <code>Route</code> are steps or events, and <code>Route</code> deliberately leaves the product.</p>
 </section>
 
+
+<section id="beforeafter">
+<h2>05 &middot; Before and after</h2>
+<p class="h2sub">Two critiques, three instruments, eighteen findings</p>
+
+<p>Critique #1 hunted defects in the flows and the map. Critique #2 checked, with fresh eyes, that the first round&rsquo;s fixes had not broken anything next door. Both ran on two instruments with the sets taken independently and merged afterwards. The split held: Codex took the mechanical axes, Claude took the consequences of its own edits.</p>
+
+<div class="tw"><table>
+<tr><th>Class</th><th>Found</th><th>Who found it</th><th>Fixed</th><th>Dropped on verification</th><th>Deferred</th></tr>
+<tr><td>Dead ends</td><td>1</td><td class="who">Claude, disputed by Codex</td><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>Missing states</td><td>5</td><td class="who">3 shared, 1 Claude, 1 Codex</td><td>4</td><td>0</td><td>1</td></tr>
+<tr><td>Excess depth</td><td>0</td><td class="who">both clean</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>Orphans and traceability</td><td>2</td><td class="who">Claude</td><td>2</td><td>0</td><td>0</td></tr>
+<tr><td>Consequences of the first round&rsquo;s fixes</td><td>5</td><td class="who">Claude</td><td>5</td><td>0</td><td>0</td></tr>
+<tr><td>Consistency</td><td>3</td><td class="who">Codex</td><td>2</td><td>0</td><td>1</td></tr>
+<tr><td>Purity of the concept schema</td><td>2</td><td class="who">Codex</td><td>2</td><td>0</td><td>0</td></tr>
+</table></div>
+
+<p><strong>Eighteen findings across both rounds, one overlap in the first and none in the second.</strong> Nothing was dropped on verification. One item is deferred rather than fixed: E1, F1 and F2 have no flows because drawing a route for a deferred screen implies it is being built, and that is recorded as a debt rather than re-found by every future pass.</p>
+
+<h3>The five that changed the most</h3>
+
+<div class="tw"><table>
+<tr><th>Was</th><th>Became</th></tr>
+<tr><td>Three red nodes with no outgoing edge at all, while the prose beside them promised the analyst "can still escalate"</td><td>Each dead end keeps its red, because the job still fails, and gains the exit the prose had already promised. <strong>The divergence between the two instruments was settled on that contradiction rather than by voting</strong></td></tr>
+<tr><td>The first fix produced <code>Fail &rarr; File</code>, an unbounded retry on the most critical operation in the product</td><td>A floor: after a retry still fails, the verdict is held locally and the case stays open flagged as <code>unrecorded</code>. Fixing dead ends had created a new one, and only the second round could see it</td></tr>
+<tr><td>The autonomy indicator, the one concrete element stage 04 is bound to carry, appeared in no flow at all</td><td>Present, and <strong>attached rather than traversed</strong>: a dotted link off the case, because the navigation model calls it fixed-position and always visible, and a node in the chain said the opposite</td></tr>
+<tr><td>The activation node was called <code>Filed</code> in the prose while the diagram node was <code>File</code></td><td>One name. <strong>Codex caught a consequence of an edit that the author&rsquo;s own consequence-pass missed</strong>, because that pass checked structure and not names</td></tr>
+<tr><td>Two exits added in round one left cases in conditions nothing could display</td><td><code>escalated</code> and <code>unrecorded</code> are named case states, and a recorded gap is a named log action. A case that left the analyst&rsquo;s hands and looks identical to one that did not is worse than no escalation at all</td></tr>
+</table></div>
+
+<h3>Two checks that were made and are recorded here rather than beside the schema</h3>
+<p><strong>Against the chosen UX pattern, and one conflict was found.</strong> C1 as its own full-page route breaks the reason that cheap override needs the list to survive the decision. The map was corrected rather than the pattern: C1 has two renderings of one screen, the detail pane inside the console and a standalone route for a permalink and for mobile. The console never leaves the split.</p>
+<p><strong>Against the entity inventory, and one finding came back.</strong> Signal is the only object with no screen where it is the subject, which is a product decision rather than an omission. The pass was built to hit that consciously instead of letting it slide.</p>
+</section>
+
 </main>
 </div>
 <script type="module">
@@ -207,6 +242,7 @@ P2-MAIN / LATER"]
     { id:'map',      label:'Screens by intent' },
     { id:'nav',      label:'Navigation' },
     { id:'matrix',   label:'Traceability' },
+    { id:'beforeafter', label:'Before and after' },
   ];
 </script>
 <script src="../_nav.js"></script>
