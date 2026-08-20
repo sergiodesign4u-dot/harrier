@@ -1,12 +1,14 @@
 # Harrier: user flows
 
-Stage 03a, Step 4. Routes for the primary persona through the main job and two related ones.
+Stage 03a, Step 4, revised at Step 6 after critique on two instruments.
 
-**Declared substitution, third time.** The pack traces flows onto To-Be phases and takes decision points from As-Is barriers. Both CJM files are out of track, so the skeleton comes from `jtbd.md` and the decision points from the pains recorded in `personas.md`, which are quotes from practitioners rather than phases. **These flows are therefore the document that step-screens trace to in the matrix at Step 5.**
+**Declared substitution, third time this stage.** The pack traces flows onto To-Be phases and takes decision points from As-Is barriers. Both CJM files are out of track, so the skeleton comes from `jtbd.md` and the decision points from pains recorded in `personas.md`, which are practitioner quotes rather than phases. **These flows are the document that step-screens trace to in the matrix.**
 
-**Colour is semantic, not decorative.** Green marks the two ends of the happy path and the arrows along it. Red marks a genuine dead end, a node with no route left to the goal. Grey is everything between, including errors and empty states that recover back into the flow. Tokens are the light ones from `research/_page.css`, not the dark example in the pack.
+**Colour is semantic.** Green marks the two ends of the happy path and the arrows along it. Red marks a dead end **for the job**: the job cannot close from there. Grey is everything between, including errors and empty states that recover. Tokens are the light ones from `research/_page.css`.
 
-**These diagrams are versioned as text.** An exported image would tell git that a file changed; the text tells it what changed in the route.
+**What critique #1 changed here.** Every red node now has a way out. It stays red because the job still fails, but the person is no longer stranded: the prose already promised an escalation the diagram did not have, and that contradiction was the finding. Errors were added where only a happy path existed, including the one that matters most in a product built on an append-only log: a verdict that does not write.
+
+**These diagrams are versioned as text.** An exported image tells git that a file changed; the text tells it what changed in the route.
 
 ---
 
@@ -21,15 +23,21 @@ flowchart TD
     Entry -->|yes| Brief[A1 Shift brief]
     Brief --> Point[Pointer straight into a waiting case]
     Queue --> Load["Loading: queue streaming in"]
-    Load --> Any{Anything waiting on a decision?}
+    Load --> Live{Is the live connection holding?}
+    Live -->|no| Stale["Error: connection lost, the queue is stale and says so"]
+    Stale --> Load
+    Live -->|yes| Any{Anything waiting on a decision?}
     Any -->|no| Fleet["B2 Fleet: the resting state of the pane"]
     Fleet --> Queue
     Any -->|yes| Case[C1 Case File in the detail pane]
     Point --> Case
-    Case --> Hold{Does Clerk's verdict hold?}
+    Case --> Autonomy["Clerk's latitude on this tenant, in a fixed position"]
+    Autonomy --> Hold{Does Clerk's verdict hold?}
     Hold -->|not yet| Deeper[Evidence, one key deeper]
     Deeper --> Gone{Is the evidence still retrievable?}
-    Gone -->|no| Dead["Dead end: source expired, this decision cannot be defended later"]
+    Gone -->|no| Dead["Dead end for this job: source expired, the decision cannot be defended later"]
+    Dead --> Esc[Escalate with the gap named]
+    Esc --> Queue
     Gone -->|yes| Base{Is this normal at this client?}
     Base -->|no base rate yet| NoBase["Empty: no baseline for this tenant"]
     NoBase --> Hold
@@ -38,10 +46,13 @@ flowchart TD
     Hold -->|holds with changes| Amend[Amend the narrative]
     Hold -->|does not hold| Reject[Reject and name the reason]
     Reject --> Route["Reason routed to tuning, off this screen"]
-    Accept --> Filed
-    Amend --> Filed
-    Route --> Filed
-    Filed[Verdict filed with the evidence snapshot] --> Log["D1 Decision log entry written"]
+    Accept --> File
+    Amend --> File
+    Route --> File
+    File[File the verdict with the evidence snapshot] --> Ok{Did it write?}
+    Ok -->|no| Fail["Error: the verdict did not write, and nothing was recorded"]
+    Fail --> File
+    Ok -->|yes| Log["D1 Decision log entry written"]
     Log --> Win(["Job closed: decided, and answerable in April"])
 
     classDef success fill:#e6f4ee,stroke:#1c7a58,color:#123d2d;
@@ -49,23 +60,25 @@ flowchart TD
     classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
     class Start,Win success;
     class Dead dead;
-    class Queue,Brief,Point,Load,Any,Fleet,Case,Hold,Deeper,Gone,Base,NoBase,Accept,Amend,Reject,Route,Filed,Log,Entry neutral;
-    linkStyle 0,1,2,3,4,5,8,9,10,18,19,20,21,22,23,24,25,26 stroke:#1c7a58,stroke-width:2px;
+    class Entry,Queue,Brief,Point,Load,Live,Stale,Any,Fleet,Case,Autonomy,Hold,Deeper,Gone,Esc,Base,NoBase,Accept,Amend,Reject,Route,File,Ok,Fail,Log neutral;
+    linkStyle 0,1,2,3,4,5,8,11,12,13,14,24,25,26,27,28,29,30,31,34,35 stroke:#1c7a58,stroke-width:2px;
 ```
 
-**Activation node: `Filed`.** From `aarrr.md`: the analyst rules on a Clerk-assembled case, with the evidence in view, and files it. It is a named node above rather than something implied.
+**Activation node: `File`.** From `aarrr.md`: the analyst rules on a Clerk-assembled case, with the evidence in view, and files it. It is a named node rather than something implied.
 
 **Distance from the start: two screens.** Queue, then Case File. The limit is three, so the route does not defer first value further than the research promised.
 
-**Decisions.** Is this the first screen of the shift. Is anything waiting on a decision. Does Clerk's verdict hold. Is the evidence still retrievable. Is this normal at this client.
+**The element that carries the differentiator is now in the diagram.** `Autonomy` sits between opening the case and judging it, because Clerk's latitude on this tenant is what tells the analyst how hard to look. Critique #1 found it missing: it had been promised in the navigation model as a global element and appeared in no route. The one concrete thing stage 04 must carry was absent from every diagram.
 
-**States.** `Loading` while the queue streams. `Empty` when nothing waits, in which case the fleet fills the pane rather than a blank. `Empty` again when a tenant has no baseline yet, which is a real case for a newly onboarded client and recovers back into the decision.
+**Decisions.** Is this the first screen of the shift. Is the live connection holding. Is anything waiting on a decision. Does Clerk's verdict hold. Is the evidence still retrievable. Is this normal at this client. Did the verdict write.
 
-**The dead end is deliberate and it is only one.** If the underlying source has aged out, the analyst can still escalate, but the job as written cannot close: the decision will not be defensible in April. Everything else in this diagram recovers.
+**States.** `Loading` while the queue streams. `Error` when the live connection drops, where the queue must say it is stale rather than look healthy and lie. `Empty` when nothing waits, in which case the fleet fills the pane rather than a blank. `Empty` again when a tenant has no baseline yet, which is real for a newly onboarded client. `Error` when the verdict does not write, which in a product built on an append-only log is not an inconvenience.
 
-**All three verdicts are green.** Accept, amend and reject all lead to `Win`, and the highlighted arrows say so. This is design principle 3 rendered in a diagram: rejecting Clerk is a first-class outcome, not a fallback path. A flow that painted only `Accept` as the happy path would be arguing against the product.
+**One dead end, and it now has a way out.** If the source has aged out the job cannot close, because the decision will not be defensible in April. The analyst escalates with the gap named and returns to the queue. The node stays red because the job failed, not because the person is stuck.
 
-**R3 has no separate flow, on purpose.** Teaching the agent lives on the `Reject` and `Route` nodes above. The rest of that job leaves the analyst's screen entirely and lands on a detection engineer, who is not a user of this product. Drawing a flow for it would be drawing somebody else's product.
+**All three verdicts are green.** Accept, amend and reject all lead to `Win`. This is design principle 3 rendered rather than asserted: rejecting Clerk is a first-class outcome, not a fallback. A flow that painted only `Accept` as the happy path would be arguing against its own product.
+
+**R3 has no separate flow, on purpose.** Teaching the agent lives on `Reject` and `Route`. The rest of that job leaves the analyst's screen entirely and lands on a detection engineer, who is not a user here.
 
 ---
 
@@ -76,7 +89,8 @@ flowchart TD
 ```mermaid
 flowchart TD
     S1([End of shift approaching]) --> Acc[A1 has been accumulating all shift]
-    Acc --> Open{Anything still open?}
+    Acc --> Loading1["Loading: assembling what moved this shift"]
+    Loading1 --> Open{Anything still open?}
     Open -->|no| Thin["Empty: nothing carried over, the brief is short"]
     Open -->|yes| List[Pointers to open cases and what each waits on]
     Thin --> Close
@@ -84,13 +98,17 @@ flowchart TD
     Auto -->|yes| Grants[Autonomy changes, each with the evidence behind it]
     Auto -->|no| Close
     Grants --> Close[A1 Shift brief closed by the outgoing analyst]
-    Close --> Sync{Does the incoming analyst arrive before it closes?}
+    Close --> Saved{Did it close cleanly?}
+    Saved -->|no| Err1["Error: close failed, the brief stays open and warns both analysts"]
+    Err1 --> Close
+    Saved -->|yes| Sync{Does the incoming analyst arrive before it closes?}
     Sync -->|yes| Overlap[Overlap: questions asked while both are present]
     Sync -->|no| Written["Written only: no chance to ask"]
     Overlap --> Take
     Written --> Take[A1 read by the incoming analyst]
     Take --> Ready{Is what waits on a decision clear?}
-    Ready -->|no| Rebuild["Dead end: the first hour goes to rebuilding context"]
+    Ready -->|no| Rebuild["Dead end for this job: the first hour goes to rebuilding context"]
+    Rebuild --> Queue1[B1 Case Queue, rebuilding from the cases themselves]
     Ready -->|yes| Go(["Job closed: the shift starts already oriented"])
 
     classDef success fill:#e6f4ee,stroke:#1c7a58,color:#123d2d;
@@ -98,17 +116,17 @@ flowchart TD
     classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
     class S1,Go success;
     class Rebuild dead;
-    class Acc,Open,Thin,List,Auto,Grants,Close,Sync,Overlap,Written,Take,Ready neutral;
-    linkStyle 0,1,3,5,7,9,10,12,14,16 stroke:#1c7a58,stroke-width:2px;
+    class Acc,Loading1,Open,Thin,List,Auto,Grants,Close,Saved,Err1,Sync,Overlap,Written,Take,Ready,Queue1 neutral;
+    linkStyle 0,1,2,4,6,8,10,13,14,16,18,21 stroke:#1c7a58,stroke-width:2px;
 ```
 
 **The first node carries the correction from stage 02.** The brief has been accumulating all shift; it is not written at the end. The interviewed responders put the failure mode exactly at the end of the shift, and one of them had already solved it by letting the notes accumulate through the day.
 
-**Decisions.** Is anything still open. Did any tenant change latitude. Does the incoming analyst overlap with the outgoing one. Is what waits on a decision clear.
+**Decisions.** Is anything still open. Did any tenant change latitude. Did the brief close cleanly. Does the incoming analyst overlap with the outgoing one. Is what waits on a decision clear.
 
-**States.** `Empty` when nothing carries over, which is a good outcome and should not look like a broken screen. `Written only` when there is no overlap, which is the common case: 73% of organisations allow remote work at least some of the time, and the interviewed responders working remotely described the written handover permanently replacing the verbal one.
+**States.** `Loading` while the brief assembles what moved. `Empty` when nothing carries over, which is a good outcome and must not look like a broken screen. `Error` when the close fails, where the brief stays open and warns **both** analysts rather than one. `Written only` when there is no overlap, which is the common case: 73% of organisations allow remote work at least some of the time, and the responders working remotely described the written handover permanently replacing the verbal one.
 
-**Why the dead end is red rather than grey.** The goal of this job is not to spend the first hour rebuilding. Once the hour is spent it cannot be unspent, so there is no route back to the goal. The analyst still works; the job still failed.
+**Why the dead end is red, and where it now leads.** The goal of this job is to not spend the first hour rebuilding. Once the hour is spent it cannot be unspent, so the job failed. The analyst still has somewhere to go: the queue, rebuilding from the cases themselves, which is exactly the expensive path the job existed to avoid.
 
 ---
 
@@ -119,14 +137,19 @@ flowchart TD
 ```mermaid
 flowchart TD
     S2([A client questions a decision from February]) --> Log[D1 Decision log]
-    Log --> Find{Is the case findable?}
+    Log --> Load2["Loading: the log is large, narrowing before rendering"]
+    Load2 --> Find{Is the case findable?}
     Find -->|no| Search["Empty: narrow by tenant, asset or date"]
     Search --> Find
     Find -->|yes| Entry2[Log entry carrying the evidence snapshot]
-    Entry2 --> Snap{Does the snapshot answer the question?}
+    Entry2 --> Intact{Is the snapshot intact?}
+    Intact -->|no| Corrupt["Error: the snapshot did not survive, and the log says so rather than showing a gap"]
+    Corrupt --> Live
+    Intact -->|yes| Snap{Does the snapshot answer the question?}
     Snap -->|no| Live[Try the live evidence instead]
     Live --> Ret{Still retrievable?}
-    Ret -->|no| Dead2["Dead end: the answer rests on memory rather than the record"]
+    Ret -->|no| Dead2["Dead end for this job: the answer rests on memory rather than the record"]
+    Dead2 --> Own[Say so to the client, and log the gap]
     Ret -->|yes| Entry2
     Snap -->|yes| Answer[Answer assembled from the record]
     Answer --> Won(["Job closed: answered without a new investigation"])
@@ -136,20 +159,22 @@ flowchart TD
     classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
     class S2,Won success;
     class Dead2 dead;
-    class Log,Find,Search,Entry2,Snap,Live,Ret,Answer neutral;
-    linkStyle 0,1,4,5,10,11 stroke:#1c7a58,stroke-width:2px;
+    class Log,Load2,Find,Search,Entry2,Intact,Corrupt,Snap,Live,Ret,Own,Answer neutral;
+    linkStyle 0,1,2,5,6,9,15,16 stroke:#1c7a58,stroke-width:2px;
 ```
 
-**Decisions.** Is the case findable. Does the snapshot answer the question. Is the live evidence still retrievable.
+**Decisions.** Is the case findable. Is the snapshot intact. Does the snapshot answer the question. Is the live evidence still retrievable.
 
-**States.** `Empty` on a search that returns nothing, which recovers by narrowing on tenant, asset or date.
+**States.** `Loading` before rendering, because the log is large. `Empty` on a search that returns nothing, recovering by narrowing on tenant, asset or date. `Error` when the snapshot itself did not survive, which is a different failure from the source having aged out, and the log has to **say so** rather than render a gap that looks like an answer.
 
-**The same dead end appears twice, in this flow and in the main one**, and that is the point. Both routes fail at the same place: evidence that no longer exists. The business outcome in `research.md` is the share of client escalations where the original evidence answered the question without new investigation, and this is the node that decides it.
+**The dead end now ends in an action rather than in silence.** Saying so to the client and logging the gap is not the job closing; it is the honest version of failing it, and the gap becomes data about how well the record is holding.
+
+**The same dead end appears in this flow and in the main one**, and that is the point. Both routes fail at the same place: evidence that no longer exists. The business outcome in `research.md` is the share of client escalations where the original evidence answered the question without new investigation, and this is the node that decides it.
 
 ---
 
-## What the flows did not change
+## What the flows did not change, and one debt they record
 
-**No new screens appeared.** Every node that is a screen already exists in the concept sitemap: A1, B1, B2, C1, D1. `Pointer`, `Overlap` and `Route` are steps or events rather than screens, and `Route` deliberately leaves the product.
+**No new screens appeared.** Every screen node already exists in the concept sitemap: A1, B1, B2, C1, D1. `Pointer`, `Overlap`, `Esc`, `Own` and `Route` are steps or events rather than screens, and `Route` deliberately leaves the product.
 
-**R4 has no flow** because it is scoped LATER, and drawing a route for a deferred screen would imply it is being built.
+**Recorded debt, found by the second instrument.** E1, F1 and F2 have no flows, because drawing a route for a deferred screen implies it is being built. The consequence is real and is written down here rather than left implicit: **when those screens come off the backlog they will arrive with no empty, error or loading states defined**, and whichever stage picks them up owes that work before drawing them.

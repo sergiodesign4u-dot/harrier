@@ -350,6 +350,11 @@ That is a sharper statement of H1 than stage 02 had, and it came from counting c
 
 **3. No screen labelled MVP is without a tick**, so there is no inflated label to report.
 
+**4. B2 Fleet sits on the primary persona's landing screen and serves no job of hers.** Its only tick comes from P2-MAIN, which belongs to the secondary persona. The explanation exists and it sharpens the bet rather than excusing it: **HJ1** in `jtbd.md`, "when I start a shift, I want to know where the agent has earned latitude and where it has not", is assigned to P1. But HJ1 lives in the hypotheses section, and this matrix carries only functional jobs, so the link was invisible.
+
+> **The fleet on the primary's landing screen rests on an unverified hypothesis.** That is the honest statement, and it is now written next to the matrix rather than hidden behind a tick that is not there. HJ1 is what stage 04 has to make readable, and what a first test would have to kill.
+
+
 ### Emotional and social jobs: what carries them
 
 Not closed by a screen. The mechanism column is written so that something can be built from it, because the detail layer takes states and trust evidence from here and stage 05 takes its entry into tone.

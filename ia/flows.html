@@ -30,8 +30,8 @@
 <dl class="facts">
   <div><dt>Flows</dt><dd><b>3</b> one main, two related</dd></div>
   <div><dt>Screens to the activation node</dt><dd><b>2</b> limit is three</dd></div>
-  <div><dt>Genuine dead ends</dt><dd><b>3</b> two of them the same cause</dd></div>
-  <div><dt>New screens found</dt><dd><b>0</b> the map held</dd></div>
+  <div><dt>Dead ends for the job</dt><dd><b>3</b> all now with a way out</dd></div>
+  <div><dt>Critique findings applied</dt><dd><b>8</b> two instruments, three shared</dd></div>
 </dl>
 
 <div class="legend">
@@ -52,15 +52,21 @@
     Entry --&gt;|yes| Brief[A1 Shift brief]
     Brief --&gt; Point[Pointer straight into a waiting case]
     Queue --&gt; Load["Loading: queue streaming in"]
-    Load --&gt; Any{Anything waiting on a decision?}
+    Load --&gt; Live{Is the live connection holding?}
+    Live --&gt;|no| Stale["Error: connection lost, the queue is stale and says so"]
+    Stale --&gt; Load
+    Live --&gt;|yes| Any{Anything waiting on a decision?}
     Any --&gt;|no| Fleet["B2 Fleet: the resting state of the pane"]
     Fleet --&gt; Queue
     Any --&gt;|yes| Case[C1 Case File in the detail pane]
     Point --&gt; Case
-    Case --&gt; Hold{Does Clerk's verdict hold?}
+    Case --&gt; Autonomy["Clerk's latitude on this tenant, in a fixed position"]
+    Autonomy --&gt; Hold{Does Clerk's verdict hold?}
     Hold --&gt;|not yet| Deeper[Evidence, one key deeper]
     Deeper --&gt; Gone{Is the evidence still retrievable?}
-    Gone --&gt;|no| Dead["Dead end: source expired, this decision cannot be defended later"]
+    Gone --&gt;|no| Dead["Dead end for this job: source expired, the decision cannot be defended later"]
+    Dead --&gt; Esc[Escalate with the gap named]
+    Esc --&gt; Queue
     Gone --&gt;|yes| Base{Is this normal at this client?}
     Base --&gt;|no base rate yet| NoBase["Empty: no baseline for this tenant"]
     NoBase --&gt; Hold
@@ -69,10 +75,13 @@
     Hold --&gt;|holds with changes| Amend[Amend the narrative]
     Hold --&gt;|does not hold| Reject[Reject and name the reason]
     Reject --&gt; Route["Reason routed to tuning, off this screen"]
-    Accept --&gt; Filed
-    Amend --&gt; Filed
-    Route --&gt; Filed
-    Filed[Verdict filed with the evidence snapshot] --&gt; Log["D1 Decision log entry written"]
+    Accept --&gt; File
+    Amend --&gt; File
+    Route --&gt; File
+    File[File the verdict with the evidence snapshot] --&gt; Ok{Did it write?}
+    Ok --&gt;|no| Fail["Error: the verdict did not write, and nothing was recorded"]
+    Fail --&gt; File
+    Ok --&gt;|yes| Log["D1 Decision log entry written"]
     Log --&gt; Win(["Job closed: decided, and answerable in April"])
 
     classDef success fill:#e6f4ee,stroke:#1c7a58,color:#123d2d;
@@ -80,14 +89,15 @@
     classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
     class Start,Win success;
     class Dead dead;
-    class Queue,Brief,Point,Load,Any,Fleet,Case,Hold,Deeper,Gone,Base,NoBase,Accept,Amend,Reject,Route,Filed,Log,Entry neutral;
-    linkStyle 0,1,2,3,4,5,8,9,10,18,19,20,21,22,23,24,25,26 stroke:#1c7a58,stroke-width:2px;</pre></div>
+    class Entry,Queue,Brief,Point,Load,Live,Stale,Any,Fleet,Case,Autonomy,Hold,Deeper,Gone,Esc,Base,NoBase,Accept,Amend,Reject,Route,File,Ok,Fail,Log neutral;
+    linkStyle 0,1,2,3,4,5,8,11,12,13,14,24,25,26,27,28,29,30,31,34,35 stroke:#1c7a58,stroke-width:2px;</pre></div>
 
 <div class="node"><span class="lbl">Activation node</span><p><code>Filed</code>, a named node in the diagram rather than something implied. It is <strong>two screens</strong> from the start, Queue then Case File, against a limit of three. The route does not defer first value further than the research promised.</p></div>
 
-<p><strong>Decisions.</strong> Is this the first screen of the shift. Is anything waiting on a decision. Does Clerk&rsquo;s verdict hold. Is the evidence still retrievable. Is this normal at this client.</p>
-<p><strong>States.</strong> <code>Loading</code> while the queue streams. <code>Empty</code> when nothing waits, in which case the fleet fills the pane rather than a blank. <code>Empty</code> again when a tenant has no baseline yet, which is a real case for a newly onboarded client and recovers back into the decision.</p>
-<p><strong>The dead end is deliberate, and there is only one.</strong> If the underlying source has aged out, the analyst can still escalate, but the job as written cannot close: the decision will not be defensible in April. Everything else here recovers.</p>
+<p><strong>Decisions.</strong> Is this the first screen of the shift. Is the live connection holding. Is anything waiting on a decision. Does Clerk&rsquo;s verdict hold. Is the evidence still retrievable. Is this normal at this client. Did the verdict write.</p>
+<p><strong>States.</strong> <code>Loading</code> while the queue streams. <code>Error</code> when the live connection drops, where the queue must say it is stale rather than look healthy and lie. <code>Empty</code> when nothing waits, in which case the fleet fills the pane rather than a blank. <code>Empty</code> again when a tenant has no baseline yet. <code>Error</code> when the verdict does not write, which in a product built on an append-only log is not an inconvenience.</p>
+<div class="node"><span class="lbl">The element that carries the differentiator is now in the route</span><p><code>Autonomy</code> sits between opening the case and judging it, because Clerk&rsquo;s latitude on this tenant is what tells the analyst how hard to look. Critique found it missing: it had been promised in the navigation model as a global element and appeared in no flow at all. The one concrete thing stage 04 is bound to carry was absent from every diagram.</p></div>
+<p><strong>One dead end, and it now has a way out.</strong> If the source has aged out the job cannot close, because the decision will not be defensible in April. The analyst escalates with the gap named and returns to the queue. The node stays red because the job failed, not because the person is stuck. <strong>Critique found the contradiction:</strong> this prose already promised an escalation the diagram did not have.</p>
 <div class="note"><p><strong>All three verdicts are green.</strong> Accept, amend and reject all lead to the closed job, and the highlighted arrows say so. This is design principle 3 drawn rather than asserted: rejecting Clerk is a first-class outcome, not a fallback. A flow that painted only <code>Accept</code> as the happy path would be arguing against its own product.</p>
 <p><strong>R3 gets no separate flow, on purpose.</strong> Teaching the agent lives on the <code>Reject</code> and <code>Route</code> nodes. The rest of that job leaves the analyst&rsquo;s screen and lands on a detection engineer, who is not a user here. Drawing it would be drawing somebody else&rsquo;s product.</p></div>
 </section>
@@ -98,7 +108,8 @@
 <p class="jobline">When I take over a rotation somebody else was working, I want to know what changed and what is waiting on a decision, so that I do not spend my first hour rebuilding what the last shift already knew.</p>
 <div class="diagram"><pre class="mermaid">flowchart TD
     S1([End of shift approaching]) --&gt; Acc[A1 has been accumulating all shift]
-    Acc --&gt; Open{Anything still open?}
+    Acc --&gt; Loading1["Loading: assembling what moved this shift"]
+    Loading1 --&gt; Open{Anything still open?}
     Open --&gt;|no| Thin["Empty: nothing carried over, the brief is short"]
     Open --&gt;|yes| List[Pointers to open cases and what each waits on]
     Thin --&gt; Close
@@ -106,13 +117,17 @@
     Auto --&gt;|yes| Grants[Autonomy changes, each with the evidence behind it]
     Auto --&gt;|no| Close
     Grants --&gt; Close[A1 Shift brief closed by the outgoing analyst]
-    Close --&gt; Sync{Does the incoming analyst arrive before it closes?}
+    Close --&gt; Saved{Did it close cleanly?}
+    Saved --&gt;|no| Err1["Error: close failed, the brief stays open and warns both analysts"]
+    Err1 --&gt; Close
+    Saved --&gt;|yes| Sync{Does the incoming analyst arrive before it closes?}
     Sync --&gt;|yes| Overlap[Overlap: questions asked while both are present]
     Sync --&gt;|no| Written["Written only: no chance to ask"]
     Overlap --&gt; Take
     Written --&gt; Take[A1 read by the incoming analyst]
     Take --&gt; Ready{Is what waits on a decision clear?}
-    Ready --&gt;|no| Rebuild["Dead end: the first hour goes to rebuilding context"]
+    Ready --&gt;|no| Rebuild["Dead end for this job: the first hour goes to rebuilding context"]
+    Rebuild --&gt; Queue1[B1 Case Queue, rebuilding from the cases themselves]
     Ready --&gt;|yes| Go(["Job closed: the shift starts already oriented"])
 
     classDef success fill:#e6f4ee,stroke:#1c7a58,color:#123d2d;
@@ -120,13 +135,13 @@
     classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
     class S1,Go success;
     class Rebuild dead;
-    class Acc,Open,Thin,List,Auto,Grants,Close,Sync,Overlap,Written,Take,Ready neutral;
-    linkStyle 0,1,3,5,7,9,10,12,14,16 stroke:#1c7a58,stroke-width:2px;</pre></div>
+    class Acc,Loading1,Open,Thin,List,Auto,Grants,Close,Saved,Err1,Sync,Overlap,Written,Take,Ready,Queue1 neutral;
+    linkStyle 0,1,2,4,6,8,10,13,14,16,18,21 stroke:#1c7a58,stroke-width:2px;</pre></div>
 
 <p><strong>The first node carries the correction from stage 02.</strong> The brief has been accumulating all shift; it is not written at the end. The interviewed responders put the failure mode exactly at the end of the shift, and one of them had already solved it by letting the notes accumulate through the day.</p>
-<p><strong>Decisions.</strong> Is anything still open. Did any tenant change latitude. Does the incoming analyst overlap with the outgoing one. Is what waits on a decision clear.</p>
-<p><strong>States.</strong> <code>Empty</code> when nothing carries over, which is a good outcome and must not look like a broken screen. <code>Written only</code> when there is no overlap, which is the common case: 73% of organisations allow remote work at least some of the time, and the responders working remotely described the written handover permanently replacing the verbal one.</p>
-<p><strong>Why that dead end is red rather than grey.</strong> The goal of this job is to not spend the first hour rebuilding. Once the hour is spent it cannot be unspent, so there is no route back to the goal. The analyst still works; the job still failed.</p>
+<p><strong>Decisions.</strong> Is anything still open. Did any tenant change latitude. Did the brief close cleanly. Does the incoming analyst overlap with the outgoing one. Is what waits on a decision clear.</p>
+<p><strong>States.</strong> <code>Loading</code> while the brief assembles what moved. <code>Empty</code> when nothing carries over, which is a good outcome and must not look like a broken screen. <code>Error</code> when the close fails, where the brief stays open and warns <strong>both</strong> analysts rather than one. <code>Written only</code> when there is no overlap, the common case: 73% of organisations allow remote work at least some of the time.</p>
+<p><strong>Why that dead end is red, and where it now leads.</strong> The goal is to not spend the first hour rebuilding. Once spent it cannot be unspent, so the job failed. The analyst still has somewhere to go: the queue, rebuilding from the cases themselves, which is exactly the expensive path this job existed to avoid.</p>
 </section>
 
 <section id="answer">
@@ -135,14 +150,19 @@
 <p class="jobline">When a client or an auditor questions a decision made months ago, I want to show what was known at the time, so that the answer comes from the record instead of my memory.</p>
 <div class="diagram"><pre class="mermaid">flowchart TD
     S2([A client questions a decision from February]) --&gt; Log[D1 Decision log]
-    Log --&gt; Find{Is the case findable?}
+    Log --&gt; Load2["Loading: the log is large, narrowing before rendering"]
+    Load2 --&gt; Find{Is the case findable?}
     Find --&gt;|no| Search["Empty: narrow by tenant, asset or date"]
     Search --&gt; Find
     Find --&gt;|yes| Entry2[Log entry carrying the evidence snapshot]
-    Entry2 --&gt; Snap{Does the snapshot answer the question?}
+    Entry2 --&gt; Intact{Is the snapshot intact?}
+    Intact --&gt;|no| Corrupt["Error: the snapshot did not survive, and the log says so rather than showing a gap"]
+    Corrupt --&gt; Live
+    Intact --&gt;|yes| Snap{Does the snapshot answer the question?}
     Snap --&gt;|no| Live[Try the live evidence instead]
     Live --&gt; Ret{Still retrievable?}
-    Ret --&gt;|no| Dead2["Dead end: the answer rests on memory rather than the record"]
+    Ret --&gt;|no| Dead2["Dead end for this job: the answer rests on memory rather than the record"]
+    Dead2 --&gt; Own[Say so to the client, and log the gap]
     Ret --&gt;|yes| Entry2
     Snap --&gt;|yes| Answer[Answer assembled from the record]
     Answer --&gt; Won(["Job closed: answered without a new investigation"])
@@ -152,11 +172,11 @@
     classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
     class S2,Won success;
     class Dead2 dead;
-    class Log,Find,Search,Entry2,Snap,Live,Ret,Answer neutral;
-    linkStyle 0,1,4,5,10,11 stroke:#1c7a58,stroke-width:2px;</pre></div>
+    class Log,Load2,Find,Search,Entry2,Intact,Corrupt,Snap,Live,Ret,Own,Answer neutral;
+    linkStyle 0,1,2,5,6,9,15,16 stroke:#1c7a58,stroke-width:2px;</pre></div>
 
-<p><strong>Decisions.</strong> Is the case findable. Does the snapshot answer the question. Is the live evidence still retrievable.</p>
-<p><strong>States.</strong> <code>Empty</code> on a search that returns nothing, recovering by narrowing on tenant, asset or date.</p>
+<p><strong>Decisions.</strong> Is the case findable. Is the snapshot intact. Does the snapshot answer the question. Is the live evidence still retrievable.</p>
+<p><strong>States.</strong> <code>Loading</code> before rendering, because the log is large. <code>Empty</code> on a search that returns nothing, recovering by narrowing on tenant, asset or date. <code>Error</code> when the snapshot itself did not survive, a different failure from the source ageing out, where the log has to <strong>say so</strong> rather than render a gap that looks like an answer.</p>
 <div class="node"><span class="lbl">The same dead end appears twice</span><p>Here and in the main flow, both routes fail at the same place: evidence that no longer exists. The business outcome in the research is the share of client escalations where the original evidence answered the question without new investigation, and this is the node that decides it.</p></div>
 </section>
 
@@ -164,7 +184,7 @@
 <h2>04 &middot; What the flows did not change</h2>
 <p class="h2sub">The concept map held</p>
 <p><strong>No new screens appeared.</strong> Every node that is a screen already exists in the concept sitemap: A1, B1, B2, C1, D1. <code>Pointer</code>, <code>Overlap</code> and <code>Route</code> are steps or events rather than screens, and <code>Route</code> deliberately leaves the product.</p>
-<p><strong>R4 has no flow</strong> because it is scoped LATER, and drawing a route for a deferred screen would imply it is being built.</p>
+<div class="note"><p><strong>Recorded debt, found by the second instrument.</strong> E1, F1 and F2 have no flows, because drawing a route for a deferred screen implies it is being built. The consequence is written down rather than left implicit: <strong>when those screens come off the backlog they will arrive with no empty, error or loading states defined</strong>, and whichever stage picks them up owes that work before drawing them.</p></div>
 <p><strong>These diagrams are versioned as text.</strong> An exported image would tell git that a file changed; the text tells it what changed in the route.</p>
 </section>
 
