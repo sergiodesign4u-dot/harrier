@@ -113,3 +113,84 @@ These are not in the main list. They are written as jobs because that is the use
 ## What each job has to survive
 
 The solution-agnostic test, applied to every job above: no function name appears, and no single mechanism is locked. "Know what changed and what is waiting on a decision" is a job because a handoff document, a diff view, a verbal briefing or a filtered queue could all be hired for it. "Read the handoff report" would not be a job, because the mechanism is already inside the sentence.
+
+---
+
+## The matrix
+
+Rows are jobs, columns are personas, the cell is importance from 1 to 3.
+
+**Importance is inferred, not measured.** No importance number exists in `research.md`, so each row names the research signal it rests on. Where there is no signal, the cell is `[?]` rather than an average.
+
+Coverage in the COMPETITORS column is derived from the matrix axes and the gaps section of `competitors.md`, not from a per-job table invented for this file.
+
+| Job | P1 | P2 | Signal behind the importance | FUNCTION, from the inventory | COMPETITORS |
+|---|---|---|---|---|---|
+| **MAIN.** Decide whether Clerk's verdict holds | **3** | 1 | P1: this is her whole shift, and the activation node is First Verdict. P2: reads outcomes rather than adjudicating each case | 3 Case file, 4 Verdict, 6 Autonomy state | **No.** Gap 2: nobody publishes the residual queue. Expel publishes a queue but is human-led |
+| **R1.** Pick up and hand off a shift | **3** | 2 | P1: UCL, a bad handover means "you spend your first hour rediscovering context someone else already had"; 79% of SOCs run 24/7. P2: owns coverage, and one UCL participant rebuilt shift cycles to cover the busiest hours | **empty**, see the finding below | **No.** Gap 6, verified across thirteen products |
+| **R2.** Answer for a decision made months ago | 2 | **3** | P1: rare per case, but it is why the record exists at all. P2: the question arrives through the client relationship and the SLA sits with them | 8 Append-only decision log | **Partly.** An evidence trail is table stakes and every competitor publishes one. Whether any holds a point-in-time snapshot is `[?]`, the consoles are behind login |
+| **R3.** Teach the agent where it was wrong | 2 | **3** | P1: under satisficing this happens only if it is cheap. P2: tuning quality is what lets them widen latitude | 4 Verdict, with the rejection reason routed to tuning | **Partly.** Dropzone shows a context-memory update in a worked narrative and Prophet says "nothing is learned silently". Whether a human rejection routes to tuning is `[?]` |
+| **R4.** Tell the client what happened | 2 | **3** | P1: writes it. P2: owns it, and it is the Revenue lever in `aarrr.md` | 5 Client summary | **Partly.** At Expel the client sees the same screen as the analyst. A summary drafted by the agent and sent under the analyst's name is `[?]` |
+| **P2-MAIN.** Know where the record has earned latitude | **`[?]`** | **3** | P1: `[?]` **whether an analyst needs the fleet at all is unverified.** HJ1 is our own writing, not an analyst's. P2: this is the job | 1 Fleet view, 6 Autonomy state, 7 Review lane | **No.** Gap 1: nobody sells a fleet view of trust. This is the differentiator |
+
+**Emotional and social jobs are not scored here.** They are satisfied by *how* the functional jobs are done rather than by functions of their own, and a row with no FUNCTION cell would only be pretending to be a job.
+
+---
+
+## Conclusion 1: the MVP core
+
+Derived from the matrix. The rule is: important to the primary persona **and** not closed by the market.
+
+**Two jobs qualify honestly, not three.**
+
+| In the core | The cell that proves it |
+|---|---|
+| **MAIN** | P1 = 3, COMPETITORS = No |
+| **R1, the shift** | P1 = 3, COMPETITORS = No, and it is the one gap verified across all thirteen products |
+
+The third slot does not qualify under the rule, and it is not filled with invented importance. It enters as a **deliberate exception**, named as one:
+
+> **P2-MAIN, the fleet view of trust, enters the core as an exception.** Not on importance to the primary persona, which is `[?]`, but because `CLAUDE.md` binds stage 04 to carry the strategic dimension with a concrete element on the reference screen. Removing it removes what makes the product different from Simbian.
+>
+> **This is H1, the riskiest hypothesis in the project.** The MVP core therefore holds the risk in the open rather than hiding it. If H1 falls, this is the job that leaves the core, and the product becomes a better residual queue rather than a fleet of earned trust.
+
+**Why the rest are out, and why little is lost:**
+
+- **R3** does not need its own slot. Its function is **4 Verdict**, which is already in the core through MAIN. Design principle 3 does not end up without a feature behind it
+- **R2** likewise. Its function, **8 Append-only decision log**, is a compliance requirement in `CLAUDE.md` and ships regardless of core status
+- **R4** is the only one genuinely deferred. The client summary is a Revenue lever rather than something the analyst does every shift
+
+---
+
+## Conclusion 2: orphan features
+
+**A different input and a different check.** This is not derived from the matrix. It is the eight features in `lean-ux-canvas.md` section 5 checked one by one against the jobs formulated above. Features outside that inventory are not invented here.
+
+| # | Feature | Job it serves |
+|---|---|---|
+| 1 | Fleet view | P2-MAIN |
+| 2 | Cross-tenant case queue | MAIN, R1 |
+| 3 | Case file | MAIN |
+| 4 | Verdict | MAIN, R3 |
+| 5 | Client summary | R4 |
+| 6 | Autonomy state, armed and active | MAIN, P2-MAIN |
+| **7** | **Review lane for cases Clerk closed on its own, sampled rather than exhaustive** | **orphan** |
+| 8 | Append-only decision log | R2 |
+
+**One orphan, number 7.** It appears in no FUNCTION cell. The need under it is real and is written in `aarrr.md`: knowing what the agent did while nobody was watching. But no job was formulated for it.
+
+The fork is honest: either a job is formulated at stage 03a, something like "check the work I never saw", or the feature goes. No third option is offered.
+
+**Idle control passed.** The check found exactly one orphan out of eight, so it is not a check that can never fail.
+
+**The mirror finding.** R1 has a job, has a product decision in `aarrr.md` for the shift handoff, and has **no line in the canonical list of eight**. One feature without a job, one job without a feature, both gaps in the same file.
+
+**A third defect found by this cross-check.** `CLAUDE.md` points the MVP scope at "`research/docs/research.md`, section 2, Solutions". No section called Solutions exists anywhere in `research.md`. The real list is `lean-ux-canvas.md` section 5. The pointer is corrected at the closing ritual.
+
+---
+
+## Narrowing, not adding
+
+The stage 01 scope was eight features held as intent. It is now **three jobs in the core**, carrying features 1, 2, 3, 4, 6 and 8.
+
+Deferred: 5, the client summary. Held pending a decision: 7, the review lane.
