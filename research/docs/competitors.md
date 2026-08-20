@@ -4,7 +4,7 @@ All facts below were read on pages opened live on 2026-08-20. Nothing here comes
 
 Collection guardrail: public and pre-login pages only. No accounts were created and nothing was logged into. Working SOC consoles sit behind login across all five HARD competitors, so interface evidence comes from marketing pages, public product documentation and help centres. Where that is the source, the finding says which.
 
-Status: HARD collected. SOFT and ASPIRATIONAL pending.
+Status: HARD and SOFT collected. ASPIRATIONAL pending.
 
 ## HARD: same product, same audience
 
@@ -55,3 +55,41 @@ Prophet already sells earned autonomy: "you decide when its track record justifi
 | Does an MDR analyst actually want one cross-tenant queue, or does switching client context deliberately, one at a time, protect them from mixing up environments? | SOC analyst with MDR experience. No such person on hand, so it stands to me as product owner until stage 02 | If context switching is a safety feature rather than friction, the main dashboard stops being one merged queue and becomes a fleet view that hands off into a single tenant |
 | Who moves a tenant's autonomy level: the analyst, the SOC lead, or the client themselves? | SOC lead or service delivery manager, same caveat as above | Decides whether the autonomy control lives in the operator console at all, or only in an admin surface the analyst can read but not change |
 | Is the market's per-investigation pricing (Dropzone: up to 4,000 investigations per year per AI analyst) or per-endpoint pricing (Intezer) incompatible with a product that deliberately routes more work back to humans? | Me as product owner | If volume pricing is the norm, the business model line in `CLAUDE.md` is wrong and the product has to justify why a human decision is worth paying for |
+
+## SOFT: different product, same job to be done
+
+The job held constant across this group: **one operator rules on a queue of machine-prepared cases across many accounts, and every verdict has to survive being questioned later.** Different industries, same shape.
+
+| Product | Why it is in this group | What to study | Source read 2026-08-20 |
+|---|---|---|---|
+| **Sift** | Fraud decisioning across 700+ brands, 1.11 trillion events evaluated per year, 70% fewer manual reviews. Sells "Clearbox control": visibility into the signals, models and workflows behind every decision, with real-time control over thresholds | The evidence chip pattern and the routing model: a risk score that splits into Allow, Step-up and Block with a tunable share on each | [sift.com/platform](https://sift.com/platform/) |
+| **Alloy** | Identity and financial crime decisions for 900+ banks and fintechs, 90% of account openings automated. Their AI Assistant is sold on the analyst quote "gives me the confidence to quickly review and close watchlist alerts based on the insights it provides" | Confidence framed as the thing the analyst gets, not the thing the model has. And how decisions stay defensible in front of a regulator | [alloy.com/actionable-ai](https://www.alloy.com/actionable-ai) |
+| **Intercom Copilot** | AI drafts, human sends under their own name, across many customer accounts. Claims 31% agent efficiency. "Every answer links its top sources, so agents can validate them right in the inbox" | Inline citation on every generated claim, plus a separate manager dashboard that reviews how agents actually use the AI | [intercom.com/helpdesk/copilot](https://www.intercom.com/helpdesk/copilot) |
+| **PagerDuty** | Operations Console for high-pressure moments across many services, alert noise cut by 91%, 750+ integrations. The closest public analogue to Harrier's main screen, and its real interface is documented publicly | Queue mechanics: saved views, live toggle, density control, and what a row is allowed to carry | [pagerduty.com/platform/aiops](https://www.pagerduty.com/platform/aiops/), [support.pagerduty.com/main/docs/operations-console](https://support.pagerduty.com/main/docs/operations-console) |
+
+### The second interface we could read
+
+PagerDuty publishes a real screenshot of the Operations Console. Screenshot: `screens/pagerduty-operations-console-ui-2026-08-20.jpg`.
+
+- **Live is a toggle, not a default.** A green "Live" switch sits next to the page title. Real-time updating is opt in, so rows do not move under the cursor while an operator is reading one. Worth taking directly
+- **The queue is shaped by named views, not by filters alone.** A tab row reads My teams, All, Assigned to me, Open, Acknowledged, Triggered. Under it, the active filter is spelled out as editable chips: "[Created] in last 24 hours", "[Status] is Acknowledged, Triggered", "Sorted by Created". The operator can always read why this list contains what it contains
+- **Row density is a first-class control**, three icons in the top right of the table
+- **Columns:** number, Status, Priority, Title, Latest alert at, Alerts, Assigned to, Assigned team, Last Note. Status and Priority are coloured pills
+- **"Last Note" is the interesting column.** A free-text human field surfaced in the list, carrying lines like "running diagnostics". It is the only column that says what is happening rather than what happened, and it exists because the rest of the row could not carry it
+- Sample content: `#161332 Triggered P2 AWS SECURITY ALERT: GuardDuty Finding: Connection to SSO broken`, `Alert - Synthetic failure on 10.44.55.112`
+
+### What SOFT teaches that HARD did not
+
+- **Sift and Alloy both frame confidence as something the operator gets, not something the model reports.** Alloy's own customer quote is "gives me the confidence to quickly review and close". None of the five HARD competitors said it that way. A confidence percentage is a property of the model; confidence to act is a property of the person, and the second one is what the interface is actually for
+- **Sift shows the evidence as named chips before it shows a score.** "Impossible travel", "New device", "Email age 2d", "12 logins / min", under the heading "Why Sift decided, full signal trail". Cheap to read, hard to argue with, and it survives being pasted into an email to a client
+- **A score can route instead of rank.** Sift's decision workflow takes one risk score and splits it three ways, Allow, Step-up, Block, with a tunable share on each. Harrier's per-tenant autonomy dial is the same mechanism, moved from one product-wide policy to one policy per client
+- **Intercom puts a source link on every generated claim, in the inbox, at the moment of validation.** Not in an audit tab, not behind a details drawer
+- **PagerDuty makes the filter legible rather than hiding it.** In a dense queue the operator's first question is not "what is here" but "what is missing from this list", and editable filter chips answer it without a trip to settings
+
+### Open questions from this group
+
+| Question | Addressed to | What changes in the product when it is answered |
+|---|---|---|
+| Should Harrier's queue be shaped by named saved views the way PagerDuty does, or by one opinionated ordering the product owns? | Me as product owner, revisited at stage 03a | Named views make the product configurable and put the burden of a good queue on the operator. One opinionated order means the product has to be right, and has to explain its ranking. This decides what the main dashboard is |
+| Does a client-facing summary written by Clerk and sent under an analyst's name create liability the analyst will not accept? | SOC lead or service delivery manager. No such person on hand, so it stands to me until stage 02 | If the analyst refuses to own generated text, the client summary stops being a draft to approve and becomes a structured record the analyst assembles from parts |
+| Is a per-tenant autonomy dial actually the same mechanism as Sift's Allow / Step-up / Block routing, and if so should Harrier show it as three lanes rather than one slider? | Me as product owner, resolved at wireframes | A slider says "how much do I trust this". Three lanes say "where does the work go". The second is easier to reason about under pressure and easier to audit |
