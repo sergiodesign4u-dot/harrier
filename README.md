@@ -6,14 +6,15 @@ Built as a design engineering case study. Rules of the project live in `CLAUDE.m
 
 **Live: https://sergiodesign4u-dot.github.io/harrier/**
 Stage 01: https://sergiodesign4u-dot.github.io/harrier/research/research.html
+Stage 02: https://sergiodesign4u-dot.github.io/harrier/research/personas.html and https://sergiodesign4u-dot.github.io/harrier/research/jtbd.html
 
 ## Status
 
 | Stage | Status |
 |---|---|
 | Foundation Research | Done. 13 competitors read live, 20 screenshots, benchmark on calibrated trust across 4 out-of-category products, Lean UX Canvas, AARRR, 5 UX patterns with one chosen, critique in two instruments |
-| User Research | Not started |
-| CJM (As-Is + To-Be) | Not started |
+| User Research | Done. Two personas from three practitioner studies, 5 verbatim analyst quotes where stage 01 had none, one main job and four related, MVP core narrowed to three, critique on three instruments with 20 findings and one overlap |
+| CJM (As-Is + To-Be) | Out of track. The shortened track runs 01 to 07. The steps of the journey are owned by the stage 03a user flow instead |
 | Information Architecture (IA) | Not started |
 | Wireframes | Not started |
 | Voice | Not started |

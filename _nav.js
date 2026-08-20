@@ -31,11 +31,11 @@
 // першу ГОТОВУ сторінку групи, тому він ніколи не вказує на ще неіснуючий файл.
 window.NAV = [
   { label:'Foundation Research', page:'research/research.html', done:true },
-  { label:'User Research', wip:true, children:[
+  { label:'User Research', children:[
       { label:'Personas',  page:'research/personas.html',  done:true },
       { label:'JTBD',      page:'research/jtbd.html',      done:true },
-      { label:'CJM As-Is', page:'research/cjm-as-is.html', done:false },
-      { label:'CJM To-Be', page:'research/cjm-to-be.html', done:false },
+      { label:'CJM As-Is', page:'research/cjm-as-is.html', done:false, skip:true },
+      { label:'CJM To-Be', page:'research/cjm-to-be.html', done:false, skip:true },
   ]},
   { label:'Information Architecture (IA)', children:[
       { subhead:'Base layer' },
@@ -85,9 +85,9 @@ window.NAV = [
   // не має віддавати бейдж наступному.
   var nextItem = NAV.filter(function(it){
     var ps = pagesOf(it);
-    return it.wip || ps.length === 0 || ps.some(function(p){ return !p.done; });
+    return it.wip || ps.length === 0 || ps.some(function(p){ return !p.done && !p.skip; });
   })[0] || null;
-  var nextPage = nextItem ? (pagesOf(nextItem).filter(function(p){ return !p.done; })[0] || null) : null;
+  var nextPage = nextItem ? (pagesOf(nextItem).filter(function(p){ return !p.done && !p.skip; })[0] || null) : null;
 
   function badge(text){ var b = document.createElement('span'); b.className = 'nav-badge nav-badge-' + text.toLowerCase(); b.textContent = text; return b; }
   function sectionList(){
@@ -145,7 +145,7 @@ window.NAV = [
       item.children.forEach(function(c){
         if (c.subhead) { var h = document.createElement('li'); h.className = 'nav-subhead'; h.textContent = c.subhead; sub.appendChild(h); return; }
         var isCur = (c === current);
-        var tag = (c === nextPage && !isCur) ? 'Next' : ((!c.done && !isCur) ? 'SOON' : null);
+        var tag = (c === nextPage && !isCur) ? 'Next' : (c.skip ? 'OFF' : ((!c.done && !isCur) ? 'SOON' : null));
         sub.appendChild(subItem(c.label, (c.done || isCur) ? c.page : null, isCur, tag));
         // сторінка поза реєстром стає власним під-пунктом і несе СВОЇ NAV_SECTIONS
         if (c === hinted) sub.appendChild(subItem(window.NAV_ACTIVE_LABEL || document.title, null, true, null));
