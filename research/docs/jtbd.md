@@ -194,3 +194,66 @@ The fork is honest: either a job is formulated at stage 03a, something like "che
 The stage 01 scope was eight features held as intent. It is now **three jobs in the core**, carrying features 1, 2, 3, 4, 6 and 8.
 
 Deferred: 5, the client summary. Held pending a decision: 7, the review lane.
+
+---
+
+## Assumptions and open risks
+
+Stage 02, Step 5. Critique on two instruments, sets taken independently and merged afterwards. Claude ran a pass on broken chains from data to conclusion; Codex ran read-only over `personas.md` and `jtbd.md` against `research.md`, looking for claims without support, drift from the source, and orphans in both directions. Neither saw the other's table before both were complete.
+
+**Twenty findings, one overlap, nineteen distinct.** Nothing is fixed yet: fixes happen at Step 6 and only after re-reading the place in the file.
+
+### First, the divergences
+
+The most valuable thing a second instrument gives at this stage is a line one instrument called confirmed and the other could not find support for. Four such lines, all four resolved in Codex's favour.
+
+| Line | Claude's verdict when writing | Codex | Resolution |
+|---|---|---|---|
+| `personas.md` "It is the first and last screen of her shift" | Treated as a consequence of the 24/7 and remote-work data | No support. `research.md` establishes 24/7, remote work and a written handoff, and says nothing about first or last screens | **Codex is right.** This is a design decision wearing the clothes of a finding |
+| `personas.md` "69% of SOCs still report metrics manually. This is the person who does it" | Treated as sourced from SANS | The figure appears nowhere in `research.md`, and nothing says the lead is the one who does it | **Both halves stand.** The figure is real and was read in the SANS PDF, but it never entered `research.md`, so inside this repository it has no chain. The attribution to the lead is mine and has no source at all |
+| `personas.md` "62% of SOC professionals say their organisation is not doing enough to retain top talent" | Treated as sourced from SANS | The figure appears nowhere in `research.md` | **Same class.** Real number, missing chain |
+| `jtbd.md` R4 "without my rewriting it, so that explaining the work does not cost more than doing it" | Treated as grounded in the non-user beneficiary | Neither motivation exists in the source; the cited support only establishes that a beneficiary reads summaries, and that liability for them is explicitly open | **Codex is right.** Two motivations invented inside a job formulation |
+
+### The merged table
+
+| # | Class | Where | Finding | Who found it |
+|---|---|---|---|---|
+| 1 | Source that does not exist | `jtbd.md:54`, `jtbd.md:130` | "you spend your first hour rediscovering context someone else already had" is attributed to the UCL handover study. **The phrase does not appear in that paper**: "first hour", "rediscovering context" and "rediscover" are all absent. It came from a search-result summary of a blog that was never opened | **Both**. Codex saw a quote with no support in `research.md`; Claude verified against the paper itself |
+| 2 | File contradicts itself | `jtbd.md:134` against `jtbd.md:177` | The matrix lists feature 7, the review lane, in the FUNCTION cell for P2-MAIN. The orphan check then calls the same feature an orphan that "appears in no FUNCTION cell". One of the two is wrong, **and the idle control claim rests on it** | Claude |
+| 3 | One piece of evidence doing two contradictory jobs | `personas.md`, P1 facts and P2 behaviour | RIT Finding 4, analysts with three or more years find step-by-step guidance irrelevant, is used both to characterise P1 (four years) and to separate P2 from P1. If it describes P1 it cannot be what distinguishes P2. **P2's core claim, that they audit the explanation rather than consume it, has no source at all** | Claude |
+| 4 | Conclusion stronger than the data | `personas.md`, Observations B | "She starts sceptical, and that is measured." SANS measures satisfaction ratings for a tool category across SOCs, not an individual's prior attitude toward a new tool. Direction holds, strength does not, and this line was marked as outranking everything else in the section | Claude |
+| 5 | One case rendered as a role attribute | `personas.md`, P1 facts | "12-hour shifts [UCL participant]" sits in a facts table as a characteristic of the role. In the source it is one person. **And `CLAUDE.md` still says 10-hour shifts**, so two project files disagree | Claude |
+| 6 | Chain does not connect | `jtbd.md`, MVP core | The fleet job enters the core citing the rule that binds stage 04 to carry the strategic dimension on the reference screen. That rule governs what stage 04 must show, not what belongs in an MVP core. The conclusion may be right; the stated reasoning does not reach it | Claude |
+| 7 | Overstated uniqueness | `jtbd.md:130` | The handoff gap is called "the one gap verified across all thirteen products". Gap 2, nobody publishes the residual queue, is equally across thirteen | Claude |
+| 8 | Population mismatch | `personas.md`, P1 facts | 79% operational 24/7 is SANS across SOCs generally, including internal ones. The persona is at a provider | Claude |
+| 9 | A correction left a neighbouring file stale | `research.md:210` | The handoff decision was corrected in `aarrr.md` to composed continuously. **H6 still reads "If a shift handoff is composed at the end of every shift"** | Claude |
+| 10 | Material about people that never reached the persona | `research.md:241` | The evidence index records that Intercom Copilot ships "a separate manager dashboard reviewing AI use". This is the closest thing in the whole package to evidence that the rope-holder needs a surface of their own rather than a permission level, and it is absent from P2 | Claude |
+| 11 | Claim without support | `personas.md:131` | "It is the first and last screen of her shift", stated as fact with no `[?]` | Codex |
+| 12 | Claim without support | `personas.md:214` | "69% of SOCs still report metrics manually. This is the person who does it". Figure absent from `research.md`; the attribution to the lead has no source | Codex |
+| 13 | Claim without support | `personas.md:215` | "62% of SOC professionals say their organisation is not doing enough to retain top talent". Figure absent from `research.md` | Codex |
+| 14 | Claim without support | `jtbd.md:74` | R4 adds two motivations the source does not carry: "without my rewriting it" and "explaining the work does not cost more than doing it" | Codex |
+| 15 | Claim without support | `jtbd.md:91` | The social job attributes a reputational motive and a wish to avoid being re-checked. The cited support establishes only variation in handover quality, no formal training, and senior feedback | Codex |
+| 16 | Drift from the source | `jtbd.md:65` | R3 says "for the rest of the quarter". Its own cited support is the metric "produced a tuning change **within 14 days**". The horizon was widened without grounds | Codex |
+| 17 | Structural orphan | `jtbd.md:103-109` | HJ1 and HJ2 are written as jobs but carry no `Persona:` line, unlike MAIN and R1 to R4 | Codex |
+| 18 | Material about people that never reached the persona | `research.md:298` | "The handoff is composed continuously and closed at the end", together with the observed practice "you can actually write it in Teams as the day's going on", is absent from the persona, which describes the handoff only as a screen and as an end-of-shift problem | Codex |
+| 19 | Material about people that never reached the persona | `research.md:300` | "The handoff is signposting, not a document", and the ticket-reference practice behind it, never reached the persona at all | Codex |
+
+### What each instrument could not see
+
+Codex found nothing in classes 2, 3, 4 and 6, which need a reading of what the product is trying to do rather than a comparison of files. Claude found nothing in classes 12 to 17, which need patient line-by-line comparison against the source and no memory of what was meant.
+
+**Codex also missed two findings inside its own radius**, both cross-file contradictions it was equipped to catch: the 10-hour against 12-hour disagreement between `CLAUDE.md` and `personas.md`, and the stale H6 in `research.md`. A second instrument widens coverage; it does not make it complete.
+
+### The three questions that would close the most dangerous gaps
+
+Ordered by danger.
+
+**Q1. Does an analyst carrying many tenants actually consult a cross-tenant view of trust, or work case by case and never look up?** This decides whether the third job in the MVP core exists at all, and it is H1. Honest answer on where to look: this needs a working MDR analyst, and stage 02 does not have one. It cannot be closed from public sources.
+
+**Q2. What does a Tier-2 analyst read in a queue row before deciding to open it?** Closes behaviour 1, the entry point, which carries reason 1 of the chosen pattern and decides what the first glance must deliver. Where to look: published default column sets in shipping consoles, Defender and Sentinel and Expel already read, plus any study of triage cognition.
+
+**Q3. Is the person who moves autonomy a different behaviour, or only a different permission level?** Decides whether P2 is a persona or a role. Where to look: pre-login documentation on roles and access in Prophet, Dropzone and Simbian, plus the RIT finding that access level changes what a person can see, plus the Intercom manager dashboard already in the evidence index.
+
+### Verification rule for Step 6
+
+Every line above is re-read in the file before it is touched. A finding that does not hold on re-reading stays in this table marked **dropped on verification**, with the reason. A false finding deleted quietly comes back next time in the same words.
