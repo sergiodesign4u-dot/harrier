@@ -108,3 +108,136 @@ Step 2 asks for a quote that holds the mood and forbids synthesising one. **Verb
 **Plus the question Step 2 turns on:** we do not know how many behavioural groups are here. The analyst and the SOC lead may be one behaviour with different rights, in which case there is one persona.
 
 **Four open questions that do not concern people stay unresolved in `research.md`:** pricing, saved views against one opinionated ordering, a slider against three named lanes, and whether MDR providers treat their tooling as a competitive secret.
+
+---
+
+## How many personas the data gives
+
+**Two.** A third behavioural group is named below and deliberately not made a persona, with the evidence for it and the consequence if that call is wrong. Two further groups, the detection engineer and the client's security contact, fail the ballast test: neither has a screen in this MVP.
+
+Personas are split by behaviour. A demographic fact appears only when it comes with a consequence for the design.
+
+---
+
+## P1. The adjudicator `PRIMARY`
+
+**Rasha Idrissi, Tier-2 analyst at an MDR provider, four years in operations.**
+
+### Facts that change the design
+
+| Fact | What it changes |
+|---|---|
+| Four years in operations, the most common tenure band, three to five years, at 31% [SANS SOC Survey 2025] | RIT found that analysts with three or more years want the system to augment their speed rather than reiterate fundamentals. **Clerk does not explain what she already knows** |
+| A 24/7 rotation [79% of SOCs, SANS], 12-hour shifts [UCL participant], remote at least part of the time [73%, SANS] | The handoff is written and asynchronous. It is the first and last screen of her shift, not an accessory to the product |
+| 40 or more tenants `PREMISE` | Every queue row has to carry which client it belongs to |
+
+### Context and trigger
+
+*Answers: where the flow starts and what the first screen is.*
+
+A shift starts with somebody else's unfinished work. She did not choose this tool; the provider bought it and entered through a bake-off (`aarrr.md`, Acquisition).
+
+### Jobs, draft
+
+*Answers: which functions are needed and what enters the MVP. Canonical wording is set at Step 3 and replaces this list.*
+
+- Rule on the case in front of her fast enough to keep up and well enough to defend later
+- Know whether this is normal at **this** client
+- Disagree with Clerk cheaply and have the disagreement matter
+- Pick up a shift without rediscovering context
+- Answer a question in April about a decision made in February
+
+### Pains
+
+*Answers: what the product removes, and how we will know it did.*
+
+- The explanation is either missing or too long. An analyst: "During triage, I ignore lengthy explanations. What I need most are straightforward next steps." And: "diving into deep algorithm explanations slows me down" [RIT]
+- A confidence percentage with no account of where it came from. An explanation is more meaningful "if I have some context about how that percentage was generated" [RIT]
+- No organisational perspective. A detection platform "doesn't have the organizational perspective... if that is there then it is like wonders" [RIT]
+- Tools explain a single alert while she needs the incident: "we have to find a connection between the critical and the high alerts to determine if it's an incident or part of an attack process" [RIT]
+- The tenant boundary is hard in the tool she uses today. Real work opens "in a new tab for that tenant", and "you can only assign multiple incidents from same tenant" [Microsoft Defender multitenant management]
+- The end of the shift corrupts the record: "over-utilised analysts are just gonna be ready to just get out and head home. So they just wanna get it done fast, and rush" [UCL]
+
+### Trust triggers
+
+*Answers: what to show as proof of trustworthiness, and where.*
+
+**She starts sceptical, and that is measured.** AI/ML tools rank at the bottom of the SOC satisfaction list; of three AI/ML technologies measured two rank at the very bottom and generative language tools score 2 out of 4, while EDR/XDR is the only technology above 3 out of 4 because it is fully deployed, effective and backed by training. 42% of SOCs run AI/ML out of the box with no customization [SANS].
+
+What flips her is not accuracy. Participants were "consistently willing to accept XAI outputs, even in cases of lower predictive accuracy, when explanations were perceived as relevant and evidence-backed" [RIT].
+
+And there is a ceiling: more explanation can **reduce** trust once it introduces confusion or doubt [RIT, the trust-explainability curve].
+
+**Design consequence.** The first thing Clerk shows must be the cheapest correct thing. Depth is one keystroke away, not on screen.
+
+### Quote that holds the tone
+
+> "During triage, I ignore lengthy explanations. What I need most are straightforward next steps."
+
+SOC analyst, RIT study, 24 in-depth interviews. Verbatim, not synthesised.
+
+### Open, as hypotheses
+
+- Assume she recognises the shape of a case before reading it. Verify with a timed first-glance test on a queue row with the detail hidden. `[?]` This is behaviour 1, and three design decisions rest on it
+- Assume 40 or more tenants per analyst. Verify by asking three MDR providers their analyst-to-client ratio. `PREMISE`
+- Assume tenant switching costs her measurably. Verify by timing verdicts on familiar against unfamiliar tenants. `[?]`
+
+---
+
+## P2. The rope-holder `SECONDARY`
+
+**Tomas Berg, SOC lead and service delivery manager.**
+
+### The behaviour that separates them from P1
+
+They do not **consume** Clerk's explanation, they **audit** it. And they decide where the agent earns more latitude. This is a different job, not a different job title.
+
+| Evidence | Source |
+|---|---|
+| Analysts with three or more years find step-by-step remediation guidance irrelevant and prefer the system to augment speed | RIT, Finding 4 |
+| Access level changes what a person can see at all: "Based on their access, the information they can see changes... we want to add all of that into a summarized version" | RIT |
+| One participant owns their team's handover procedure and rebuilt shift cycles to put more people on the busiest part of the day; another organisation limits handover writing to senior staff | UCL |
+| 69% of SOCs still report metrics manually. This is the person who does it | SANS |
+| 62% of SOC professionals say their organisation is not doing enough to retain top talent | SANS |
+
+### Trust trigger
+
+They carry the liability `PREMISE`. They will widen latitude on a record they can show a client, not on a vendor's published rate.
+
+### Quote that holds the tone
+
+`[?]` **None held.** No verbatim line from a SOC lead exists in our sources, and synthesising one is forbidden.
+
+### Open, as a hypothesis about whether this persona uses the product at all
+
+- Assume the autonomy control lives in the operator console and only the lead can move it. Verify by asking three SOC leads who they would let move it. `[?]`
+
+This is open question 2 from stage 01. **Whether P2 is a user of this console is unresolved**, and that is the largest single risk carried into stage 03a.
+
+---
+
+## Named and deliberately not a persona
+
+**1. The junior, or Tier-1 analyst.** The evidence exists: an explainable dashboard could serve as a learning aid by "talking to [them] like another colleague" [RIT], and new analysts writing handovers "talk about anything and everything that's happened" [UCL].
+
+Not a persona, because Harrier's premise is the **residual queue**: the work that survives auto-resolution is precisely the work that needs judgment.
+
+**Consequence if this call is wrong.** If MDR providers staff the residual queue with juniors, the product needs a teaching mode, and P1's pain "do not explain what I already know" inverts into its opposite. Recorded as a risk. No design is built for it.
+
+**2. The detection engineer.** Consumes rejection reasons. No screen in this MVP. Consequence: the rejection interface has to emit something machine-routable, even though we build no surface for the person who receives it.
+
+**3. The client's security contact.** Never logs in `PREMISE`. Their trust is built almost entirely out of the summaries they receive. Consequence: the summary is a product surface even though its reader is not a user.
+
+---
+
+## What `PRIMARY` does
+
+Not what it means. What it does, because stages 03a, 04 and 07 read this line.
+
+> **A conflict between decisions is resolved in favour of P1.** She carries the higher risk and holds fewer levers. P2's scenarios must work, but the interface is not built around them.
+
+**Criterion used to choose.** Primary is the person whose needs are not met by a design built for the other, and who stands closest to the activation node.
+
+**Why P1.** The activation node is First Verdict (`aarrr.md`), and the case file, the product's centre of gravity, is hers. A surface built for P1 serves P2; the reverse does not hold. This also settles what the main dashboard is: **the queue, with the fleet as the resting state of the detail pane**, rather than a fleet view with the queue underneath it.
+
+**Why P2 is secondary rather than absent.** P2 owns the SLA and the decision to widen Clerk's latitude, which is the differentiator itself. They are secondary because their decisions are periodic and considered, while P1 decides continuously under time pressure, and an interface tuned for the second case survives the first better than the reverse.
