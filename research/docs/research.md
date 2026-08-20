@@ -20,7 +20,7 @@ All competitor and benchmark pages were opened live on 2026-08-20. Nothing in th
 
 2. **Nobody shows the queue that remains.** The residual work after auto-resolution is where every hard decision now lives and where an analyst spends the whole shift. No vendor selling auto-resolution publishes a view of what is left after it. The only working analyst queue published anywhere across the thirteen products is Expel's Workbench, in its documentation, and Expel is human-led rather than auto-resolving, so it is not the residual queue either.
 
-3. **Multi-tenancy in this category means isolation or switching, never a fleet.** Simbian's Context Lake isolates each tenant's data, and what Simbian sells publicly is one 92% auto-resolve rate across all clients. Whether the product carries a per-tenant trust level internally is `[?]`: the working console is behind login. Expel makes the tenant a dropdown in the top bar, so the analyst is inside one client at a time. Prophet is single-tenant by design and says so.
+3. **Multi-tenancy in this category means isolation or switching, never a fleet.** `CORRECTED AT STAGE 02` Simbian's Context Lake isolates each tenant's data, and its headline number is one 92% auto-resolve rate. **The `[?]` on whether a per-tenant trust level exists inside the product is now closed against us:** Simbian publishes "per-tenant autonomy configuration" for MSSP and MDR deployments, with four named modes that progress per action and per alert type. What still holds is the second half of the claim: the fleet is configured, not displayed. See section 9. Expel makes the tenant a dropdown in the top bar, so the analyst is inside one client at a time. Prophet is single-tenant by design and says so.
 
 4. **Earned autonomy already exists, and that changes our claim.** Prophet sells "Autonomy on your terms": it acts only within approved scope and "you decide when its track record justifies widening that scope". So earned autonomy is not the differentiator. What nobody does is make earned trust **per tenant and visible on a fleet view**.
 
@@ -186,7 +186,7 @@ Three reasons:
 
 | Gap | Evidence | Source |
 |---|---|---|
-| Nobody **sells** a fleet view of trust | Simbian isolates tenant data in a per-tenant Context Lake and markets one 92% auto-resolve rate across all clients; whether a per-tenant trust level exists inside the product is `[?]`. Prophet earns autonomy per organisation, but deploys single-tenant. The gap is in what is sold and shown publicly, which is all a pre-login pass can establish | [simbian.ai/solutions/mssp-mdr](https://simbian.ai/solutions/mssp-mdr), [prophetsecurity.ai/ai-soc-analyst](https://www.prophetsecurity.ai/ai-soc-analyst) |
+| Nobody **displays** a fleet of trust `NARROWED AT STAGE 02` | Simbian publishes per-tenant autonomy configuration with four named modes, earned per action and per alert type, so per-tenant earned latitude is no longer the gap. Prophet earns autonomy per organisation but deploys single-tenant. **What nothing found publishes is the fleet as a readable operator surface**, all tenants' current latitude and accuracy trend legible at one glance where the analyst works, rather than on a configuration page. See section 9 | [simbian.ai/solutions/mssp-mdr](https://simbian.ai/solutions/mssp-mdr), [prophetsecurity.ai/ai-soc-analyst](https://www.prophetsecurity.ai/ai-soc-analyst) |
 | Every competitor optimises for the human seeing less; none shows the moment the human still has to decide | Five vendors sell 92%, 91%, 85%, 99.9% and 70% reductions. None publishes a view of what remains after them. Expel publishes a real analyst queue, but Expel is human-led, so that queue is not a residual one | `competitors.md`, HARD and SOFT tables |
 | Base rate is per environment and should be per tenant | Datadog puts "Past month signal count" in the signal header, answering "is this normal here" for one organisation. In a 40-tenant console that question has 40 answers | [docs.datadoghq.com, Investigate Security Signals](https://docs.datadoghq.com/security/cloud_siem/triage_and_investigate/investigate_security_signals/) |
 | The accept, edit or reject atom has not moved from code review into security | Cursor: a queue titled "READY FOR REVIEW 5", a size measure before opening, a compact work trail, a numbered fork when unsure. Security still ships confidence percentages | [cursor.com](https://cursor.com/en-US) |
@@ -252,6 +252,8 @@ Every screenshot in `research/screens/` and the claim it proves. A screenshot th
 | `ucl-handover-difficulties` | The handoff fails at the end of the shift: fatigue, rush, information stale within 30 minutes, six reports to read for three days of context (stage 02) |
 | `sans-soc-survey-2025-key-findings` | 79% of SOCs operational 24/7; 42% use AI/ML tools out of the box with no customization; 85% triggered by endpoint alerts (stage 02) |
 | `rit-xai-soc-findings` | Analysts accept AI output at lower accuracy when the explanation is evidence-backed; a confidence percentage needs the context that generated it; missing organisational perspective is named as the gap (stage 02) |
+| `simbian-four-autonomy-modes` | Four named autonomy modes, latitude earned per action and per alert type, "not linear and not global", and per-tenant autonomy configuration for MSSP and MDR (stage 02, Step 6) |
+| `defender-queue-assistant` | An ML-scored queue that explains its own prioritisation, auto-generated incident names built to carry scope at a glance, saved filter sets, and keyboard traversal of the queue from the summary pane (stage 02, Step 6) |
 | `defender-multitenant-incidents` | A shipping cross-tenant queue with Tenant name as a row column, where real work opens a new tab for that tenant and assignment cannot cross tenants (stage 02) |
 
 ---
@@ -321,3 +323,62 @@ This is the part of the pass that touches design principle 2 most directly, and 
 - **Forty tenants per analyst.** Still `PREMISE`. SANS gives SOC size, two to ten people is the most common fully staffed SOC, but no analyst-to-client ratio was found in any public source
 
 One further paper was read and is **not** used as evidence about people: Chowdhury and Tanvir, "Decision-Aware Trust Signal Alignment for SOC Alert Triage", arXiv 2601.04486, 8 Jan 2026. Its finding that "false negatives are greatly amplified by the presence of misaligned displays of confidence" comes from simulation on the UNSW-NB15 benchmark with logistic regression and random forest, not from analysts. The paper describes a human study as a plan, not a result. It is cited here only for naming the asymmetry our product rests on, that a missed attack costs far more than a false alarm, and it is `[?]` as a claim about behaviour.
+
+---
+
+## 9 Targeted follow-up at stage 02, Step 6
+
+Two questions were carried out of the Step 5 critique. Both were taken to public, pre-login pages. **One came back with an answer that removes half of our stated differentiator**, and that is recorded here before anything else.
+
+### The differentiator narrows for the second time
+
+Stage 01 recorded a gap: nobody sells a fleet view of trust, and whether any competitor carries a per-tenant trust level inside the product was `[?]`, because the consoles are behind login. **That `[?]` is now closed, and closed against us.**
+
+Simbian publishes it. From `simbian.ai/blog/automated-incident-response-modes`, read live on 2026-08-20:
+
+- **Four named autonomy modes**, not a slider: **Read-only**, **Dry-run**, **Guided**, **Autopilot**. Read-only "produces a full investigation narrative, proposes a verdict, and stops". Guided "executes them only after an analyst approves in the queue". Autopilot "executes pre-approved action classes autonomously, inside explicit guardrails, and writes the full audit trail on every case"
+- **Latitude is earned, and they say so in those words**: "on this specific action, on this specific alert type, inside these specific guardrails, the agent has demonstrated enough accuracy against your data that you've decided to let it act"
+- **It is not one setting**: "Progression from Read-only to Autopilot is not linear and not global. A mature deployment might run Autopilot on brute-force account containment, Guided on DLP violations, Dry-run on new EDR alert types, and Read-only on identity-provider actions that touch privileged accounts, all at once"
+- **And it is per tenant**: "For MSSP and MDR deployments, the same substrate runs multi-tenant with per-customer memory, **per-tenant autonomy configuration**"
+
+**What this kills.** "Earned autonomy per tenant" is not ours. Prophet already sold earned autonomy, which narrowed the claim once at stage 01. Simbian sells earned autonomy **per tenant and per action class**, which narrows it again.
+
+**What survives, and it is thinner.** Nothing found publishes the **fleet as a readable surface**: all tenants' current latitude and accuracy trend legible at one glance, in an operator console, as the resting state of the screen rather than as a configuration page. Simbian's per-tenant autonomy is **configuration**. Ours has to be **a view**.
+
+The honest form of the differentiator after this pass:
+
+> Competitors let you configure earned latitude per client. Nobody makes the state of that latitude, across forty clients, readable in the place where the analyst actually works.
+
+That is a design claim rather than a capability claim, and it puts the entire weight on stage 04 and stage 07. If the fleet surface does not read at a glance, there is no differentiator left.
+
+**Two smaller consequences.**
+
+- **Open question 6 is effectively resolved by the market.** Should autonomy read as one slider or as named lanes? Two products ship named lanes, Simbian with four modes and Sift with Allow, Step-up and Block. Nothing found ships a slider
+- **Authority sits with an analyst, not with a separate manager role.** "L3 analysts keep containment authority for anything outside the pre-approved envelope". This is one data point, and it weakens P2 as a separate persona rather than settling it
+
+### Q2. What does the row have to carry before it is opened
+
+Behaviour 1, pattern-matching before reading, remains unmeasured on analysts. What follow-up research found is what the dominant platform **bets** on, which is not the same thing and is recorded as such.
+
+From `learn.microsoft.com/en-us/defender-xdr/incident-queue`, updated 04 Aug 2026:
+
+- **The row name is engineered to carry shape.** "For more visibility at a glance, Microsoft Defender generates incident names automatically, based on alert attributes such as the number of endpoints affected, users affected, detection sources, or categories. This specific naming allows you to quickly understand the scope of the incident." The published example is "Multi-stage incident on multiple endpoints reported by multiple sources"
+- **The queue ships an opinionated ordering that explains itself.** The Defender Queue Assistant "surfaces the highest-priority incidents, explains the reasoning behind the prioritization", scoring 0 to 100, colour-banded red above 85, orange 15 to 85, grey below 15. Named inputs include attack disruption signals, severity, MITRE techniques, **asset criticality**, alert rarity
+- **And it also ships saved views.** Filter sets, plus bookmarkable URLs for "New incidents", "High-severity, unassigned incidents", "Incidents assigned to me"
+- **Selecting a row opens a summary pane, and the keyboard walks the queue.** "Use the up and down arrows at the top of the pane to navigate to the previous or next incident in the incident queue"
+
+**What this does to our decisions.**
+
+- **Open question 4, saved views against one opinionated ordering, has a market answer: both.** Microsoft ships a scored ordering that states its reasoning **and** saved filter sets. Treating these as alternatives was our framing, not the market's
+- **Split-pane review with keyboard traversal is shipping in the dominant tool**, which strengthens the stage 01 pattern choice and removes any novelty claim from it
+- **The uncomfortable part.** "A queue that explains why it ordered things this way" already exists. It cannot be part of our differentiation. What Defender's score does not do is answer "is this normal **at this client**", because it scores one tenant's environment
+- Behaviour 1 stays `[?]` as a claim about analysts. It now has a vendor's design bet behind it, which is evidence about the industry's belief and not about people
+
+### Q3. Is the rope-holder a behaviour or a permission level
+
+**Not settled.** Two data points, pulling the same way:
+
+- Simbian: "L3 analysts keep containment authority for anything outside the pre-approved envelope", so authority is held by an analyst tier rather than by a manager
+- Dropzone is reported to use three permission levels, Administrator, Member and Restricted Read Only, with no autonomy-approver role among them. `[?]` **This is secondhand**, from a competitor's comparison guide rather than Dropzone's own documentation, and is not treated as established
+
+The direction is that the industry treats latitude as **configuration under a permission**, not as a distinct role with a distinct job. That weakens P2. It does not close the question, and P2 stays a persona with its existence marked `[?]` in `personas.md`.

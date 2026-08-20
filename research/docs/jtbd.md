@@ -162,7 +162,7 @@ The third slot does not qualify under the rule, and it is not filled with invent
 >
 > **Corrected at Step 5.** The first version justified this by the rule binding stage 04 to carry the strategic dimension on the reference screen. That rule governs what stage 04 must **show**, not what belongs in an MVP core, so the chain did not reach the conclusion.
 >
-> **The reasoning that does reach it.** The strategic dimension recorded in `CLAUDE.md` is calibrated trust that is earned and visible per tenant, and gap 1 says nobody sells it. A core built only of MAIN and R1 is a good residual queue with a good handoff, and it is a product the market gap does not distinguish. The fleet job is what the differentiation rests on, so it enters the core **as the bet**, and it is named as a bet rather than as a qualified job.
+> **The reasoning that does reach it.** The strategic dimension recorded in `CLAUDE.md` is calibrated trust that is earned and visible per tenant. **Narrowed again at Step 6:** Simbian publishes per-tenant autonomy configuration, so earned latitude per tenant is not the gap. What nothing found publishes is the fleet as a readable operator surface rather than a configuration page. A core built only of MAIN and R1 is a good residual queue with a good handoff, and it is a product the market gap does not distinguish. The fleet job is what the differentiation rests on, so it enters the core **as the bet**, and it is named as a bet rather than as a qualified job.
 >
 > **This is H1, the riskiest hypothesis in the project.** The MVP core therefore holds the risk in the open rather than hiding it. If H1 falls, this is the job that leaves the core, and the product becomes a better residual queue rather than a fleet of earned trust.
 
