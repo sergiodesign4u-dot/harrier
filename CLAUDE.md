@@ -1,7 +1,7 @@
 # Harrier
 
 Project boundary: languages 1 (English); brand or existing design system none; screens approx 9.
-Scope decision: built as a portfolio case for a Design Lead home assignment, so the pipeline runs a shortened track 01 to 07 and stops after UI + Visual. Two screens go to full colour: Case Queue (main dashboard) and Case File (AI-assisted case view). The rest of the IA stays as wireframes.
+Scope decision: built as a portfolio case for a Design Lead home assignment, so the pipeline runs a shortened track 01 to 07 and stops after UI + Visual. Full colour goes to **Case Queue with Case File in the detail pane**, which is one working screen in two states, plus Case File as a standalone route for a permalink and for mobile. The rest of the IA stays as wireframes.
 
 ## Product overview
 
@@ -50,9 +50,25 @@ Conflict rule: a conflict between decisions is resolved in favour of the primary
 
 Jobs in `research/docs/jtbd.md`. The steps of the journey inside the main job are owned by the stage 03a user flow, because CJM is not in this track.
 
+## Structure
+
+Six clusters by intent: take the shift, work the queue, rule on the case, answer for it later, tell the client, grant the rope. **Eight screens, five of them MVP.** Full map in `ia/docs/sitemap.md`.
+
+**Main flow.** Queue to Case File to verdict to log. Activation node `File`, **two taps** from landing.
+
+**Global navigation.** Queue, Shift, Log, Clients. **The fleet has no item of its own**: it is the resting state of the Queue's right pane, so it costs zero taps.
+
+**The main dashboard is the queue, with the fleet in the pane. Not the other way round.** Settled by the choice of primary persona, and it is not reopened without reopening that.
+
+Three rules this layer binds on stages 04 and 07:
+
+- **A case that left the analyst's hands must not look identical to one that did not.** `escalated` and `unrecorded` are visible states, not flags in a database
+- **The empty state of the detail pane must read as "this is the fleet", not as "this is empty".** If it does not, the decision to keep the fleet out of the menu has failed
+- **Split-pane review with keyboard traversal of the queue ships in Microsoft Defender.** The pattern is right for the task and carries no novelty; it is not presented as one
+
 ## MVP scope
 
-Canonical feature list in `research/docs/lean-ux-canvas.md`, section 5. Narrowed at stage 02 to the three core jobs named under People above. Not duplicated here: a second copy is the one that goes stale.
+Canonical feature list in `research/docs/lean-ux-canvas.md`, section 5. Narrowed at stage 02 to the three core jobs named under People above, and at stage 03a to five MVP screens against three deferred, in `ia/docs/sitemap.md`. Not duplicated here: a second copy is the one that goes stale.
 
 ## Business model
 
@@ -80,3 +96,4 @@ React with TypeScript. Virtualised tables for lists in the hundreds. Server-sent
 - Statuses: the table in `README.md` and `done` flags in `/_nav.js`.
 - Grounds for decisions: `docs/decisions.md`. Never auto-loaded.
 - Everything known about the market and the people: `research/`.
+- Structure, flows and coverage: `ia/`.

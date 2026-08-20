@@ -2,6 +2,64 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-21 - Stage 03a closed, and what left CLAUDE.md
+
+Deleted as no longer accurate: "Two screens go to full colour: Case Queue (main dashboard) and Case File (AI-assisted case view)." The information architecture established that Case File is the detail pane of the queue plus a standalone route, not a second page. Left as written, stage 04 would have drawn two pages.
+
+Nothing was deleted as chronicle this round, because the stage 02 ritual had already swept it. That is reported rather than dressed up: a ritual that always finds something to cut is being performed rather than run.
+
+Kept after being considered for deletion: the tech stack hypothesis. It earned its place this stage. Server-sent events for the live queue is what produced the screen state "connection lost, the queue is stale and says so", and a hypothesis that yields a screen state is no longer decoration.
+
+Added: a Structure block carrying the six intent clusters, the main flow, the global navigation, the depth in taps, and three rules that bind stages 04 and 07. CLAUDE.md went from 82 to 99 lines against a 200 ceiling.
+
+## 2026-08-21 - Why the clusters are these six, and what was rejected
+
+Screens were grouped by what the person is trying to do, not by sections of a product. Two alternatives were rejected.
+
+**By object**, a screen per entity: cases, tenants, grants, summaries. Rejected because eleven entities against a boundary of roughly nine screens forces a screen per object, and the analyst's work does not decompose that way. Ruling on a case touches four objects at once.
+
+**By competitor menu**, the shape Expel and Defender ship. Rejected on the entry gate rule: structure comes from jobs. Their menus are also built for a single tenant at a time, which is the thing this product argues with.
+
+The six that survived are named as verbs because the cluster has to answer "what am I here to do", and a noun cannot.
+
+## 2026-08-21 - The fleet has no menu item, and what that cost
+
+The fleet is the resting state of the queue's right pane, so it costs zero taps: it is already on screen when nothing is selected. A menu item would make it a place you travel to, and the point is that checking it should not be a trip.
+
+Paid for it in three places, all recorded rather than discovered later: the way back to the fleet is a deselection rather than a navigation, which is a discoverability risk handed to stage 04; the secondary persona's action sits at level three; and the client summary ends up far from the case it grows out of.
+
+The two-tap figure for the start-of-shift path does not rest on trimming a menu. It rests on the handoff being signposting into cases rather than a document, which four of six interviewed responders described. Had the handoff stayed the prose document the original stage 01 decision described, that path would be three taps.
+
+## 2026-08-21 - F1 is deferred while B2 stays in the MVP, and why that is the whole differentiator
+
+Tenant autonomy, the screen where latitude is changed, is scoped LATER. The fleet, the screen where latitude is read, is in the MVP.
+
+This is what is left of the differentiator after stage 02 put into structure rather than into a sentence. Simbian publishes per-tenant autonomy configuration; what nothing found publishes is the fleet as a readable operator surface. Their version is configuration. Ours has to be a view.
+
+It also matches the evidence about who moves latitude: Simbian says "L3 analysts keep containment authority", and whether the control belongs in an operator console at all is still open.
+
+The traceability matrix then sharpened the bet further, and from counting cells rather than from thinking harder: B2 is on the primary persona's landing screen and carries no tick from any job of hers. The explanation is HJ1, a hypothesis assigned to her, which the matrix does not include because it carries only functional jobs. So the bet is not that an analyst will change latitude from the console. It is that seeing where latitude stands changes the decisions they make on cases.
+
+## 2026-08-21 - Two critiques, eighteen findings, and one divergence settled on evidence
+
+Critique #1 hunted defects. Critique #2 checked that the first round's fixes had not broken anything next door. The second round earned its keep twice over.
+
+**The divergence.** Claude called the three red dead ends a defect; Codex called them deliberate. Neither was voted down. Re-reading settled it: the prose beside the nodes already promised that "the analyst can still escalate", and the diagram had no such edge. The file contradicted itself, so the nodes kept their red, because the job still fails, and gained the exit the prose had already promised.
+
+**The fix that created a defect.** Adding an error state for a verdict that does not write produced an unbounded retry loop on the most critical operation in the product. Only the second round could see it, because it did not exist before the first.
+
+**The finding one instrument could not have made.** The activation node was renamed `Filed` to `File` while adding the write check, and the prose was not updated. Claude's own consequence pass missed it because that pass checked structure and not names. Codex reached into that axis and found it.
+
+**What the exits then required.** Two dead ends given a way out left cases in conditions nothing on the map could display. `escalated` and `unrecorded` became named case states, and a recorded gap became a named log action, because a case that left the analyst's hands and looks identical to one that did not is worse than no escalation at all.
+
+## 2026-08-21 - The detail layer is out of track, and the registry now says so
+
+Stage 03b would have produced the node-level sitemap and the structure hub. The shortened track runs 01 to 07 and does not include it.
+
+Left alone, the sidebar would have put its Next badge on Sitemap, the same way it had pointed at CJM before stage 02 closed. Both detail-layer pages now carry `skip:true`, the IA group loses its work-in-progress flag, and Next moves to Wireframes. README says "Detail layer out of track" rather than "Not started".
+
+The consequence is real and belongs here rather than in a footnote: stage 04 draws wireframes from a **concept** layer. It gets clusters, screens, jobs, flows and scope labels, and it does not get per-page node specification. Whatever the detail layer would have settled, wireframes will settle by drawing, and that is a heavier decision than the flag change that records it.
+
 ## 2026-08-21 - Stage 02 closed, and what left CLAUDE.md
 
 Deleted as chronicle rather than rule: "Prophet Security already sells it" and "Codex found four; the first pass found none". Both describe how we arrived somewhere; the rules stand without them and the stories live here.

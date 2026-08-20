@@ -382,3 +382,22 @@ From `learn.microsoft.com/en-us/defender-xdr/incident-queue`, updated 04 Aug 202
 - Dropzone is reported to use three permission levels, Administrator, Member and Restricted Read Only, with no autonomy-approver role among them. `[?]` **This is secondhand**, from a competitor's comparison guide rather than Dropzone's own documentation, and is not treated as established
 
 The direction is that the industry treats latitude as **configuration under a permission**, not as a distinct role with a distinct job. That weakens P2. It does not close the question, and P2 stays a persona with its existence marked `[?]` in `personas.md`.
+
+---
+
+## 10 A gap in the data, found by the information architecture
+
+Stage 03a produced this rather than research, and it is recorded here because it is a question about the world rather than about a screen.
+
+**Both dead ends in the product hang on one number nobody has chosen.** The main flow fails at `Gone`, where the evidence is no longer retrievable, and R2 fails at `Ret`, at exactly the same place. Two different routes, one cause: **how long the underlying evidence lives.**
+
+We never decided a retention window for Harrier. What we hold is one competitor figure, Expel's 15 months from `competitors.md`, and nothing of our own.
+
+**Why it is not an implementation detail.** The business outcome in section 2 is the share of client escalations where the original evidence answered the question without new investigation, with a target of 90%. That number is bounded by the retention window before any design decision touches it. If evidence lives six months and clients ask at nine, the target is unreachable by arithmetic rather than by design.
+
+**It also decides what the snapshot is for.** `CLAUDE.md` requires an append-only log carrying the evidence snapshot as it stood at decision time. If the snapshot is a copy, retention of the source matters less and storage cost matters more. If it is a reference, the source's retention window **is** the product's memory. Stage 03a assumed a copy, because the entity inventory gives Verdict "the evidence snapshot as it stood", and that assumption has never been examined.
+
+| Question | Addressee | What changes | Status |
+|---|---|---|---|
+| How long does the evidence under a case have to remain retrievable | Me as product owner, informed by what MDR contracts actually promise | Sets the ceiling on the 90% target, and decides whether two dead ends are rare or routine | Open |
+| Is the evidence snapshot a copy or a reference | Me as product owner, at stage 03b | A copy makes the log self-sufficient and expensive. A reference makes the source's retention the product's memory | Open, and stage 03a assumed a copy without examining it |
