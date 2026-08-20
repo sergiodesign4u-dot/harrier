@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier · Foundation research</title>
+<link rel="stylesheet" href="../_nav.css">
+<style>
+:root{
+  --bg:#fbfbfa; --panel:#fff; --fg:#16181a; --muted:#6a6f76; --faint:#9aa0a6;
+  --rule:#e3e4e6; --rule-soft:#eeefef;
+  --accent:#0d5a66; --accent-soft:#eef5f6;
+  --flag:#8a5a08; --flag-soft:#fdf6e8;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;
+}
+.shell{display:flex;gap:56px;max-width:1360px;margin:0 auto;padding:56px 40px 120px;align-items:flex-start}
+#sidebar{position:sticky;top:56px;max-height:calc(100vh - 96px);overflow-y:auto}
+main{flex:1;min-width:0}
+
+/* masthead */
+.eyebrow{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+h1{font-size:52px;line-height:1.04;letter-spacing:-.028em;margin:0 0 18px;font-weight:650}
+.lede{font-size:20px;line-height:1.55;max-width:62ch;margin:0 0 32px;color:#2c3034}
+.facts{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 8px}
+.facts div{flex:1 1 150px;padding:14px 20px 14px 0}
+.facts dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 7px}
+.facts dd{margin:0;font-size:15px;line-height:1.4}
+.facts b{font-size:24px;font-weight:650;letter-spacing:-.02em}
+
+/* sections */
+section{padding-top:72px;scroll-margin-top:24px}
+h2{font-size:12px;font-family:var(--mono);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+   margin:0 0 6px;padding-top:26px;border-top:1px solid var(--fg)}
+h2 + .h2sub{font-size:30px;line-height:1.2;letter-spacing:-.02em;font-weight:600;margin:0 0 26px;max-width:26ch}
+h3{font-size:17px;font-weight:650;letter-spacing:-.005em;margin:38px 0 12px}
+h4{font-size:14px;font-weight:650;margin:24px 0 8px}
+p{margin:0 0 15px;max-width:74ch}
+ul,ol{margin:0 0 15px;padding-left:20px;max-width:74ch}
+li{margin:0 0 7px}
+a{color:var(--accent);text-underline-offset:2px}
+code,.mono{font-family:var(--mono);font-size:.88em;background:#f2f3f3;padding:1px 5px;border-radius:3px}
+strong{font-weight:650}
+.q{font-family:var(--mono);font-size:11px;color:var(--flag);background:var(--flag-soft);border:1px solid #f0e2c4;
+   padding:1px 5px;border-radius:3px;white-space:nowrap}
+
+/* tables */
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.5;min-width:560px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{font:600 10px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+   background:#f7f8f8;border-bottom:1px solid var(--rule);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600}
+.sc{text-align:center;font-family:var(--mono);font-weight:600;width:64px}
+.s1{background:#fafafa;color:#a8adb2}.s2{background:#f4f6f6}.s3{background:#e9f0f1}
+.s4{background:#d9e8ea}.s5{background:#c3dde1;color:var(--accent)}
+
+/* callout */
+.node{border:1px solid var(--accent);background:var(--accent-soft);border-radius:6px;padding:18px 22px;margin:0 0 22px}
+.node .lbl{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
+.node p{margin:0;max-width:none}
+.note{border-left:2px solid var(--rule);padding:2px 0 2px 18px;margin:0 0 20px;color:var(--muted);font-size:15px}
+.note p{margin:0 0 10px}.note p:last-child{margin:0}
+
+/* canvas */
+.canvas{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin:0 0 12px}
+.canvas > div{background:var(--panel);padding:16px 18px;min-height:132px}
+.canvas .wide{grid-column:span 2}
+.canvas .full{grid-column:span 4}
+.canvas .risk{background:var(--accent-soft)}
+.canvas h5{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+.canvas .risk h5{color:var(--accent)}
+.canvas p{font-size:13.5px;line-height:1.5;margin:0 0 8px;max-width:none}
+.canvas p:last-child{margin:0}
+.attrib{font-size:12.5px;color:var(--faint);margin:0 0 8px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px;margin:0 0 20px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:17px 19px}
+.card .n{font:600 10px/1 var(--mono);letter-spacing:.1em;color:var(--accent);display:block;margin-bottom:9px}
+.card p{font-size:14px;line-height:1.55;margin:0;max-width:none}
+.card p + p{margin-top:9px}
+.hyp{background:var(--panel);border:1px solid var(--rule);border-left:2px solid var(--accent);border-radius:0 6px 6px 0;padding:16px 19px;margin:0 0 12px}
+.hyp .tag{font:600 10px/1 var(--mono);letter-spacing:.1em;color:var(--accent);margin-right:9px}
+.hyp .tag.r{color:#8a1b1b}
+.hyp p{font-size:14.5px;line-height:1.6;margin:0;max-width:none}
+.hyp .why{color:var(--muted);font-size:13.5px;margin-top:9px}
+
+/* gallery */
+.gal{display:flex;gap:14px;overflow-x:auto;padding:2px 2px 16px;margin:0 0 20px;scroll-snap-type:x proximity}
+.gal figure{flex:0 0 306px;margin:0;scroll-snap-align:start}
+.gal img{width:100%;height:196px;object-fit:cover;object-position:top center;border:1px solid var(--rule);border-radius:5px;background:#fff;display:block}
+.gal figcaption{font-size:12.5px;line-height:1.45;color:var(--muted);margin-top:9px}
+.gal figcaption b{display:block;color:var(--fg);font-family:var(--mono);font-size:11px;font-weight:600;margin-bottom:3px}
+
+.who{font-family:var(--mono);font-size:11px;white-space:nowrap}
+.done{color:var(--accent)}.dropped{color:var(--flag)}
+
+@media (max-width:1080px){
+  .shell{flex-direction:column;gap:36px;padding:36px 24px 90px;align-items:stretch}
+  #sidebar{position:static;max-height:none;width:auto;flex:none}
+  main{width:100%;max-width:100%}
+  h1{font-size:38px}
+  .canvas{grid-template-columns:repeat(2,1fr)}
+  .canvas .wide,.canvas .full{grid-column:span 2}
+.canvas .full{grid-column:span 4}
+}
+@media (max-width:600px){
+  .shell{padding:28px 18px 70px}
+  h1{font-size:31px}
+  .lede{font-size:17px}
+  h2 + .h2sub{font-size:23px}
+  .canvas{grid-template-columns:1fr}
+  .canvas .wide,.canvas .full{grid-column:span 1}
+  .gal figure{flex:0 0 250px}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 01 · Foundation research</p>
+<h1>Harrier</h1>
+<p class="lede">An adjudication console for analysts at managed detection and response providers. One analyst carries 40 or more client tenants. An AI agent named Clerk assembles the case and files a draft verdict. The human rules on it.</p>
+
+<dl class="facts">
+  <div><dt>Competitors read live</dt><dd><b>13</b> across three groups</dd></div>
+  <div><dt>Screens captured</dt><dd><b>20</b> all consumed as evidence</dd></div>
+  <div><dt>Benchmark, outside security</dt><dd><b>4</b> products, 8 criteria</dd></div>
+  <div><dt>Critique findings</dt><dd><b>17</b> two instruments</dd></div>
+</dl>
+<div class="note"><p>Every competitor and benchmark page was opened live on 20 August 2026. Nothing here comes from model memory. Unverified claims carry <span class="q">[?]</span>. Harrier is an invented product, so its operating premises are marked <code>PREMISE</code>: they are decisions, not measurements.</p></div>
+
+<section id="intro">
+<h2>01 · Introduction</h2>
+<p class="h2sub">Five findings, and what they changed in the brief</p>
+
+<div class="cards">
+  <div class="card"><span class="n">FINDING 01</span><p><strong>The category has one position and it is unanimous.</strong> Simbian: “your analysts review the 8% that need judgment, not the 92% that don’t.” Intezer: “human SOC teams review outcomes, not tickets.” Dropzone: “100% Software Execution. No vendor-provided human safety drivers.” Every one of them sells the number of cases the human no longer sees.</p></div>
+  <div class="card"><span class="n">FINDING 02</span><p><strong>Nobody shows the queue that remains.</strong> The residual work after auto-resolution is where every hard decision lives and where the shift is spent. No vendor selling auto-resolution publishes a view of it. The only working analyst queue published across the thirteen is Expel’s, and Expel is human-led.</p></div>
+  <div class="card"><span class="n">FINDING 03</span><p><strong>Multi-tenancy here means isolation or switching, never a fleet.</strong> Simbian isolates tenant data and markets one rate across all clients. Expel makes the tenant a dropdown in the top bar. Prophet is single-tenant by design and says so.</p></div>
+  <div class="card"><span class="n">FINDING 04</span><p><strong>Earned autonomy already exists, and that narrowed our claim.</strong> Prophet sells “Autonomy on your terms,” widened when the track record justifies it. So earned autonomy is not the differentiator. What nobody does is make earned trust <em>per tenant and visible across a fleet</em>.</p></div>
+  <div class="card"><span class="n">FINDING 05</span><p><strong>Confidence is a model property inside security and an operator property outside it.</strong> Alloy’s own customer quote: the AI “gives me the confidence to quickly review and close.” Sift calls its version “Clearbox control.” None of the five direct competitors said it that way.</p></div>
+</div>
+
+<h3>What the research changed in the brief</h3>
+<div class="tw"><table>
+<tr><th>In the original brief</th><th>After research</th></tr>
+<tr><td>Earned autonomy as the differentiator</td><td>Corrected. Prophet already sells it. The claim narrows to earned autonomy <strong>per tenant, visible across the fleet</strong></td></tr>
+<tr><td>Priced per analyst seat plus per monitored asset</td><td>Challenged, not settled. Dropzone charges per investigation volume, up to 4,000 per year per AI analyst. Intezer charges per endpoint with no volume fees. The market prices machine work</td></tr>
+<tr><td>“Clerk shows its work or it shows nothing”</td><td>Sharpened. Every competitor publishes an evidence trail, so a trail is table stakes. The differentiator is that the number names its claim, scope and window</td></tr>
+<tr><td>Confidence as a model property</td><td>Reversed. Confidence is what the operator gets. The interface exists for that one</td></tr>
+<tr><td>Nothing about shift handoff</td><td>Added. No product across the thirteen addresses what an incoming analyst is told. That this is the riskiest hour is our hypothesis <span class="q">[?]</span>; that it is unserved is verified</td></tr>
+</table></div>
+</section>
+
+<section id="canvas">
+<h2>Lean UX Canvas</h2>
+<p class="h2sub">The whole strategy on one sheet</p>
+<p class="attrib">Format: Lean UX Canvas v2 by Jeff Gothelf. Detail in <code>lean-ux-canvas.md</code>.</p>
+<div class="canvas">
+  <div class="wide"><h5>1 · Business problem</h5><p>An MDR provider cannot safely give an agent more work without a way to show, per client, how much latitude it has earned and what it did with it. Until that exists, growth is capped by how much risk a service delivery lead will carry blind.</p></div>
+  <div class="wide"><h5>2 · Business outcomes</h5><p>+40% tenants per analyst at a flat reversal rate. 60% of tenants above entry autonomy after 90 days. 90% of client escalations answered by the original evidence. Median time to verdict under 4 minutes. 50% of rejections producing a tuning change within 14 days. All targets are hypotheses.</p></div>
+  <div><h5>3 · Users</h5><p>Tier-2 SOC analyst at an MDR provider, 40+ tenants, 6+ hours a day in the tool. SOC lead who owns SLA and autonomy. Detection engineer who consumes rejections. The client’s security contact, who never logs in.</p></div>
+  <div><h5>4 · User outcomes</h5><p>Know if this is normal at this client. See how hard Clerk looked before deciding how hard to look. Disagree in one action and have it matter. Answer in April about a decision made in February with the case file, not memory.</p></div>
+  <div class="wide"><h5>5 · Solutions</h5><p>Fleet view. Cross-tenant case queue. Case file with narrative, evidence, per-tenant base rate and provenance. One-key verdict. Client summary drafted by Clerk. Per-tenant autonomy shown as armed and active. Review lane for autonomous closes. Append-only decision log.</p></div>
+  <div class="wide"><h5>6 · Hypotheses</h5><p>We believe an analyst will carry more tenants without more reversals if they get context on an unfamiliar client without leaving the case, with a per-tenant base rate in the case header. Five more in the same form.</p></div>
+  <div class="wide risk"><h5>7 · Riskiest assumption</h5><p>An analyst carrying 40 tenants makes faster and better-defended decisions when the agent’s latitude varies per client than when it is one flat policy. If varying trust is just 40 more things to hold in working memory, the differentiator becomes overhead and Harrier is a worse Simbian. A value risk, not a feasibility risk.</p></div>
+  <div class="full"><h5>8 · First test</h5><p>Prototype, no engineering. Eight to ten MDR analysts, two conditions, twelve cases from five fictional tenants. Hide the queue after 60 seconds and ask which clients Clerk may close on its own. Then measure time to verdict and how many verdicts they reverse once shown the full evidence.</p></div>
+</div>
+</section>
+
+<section id="strategy">
+<h2>02 · Strategy</h2>
+<p class="h2sub">One dimension the product has to be best at</p>
+<div class="node">
+  <span class="lbl">Strategic dimension</span>
+  <p><strong>Calibrated trust in an automated agent.</strong> The operator knows exactly how much to trust Clerk right now, on this tenant, and that trust is earned and visible rather than asserted. Stage 04 must carry it with a concrete element on the reference screen. Stage 07 must check it did not dissolve.</p>
+</div>
+<p>Defensibility of a decision and speed under volume both matter, but we treat both as consequences: an analyst is fast because they trust the case file in front of them, and a verdict is defensible because the evidence behind it was visible when it was made. That causal chain is reasoning, not a finding <span class="q">[?]</span>, and it is the argument for preferring this dimension over the other two.</p>
+<h3>Audience</h3>
+<p><strong>Primary:</strong> Tier-2 SOC analyst at an MDR provider. Ten-hour shifts on two monitors, 40 or more tenants. Paid to be fast, judged on being right, slowed down by the fear of the one true positive closed as noise. <code>PREMISE</code>: no analyst has been interviewed. Stage 02 builds the real persona.</p>
+<p><strong>Secondary:</strong> SOC lead, who owns SLA and the decision to give Clerk more rope. <strong>Tertiary:</strong> detection engineer, who acts on rejection reasons. <strong>Non-user beneficiary:</strong> the client’s security contact, whose trust is built almost entirely out of summaries they receive, which is why the summary is a product surface and not an export.</p>
+</section>
+
+<section id="funnel">
+<h2>03 · AARRR</h2>
+<p class="h2sub">One metric and one product decision per stage</p>
+<div class="node">
+  <span class="lbl">Activation node · First Verdict</span>
+  <p>The analyst rules on a Clerk-assembled case, with the evidence in view, and files it. The atomic moment the product exists to produce, and the node the stage 03a user flow has to reach as directly as possible.</p>
+</div>
+<div class="tw"><table>
+<tr><th>Stage</th><th>One metric</th><th>Target</th><th>One product decision</th></tr>
+<tr><td>Acquisition</td><td>Bake-offs entered</td><td><span class="q">[?]</span> baseline first</td><td><strong>Replay.</strong> Rebuild the residual queue from 30 days of the prospect’s own alert history</td></tr>
+<tr><td>Activation</td><td>First verdict within 30 min of first login. The threshold is arbitrary until a real distribution replaces it</td><td>80%</td><td><strong>The first case is not live.</strong> A replayed case with a known outcome, so the first act of trust is checkable</td></tr>
+<tr><td>Retention</td><td>Four-week analyst retention</td><td>85%</td><td><strong>Shift handoff.</strong> What moved, what waits, which tenants changed autonomy, what Clerk closed unwatched</td></tr>
+<tr><td>Revenue</td><td>Net revenue retention on assets added</td><td>125%</td><td><strong>Tenant trust report,</strong> white-labelled, showing both sides of the ledger including where latitude fell</td></tr>
+<tr><td>Referral</td><td>Evaluations naming an existing customer</td><td>30%</td><td><strong>Shareable case file.</strong> Redacted permalink, with the redaction visible in the artifact</td></tr>
+</table></div>
+<p>Every stage of this funnel is answered by the same object, the case file. Replay shows a prospect a queue of them, activation is ruling on one, the trust report aggregates them, referral forwards one. That is where the centre of gravity sits, and it tells stage 03a that the detail screen is not beside the dashboard but underneath everything.</p>
+</section>
+
+<section id="competitors">
+<h2>04 · Competitors</h2>
+<p class="h2sub">Thirteen products, and only two readable interfaces</p>
+<p>Collection guardrail: public and pre-login pages only, no accounts created. All five direct competitors keep their working console behind login, so interface evidence comes from documentation and help centres. Two working interfaces were readable anywhere: Expel Workbench and the PagerDuty Operations Console.</p>
+
+<h3>Comparison matrix</h3>
+<div class="tw"><table>
+<tr><th></th><th>Simbian</th><th>Prophet</th><th>Expel</th><th>Cursor</th><th>Datadog SIEM</th></tr>
+<tr><td>Core object</td><td>Alert auto-resolved</td><td>Alert investigated end to end</td><td>Investigation → incident</td><td>Task with a diff</td><td>Signal → case</td></tr>
+<tr><td>Where the human sits</td><td>Reviews the residual 8%</td><td>Approves scope, not each case</td><td>Works the case, client observes</td><td>Rules on every diff</td><td>Triages every signal</td></tr>
+<tr><td>How autonomy is set</td><td>One public rate. Per-tenant policy inside is <span class="q">[?]</span></td><td>Per organisation, earned</td><td>Auto remediations per org</td><td>Per action</td><td>Per rule, with suppressions</td></tr>
+<tr><td>How agent work is shown</td><td><span class="q">[? behind login]</span></td><td>Every question and query documented</td><td>A log entry, with a checkbox to hide it</td><td>Verb trail, diff, measured outcome</td><td>Rule as readable clauses</td></tr>
+<tr><td>What is charged for</td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td></tr>
+</table></div>
+
+<h3>Evidence</h3>
+<div class="gal">
+  <figure><img src="screens/expel-view-an-investigation-ui-2026-08-20.jpg" alt="Expel Workbench investigation screen"><figcaption><b>Expel Workbench</b>Tenant as a top-bar dropdown. Row columns describe a record, not a shape. And a checkbox: “Hide Ruxie actions.”</figcaption></figure>
+  <figure><img src="screens/pagerduty-operations-console-ui-2026-08-20.jpg" alt="PagerDuty Operations Console"><figcaption><b>PagerDuty console</b>Live as an explicit toggle. Named saved views. The active filter spelled out in editable chips. A “Last Note” column.</figcaption></figure>
+  <figure><img src="screens/simbian-mssp-mdr-2026-08-20.jpg" alt="Simbian MSSP and MDR page"><figcaption><b>Simbian</b>Per-tenant Context Lake, reasoning never crosses tenants, 92% auto-resolved, “review the 8% that need judgment.”</figcaption></figure>
+  <figure><img src="screens/prophet-ai-soc-analyst-2026-08-20.jpg" alt="Prophet Security AI SOC analyst page"><figcaption><b>Prophet Security</b>“Autonomy on your terms.” Scope widens when the track record justifies it. “Nothing is learned silently.”</figcaption></figure>
+  <figure><img src="screens/dropzone-ai-soc-analyst-2026-08-20.jpg" alt="Dropzone AI SOC analyst page"><figcaption><b>Dropzone AI</b>“Glass Box, Not Black Box.” A worked case ending in a benign dismissal and a context-memory update.</figcaption></figure>
+  <figure><img src="screens/dropzone-pricing-2026-08-20.jpg" alt="Dropzone pricing page"><figcaption><b>Dropzone pricing</b>Priced by investigation capacity, up to 4,000 per year per AI analyst. MSSP plan is a dedicated multi-tenant environment.</figcaption></figure>
+  <figure><img src="screens/intezer-ai-soc-2026-08-20.jpg" alt="Intezer AI SOC page"><figcaption><b>Intezer</b>“Human SOC teams review outcomes, not tickets.” Endpoint pricing, no volume fees. Trust framed as a threshold to cross.</figcaption></figure>
+  <figure><img src="screens/expel-workbench-2026-08-20.jpg" alt="Expel Workbench product page"><figcaption><b>Expel Workbench page</b>Ruxie enriches every alert across 160+ tools before it reaches the queue. The client sees the same screen as the analyst.</figcaption></figure>
+  <figure><img src="screens/sift-platform-2026-08-20.jpg" alt="Sift platform page"><figcaption><b>Sift</b>“Clearbox control.” Evidence as named chips under “Why Sift decided.” One score routed to Allow, Step-up, Block.</figcaption></figure>
+  <figure><img src="screens/alloy-actionable-ai-2026-08-20.jpg" alt="Alloy Actionable AI page"><figcaption><b>Alloy</b>Confidence framed as what the operator gets: “gives me the confidence to quickly review and close.”</figcaption></figure>
+  <figure><img src="screens/intercom-copilot-2026-08-20.jpg" alt="Intercom Copilot page"><figcaption><b>Intercom Copilot</b>Every generated answer links its top sources so agents validate in the inbox, not in an audit tab.</figcaption></figure>
+  <figure><img src="screens/linear-home-agents-2026-08-20.jpg" alt="Linear home page"><figcaption><b>Linear</b>“Reviews” as a top-level destination. Agent actions in the shared feed with a named actor. “Worked for 7s.”</figcaption></figure>
+  <figure><img src="screens/cursor-ready-for-review-2026-08-20.jpg" alt="Cursor desktop interface"><figcaption><b>Cursor</b>A queue titled “READY FOR REVIEW 5.” A size measure per row. A compact verb trail. An outcome reported as a measurement.</figcaption></figure>
+  <figure><img src="screens/datadog-cloud-siem-signal-panel-2026-08-20.jpg" alt="Datadog Cloud SIEM signal panel"><figcaption><b>Datadog Cloud SIEM</b>Base rate in the header. “What happened” first, in prose. A fixed “Next steps” rail splitting triage from action.</figcaption></figure>
+  <figure><img src="screens/superhuman-go-2026-08-20.jpg" alt="Superhuman home page"><figcaption><b>Superhuman</b>Split Inbox, Daily Briefs, and inline suggestions that underline without taking the turn.</figcaption></figure>
+  <figure><img src="screens/prophet-security-home-2026-08-20.jpg" alt="Prophet Security home page"><figcaption><b>Prophet, home</b>Deploys as a dedicated single-tenant environment, so multi-tenancy is explicitly not their shape.</figcaption></figure>
+</div>
+
+<h3>Three shared patterns, three differences</h3>
+<div class="cards">
+  <div class="card"><span class="n">PATTERN</span><p><strong>The evidence trail is the product.</strong> “Glass Box, Not Black Box,” “Clearbox control,” every query documented, the rule rendered as readable clauses. Nobody in this set defends an unexplained verdict.</p></div>
+  <div class="card"><span class="n">PATTERN</span><p><strong>The list narrows rather than browses.</strong> PagerDuty spells the filter out in editable chips, Superhuman shapes the inbox before the operator arrives, Cursor names the list after the decision it wants.</p></div>
+  <div class="card"><span class="n">PATTERN</span><p><strong>Volume is the sales unit.</strong> 92% auto-resolved, 91% noise cut, 85% less manual investigation, 99.9% fewer leads, 70% fewer manual reviews.</p></div>
+  <div class="card"><span class="n">DIFFERENCE</span><p><strong>Multi-tenancy is isolation or switching, never a fleet.</strong> Nobody shows all clients at once as one working surface.</p></div>
+  <div class="card"><span class="n">DIFFERENCE</span><p><strong>Two opposite answers to agent output.</strong> Linear puts agent actions in the shared feed with a named actor. Expel gives the analyst a checkbox to hide them.</p></div>
+  <div class="card"><span class="n">DIFFERENCE</span><p><strong>Uncertainty is a number or a question.</strong> Security reports a confidence score. Cursor stops and asks a numbered question with options.</p></div>
+</div>
+</section>
+
+<section id="benchmark">
+<h2>05 · Benchmark</h2>
+<p class="h2sub">Calibrated trust, judged outside security entirely</p>
+<p>Four products from fields that have been calibrating human trust in automation on real people for decades. A fifth candidate, clinical triage AI, was opened and dropped: the public pages carry solution marketing and no examinable mechanism.</p>
+<div class="tw"><table>
+<tr><th>Criterion</th><th>Waymo</th><th>NWS forecast</th><th>Aviation FMA</th><th>Stockfish</th></tr>
+<tr><td>Stated scope of competence</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s4">4</td><td class="sc s3">3</td></tr>
+<tr><td>Mode legibility</td><td class="sc s2">2</td><td class="sc s3">3</td><td class="sc s5">5</td><td class="sc s3">3</td></tr>
+<tr><td>Evidence on demand</td><td class="sc s3">3</td><td class="sc s4">4</td><td class="sc s2">2</td><td class="sc s5">5</td></tr>
+<tr><td>Calibration published</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s1">1</td><td class="sc s3">3</td></tr>
+<tr><td>Graceful handoff</td><td class="sc s1">1</td><td class="sc s2">2</td><td class="sc s5">5</td><td class="sc s2">2</td></tr>
+<tr><td>Cost of override</td><td class="sc s1">1</td><td class="sc s3">3</td><td class="sc s5">5</td><td class="sc s5">5</td></tr>
+<tr><td>Failure disclosure</td><td class="sc s4">4</td><td class="sc s4">4</td><td class="sc s4">4</td><td class="sc s2">2</td></tr>
+<tr><td>Trust moves with evidence</td><td class="sc s5">5</td><td class="sc s4">4</td><td class="sc s1">1</td><td class="sc s2">2</td></tr>
+</table></div>
+
+<div class="gal">
+  <figure><img src="screens/skybrary-flight-mode-annunciator-2026-08-20.jpg" alt="SKYbrary article on the Flight Mode Annunciator"><figcaption><b>Flight Mode Annunciator</b>Armed and active as two simultaneous colour-coded states in a fixed position. And OVRD: override as its own annunciated mode.</figcaption></figure>
+  <figure><img src="screens/nws-probability-of-precipitation-2026-08-20.jpg" alt="National Weather Service page on probability of precipitation"><figcaption><b>NWS probability</b>A probability defined by three mandatory qualifiers: what event, at which point, over which window. Nothing less can be checked.</figcaption></figure>
+  <figure><img src="screens/waymo-safety-2026-08-20.jpg" alt="Waymo safety page"><figcaption><b>Waymo safety</b>Every percentage paired with an absolute count: “94% fewer serious injury or worse crashes” beside “47 FEWER.”</figcaption></figure>
+  <figure><img src="screens/lichess-eval-depth-2026-08-20.jpg" alt="Lichess analysis board with engine evaluation"><figcaption><b>Stockfish on Lichess</b>One strip: estimate, engine identity, effort spent, provenance. <code>+0.2</code> · <code>SF 18 dev 85MB NNUE</code> · <code>Depth 75</code> · <code>CLOUD</code>.</figcaption></figure>
+</div>
+
+<h3>Three mechanisms into the MVP</h3>
+<div class="cards">
+  <div class="card"><span class="n">MECHANISM 01 · FROM AVIATION</span><p><strong>Armed and active, in a fixed place, with override as a named state.</strong> Per-tenant autonomy renders two states, always in the same position: what Clerk is permitted to do here, and what it is doing now. Override becomes its own annunciated state, not the quiet absence of automation.</p><p><em>Why it works:</em> mode confusion is a display failure, not a knowledge failure. Operators lose track of which mode is live because the state was inferable rather than readable. Aviation learned this by crashing aircraft.</p></div>
+  <div class="card"><span class="n">MECHANISM 02 · FROM NWS AND WAYMO</span><p><strong>A number that names its claim, scope and window, paired with an absolute count.</strong> Not “87% confident,” but “at Meridian Dental, 9 of the last 11 cases matching this pattern in 30 days were benign.”</p><p><em>Why it works:</em> a bare probability cannot be wrong, so it cannot earn trust either. The count also defeats the small-sample illusion: 90% reads identically on 9 cases and on 900.</p></div>
+  <div class="card"><span class="n">MECHANISM 03 · FROM LICHESS</span><p><strong>A provenance strip: what produced this, how hard it looked, where it came from.</strong> Model, sources queried, time spent. Read once, ignored thereafter, present when it matters.</p><p><em>Why it works:</em> high confidence from one source in two seconds and high confidence from six sources over four minutes deserve different attention, and no confidence score distinguishes them.</p></div>
+</div>
+<div class="note"><p><strong>And one that will not work here.</strong> Waymo earns trust by removing the human, one bounded geography at a time. That works because the geography is mapped, one operator owns all liability, and the rider has no decision to make. Our operator answers to 40 clients with different risk appetites, the environments change weekly, and the premise is that a human still rules. Take Waymo’s honesty about a published track record. Do not take its endgame.</p></div>
+</section>
+
+<section id="patterns">
+<h2>06 · Patterns</h2>
+<p class="h2sub">Five structurally different answers, one chosen</p>
+<p><strong>The key task:</strong> rule on cases the agent has already assembled, fast enough to keep up and well enough to defend, across forty clients whose normal is different.</p>
+<div class="tw"><table>
+<tr><th>Pattern</th><th>Where it is used</th><th>When it breaks</th><th>Verdict</th></tr>
+<tr><td>Split-pane review</td><td>Mail clients, GitHub PR review, Datadog signal panel, Expel Workbench</td><td>Content that genuinely needs full width. Small screens, where the split stops being itself</td><td class="who done">CHOSEN</td></tr>
+<tr><td>Focused card stack</td><td>Radiology worklists, moderation queues, spaced repetition</td><td>The moment the operator needs to defer, skip or compare. It removes any sense of the whole</td><td class="who">Alternative</td></tr>
+<tr><td>Fleet map, drill-down</td><td>Datadog host maps, NOC walls, air traffic control</td><td>Serial work. It answers <em>where</em> and then abandons the operator at the moment of deciding</td><td class="who dropped">Rejected</td></tr>
+<tr><td>Conversational workspace</td><td>Dropzone’s chatbot, general assistants</td><td>Repetitive adjudication. No scannable state, no keyboard rhythm, and it inverts who is working</td><td class="who dropped">Rejected as spine</td></tr>
+<tr><td>Command-driven console</td><td>Linear’s command menu, Superhuman, developer tools</td><td>When the operator does not know what to ask for, which in triage is the whole problem</td><td class="who dropped">Kept as accelerator</td></tr>
+</table></div>
+
+<div class="node">
+  <span class="lbl">The choice</span>
+  <p><strong>Split-pane review, with the fleet as the resting state of the detail pane.</strong> A cross-tenant queue on the left that never leaves the screen. The right side holds the case when one is selected, and the fleet, meaning per-tenant autonomy state and accuracy trend, when nothing is. The empty state of the detail pane is the dashboard. One pattern, two screens.</p>
+</div>
+<ol>
+  <li><strong>It matches the entry-point behaviour.</strong> The analyst pattern-matches first and reads second. A persistent list beside the detail lets them confirm or break a match against what is around it, then move on without rebuilding context.</li>
+  <li><strong>It makes cheap override structurally possible.</strong> One-key disagreement needs a keyboard rhythm: move, read, rule, move. Split-pane is the only one of the five where the list survives the decision, so the rhythm survives it too.</li>
+  <li><strong>It is the structural expression of the gap.</strong> Expel makes the tenant a dropdown. Simbian sells one policy. A cross-tenant list persisting beside the detail is what “one fleet, one queue” looks like in layout rather than in a sentence. The pattern is the argument.</li>
+</ol>
+<div class="note"><p><strong>What this rests on, honestly.</strong> Reason 1 rests on the pattern-matching behaviour and reason 2 on satisficing, and both behaviours are unverified inferences <span class="q">[?]</span>. Only reason 3 stands on evidence collected this session. If stage 02 does not confirm those behaviours, the pattern has to be re-argued from reason 3 alone, which it can survive, but as a narrower argument. Stage 04 should not inherit this as settled.</p></div>
+</section>
+
+<section id="conclusions">
+<h2>07 · Conclusions</h2>
+<p class="h2sub">Gaps, six hypotheses, eight open questions</p>
+
+<h3>The openings we take</h3>
+<div class="tw"><table>
+<tr><th>Gap</th><th>Evidence</th></tr>
+<tr><td>Nobody <em>sells</em> a fleet view of trust</td><td>Simbian isolates tenant data and markets one 92% rate across all clients; whether a per-tenant trust level exists inside the product is <span class="q">[?]</span>. Prophet earns autonomy per organisation but deploys single-tenant. The gap is in what is sold and shown publicly, which is all a pre-login pass can establish</td></tr>
+<tr><td>Everyone optimises for the human seeing less; nobody shows the moment they still have to decide</td><td>Five vendors sell 92%, 91%, 85%, 99.9% and 70% reductions. None publishes a view of what remains after them</td></tr>
+<tr><td>Base rate is per environment and should be per tenant</td><td>Datadog puts “Past month signal count” in the signal header, answering “is this normal here” for one organisation. In a 40-tenant console that question has 40 answers</td></tr>
+<tr><td>The accept, edit or reject atom has not moved from code review into security</td><td>Cursor: a queue named for the decision, a size measure before opening, a compact work trail, a numbered fork when unsure. Security still ships confidence percentages</td></tr>
+<tr><td>Agent output is treated as clutter rather than as a draft</td><td>Expel’s log carries a “Hide Ruxie actions” checkbox. Linear puts agent actions in the shared feed with a named actor</td></tr>
+<tr><td>Nobody addresses the shift handoff</td><td>No page across the thirteen describes what an incoming analyst is told. Superhuman’s Daily Briefs is the nearest pattern, and it is not a security product</td></tr>
+</table></div>
+
+<h3>Six hypotheses</h3>
+<div class="hyp">
+  <p><span class="tag r">H1 · RISKIEST</span><strong>If</strong> per-tenant autonomy is shown as armed and active state in a fixed position, <strong>then</strong> an analyst carrying 40 tenants will decide faster and more defensibly than under one flat policy.</p>
+  <p class="why"><strong>Because</strong> mode confusion is a display failure rather than a knowledge failure, and the Flight Mode Annunciator solved it by making state readable rather than inferable. <strong>If H1 is false the idea falls:</strong> per-tenant trust becomes 40 things to remember and the differentiator becomes overhead.</p>
+</div>
+<div class="hyp">
+  <p><span class="tag">H2 · CONDITIONAL</span><strong>If</strong> the case header carries a per-tenant base rate, <strong>then</strong> an analyst will reach a verdict on an unfamiliar client without a research detour.</p>
+  <p class="why"><strong>Because</strong> Datadog already proves the mechanism for one environment, and the cost here is tenant switching, which resets what counts as normal. Half-grounded: the mechanism is evidenced, the need for it is not <span class="q">[?]</span>.</p>
+</div>
+<div class="hyp">
+  <p><span class="tag">H3</span><strong>If</strong> every Clerk output carries a provenance strip naming model, sources queried and time spent, <strong>then</strong> analysts will allocate attention on evidence rather than on order of arrival.</p>
+  <p class="why"><strong>Because</strong> effort spent and confidence are different questions, and only the first predicts how much checking is warranted. Grounded in the Lichess strip: <code>Depth 75</code>, <code>CLOUD</code>.</p>
+</div>
+<div class="hyp">
+  <p><span class="tag">H4 · CONDITIONAL</span><strong>If</strong> rejecting Clerk costs one keystroke and the reason routes to detection engineering, <strong>then</strong> rejections will keep being filed rather than quietly absorbed.</p>
+  <p class="why"><strong>Because</strong> analysts satisfice under volume and take the cheapest sufficient action, so the cheapest action has to be the useful one. Rests entirely on an unverified behaviour <span class="q">[?]</span>.</p>
+</div>
+<div class="hyp">
+  <p><span class="tag">H5 · CONDITIONAL</span><strong>If</strong> the fleet view shows autonomy state and accuracy trend per tenant, <strong>then</strong> latitude will grow on measured accuracy rather than on a forgotten setting.</p>
+  <p class="why"><strong>Because</strong> trust in automation is set by the last failure rather than the average, and latitude never seen to fall stops being believed <span class="q">[?]</span>.</p>
+</div>
+<div class="hyp">
+  <p><span class="tag">H6</span><strong>If</strong> a shift handoff is composed at the end of every shift, <strong>then</strong> less information will be lost across a 24/7 rotation.</p>
+  <p class="why"><strong>Because</strong> no product across the thirteen addresses the handoff at all and the nearest pattern comes from an email client. That the handoff is the <em>riskiest</em> hour is itself unverified <span class="q">[?]</span> and is the first thing stage 02 should ask.</p>
+</div>
+
+<h3>Open questions</h3>
+<div class="tw"><table>
+<tr><th>Question</th><th>Addressee</th><th>What changes in the product</th><th>Status</th></tr>
+<tr><td>One cross-tenant queue, or is switching client context one at a time a safety feature?</td><td>MDR analyst; stands to product owner until stage 02</td><td>If switching is safety, the dashboard stops being a merged queue and becomes a fleet view that hands off into one tenant</td><td class="who">Open</td></tr>
+<tr><td>Who moves a tenant’s autonomy level: analyst, SOC lead, or the client?</td><td>SOC lead</td><td>Decides whether the autonomy control lives in the operator console at all</td><td class="who">Open</td></tr>
+<tr><td>Can a product that routes work back to humans price the way this market prices?</td><td>Product owner</td><td>If not, the business model line in <code>CLAUDE.md</code> is wrong and the product must justify what a human decision is worth</td><td class="who">Open</td></tr>
+<tr><td>Named saved views, or one opinionated ordering the product owns and explains?</td><td>Product owner, at stage 03a</td><td>Views put the burden of a good queue on the operator. One ordering means the product must be right and show its reasoning. This decides what the dashboard is</td><td class="who">Open</td></tr>
+<tr><td>Will an analyst accept liability for a summary Clerk wrote and they approved?</td><td>SOC lead</td><td>If not, the summary becomes a structured record the analyst assembles from parts</td><td class="who">Open</td></tr>
+<tr><td>Autonomy as one slider, or three named lanes the way Sift routes Allow, Step-up, Block?</td><td>Product owner, at wireframes</td><td>A slider asks how much you trust it. Lanes say where the work goes, which is easier to hold under pressure and easier to audit</td><td class="who">Open</td></tr>
+<tr><td>Do analysts own specific tenants, or the queue as a whole?</td><td>SOC lead</td><td>Decides whether the shift handoff is composed per tenant or per shift</td><td class="who">Open</td></tr>
+<tr><td>Do MDR providers treat their tooling as a competitive secret?</td><td>Product owner</td><td>If yes, peer referral is suppressed and the channel is the only route, which rewrites the Referral stage</td><td class="who">Open</td></tr>
+</table></div>
+</section>
+
+<section id="critique">
+<h2>08 · Before and after</h2>
+<p class="h2sub">Seventeen findings, two instruments, zero overlap</p>
+<p>Codex ran read-only over <code>research/docs</code> and returned twelve findings. A separate pass ran on a class Codex cannot reach, conclusions whose chain back to a fact is broken, and returned five. The two sets did not overlap once. Full log in <code>docs/decisions.md</code>.</p>
+<div class="tw"><table>
+<tr><th>Type</th><th>Found</th><th>Became</th><th>Who found it</th><th>Status</th></tr>
+<tr><td>Contradiction between files</td><td>“Simbian sells one 92% rate across all of them,” stated as fact in two places, while the level file recorded <span class="q">[?]</span> on whether any competitor has per-tenant trust inside the product</td><td>“What Simbian sells <em>publicly</em> is one rate. Whether the product carries a per-tenant trust level internally is <span class="q">[?]</span>: the console is behind login”</td><td class="who">Codex</td><td class="who done">Fixed</td></tr>
+<tr><td>Contradiction between files</td><td>“No competitor page examined publishes so much as a screenshot of it”</td><td>“No vendor selling auto-resolution publishes a view of what is left after it. The only working analyst queue published across the thirteen is Expel’s, and Expel is human-led”</td><td class="who">Codex</td><td class="who done">Fixed</td></tr>
+<tr><td>Fact without a source</td><td>The analyst persona given as data: “26 to 40, two to six years, 10-hour shifts on two monitors”</td><td>Marked <code>PREMISE</code>: “an assumed profile we chose, not a researched one. No analyst has been interviewed”</td><td class="who">Codex</td><td class="who done">Fixed</td></tr>
+<tr><td>Fact without a source</td><td>“Finishing four cases per hour perfectly while the queue grows by forty”</td><td>Numbers removed. They were illustration wearing the clothes of measurement</td><td class="who">Codex</td><td class="who done">Fixed</td></tr>
+<tr><td>Conclusion without grounds</td><td>The chosen UX pattern presented as settled, with three reasons of equal weight</td><td>“Only reason 3 stands on evidence collected this session… Stage 04 should not inherit this as settled”</td><td class="who">Claude</td><td class="who done">Fixed</td></tr>
+<tr><td>Conclusion without grounds</td><td>The 30-minute activation threshold, presented as a target</td><td>“The 30-minute threshold is arbitrary. It was chosen because it is roughly one coffee, not derived from anything”</td><td class="who">Claude</td><td class="who done">Fixed</td></tr>
+<tr><td>Fact without a source</td><td>Expel’s 15-month retention, flagged as having no citation at the line</td><td>Left as written. The source is the docs page cited in the same table row and the text is visible in the cited screenshot. Codex read a text snapshot and could not see the screenshot</td><td class="who">Codex</td><td class="who dropped">Dropped on verification</td></tr>
+</table></div>
+<div class="note"><p><strong>What the self-audit systematically misses.</strong> Four of Codex’s findings were unsourced premises of our <em>own</em> product: tenants per analyst, how MDR margin works, who carries liability, the analyst profile. They are invisible to a self-audit because they were decisions when written and read as context afterwards. Codex does not know they are our decisions, so it asks for a source the same way it would for a competitor’s price. That is the whole argument for a second instrument.</p></div>
+</section>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_SECTIONS = [
+    { id:'intro',       label:'Introduction' },
+    { id:'canvas',      label:'Lean UX Canvas' },
+    { id:'strategy',    label:'Strategy' },
+    { id:'funnel',      label:'AARRR' },
+    { id:'competitors', label:'Competitors' },
+    { id:'benchmark',   label:'Benchmark' },
+    { id:'patterns',    label:'Patterns' },
+    { id:'conclusions', label:'Conclusions' },
+    { id:'critique',    label:'Before and after' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

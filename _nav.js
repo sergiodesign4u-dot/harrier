@@ -30,7 +30,7 @@
 // Групи (children) власного page НЕ мають: топ-лінк рахується з дітей — веде на
 // першу ГОТОВУ сторінку групи, тому він ніколи не вказує на ще неіснуючий файл.
 window.NAV = [
-  { label:'Foundation Research', page:'research/research.html', done:false, wip:true },
+  { label:'Foundation Research', page:'research/research.html', done:true },
   { label:'User Research', children:[
       { label:'Personas',  page:'research/personas.html',  done:false },
       { label:'JTBD',      page:'research/jtbd.html',      done:false },
