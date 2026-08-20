@@ -37,13 +37,13 @@ window.NAV = [
       { label:'CJM As-Is', page:'research/cjm-as-is.html', done:false, skip:true },
       { label:'CJM To-Be', page:'research/cjm-to-be.html', done:false, skip:true },
   ]},
-  { label:'Information Architecture (IA)', children:[
+  { label:'Information Architecture (IA)', wip:true, children:[
       { subhead:'Base layer' },
       { label:'Flows',        page:'ia/flows.html',       done:true },
       { label:'Concept map',  page:'ia/concept-map.html', done:true },
       { subhead:'Detail layer' },
-      { label:'Sitemap',      page:'ia/sitemap.html',     done:false, skip:true },
-      { label:'Structure',    page:'ia/structure.html',   done:false, skip:true },
+      { label:'Sitemap',      page:'ia/sitemap.html',     done:false },
+      { label:'Structure',    page:'ia/structure.html',   done:false },
   ]},
   { label:'Wireframes',  page:'wireframes/overview.html', done:false },
   { label:'Voice',       page:'voice/voice.html',      done:false },

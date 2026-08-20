@@ -16,7 +16,7 @@ Stage 03a: https://sergiodesign4u-dot.github.io/harrier/ia/flows.html and https:
 | Foundation Research | Done. 13 competitors read live, 20 screenshots, benchmark on calibrated trust across 4 out-of-category products, Lean UX Canvas, AARRR, 5 UX patterns with one chosen, critique in two instruments |
 | User Research | Done. Two personas from three practitioner studies, 5 verbatim analyst quotes where stage 01 had none, one main job and four related, MVP core narrowed to three, critique on three instruments with 20 findings and one overlap |
 | CJM (As-Is + To-Be) | Out of track. The shortened track runs 01 to 07. The steps of the journey are owned by the stage 03a user flow instead |
-| Information Architecture (IA) | Done, base layer. Eleven entities, eight screens in six intent clusters, five of them MVP, three user flows with states and semantic colour, two taps to the activation node, traceability with no orphans. **Detail layer out of track**: the shortened track runs 01 to 07 |
+| Information Architecture (IA) | In progress. Base layer done: eleven entities, eight screens in six intent clusters, five of them MVP, three user flows with states and semantic colour, two taps to the activation node, traceability with no orphans. **Detail layer in progress**: node map, per-node specification and black-and-white mockups |
 | Wireframes | Not started |
 | Voice | Not started |
 | Concept | Not started |

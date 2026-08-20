@@ -1,7 +1,7 @@
 # Harrier
 
 Project boundary: languages 1 (English); brand or existing design system none; screens approx 9.
-Scope decision: built as a portfolio case for a Design Lead home assignment, so the pipeline runs a shortened track 01 to 07 and stops after UI + Visual. Full colour goes to **Case Queue with Case File in the detail pane**, which is one working screen in two states, plus Case File as a standalone route for a permalink and for mobile. The rest of the IA stays as wireframes.
+Scope decision: built as a portfolio case for a Design Lead home assignment, so the pipeline runs a shortened track 01 to 07, both IA layers included, and stops after UI + Visual. Full colour goes to **Case Queue with Case File in the detail pane**, which is one working screen in two states, plus Case File as a standalone route for a permalink and for mobile. The rest of the IA stays as wireframes.
 
 ## Product overview
 
@@ -65,6 +65,14 @@ Three rules this layer binds on stages 04 and 07:
 - **A case that left the analyst's hands must not look identical to one that did not.** `escalated` and `unrecorded` are visible states, not flags in a database
 - **The empty state of the detail pane must read as "this is the fleet", not as "this is empty".** If it does not, the decision to keep the fleet out of the menu has failed
 - **Split-pane review with keyboard traversal of the queue ships in Microsoft Defender.** The pattern is right for the task and carries no novelty; it is not presented as one
+
+**Detail layer, from stage 03b.** Two layers of IA: the global one above, settled at 03a, and the per-node one, which gives every node its blocks, states, components and permission. Node map in `ia/docs/sitemap.md`, one md per node under `ia/docs/pages/`.
+
+Three decisions bind every node:
+
+- **The stance is the one in Platform above, and it is not mobile-first.** Block priority is reasoned from the desk at 1440, and the 360 rendering is then proved for read and escalate. Every node carries both renderings in black and white; colour arrives at 06
+- **What structure decides ahead here is addressing and permission, not SEO.** Every node sits behind authentication, `noindex`, no schema. What this layer settles instead: the URL scheme, the heading hierarchy that gives a screen its identity for assistive tech, deep-link addressability of a case opened from a pager at 03:00, and `?as-of` addressing of an evidence snapshot as it stood. Who may open a node is part of its specification
+- **Block composition is data, not taste.** It comes from `ia/docs/blocks.md`, built per page type. No competitor publishes a page of this type outside a login, so the domain half of that bank is our own research and the comparison column carries the barrier instead
 
 ## MVP scope
 
