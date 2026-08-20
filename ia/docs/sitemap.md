@@ -130,73 +130,153 @@ Kept minimal.
 
 ---
 
-## Concept sitemap
+## Node map
 
-Screens grouped by the intent of the person, not by sections of a product. Structure is derived from jobs; no competitor's menu was copied.
+The concept sitemap said which screens exist and by which intent they are grouped. This replaces it with the **data behind those screens**: every node carries a number, a type, a group, what it includes, where it goes and what it costs. Dialogs and states are nodes here, not footnotes, which is why eight screens become forty three nodes.
+
+**Numbering.** `X` is a cluster, `Y` is a step or a state inside it. Cluster 0 is the shell, cluster 1 the session, clusters 2 to 7 follow the six intents of the base layer in the order the analyst meets them, cluster 8 is systemic.
+
+**Scope is carried, not re-decided.** MVP and LATER come from the screen each node belongs to, decided at stage 03a against the MVP core in `jtbd.md`. Twelve nodes have no parent screen because they were discovered here; their labels are set in this section and named as such below.
 
 **Language fork resolved.** `CLAUDE.md` line 3 records one language, English. Nodes do not multiply per language.
 
-**Second declared substitution.** The MVP and LATER label normally comes from the backlog in `cjm-to-be.md`. That file is out of track, so the source here is the **MVP core in `jtbd.md`** (three jobs) plus the compliance requirement in `CLAUDE.md`. Different source, same test: what breaks the path if removed.
+### Cluster 0: shell and navigation
 
-### A. Take the shift
+Group `global`. Present on every authenticated node, specified once.
 
-*What happened here while I was away.*
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **0.1 Console shell** | page | Split pane, list on the left and detail on the right, keyboard traversal of the list. Holds 0.2 to 0.5 | Wraps 3.1, and any node the analyst opens without leaving the split | MAIN, structurally | **MVP** |
+| **0.2 Global navigation** | section | Queue, Shift, Log, Clients. Four items, no item for the fleet | 3.1, 2.1, 5.1, 7.1 | MAIN, R1, R2, P2-MAIN | **MVP** |
+| **0.3 Tenant autonomy annunciator** | section | The current tenant's latitude, its accuracy trend, and whether an override is in force. Fixed position, read only in the MVP | Reads from 3.5, changed only at 7.2 | HJ1, the bet | **MVP** |
+| **0.4 Live connection status** | state | Connected, reconnecting, stale. Named age of the data when not connected | 3.3 when stale | MAIN, because a stale queue is a wrong decision | **MVP** |
+| **0.5 Keyboard map** | dialog | Every shortcut the console answers to, grouped by what it does rather than by key | Overlays any node, returns to it | MAIN, design principle 5 | **MVP** |
 
-| Screen | Job | Persona | Scope |
-|---|---|---|---|
-| **A1 Shift brief.** What moved, what waits on a decision, what Clerk closed on its own, which tenants changed latitude | R1 | primary | **MVP** |
+**0.3 is the whole differentiator in one element.** It is an annunciator rather than a menu item, taken in `benchmark.md` from the Flight Mode Annunciator where armed and active are read from a fixed place and `OVRD` is its own annunciated state. A mode that has to be inferred from context is a display failure.
 
-One screen, two roles: the incoming analyst reads it, the outgoing one closes it. Not split into two screens, because closing is a state rather than a screen. Both constraints from the evidence live in the object rather than in the screen: it accumulates through the shift, and it is signposting into cases rather than a document.
+### Cluster 1: session
 
-### B. Work the queue
+Group `pages`. Serves no job. It exists because the append-only log in `CLAUDE.md` records who decided, and because tenant isolation has to start somewhere.
 
-*What to touch next.*
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **1.1 Sign in** | page | Provider identity, the shift being joined | 2.1 at the start of a shift, otherwise 3.1 | None. Compliance | **MVP** |
+| **1.2 Session expired** | dialog | Says what was unsaved and holds it. Never discards a verdict in progress | Back to the node it interrupted, or 1.1 | None. Compliance | **MVP** |
 
-| Screen | Job | Persona | Scope |
-|---|---|---|---|
-| **B1 Case Queue.** A cross-tenant list where the row carries the shape of the case, the client, what Clerk concluded and what checking it will cost | MAIN | primary | **MVP** |
-| **B2 Fleet.** Latitude and accuracy trend per tenant | P2-MAIN | primary reads, secondary acts | **MVP** |
+**1.1 is the only public URL this product has.** Everything below it is behind authentication, `noindex`, no schema.
 
-**B2 is not a separate route.** It is the resting state of B1's detail pane, inherited from the pattern chosen at stage 01 and confirmed by the choice of primary persona at stage 02.
+### Cluster 2: take the shift, expands A1
 
-### C. Rule on the case
+Group `pages`. Route in `flows.md`, R1.
 
-*Decide in a way I can defend later.*
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **2.1 Shift brief** | page | What moved, what waits on a decision, what Clerk closed alone, which tenants changed latitude. Pointers lead **straight into a case** | 4.1 by a pointer, 3.1 otherwise | R1 | **MVP** |
+| **2.2 Assembling** | loading | What is being gathered, not a spinner | 2.1 | R1 | **MVP** |
+| **2.3 Nothing carried over** | empty | A short brief is a real answer, not a failure. Says what was quiet | 3.1 | R1 | **MVP** |
+| **2.4 Closed by the outgoing analyst** | state | The brief accumulated through the shift and is now sealed, with who closed it and when | 1.1 out | R1 | **MVP** |
+| **2.5 Close failed** | error | The brief stays open and warns **both** analysts, incoming and outgoing | Retry into 2.4 | R1 | **MVP** |
 
-| Screen | Job | Persona | Scope |
-|---|---|---|---|
-| **C1 Case File.** Clerk's narrative in prose, the evidence, the tenant's base rate, the provenance strip, the signals that disagreed, and the verdict itself | MAIN | primary | **MVP** |
+**2.1 is one screen in two roles rather than two screens.** Closing is a state, which is why 2.4 is a state node. Both constraints from the evidence live in the object rather than the screen: it accumulates through the shift, and it is signposting into cases rather than a document.
 
-**Rejecting with a reason does not become a screen.** Design principle 3 says one key. A separate screen for rejection is not one key, it is a route. R3 therefore lives inside C1, which is exactly what stage 02 concluded when it gave R3 no slot of its own in the core.
+### Cluster 3: work the queue, expands B1 and B2
 
-### D. Answer for it later
+Group `pages`. The landing surface. Route in `flows.md`, main job.
 
-*Show what was known at the time.*
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **3.1 Case Queue** | page | Cross-tenant list. The row is the canonical component: shape of the case, client, what Clerk concluded, what checking it will cost | 4.1 on selection | MAIN | **MVP** |
+| **3.2 Queue streaming in** | loading | Rows arrive as they are correlated. The count is provisional and says so | 3.1 | MAIN | **MVP** |
+| **3.3 Queue stale** | error | Connection lost. The list stays readable and carries the age of what is shown, because a silently frozen queue is worse than an empty one | Recovers into 3.2 | MAIN | **MVP** |
+| **3.4 Nothing waiting on a decision** | empty | The list is empty, the pane is not: this is where 3.5 does its work | 3.5 | MAIN | **MVP** |
+| **3.5 Fleet, the resting state of the pane** | section | Every tenant's current latitude and accuracy trend, legible at a glance. **Readable, not settable** | 7.1 for the detail, when it exists | HJ1 and P2-MAIN | **MVP** |
+| **3.6 Scope and filters** | section | Tenant, severity, what Clerk concluded, what is escalated or unrecorded. Narrowing, **not saved views** | 3.1 | MAIN | **MVP** |
 
-| Screen | Job | Persona | Scope |
-|---|---|---|---|
-| **D1 Decision log.** The append-only record with evidence snapshots, readable across cases, from which a case can be opened **as it stood** | R2 | primary and secondary | **MVP** |
+**3.5 is not a route and never gets one.** It is what the detail pane shows when nothing is selected, so it costs zero taps. The price is named at stage 03a: returning to it is a deselection, and if 3.4 reads as "this is empty" rather than "this is the fleet", the decision has failed.
 
-In the MVP not on importance but because it is a compliance requirement in `CLAUDE.md`, which is not our decision to defer.
+**Saved views are deliberately absent from 3.6.** Defender ships them, but the entity inventory found no job under them. Narrowing serves the main job; storing a slice serves nothing we can name.
 
-### E. Tell the client
+### Cluster 4: rule on the case, expands C1
 
-| Screen | Job | Persona | Scope |
-|---|---|---|---|
-| **E1 Client summary.** Clerk's draft, the analyst's edits, sending | R4 | primary writes, secondary owns | **LATER** |
+Group `pages`. The product. Route in `flows.md`, main job.
 
-### F. Grant the rope
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **4.1 Case File in the detail pane** | page | Clerk's narrative in prose, the evidence block, the provenance strip, the tenant's base rate, the signals that disagreed, the verdict control. The primary rendering | 4.4 to 4.10, back to 3.1 on file | MAIN | **MVP** |
+| **4.2 Case File, standalone route** | page | The same case at its own URL. Permalink for the log, and the only rendering at 360 | 4.6 from a phone at 03:00 | MAIN, mobile scenario | **MVP** |
+| **4.3 Clerk still investigating** | loading | A case that exists but is not yet filed. Says what is being checked, so waiting is legible | 4.1 | MAIN | **MVP** |
+| **4.4 Reject with a reason** | dialog | Inline, one key, structured reasons rather than free text. The reason routes to tuning and leaves the screen | 5.1 through the filed verdict | R3, inside MAIN | **MVP** |
+| **4.5 Amend the narrative** | state | Clerk's prose becomes editable in place. What the analyst changed stays visible against what Clerk wrote | 5.1 through the filed verdict | MAIN | **MVP** |
+| **4.6 Escalate** | dialog | The case stays open and is flagged **escalated**, which is a visible state on the row in 3.1 | 3.1 | MAIN, when the case cannot be closed | **MVP** |
+| **4.7 Evidence expired** | error | The source no longer retrievable. A dead end for the job, and the only honest exit is 4.6 | 4.6 | MAIN | **MVP** |
+| **4.8 No baseline for this tenant** | empty | This client has no base rate yet. Says so rather than rendering a comparison that means nothing | Back into the decision | MAIN, principle 4 | **MVP** |
+| **4.9 Verdict did not write** | error | Nothing was recorded, and the screen says exactly that rather than implying success | Retry, or 4.10 | MAIN | **MVP** |
+| **4.10 Held locally, unrecorded** | state | The verdict is kept, the case stays open and is flagged **unrecorded**, visible on the row in 3.1 | 3.1 | MAIN | **MVP** |
 
-| Screen | Job | Persona | Scope |
-|---|---|---|---|
-| **F1 Tenant autonomy.** Grants per action class, the evidence under each, the history of changes | P2-MAIN | secondary | **LATER** `[?]` |
-| **F2 Tenant detail.** One client: their cases, base rates, accuracy trend | P2-MAIN, context for R4 | secondary | **LATER** |
+**Sections of 4.1 are not nodes, they are canonical components.** The evidence block, the provenance strip and the verdict record appear again on 4.2 and on 5.4. Each is defined once and referenced; three editions of the provenance strip would diverge first.
 
-**F1 is deliberately LATER, and it is the most consequential decision on this map.** Open question 2, whether the autonomy control lives in the operator console at all, is still `[?]`, and stage 02 established that the market treats latitude as configuration under a permission rather than as a distinct job.
+**Rejecting does not become a screen.** Design principle 3 says one key. A screen is a route, not a key, so 4.4 is a dialog inside the case.
 
-So the MVP core carries the fleet **as a view (B2)** rather than as a control (F1). That is precisely what is left of the differentiator after stage 02: Simbian's per-tenant autonomy is configuration, and ours has to be a view. The map now enacts that sentence instead of repeating it.
+**4.7 and 4.9 are different failures and must not share a treatment.** One is evidence that aged out, the other is a write that did not land. Both leave the analyst holding an open case, and both had no exit at all until the second critique at stage 03a.
 
-**Five screens in the MVP, three LATER.** The project boundary said roughly nine.
+### Cluster 5: answer for it later, expands D1
+
+Group `pages`. Route in `flows.md`, R2. In the MVP by compliance, not by preference.
+
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **5.1 Decision log** | page | Append-only, readable across cases and tenants. Every Clerk action and every human override | 5.4 | R2 | **MVP** |
+| **5.2 Narrowing before rendering** | loading | The log is large. Narrows before it draws | 5.1 | R2 | **MVP** |
+| **5.3 Case not findable** | empty | Narrow by tenant, asset or date. The empty state is the search affordance | 5.1 | R2 | **MVP** |
+| **5.4 Log entry, `?as-of`** | page | The evidence snapshot as it stood at decision time, addressable by URL. Opens a case **as it was**, not as it is | 4.2 for the live case | R2 | **MVP** |
+| **5.5 Snapshot did not survive** | error | The log says so rather than rendering a gap that reads like an answer | 5.4 with the gap logged | R2 | **MVP** |
+| **5.6 History of one case** | state | The log narrowed to a single case, every action and override in order | 5.4 | R2 | **MVP** |
+
+**`?as-of` is the addressing decision of this layer.** It is what makes "show what was known at the time" a URL rather than a feature, and it is why the retention window recorded as an open question in `research.md` section 10 bounds this cluster arithmetically.
+
+### Cluster 6: tell the client, expands E1
+
+Group `pages`. **LATER**, inherited from E1.
+
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **6.1 Client summary draft** | page | Clerk's draft from the filed verdict | 6.2 | R4 | **LATER** |
+| **6.2 Editing and sending** | state | The analyst's edits, then sending | 5.1 | R4 | **LATER** |
+
+### Cluster 7: grant the rope, expands F1 and F2
+
+Group `pages`. **LATER**, inherited. The most consequential deferral on the map.
+
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **7.1 Tenant detail** | page | One client: their cases, base rates, accuracy trend | 7.2 | P2-MAIN, context for R4 | **LATER** |
+| **7.2 Autonomy grants** | page | Grants per action class, the evidence under each, the history of changes | 7.3 | P2-MAIN | **LATER** `[?]` |
+| **7.3 Grant change** | dialog | Carries the evidence that justified the change and the date, so the answer to "why did you widen this" is a record rather than a memory | 5.1, because a grant change is a logged action | P2-MAIN | **LATER** |
+
+**The fleet ships as a view before it ships as a control.** 3.5 and 0.3 are MVP, 7.2 is LATER. That is what is left of the differentiator after stage 02: Simbian's per-tenant autonomy is configuration, and ours has to be a view. The map enacts that sentence instead of repeating it.
+
+### Cluster 8: systemic
+
+Group `global`. No node here is a dead end.
+
+| Node | Type | Includes | Goes to | Job | Scope |
+|---|---|---|---|---|---|
+| **8.1 Not found** | state | A case number that does not resolve, usually a stale link out of a chat | 3.1 | None. Systemic | **MVP** |
+| **8.2 Service unavailable** | state | Names what is down and whether verdicts can still be filed | Retry | None. Systemic | **MVP** |
+| **8.3 Permission denied** | state | A tenant that is not this analyst's. Tenant isolation is a stated requirement, so this is compliance rather than courtesy | 3.1 | None. Compliance | **MVP** |
+| **8.4 Toast stack** | section | Filed, escalated, connection recovered. Never covers the evidence being decided on, per principle 5 | Dismisses in place | MAIN | **MVP** |
+
+### The count
+
+**Forty three nodes, thirty eight of them MVP.** Five LATER, all of them in clusters 6 and 7.
+
+Twelve nodes arrived without a parent screen and had their scope set here rather than inherited: the whole of cluster 0, both of cluster 1, 3.6, and the whole of cluster 8. All twelve are MVP, and each has a stated reason. 8.3 is not a nicety, it is tenant isolation from `CLAUDE.md`. 0.3 is the differentiator itself.
+
+**One inheritance looks contradictory and is not.** 7.2 is LATER while 0.3 and 3.5 are MVP. Latitude is read everywhere and changed nowhere in the MVP, which is the deliberate gap between watching, which should be constant, and moving, which should be rare.
+
+### Two passes, run at the concept level and still standing
+
+Both checks below were made at stage 03a against the eight screens. They are kept rather than rerun: the node map expands those screens, it does not move them, so a pass that held for A1 to F2 holds for the clusters that expand them. What the node map adds is where each check now lands, named in the pass itself.
 
 ### Pass 1: against the chosen UX pattern
 
@@ -205,6 +285,8 @@ The pattern is split-pane review with the fleet as the resting state of the deta
 **C1 as its own full-page route breaks reason 2 of the pattern**, which is that cheap override needs the list to survive the decision. A full page for the case does not leave the list standing.
 
 **The map is corrected, not the pattern.** C1 has **two renderings of one screen**: the detail pane inside the console, which is the primary one, and a standalone route for a permalink and for mobile. The console never leaves the split.
+
+In the node map those two renderings are **4.1 and 4.2**, separate nodes rather than one node with a note, because they differ in navigation, in what surrounds them and in what they must survive at 360.
 
 **A1 does not hold the split, and that is deliberate.** It is the one screen read once and then abandoned, and it sits before the review loop rather than inside it. The pattern governs the review loop, not the entry.
 

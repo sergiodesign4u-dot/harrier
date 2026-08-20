@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; Sitemap</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 24px;position:sticky;top:0;z-index:5;
+       background:var(--bg);padding:12px 0;border-bottom:1px solid var(--rule)}
+.pill{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+      background:var(--panel);border:1px solid var(--rule);border-radius:20px;padding:8px 13px;cursor:pointer}
+.pill:hover{border-color:var(--accent);color:var(--accent)}
+.pill.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.pill.sep{margin-left:auto}
+.cl{margin:0 0 26px;border:1px solid var(--rule);border-radius:6px;background:var(--panel);overflow:hidden}
+.cl.off{display:none}
+.cl > header{padding:15px 20px;border-bottom:1px solid var(--rule);background:#f7f8f8;
+             display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.cl > header b{font:600 11px/1 var(--mono);letter-spacing:.1em;color:var(--accent)}
+.cl > header h3{margin:0;font-size:17px;letter-spacing:-.01em}
+.cl > header .meta{margin-left:auto;font:600 10px/1 var(--mono);letter-spacing:.08em;
+                   text-transform:uppercase;color:var(--faint)}
+.cl .body{padding:16px 20px;overflow-x:auto}
+.cl .mermaid{min-width:480px}
+.cl .why{padding:0 20px 16px;font-size:14px;color:var(--muted);max-width:none;margin:0}
+.legend2{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 22px;padding:14px 18px;
+         border:1px solid var(--rule);border-radius:6px;background:var(--panel)}
+.legend2 span{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted)}
+.legend2 i{width:14px;height:14px;border-radius:3px;display:inline-block;flex:none}
+.legend2 .pg{background:#fff;border:2px solid #16181a}
+.legend2 .st{background:#fff;border:1px solid #c9ccce}
+.legend2 .lt{background:#f4f4f4;border:1px dashed #9aa0a6}
+@media (max-width:600px){ .pills{position:static} }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Information architecture, detail layer</p>
+<h1>Everything the product is made of</h1>
+<p class="lede">Eight screens expand into forty three nodes, because a dialog you have to design and a state you have to survive cost the same as a screen. This is the tree. What each node contains lives on its own page, reachable from Structure.</p>
+
+<dl class="facts">
+  <div><dt>Nodes</dt><dd><b>43</b> from eight screens</dd></div>
+  <div><dt>In the MVP</dt><dd><b>38</b> five deferred</dd></div>
+  <div><dt>Clusters</dt><dd><b>9</b> two of them global</dd></div>
+  <div><dt>States and dialogs</dt><dd><b>25</b> counted as nodes, not notes</dd></div>
+</dl>
+
+<div class="legend2">
+  <span><i class="pg"></i> Page: its own address</span>
+  <span><i class="st"></i> State, dialog, section: lives inside a page and is designed anyway</span>
+  <span><i class="lt"></i> LATER: on the map, not in the MVP</span>
+</div>
+
+<div class="note"><p><strong>This is not the flow diagram.</strong> <a href="flows.html">Flows</a> answers whether a route reaches the goal and colours dead ends. This answers what exists and what contains what. The two disagree on purpose: a node that is a dead end in a flow is still a node that has to be designed.</p></div>
+
+<div class="pills" id="pills">
+  <button class="pill on" data-c="all">All clusters</button>
+  <button class="pill" data-c="0">0 Shell</button>
+  <button class="pill" data-c="1">1 Session</button>
+  <button class="pill" data-c="2">2 Shift</button>
+  <button class="pill" data-c="3">3 Queue</button>
+  <button class="pill" data-c="4">4 Case</button>
+  <button class="pill" data-c="5">5 Log</button>
+  <button class="pill" data-c="6">6 Client</button>
+  <button class="pill" data-c="7">7 Autonomy</button>
+  <button class="pill" data-c="8">8 Systemic</button>
+  <button class="pill sep" id="mvponly">MVP only</button>
+</div>
+
+<section id="overview">
+<h2>01 &middot; Overview</h2>
+<p class="h2sub">Nine clusters, and how a shift moves through them</p>
+<div class="cl" data-c="ov" data-scope="MVP">
+  <header><b>0 to 8</b><h3>Cluster level</h3><span class="meta">43 nodes below</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    C1["1 Session"] --&gt; C0["0 Shell and navigation"]
+    C0 --&gt; C2["2 Take the shift"]
+    C0 --&gt; C3["3 Work the queue"]
+    C2 --&gt; C3
+    C2 --&gt; C4["4 Rule on the case"]
+    C3 --&gt; C4
+    C4 --&gt; C5["5 Answer for it later"]
+    C4 --&gt; C6["6 Tell the client"]
+    C3 --&gt; C7["7 Grant the rope"]
+    C7 --&gt; C5
+    C8["8 Systemic"] -.-&gt; C3
+    classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
+    classDef lt fill:#f4f4f4,stroke:#9aa0a6,stroke-dasharray:4 3,color:#6a6f76;
+    class C0,C1,C2,C3,C4,C5,C8 pg;
+    class C6,C7 lt;</pre></div>
+  <p class="why"><strong>Two arrows carry the argument.</strong> Cluster 2 reaches cluster 4 without passing through cluster 3, which is the two-tap start-of-shift path: the brief points straight into a case. And cluster 7 feeds cluster 5, because moving a tenant's latitude is a logged action rather than a setting.</p>
+</div>
+</section>
+
+<section id="clusters">
+<h2>02 &middot; The tree</h2>
+<p class="h2sub">Cluster by cluster, every node</p>
+
+<div class="cl" data-c="0" data-scope="MVP">
+  <header><b>Cluster 0</b><h3>Shell and navigation</h3><span class="meta">global &middot; 5 nodes &middot; 5 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n01["0.1 Console shell<br/>page"] --&gt; n02["0.2 Global navigation<br/>section"]
+    n01 --&gt; n03["0.3 Tenant autonomy annunciator<br/>section"]
+    n01 --&gt; n04["0.4 Live connection status<br/>state"]
+    n01 --&gt; n05["0.5 Keyboard map<br/>dialog"]
+    classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
+    classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    class n01 pg; class n02,n03,n04,n05 st;</pre></div>
+  <p class="why"><strong>0.3 is the differentiator in one element.</strong> An annunciator rather than a menu item: latitude read from a fixed place, the way armed and active are read on a Flight Mode Annunciator. In the MVP it is readable and not settable, and that gap is deliberate.</p>
+</div>
+
+<div class="cl" data-c="1" data-scope="MVP">
+  <header><b>Cluster 1</b><h3>Session</h3><span class="meta">pages &middot; 2 nodes &middot; 2 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n11["1.1 Sign in<br/>page"] --&gt; n21["2.1 Shift brief"]
+    n11 --&gt; n31["3.1 Case Queue"]
+    n12["1.2 Session expired<br/>dialog"] --&gt; n11
+    classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
+    classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    class n11 pg; class n12 st; class n21,n31 ex;</pre></div>
+  <p class="why"><strong>1.1 is the only public URL this product has.</strong> Everything below it is behind authentication, noindex, no schema. That is why this layer settles addressing and permission rather than search.</p>
+</div>
+
+<div class="cl" data-c="2" data-scope="MVP">
+  <header><b>Cluster 2</b><h3>Take the shift, expands A1</h3><span class="meta">pages &middot; 5 nodes &middot; 5 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n21["2.1 Shift brief<br/>page"] --&gt; n22["2.2 Assembling<br/>loading"]
+    n21 --&gt; n23["2.3 Nothing carried over<br/>empty"]
+    n21 --&gt; n24["2.4 Closed by the outgoing analyst<br/>state"]
+    n24 --&gt; n25["2.5 Close failed<br/>error"]
+    n21 --&gt; n41["4.1 Case File, by a pointer"]
+    classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
+    classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    class n21 pg; class n22,n23,n24,n25 st; class n41 ex;</pre></div>
+  <p class="why"><strong>One screen in two roles, not two screens.</strong> The incoming analyst reads it, the outgoing one closes it, and closing is a state. 2.5 warns both analysts rather than one, because a brief that fails to close silently is the failure mode the interviews described.</p>
+</div>
+
+<div class="cl" data-c="3" data-scope="MVP">
+  <header><b>Cluster 3</b><h3>Work the queue, expands B1 and B2</h3><span class="meta">pages &middot; 6 nodes &middot; 6 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n31["3.1 Case Queue<br/>page"] --&gt; n32["3.2 Streaming in<br/>loading"]
+    n31 --&gt; n33["3.3 Queue stale<br/>error"]
+    n31 --&gt; n34["3.4 Nothing waiting<br/>empty"]
+    n31 --&gt; n36["3.6 Scope and filters<br/>section"]
+    n34 --&gt; n35["3.5 Fleet, resting state of the pane<br/>section"]
+    n31 --&gt; n35
+    n31 --&gt; n41["4.1 Case File in the pane"]
+    classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
+    classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    class n31 pg; class n32,n33,n34,n35,n36 st; class n41 ex;</pre></div>
+  <p class="why"><strong>3.5 has two parents and no route.</strong> It is what the pane shows when nothing is selected, so it is reached from the landing state and from a deselection, never from a menu. The price was named at the base layer: if 3.4 reads as "this is empty" rather than "this is the fleet", the decision to keep the fleet out of the menu has failed.</p>
+</div>
+
+<div class="cl" data-c="4" data-scope="MVP">
+  <header><b>Cluster 4</b><h3>Rule on the case, expands C1</h3><span class="meta">pages &middot; 10 nodes &middot; 10 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n41["4.1 Case File in the detail pane<br/>page"] --&gt; n43["4.3 Clerk still investigating<br/>loading"]
+    n41 --&gt; n48["4.8 No baseline for this tenant<br/>empty"]
+    n41 --&gt; n47["4.7 Evidence expired<br/>error"]
+    n41 --&gt; n44["4.4 Reject with a reason<br/>dialog"]
+    n41 --&gt; n45["4.5 Amend the narrative<br/>state"]
+    n47 --&gt; n46["4.6 Escalate<br/>dialog"]
+    n41 --&gt; n46
+    n41 --&gt; n49["4.9 Verdict did not write<br/>error"]
+    n49 --&gt; n410["4.10 Held locally, unrecorded<br/>state"]
+    n42["4.2 Case File, standalone route<br/>page"] --&gt; n46
+    classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
+    classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    class n41,n42 pg; class n43,n44,n45,n46,n47,n48,n49,n410 st;</pre></div>
+  <p class="why"><strong>Two renderings of one screen, and they are separate nodes.</strong> 4.1 lives in the split pane and never leaves it, 4.2 is the permalink and the only rendering at 360. They differ in navigation, in what surrounds them and in what they have to survive, so one node with a footnote would have hidden that.</p>
+</div>
+
+<div class="cl" data-c="5" data-scope="MVP">
+  <header><b>Cluster 5</b><h3>Answer for it later, expands D1</h3><span class="meta">pages &middot; 6 nodes &middot; 6 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n51["5.1 Decision log<br/>page"] --&gt; n52["5.2 Narrowing<br/>loading"]
+    n51 --&gt; n53["5.3 Case not findable<br/>empty"]
+    n51 --&gt; n54["5.4 Log entry, as-of<br/>page"]
+    n54 --&gt; n55["5.5 Snapshot did not survive<br/>error"]
+    n51 --&gt; n56["5.6 History of one case<br/>state"]
+    n54 --&gt; n42["4.2 the live case"]
+    classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
+    classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    class n51,n54 pg; class n52,n53,n55,n56 st; class n42 ex;</pre></div>
+  <p class="why"><strong>The addressing decision of this layer sits on 5.4.</strong> An evidence snapshot is reachable by URL as it stood, which turns "show what was known at the time" into an address rather than a feature. It also means the unchosen retention window bounds this cluster arithmetically, which is the gap the base layer found in the research.</p>
+</div>
+
+<div class="cl" data-c="6" data-scope="LATER">
+  <header><b>Cluster 6</b><h3>Tell the client, expands E1</h3><span class="meta">pages &middot; 2 nodes &middot; 0 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n61["6.1 Client summary draft<br/>page"] --&gt; n62["6.2 Editing and sending<br/>state"]
+    n62 --&gt; n51["5.1 Decision log"]
+    classDef lt fill:#f4f4f4,stroke:#9aa0a6,stroke-dasharray:4 3,color:#6a6f76;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    class n61,n62 lt; class n51 ex;</pre></div>
+  <p class="why"><strong>Deferred with a debt attached.</strong> Cluster 6 and cluster 7 have no flows, because drawing a route for a deferred screen implies it is being built. When they come off the backlog they arrive with no empty, error or loading states defined, and whichever stage picks them up owes that work first.</p>
+</div>
+
+<div class="cl" data-c="7" data-scope="LATER">
+  <header><b>Cluster 7</b><h3>Grant the rope, expands F1 and F2</h3><span class="meta">pages &middot; 3 nodes &middot; 0 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n71["7.1 Tenant detail<br/>page"] --&gt; n72["7.2 Autonomy grants<br/>page"]
+    n72 --&gt; n73["7.3 Grant change<br/>dialog"]
+    n73 --&gt; n51["5.1 Decision log"]
+    classDef lt fill:#f4f4f4,stroke:#9aa0a6,stroke-dasharray:4 3,color:#6a6f76;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    class n71,n72,n73 lt; class n51 ex;</pre></div>
+  <p class="why"><strong>The fleet ships as a view before it ships as a control.</strong> 0.3 and 3.5 are in the MVP, 7.2 is not. That is what is left of the differentiator after the competitor pass: per-tenant autonomy as configuration already exists on the market, and ours has to be a view where the analyst works.</p>
+</div>
+
+<div class="cl" data-c="8" data-scope="MVP">
+  <header><b>Cluster 8</b><h3>Systemic</h3><span class="meta">global &middot; 4 nodes &middot; 4 MVP</span></header>
+  <div class="body"><pre class="mermaid">flowchart LR
+    n81["8.1 Not found<br/>state"] --&gt; n31["3.1 Case Queue"]
+    n82["8.2 Service unavailable<br/>state"] --&gt; n31
+    n83["8.3 Permission denied<br/>state"] --&gt; n31
+    n84["8.4 Toast stack<br/>section"]
+    classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    class n81,n82,n83,n84 st; class n31 ex;</pre></div>
+  <p class="why"><strong>8.3 is compliance, not courtesy.</strong> Tenant data isolation is a stated requirement, so a tenant that is not this analyst's has to fail visibly and in a way the log can record. No node in this cluster is a dead end.</p>
+</div>
+</section>
+
+<section id="counts">
+<h2>03 &middot; What the expansion cost</h2>
+<p class="h2sub">Where the thirty five extra nodes came from</p>
+<div class="tw"><table>
+<thead><tr><th>Source</th><th>Nodes</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td>The eight screens</td><td>8</td><td>Already on the concept map</td></tr>
+<tr><td>States and dialogs inside them</td><td>25</td><td>Eight of these were already drawn in the flows at the base layer. They were routes then; they are nodes now</td></tr>
+<tr><td>Discovered here, no parent screen</td><td>10</td><td>The whole shell, the session, and the systemic cluster. Their scope was set here rather than inherited, and every one is MVP</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The number that matters for the next stage</span><p>Thirty eight MVP nodes is the honest cost of this product, not the five screens the base layer counted. The estimate at step 6 decides how many get a black and white mockup and how many stay a written specification. That decision is deliberately not made here, because a map that trims itself to fit the budget stops being a map.</p></div>
+</section>
+
+</main>
+</div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      background: '#ffffff',
+      primaryColor: '#ffffff',
+      primaryTextColor: '#16181a',
+      primaryBorderColor: '#c9ccce',
+      lineColor: '#9aa0a6',
+      fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'basis', padding: 12 }
+  });
+</script>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_SECTIONS = [
+    { id:'overview', label:'Overview' },
+    { id:'clusters', label:'The tree' },
+    { id:'counts',   label:'What it cost' },
+  ];
+  (function(){
+    var pills = document.getElementById('pills');
+    var blocks = function(){ return Array.prototype.slice.call(document.querySelectorAll('.cl')); };
+    var cluster = 'all', mvpOnly = false;
+    function apply(){
+      blocks().forEach(function(b){
+        var c = b.getAttribute('data-c');
+        var byCluster = (cluster === 'all') || (c === cluster) || (cluster === 'all' && c === 'ov');
+        if (cluster !== 'all') byCluster = (c === cluster);
+        var byScope = !mvpOnly || b.getAttribute('data-scope') === 'MVP';
+        b.classList.toggle('off', !(byCluster && byScope));
+      });
+    }
+    pills.addEventListener('click', function(e){
+      var b = e.target.closest('.pill'); if (!b) return;
+      if (b.id === 'mvponly'){ mvpOnly = !mvpOnly; b.classList.toggle('on', mvpOnly); apply(); return; }
+      cluster = b.getAttribute('data-c');
+      Array.prototype.forEach.call(pills.querySelectorAll('.pill[data-c]'), function(p){
+        p.classList.toggle('on', p === b);
+      });
+      apply();
+    });
+  })();
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

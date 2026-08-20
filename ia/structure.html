@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; Structure</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.chipgroup{margin:0 0 34px}
+.chipgroup h3{margin:0 0 4px;font-size:17px;letter-spacing:-.01em}
+.chipsub{font-size:13.5px;color:var(--muted);margin:0 0 14px;max-width:none}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:8px}
+.chip{display:flex;align-items:baseline;gap:9px;padding:11px 13px;border:1px solid var(--rule);
+      border-radius:5px;background:var(--panel);text-decoration:none;color:var(--fg);font-size:14px;line-height:1.35}
+.chip b{font:600 11px/1.3 var(--mono);color:var(--accent);flex:none;min-width:26px}
+.chip .chip-label{flex:1;min-width:0}
+.chip .chip-type{font:600 9px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+                 color:var(--faint);flex:none;font-style:normal}
+a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
+.chip-todo{border-style:dashed;color:var(--muted)}
+.chip-todo b{color:var(--muted)}
+.chip-later{background:#fafafa}
+.chip-later b{color:var(--flag)}
+.chip-active{border-color:var(--accent);border-width:2px;background:var(--accent-soft)}
+.tally{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Information architecture, detail layer</p>
+<h1>Structure</h1>
+<p class="lede">The launcher for every node of the product. Each chip is one node of the map: what it contains, which states it has to survive, who may open it and what its address is. Chips with a solid border have their page written; dashed ones are on the map and not yet specified.</p>
+
+<dl class="facts">
+  <div><dt>Nodes on the map</dt><dd><b>43</b> thirty eight in the MVP</dd></div>
+  <div><dt>Specified so far</dt><dd><b><span id="ia-tally">0 of 43</span></b></dd></div>
+  <div><dt>Source of truth</dt><dd><code>ia/docs/sitemap.md</code></dd></div>
+  <div><dt>Block bank</dt><dd>arrives at step 4</dd></div>
+</dl>
+
+<div class="note"><p><strong>The map is complete before the pages are.</strong> Every node is registered here from the moment it exists on the map, so a dashed chip is a declared piece of work rather than a hole someone forgot. The tree that produced these chips is on <a href="sitemap.html">Sitemap</a>; the routes through them are on <a href="flows.html">Flows</a>.</p></div>
+
+<section id="nodes">
+<h2>01 &middot; Nodes</h2>
+<p class="h2sub">Global elements first, because every page inherits them</p>
+<div id="ia-structure"></div>
+</section>
+
+<section id="reading">
+<h2>02 &middot; How to read a chip</h2>
+<p class="h2sub">Three things carried by every node</p>
+<div class="tw"><table>
+<thead><tr><th>Carried</th><th>Why it is on the chip</th></tr></thead>
+<tbody>
+<tr><td>Number</td><td>Cluster and position. The number is the address used by every later stage, so a node renamed without renumbering breaks references rather than labels</td></tr>
+<tr><td>Type</td><td>Page, section, state, dialog, loading, empty, error. Twenty five of the forty three are not pages, which is the entire reason this layer exists</td></tr>
+<tr><td>Border</td><td>Solid means the node has a written specification. Dashed means it is on the map and the work is declared. Grey background means LATER</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">What this hub is not</span><p>It is not the sidebar. The roadmap on the left tracks stages of the pipeline; this tracks nodes of the product. Forty three nodes in a sidebar would bury the twelve stages that still have to happen, so the two registries stay in separate namespaces and the sidebar never grows a node list.</p></div>
+</section>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_SECTIONS = [
+    { id:'nodes',   label:'Nodes' },
+    { id:'reading', label:'How to read a chip' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+<script src="_nav.js"></script>
+</body>
+</html>
