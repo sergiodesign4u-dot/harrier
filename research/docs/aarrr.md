@@ -43,7 +43,7 @@ All targets are hypotheses. Baselines are `[?]` until a real deployment can be m
 **Mechanics.** This is a product people are inside for six hours a day across a 24/7 rotation, so retention is measured in shifts, not in monthly logins. The thing that brings an analyst back is not a feature, it is finding the queue in the state the previous shift left it, plus knowing what the agent did while nobody was watching.
 
 **Hypotheses.**
-- The riskiest hour of a 24/7 operation is the handoff, and no competitor page examined addresses it (`competitors.md`)
+- The handoff is the riskiest hour of a 24/7 operation `[?]`. What is verified is only the second half: no competitor page examined addresses the handoff at all (`competitors.md`)
 - An analyst abandons a console when they start keeping a parallel record somewhere else, usually a spreadsheet or a Slack thread. That is the leading indicator of churn, before any usage number moves `[?]`
 - Autonomy that only ever moves up is not earned trust, it is drift. Latitude has to be seen to fall when accuracy falls, or the fleet view stops being believed
 
@@ -101,4 +101,4 @@ All targets are hypotheses. Baselines are `[?]` until a real deployment can be m
 
 3. **Activation belongs to the analyst, not to the buyer.** Connecting tenants is the provider's act and is easy to mistake for activation because it is easy to instrument. The moment that matters is one analyst filing one verdict, and if that takes longer than half an hour the deployment quietly fails while every integration dashboard stays green.
 
-4. **The riskiest hour is the one nobody sells into.** A 24/7 rotation loses information at every handoff, and no product examined addresses it. It is a genuine gap and it costs one screen, not a platform.
+4. **Nobody sells into the handoff.** No product across the thirteen examined addresses what an incoming analyst is told at the start of a shift. That the handoff is the *riskiest* hour is our hypothesis, not a measured fact `[?]`. That it is unserved is verified. It is a genuine gap and it costs one screen, not a platform.

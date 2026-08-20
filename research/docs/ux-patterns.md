@@ -6,7 +6,7 @@ Derived from the goal and audience in `CLAUDE.md` and the User outcomes block in
 
 ## Behavioural patterns of the audience
 
-Five behaviours of a Tier-2 analyst carrying many tenants. Sources are the competitor pass and the operator description in `CLAUDE.md`; where a behaviour is inference rather than observation it is marked, because stage 02 has to test them on real people.
+Five behaviours of a Tier-2 analyst carrying many tenants. **All five are inferences**, drawn from the competitor pass and the operator description in `CLAUDE.md`. None was observed, because no analyst has been interviewed yet. They are written as behaviours because that is the only useful form to design against, but every one of them is a claim stage 02 has to test on real people, and the design decisions resting on them are conditional until it does.
 
 **1. Pattern-matching before reading.** `ENTRY POINT` The analyst recognises the shape of a case before reading it: alert class, asset type, time of day, which client. The details then either confirm the match or break it. Reading comes second and only exists to check the match.
 
@@ -14,7 +14,7 @@ This is the entry point because it decides what the first glance has to deliver.
 
 **2. Satisficing under volume.** They do not optimise each case. They look for the cheapest sufficient reason to close or escalate and stop there. This is rational under load, not sloppy: the alternative is finishing four cases per hour perfectly while the queue grows by forty. The design consequence is that whatever is cheapest to read becomes the reason, so the cheapest thing on screen had better be the most load-bearing.
 
-**3. Trust set by the last failure, not the average.** Confidence in automation is not an average over time. One bad auto-close resets months of accumulated trust, and the analyst reverts to opening everything. Inference, to be tested at stage 02. If true, it means a published accuracy rate cannot carry trust on its own, which is what `benchmark.md` concluded from a different direction: latitude has to be visibly earned and visibly lost.
+**3. Trust set by the last failure, not the average.** Confidence in automation is not an average over time. One bad auto-close resets months of accumulated trust, and the analyst reverts to opening everything. If true, it means a published accuracy rate cannot carry trust on its own, which is what `benchmark.md` concluded from a different direction: latitude has to be visibly earned and visibly lost.
 
 **4. Tenant switching resets context.** Every change of client resets what counts as normal: which assets matter, which hours are odd, which service accounts are noisy. Analysts batch by tenant when they can, precisely to avoid paying this cost repeatedly. This is the behaviour behind the open question in `competitors.md` about whether a merged queue helps or harms.
 
