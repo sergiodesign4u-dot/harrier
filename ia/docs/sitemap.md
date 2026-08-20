@@ -229,3 +229,75 @@ The pass that is easy to skip, and without which the Step 1 inventory has no che
 **The pass produced one finding: entity 2 is the only object with no screen where it is the subject.** That is not an omission. `CLAUDE.md` states the analyst never works raw alerts, and this pass was meant to hit that consciously rather than let it pass in silence.
 
 **The constraint that follows, and stage 04 inherits it.** If the signal is not readable inside the case, the object disappears from the product entirely. There is no other place for it.
+
+---
+
+## Navigation
+
+The concept map says which screens exist and by which intent they are grouped. This says how a person moves between them. Global navigation here is the shortest path for the primary persona to the main job, not a list of what to put in a menu.
+
+### Global navigation, four items
+
+| Item | Leads to | The job behind it |
+|---|---|---|
+| **Queue** | B1, with B2 as the resting state of the pane and C1 in it when a case is selected | MAIN. The activation node, First Verdict |
+| **Shift** | A1 | R1 |
+| **Log** | D1 | R2, and the compliance requirement |
+| **Clients** | F2, and F1 deeper | P2-MAIN in action. LATER |
+
+**The fleet gets no item of its own, deliberately.** It is the resting state of the Queue's right pane, so it costs **zero taps**: it is already on screen when nothing is selected. A menu item would turn it into a place you have to **go**, and the whole point is that looking at it should not be a trip.
+
+**The price of that decision, named rather than hidden.** Returning to the fleet is a deselection, an interaction rather than a navigation, which is a discoverability risk. Stage 04 inherits this explicitly: if the empty state of the pane does not read as "this is the fleet" rather than "this is empty", the decision fails.
+
+### Levels, assigned deliberately
+
+The concept sitemap at Step 2 is deliberately without levels, so without this assignment there is nothing to count taps against.
+
+| Level | Screens |
+|---|---|
+| **1**, straight from global navigation | B1 Queue, A1 Shift brief, D1 Decision log, F2 Tenant detail (LATER) |
+| **1 without a tap**, present rather than opened | **B2 Fleet** |
+| **2**, opened from level 1 | C1 Case File, from a B1 row or an A1 pointer |
+| **3**, rare actions | F1 Tenant autonomy (LATER), E1 Client summary (LATER) |
+
+### Depth, counted against those levels
+
+The primary persona's main job is to decide whether Clerk's verdict holds, and it closes when a verdict is filed.
+
+**The ordinary path**
+
+```
+B1 Queue (landing, 0)  ->  select a case (1)  ->  file the verdict (2)
+```
+
+**Two taps.**
+
+**The start-of-shift path**
+
+```
+A1 Shift brief (landing, 0)  ->  a pointer into the case (1)  ->  file the verdict (2)
+```
+
+**Two taps.**
+
+The second number is the more interesting one, because it does not rest on trimming a menu. It rests on a **property of the object**: the handoff is signposting into cases rather than a document, which four of six interviewed responders described. So the pointers on A1 lead **straight into a case** rather than through the queue.
+
+Had the handoff stayed the prose document the stage 01 decision originally described, this path would be **three taps**, because a step would appear: find that case in the queue. Evidence, then structure, then a measurable outcome.
+
+**The secondary persona's main job** reads at **zero taps**, because the fleet is on the landing screen, and acts at **three**: Clients, then tenant, then autonomy. The gap is deliberate. Watching should be constant; moving latitude should be rare and considered.
+
+**No restructuring was needed**, and the three-tap limit is not breached. But flattening is never free, and this is what was paid:
+
+| Paid | With what |
+|---|---|
+| Discoverability of the fleet | No menu item; the way back is a deselection |
+| Depth of the secondary persona's action | Changing latitude sits at level 3, three taps |
+| E1 at level 3 | The client summary is far from the case it grows out of |
+
+### Global, contextual, deep
+
+**Global, always visible.** The four navigation items, **plus the tenant's autonomy state in a fixed position**. That is an element rather than a menu item, taken in `benchmark.md` from the Flight Mode Annunciator, where armed and active are read from a fixed place and `OVRD` is its own annunciated state. The fixed position is a requirement rather than a preference: a mode that has to be inferred from context is a display failure.
+
+**Contextual.** C1 in the detail pane. The rejection reason inline on C1. E1 from a case or from a client.
+
+**Deep.** Changing a grant on F1. The log narrowed to the history of one case.
