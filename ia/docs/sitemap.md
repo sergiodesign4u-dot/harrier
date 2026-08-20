@@ -301,3 +301,66 @@ Had the handoff stayed the prose document the stage 01 decision originally descr
 **Contextual.** C1 in the detail pane. The rejection reason inline on C1. E1 from a case or from a client.
 
 **Deep.** Changing a grant on F1. The log narrowed to the history of one case.
+
+---
+
+## Traceability
+
+Rows are the functional jobs from `jtbd.md`. Columns are every screen in the concept sitemap. A tick means the screen actually takes part in closing the job. Emotional and social jobs are not in this matrix; they have their own table below, because asking "where does the person do this" of a quality is a question with no answer.
+
+**Step-screens trace to flow nodes, not to CJM phases.** The substitution was declared at the entry gate and the flows were built at Step 4 precisely so that this column has something to point at.
+
+| Job | A1 Shift brief | B1 Case Queue | B2 Fleet | C1 Case File | D1 Decision log | E1 Client summary | F1 Tenant autonomy | F2 Tenant detail |
+|---|---|---|---|---|---|---|---|---|
+| **MAIN** rule on the case | ✓ *(flow node `Point`)* | ✓ | | ✓ | ✓ *(flow node `Log`)* | | | |
+| **R1** pick up and hand off a shift | ✓ | | | | | | | |
+| **R2** answer for a past decision | | | | ✓ *(the case as it stood)* | ✓ | | | |
+| **R3** teach the agent | | | | ✓ *(flow nodes `Reject`, `Route`)* | ✓ | | | |
+| **R4** tell the client `LATER` | | | | ✓ *(entry point)* | | ✓ | | ✓ |
+| **P2-MAIN** where latitude was earned | | | ✓ *(read)* | | ✓ *(history)* | | ✓ *(act)* | ✓ |
+
+**Scope row**
+
+| | A1 | B1 | B2 | C1 | D1 | E1 | F1 | F2 |
+|---|---|---|---|---|---|---|---|---|
+| **Scope** | MVP | MVP | MVP | MVP | MVP | LATER | LATER | LATER |
+
+**Estimate: 5 screens in the MVP, 3 later.** Stages 03b, 04 and 07 all start from the MVP subset rather than from the whole map.
+
+### Orphans
+
+**Screen orphans: none.** Every column carries at least one tick.
+
+**Job orphans: none.** Every row carries at least one tick.
+
+**Reported honestly rather than celebrated.** A check that returns zero in both directions proves nothing about itself. So the matrix was pushed harder, and it gave up two findings that a tick count alone would have hidden.
+
+### What the matrix found instead
+
+**1. Two of six jobs cannot close inside the MVP.**
+
+- **R4** carries ticks only on C1, which is an entry point, and on E1 and F2, which are both LATER. The job is genuinely deferred, and the matrix says so rather than implying coverage.
+- **P2-MAIN** carries its read on B2, which is MVP, and its act on F1, which is LATER. Only half of the job is buildable in the first round.
+
+**2. And the second one goes straight at the MVP core.** P2-MAIN is one of the three core jobs, entered as the bet. The matrix shows the bet is narrower than it read at stage 02.
+
+> The bet is not that an analyst will change latitude from the console. It is that **seeing** where latitude stands changes the decisions they make on cases. F1 is deferred precisely because whether the control belongs here at all is still `[?]`.
+
+That is a sharper statement of H1 than stage 02 had, and it came from counting cells rather than from thinking harder.
+
+**3. No screen labelled MVP is without a tick**, so there is no inflated label to report.
+
+### Emotional and social jobs: what carries them
+
+Not closed by a screen. The mechanism column is written so that something can be built from it, because the detail layer takes states and trust evidence from here and stage 05 takes its entry into tone.
+
+| Job | Mechanism | Where it lives | What supports it |
+|---|---|---|---|
+| **Emotional, P1.** Feel I was thorough rather than lucky | The evidence block renders **what Clerk looked for and did not find** as explicitly as what it found. Absence gets the same weight as presence. Beside it the provenance strip says how much effort was spent, so a fast decision is attributable to the agent's work rather than to skipping | C1, the evidence block and the provenance strip | The pains in `personas.md` and the RIT trust-explainability curve. The feeling of thorough against lucky is itself `PREMISE` |
+| **Emotional, P1**, the part with no mechanism | For cases Clerk closed **on its own**, which the analyst never sees, there is **nothing yet**. The review sample has no job and is not built | Nowhere | Open. This is the same unresolved question recorded in the entity inventory, and it is a backlog entry rather than an error |
+| **Social, P1.** Look like the work of someone who knew what they were doing | The verdict record is composed from **structured parts rather than free text**, so its quality does not depend on how tired the author was at 07:00. Structure is what removes the variation | C1 verdict, A1 brief, D1 log entry | UCL: handover quality varies widely between individuals, no organisation trains it formally, and seniors read and feed back on newer analysts' notes. The reputational motive itself is `[?]` |
+| **Emotional, P2.** Be able to point at why, so I am not the person who guessed | Every autonomy grant carries **the evidence that justified it and the date**, so the answer to "why did you widen this" is a record rather than a memory | F1 and the grant history in D1. **In the MVP this is readable but not settable** | `PREMISE` on liability. The shape is confirmed by Simbian, which describes latitude as earned when the agent "has demonstrated enough accuracy against your data" |
+
+### Concept map reconciled with the flows
+
+The flows produced **no new screens**. Every screen node in every flow already existed on the map: A1, B1, B2, C1, D1. `Pointer`, `Overlap` and `Route` are steps or events rather than screens, and `Route` deliberately leaves the product.

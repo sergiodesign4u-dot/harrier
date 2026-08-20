@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; Concept map</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.diagram{border:1px solid var(--rule);border-radius:6px;background:var(--panel);padding:18px;margin:0 0 20px;overflow-x:auto}
+.diagram .mermaid{min-width:560px}
+.matrix td.tick{color:var(--accent);font-weight:650;text-align:center}
+.matrix td.tick small{display:block;font-weight:400;color:var(--muted);font-size:11px;font-family:var(--mono);white-space:nowrap}
+.matrix td.blank{background:#fcfcfc}
+.matrix tr.later td:first-child{color:var(--flag)}
+.matrix td.mvp{text-align:center;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent)}
+.matrix td.late{text-align:center;font-family:var(--mono);font-size:11px;color:var(--flag)}
+.open{background:var(--flag-soft)}
+.dim{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03a &middot; Information architecture, base layer</p>
+<h1>What the product is made of</h1>
+<p class="lede">Objects first, then screens grouped by intent, then how a person moves between them, then proof that every job has somewhere to happen. The structure is derived from jobs, not from a competitor's menu.</p>
+
+<dl class="facts">
+  <div><dt>Entities</dt><dd><b>11</b> three more under question</dd></div>
+  <div><dt>Screens</dt><dd><b>8</b> five of them MVP</dd></div>
+  <div><dt>Taps to the main job</dt><dd><b>2</b> limit is three</dd></div>
+  <div><dt>Orphans</dt><dd><b>0</b> and that is reported, not celebrated</dd></div>
+</dl>
+<div class="note"><p><strong>Three substitutions are declared on this stage, all for the same reason.</strong> CJM is out of track, so step-screens trace to flow nodes instead of To-Be phases, the MVP label comes from the core in <code>jtbd.md</code> rather than from a To-Be backlog, and decision points come from practitioner quotes in <code>personas.md</code> rather than from As-Is barriers. Coverage is still proven; the documents proving it are different ones.</p></div>
+
+<section id="entities">
+<h2>01 &middot; Entities</h2>
+<p class="h2sub">Objects before screens</p>
+<p>Screens only display objects, and objects grow out of jobs. Every entity names the job that produces it. An object no job requires is not invented here.</p>
+
+<div class="tw"><table>
+<tr><th>Object</th><th>What it is made of</th><th>Job</th><th>Related to</th></tr>
+<tr><td>Case</td><td>Identifier, tenant, alert class and the shape of the case, Clerk&rsquo;s narrative in prose, the evidence set, the proposed verdict, a confidence naming its claim and scope and window, a provenance strip of effort spent, the tenant&rsquo;s base rate, status</td><td>MAIN</td><td>Tenant, Signal, Evidence, Verdict</td></tr>
+<tr><td>Signal</td><td>Source tool, rule name, the asset or account, time, severity as reported, <strong>and whether it agreed or disagreed with the verdict</strong></td><td>MAIN</td><td>Case</td></tr>
+<tr><td>Evidence item</td><td>What it is, where it came from, <strong>which claim it supports</strong>, whether it agreed, and whether it is something Clerk looked for and did not find</td><td>MAIN</td><td>Case, Decision log entry</td></tr>
+<tr><td>Verdict</td><td>Accept, amend or reject; the analyst; the timestamp; the reason when rejected; the edited narrative when amended; <strong>the evidence snapshot as it stood</strong></td><td>MAIN, R2, R3</td><td>Case, Decision log entry</td></tr>
+<tr><td>Tenant</td><td>Name, Clerk&rsquo;s current latitude here, accuracy trend, base rates per signal class, assets, security contact</td><td>P2-MAIN, MAIN, R4</td><td>Case, Autonomy grant</td></tr>
+<tr><td>Autonomy grant</td><td>Tenant, <strong>action class</strong>, the named lane, when it changed, <strong>on what evidence</strong>, who changed it</td><td>P2-MAIN, MAIN</td><td>Tenant, Decision log entry</td></tr>
+<tr><td>Shift handoff</td><td>The shift window, who hands over and who takes it, <strong>notes that accumulate through the shift</strong>, pointers to cases, what waits on a decision, what Clerk closed alone, which tenants changed latitude</td><td>R1</td><td>Case, Autonomy grant, Analyst</td></tr>
+<tr><td>Rejection reason</td><td>The case, what Clerk got wrong, the class of error, where it was routed, <strong>and whether a tuning change followed and when</strong></td><td>R3</td><td>Verdict, and a detection engineer who is not a user</td></tr>
+<tr><td>Client summary</td><td>Tenant, period or incident, Clerk&rsquo;s draft, the analyst&rsquo;s edits, sent state, who approved</td><td>R4</td><td>Tenant, Case</td></tr>
+<tr><td>Decision log entry</td><td>Actor, action, timestamp, <strong>the evidence snapshot as it stood at that moment</strong>. Append-only</td><td>R2</td><td>Verdict, Autonomy grant</td></tr>
+<tr><td>Analyst</td><td>Name, shift, assigned cases or queue</td><td>R1, R2, MAIN</td><td>Verdict, Shift handoff</td></tr>
+</table></div>
+
+<div class="note"><p><strong>Under question, objects with no job.</strong> <em>Review sample</em>, the set of cases Clerk closed on its own, has no formulated job; the audit side is covered by P2-MAIN, the analyst side by nothing, and the fork is either to write the job at 03b or not to build it. <em>Saved view</em> is <span class="q">[?]</span>: the market ships both an opinionated ordering and saved filter sets, but no job of ours requires one. <em>Detection rule</em> belongs to a non-user and exists only as the recipient of a rejection reason.</p>
+<p><strong>Signal has no screen of its own, deliberately.</strong> The rule in <code>CLAUDE.md</code> is that the analyst never works raw alerts. The consequence stage 04 inherits: if the signal is not readable inside the case, the object disappears from the product entirely, because there is nowhere else for it.</p></div>
+</section>
+
+<section id="map">
+<h2>02 &middot; Screens by intent</h2>
+<p class="h2sub">Six clusters, eight screens</p>
+<p class="dim">This is the concept layer. States live in the flows, page contents live in the detail layer, and neither is allowed here.</p>
+
+<div class="diagram"><pre class="mermaid">graph TD
+    subgraph A["A. Take the shift"]
+        A1["A1 Shift brief
+R1 / MVP"]
+    end
+    subgraph B["B. Work the queue"]
+        B1["B1 Case Queue
+MAIN / MVP"]
+        B2["B2 Fleet
+P2-MAIN / MVP"]
+    end
+    subgraph C["C. Rule on the case"]
+        C1["C1 Case File
+MAIN / MVP"]
+    end
+    subgraph D["D. Answer for it later"]
+        D1["D1 Decision log
+R2 / MVP"]
+    end
+    subgraph E["E. Tell the client"]
+        E1["E1 Client summary
+R4 / LATER"]
+    end
+    subgraph F["F. Grant the rope"]
+        F2["F2 Tenant detail
+P2-MAIN / LATER"]
+        F1["F1 Tenant autonomy
+P2-MAIN / LATER"]
+    end
+    A1 --> C1
+    B1 --> C1
+    B1 -.-> B2
+    C1 --> D1
+    C1 -.-> E1
+    F2 --> F1
+    F2 -.-> E1
+
+    classDef mvp fill:#eef5f6,stroke:#0d5a66,color:#16181a;
+    classDef later fill:#ffffff,stroke:#c9ccce,color:#6a6f76;
+    class A1,B1,B2,C1,D1 mvp;
+    class E1,F1,F2 later;
+</pre></div>
+
+<div class="node"><span class="lbl">The decision this map enacts</span><p><strong>F1 is deliberately LATER while B2 stays in the MVP.</strong> That is what is left of the differentiator after stage 02, put into structure rather than into a sentence: a competitor&rsquo;s per-tenant autonomy is <em>configuration</em>, and ours has to be a <em>view</em>. Whether the control belongs in an operator console at all is still <span class="q">[?]</span>.</p></div>
+
+<p><strong>Checked against the chosen UX pattern, and one conflict was found.</strong> C1 as its own full-page route breaks the reason that cheap override needs the list to survive the decision. The map was corrected rather than the pattern: C1 has two renderings of one screen, the detail pane inside the console and a standalone route for a permalink and for mobile. The console never leaves the split.</p>
+<p><strong>Checked against the entity inventory, and one finding came back.</strong> Signal is the only object with no screen where it is the subject, which is a product decision rather than an omission. The pass was built to hit that consciously instead of letting it slide.</p>
+</section>
+
+<section id="nav">
+<h2>03 &middot; Navigation</h2>
+<p class="h2sub">Two taps to the main job</p>
+
+<div class="tw"><table>
+<tr><th>Global item</th><th>Leads to</th><th>The job behind it</th></tr>
+<tr><td>Queue</td><td>B1, with B2 as the resting state of the pane and C1 in it when a case is selected</td><td>MAIN. The activation node, First Verdict</td></tr>
+<tr><td>Shift</td><td>A1</td><td>R1</td></tr>
+<tr><td>Log</td><td>D1</td><td>R2, and the compliance requirement</td></tr>
+<tr><td>Clients</td><td>F2, and F1 deeper</td><td>P2-MAIN in action. LATER</td></tr>
+</table></div>
+
+<p><strong>The fleet gets no item of its own.</strong> It is the resting state of the Queue&rsquo;s right pane, so it costs zero taps. A menu item would turn it into a place you have to go, and the point is that looking at it should not be a trip. <strong>The price, named:</strong> the way back is a deselection rather than a navigation, which is a discoverability risk. If the empty state of the pane does not read as "this is the fleet" rather than "this is empty", the decision fails, and stage 04 inherits that explicitly.</p>
+
+<div class="tw"><table>
+<tr><th>Path</th><th>Taps</th></tr>
+<tr><td>B1 Queue (landing) &rarr; select a case &rarr; file the verdict</td><td><strong>2</strong></td></tr>
+<tr><td>A1 Shift brief (landing) &rarr; a pointer into the case &rarr; file the verdict</td><td><strong>2</strong></td></tr>
+</table></div>
+
+<div class="note"><p>The second number is the interesting one, because it does not rest on trimming a menu. It rests on a property of the object: the handoff is <strong>signposting into cases rather than a document</strong>, which four of six interviewed responders described, so its pointers lead straight into a case. Had the handoff stayed the prose document the original stage 01 decision described, this path would be <strong>three</strong> taps, because a step would appear: find that case in the queue.</p></div>
+
+<p><strong>What flattening cost.</strong> The fleet has no menu item, so it is less discoverable. The secondary persona&rsquo;s action sits at level 3. The client summary is far from the case it grows out of.</p>
+<p><strong>Global, contextual, deep.</strong> Global: the four items, plus the tenant&rsquo;s autonomy state in a fixed position, which is a requirement taken from the Flight Mode Annunciator rather than a preference, because a mode that has to be inferred is a display failure. Contextual: C1 in the pane, the rejection reason inline on C1, E1 from a case or a client. Deep: changing a grant on F1, the log narrowed to one case.</p>
+</section>
+
+<section id="matrix">
+<h2>04 &middot; Traceability</h2>
+<p class="h2sub">Proof that every job has somewhere to happen</p>
+
+<div class="tw"><table class="matrix">
+<tr><th>Job</th><th>A1 Shift brief</th><th>B1 Queue</th><th>B2 Fleet</th><th>C1 Case File</th><th>D1 Log</th><th>E1 Summary</th><th>F1 Autonomy</th><th>F2 Tenant</th></tr>
+<tr><td>MAIN rule on the case</td><td class="tick">&check;<small>flow: Point</small></td><td class="tick">&check;</td><td class="blank"></td><td class="tick">&check;</td><td class="tick">&check;<small>flow: Log</small></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>R1 hand off a shift</td><td class="tick">&check;</td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>R2 answer for a past decision</td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="tick">&check;<small>as it stood</small></td><td class="tick">&check;</td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>R3 teach the agent</td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="tick">&check;<small>Reject, Route</small></td><td class="tick">&check;</td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+<tr class="later"><td>R4 tell the client</td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="tick">&check;<small>entry point</small></td><td class="blank"></td><td class="tick">&check;</td><td class="blank"></td><td class="tick">&check;</td></tr>
+<tr class="later"><td>P2-MAIN where latitude was earned</td><td class="blank"></td><td class="blank"></td><td class="tick">&check;<small>read</small></td><td class="blank"></td><td class="tick">&check;<small>history</small></td><td class="blank"></td><td class="tick">&check;<small>act</small></td><td class="tick">&check;</td></tr>
+<tr><th>Scope</th><td class="mvp">MVP</td><td class="mvp">MVP</td><td class="mvp">MVP</td><td class="mvp">MVP</td><td class="mvp">MVP</td><td class="late">LATER</td><td class="late">LATER</td><td class="late">LATER</td></tr>
+</table></div>
+
+<p><strong>Estimate: five screens in the MVP, three later.</strong> Stages 03b, 04 and 07 all start from the MVP subset rather than from the whole map.</p>
+
+<h3>Orphans</h3>
+<p><strong>None in either direction.</strong> Every column carries a tick and every row carries a tick. <strong>Reported rather than celebrated:</strong> a check that returns zero proves nothing about itself, so the matrix was pushed harder, and it gave up two findings a tick count alone would have hidden.</p>
+
+<div class="node"><span class="lbl">What the matrix found instead</span>
+<p><strong>Two of six jobs cannot close inside the MVP.</strong> R4 carries ticks only on an entry point and on two LATER screens, so it is genuinely deferred. P2-MAIN carries its read on B2, which is MVP, and its act on F1, which is LATER, so only half of it is buildable in the first round.</p>
+<p><strong>And the second one goes straight at the MVP core.</strong> P2-MAIN is one of the three core jobs, entered as the bet. The matrix shows the bet is narrower than it read at stage 02: it is not that an analyst will change latitude from the console, it is that <strong>seeing</strong> where latitude stands changes the decisions they make on cases. That is a sharper statement of H1, and it came from counting cells rather than from thinking harder.</p></div>
+
+<h3>Emotional and social jobs: what carries them</h3>
+<p>These are not closed by a screen, so the column is a mechanism rather than a place. The detail layer takes states and trust evidence from this table, and stage 05 takes its entry into tone, so a one-word answer would be useless.</p>
+
+<div class="tw"><table>
+<tr><th>Job</th><th>Mechanism</th><th>Where it lives</th><th>What supports it</th></tr>
+<tr><td>Emotional, P1. Feel I was thorough rather than lucky</td><td>The evidence block renders <strong>what Clerk looked for and did not find</strong> as explicitly as what it found. Beside it the provenance strip says how much effort was spent, so a fast decision is attributable to the agent&rsquo;s work rather than to skipping</td><td>C1, evidence block and provenance strip</td><td>Pains in <code>personas.md</code>; the RIT trust-explainability curve. The feeling itself is <code>PREMISE</code></td></tr>
+<tr class="open"><td>Emotional, P1, the part with no mechanism</td><td><strong>Nothing yet.</strong> For cases Clerk closed on its own, which the analyst never sees, there is no mechanism at all. The review sample has no job and is not built</td><td>Nowhere</td><td>Open question, and a backlog entry rather than an error</td></tr>
+<tr><td>Social, P1. Look like the work of someone who knew what they were doing</td><td>The verdict record is composed from <strong>structured parts rather than free text</strong>, so its quality does not depend on how tired the author was at 07:00. Structure is what removes the variation</td><td>C1 verdict, A1 brief, D1 log entry</td><td>UCL: quality varies widely between individuals, nobody trains it formally, seniors review juniors&rsquo; notes. The reputational motive itself is <span class="q">[?]</span></td></tr>
+<tr><td>Emotional, P2. Be able to point at why, so I am not the person who guessed</td><td>Every autonomy grant carries <strong>the evidence that justified it and the date</strong>, so the answer to "why did you widen this" is a record rather than a memory</td><td>F1 and the grant history in D1. <strong>In the MVP this is readable but not settable</strong></td><td><code>PREMISE</code> on liability. The shape is confirmed by Simbian, which calls latitude earned when the agent "has demonstrated enough accuracy against your data"</td></tr>
+</table></div>
+
+<p><strong>Reconciled with the flows.</strong> They produced no new screens: every screen node already existed on this map. <code>Pointer</code>, <code>Overlap</code> and <code>Route</code> are steps or events, and <code>Route</code> deliberately leaves the product.</p>
+</section>
+
+</main>
+</div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      background: '#ffffff',
+      primaryColor: '#ffffff',
+      primaryTextColor: '#16181a',
+      primaryBorderColor: '#c9ccce',
+      lineColor: '#9aa0a6',
+      clusterBkg: '#fbfbfa',
+      clusterBorder: '#e3e4e6',
+      fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'basis', padding: 14 }
+  });
+</script>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_SECTIONS = [
+    { id:'entities', label:'Entities' },
+    { id:'map',      label:'Screens by intent' },
+    { id:'nav',      label:'Navigation' },
+    { id:'matrix',   label:'Traceability' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
