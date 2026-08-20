@@ -248,3 +248,75 @@ Every screenshot in `research/screens/` and the claim it proves. A screenshot th
 | `nws-probability-of-precipitation` | A probability defined by three mandatory qualifiers: what event, at which point, over which window |
 | `skybrary-flight-mode-annunciator` | Armed and active as two simultaneous colour-coded states in a fixed position; OVRD, override as its own annunciated mode |
 | `lichess-eval-depth` | One strip carrying estimate, engine identity, effort spent and provenance: `+0.2`, `SF 18 dev 85MB NNUE`, `Depth 75`, `CLOUD` |
+| `ucl-shift-handover-study` | Six incident responders interviewed on shift handovers, five of them at organisations providing cybersecurity as a service (stage 02) |
+| `ucl-handover-difficulties` | The handoff fails at the end of the shift: fatigue, rush, information stale within 30 minutes, six reports to read for three days of context (stage 02) |
+| `sans-soc-survey-2025-key-findings` | 79% of SOCs operational 24/7; 42% use AI/ML tools out of the box with no customization; 85% triggered by endpoint alerts (stage 02) |
+| `rit-xai-soc-findings` | Analysts accept AI output at lower accuracy when the explanation is evidence-backed; a confidence percentage needs the context that generated it; missing organisational perspective is named as the gap (stage 02) |
+| `defender-multitenant-incidents` | A shipping cross-tenant queue with Tenant name as a row column, where real work opens a new tab for that tenant and assignment cannot cross tenants (stage 02) |
+
+---
+
+## 8 Follow-up research for stage 02
+
+Run at the start of stage 02, before personas were drafted, and moved ahead of its place in the pack for one reason: a persona built on premise and patched afterwards keeps its shape. Four public sources opened live on 2026-08-20. Guardrail held: public and pre-login only.
+
+**What changed.** Stage 01 had evidence about the market and a frame about people. Three of these four sources are studies of practitioners, two of them with interviews, so several lines that stood as `PREMISE` or `[?]` now stand on data, and two stage 01 decisions turn out to be wrong.
+
+### Sources
+
+| Source | What it is | Why it counts |
+|---|---|---|
+| Kent, Tuptuk and Becker, "Passing the Baton: Shift Handovers within Cybersecurity Incident Response Teams", UCL, arXiv 2601.07788, 12 Jan 2026 | Interviews with six incident responders, five of whom work at organisations providing cybersecurity as a service | The only study found that examines the handoff directly. Five of six participants work in our exact setting |
+| SANS SOC Survey 2025, written by Christopher Crowley, July 2025 | Ninth annual industry survey of how SOCs are built, staffed and run | Industry-scale numbers on staffing, coverage, tenure and satisfaction with tooling |
+| Rastogi et al., "Too Much to Trust? Measuring the Security and Cognitive Impacts of Explainability in AI-Driven SOCs", RIT, arXiv 2503.02065v2, ACM CCS 2025 | Three-month mixed-methods study: survey N=248 plus 24 in-depth interviews with SOC analysts | The largest body of analyst voice found anywhere, and it is about exactly our question: what makes an AI explanation trustworthy under time pressure |
+| Microsoft Defender multitenant management, incidents and alerts, updated 08 Aug 2026 | Product documentation of a shipping cross-tenant console | The platform most MDR providers actually operate on. What it ships is what our analyst does today |
+
+### What is now sourced that was premise
+
+| Line | Was | Now |
+|---|---|---|
+| A 24/7 rotation | `PREMISE` | **79% of SOCs are operational 24/7** [SANS 2025, Key Findings] |
+| Two to six years in operations | `PREMISE` | **Three to five years is the most common tenure for SOC staff**, and 31% stay three to five years while 4% stay ten or more [SANS 2025] |
+| MDR providers carry other companies' triage | `PREMISE` | **183 of 443 respondents outsource alerting, meaning triage and escalation, fully or partially**: 55 fully outsourced, 128 both in-house and outsourced, against 260 in-house only [SANS 2025, Figure 2] |
+| The handoff is written | assumed | **73% of organisations allow remote work for SOC team members at least some of the time** [SANS 2025], and the UCL participants working remotely describe written handovers replacing verbal ones permanently: "I'd prefer doing this stuff in-person but that sort of aspect is ruled out. Working from home and you're doing a 7am handover, whispering isn't great" |
+| The analyst does not arrive trusting the agent | not stated at all | **AI/ML tools rank at the bottom of the satisfaction list. Of the three AI/ML technologies measured, two ranked at the very bottom, including generative language tools, which scored just a 2 out of 4**, while EDR/XDR is the only technology to score above 3 out of 4. **42% of SOCs use AI/ML tools out of the box with no customization** [SANS 2025] |
+
+The last row is new and it matters more than the others. Harrier's operator does not arrive curious about Clerk. They arrive having already been sold an AI tool that underdelivered, and their most trusted tool is the one that is fully deployed, well trained and boring.
+
+### What the five behaviours look like now
+
+| Behaviour from `ux-patterns.md` | Status after this pass |
+|---|---|
+| 1. Pattern-matching before reading | Still `[?]`. Nothing found that measures it. It remains the most load-bearing unverified claim in the package |
+| 2. Satisficing under volume | **Supported.** UCL: "over-utilised analysts are just gonna be ready to just get out and head home. So they just wanna get it done fast, and rush", and on handover quality, some "only [include what they] feel is the minimum requirement". RIT, from an analyst: "During triage, I ignore lengthy explanations. What I need most are straightforward next steps", and analysts "rarely mentioned using the fine-grained feature contribution graphs or the prediction uncertainty fields in a real-time setting" |
+| 3. Trust set by the last failure | Still `[?]` as stated. But the **starting** level is now known and it is low, see the AI/ML satisfaction row above. The design consequence survives on the new evidence rather than the old inference |
+| 4. Tenant switching resets context | **Supported in structure, not in cost.** Microsoft's cross-tenant console shows Tenant name and Workspaces as row columns, but real work opens the incident "in a new tab for that tenant", and assignment cannot cross tenants at all: "Currently, you can only assign multiple incidents from same tenant". The boundary is real and hard in the dominant tool. How much it costs the analyst is still `[?]` |
+| 5. Writing for the future auditor | **Corrected.** The written record's audience is the next analyst, not an auditor. UCL found no formal training on handover anywhere, wide individual variation, and juniors who "talk about anything and everything that's happened" beside seniors who write almost nothing. The behaviour is real; the reader we named was wrong |
+
+### Two stage 01 decisions that this pass breaks
+
+**1. The handoff cannot be composed at the end of the shift.** `aarrr.md` Retention names the product decision as "shift handoff composed at the end of every shift". The UCL interviews put the failure mode exactly there: "over-utilised analysts are just gonna be ready to just get out and head home. So they just wanna get it done fast, and rush", and information goes stale inside a single shift, "at 9am you've got something to put in the handover. By 9:30, that might have changed. Because the analysts are doing 12 hour shifts, to remember everything that's happened during the day and add it in, there's bound to be something you'll forget". One participant had already solved it by making the notes accumulate during the shift instead: "I've got it set up so it integrates with Teams, so you can actually write it in Teams as the day's going on." The handoff is composed continuously and closed at the end, not written at the end.
+
+**2. The handoff is signposting, not a document.** Four of the six UCL participants described the same division: technical detail lives in the ticket, and the handover points at it. "Technical details would be in a ticket. So quite often when we hand over, we put loads of ticket references in so that way it keeps everything in one location and you can add comments on top with a timestamp to see who's worked on it and at what times. Handovers are more for signposting." This lands on the same conclusion `aarrr.md` reached from a different direction: the case file is the object, and everything else points at it.
+
+### What the analyst actually wants from an explanation
+
+This is the part of the pass that touches design principle 2 most directly, and it sharpens it in a way the competitor pass could not.
+
+**The headline finding of the RIT study:** participants "were consistently willing to accept XAI outputs, even in cases of lower predictive accuracy, when explanations were perceived as relevant and evidence-backed". Trust follows evidence quality, not the accuracy number.
+
+- **A confidence score alone does not work, and the analysts say why.** An explanation is more meaningful "if I have some context about how that percentage was generated", such as which log data or past incidents support a model's 92% confidence in a phishing alert. This is design principle 2 in `CLAUDE.md` almost word for word, now stated by an analyst instead of inferred by us
+- **More explanation is not more trust.** The study describes a Trust-Explainability curve: no rationale gives low trust, a minimal clear explanation gives a large gain, and further detail has diminishing returns and "can even reduce trust if they introduce confusion or doubt"
+- **Organisational context is the missing piece, named as such.** A popular detection platform "doesn't have the organizational perspective... if that is there then it is like wonders", and missing context such as asset value, user role and historical baselines "limits the usefulness of explanations". **This is the evidence H2 was missing.** H2 said the mechanism was proven at Datadog and the need for it was not. The need is now stated by analysts
+- **Analysts think in incident narratives, and tools explain single alerts.** "As an analyst we have to find a connection between the critical and the high alerts to determine if it's an incident or part of an attack process". That correlation is exactly what Clerk is for, which makes this the closest thing to a validation of the product premise found in any source
+- **Explanation depth should vary by experience, not only by role.** Participants with three or more years found step-by-step guidance irrelevant while agreeing it is valuable for newcomers, and one described an explainable dashboard as a learning aid that talks to a junior "like another colleague". Access level changes what a person can even see: "Based on their access, the information they can see changes"
+
+### What is still open
+
+- **Behaviour 1, pattern-matching before reading.** Unverified, and three design decisions rest on it
+- **Who moves a tenant's autonomy level.** Nothing found. Stays open, addressed to a SOC lead
+- **Whether an analyst will accept liability for a summary Clerk wrote.** Nothing found. Stays open
+- **The cost of tenant switching in seconds or in errors.** The boundary is documented; its cost is not
+- **Forty tenants per analyst.** Still `PREMISE`. SANS gives SOC size, two to ten people is the most common fully staffed SOC, but no analyst-to-client ratio was found in any public source
+
+One further paper was read and is **not** used as evidence about people: Chowdhury and Tanvir, "Decision-Aware Trust Signal Alignment for SOC Alert Triage", arXiv 2601.04486, 8 Jan 2026. Its finding that "false negatives are greatly amplified by the presence of misaligned displays of confidence" comes from simulation on the UNSW-NB15 benchmark with logistic regression and random forest, not from analysts. The paper describes a human study as a plan, not a result. It is cited here only for naming the asymmetry our product rests on, that a missed attack costs far more than a false alarm, and it is `[?]` as a claim about behaviour.

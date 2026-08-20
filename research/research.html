@@ -385,6 +385,60 @@ td:first-child{font-weight:600}
 <div class="note"><p><strong>What the self-audit systematically misses.</strong> Four of Codex’s findings were unsourced premises of our <em>own</em> product: tenants per analyst, how MDR margin works, who carries liability, the analyst profile. They are invisible to a self-audit because they were decisions when written and read as context afterwards. Codex does not know they are our decisions, so it asks for a source the same way it would for a competitor’s price. That is the whole argument for a second instrument.</p></div>
 </section>
 
+<section id="followup">
+<h2>09 &middot; Follow-up research</h2>
+<p class="h2sub">Added at stage 02, before personas were drafted</p>
+<p>Stage 01 collected evidence about the market and a frame about people. Four public sources opened on 2026-08-20 replaced part of that frame with data. Three of the four are studies of practitioners, two of them with interviews, so several lines that stood as <code>PREMISE</code> now stand on measurement, and two stage 01 decisions turn out to be wrong.</p>
+
+<h3>Sources</h3>
+<div class="tw"><table>
+<tr><th>Source</th><th>What it is</th><th>Why it counts</th></tr>
+<tr><td>Kent, Tuptuk, Becker, <em>Passing the Baton</em>, UCL, Jan 2026</td><td>Interviews with six incident responders, five of them at organisations providing cybersecurity as a service</td><td>The only study found that examines the shift handoff directly, in our exact setting</td></tr>
+<tr><td>SANS SOC Survey 2025, Christopher Crowley, July 2025</td><td>Ninth annual survey of how SOCs are built, staffed and run</td><td>Industry-scale numbers on coverage, tenure, outsourcing and satisfaction with tooling</td></tr>
+<tr><td>Rastogi et al., <em>Too Much to Trust?</em>, RIT, ACM CCS 2025</td><td>Survey of 248 analysts plus 24 in-depth interviews</td><td>The largest body of analyst voice found anywhere, on exactly our question: what makes an AI explanation trustworthy under time pressure</td></tr>
+<tr><td>Microsoft Defender multitenant management, updated Aug 2026</td><td>Documentation of a shipping cross-tenant console</td><td>The platform most MDR providers actually operate on</td></tr>
+</table></div>
+
+<h3>Premise replaced by measurement</h3>
+<div class="tw"><table>
+<tr><th>Line</th><th>Was</th><th>Now</th></tr>
+<tr><td>A 24/7 rotation</td><td><code>PREMISE</code></td><td><strong>79% of SOCs are operational 24/7</strong></td></tr>
+<tr><td>Two to six years in operations</td><td><code>PREMISE</code></td><td><strong>Three to five years is the most common tenure.</strong> 31% stay three to five years, 4% stay ten or more</td></tr>
+<tr><td>MDR providers carry other companies&rsquo; triage</td><td><code>PREMISE</code></td><td><strong>183 of 443 respondents outsource alerting, meaning triage and escalation, fully or partially</strong></td></tr>
+<tr><td>The analyst arrives trusting the agent</td><td>never stated</td><td><strong>False.</strong> AI/ML tools rank at the bottom of the SOC satisfaction list. Two of three AI/ML technologies measured ranked at the very bottom, generative language tools scored 2 out of 4, and 42% of SOCs use AI/ML out of the box with no customization. EDR/XDR is the only technology above 3 out of 4</td></tr>
+</table></div>
+<div class="note"><p><strong>The last row outranks the rest.</strong> Harrier&rsquo;s operator does not arrive curious about Clerk. They arrive having already been sold an AI tool that underdelivered, and the tool they trust most is the boring one that works. Every trust mechanism in this product is arguing with that, not building on a blank slate.</p></div>
+
+<h3>What the analyst wants from an explanation</h3>
+<p>The headline of the RIT study: participants &ldquo;were consistently willing to accept XAI outputs, even in cases of lower predictive accuracy, when explanations were perceived as relevant and evidence-backed&rdquo;. <strong>Trust follows evidence quality, not the accuracy number.</strong></p>
+<div class="tw"><table>
+<tr><th>Finding</th><th>What it does to our design</th></tr>
+<tr><td>A confidence score alone does not work. An explanation is more meaningful &ldquo;if I have some context about how that percentage was generated&rdquo;, such as which log data supports a 92% confidence</td><td>Design principle 2 in <code>CLAUDE.md</code>, almost word for word, now stated by an analyst instead of inferred by us</td></tr>
+<tr><td>More explanation is not more trust. No rationale gives low trust, a minimal clear one gives a large gain, and further detail has diminishing returns and &ldquo;can even reduce trust if they introduce confusion or doubt&rdquo;</td><td>Sets a ceiling on Clerk&rsquo;s evidence panel. Showing the work has an optimum, not a maximum</td></tr>
+<tr><td>Organisational context is the named gap: a detection platform &ldquo;doesn&rsquo;t have the organizational perspective&hellip; if that is there then it is like wonders&rdquo;</td><td><strong>This is the evidence H2 was missing.</strong> The mechanism was proven at Datadog; the need for it is now stated by analysts</td></tr>
+<tr><td>Analysts think in incident narratives while tools explain single alerts: &ldquo;we have to find a connection between the critical and the high alerts to determine if it&rsquo;s an incident&rdquo;</td><td>That correlation is what Clerk is for. The closest thing to a validation of the product premise found in any source</td></tr>
+<tr><td>Explanation depth varies by <em>experience</em>, not only by role. Access level changes what a person can see at all</td><td>A behavioural split, not a demographic one. Personas have to decide whether it makes a second person</td></tr>
+</table></div>
+
+<h3>Two stage 01 decisions this breaks</h3>
+<div class="tw"><table>
+<tr><th>Decision</th><th>What the evidence says</th><th>Now</th></tr>
+<tr><td>Shift handoff composed at the end of every shift</td><td>The end of the shift is exactly the failure mode. &ldquo;Over-utilised analysts are just gonna be ready to just get out and head home. So they just wanna get it done fast, and rush.&rdquo; Content goes stale inside the shift: &ldquo;at 9am you&rsquo;ve got something to put in the handover. By 9:30, that might have changed&rdquo;</td><td>Composed <strong>continuously</strong> through the shift and closed at the end. One participant had already solved it this way</td></tr>
+<tr><td>The handoff is a document</td><td>Four of six participants described the same division: detail lives in the ticket and the handover points at it. &ldquo;We put loads of ticket references in&hellip; Handovers are more for signposting&rdquo;</td><td>The handoff is <strong>signposting</strong> into case files, not prose</td></tr>
+</table></div>
+
+<h3>The five behaviours, restated</h3>
+<div class="tw"><table>
+<tr><th>Behaviour</th><th>Status</th></tr>
+<tr><td>1. Pattern-matching before reading</td><td class="who">Still <span class="q">[?]</span>. The only one still holding a design decision on nothing</td></tr>
+<tr><td>2. Satisficing under volume</td><td class="who done">Supported, by quotes in both studies</td></tr>
+<tr><td>3. Trust set by the last failure</td><td class="who">Still <span class="q">[?]</span> as stated, but the starting level is now known and it is low</td></tr>
+<tr><td>4. Tenant switching resets context</td><td class="who">Supported in structure, not in cost. Microsoft carries Tenant name as a row column, yet opens real work &ldquo;in a new tab for that tenant&rdquo; and refuses to assign across tenants</td></tr>
+<tr><td>5. Writing for the future auditor</td><td class="who dropped">Corrected. The reader is the next analyst, not an auditor</td></tr>
+</table></div>
+<div class="note"><p><strong>Still open.</strong> Who moves a tenant&rsquo;s autonomy level, whether an analyst will accept liability for a summary Clerk wrote, and what tenant switching costs in seconds or errors. Forty tenants per analyst stays <code>PREMISE</code>: no public source found gives an analyst-to-client ratio at an MDR provider.</p></div>
+</section>
+
 </main>
 </div>
 <script>
@@ -399,6 +453,7 @@ td:first-child{font-weight:600}
     { id:'patterns',    label:'Patterns' },
     { id:'conclusions', label:'Conclusions' },
     { id:'critique',    label:'Before and after' },
+    { id:'followup',    label:'Follow-up research' },
   ];
 </script>
 <script src="../_nav.js"></script>

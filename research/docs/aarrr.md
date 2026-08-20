@@ -43,7 +43,7 @@ All targets are hypotheses. Baselines are `[?]` until a real deployment can be m
 **Mechanics.** This is a product people are inside for six hours a day across a 24/7 rotation, so retention is measured in shifts, not in monthly logins. The thing that brings an analyst back is not a feature, it is finding the queue in the state the previous shift left it, plus knowing what the agent did while nobody was watching.
 
 **Hypotheses.**
-- The handoff is the riskiest hour of a 24/7 operation `[?]`. What is verified is only the second half: no competitor page examined addresses the handoff at all (`competitors.md`)
+- The handoff is the riskiest hour of a 24/7 operation `[?]`. What is verified is that no competitor page examined addresses the handoff at all (`competitors.md`), and that 79% of SOCs run 24/7 [SANS SOC Survey 2025], so the rotation the handoff sits in is real
 - An analyst abandons a console when they start keeping a parallel record somewhere else, usually a spreadsheet or a Slack thread. That is the leading indicator of churn, before any usage number moves `[?]`
 - Autonomy that only ever moves up is not earned trust, it is drift. Latitude has to be seen to fall when accuracy falls, or the fleet view stops being believed
 
@@ -51,7 +51,9 @@ All targets are hypotheses. Baselines are `[?]` until a real deployment can be m
 
 **One metric.** Four-week analyst retention: share of analysts who filed a verdict in week N who also file one in week N+4. Target hypothesis: 85%.
 
-**One product decision for the MVP.** **Shift handoff.** At the end of a shift Harrier composes a handoff for the incoming analyst: what moved, what is waiting and why, which tenants had autonomy change and on what evidence, and what Clerk closed on its own while nobody was watching. The pattern comes from Superhuman's Daily Briefs, which pull commitments into one view "so nothing slips" (`competitors.md`, ASPIRATIONAL). No security product examined does this, and a 24/7 operation is where it matters most.
+**One product decision for the MVP.** **Shift handoff, composed continuously and closed at the end.** Through the shift Harrier accumulates the handoff for the incoming analyst: what moved, what is waiting and why, which tenants had autonomy change and on what evidence, and what Clerk closed on its own while nobody was watching. The outgoing analyst closes it rather than writes it. The pattern comes from Superhuman's Daily Briefs, which pull commitments into one view "so nothing slips" (`competitors.md`, ASPIRATIONAL). No security product examined does this, and a 24/7 operation is where it matters most.
+
+**Corrected at stage 02.** This decision originally said the handoff is composed at the end of the shift. Interviews with six incident responders put the failure mode exactly there: "over-utilised analysts are just gonna be ready to just get out and head home. So they just wanna get it done fast, and rush", and the content goes stale inside the shift, "at 9am you've got something to put in the handover. By 9:30, that might have changed." One participant had already solved it by making the notes accumulate as the day goes on. A second correction from the same source: the handoff is **signposting**, not a document. Technical detail stays in the case file and the handoff points at it, "we put loads of ticket references in so that way it keeps everything in one location". Source in `research.md`, section 8.
 
 ## Revenue
 
@@ -89,7 +91,7 @@ All targets are hypotheses. Baselines are `[?]` until a real deployment can be m
 |---|---|---|---|
 | Acquisition | Bake-offs entered | `[?]` baseline first | Replay: rebuild the residual queue from 30 days of the prospect's own history |
 | **Activation** | **First verdict within 30 minutes of first login** | **80%** | **First case is a replayed case with a known outcome** |
-| Retention | Four-week analyst retention | 85% | Shift handoff composed at end of shift |
+| Retention | Four-week analyst retention | 85% | Shift handoff composed continuously, closed at end of shift |
 | Revenue | Net revenue retention on assets added | 125% | White-labelled tenant trust report, both sides of the ledger |
 | Referral | New evaluations naming an existing customer | 30% | Shareable redacted case file permalink |
 
