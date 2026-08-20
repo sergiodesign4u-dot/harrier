@@ -31,7 +31,7 @@
 // першу ГОТОВУ сторінку групи, тому він ніколи не вказує на ще неіснуючий файл.
 window.NAV = [
   { label:'Foundation Research', page:'research/research.html', done:true },
-  { label:'User Research', children:[
+  { label:'User Research', wip:true, children:[
       { label:'Personas',  page:'research/personas.html',  done:false },
       { label:'JTBD',      page:'research/jtbd.html',      done:false },
       { label:'CJM As-Is', page:'research/cjm-as-is.html', done:false },
