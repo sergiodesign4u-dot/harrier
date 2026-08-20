@@ -137,15 +137,29 @@ Personas are split by behaviour. A demographic fact appears only when it comes w
 
 A shift starts with somebody else's unfinished work. She did not choose this tool; the provider bought it and entered through a bake-off (`aarrr.md`, Acquisition).
 
-### Jobs, draft
+### Jobs
 
-*Answers: which functions are needed and what enters the MVP. Canonical wording is set at Step 3 and replaces this list.*
+*Answers: which functions are needed and what enters the MVP. Wording is canonical in `jtbd.md` and reproduced here word for word.*
 
-- Rule on the case in front of her fast enough to keep up and well enough to defend later
-- Know whether this is normal at **this** client
-- Disagree with Clerk cheaply and have the disagreement matter
-- Pick up a shift without rediscovering context
-- Answer a question in April about a decision made in February
+**Main job.**
+
+> When Clerk hands me a case it has already investigated, I want to decide whether its verdict holds, so that the decision is made and I can still defend it months later.
+
+**Related jobs**, adjacent tasks rather than stages of the main one.
+
+> **R1.** When I take over a rotation somebody else was working, I want to know what changed and what is waiting on a decision, so that I do not spend my first hour rebuilding what the last shift already knew.
+
+> **R2.** When a client or an auditor questions a decision made months ago, I want to show what was known at the time, so that the answer comes from the record instead of my memory.
+
+> **R3.** When Clerk got it wrong, I want my disagreement to change what it does next time, so that I am not correcting the same mistake for the rest of the quarter.
+
+> **R4.** When a client needs to hear what we did about something on their estate, I want to hand them an account they can understand without my rewriting it, so that explaining the work does not cost more than doing it.
+
+**Emotional.** When I clear a case fast, I want to feel I was thorough rather than lucky, so that speed does not cost me my confidence in my own judgment.
+
+**Social.** When my verdict is read by the next shift or by a client, I want it to look like the work of someone who knew what they were doing, so that nobody has to redo it to be sure.
+
+Two steps that live **inside** the main job rather than beside it, knowing whether this is normal at this client and disagreeing in one action, are owned by the user flow at stage 03a. Grounds in `jtbd.md`.
 
 ### Pains
 
@@ -199,6 +213,12 @@ They do not **consume** Clerk's explanation, they **audit** it. And they decide 
 | One participant owns their team's handover procedure and rebuilt shift cycles to put more people on the busiest part of the day; another organisation limits handover writing to senior staff | UCL |
 | 69% of SOCs still report metrics manually. This is the person who does it | SANS |
 | 62% of SOC professionals say their organisation is not doing enough to retain top talent | SANS |
+
+### Job
+
+> When I am accountable for what the agent did across all my clients, I want to know where its record has earned more latitude and where it has lost it, so that I can widen or narrow its scope without guessing.
+
+This is a **different main job from P1's**, which `jtbd.md` records rather than merges. It stays one product for as long as both are served by the same record read at different scales.
 
 ### Trust trigger
 
