@@ -1,0 +1,53 @@
+/* _nav.css : вигляд бокової панелі проєкту.
+   Структуру малює /_nav.js, вигляд живе тут, сторінка не описує nav-* у себе.
+   Під свою тему міняй ЛИШЕ змінні нижче (Крок 10). Правила не переписуй. */
+
+:root{
+  --nav-w:      240px;      /* ширина панелі */
+  --nav-fg:     #1b1b1b;    /* готовий етап: звичайний лінк */
+  --nav-active: #0f6b4f;    /* поточний етап і поточна сторінка */
+  --nav-muted:  #a3a3a3;    /* SOON: ще не роблений, не лінк */
+  --nav-rule:   #e8e8e8;    /* лінії, рамки бейджів */
+  --nav-badge:  #0f6b4f;    /* бейдж Next */
+  --nav-size:   14px;
+  --nav-lh:     1.45;
+}
+
+#sidebar{ width:var(--nav-w); flex:0 0 var(--nav-w); font-size:var(--nav-size); line-height:var(--nav-lh); }
+.nav-roadmap, .nav-sub, .nav-sections{ list-style:none; margin:0; padding:0; }
+.nav-roadmap{ display:flex; flex-direction:column; gap:2px; }
+
+.nav-top{ display:flex; align-items:center; gap:8px; padding:7px 10px; border-radius:6px;
+          color:var(--nav-fg); text-decoration:none; }
+a.nav-top:hover{ background:color-mix(in srgb, var(--nav-active) 8%, transparent); }
+.nav-item.is-done    > .nav-top{ color:var(--nav-fg); }        /* зроблений етап: звичайний лінк */
+.nav-item.is-soon    > .nav-top{ color:var(--nav-muted); cursor:default; }
+.nav-item.is-active  > .nav-top{ color:var(--nav-active); font-weight:600;
+          background:color-mix(in srgb, var(--nav-active) 10%, transparent); }
+.nav-item.is-partial > .nav-top{ color:var(--nav-fg); }
+.nav-item.is-wip     > .nav-top{ color:var(--nav-fg); }        /* етап у роботі: звичайний лінк, не сірий */
+
+.nav-badge{ margin-left:auto; font-size:10px; letter-spacing:.06em; text-transform:uppercase;
+            padding:2px 6px; border-radius:999px; }
+.nav-badge-next{ color:#fff; background:var(--nav-badge); }
+.nav-badge-soon{ color:var(--nav-muted); border:1px solid var(--nav-rule); }
+.nav-badge-wip { color:var(--nav-active); border:1px solid var(--nav-active); }
+
+.nav-sub{ margin:2px 0 6px; padding-left:10px; border-left:1px solid var(--nav-rule); }
+.nav-subhead{ padding:8px 10px 4px; font-size:11px; letter-spacing:.06em;
+              text-transform:uppercase; color:var(--nav-muted); }
+.nav-link{ display:flex; align-items:center; gap:8px; padding:5px 10px; border-radius:6px;
+           color:var(--nav-fg); text-decoration:none; }
+span.nav-link{ color:var(--nav-muted); }
+a.nav-link:hover{ background:color-mix(in srgb, var(--nav-active) 8%, transparent); }
+.nav-link.is-current{ color:var(--nav-active); font-weight:600; }
+
+.nav-sections{ margin:2px 0 6px; padding-left:12px; }
+.nav-section{ display:block; padding:3px 10px; color:var(--nav-muted); text-decoration:none; font-size:13px; }
+.nav-section:hover{ color:var(--nav-fg); }
+.nav-section.is-current{ color:var(--nav-active); }
+
+@media (max-width: 900px){
+  #sidebar{ width:auto; flex:none; }
+  .nav-item:not(.is-active) > .nav-top{ padding:6px 10px; }
+}

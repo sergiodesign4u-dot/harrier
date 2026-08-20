@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier</title>
+<link rel="stylesheet" href="_nav.css">
+<style>
+  :root{
+    --fg:#1b1b1b; --muted:#6b6b6b; --rule:#e8e8e8; --accent:#0f6b4f; --bg:#fff;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .shell{ display:flex; gap:48px; max-width:1120px; margin:0 auto; padding:48px 32px 96px; align-items:flex-start; }
+  #sidebar{ position:sticky; top:48px; }
+  main{ flex:1; min-width:0; max-width:64ch; }
+  .eyebrow{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 12px; }
+  h1{ font-size:40px; line-height:1.15; letter-spacing:-.02em; margin:0 0 16px; }
+  .lede{ font-size:19px; line-height:1.55; color:var(--fg); margin:0 0 32px; }
+  h2{ font-size:15px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);
+      margin:40px 0 12px; padding-top:20px; border-top:1px solid var(--rule); font-weight:600; }
+  p{ margin:0 0 16px; }
+  .meta{ display:grid; grid-template-columns:auto 1fr; gap:6px 20px; font-size:15px; margin:0; }
+  .meta dt{ color:var(--muted); }
+  .meta dd{ margin:0; }
+  a{ color:var(--accent); }
+  @media (max-width:900px){
+    .shell{ flex-direction:column; gap:32px; padding:32px 20px 64px; }
+    #sidebar{ position:static; }
+    h1{ font-size:32px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside id="sidebar"></aside>
+  <main>
+    <p class="eyebrow">Design engineering case study</p>
+    <h1>Harrier</h1>
+    <p class="lede">An adjudication console for analysts at managed detection and response providers. One analyst carries 40 or more client tenants. An AI agent named Clerk assembles the case and files a draft verdict. The human rules on it.</p>
+
+    <h2>What this is</h2>
+    <p>A product designed end to end in the open: research, personas, information architecture, wireframes, voice, visual concept and UI. Every stage leaves a page you can read, and the roadmap on the left is the table of contents.</p>
+    <p>The console starts from one refusal: the analyst never works raw alerts. Clerk correlates signals into a case, runs the first pass and shows its evidence. What the analyst spends time on is the decision, not the assembly.</p>
+
+    <h2>The move</h2>
+    <p>Autonomy is a setting per client tenant, not a threshold across the product. Each client sits somewhere between “Clerk closes nothing on its own” and “Clerk closes benign cases and shows me a sample,” and the level moves only when measured accuracy on that tenant earns it. The same signal is a Tuesday at one client and an incident at another.</p>
+
+    <h2>At a glance</h2>
+    <dl class="meta">
+      <dt>Domain</dt><dd>Security operations, managed detection and response</dd>
+      <dt>Operator</dt><dd>Tier-2 SOC analyst, 6+ hours a day in the tool</dd>
+      <dt>Platform</dt><dd>Desktop-first responsive web, from 1280</dd>
+      <dt>AI agent</dt><dd>Clerk: assembles, drafts, never decides</dd>
+    </dl>
+  </main>
+</div>
+<script>
+  window.NAV_BASE = '';
+  window.NAV_SECTIONS = [];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
