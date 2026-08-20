@@ -4,7 +4,7 @@
 
 That one line is the load-bearing sentence of this file. Stage 04 has to show it with a concrete element on the reference screen, and stage 07 has to check it did not dissolve.
 
-Why this dimension and not another: the competitor pass found that every vendor in the category sells the number of things the human no longer sees, and none designs the moment the human still has to decide. Defensibility of a decision and speed under volume both matter, but both are consequences. An analyst is fast because they trust the case file in front of them, and a verdict is defensible because the evidence behind it was visible when it was made.
+Why this dimension and not another. The verified half: the competitor pass found that every vendor in the category sells the number of things the human no longer sees, and none shows the moment the human still has to decide. The unverified half, and it is the half that does the choosing: defensibility of a decision and speed under volume both matter, but we treat both as consequences, on the argument that an analyst is fast because they trust the case file in front of them, and a verdict is defensible because the evidence behind it was visible when it was made. That causal chain is reasoning, not a finding `[?]`. It is the argument for preferring this dimension over the other two, and if stage 02 shows analysts are slow for reasons unrelated to trust, the dimension is the thing to revisit.
 
 These are not category leaders. They come from outside security, from fields that have been calibrating human trust in automation on real people for decades.
 

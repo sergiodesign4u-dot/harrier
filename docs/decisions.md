@@ -2,6 +2,36 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-20 - Stage 01 critique, two instruments, 17 findings
+
+Codex ran read-only over `research/docs` and returned 12 findings. A separate Claude pass ran on a class Codex cannot reach, conclusions whose chain back to a fact is broken, and returned 5. Zero overlap between the two sets.
+
+Sixteen confirmed and fixed. One removed on verification: Codex flagged Expel's 15-month retention as unsourced at `competitors.md:33`; on re-reading, the source is the docs.expel.io page cited in the same table row and the text is visible in the cited screenshot. Codex read a text snapshot and could not see the screenshot.
+
+The heaviest finding was a contradiction between files. `competitors.md` honestly recorded `[?]` on whether any competitor has a per-tenant trust level inside the product, since the consoles are behind login. `research.md` had promoted that unknown to a flat statement that Simbian sells one policy across all tenants, in two places, and the product's main differentiation gap rested on it. Now downgraded in both places to what a pre-login pass can actually establish: what is sold and shown publicly.
+
+What the Claude pass systematically misses: four of Codex's findings were unsourced **premises of our own product**, tenants per analyst, how MDR margin works, who carries liability, the analyst profile. They are invisible to a self-audit because they were decisions when written and read as context afterwards. All are now marked `PREMISE` where they appear.
+
+## 2026-08-20 - Chosen UX pattern: split-pane review, four rejected
+
+Considered five structurally different patterns: split-pane review, focused card stack, fleet map with drill-down, conversational agent workspace, command-driven console. Full analysis in `research/docs/ux-patterns.md`.
+
+Chose split-pane review with the fleet as the resting state of the detail pane. Rejected the card stack because it removes any sense of the whole, which for an operator responsible for forty clients is a loss of the job rather than a side effect; held as the alternative if the first test shows a persistent list invites browsing over deciding. Rejected the fleet map because it answers where and then abandons the operator at the moment of deciding, and forty tenants is too few to need a map. Rejected the command-driven console because in triage the whole problem is discovering what deserves attention, and a blank prompt cannot answer that; kept as an accelerator on top. Rejected chat as the spine because it inverts the product contract, has no scannable state and cannot carry a queue; chat inside the case file is not rejected.
+
+Only one of the three reasons for the chosen pattern rests on evidence collected this session. The other two rest on unverified behavioural inferences, and the choice is marked conditional on stage 02.
+
+## 2026-08-20 - Benchmark dimension: calibrated trust, and why these four products
+
+Chose calibrated trust in an automated agent over defensibility of a decision and speed under volume, on the argument that both of those are consequences of trust. That causal argument is reasoning, not a finding, and is now labelled as such in `benchmark.md`.
+
+Benchmarked outside security entirely: Waymo for a published track record and for pairing every percentage with an absolute count, the NWS probability of precipitation for a confidence number defined by three mandatory qualifiers, the aviation Flight Mode Annunciator for mode legibility and for override as its own annunciated state, and Stockfish on Lichess for a provenance strip that separates how sure from how hard it looked. A fifth candidate, clinical triage AI at aidoc.com, was opened and dropped because the public pages carry solution marketing and no examinable mechanism.
+
+## 2026-08-20 - Competitor set: thirteen products, three groups
+
+HARD picked for being multi-tenant AI SOC or the incumbent analyst console: Simbian, Prophet Security, Dropzone AI, Expel, Intezer. Critical Start and Radiant Security held on the bench and not needed. SOFT picked by holding the job constant and changing the domain, one operator ruling on machine-prepared cases across many accounts: Sift, Alloy, Intercom Copilot, PagerDuty. ASPIRATIONAL picked for solving one part of the problem better than security does: Linear, Cursor, Datadog Cloud SIEM, Superhuman.
+
+Collection guardrail held throughout: public and pre-login pages only, no accounts created. All five HARD consoles sit behind login, so interface evidence came from documentation and help centres. Only two working interfaces were readable anywhere: Expel Workbench and the PagerDuty Operations Console.
+
 ## 2026-08-20 - `_nav.js` and `_nav.css` keep em dashes in their comments
 
 The project rule bans em dashes in output files. These two files are inserted verbatim from the pipeline pack, which states the code must not be edited. The dashes sit in Ukrainian source comments, never in rendered product copy. Rejected: rewriting the comments, which would fork the file from its source and make the next pack update a manual merge.

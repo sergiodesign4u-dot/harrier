@@ -34,7 +34,7 @@ All targets are hypotheses. Baselines are `[?]` until a real deployment can be m
 
 **Unknown.** Whether analysts joining an MDR provider are onboarded onto tools individually or in cohorts during a training week, which changes what the first session even looks like. `[?]`
 
-**One metric.** Share of new analysts who file a first verdict within 30 minutes of first login. Target hypothesis: 80%.
+**One metric.** Share of new analysts who file a first verdict within 30 minutes of first login. Target hypothesis: 80%. **The 30-minute threshold is arbitrary.** It was chosen because it is roughly one coffee, not derived from anything. It stands until a first deployment gives a real distribution of time-to-first-verdict, and then it is replaced by a percentile of that distribution.
 
 **One product decision for the MVP.** The first case an analyst ever opens is not a live one. It is a **replayed case from one of their own provider's tenants with a known outcome**, labelled as such. They rule on it, and then see what actually happened. The first act of trust is checkable, which is the only way a first act of trust should ever be asked for. It also seeds the thing `benchmark.md` says trust is made of: a track record the operator has personally verified.
 
@@ -70,7 +70,7 @@ All targets are hypotheses. Baselines are `[?]` until a real deployment can be m
 
 ## Referral
 
-**Mechanics.** In this market referral is peer to peer between service delivery leads at non-competing providers, plus the channel and the MSP and MSSP communities. Nobody tweets about an internal SOC console. They forward one thing to one peer.
+**Mechanics.** `[?]` for this whole paragraph. We assume referral in this market is peer to peer between service delivery leads at non-competing providers, plus the channel and the MSP and MSSP communities, and that nobody posts publicly about an internal SOC console but does forward one thing to one peer. None of this was researched: it is the weakest-evidenced stage in the funnel and it is named as such.
 
 **Hypotheses.**
 - What travels between peers is not a demo link, it is an artifact: one case file good enough that a lead wants to show someone `[?]`

@@ -4,11 +4,13 @@ Single source of truth for stage 01. Every downstream stage reads this file firs
 
 All competitor and benchmark pages were opened live on 2026-08-20. Nothing in this document comes from model memory. Anything unverified carries `[?]`.
 
+**One class of statement in this file is neither sourced nor `[?]`, and it is worth naming.** Harrier is an invented product, so its operating premises, how many tenants one analyst carries, how an MDR provider's margin works, who answers when a closed case turns out to be an incident, are **decisions we made**, not market measurements. They are marked `PREMISE` where they appear. A premise repeated three times starts to read as a market fact, which is exactly how it slipped past the first self-audit.
+
 ## 1 Introduction
 
-**The product.** Harrier is an adjudication console for analysts at managed detection and response providers. One analyst carries 40 or more client tenants. An AI agent named Clerk correlates signals into a case, runs the first pass of the investigation, and files a written verdict with its evidence. The human job is to rule on it.
+**The product.** Harrier is an adjudication console for analysts at managed detection and response providers. One analyst carries 40 or more client tenants. `PREMISE`, our chosen operating profile, not a measured industry figure. An AI agent named Clerk correlates signals into a case, runs the first pass of the investigation, and files a written verdict with its evidence. The human job is to rule on it.
 
-**The problem.** An MDR provider's margin is set by how many tenants one analyst can carry. The category's answer is unanimous: let the agent close most of the work. Liability does not follow. The provider signs the contract, and when a closed case turns out to have been an incident, the provider answers for it.
+**The problem.** An MDR provider's margin is set by how many tenants one analyst can carry `PREMISE`. The category's answer is unanimous, and that part is verified: let the agent close most of the work. Liability does not follow. The provider signs the contract, and when a closed case turns out to have been an incident, the provider answers for it `PREMISE`, our reading of how a managed service contract works, not a legal finding or a sourced industry claim.
 
 **The approach.** Seven levels of research, each one narrowing the last: thirteen competitor products across three groups, a benchmark on one chosen dimension drawn from outside security entirely, a Lean UX Canvas, an AARRR funnel, and a deliberate choice among five structurally different UX patterns.
 
@@ -16,9 +18,9 @@ All competitor and benchmark pages were opened live on 2026-08-20. Nothing in th
 
 1. **The category has one position and it is unanimous.** Simbian: "Your analysts review the 8% that need judgment, not the 92% that don't". Intezer: "human SOC teams review outcomes, not tickets". Dropzone: "100% Software Execution. No vendor-provided human safety drivers behind the scenes". Prophet investigates 100% of alerts autonomously from day one. Expel's Ruxie enriches every alert before it reaches the queue. Every one of them sells the number of cases the human no longer sees (`competitors.md`, HARD).
 
-2. **Nobody designs the queue that remains.** The residual work after auto-resolution is where every hard decision now lives and where an analyst spends the whole shift. No competitor page examined publishes so much as a screenshot of it.
+2. **Nobody shows the queue that remains.** The residual work after auto-resolution is where every hard decision now lives and where an analyst spends the whole shift. No vendor selling auto-resolution publishes a view of what is left after it. The only working analyst queue published anywhere across the thirteen products is Expel's Workbench, in its documentation, and Expel is human-led rather than auto-resolving, so it is not the residual queue either.
 
-3. **Multi-tenancy in this category means isolation or switching, never a fleet.** Simbian isolates each tenant's data in a per-tenant Context Lake but sells one 92% auto-resolve rate across all of them. Expel makes the tenant a dropdown in the top bar, so the analyst is inside one client at a time. Prophet is single-tenant by design and says so.
+3. **Multi-tenancy in this category means isolation or switching, never a fleet.** Simbian's Context Lake isolates each tenant's data, and what Simbian sells publicly is one 92% auto-resolve rate across all clients. Whether the product carries a per-tenant trust level internally is `[?]`: the working console is behind login. Expel makes the tenant a dropdown in the top bar, so the analyst is inside one client at a time. Prophet is single-tenant by design and says so.
 
 4. **Earned autonomy already exists, and that changes our claim.** Prophet sells "Autonomy on your terms": it acts only within approved scope and "you decide when its track record justifies widening that scope". So earned autonomy is not the differentiator. What nobody does is make earned trust **per tenant and visible on a fleet view**.
 
@@ -51,6 +53,18 @@ Detail lives in `lean-ux-canvas.md`. This is the same strategy at reading distan
 
 **Business model.** Sold to the provider. Platform fee per analyst seat plus a metered component per monitored asset across all tenants. Autonomy is deliberately not a paid tier: charging more for the agent to do more work while the provider carries the liability breaks the trust the product is built on. Contested by market practice, see the open questions table.
 
+**Business outcomes.** Five, all targets hypotheses, baselines `[?]` until a real deployment can be measured.
+
+| Outcome | Metric | Target (hypothesis) |
+|---|---|---|
+| An analyst carries more tenants without more reversals | Tenants per analyst at a constant rate of reversed verdicts | +40% tenants, reversal rate flat |
+| Latitude grows because it was earned, not because a global setting moved | Share of tenants above the entry autonomy level after 90 days | 60% |
+| Verdicts survive being questioned | Share of client escalations where the original evidence answered the question without new investigation | 90% |
+| The residual queue stops being the bottleneck | Median time from case ready to verdict filed | Under 4 minutes |
+| Overrides are worth something | Share of Clerk rejections whose stated reason produced a tuning change within 14 days | 50% |
+
+The last one is the honest test of design principle 3 in `CLAUDE.md`. If rejection is cheap to make and nothing happens afterwards, the product only performs listening.
+
 **The strategic dimension.** Calibrated trust in an automated agent: the operator knows exactly how much to trust Clerk right now, on this tenant, and that trust is earned and visible rather than asserted. Stage 04 must show this with a concrete element on the reference screen. Stage 07 must check it did not dissolve.
 
 **Riskiest assumption.** An analyst carrying 40 tenants makes faster and better-defended decisions when the agent's latitude varies per client than when it is one flat policy. If varying trust across 40 clients is just 40 more things to hold in working memory, the differentiator becomes overhead and Harrier is a worse Simbian. This is a value risk, not a feasibility risk, and the first test that can kill it is in `lean-ux-canvas.md` section 8.
@@ -62,7 +76,7 @@ Detail in `aarrr.md`. Read Acquisition and Referral in an enterprise frame: Harr
 | Stage | One metric | Target (hypothesis) | One product decision |
 |---|---|---|---|
 | Acquisition | Bake-offs entered | `[?]` baseline first | Replay: rebuild the residual queue from 30 days of the prospect's own alert history |
-| **Activation** | **First verdict within 30 minutes of first login** | **80%** | **The first case an analyst ever opens is a replayed case with a known outcome** |
+| **Activation** | **First verdict within 30 minutes of first login.** The 30-minute threshold is arbitrary and stands until a real distribution replaces it | **80%** | **The first case an analyst ever opens is a replayed case with a known outcome** |
 | Retention | Four-week analyst retention | 85% | Shift handoff composed at the end of every shift |
 | Revenue | Net revenue retention on assets added | 125% | White-labelled tenant trust report showing both sides of the ledger |
 | Referral | New evaluations naming an existing customer | 30% | Shareable redacted case file permalink |
@@ -86,7 +100,7 @@ Thirteen products, three groups. Full tables, sources and per-product notes in `
 | Who operates it | MSSP or MDR analyst across tenants | In-house SOC in one organisation | Expel's analysts, client watching the same screen | Developer reviewing agent work | In-house security engineer |
 | Core object | Alert auto-resolved by an agent | Alert investigated end to end | Investigation, promoted to incident | Task with a diff awaiting review | Signal, promoted to case |
 | Where the human sits | Reviews the 8% the agent could not close | Approves the scope of actions, not each case | Works the case, client observes | Rules on every diff before it lands | Triages every signal |
-| How autonomy is set | One platform-wide rate, tenant data isolated but policy shared | Per organisation, widened as the track record earns it | Auto remediations per organisation | Per action | Per rule, with suppressions |
+| How autonomy is set | One platform-wide rate in public marketing; tenant data isolated. Whether policy is per tenant inside the product is `[?]` | Per organisation, widened as the track record earns it | Auto remediations per organisation | Per action | Per rule, with suppressions |
 | How agent work is shown | `[? behind login]` | Every question, query and reasoning step documented | An action in the log, with a checkbox to hide it | Compact verb trail, diff, measured outcome | `[?]` for the AI layer; the rule renders as readable clauses |
 | What is charged for | `[?]` not published | `[?]` not published | `[?]` not published | `[?]` not opened this session | `[?]` not opened this session |
 
@@ -151,12 +165,14 @@ Full analysis of all five in `ux-patterns.md`.
 
 **Considered:** split-pane review, focused card stack, fleet map with drill-down, conversational agent workspace, command-driven console.
 
-**Chosen: split-pane review, with the fleet as the resting state of the detail pane.** A cross-tenant queue on the left that never leaves the screen. The right side holds the case when one is selected, and the fleet, meaning per-tenant autonomy state and accuracy trend, when nothing is. The empty state of the detail pane is the dashboard.
+**Chosen: split-pane review, with the fleet as the resting state of the detail pane.** A cross-tenant queue on the left that never leaves the screen. The right side holds the case when one is selected, and the fleet, meaning per-tenant autonomy state and accuracy trend, when nothing is. The empty state of the detail pane is the dashboard. That last sentence is a **design decision**, not a research finding: nothing in the competitor or benchmark pass suggested it, and it is offered here because it follows from the chosen pattern, not because evidence points at it.
 
 Three reasons:
 1. It is the only pattern that matches the entry-point behaviour. A persistent list beside the detail lets the analyst confirm or break a match against what is around it without rebuilding context.
 2. It is the only pattern that makes cheap override structurally possible. One-key disagreement needs a keyboard rhythm, and split-pane is the only one of the five where the list survives the decision.
 3. It is the structural expression of the gap. A cross-tenant list persisting beside the detail is what "one fleet, one queue" looks like in layout rather than in a sentence.
+
+**What the choice rests on.** Reason 1 rests on the pattern-matching behaviour and reason 2 on satisficing, and both are unverified inferences. Only reason 3 stands on evidence collected this session. If stage 02 does not confirm those behaviours, the pattern has to be re-argued from reason 3 alone, which it can survive, but as a narrower argument. Stage 04 should not inherit this as settled.
 
 **Watch item.** A merged queue switches tenant on every row, and tenant switching resets context. The per-tenant base rate in the case header is what pays for the merged queue. If it fails, the queue groups by tenant and the fleet becomes primary navigation.
 
@@ -170,8 +186,8 @@ Three reasons:
 
 | Gap | Evidence | Source |
 |---|---|---|
-| Nobody sells a fleet view of trust | Simbian isolates tenant data in a per-tenant Context Lake but sells one 92% auto-resolve rate across all clients. Prophet earns autonomy per organisation, but deploys single-tenant | [simbian.ai/solutions/mssp-mdr](https://simbian.ai/solutions/mssp-mdr), [prophetsecurity.ai/ai-soc-analyst](https://www.prophetsecurity.ai/ai-soc-analyst) |
-| Every competitor optimises for the human seeing less; none designs the moment the human still has to decide | Five vendors sell 92%, 91%, 85%, 99.9% and 70% reductions. None publishes a view of the residual queue | `competitors.md`, HARD and SOFT tables |
+| Nobody **sells** a fleet view of trust | Simbian isolates tenant data in a per-tenant Context Lake and markets one 92% auto-resolve rate across all clients; whether a per-tenant trust level exists inside the product is `[?]`. Prophet earns autonomy per organisation, but deploys single-tenant. The gap is in what is sold and shown publicly, which is all a pre-login pass can establish | [simbian.ai/solutions/mssp-mdr](https://simbian.ai/solutions/mssp-mdr), [prophetsecurity.ai/ai-soc-analyst](https://www.prophetsecurity.ai/ai-soc-analyst) |
+| Every competitor optimises for the human seeing less; none shows the moment the human still has to decide | Five vendors sell 92%, 91%, 85%, 99.9% and 70% reductions. None publishes a view of what remains after them. Expel publishes a real analyst queue, but Expel is human-led, so that queue is not a residual one | `competitors.md`, HARD and SOFT tables |
 | Base rate is per environment and should be per tenant | Datadog puts "Past month signal count" in the signal header, answering "is this normal here" for one organisation. In a 40-tenant console that question has 40 answers | [docs.datadoghq.com, Investigate Security Signals](https://docs.datadoghq.com/security/cloud_siem/triage_and_investigate/investigate_security_signals/) |
 | The accept, edit or reject atom has not moved from code review into security | Cursor: a queue titled "READY FOR REVIEW 5", a size measure before opening, a compact work trail, a numbered fork when unsure. Security still ships confidence percentages | [cursor.com](https://cursor.com/en-US) |
 | Agent output is treated as clutter rather than as a draft | Expel's action log carries a "Hide Ruxie actions" checkbox. Linear puts agent actions in the shared feed with a named actor | [docs.expel.io](https://docs.expel.io/workbench-reference/investigations-and-incidents/view-an-investigation), [linear.app](https://linear.app/) |
@@ -183,13 +199,13 @@ Format: if / then / because [data].
 
 **H1. `RISKIEST`** If per-tenant autonomy is shown as armed and active state in a fixed position, then an analyst carrying 40 tenants will make faster and better-defended decisions than under one flat policy, because mode confusion is a display failure rather than a knowledge failure, and the FMA solved it by making state readable rather than inferable [`benchmark.md`, Flight Mode Annunciator, mode legibility 5 of 5]. **This is the riskiest assumption from section 2. If H1 is false the idea falls: per-tenant trust becomes 40 things to remember, and the differentiator becomes overhead.**
 
-**H2.** If the case header carries a per-tenant base rate, then an analyst will reach a verdict on an unfamiliar client without a research detour, because Datadog already proves the mechanism works for one environment and the analyst's cost here is tenant switching, which resets what counts as normal [Datadog signal header, "Past month signal count: 1"; `ux-patterns.md`, behaviour 4].
+**H2.** `CONDITIONAL` If the case header carries a per-tenant base rate, then an analyst will reach a verdict on an unfamiliar client without a research detour, because Datadog already proves the mechanism works for one environment and the analyst's cost here is tenant switching, which resets what counts as normal [Datadog signal header, "Past month signal count: 1" verified; `ux-patterns.md` behaviour 4 unverified `[?]`]. Half-grounded: the mechanism is evidenced, the need for it is not.
 
 **H3.** If every Clerk output carries a provenance strip naming model, sources queried and time spent, then analysts will allocate attention on evidence rather than on order of arrival, because effort spent and confidence are different questions and only the first predicts how much checking is warranted [`benchmark.md`, Lichess `Depth 75` and `CLOUD`].
 
-**H4.** If rejecting Clerk costs one keystroke and the reason routes to detection engineering, then rejections will keep being filed rather than quietly absorbed, because analysts satisfice under volume and will take the cheapest sufficient action, so the cheapest action has to be the useful one [`ux-patterns.md`, behaviour 2].
+**H4.** `CONDITIONAL` If rejecting Clerk costs one keystroke and the reason routes to detection engineering, then rejections will keep being filed rather than quietly absorbed, because analysts satisfice under volume and will take the cheapest sufficient action, so the cheapest action has to be the useful one [`ux-patterns.md` behaviour 2, unverified `[?]`]. Rests entirely on an unverified behaviour. If analysts do not satisfice, the reasoning behind one-key override needs rebuilding, though the feature may still be right for other reasons.
 
-**H5.** If the fleet view shows autonomy state and accuracy trend per tenant, then latitude will grow on measured accuracy rather than on a forgotten setting, because trust in automation is set by the last failure rather than the average, and latitude that is never seen to fall stops being believed [`ux-patterns.md`, behaviour 3, marked as inference for stage 02].
+**H5.** `CONDITIONAL` If the fleet view shows autonomy state and accuracy trend per tenant, then latitude will grow on measured accuracy rather than on a forgotten setting, because trust in automation is set by the last failure rather than the average, and latitude that is never seen to fall stops being believed [`ux-patterns.md` behaviour 3, unverified `[?]`].
 
 **H6.** If a shift handoff is composed at the end of every shift, then less information will be lost across a 24/7 rotation, because no product across the thirteen examined addresses the handoff at all and the nearest pattern comes from an email client [`competitors.md`; Superhuman Daily Briefs]. That the handoff is the riskiest hour of the rotation is itself unverified `[?]` and is the first thing stage 02 should ask an analyst.
 

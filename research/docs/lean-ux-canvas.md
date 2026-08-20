@@ -6,7 +6,7 @@ Jeff Gothelf's format, filled from `CLAUDE.md`, `competitors.md` and `benchmark.
 
 An MDR provider's margin is set by how many client tenants one analyst can carry. The market has one answer, and it is unanimous: let the agent close most of the work. Simbian sells 92% of alerts auto-resolved and one analyst covering 200 to 300% more clients, Dropzone sells an 85% reduction in manual alert investigation, PagerDuty sells 91% less alert noise, Expel sells a 99.9% reduction in investigative leads (`competitors.md`, HARD and SOFT).
 
-**Liability does not automate.** The provider signs the contract, and when a closed case turns out to have been an incident, the provider answers for it, not the vendor. Two things follow that nobody in the category is selling into:
+**Liability does not automate.** The provider signs the contract, and when a closed case turns out to have been an incident, the provider answers for it, not the vendor. `PREMISE`: this is our reading of how a managed service contract works, not a legal finding and not a sourced industry claim. It is load-bearing for the whole business problem, so it is the first thing to check with a service delivery manager at stage 02. Two things follow that nobody in the category is selling into:
 
 - The residual queue, whatever is left after auto-resolution, is where every hard decision now lives. It is the analyst's whole shift, and no competitor publishes so much as a screenshot of it (`competitors.md`, gap 2)
 - Autonomy is being sold as one number across every client. A provider carrying 40 tenants carries 40 different risk appetites, and one auto-resolve rate cannot represent a regional bank and a dental group at the same time (`competitors.md`, gap 1)
@@ -29,7 +29,7 @@ The fifth one is the honest test of whether principle 3 in `CLAUDE.md` is real. 
 
 ## 3 Users
 
-**Primary: Tier-2 SOC analyst at an MDR provider.** 26 to 40, two to six years in security operations, 10-hour shifts on two monitors, 6+ hours inside the tool, 40 or more client tenants at once. Paid to be fast, judged on being right, and the thing that actually slows them down is the fear of the one true positive closed as noise.
+**Primary: Tier-2 SOC analyst at an MDR provider.** `PREMISE` for every number in this paragraph: 26 to 40, two to six years in security operations, 10-hour shifts on two monitors, 6+ hours inside the tool, 40 or more client tenants at once. This is an assumed profile we chose, not a researched one. No analyst has been interviewed. Stage 02 builds the real persona and every number here is a candidate to be replaced. Paid to be fast, judged on being right, and the thing that actually slows them down is the fear of the one true positive closed as noise.
 
 **Secondary: SOC lead or service delivery manager.** Owns SLA, client trust, and the decision to give Clerk more rope at a given client. Does not work the queue daily but is accountable for what came out of it. This is the person a client calls when something was missed.
 
