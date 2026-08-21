@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 0.1 Console shell</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+/* ---- node header ---- */
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+/* ---- black and white wireframe kit ---- */
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px;min-width:0}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.3;color:var(--ink);
+    border:1.5px solid var(--ink);background:#fff}
+.wf.desk{width:1000px}
+.wf.mob{width:360px;margin:0 auto}
+.wf .z{border-bottom:1px solid var(--hair);padding:8px 10px;position:relative}
+.wf .tag{position:absolute;top:-1px;right:-1px;background:var(--ink);color:#fff;
+         font-size:8.5px;letter-spacing:.08em;padding:2px 5px}
+.wf .row{display:flex;align-items:center;gap:10px}
+.wf .grow{flex:1}
+.wf .box{border:1px solid var(--soft);background:var(--fill);padding:4px 8px}
+.wf .box.dash{border-style:dashed;background:#fff;color:var(--soft)}
+.wf .split{display:flex;border-bottom:1px solid var(--hair)}
+.wf .pane-l{width:40%;border-right:1.5px solid var(--ink);padding:8px 10px;position:relative}
+.wf .pane-r{flex:1;padding:8px 10px;position:relative;background:#fcfcfc}
+.wf .line{height:6px;background:var(--hair);margin:5px 0}
+.wf .line.s{width:45%}.wf .line.m{width:70%}.wf .line.l{width:92%}
+.wf .qrow{border:1px solid var(--hair);padding:6px 8px;margin:0 0 5px;background:#fff}
+.wf .qrow.sel{border:1.5px solid var(--ink);background:var(--fill)}
+.wf .qrow .top{display:flex;gap:8px;align-items:baseline}
+.wf .qrow .top b{font-size:10px}
+.wf .qrow .top span{color:var(--soft);font-size:9.5px}
+.wf .ann{border:1.5px solid var(--ink);padding:5px 9px;display:flex;gap:12px;align-items:center;background:#fff}
+.wf .ann .k{font-size:8.5px;letter-spacing:.1em;color:var(--soft)}
+.wf .ann .v{font-size:11px;font-weight:700}
+.wf .fleet{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:6px 0 0}
+.wf .fleet div{border:1px solid var(--hair);padding:5px 6px;font-size:9px}
+.wf .fleet b{display:block;font-size:10px}
+.wf .toast{border:1.5px solid var(--ink);padding:5px 9px;display:inline-block;background:#fff}
+.wf .note{color:var(--soft);font-size:9.5px}
+.wf .tabs{display:flex;border-top:1.5px solid var(--ink)}
+.wf .tabs div{flex:1;text-align:center;padding:9px 4px;border-right:1px solid var(--hair);font-size:9px}
+.wf .tabs div:last-child{border-right:none}
+.wf .tabs div.on{background:var(--ink);color:#fff}
+.zonekey{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:7px;margin:0 0 22px}
+.zonekey span{font-size:12.5px;color:var(--muted);border-left:2px solid var(--rule);padding:2px 0 2px 11px}
+.zonekey span b{font-family:var(--mono);font-size:10.5px;color:var(--accent);display:block}
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 0.1 &middot; Global element</p>
+<h1>Console shell</h1>
+<p class="lede">The frame every authenticated screen inherits, and the node that makes one guarantee: the list is never lost. This is also the reference node, so the ten sections below are the shape all forty two others take.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">0.1</dd></div>
+  <div><dt>Type</dt><dd>Page, as a frame</dd></div>
+  <div><dt>Group</dt><dd>Global</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Contains</dt><dd class="num">0.2 &middot; 0.3 &middot; 0.4 &middot; 0.5 &middot; 8.4</dd></div>
+  <div><dt>Indexing</dt><dd>noindex, behind auth</dd></div>
+</dl>
+
+<div class="note"><p><strong>Section 6 is where a public product would put SEO.</strong> Harrier has exactly one crawlable URL, the sign in page, so the slot carries the two things that do bind at this layer instead: where a thing lives, and who may open it.</p></div>
+
+<section id="purpose">
+<h2>01 &middot; Purpose</h2>
+<p class="h2sub">Why a frame is a node</p>
+<p>Split pane review was chosen at stage 01 for three reasons, and the second is structural: <strong>cheap override needs the list to survive the decision</strong>. If the case takes the whole window, rejecting Clerk costs a navigation back, and design principle 3 says override is one key.</p>
+<p>So the shell exists to make one guarantee: the list is never lost. Everything else it holds is here because it has to be true on every screen rather than on one. Nobody opens the shell. It serves the main job structurally rather than directly.</p>
+</section>
+
+<section id="mock">
+<h2>02 &middot; Wireframe</h2>
+<p class="h2sub">Black and white, both renderings</p>
+
+<div class="zonekey">
+  <span><b>Z1 Top bar</b> Mark, navigation, analyst and shift, keyboard map</span>
+  <span><b>Z2 Connection strip</b> Silent when connected</span>
+  <span><b>Z3 Annunciator</b> Latitude, fixed position, never dropped</span>
+  <span><b>Z4 List pane</b> Keyboard grid, survives every decision</span>
+  <span><b>Z5 Detail pane</b> Fleet at rest, case when selected. Never a modal</span>
+  <span><b>Z6 Toasts</b> Above the list, never over the evidence</span>
+</div>
+
+<div class="wfwrap">
+  <div class="wfcap"><b>Desktop 1440</b><span>state: a case is selected, connection healthy</span></div>
+  <div class="wfpad">
+  <div class="wf desk">
+    <div class="z"><span class="tag">Z1</span>
+      <div class="row">
+        <b>HARRIER</b>
+        <span class="box">Queue</span><span class="box dash">Shift</span><span class="box dash">Log</span><span class="box dash">Clients</span>
+        <span class="grow"></span>
+        <span class="note">R. Idrissi &middot; night shift, 6h in</span>
+        <span class="box dash">?</span>
+      </div>
+    </div>
+    <div class="z"><span class="tag">Z3</span>
+      <div class="ann">
+        <span class="k">CLERK ON</span><span class="v">Meridian Freight</span>
+        <span class="k">LATITUDE</span><span class="v">Guided</span>
+        <span class="k">30d ACCURACY</span><span class="v">94% &#8599;</span>
+        <span class="k">OVERRIDE</span><span class="v">none</span>
+        <span class="grow"></span>
+        <span class="note">fixed position, reads the selection</span>
+      </div>
+    </div>
+    <div class="split">
+      <div class="pane-l"><span class="tag">Z4</span>
+        <div class="row" style="margin-bottom:7px"><span class="box dash">scope: all tenants</span><span class="box dash">filters</span><span class="grow"></span><span class="note">41 waiting</span></div>
+        <div class="qrow"><div class="top"><b>Credential stuffing</b><span>Northwind</span></div><div class="line l"></div><div class="line s"></div></div>
+        <div class="qrow sel"><div class="top"><b>Impossible travel, 2 assets</b><span>Meridian Freight</span></div><div class="line l"></div><div class="line m"></div></div>
+        <div class="qrow"><div class="top"><b>Beaconing to new domain</b><span>Halcyon Care</span></div><div class="line l"></div><div class="line s"></div></div>
+        <div class="qrow"><div class="top"><b>Mailbox rule created</b><span>Northwind</span></div><div class="line m"></div></div>
+        <div class="note" style="margin-top:6px">one tab stop &middot; up and down move selection &middot; the list holds while Z5 changes</div>
+      </div>
+      <div class="pane-r"><span class="tag">Z5</span>
+        <div class="row"><b>4.1 Case File</b><span class="grow"></span><span class="box dash">accept</span><span class="box dash">amend</span><span class="box dash">reject</span></div>
+        <div class="line l"></div><div class="line l"></div><div class="line m"></div>
+        <div class="box dash" style="margin:8px 0;padding:8px">evidence block &middot; canonical component, also on 4.2 and 5.4</div>
+        <div class="box dash" style="padding:6px">provenance strip</div>
+        <div class="note" style="margin-top:8px">never a modal: principle 5 forbids an overlay over the evidence being decided on</div>
+      </div>
+    </div>
+    <div class="z" style="border-bottom:none"><span class="tag">Z6</span>
+      <span class="toast">Verdict filed &middot; Northwind &middot; undo</span>
+      <span class="note" style="margin-left:10px">bottom left, above the list, never over Z5</span>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="wfwrap">
+  <div class="wfcap"><b>Desktop 1440</b><span>state: nothing selected, and this is the cell that carries the differentiator</span></div>
+  <div class="wfpad">
+  <div class="wf desk">
+    <div class="z"><span class="tag">Z1</span><div class="row"><b>HARRIER</b><span class="box">Queue</span><span class="box dash">Shift</span><span class="box dash">Log</span><span class="box dash">Clients</span><span class="grow"></span><span class="note">R. Idrissi &middot; night shift</span></div></div>
+    <div class="z"><span class="tag">Z2</span><div class="row"><span class="box">Live</span><span class="note">silent when connected. When stale it names the age of the data in words, and the list stays readable</span></div></div>
+    <div class="z"><span class="tag">Z3</span>
+      <div class="ann"><span class="k">FLEET</span><span class="v">42 tenants</span><span class="k">AUTOPILOT</span><span class="v">6</span><span class="k">GUIDED</span><span class="v">27</span><span class="k">DRY RUN</span><span class="v">9</span><span class="grow"></span><span class="note">with nothing selected the annunciator reads the fleet</span></div>
+    </div>
+    <div class="split">
+      <div class="pane-l"><span class="tag">Z4</span>
+        <div class="qrow"><div class="top"><b>Nothing waiting on a decision</b></div><div class="line m"></div></div>
+        <div class="note">3.4. The list is empty. The pane is not</div>
+      </div>
+      <div class="pane-r"><span class="tag">Z5</span>
+        <div class="row"><b>3.5 Fleet</b><span class="grow"></span><span class="note">the resting state, not an empty state</span></div>
+        <div class="fleet">
+          <div><b>Meridian Freight</b>Guided &middot; 94% &#8599;</div>
+          <div><b>Northwind</b>Guided &middot; 88% &#8600;</div>
+          <div><b>Halcyon Care</b>Dry run &middot; 71% &#8599;</div>
+          <div><b>Cadence Retail</b>Autopilot &middot; 97% &rarr;</div>
+          <div><b>Ashgrove Legal</b>Guided &middot; 91% &rarr;</div>
+          <div><b>Pinemark</b>Dry run &middot; 64% &#8600;</div>
+          <div><b>Tessellate</b>Autopilot &middot; 96% &#8599;</div>
+          <div class="box dash" style="display:flex;align-items:center">35 more</div>
+        </div>
+        <div class="note" style="margin-top:8px">readable, not settable. Moving latitude is 7.2 and it is LATER</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="wfwrap">
+  <div class="wfcap"><b>Mobile 360</b><span>state: the split has collapsed, and one zone survives on purpose</span></div>
+  <div class="wfpad">
+  <div class="wf mob">
+    <div class="z"><span class="tag">Z1</span><div class="row"><b>HARRIER</b><span class="grow"></span><span class="box dash">menu</span></div></div>
+    <div class="z"><span class="tag">Z3</span><div class="row" style="font-size:9.5px"><b>Meridian Freight</b><span class="grow"></span><span>Guided &middot; 94% &#8599;</span></div></div>
+    <div class="z" style="padding-bottom:10px"><span class="tag">Z4</span>
+      <div class="qrow"><div class="top"><b>Impossible travel</b></div><div class="top"><span>Meridian Freight &middot; 4m ago</span></div></div>
+      <div class="qrow"><div class="top"><b>Beaconing to new domain</b></div><div class="top"><span>Halcyon Care &middot; 11m ago</span></div></div>
+      <div class="qrow"><div class="top"><b>Mailbox rule created</b></div><div class="top"><span>Northwind &middot; 26m ago</span></div></div>
+      <div class="note">the list is the page. Selecting navigates to 4.2, it does not fill a pane</div>
+    </div>
+    <div class="tabs"><div class="on">Queue</div><div>Shift</div><div>Log</div></div>
+  </div>
+  </div>
+</div>
+<p class="note" style="border:none;padding:0"><strong>What survives at 360 is Z3, and only Z3 is protected.</strong> Every other zone may compress. The mobile scenario is read and escalate at 03:00, and reading a case without knowing how much rope Clerk has on that client is the exact failure this product exists to prevent. Filing a verdict at 360 is not built: 4.6 escalate is reachable, 4.4 and 4.5 are not.</p>
+</section>
+
+<section id="anatomy">
+<h2>03 &middot; Anatomy</h2>
+<p class="h2sub">Element, behaviour, where it leads</p>
+<div class="tw"><table>
+<thead><tr><th>Zone</th><th>Holds</th><th>Behaviour</th><th>Goes to</th></tr></thead>
+<tbody>
+<tr><td>Z1 Top bar</td><td>Product mark, global navigation, analyst identity with the shift, keyboard map trigger</td><td>Fixed. Never scrolls away, because the shift identity is what the log records against</td><td>0.2, 0.5, 2.1</td></tr>
+<tr><td>Z2 Connection strip</td><td>Connected, reconnecting, stale with the age of the data</td><td>Silent when connected. The only zone allowed to carry colour before stage 06</td><td>0.4, 3.3</td></tr>
+<tr><td>Z3 Annunciator</td><td>Latitude of the current tenant, accuracy trend, whether an override is in force</td><td>Fixed position, always the same place. Reads the selection; with nothing selected it reads the fleet</td><td>0.3, 3.5, 7.2 later</td></tr>
+<tr><td>Z4 List pane</td><td>Whatever list the section owns</td><td>Left, keyboard traversable, survives every decision made in Z5</td><td>3.1, 5.1</td></tr>
+<tr><td>Z5 Detail pane</td><td>The fleet at rest, a case when selected</td><td>Right, never a modal</td><td>3.5, 4.1, 5.4</td></tr>
+<tr><td>Z6 Toast region</td><td>Filed, escalated, connection recovered</td><td>Bottom left, above the list rather than over the detail pane</td><td>8.4</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="states">
+<h2>04 &middot; State matrix</h2>
+<p class="h2sub">Zones against what the shell has to survive</p>
+<div class="tw"><table>
+<thead><tr><th>Zone</th><th>Nothing selected</th><th>Case selected</th><th>Connection stale</th><th>Permission denied</th><th>At 360</th></tr></thead>
+<tbody>
+<tr><td>Z1</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td><td>Compressed: mark, one control, identity</td></tr>
+<tr><td>Z2</td><td>Silent</td><td>Silent</td><td><strong>Visible, names the age in words rather than a timestamp</strong></td><td>Silent</td><td>Same place</td></tr>
+<tr><td>Z3</td><td>Fleet reading: how many tenants at each level</td><td>This tenant: latitude, trend, override</td><td>Unchanged, marked as of last good sync</td><td>Hidden. Latitude of a tenant that is not yours is not yours to read</td><td>One line, never dropped</td></tr>
+<tr><td>Z4</td><td>The list, nothing highlighted</td><td>The list, selected row held visible</td><td>Readable, marked stale</td><td>The list minus what is out of scope</td><td>Becomes the whole page</td></tr>
+<tr><td>Z5</td><td><strong>3.5 the fleet. Not an empty state</strong></td><td>4.1 the case</td><td>What it held, marked as of last sync</td><td>8.3</td><td>Not rendered. Selection goes to 4.2</td></tr>
+<tr><td>Z6</td><td>Available</td><td>Available</td><td>One persistent notice rather than repeated toasts</td><td>Available</td><td>Bottom, full width</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Two cells decide whether this node worked</span><p><strong>Z5 under "nothing selected"</strong> carries the differentiator. If it renders as an empty state, the decision to keep the fleet out of the menu has failed, and the base layer said so before this node existed. <strong>Z4 under "connection stale"</strong> is the one that is easy to get wrong: a frozen list that looks live is worse than no list, so it stays readable and says how old it is rather than being blanked or blurred.</p></div>
+</section>
+
+<section id="keys">
+<h2>05 &middot; Keyboard</h2>
+<p class="h2sub">Specification, not enhancement</p>
+<p>The list pane is a <strong>grid</strong> in the ARIA sense rather than a list of links. The W3C Authoring Practices define the model: <em>"A grid is a composite widget so it: Always contains multiple focusable elements. Only one of the focusable elements contained by the grid is included in the page tab sequence. Requires the author to provide code that manages focus movement inside it."</em></p>
+<div class="tw"><table>
+<thead><tr><th>Key</th><th>Does</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Tab</td><td>Moves between zones. One stop for the whole list</td><td>APG grid, single tab stop</td></tr>
+<tr><td>Up, Down</td><td>Move the selection between rows</td><td>APG grid, roving focus</td></tr>
+<tr><td>Home, End</td><td>First and last row in view</td><td>APG, adapted to whole-row selection</td></tr>
+<tr><td>Ctrl + Home, End</td><td>First and last row of the list</td><td>APG: "Control + Home: moves focus to the first cell in the first row"</td></tr>
+<tr><td>Enter</td><td>Opens the selected row into Z5</td><td>Product</td></tr>
+<tr><td>Escape</td><td>Deselects, returns Z5 to the fleet</td><td>Product. This is the way back to 3.5, and the discoverability risk the base layer named</td></tr>
+<tr><td>?</td><td>Opens 0.5 keyboard map</td><td>Convention <span class="q">[?]</span>, no source opened</td></tr>
+</tbody></table></div>
+<p><strong>Verdict keys are not defined here.</strong> Accept, amend and reject belong to 4.1, because a key that files a verdict must not exist on a screen with no verdict to file.</p>
+<p><strong>Pointer targets.</strong> WCAG 2.2 SC 2.5.8 Target Size (Minimum), Level AA: <em>"The size of the target for pointer inputs is at least 24 by 24 CSS pixels"</em>. Every control in the shell meets it. The stronger 44 by 44 figure often quoted belongs to a different criterion, which was not opened in this session, so it stands as <span class="q">[?]</span> rather than as a requirement.</p>
+</section>
+
+<section id="address">
+<h2>06 &middot; Addressing and permission</h2>
+<p class="h2sub">The slot a public product spends on SEO</p>
+<div class="tw"><table>
+<thead><tr><th>Route</th><th>Renders</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td><code>/queue</code></td><td>Z4 = 3.1, Z5 = 3.5</td><td>The landing route. The fleet is the resting state, at zero taps</td></tr>
+<tr><td><code>/queue/case/{caseId}</code></td><td>Z4 = 3.1, Z5 = 4.1</td><td>The case is addressable <strong>without leaving the split</strong>. This is what makes a permalink and a working console the same product</td></tr>
+<tr><td><code>/case/{caseId}</code></td><td>4.2, no split</td><td>Permalink out of a pager or a chat, and the only rendering at 360</td></tr>
+<tr><td><code>/shift</code></td><td>2.1</td><td>No split. The brief sits before the review loop, not inside it</td></tr>
+<tr><td><code>/log</code></td><td>Z4 = 5.1, Z5 = 5.4</td><td></td></tr>
+<tr><td><code>/log/{entryId}?as-of={timestamp}</code></td><td>5.4</td><td>The evidence snapshot as it stood. The query parameter is the point of the route</td></tr>
+<tr><td><code>/clients</code></td><td>7.1</td><td>LATER</td></tr>
+</tbody></table></div>
+<p><strong>Indexing.</strong> Every route above is <code>noindex</code>, no schema, no sitemap entry. The only crawlable URL in the product is 1.1 sign in. Stated once here and inherited, rather than repeated on forty two nodes.</p>
+<p><strong>Heading hierarchy.</strong> The shell carries no <code>h1</code>. The <code>h1</code> belongs to whatever fills Z4 plus Z5, so a case open in the pane makes the case the heading of the page. Identity for assistive technology rather than for search.</p>
+<p><strong>Permission.</strong> The analyst sees the tenants their provider scope covers and nothing else. A route naming a tenant outside that scope renders 8.3 rather than an empty result, because tenant data isolation is a stated requirement and an empty result is indistinguishable from a quiet client.</p>
+<p><strong>What the log records.</strong> Every render of 4.1 and every verdict action carries the analyst identity and the shift from Z1. That is why Z1 never scrolls away: it is not decoration, it is the subject of the audit record.</p>
+</section>
+
+<section id="not">
+<h2>07 &middot; Not this node</h2>
+<p class="h2sub">Where the neighbouring work lives</p>
+<div class="tw"><table>
+<thead><tr><th>Not here</th><th>Lives at</th></tr></thead>
+<tbody>
+<tr><td>The navigation items and what they lead to</td><td>0.2</td></tr>
+<tr><td>What the annunciator shows and how the trend is drawn</td><td>0.3</td></tr>
+<tr><td>Wording of the stale state</td><td>0.4 and 3.3</td></tr>
+<tr><td>The queue row, the canonical component of the product</td><td>3.1</td></tr>
+<tr><td>The fleet reading</td><td>3.5</td></tr>
+<tr><td>Anything a verdict does</td><td>cluster 4</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="open">
+<h2>08 &middot; Grounding and open questions</h2>
+<p class="h2sub">What is a fact here, and what is not</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th><th>Standing</th></tr></thead>
+<tbody>
+<tr><td>Grid keyboard model, single tab stop, roving focus</td><td>W3C ARIA Authoring Practices, Grid pattern, opened this session</td><td>Fact</td></tr>
+<tr><td>Minimum pointer target 24 by 24 CSS px, Level AA</td><td>W3C, Understanding SC 2.5.8, opened this session</td><td>Fact</td></tr>
+<tr><td>44 by 44 as a requirement</td><td>not opened</td><td><span class="q">[?]</span></td></tr>
+<tr><td>Split pane with keyboard traversal is shipped practice</td><td><code>ux-patterns.md</code>, Microsoft Defender</td><td>Fact, and explicitly not novelty</td></tr>
+<tr><td>The pane at rest should read as the fleet</td><td><code>sitemap.md</code>, base layer</td><td>Decision</td></tr>
+<tr><td><code>?</code> opens a shortcut map</td><td>convention</td><td><span class="q">[?]</span></td></tr>
+</tbody></table></div>
+<ol>
+<li><strong>Is the split resizable, and is that position remembered per analyst?</strong> Two monitors at 1440 to 1920 make this likely to matter, and nothing in the research answers it. Carried to stage 04.</li>
+<li><strong>What does Z5 hold on <code>/shift</code>?</strong> The brief does not hold the split. Either the shell has a no split mode, which weakens the guarantee in section 1, or 2.1 sits outside the shell entirely. Named here rather than settled, because the answer is a drawing decision.</li>
+<li><strong>Does a second analyst picking up a case change the row for the first?</strong> The console is multi analyst by premise, but no flow covers a collision. If yes, it is a state that does not exist on the map yet.</li>
+</ol>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#0.1">Structure (0.1)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/console-shell.md</code>. Data behind the map: <code>ia/docs/sitemap.md</code>, section Node map.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '0.1 Console shell';
+  window.NAV_SECTIONS = [
+    { id:'purpose', label:'Purpose' },
+    { id:'mock',    label:'Wireframe' },
+    { id:'anatomy', label:'Anatomy' },
+    { id:'states',  label:'State matrix' },
+    { id:'keys',    label:'Keyboard' },
+    { id:'address', label:'Addressing' },
+    { id:'not',     label:'Not this node' },
+    { id:'open',    label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
