@@ -93,6 +93,8 @@
 <h2>02 &middot; Wireframe</h2>
 <p class="h2sub">Black and white, both renderings</p>
 
+<div class="note"><p><strong>Corrected after node 0.3 was specified.</strong> The annunciator in these wireframes originally showed one latitude per tenant and a bare percentage. Both were wrong: latitude is held per action class, and design principle 2 forbids a number without its claim, scope, window and absolute count. The reasoning is on <a href="autonomy-annunciator.html">0.3</a>.</p></div>
+
 <div class="zonekey">
   <span><b>Z1 Top bar</b> Mark, navigation, analyst and shift, keyboard map</span>
   <span><b>Z2 Connection strip</b> Silent when connected</span>
@@ -118,10 +120,10 @@
     <div class="z"><span class="tag">Z2</span><div class="row"><span class="box">Live</span><span class="note">silent while the connection holds</span></div></div>
     <div class="z"><span class="tag">Z3</span>
       <div class="ann">
-        <span class="k">CLERK ON</span><span class="v">Meridian Freight</span>
-        <span class="k">LATITUDE</span><span class="v">Guided</span>
-        <span class="k">30d ACCURACY</span><span class="v">94% &#8599;</span>
-        <span class="k">OVERRIDE</span><span class="v">none</span>
+        <span class="k">TENANT</span><span class="v">Meridian Freight</span>
+        <span class="k">PERMITTED &middot; ACCOUNT CONTAINMENT</span><span class="v">Autopilot</span>
+        <span class="k">DOING NOW</span><span class="v">Proposing</span>
+        <span class="k">RECORD</span><span class="v">34 of 36 upheld &middot; 30 days</span>
         </div>
     </div>
     <div class="split">
@@ -156,7 +158,7 @@
     <div class="z"><span class="tag">Z1</span><div class="row"><b>HARRIER</b><span class="box">Queue</span><span class="box dash">Shift</span><span class="box dash">Log</span><span class="box dash">Clients</span><span class="grow"></span><span class="note">R. Idrissi &middot; night shift</span></div></div>
     <div class="z"><span class="tag">Z2</span><div class="row"><span class="box">Live</span><span class="note">stale: names the age of the data in words, list stays readable</span></div></div>
     <div class="z"><span class="tag">Z3</span>
-      <div class="ann"><span class="k">FLEET</span><span class="v">42 tenants</span><span class="k">AUTOPILOT</span><span class="v">6</span><span class="k">GUIDED</span><span class="v">27</span><span class="k">DRY RUN</span><span class="v">9</span></div>
+      <div class="ann"><span class="k">FLEET</span><span class="v">42 tenants</span><span class="k">HIGHEST IN FORCE</span><span class="v">Autopilot on 6</span><span class="k">GUIDED ON</span><span class="v">27</span><span class="k">DRY RUN OR BELOW</span><span class="v">9</span><span class="k">UNDER OVERRIDE</span><span class="v">2</span></div>
     </div>
     <div class="split">
       <div class="pane-l"><span class="tag">Z4</span>
@@ -166,13 +168,13 @@
       <div class="pane-r"><span class="tag">Z5</span>
         <div class="row"><b>3.5 Fleet</b><span class="grow"></span><span class="note">the resting state, not an empty state</span></div>
         <div class="fleet">
-          <div><b>Meridian Freight</b>Guided &middot; 94% &#8599;</div>
-          <div><b>Northwind</b>Guided &middot; 88% &#8600;</div>
-          <div><b>Halcyon Care</b>Dry run &middot; 71% &#8599;</div>
-          <div><b>Cadence Retail</b>Autopilot &middot; 97% &rarr;</div>
-          <div><b>Ashgrove Legal</b>Guided &middot; 91% &rarr;</div>
-          <div><b>Pinemark</b>Dry run &middot; 64% &#8600;</div>
-          <div><b>Tessellate</b>Autopilot &middot; 96% &#8599;</div>
+          <div><b>Meridian Freight</b>Autopilot &middot; 34 of 36</div>
+          <div><b>Northwind</b>Guided &middot; 51 of 58</div>
+          <div><b>Halcyon Care</b>Dry run &middot; 12 of 17</div>
+          <div><b>Cadence Retail</b>Autopilot &middot; 96 of 99</div>
+          <div><b>Ashgrove Legal</b>Guided &middot; 41 of 45</div>
+          <div><b>Pinemark</b>Read-only &middot; no record yet</div>
+          <div><b>Tessellate</b>Autopilot &middot; 88 of 92</div>
           <div class="box dash" style="display:flex;align-items:center">35 more</div>
         </div>
         <div class="note" style="margin-top:8px">readable, not settable. Moving latitude is 7.2 and it is LATER</div>
@@ -187,7 +189,7 @@
   <div class="wfpad">
   <div class="wf mob">
     <div class="z"><span class="tag">Z1</span><div class="row"><b>HARRIER</b><span class="grow"></span><span class="box dash">menu</span></div></div>
-    <div class="z"><span class="tag">Z3</span><div class="row" style="font-size:9.5px"><b>Meridian Freight</b><span class="grow"></span><span>Guided &middot; 94% &#8599;</span></div></div>
+    <div class="z"><span class="tag">Z3</span><div class="row" style="font-size:9.5px"><b>Meridian Freight</b><span class="grow"></span><span>Permitted: Autopilot</span></div></div>
     <div class="z" style="padding-bottom:10px"><span class="tag">Z4</span>
       <div class="qrow"><div class="top"><b>Impossible travel</b></div><div class="top"><span>Meridian Freight &middot; 4m ago</span></div></div>
       <div class="qrow"><div class="top"><b>Beaconing to new domain</b></div><div class="top"><span>Halcyon Care &middot; 11m ago</span></div></div>
@@ -209,7 +211,7 @@
 <tbody>
 <tr><td>Z1 Top bar</td><td>Product mark, global navigation, analyst identity with the shift, keyboard map trigger</td><td>Fixed. Never scrolls away, because the shift identity is what the log records against</td><td>0.2, 0.5, 2.1</td></tr>
 <tr><td>Z2 Connection strip</td><td>Connected, reconnecting, stale with the age of the data</td><td>Silent when connected. The only zone allowed to carry colour before stage 06</td><td>0.4, 3.3</td></tr>
-<tr><td>Z3 Annunciator</td><td>Latitude of the current tenant, accuracy trend, whether an override is in force</td><td>Fixed position, always the same place. Reads the selection; with nothing selected it reads the fleet</td><td>0.3, 3.5, 7.2 later</td></tr>
+<tr><td>Z3 Annunciator</td><td>Two states at once: what Clerk is permitted to do on this action class, and what it is doing now. Plus the record, count first</td><td>Fixed position, always the same place. Reads the selection; with nothing selected it reads the fleet</td><td>0.3, 3.5, 7.2 later</td></tr>
 <tr><td>Z4 List pane</td><td>Whatever list the section owns</td><td>Left, keyboard traversable, survives every decision made in Z5</td><td>3.1, 5.1</td></tr>
 <tr><td>Z5 Detail pane</td><td>The fleet at rest, a case when selected</td><td>Right, never a modal</td><td>3.5, 4.1, 5.4</td></tr>
 <tr><td>Z6 Toast region</td><td>Filed, escalated, connection recovered</td><td>Bottom left, above the list rather than over the detail pane</td><td>8.4</td></tr>
@@ -224,7 +226,7 @@
 <tbody>
 <tr><td>Z1</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td><td>Compressed: mark, one control, identity</td></tr>
 <tr><td>Z2</td><td>Silent</td><td>Silent</td><td><strong>Visible, names the age in words rather than a timestamp</strong></td><td>Silent</td><td>Same place</td></tr>
-<tr><td>Z3</td><td>Fleet reading: how many tenants at each level</td><td>This tenant: latitude, trend, override</td><td>Unchanged, marked as of last good sync</td><td>Hidden. Latitude of a tenant that is not yours is not yours to read</td><td>One line, never dropped</td></tr>
+<tr><td>Z3</td><td>Fleet reading: highest latitude in force, with the count at it</td><td>This tenant: permitted for this action class, doing now, record</td><td>Unchanged, marked as of last good sync</td><td>Hidden. Latitude of a tenant that is not yours is not yours to read</td><td>One line, never dropped</td></tr>
 <tr><td>Z4</td><td>The list, nothing highlighted</td><td>The list, selected row held visible</td><td>Readable, marked stale</td><td>The list minus what is out of scope</td><td>Becomes the whole page</td></tr>
 <tr><td>Z5</td><td><strong>3.5 the fleet. Not an empty state</strong></td><td>4.1 the case</td><td>What it held, marked as of last sync</td><td>8.3</td><td>Not rendered. Selection goes to 4.2</td></tr>
 <tr><td>Z6</td><td>Available</td><td>Available</td><td>One persistent notice rather than repeated toasts</td><td>Available</td><td>Bottom, full width</td></tr>

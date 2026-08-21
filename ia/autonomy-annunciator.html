@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 0.3 Tenant autonomy annunciator</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.3;color:var(--ink);background:#fff}
+.ann{border:1.5px solid var(--ink);display:flex;align-items:stretch;width:900px}
+.ann.mob{width:360px;font-size:9.5px}
+.ann .cell{padding:9px 13px;border-right:1px solid var(--hair);display:flex;flex-direction:column;gap:4px;justify-content:center}
+.ann .cell:last-child{border-right:none}
+.ann .k{font-size:8px;letter-spacing:.12em;color:var(--soft)}
+.ann .v{font-size:12px;font-weight:700;letter-spacing:-.01em}
+.ann .v.sm{font-size:10.5px;font-weight:400}
+.ann .grow{flex:1}
+.ann .ovrd{background:var(--ink);color:#fff}
+.ann .ovrd .k{color:#b8bcbf}
+.ann .armed{border-left:4px double var(--ink)}
+.ann .active{border-left:4px solid var(--ink)}
+.ann .none{color:var(--soft);font-weight:400}
+.badpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 20px}
+.badpair > div{border:1px solid var(--rule);border-radius:6px;background:var(--panel);overflow:hidden}
+.badpair h4{margin:0;padding:10px 14px;font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+            border-bottom:1px solid var(--rule)}
+.badpair .no h4{background:#fbf6f6;color:#8a1b1b}
+.badpair .yes h4{background:var(--accent-soft);color:var(--accent)}
+.badpair .body{padding:14px;font-family:var(--mono);font-size:12px}
+.badpair p{font-size:13px;color:var(--muted);margin:10px 14px 14px;max-width:none}
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+@media (max-width:600px){ .badpair{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 0.3 &middot; Global element</p>
+<h1>Tenant autonomy annunciator</h1>
+<p class="lede">One line, fixed position, present on every authenticated screen. After stage 02 nothing else distinguishes this product, so the claim that a client&rsquo;s latitude is legible at a glance is either true in this element or it is not true anywhere.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">0.3</dd></div>
+  <div><dt>Type</dt><dd>Section</dd></div>
+  <div><dt>Scope</dt><dd>MVP, read only</dd></div>
+  <div><dt>Lives in</dt><dd class="num">0.1 zone Z3</dd></div>
+  <div><dt>Written by</dt><dd class="num">7.2, LATER</dd></div>
+  <div><dt>At 360</dt><dd>The one zone protected</dd></div>
+</dl>
+
+<section id="fma">
+<h2>01 &middot; What is taken from the annunciator</h2>
+<p class="h2sub">Three things, and one deliberately left behind</p>
+<p>Mode confusion is not a knowledge failure, it is a display failure. Operators do not forget what the automation can do, they lose track of which mode is live because the state was inferable rather than readable. A fixed position turns a memory task into a glance. Aviation learned this by crashing aircraft, which is a stronger form of evidence than a usability study.</p>
+<div class="tw"><table>
+<thead><tr><th>Taken</th><th>From the Flight Mode Annunciator</th></tr></thead>
+<tbody>
+<tr><td>Permanent fixed place</td><td>It lives across the top of the Primary Flight Display, never in a panel you open</td></tr>
+<tr><td>Two states at once</td><td>SKYbrary: <em>"The aircraft tells the pilots what it&rsquo;s doing, and what it&rsquo;s about to do, by the symbols on the FMA."</em> Armed and active are both shown</td></tr>
+<tr><td>Override is a named state</td><td>When a pilot pushes the thrust levers manually the FMA displays <code>OVRD</code>. Human control is not the absence of a state, it is a state with a name, in the same place in the same language</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Left behind on purpose</span><p><strong>Colour.</strong> The FMA separates armed from active with green and blue. Stage 06 decides colour here, and an annunciator that only works in colour fails the analyst who cannot separate the two. Shape, weight and position carry the state; colour reinforces it later.</p></div>
+</section>
+
+<section id="compress">
+<h2>02 &middot; The real design problem</h2>
+<p class="h2sub">A tenant does not have one latitude</p>
+<p>Simbian, opened again this session so the claim stays current: <em>"Progression from Read-only to Autopilot is not linear and not global. A mature deployment might run Autopilot on brute-force account containment, Guided on DLP violations, Dry-run on new EDR alert types, and Read-only on identity-provider actions that touch privileged accounts, all at once."</em></p>
+<p>So a tenant carries <strong>a latitude per action class</strong>, not a latitude. An annunciator that says "Meridian Freight: Guided" is a comforting lie. Two readings are needed, and they are different objects.</p>
+<div class="tw"><table>
+<thead><tr><th>Reading</th><th>When</th><th>Shows</th></tr></thead>
+<tbody>
+<tr><td><strong>A</strong></td><td>A case is selected</td><td>The latitude <strong>for this case&rsquo;s action class</strong>, because that is the only one bearing on this decision. Nothing else. This is the reading that does the work</td></tr>
+<tr><td><strong>B</strong></td><td>Nothing selected, the fleet is in the pane</td><td>The <strong>highest</strong> latitude in force, with the number of action classes standing at it</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Highest, and the reason is safety rather than taste</span><p>The operator&rsquo;s question at rest is <strong>what could Clerk have done here without me</strong>. The lowest latitude answers a question nobody asked and understates exposure, and a summary that understates exposure on a trust display is worse than no summary. <strong>This is a decision, not a finding.</strong> It is written down so it can be argued with, and it is the first thing to test if the fleet turns out not to read at a glance.</p></div>
+</section>
+
+<section id="number">
+<h2>03 &middot; The number</h2>
+<p class="h2sub">Count first, never a bare percentage</p>
+<p>Design principle 2 is explicit: the number names its claim, its scope and its window, and comes with an absolute count. The benchmark states the reason plainly: <em>"90% reads identically whether it stands on 9 cases or 900, and the analyst needs to know which."</em></p>
+<div class="badpair">
+  <div class="no"><h4>Not this</h4><div class="body">94% accuracy &#8599;</div>
+  <p>Cannot be checked, hides the sample, and reads the same on a tenant with three cases as on one with three hundred.</p></div>
+  <div class="yes"><h4>This</h4><div class="body">34 of 36 upheld &middot; 30 days</div>
+  <p>Names the claim, the scope and the window, and carries the count. It is also shorter, which is what makes it survive in a fixed height strip.</p></div>
+</div>
+<p><strong>The honest form and the compact form turn out to be the same form</strong>, which is not usually how this goes and is worth saying out loud.</p>
+<p><strong>A small record is shown as small rather than hidden.</strong> <code>3 of 3 upheld, 30 days</code> is a weak record and must read as one. Suppressing it until the sample is large would leave the newest tenants, which are exactly the risky ones, looking identical to the settled ones.</p>
+</section>
+
+<section id="mock">
+<h2>04 &middot; Wireframe</h2>
+<p class="h2sub">Five states, black and white</p>
+
+<div class="wfwrap"><div class="wfcap"><b>Reading A</b><span>a case is selected. Permitted and doing now are separate slots</span></div><div class="wfpad">
+<div class="wf"><div class="ann">
+  <div class="cell"><span class="k">TENANT</span><span class="v">Meridian Freight</span></div>
+  <div class="cell armed"><span class="k">PERMITTED &middot; ACCOUNT CONTAINMENT</span><span class="v">Autopilot</span></div>
+  <div class="cell active"><span class="k">DOING NOW</span><span class="v">Proposing</span></div>
+  <div class="cell grow"><span class="k">RECORD</span><span class="v sm">34 of 36 upheld &middot; 30 days</span></div>
+</div></div>
+</div></div>
+
+<div class="wfwrap"><div class="wfcap"><b>Reading B</b><span>nothing selected. Highest latitude in force, with how many classes stand at it</span></div><div class="wfpad">
+<div class="wf"><div class="ann">
+  <div class="cell"><span class="k">FLEET</span><span class="v">42 tenants</span></div>
+  <div class="cell armed"><span class="k">HIGHEST IN FORCE</span><span class="v">Autopilot on 6</span></div>
+  <div class="cell"><span class="k">GUIDED ON</span><span class="v">27</span></div>
+  <div class="cell"><span class="k">DRY RUN OR BELOW</span><span class="v">9</span></div>
+  <div class="cell grow"><span class="k">UNDER OVERRIDE</span><span class="v">2 tenants</span></div>
+</div></div>
+</div></div>
+
+<div class="wfwrap"><div class="wfcap"><b>Override in force</b><span>OVRD replaces the doing now slot rather than sitting beside it</span></div><div class="wfpad">
+<div class="wf"><div class="ann">
+  <div class="cell"><span class="k">TENANT</span><span class="v">Halcyon Care</span></div>
+  <div class="cell armed"><span class="k">PERMITTED &middot; HOST ISOLATION</span><span class="v">Guided</span></div>
+  <div class="cell ovrd"><span class="k">STATE</span><span class="v">OVRD</span></div>
+  <div class="cell grow"><span class="k">SINCE</span><span class="v sm">R. Idrissi &middot; 02:14 &middot; this shift</span></div>
+</div></div>
+</div></div>
+
+<div class="wfwrap"><div class="wfcap"><b>New tenant</b><span>the cell that matters most: no record means Read-only, in words, never a blank</span></div><div class="wfpad">
+<div class="wf"><div class="ann">
+  <div class="cell"><span class="k">TENANT</span><span class="v">Pinemark</span></div>
+  <div class="cell armed"><span class="k">PERMITTED &middot; ALL CLASSES</span><span class="v">Read-only</span></div>
+  <div class="cell"><span class="k">DOING NOW</span><span class="v none">nothing</span></div>
+  <div class="cell grow"><span class="k">RECORD</span><span class="v sm none">no record yet &middot; onboarded 9 days ago</span></div>
+</div></div>
+</div></div>
+
+<div class="wfwrap"><div class="wfcap"><b>Mobile 360</b><span>three things survive, the record moves into the case body</span></div><div class="wfpad">
+<div class="wf"><div class="ann mob">
+  <div class="cell"><span class="k">TENANT</span><span class="v">Meridian Freight</span></div>
+  <div class="cell armed grow"><span class="k">PERMITTED</span><span class="v">Autopilot</span></div>
+</div></div>
+</div></div>
+<p class="note" style="border:none;padding:0"><strong>Double left rule marks armed, solid left rule marks active.</strong> That is how the two states separate without colour. <code>OVRD</code> inverts, because an override should not look like a third reading of the same kind.</p>
+</section>
+
+<section id="states">
+<h2>05 &middot; State matrix</h2>
+<p class="h2sub">Slots against what the element has to survive</p>
+<div class="tw"><table>
+<thead><tr><th>Slot</th><th>Case selected</th><th>Nothing selected</th><th>Override in force</th><th>New tenant</th><th>Connection stale</th><th>Permission denied</th></tr></thead>
+<tbody>
+<tr><td>Tenant</td><td>This case&rsquo;s client</td><td>Fleet count</td><td>Unchanged</td><td>Unchanged</td><td>Marked as of last sync</td><td><strong>Hidden</strong></td></tr>
+<tr><td>Permitted</td><td>Latitude for this action class</td><td>Highest in force, with the count at it</td><td>Unchanged. The permission has not changed</td><td><code>Read-only</code>, the floor</td><td>Marked</td><td>Hidden</td></tr>
+<tr><td>Doing now</td><td>What Clerk is doing on this case</td><td>Not shown. No single answer across a fleet</td><td><code>OVRD</code> replaces this slot</td><td>Nothing</td><td>Last known, marked</td><td>Hidden</td></tr>
+<tr><td>OVRD</td><td>Present when in force</td><td>Count of tenants under override</td><td>The state itself</td><td>Absent</td><td>Marked</td><td>Hidden</td></tr>
+<tr><td>Record</td><td><code>n of m upheld, 30 days</code></td><td>Distribution across the fleet</td><td>Unchanged</td><td><code>no record yet</code>, in words</td><td>Unchanged</td><td>Hidden</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Two cells decide whether this element is honest</span><p><strong>Permitted, under new tenant.</strong> A tenant with no record shows <code>Read-only</code> and the words <code>no record yet</code>, never a blank and never a hopeful default. Latitude that has not been earned is the exact thing this product refuses to assert. <strong>Permission denied hides the whole element</strong> rather than emptying it, because an emptied annunciator would still confirm that the tenant exists.</p></div>
+</section>
+
+<section id="scope">
+<h2>06 &middot; Permission, and what this node is not</h2>
+<p class="h2sub">Read everywhere, change nowhere</p>
+<p>No route. The annunciator is never a destination, which is the point: the fleet has no navigation item, and this element is why that costs nothing.</p>
+<p><strong>Read only in the MVP.</strong> Changing a grant is 7.2, which is LATER. The gap between watching, which should be constant, and moving, which should be rare and considered, is deliberate. Reading the annunciator writes nothing to the log; changing a grant writes to 5.1 with the evidence that justified it, and that is 7.3.</p>
+<div class="tw"><table>
+<thead><tr><th>Not here</th><th>Lives at</th></tr></thead>
+<tbody>
+<tr><td>The fleet reading itself, the per-tenant rows</td><td>3.5</td></tr>
+<tr><td>Changing a grant and the evidence under it</td><td>7.2, 7.3</td></tr>
+<tr><td>Clerk&rsquo;s confidence in this case</td><td>4.1, the provenance strip</td></tr>
+<tr><td>The tenant&rsquo;s base rate for a signal</td><td>4.1, 4.8</td></tr>
+<tr><td>Whether the connection is live</td><td>0.4</td></tr>
+</tbody></table></div>
+<p><strong>The distinction to keep clean is this node against 3.5.</strong> This is the <em>reading</em>: one line, always present. 3.5 is the <em>view</em>: the whole fleet, in the pane at rest. If they drift into two versions of the same thing, the one that survives is this one, because it is on every screen.</p>
+</section>
+
+<section id="open">
+<h2>07 &middot; Grounding and open questions</h2>
+<p class="h2sub">Including one placeholder that must not become permanent by accident</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th><th>Standing</th></tr></thead>
+<tbody>
+<tr><td>Armed and active shown at once, override annunciated, permanent fixed position</td><td>SKYbrary via <code>benchmark.md</code>, stage 01</td><td>Fact</td></tr>
+<tr><td>Latitude is per action class, progression not linear and not global</td><td>Simbian, opened again this session, quoted verbatim</td><td>Fact</td></tr>
+<tr><td>Per-tenant autonomy configuration exists for MSSP and MDR</td><td>same page</td><td>Fact, and it is why ours has to be a view rather than configuration</td></tr>
+<tr><td>A bare percentage cannot be checked and hides sample size</td><td><code>benchmark.md</code>, principle 2</td><td>Decision, argued</td></tr>
+<tr><td>Highest latitude is the right fleet summary</td><td>this node</td><td><strong>Decision. First thing to test if the fleet fails to read</strong></td></tr>
+<tr><td><code>Read-only</code>, <code>Dry-run</code>, <code>Guided</code>, <code>Autopilot</code> as level names</td><td>Simbian&rsquo;s published vocabulary</td><td><strong>Placeholder.</strong> A competitor&rsquo;s exact words, used because they are legible in the market and because naming belongs to stage 05. Recorded so it stays a decision rather than becoming an accident</td></tr>
+</tbody></table></div>
+<ol>
+<li><strong>Does the annunciator change on selection, or only when the tenant changes?</strong> A line that redraws on every arrow key is noise; one that lags is wrong. A stage 04 motion decision with a real failure mode on both sides.</li>
+<li><strong>What does "doing now" mean between cases?</strong> Clerk works continuously across forty tenants. The active slot is well defined for a selected case and ambiguous at rest, which is why reading B drops it. Whether that is a gap or the right answer is untested.</li>
+<li><strong>Is 30 days the right window?</strong> Chosen for legibility, not measured. It interacts with the evidence retention window still unchosen in <code>research.md</code> section 10.</li>
+</ol>
+</section>
+
+<section id="fixed">
+<h2>08 &middot; What this node corrected upstream</h2>
+<p class="h2sub">Three defects in the wireframe of 0.1, found by specifying the element it contains</p>
+<div class="tw"><table>
+<thead><tr><th>Was drawn on 0.1</th><th>Why it was wrong</th><th>Now</th></tr></thead>
+<tbody>
+<tr><td><code>30d ACCURACY 94%</code></td><td>A bare percentage, which design principle 2 forbids in its own words</td><td><code>34 of 36 upheld, 30 days</code></td></tr>
+<tr><td>One latitude slot</td><td>The FMA carries armed <em>and</em> active. One slot is the collapse the annunciator exists to prevent</td><td>Permitted and doing now, separated by rule weight</td></tr>
+<tr><td><code>LATITUDE Guided</code> for a whole tenant</td><td>Latitude is per action class. A tenant-wide level is a comforting lie</td><td>Reading A names the action class; reading B names the summary rule</td></tr>
+</tbody></table></div>
+<p>The fix was applied to <a href="console-shell.html">0.1</a> rather than noted, because a wireframe that contradicts the node it contains is worse than no wireframe.</p>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#0.3">Structure (0.3)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/autonomy-annunciator.md</code>. Frame: <a href="console-shell.html">0.1</a>. The view it summarises: 3.5, not yet specified.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '0.3 Autonomy annunciator';
+  window.NAV_SECTIONS = [
+    { id:'fma',      label:'From the FMA' },
+    { id:'compress', label:'The real problem' },
+    { id:'number',   label:'The number' },
+    { id:'mock',     label:'Wireframe' },
+    { id:'states',   label:'State matrix' },
+    { id:'scope',    label:'Permission' },
+    { id:'open',     label:'Grounding' },
+    { id:'fixed',    label:'Corrected upstream' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

@@ -36,7 +36,7 @@ It serves the main job structurally rather than directly. Nobody opens the shell
 |---|---|---|---|
 | **Z1 Top bar** | Product mark, global navigation, analyst identity with the shift they are on, trigger for the keyboard map | Fixed. Never scrolls away, because the shift identity is what the log records against | 0.2, 0.5, 2.1 |
 | **Z2 Connection strip** | Connected, reconnecting, or stale with the age of the data in words | Fixed under Z1. Silent when connected, and it is the only zone allowed to change colour before stage 06 decides colour | 0.4, 3.3 |
-| **Z3 Autonomy annunciator** | The current tenant's latitude, its accuracy trend, whether an override is in force | Fixed position, always the same place. Reads from the selection in the detail pane; when nothing is selected it reads the fleet | 0.3, 3.5, 7.2 when that exists |
+| **Z3 Autonomy annunciator** | Two states at once: what Clerk is **permitted** to do on this case's action class, and what it is **doing now**. Plus the record, count first. `OVRD` when an override is in force | Fixed position, always the same place. Reads from the selection in the detail pane; when nothing is selected it reads the fleet | 0.3, 3.5, 7.2 when that exists |
 | **Z4 List pane** | Whatever list the current section owns | Left, keyboard traversable, survives every decision made in Z5 | 3.1 on `/queue`, 5.1 on `/log` |
 | **Z5 Detail pane** | The fleet at rest, a case when one is selected | Right. Never a modal, because principle 5 forbids an overlay over the evidence being decided on | 3.5, 4.1, 5.4 |
 | **Z6 Toast region** | Filed, escalated, connection recovered | Bottom left, above the list rather than over the detail pane | 8.4 |
@@ -53,7 +53,7 @@ Rows are zones, columns are the states the shell has to survive. Cells say what 
 |---|---|---|---|---|---|
 | **Z1 Top bar** | Full | Full | Full | Full | Compressed: mark, one menu control, identity |
 | **Z2 Connection strip** | Silent | Silent | **Visible, names the age of the data in words rather than a timestamp** | Silent | Visible in the same place |
-| **Z3 Annunciator** | Fleet reading: how many tenants sit at each level of latitude | This tenant's latitude, trend, override | Unchanged, and marked as of the last good sync | Hidden. Latitude of a tenant that is not yours is not yours to read | One line under Z1, never dropped |
+| **Z3 Annunciator** | Fleet reading: the highest latitude in force, with how many action classes stand at it | This tenant: permitted for this case's action class, doing now, record | Unchanged, and marked as of the last good sync | Hidden. Latitude of a tenant that is not yours is not yours to read | One line under Z1, never dropped |
 | **Z4 List pane** | The list, nothing highlighted | The list, selected row held visible | The list, readable, marked stale | The list minus what is out of scope | Becomes the whole page |
 | **Z5 Detail pane** | **3.5 the fleet.** Not an empty state | 4.1 the case | Whatever it held, marked as of last sync | 8.3 | Not rendered. Selection navigates to 4.2 |
 | **Z6 Toasts** | Available | Available | One persistent notice rather than repeated toasts | Available | Bottom, full width, above the safe area |
