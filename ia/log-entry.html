@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 5.4 Log entry, as-of</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+/* the historical frame */
+.snap{width:100%;min-width:660px;max-width:740px;border:none;
+      box-shadow:0 0 0 1.5px var(--ink);}
+.frame{border:5px solid transparent;
+  background-image:repeating-linear-gradient(135deg,#16181a,#16181a 3px,#fff 3px,#fff 7px);
+  background-clip:border-box;padding:0}
+.frame > .inner{background:#fff}
+.fstrip{background:var(--ink);color:#fff;padding:5px 11px;display:flex;gap:12px;flex-wrap:wrap;font-size:9px;letter-spacing:.05em}
+.fstrip b{letter-spacing:.12em}
+.sk{padding:10px 12px;border-bottom:1px solid var(--hair);position:relative}
+.sk h5{margin:0 0 6px;font-size:8px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;font-weight:400}
+.sk .bnum{position:absolute;top:8px;right:9px;font-size:8px;color:var(--soft)}
+.ttl{font-size:13px;font-weight:700;letter-spacing:-.01em}
+.sub{color:var(--soft);margin-top:4px}
+.rule{font-size:12px;font-weight:700}
+.li{display:flex;gap:8px;margin:5px 0}
+.li .d{color:var(--soft);flex:0 0 88px}
+.li .t{flex:1}
+.li .d.narrow{flex:0 0 10px}
+.absent-ev{border-left:3px solid var(--ink);padding-left:9px;margin-top:8px}
+.prov{display:flex;flex-wrap:wrap}
+.prov div{flex:1 1 100px;padding-right:10px;margin-right:10px;box-shadow:inset -1px 0 0 var(--hair)}
+.prov div:last-child{box-shadow:none;margin-right:0}
+.prov .k{font-size:8px;color:var(--soft);letter-spacing:.1em}
+.prov .v{font-size:11.5px;font-weight:700}
+.lat{display:grid;grid-template-columns:146px 78px 1fr;gap:5px 9px;align-items:center}
+.lat .hd{font-size:8px;color:var(--soft);letter-spacing:.1em}
+.btn{border:1px solid var(--ink);padding:2px 6px;text-align:center;font-size:9px;white-space:nowrap}
+.btn.off{border-style:dashed;border-color:var(--soft);color:var(--soft);
+  background:repeating-linear-gradient(135deg,#fff,#fff 4px,#f4f5f5 4px,#f4f5f5 8px)}
+.why{color:var(--soft);font-size:9px}
+.addr{background:var(--fill);padding:9px 12px;border-bottom:1px solid var(--hair);word-break:break-all}
+.addr .k{font-size:8px;letter-spacing:.11em;color:var(--soft);display:block;margin-bottom:3px}
+.nocontrol{padding:10px 12px;border-top:1.5px solid var(--ink);color:var(--soft);
+  background:repeating-linear-gradient(135deg,#fff,#fff 5px,#f6f7f7 5px,#f6f7f7 10px)}
+.nocontrol b{color:var(--ink)}
+
+/* as-was vs as-is */
+.split2{display:grid;grid-template-columns:1fr 34px 1fr;gap:0;width:100%;min-width:600px;max-width:740px;align-items:stretch}
+.split2 > div{padding:15px 13px 13px;position:relative;border:1px solid var(--ink)}
+.split2 .mid{border:none;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--soft)}
+.split2 .was{background:repeating-linear-gradient(135deg,#fff,#fff 5px,#f6f7f7 5px,#f6f7f7 10px)}
+.split2 h6{margin:0 0 6px;font-size:8px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;font-weight:400}
+.split2 .b{font-size:11.5px;font-weight:700;margin-bottom:5px}
+.split2 .n{color:var(--soft);font-size:9px;line-height:1.4}
+
+/* mobile */
+.m360{width:360px;min-width:360px;font-size:9.5px}
+.m360 .sk{padding:8px 10px}
+.m360 .lat{grid-template-columns:1fr 70px;gap:4px 7px}
+.m360 .lat .why{display:none}
+.m360 .lat .hd:last-child{display:none}
+
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+@media (max-width:640px){ .split2{grid-template-columns:1fr;min-width:0} .split2 .mid{display:none} }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 5.4 &middot; Cluster 5</p>
+<h1>Log entry, <code>?as-of</code></h1>
+<p class="lede">The addressing decision of this layer, and the base layer wrote it in a line worth taking literally: <code>?as-of</code> is what makes "show what was known at the time" <strong>a URL rather than a feature</strong>. Everything else in cluster 5 is a list. This is the artefact those lists point at.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">5.4</dd></div>
+  <div><dt>Type</dt><dd>Page</dd></div>
+  <div><dt>Page type</dt><dd>B, record with AI narrative</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Route</dt><dd><code>/log/{entryId}?as-of=</code></dd></div>
+  <div><dt>Job</dt><dd>R2</dd></div>
+</dl>
+
+<section id="problem">
+<h2>01 &middot; The one design problem, and everything follows from it</h2>
+<p>An analyst or an auditor is looking at <strong>a case as it was</strong>. The live case has moved on. If those two are ever confused, the record is worse than useless: it produces a confident wrong answer to a question about liability.</p>
+<div class="wfwrap"><div class="wfcap"><b>Two objects, one case</b> <span>the node exists to keep them apart</span></div><div class="wfpad">
+<div class="split2">
+  <div class="was"><h6>5.4 &middot; as it was</h6><div class="b">08 Jun 2026, 22:41:03</div><div class="n">Frozen. Carries the evidence, the provenance, the tenant base rate and the latitude <em>that stood on that date</em>. No controls. This is evidence</div></div>
+  <div class="mid">&#8594;</div>
+  <div><h6>4.2 &middot; as it is</h6><div class="b">now</div><div class="n">Live. The evidence may have aged out, the base rate has moved, the grant may have been widened twice. This is work</div></div>
+</div>
+</div></div>
+<p>So the whole node is one requirement expressed five ways.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Mechanism</th><th>Why not the obvious alternative</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>The historical marking is a frame, not a banner</strong></td><td>A banner scrolls away. Someone who arrives by permalink, scrolls, and reads the middle must still know what they are reading</td></tr>
+<tr><td>2</td><td><strong>The timestamp is in the heading</strong>, not a footnote</td><td>It is part of the identity of the thing, the same way the case id is</td></tr>
+<tr><td>3</td><td><strong>The live case is named and linked</strong>, never inlined</td><td>Showing current values beside historical ones is the confusion, not the cure</td></tr>
+<tr><td>4</td><td><strong>There are no verdict controls at all</strong></td><td>You cannot rule on the past. An <code>Accept</code> here would be a second decision wearing the first one's date</td></tr>
+<tr><td>5</td><td><strong>The address is visible and copyable</strong></td><td>The address is the artefact. If it cannot be handed to someone, <code>?as-of</code> was a mode after all</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Mechanism 3 has a cheap version and a dear one, and the MVP takes the cheap one</span><p><strong>Cheap:</strong> state that the live case has moved on since this snapshot, and link to it. <strong>Dear:</strong> count what differs, which means diffing the snapshot against the current case on every render, for a screen nobody opens daily. The count is <strong>LATER</strong>; the statement ships.</p></div>
+</section>
+
+<section id="mock">
+<h2>02 &middot; Wireframe, 1440</h2>
+<div class="wfwrap"><div class="wfcap"><b>/log/e-44119?as-of=2026-06-08T22:41:03Z</b> <span>the entry the fourth row of 5.1 points at</span></div><div class="wfpad">
+<div class="wf snap frame">
+<div class="inner">
+  <div class="fstrip"><b>AS IT STOOD</b> <span>08 Jun 2026, 22:41:03 UTC</span> <span>snapshot, not the live case</span></div>
+  <div class="sk"><span class="bnum">2</span>
+    <div class="ttl">Mass mailbox rule creation</div>
+    <div class="sub">Bramber Retail &middot; case c-8127 &middot; entry e-44119</div>
+  </div>
+  <div class="sk"><span class="bnum">3</span><h5>The ruling</h5>
+    <div class="rule">Rejected by T. Okafor, 08 Jun 2026, 22:41:03</div>
+    <div class="li"><span class="d">Clerk filed</span><span class="t">True positive. Mass mailbox rule creation consistent with business email compromise</span></div>
+    <div class="li"><span class="d">Reason</span><span class="t">Normal at this tenant &middot; <span class="why">where it went: tenant context, derived and locked</span></span></div>
+    <div class="li"><span class="d">Consequence</span><span class="t">Updated Bramber Retail&rsquo;s context. <b>It did not change a detection</b></span></div>
+  </div>
+  <div class="sk"><span class="bnum">4</span><h5>Evidence, as it stood</h5>
+    <div class="li"><span class="d">Supports</span><span class="t">41 inbox rules created across 6 mailboxes in 20 minutes</span></div>
+    <div class="li"><span class="d">Disagrees</span><span class="t">All 6 mailboxes belong to one department, and all rules forward internally</span></div>
+    <div class="absent-ev"><b>Looked for and did not find</b>
+      <div class="li"><span class="d narrow">&#9679;</span><span class="t">Any rule forwarding outside the tenant</span></div>
+      <div class="li"><span class="d narrow">&#9679;</span><span class="t">Sign in from an unfamiliar address in the same window</span></div>
+    </div>
+  </div>
+  <div class="sk"><span class="bnum">5</span><h5>Provenance, as it stood</h5>
+    <div class="prov">
+      <div><div class="k">SOURCES</div><div class="v">4 queried</div></div>
+      <div><div class="k">RECORDS</div><div class="v">312</div></div>
+      <div><div class="k">WINDOW</div><div class="v">30 days</div></div>
+      <div><div class="k">EFFORT</div><div class="v">2 passes</div></div>
+    </div>
+  </div>
+  <div class="sk"><span class="bnum">6</span><h5>At this client, on that date</h5>
+    <div>Mass rule creation at Bramber Retail: <b>2 cases in the 30 days to 08 Jun</b>. <span class="why">This is the base rate as it stood, not the base rate now.</span></div>
+  </div>
+  <div class="sk"><span class="bnum">7</span><h5>What Clerk was permitted to do here, on that date</h5>
+    <div class="lat">
+      <div class="hd">ACTION CLASS</div><div class="hd">LATITUDE</div><div class="hd">RECORD THEN</div>
+      <div>Investigate</div><div class="btn">Acted alone</div><div class="why">no ceiling</div>
+      <div>Contain endpoint</div><div class="btn">Acted alone</div><div class="why">27 of 27 upheld, 30 days to 08 Jun</div>
+      <div>Contain network</div><div class="btn off">Asked first</div><div class="why">not granted at this tenant on that date</div>
+      <div>Contain identity</div><div class="btn off">Asked first</div><div class="why">only a Global Administrator can undo it</div>
+      <div>Remove content</div><div class="btn off">Asked first</div><div class="why">reversible only inside a retention window</div>
+      <div>Change policy</div><div class="btn off">Never</div><div class="why">propagation outlasts the undo</div>
+    </div>
+  </div>
+  <div class="addr"><span class="k">THIS SNAPSHOT&rsquo;S ADDRESS &middot; COPY</span><code>/log/e-44119?as-of=2026-06-08T22:41:03Z</code></div>
+  <div class="sk"><span class="bnum">9</span>
+    <div class="li"><span class="d">Live case</span><span class="t">Open c-8127 as it is now, 4.2. <span class="why">The live case has moved on since this snapshot.</span></span></div>
+  </div>
+  <div class="nocontrol"><b>No verdict controls.</b> You cannot rule on the past. An accept here would be a second decision wearing the first one&rsquo;s date.</div>
+</div>
+</div>
+</div></div>
+<p>The hatched border is the frame from mechanism 1: it is present at every scroll position, so a reader who arrives by permalink and lands in the middle still knows what they are holding. A banner at the top would have been cheaper and would have scrolled away.</p>
+</section>
+
+<section id="lat">
+<h2>03 &middot; Latitude as it stood, and it is the strongest R2 block</h2>
+<p>An auditor&rsquo;s question is rarely "was this the right call". It is usually <strong>"why was the machine allowed to do that"</strong>.</p>
+<p><strong>A configuration page cannot answer it.</strong> A settings screen shows the grant <em>now</em>, and the grant may have been widened twice since. The only artefact that can answer is a snapshot carrying the grant at decision time, which is exactly what <code>CLAUDE.md</code> asks for: <em>the evidence snapshot as it stood at decision time</em>.</p>
+<div class="node"><span class="lbl">The fleet's historical form</span><p>3.5 shows the present. This shows the past, <strong>and only one of the two is evidence.</strong> That is the answer to the differentiator's hardest question: not "is latitude visible", but "was it visible, and can you prove what it was".</p></div>
+</section>
+
+<section id="states">
+<h2>04 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Full snapshot</th><th>Partly gone</th><th>Nothing survived, 5.5</th><th>Live case changed</th><th>Beyond retention</th></tr></thead>
+<tbody>
+<tr><td><strong>Frame</strong></td><td>Present</td><td>Present</td><td>Present</td><td>Present</td><td>Present</td></tr>
+<tr><td><strong>The ruling</strong></td><td>Full</td><td>Full. <strong>The decision is always retained</strong>, whatever happened to the evidence</td><td>Full</td><td>Full</td><td>Absent</td></tr>
+<tr><td><strong>Evidence</strong></td><td>As it stood</td><td><strong>Tombstones for what is gone:</strong> what was there, that it is gone, and when. Never a blank</td><td>5.5 takes over the node</td><td>As it stood</td><td>Absent</td></tr>
+<tr><td><strong>Provenance</strong></td><td>As it stood</td><td>Counts retained and lost separately</td><td>5.5</td><td>As it stood</td><td>Absent</td></tr>
+<tr><td><strong>Latitude then</strong></td><td>As it stood</td><td>As it stood</td><td>As it stood if retained</td><td>As it stood</td><td>Absent</td></tr>
+<tr><td><strong>Live case link</strong></td><td>Present</td><td>Present</td><td>Present</td><td><strong>Present, and it says the live case has moved on</strong></td><td>Present if the case still exists</td></tr>
+<tr><td><strong>The page</strong></td><td>Renders</td><td>Renders</td><td>Renders</td><td>Renders</td><td><strong>Renders, and states that the log does not reach back this far, naming the window</strong></td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Beyond retention is not a 404, and that is a decision</span><p>A 404 says the address is wrong. The truth is that the address is <strong>right</strong> and the answer no longer exists, which is a different sentence and a different thing for an auditor to write down. <strong>This is the second place the unchosen retention window bites</strong>, after the resting pane in 5.1. Both name it rather than rendering a plausible number.</p></div>
+</section>
+
+<section id="m360">
+<h2>05 &middot; At 360, and this one does render</h2>
+<p>5.1 is not rendered at 360. <strong>5.4 is, and the reason is internal to the node rather than a platform exception.</strong> A permalink can arrive anywhere: a ticket, a chat, an email from a client at any hour. <strong>The whole promise of <code>?as-of</code> is that the address resolves.</strong> An address that resolves only on a desk is a mode with a URL painted on it, which is exactly what section 01 says this node must not be.</p>
+<div class="wfwrap"><div class="wfcap"><b>360</b> <span>identity first, one column, no controls to remove</span></div><div class="wfpad">
+<div class="wf snap frame m360" style="max-width:360px">
+<div class="inner">
+  <div class="fstrip"><b>AS IT STOOD</b> <span>08 Jun 2026, 22:41:03</span></div>
+  <div class="sk"><div class="ttl">Mass mailbox rule creation</div><div class="sub">Bramber Retail &middot; c-8127</div></div>
+  <div class="sk"><h5>The ruling</h5><div class="rule">Rejected by T. Okafor</div>
+    <div class="li"><span class="d">Reason</span><span class="t">Normal at this tenant</span></div></div>
+  <div class="sk"><h5>Evidence, as it stood</h5>
+    <div class="li"><span class="d narrow">&#9679;</span><span class="t">41 inbox rules across 6 mailboxes in 20 minutes</span></div>
+    <div class="li"><span class="d narrow">&#9679;</span><span class="t">Did not find: any rule forwarding outside the tenant</span></div></div>
+  <div class="sk"><h5>Permitted then</h5>
+    <div class="lat">
+      <div>Contain endpoint</div><div class="btn">Acted alone</div>
+      <div>Contain network</div><div class="btn off">Asked first</div>
+      <div>Contain identity</div><div class="btn off">Asked first</div>
+    </div></div>
+  <div class="addr"><span class="k">ADDRESS &middot; COPY</span><code>/log/e-44119?as-of=...</code></div>
+  <div class="nocontrol"><b>No controls.</b> Easy here: there were none at 1440 either</div>
+</div>
+</div>
+</div></div>
+<p>Order at 360: the frame, the heading and the timestamp first, because they are the identity. Then the ruling, the evidence, provenance, tenant context, latitude. Same order, one column. The address stays copyable, because <strong>handing it on is the most likely thing to do next from a phone</strong>.</p>
+</section>
+
+<section id="blocks">
+<h2>06 &middot; Blocks, and the only LATER</h2>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Block</th><th>Where it came from</th><th>Scope</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Historical frame</strong>, present at every scroll position</td><td>Ours, mechanism 1</td><td>MVP</td></tr>
+<tr><td>2</td><td><strong>Heading: case, client, timestamp</strong></td><td>Defender's stamped summary, made load bearing</td><td>MVP</td></tr>
+<tr><td>3</td><td><strong>The verdict record</strong>, with the 0.7 reason if there was one</td><td>4.1, canonical</td><td>MVP</td></tr>
+<tr><td>4</td><td><strong>Evidence as it stood</strong>, including what Clerk did not find</td><td>4.1, canonical</td><td>MVP</td></tr>
+<tr><td>5</td><td><strong>Provenance as it stood</strong></td><td>4.1, canonical</td><td>MVP</td></tr>
+<tr><td>6</td><td><strong>Tenant context as it stood.</strong> The base rate on that date, which is not the base rate now</td><td>4.1, principle 4</td><td>MVP</td></tr>
+<tr><td>7</td><td><strong>Latitude as it stood</strong></td><td>0.3, 0.6, section 03</td><td>MVP</td></tr>
+<tr><td>8</td><td><strong>The address</strong>, shown and copyable</td><td>Ours, mechanism 5</td><td>MVP</td></tr>
+<tr><td>9</td><td><strong>Link to the live case</strong>, named as a different thing</td><td>Ours, mechanism 3</td><td>MVP</td></tr>
+<tr><td>10</td><td><code>HUMAN</code> and <code>MACHINE</code> renderings of the same entry</td><td>Parallel Deep Research, banked TAKE in type B</td><td><strong>LATER</strong></td></tr>
+</tbody></table></div>
+<div class="absent">
+<h4>Absent: every verdict control, Regenerate, and anything that edits</h4>
+<p>Block 10 is the only LATER, and it is the auditor&rsquo;s export in a nicer form: one finding, two renderings, prose for a person and structure for a system, so the two copies cannot drift.</p>
+</div>
+</section>
+
+<section id="open">
+<h2>07 &middot; Emotional support, not this node, grounding, open questions</h2>
+<div class="tw"><table>
+<thead><tr><th>Job</th><th>Mechanism</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td><strong>Emotional, P1.</strong> Thorough rather than lucky</td><td>The evidence block renders what Clerk looked for and did not find; the provenance strip says how much effort was spent</td><td>Blocks 4 and 5, <strong>read back rather than produced</strong></td></tr>
+<tr><td><strong>Social, P1.</strong> Look like the work of someone who knew what they were doing</td><td>The verdict record is composed from structured parts rather than free text</td><td>Block 3</td></tr>
+</tbody></table></div>
+<p>Both are written at 4.1 and 4.4 and <strong>redeemed here</strong>. That is the case for structure stated as plainly as it gets: the value of the parts is collected months later, by someone who was not there.</p>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>5.1, 5.5, 5.6</strong></td><td>The log, the failed snapshot which takes over this node rather than sitting inside it, and the history of one case where this is one entry</td></tr>
+<tr><td><strong>4.1, 4.2</strong></td><td>Where the three canonical components are defined, and the live case this links to</td></tr>
+<tr><td><strong>0.3, 0.6, 3.5</strong></td><td>The annunciator, the classes, and the fleet. Block 7 renders their historical values</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>A stamp on generated text</td><td>Defender Copilot incident summary: <code>Last updated: Jun 9, 2025 6:27 PM</code></td></tr>
+<tr><td>Generated output expires on a published window</td><td>Defender: the summary is cached for a week and redisplayed unchanged</td></tr>
+<tr><td>A destructive removal leaves who and when</td><td>PagerDuty redaction, opened this session</td></tr>
+<tr><td>Two renderings of one result, for a person and for a system</td><td>Parallel Deep Research <code>HUMAN</code> and <code>MACHINE</code> tabs, Refero <code>bb40b82c</code></td></tr>
+<tr><td>The snapshot as it stood at decision time</td><td><code>CLAUDE.md</code>, the compliance requirement</td></tr>
+<tr><td>Latitude is per action class and per tenant</td><td>Simbian in 0.3; classes in 0.6</td></tr>
+<tr><td>The retention window is unchosen</td><td><code>research.md</code> section 10</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Does the frame survive print and PDF?</strong> An auditor's most likely next action is to save or print this page, and a frame that only exists on screen loses the one marking that keeps as-was from reading as as-is. <strong>Nobody has drawn a print stylesheet in this pipeline</strong>, and this is the first node that genuinely needs one</td><td>Stage 04, and it is new work</td></tr>
+<tr><td>2</td><td><strong>How is the timestamp written?</strong> UTC, the analyst's zone, or the tenant's. All three are defensible and only one can be first</td><td>Stage 05, with a real consequence for R2</td></tr>
+<tr><td>3</td><td><strong>What happens to an entry whose tenant has been offboarded?</strong> The client is gone, the record is still ours to answer for. Scope says tenants inside provider scope, and an offboarded tenant is outside it. <strong>That rule and this node disagree</strong></td><td>Not resolved here. It needs a decision, not a drawing</td></tr>
+<tr><td>4</td><td>Does the count of what changed since ever ship, or does the statement suffice?</td><td>Revisit only if someone asks the question the count answers</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#5.4">Structure (5.4)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/log-entry.md</code>. Block composition from <code>ia/docs/blocks.md</code>, type B. The three canonical components are defined at 4.1 and rendered frozen here.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '5.4 Log entry, as-of';
+  window.NAV_SECTIONS = [
+    { id:'problem', label:'The one problem' },
+    { id:'mock',    label:'Wireframe' },
+    { id:'lat',     label:'Latitude as it stood' },
+    { id:'states',  label:'State matrix' },
+    { id:'m360',    label:'At 360' },
+    { id:'blocks',  label:'Blocks' },
+    { id:'open',    label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

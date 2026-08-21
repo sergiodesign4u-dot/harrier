@@ -62,7 +62,7 @@ window.IA_NAV = [
   { node:'5.1',  label:'Decision log',                  type:'page',    group:'pages',  scope:'MVP',   file:'decision-log.html' },
   { node:'5.2',  label:'Narrowing before rendering',    type:'loading', group:'pages',  scope:'MVP',   file:null },
   { node:'5.3',  label:'Case not findable',             type:'empty',   group:'pages',  scope:'MVP',   file:null },
-  { node:'5.4',  label:'Log entry, as-of',              type:'page',    group:'pages',  scope:'MVP',   file:null },
+  { node:'5.4',  label:'Log entry, as-of',              type:'page',    group:'pages',  scope:'MVP',   file:'log-entry.html' },
   { node:'5.5',  label:'Snapshot did not survive',      type:'error',   group:'pages',  scope:'MVP',   file:null },
   { node:'5.6',  label:'History of one case',           type:'state',   group:'pages',  scope:'MVP',   file:null },
   /* 6 tell the client */
