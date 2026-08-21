@@ -20,7 +20,7 @@
 window.IA_NAV = [
   /* 0 shell and navigation */
   { node:'0.1',  label:'Console shell',                 type:'page',    group:'global', scope:'MVP',   file:'console-shell.html' },
-  { node:'0.2',  label:'Global navigation',             type:'section', group:'global', scope:'MVP',   file:null },
+  { node:'0.2',  label:'Global navigation',             type:'section', group:'global', scope:'MVP',   file:'global-navigation.html' },
   { node:'0.3',  label:'Tenant autonomy annunciator',   type:'section', group:'global', scope:'MVP',   file:null },
   { node:'0.4',  label:'Live connection status',        type:'state',   group:'global', scope:'MVP',   file:null },
   { node:'0.5',  label:'Keyboard map',                  type:'dialog',  group:'global', scope:'MVP',   file:null },
