@@ -39,7 +39,7 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
   <div><dt>Nodes on the map</dt><dd><b>45</b> forty in the MVP</dd></div>
   <div><dt>Specified so far</dt><dd><b><span id="ia-tally">0 of 45</span></b></dd></div>
   <div><dt>Source of truth</dt><dd><code>ia/docs/sitemap.md</code></dd></div>
-  <div><dt>Block bank</dt><dd>Type A of 7 done</dd></div>
+  <div><dt>Block bank</dt><dd>Types A and B of 7 done</dd></div>
 </dl>
 
 <div class="note"><p><strong>The map is complete before the pages are.</strong> Every node is registered here from the moment it exists on the map, so a dashed chip is a declared piece of work rather than a hole someone forgot. The tree that produced these chips is on <a href="sitemap.html">Sitemap</a>; the routes through them are on <a href="flows.html">Flows</a>.</p></div>
@@ -58,7 +58,7 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 <thead><tr><th>Type</th><th>Nodes</th><th>MVP</th><th>Round one</th></tr></thead>
 <tbody>
 <tr><td><strong>A. List in a split pane</strong></td><td>3.1&ndash;3.4, 5.1&ndash;5.3, 5.6</td><td>8</td><td><strong>done</strong></td></tr>
-<tr><td>B. Record detail with an AI narrative</td><td>4.1&ndash;4.3, 4.5, 4.7&ndash;4.10, 5.4, 5.5</td><td>10</td><td>yes</td></tr>
+<tr><td><strong>B. Record detail with an AI narrative</strong></td><td>4.1&ndash;4.3, 4.5, 4.7&ndash;4.10, 5.4, 5.5</td><td>10</td><td><strong>done</strong></td></tr>
 <tr><td>C. Shift digest</td><td>2.1&ndash;2.5</td><td>5</td><td>yes</td></tr>
 <tr><td>D. Fleet and filters</td><td>3.5, 3.6</td><td>2</td><td>yes</td></tr>
 <tr><td>E. Dialog</td><td>1.2, 4.4, 4.6, 7.3</td><td>3</td><td>yes</td></tr>
@@ -86,6 +86,28 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 </tbody></table></div>
 <div class="node"><span class="lbl">What the comparison column actually found</span><p>Three of our advantages are the same advantage: <strong>the references show numbers without their claim, their scope, their window or their count.</strong> <code>71%</code>, <code>100</code>, <code>Thought for 20s</code>. Each is legible and none is checkable. That is one differentiator, and calling it three would be inflating the count. The one structural difference is the panel: <strong>theirs previews and ours decides</strong>, and no bulk actions, no chat composer and verdict controls at the foot all follow from it.</p></div>
 <p><strong>Six blocks that all four references ship and we do not:</strong> summary cards, saved views, a column builder, a density toggle, bulk actions, a chat composer. Each with a reason in <code>blocks.md</code>. A composition that matched one source one to one would be a copy, and this one matches none.</p>
+<h3>Type B, what the five sources gave</h3>
+<p>The type the product exists for. 4.1 is where the analyst rules on Clerk, and it is the second screen that goes to full colour. Four sources opened live: Defender's Copilot <a href="https://learn.microsoft.com/en-us/defender-xdr/security-copilot-m365d-incident-summary">incident summary</a> and <a href="https://learn.microsoft.com/en-us/defender-xdr/security-copilot-m365d-guided-response">guided response</a>, <a href="https://support.pagerduty.com/main/docs/incidents">PagerDuty Incidents</a> for the timeline and for redaction, and Parallel Deep Research from Refero for the craft half.</p>
+<div class="tw"><table>
+<thead><tr><th>Block</th><th>Source</th><th>Verdict</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Permission limited actions shown <strong>greyed out with their reason</strong>, not hidden</td><td>Defender</td><td><strong>TAKE, the find of the type</strong></td><td>The answer to a question 0.3 has carried since it was written. A hidden control teaches nothing; a disabled one teaches the ceiling. This is per tenant autonomy made legible <em>on the case</em></td></tr>
+<tr><td>Banner when the machine already acted, naming the action</td><td>Defender</td><td><strong>TAKE</strong></td><td>Our rule "a case that left the analyst's hands must not look identical to one that did not", shipped by someone else. Ours adds the class from 0.6 and whether it can be undone</td></tr>
+<tr><td>Chip on the sentence opening source, schema field and reasoning</td><td>Parallel</td><td><strong>TAKE</strong></td><td>Deeper than the inline chip taken in type A: it explains what kind of claim it is, not only where it came from</td></tr>
+<tr><td>Redaction leaves who redacted and when, and cannot be undone</td><td>PagerDuty</td><td><strong>TAKE</strong></td><td>The tombstone pattern. 4.7 and 5.5 are the same shape: the evidence is gone, the record of it being gone is not</td></tr>
+<tr><td>Timeline rows as sentences naming actor <em>and channel</em>, machine actions in the same stream</td><td>PagerDuty</td><td><strong>TAKE</strong></td><td>The channel answers "considered decision or thumb on a phone at 03:00", which is exactly 4.10. One log, both actors, so the two histories cannot disagree</td></tr>
+<tr><td>Narrative as prose lead then dated bullets, entities linked inline; <code>Last updated</code> stamped on the summary</td><td>Defender</td><td><strong>TAKE</strong></td><td>For them a courtesy, for us load bearing: 5.4 addresses a snapshot by time, so a narrative with no time cannot be addressed</td></tr>
+<tr><td><code>AI-generated content may be incorrect</code> on every card</td><td>Defender</td><td>DIFFERENT</td><td>The same sentence whether Clerk is on firm ground or guessing, so it carries no information. Ours puts uncertainty on the claim, and 4.8 is a state rather than a footer</td></tr>
+<tr><td>Thumbs up and thumbs down under each card</td><td>Defender</td><td>DIFFERENT</td><td>A thumb cannot tune a detection. Ours is the structured rejection reason from 0.7, on the same keystroke as the override</td></tr>
+<tr><td><code>Basis 69</code> chip with a bare number</td><td>Parallel</td><td>DIFFERENT</td><td>Reading the page you cannot tell whether 69 is a citation index or a score, and that ambiguity is the finding</td></tr>
+<tr><td><code>Classification: Not set</code> as an ordinary optional field</td><td>Defender</td><td>DIFFERENT</td><td>For them the ruling is metadata that defaults to unset. For us it is why the record exists, and <code>unrecorded</code> is a visible state, which is 4.10</td></tr>
+<tr><td>Summary cached for a week and expiring quietly</td><td>Defender</td><td>DIFFERENT</td><td>A published retention window, and the third time this layer has hit the retention question <code>research.md</code> still carries open</td></tr>
+<tr><td><code>Regenerate</code> the summary</td><td>Defender</td><td><strong>LEAVE, the most consequential here</strong></td><td>Regenerating a verdict before ruling on it means the thing accepted is not the thing filed, and the log cannot say which. If Clerk is wrong the path is 4.4, which teaches</td></tr>
+<tr><td>The incident graph as the default tab</td><td>Defender</td><td>LEAVE</td><td>The largest object on the screen, and it does not answer "does the verdict hold". Also the most portfolio friendly thing in this bank, which is why leaving it out has to be a decision</td></tr>
+<tr><td><code>See prompts</code>, <code>Open in Security Copilot</code>, task pane, cost per severity</td><td>Defender</td><td>LEAVE</td><td>Three of these are one instinct: keep talking to the agent instead of ruling on it</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">What type B found, stated rather than implied</span><p><strong>One block was worth the whole type: the greyed out action with its reason.</strong> Defender uses it for role based access; we use it for latitude. The analyst sees, on this case, what Clerk could have done here and could not, which is the differentiator doing work on the screen rather than on a settings page.</p><p><code>Basis 69</code> joins <code>100</code>, <code>71%</code> and <code>Thought for 20s</code>. Four references, four numbers, none naming its claim. Type A called this one differentiator and type B does not make it two; it makes it better evidenced.</p></div>
+<p><strong>Seven blocks the references ship in 4.1 and we do not:</strong> the incident graph, suggested prompts, <code>Regenerate</code>, the task pane, <code>Open in Security Copilot</code>, thumbs up and down, and the blanket AI disclaimer. The ten block composition for 4.1 is in <code>blocks.md</code> and matches no single source.</p>
 </section>
 
 <section id="reading">
