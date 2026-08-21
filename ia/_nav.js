@@ -59,7 +59,7 @@ window.IA_NAV = [
   { node:'4.9',  label:'Verdict did not write',         type:'error',   group:'pages',  scope:'MVP',   file:null },
   { node:'4.10', label:'Held locally, unrecorded',      type:'state',   group:'pages',  scope:'MVP',   file:null },
   /* 5 answer for it later */
-  { node:'5.1',  label:'Decision log',                  type:'page',    group:'pages',  scope:'MVP',   file:null },
+  { node:'5.1',  label:'Decision log',                  type:'page',    group:'pages',  scope:'MVP',   file:'decision-log.html' },
   { node:'5.2',  label:'Narrowing before rendering',    type:'loading', group:'pages',  scope:'MVP',   file:null },
   { node:'5.3',  label:'Case not findable',             type:'empty',   group:'pages',  scope:'MVP',   file:null },
   { node:'5.4',  label:'Log entry, as-of',              type:'page',    group:'pages',  scope:'MVP',   file:null },

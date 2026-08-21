@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 5.1 Decision log</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+.lg{width:100%;min-width:1330px;--tracks:112px 58px 128px 172px 182px 132px 96px}
+.lg .strip{border-bottom:1px solid var(--hair);padding:6px 10px;color:var(--soft);font-size:9.5px}
+.lg .cols{display:flex;align-items:stretch}
+.lg .listpane{flex:1 1 auto;border-right:1.5px solid var(--ink);position:relative;padding-top:15px}
+.lg .detpane{flex:0 0 356px;position:relative;padding-top:15px;background:var(--fill)}
+.lg .scopebar{display:flex;flex-wrap:wrap;gap:5px;padding:9px 10px;border-bottom:1px solid var(--hair)}
+.chip{border:1px solid var(--ink);padding:2px 7px;white-space:nowrap}
+.chip.soft{border-style:dashed;color:var(--soft)}
+.lrow{display:grid;grid-template-columns:var(--tracks);gap:9px;padding:8px 10px;border-bottom:1px solid var(--hair);align-items:baseline}
+.lrow > div{min-width:0;overflow-wrap:anywhere}
+.lrow.hd{color:var(--soft);font-size:8px;letter-spacing:.1em;border-bottom:1px solid var(--ink)}
+.lrow.sup{color:var(--soft)}
+.dim{color:var(--soft)}
+.st{border:1px solid var(--ink);padding:1px 4px;font-size:8px;letter-spacing:.06em;white-space:nowrap;display:inline-block}
+.st.inv{background:var(--ink);color:#fff}
+.st.soft{border-style:dashed;border-color:var(--soft);color:var(--soft)}
+.foot{padding:7px 10px;color:var(--soft);border-top:1px solid var(--hair)}
+.covhd{padding:9px 12px;border-bottom:1.5px solid var(--ink);font-weight:700}
+.cov{padding:9px 12px;border-bottom:1px solid var(--hair)}
+.cov .k{font-size:8px;letter-spacing:.11em;color:var(--soft);display:block;margin-bottom:3px}
+.cov .v{font-size:12px;font-weight:700}
+.cov.q .v{font-weight:400;font-family:var(--mono);color:#8a5a08;background:#fdf6e8;border:1px solid #e8d9b5;padding:2px 5px;display:inline-block}
+
+/* row comparison */
+.cmprow{width:100%;min-width:980px}
+.cmprow .lbl2{padding:7px 10px;background:var(--fill);border-bottom:1px solid var(--hair);color:var(--soft);font-size:8px;letter-spacing:.11em}
+.cmprow .r{display:grid;grid-template-columns:112px 58px 128px 172px 182px 132px 96px;gap:9px;padding:8px 10px;border-bottom:1px solid var(--hair)}
+.cmprow .r > div{min-width:0;overflow-wrap:anywhere}
+.cmprow .r.q31{grid-template-columns:58px 128px 172px 182px 132px 96px 112px}
+.chg{border-bottom:2px solid var(--ink)}
+.drop{text-decoration:line-through;color:var(--soft)}
+.keyline{display:flex;gap:16px;flex-wrap:wrap;padding:9px 10px;color:var(--soft);font-size:9px}
+.keyline b{color:var(--ink)}
+
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 5.1 &middot; Cluster 5</p>
+<h1>Decision log</h1>
+<p class="lede">The node that makes the second half of the main job true: decide, and still be able to defend it months later. It is in the MVP <strong>by compliance, not by preference</strong>, and that changes what it optimises for. Nobody opens this screen daily.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">5.1</dd></div>
+  <div><dt>Type</dt><dd>Page</dd></div>
+  <div><dt>Page type</dt><dd>A, list in a split pane</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Route</dt><dd><code>/log</code></dd></div>
+  <div><dt>Job</dt><dd>R2</dd></div>
+</dl>
+
+<section id="append">
+<h2>01 &middot; What append only actually costs</h2>
+<p>The compliance requirement in <code>CLAUDE.md</code> is one sentence: <strong>every Clerk action and every human override writes to an append only log carrying the evidence snapshot as it stood at decision time.</strong> Three consequences, and they are constraints rather than features.</p>
+<div class="tw"><table>
+<thead><tr><th>Consequence</th><th>What it forbids</th></tr></thead>
+<tbody>
+<tr><td><strong>Nothing is edited</strong></td><td>No inline correction, no "fix a typo". A mistake becomes a second entry</td></tr>
+<tr><td><strong>Nothing is deleted</strong></td><td>No row disappears. 5.5 exists because a snapshot can fail to survive, and even that is recorded rather than hidden</td></tr>
+<tr><td><strong>Both actors write to one stream</strong></td><td>No separate "automation log". Two streams could disagree, and the whole product rests on them not disagreeing</td></tr>
+</tbody></table></div>
+<p><strong>Corrections are superseding entries.</strong> A rejection filed in error appears twice: the original and the correction, both with their times, both readable. 8.4 ruled out undo for the same reason and 4.4 inherits it.</p>
+</section>
+
+<section id="mock">
+<h2>02 &middot; Wireframe, 1440</h2>
+<div class="wfwrap"><div class="wfcap"><b>/log</b> <span>nothing selected</span> <span>the last two rows are a supersession</span></div><div class="wfpad">
+<div class="wf lg">
+  <div class="strip">Live, last entry 2m ago <span class="dim">&middot; 0.4, lives in the shell</span></div>
+  <div class="cols">
+    <div class="listpane">
+      <span class="tag">LIST PANE &middot; 5.1</span>
+      <div class="scopebar">
+        <span class="chip">All tenants &#9662;</span>
+        <span class="chip">Jun 01 to Jun 09 &times;</span>
+        <span class="chip soft">Actor: anyone &#9662;</span>
+        <span class="chip soft">Decision: any &#9662;</span>
+      </div>
+      <div class="lrow hd"><div>WHEN</div><div>SEV</div><div>CLIENT</div><div>WHAT IT IS</div><div>DECIDED, BY WHOM</div><div>REASON</div><div>STATE</div></div>
+      <div class="lrow">
+        <div>Jun 09, 14:22:07</div><div>&#9646;&#9646;&#9646; HIGH</div><div>Norsk Marine</div>
+        <div>Ransomware precursor on FS-02</div><div>Escalated by R. Idrissi</div><div class="dim">&ndash;</div><div><span class="st inv">ESCALATED</span></div>
+      </div>
+      <div class="lrow">
+        <div>Jun 09, 11:04:51</div><div>&#9646;&#9646;&#9647; MED</div><div>Larkfield Logistics</div>
+        <div>Credential stuffing, edge VPN</div><div>Upheld by R. Idrissi</div><div class="dim">&ndash;</div><div><span class="st">UPHELD</span></div>
+      </div>
+      <div class="lrow">
+        <div>Jun 09, 10:58:12</div><div>&#9646;&#9646;&#9647; MED</div><div>Larkfield Logistics</div>
+        <div>Credential stuffing, edge VPN</div><div>Contained by Clerk, alone</div><div class="dim">Contain network</div><div><span class="st">CLERK ACTED ALONE</span></div>
+      </div>
+      <div class="lrow">
+        <div>Jun 08, 22:41:03</div><div>&#9646;&#9647;&#9647; LOW</div><div>Bramber Retail</div>
+        <div>Mass mailbox rule creation</div><div>Rejected by T. Okafor</div><div>Normal at this tenant</div><div><span class="st">REJECTED</span></div>
+      </div>
+      <div class="lrow sup">
+        <div>Jun 08, 22:39:50</div><div>&#9646;&#9647;&#9647; LOW</div><div>Bramber Retail</div>
+        <div>Mass mailbox rule creation</div><div>Upheld by T. Okafor</div><div>&ndash;</div><div><span class="st soft">SUPERSEDED</span></div>
+      </div>
+      <div class="foot">1,279 more &middot; newest first &middot; <b>no row is editable and no row is removable</b></div>
+    </div>
+    <div class="detpane">
+      <span class="tag">PANE AT REST &middot; SECTION 03</span>
+      <div class="covhd">This view covers</div>
+      <div class="cov"><span class="k">ENTRIES</span><span class="v">1,284</span></div>
+      <div class="cov"><span class="k">RANGE</span><span class="v">Jun 01 to Jun 09, 2026</span></div>
+      <div class="cov"><span class="k">TENANTS</span><span class="v">12 of 40 in scope</span></div>
+      <div class="cov q"><span class="k">THE LOG CAN ANSWER BACK TO</span><span class="v">[? retention window not chosen]</span></div>
+      <div class="foot">select an entry to open 5.4, the snapshot as it stood</div>
+    </div>
+  </div>
+</div>
+</div></div>
+<p>The last two rows are the same case ten seconds apart: <code>UPHELD</code> at 22:39:50, then <code>REJECTED</code> at 22:41:03. <strong>The first is marked superseded and stays.</strong> That is what append only looks like when someone changes their mind, and it is why there is no undo anywhere in cluster 4.</p>
+<p>The flagged line in the pane is not a placeholder. <strong>The retention window is genuinely unchosen</strong>, recorded in <code>research.md</code> section 10, and this pane is the only place in the product where a person can see how far back the answer reaches. Rendering a plausible number there would be the exact failure the rules of evidence forbid.</p>
+</section>
+
+<section id="rest">
+<h2>03 &middot; What the pane shows at rest, and it was a hole</h2>
+<p>0.1 zone Z5 lists the pane's contents as 3.5, 4.1 and 5.4. On <code>/queue</code> the resting state is settled: the fleet, and 3.4 is where that decision gets tested. <strong>On <code>/log</code> the resting state was never specified.</strong> Found here rather than at stage 04, which is the point of specifying nodes before drawing them.</p>
+<div class="node"><span class="lbl">A decision taken at this node, recorded as such</span><p>An empty pane on the log would repeat exactly the mistake the fleet decision was made to avoid: a large empty area reading as "broken" rather than "nothing selected". So <strong>at rest the pane states what this view covers</strong>: the narrowing in words, how many entries, the range it spans, and <strong>how far back the log can answer at all</strong>. That last line is what an auditor's question actually depends on.</p></div>
+</section>
+
+<section id="row">
+<h2>04 &middot; The canonical row, reused with three slots changed</h2>
+<p>3.1 defined the row and said every other list either uses it or says why it does not. <strong>This is the "says why" case</strong>, and being precise about it is what makes "canonical" mean something.</p>
+<div class="wfwrap"><div class="wfcap"><b>3.1 above, 5.1 below</b> <span>underline = redefined</span> <span>strikethrough = dropped</span></div><div class="wfpad">
+<div class="wf cmprow">
+  <div class="lbl2">3.1 CASE QUEUE</div>
+  <div class="r q31"><div>SEV</div><div>CLIENT</div><div>WHAT IT IS</div><div>CLERK CONCLUDED</div><div>TO CHECK</div><div>STATE</div><div>AGE</div></div>
+  <div class="lbl2">5.1 DECISION LOG</div>
+  <div class="r"><div class="chg">WHEN, ABSOLUTE</div><div>SEV</div><div>CLIENT</div><div>WHAT IT IS</div><div class="chg">DECIDED, BY WHOM</div><div class="chg">REASON</div><div>STATE</div></div>
+  <div class="keyline"><span><b>Kept:</b> severity, client, what it is</span><span><b>Redefined:</b> the verdict slot, the cost slot, the time slot</span><span><b>Dropped:</b> <span class="drop">what checking will cost</span></span></div>
+</div>
+</div></div>
+<div class="tw"><table>
+<thead><tr><th>Slot</th><th>In 3.1</th><th>In 5.1</th></tr></thead>
+<tbody>
+<tr><td>Severity</td><td>Severity of the case</td><td><strong>Kept</strong>, unchanged</td></tr>
+<tr><td>Client</td><td>Tenant, same position always</td><td><strong>Kept.</strong> Principle 4 does not stop applying because the decision is old</td></tr>
+<tr><td>What it is</td><td>The shape of the case</td><td><strong>Kept</strong>, unchanged</td></tr>
+<tr><td>What Clerk concluded</td><td>The draft verdict, awaiting a ruling</td><td><strong>Redefined: what was decided, and by whom.</strong> A draft becomes a ruling with an actor. The slot that changes meaning most</td></tr>
+<tr><td>What checking it will cost</td><td>Size of the evidence behind the verdict</td><td><strong>Dropped.</strong> Nothing is left to check. <strong>Replaced by the reason</strong>, when the decision carried one from 0.7</td></tr>
+<tr><td>State</td><td><code>escalated</code>, <code>unrecorded</code>, Clerk acted</td><td><strong>Kept, different values:</strong> <code>upheld</code>, <code>amended</code>, <code>rejected</code>, <code>escalated</code>, <code>superseded</code>, <code>Clerk acted alone</code></td></tr>
+<tr><td>Age</td><td>How long it has waited</td><td><strong>Redefined: an absolute timestamp.</strong> Relative time answers "what is going cold"; the log answers "what happened on the ninth of June"</td></tr>
+</tbody></table></div>
+<p><strong>Three changes, one drop, three untouched.</strong> Anything more than that and it would not be the same row, and 3.1 would owe an explanation rather than this node.</p>
+</section>
+
+<section id="blocks">
+<h2>05 &middot; Blocks, and where they came from</h2>
+<p>From <code>blocks.md</code> type A, plus four rows banked under type B while the PagerDuty timeline was open. <strong>A source informs whatever page type it fits</strong>; the bank is organised by type, not fenced by it.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Block</th><th>Where it came from</th><th>Scope</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Narrowing bar</strong>, same chips and same idiom as 3.6</td><td>PagerDuty and Defender; groups from Defender multitenant</td><td>MVP</td></tr>
+<tr><td>2</td><td><strong>The entry row</strong>, redefined in section 04</td><td>3.1, three slots changed</td><td>MVP</td></tr>
+<tr><td>3</td><td><strong>Rows as sentences naming actor and channel</strong></td><td>PagerDuty: <code>Resolved by Mark Phillips through the website</code></td><td>MVP</td></tr>
+<tr><td>4</td><td><strong>Machine and human actions in one stream</strong></td><td>PagerDuty: <code>Incident Workflow ... started via Conditional Trigger</code></td><td>MVP</td></tr>
+<tr><td>5</td><td><strong>Nested detail per row</strong>, expanded in place</td><td>PagerDuty <code>Show All Details</code></td><td>MVP</td></tr>
+<tr><td>6</td><td><strong>The pane</strong>, holding 5.4 on selection</td><td>0.1 Z5, and the split from 3.1</td><td>MVP</td></tr>
+<tr><td>7</td><td><strong>Tombstones rather than blanks</strong> when a snapshot is gone</td><td>PagerDuty redaction: the page records who and when</td><td>MVP</td></tr>
+<tr><td>8</td><td>Export the current view</td><td>Fingerprint and PagerDuty CSV</td><td><strong>LATER</strong></td></tr>
+</tbody></table></div>
+<div class="absent">
+<h4>Absent: everything 3.1 refused, plus any control that edits an entry</h4>
+<p>On this node that second absence is <strong>not a design preference, it is the definition of the artefact.</strong> A log with an edit control is a database with good intentions.</p>
+</div>
+</section>
+
+<section id="states">
+<h2>06 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Default</th><th>Narrowing, 5.2</th><th>Not findable, 5.3</th><th>Entry selected</th><th>Snapshot gone, 5.5</th></tr></thead>
+<tbody>
+<tr><td><strong>List</strong></td><td>Entries, newest first</td><td><strong>Narrows before it draws.</strong> A progressive render would invite reading a partial answer</td><td>Empty</td><td>Entries, selection held</td><td>Entries</td></tr>
+<tr><td><strong>Pane at rest</strong></td><td>What this view covers, section 03</td><td>Same</td><td><strong>The search affordance itself</strong></td><td>5.4, the entry</td><td>5.5</td></tr>
+<tr><td><strong>Superseded entries</strong></td><td>Shown, marked, <strong>never hidden</strong></td><td>Same</td><td>n/a</td><td>Both reachable from either</td><td>Same</td></tr>
+<tr><td><strong>Editing</strong></td><td><strong>Impossible.</strong> There is no control</td><td>Same</td><td>Same</td><td>Same</td><td>Same</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">5.3 is the search affordance, not an empty state</span><p>The base layer wrote it that way and it is right: <strong>the only reason an analyst is on this screen is that someone asked a question</strong>, so "nothing found" has to be the start of the next attempt rather than the end of this one.</p></div>
+</section>
+
+<section id="scope">
+<h2>07 &middot; Addressing, permission, and at 360</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>Route</strong></td><td><code>/log</code></td></tr>
+<tr><td><strong>Entry</strong></td><td><code>/log/{entryId}?as-of={timestamp}</code>, which is 5.4. <strong>The address is the feature</strong>: "show what was known at the time" is a URL rather than a mode</td></tr>
+<tr><td><strong>Narrowing in the URL</strong></td><td>Addressable, so a scope can be handed to a colleague or pasted into a ticket. Tenant by opaque id, never by client name</td></tr>
+<tr><td><strong>Permission</strong></td><td>Every entry for every tenant inside the provider scope, <strong>including decisions made by other analysts</strong>. A log showing only your own decisions cannot answer a client's question about a shift you did not work</td></tr>
+<tr><td><strong>Retention</strong></td><td><strong>This node is bounded arithmetically by a number nobody has chosen.</strong> Section 03 makes it visible instead of letting an auditor discover it by getting nothing back</td></tr>
+<tr><td><strong>At 360</strong></td><td><strong>Not rendered.</strong> The platform line gives mobile one scenario, a paged case read and escalated. Answering an auditor from a phone is not that scenario, and pretending otherwise would mean designing a second console. <strong>5.4 is the boundary case</strong>: a permalink can arrive anywhere, and whether it renders at 360 belongs to 5.4</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="open">
+<h2>08 &middot; Emotional support, grounding, open questions</h2>
+<div class="tw"><table>
+<thead><tr><th>Job</th><th>Mechanism</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td><strong>Social, P1.</strong> Look like the work of someone who knew what they were doing</td><td>The verdict record is composed from <strong>structured parts rather than free text</strong>, so its quality does not depend on how tired the author was at 07:00</td><td>The entry row and the entry. Free text is additive; nothing downstream reads it</td></tr>
+</tbody></table></div>
+<p>The mechanism is <em>written</em> at 4.1 and 4.4 and <strong>read here</strong>. That is the whole argument for structure: the person who benefits from it is not the person who produced it, and often not even the same shift.</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Rows as sentences naming the actor and the channel</td><td>PagerDuty Incidents: <code>Resolved by Mark Phillips through the website</code>, opened in session</td></tr>
+<tr><td>Machine actions in the same stream as human ones</td><td>Same page: <code>Incident Workflow "Custom Fields - Status Update" started via Conditional Trigger</code></td></tr>
+<tr><td>A destructive removal leaves who and when, and cannot be undone</td><td>Same page: <em>"Redaction cannot be undone, not even by PagerDuty Support"</em></td></tr>
+<tr><td>Nested detail expanded in place</td><td>Same page: <code>Show All Details</code> and per row <code>Hide Details</code></td></tr>
+<tr><td>A field change as a raw column name is not a decision</td><td>Same page: <code>resolution_category to "1"</code>, banked DIFFERENT</td></tr>
+<tr><td>Append only, with the snapshot as it stood</td><td><code>CLAUDE.md</code>, the compliance requirement</td></tr>
+<tr><td>The retention window is unchosen</td><td><code>research.md</code> section 10</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>How far back does the log render by default?</strong> A date range chosen for us by performance is a compliance answer chosen by accident</td><td>Cannot be settled before the retention window exists</td></tr>
+<tr><td>2</td><td><strong>What does a superseded entry look like beside the original?</strong> Both must be readable and it must be obvious which is current. Two rows, a nested pair, or one row with a marker</td><td>Stage 04 draws it</td></tr>
+<tr><td>3</td><td>Does an analyst see decisions made by <em>other analysts at the same provider</em> on a shared tenant, and is that visible on the row? <strong>The same question 3.1 left open about a second analyst taking a case</strong></td><td>Stage 04, and it should be answered once for both</td></tr>
+<tr><td>4</td><td>Is the resting pane in section 03 read, or is it furniture? It carries the only person facing statement of retention in the product, which makes it load bearing for R2 and easy to skip past. <strong>Same class of risk as the consequence line in 4.4</strong></td><td>Test, not assertion</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#5.1">Structure (5.1)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/decision-log.md</code>. Block composition from <code>ia/docs/blocks.md</code>, types A and B. The row is 3.1's canonical row, redefined in section 04.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '5.1 Decision log';
+  window.NAV_SECTIONS = [
+    { id:'append', label:'What append only costs' },
+    { id:'mock',   label:'Wireframe' },
+    { id:'rest',   label:'The pane at rest' },
+    { id:'row',    label:'The row, reused' },
+    { id:'blocks', label:'Blocks' },
+    { id:'states', label:'State matrix' },
+    { id:'scope',  label:'Permission and 360' },
+    { id:'open',   label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
