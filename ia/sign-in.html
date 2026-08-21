@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 1.1 Sign in</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+.si{width:100%;min-width:420px;max-width:520px;padding:34px 0 26px}
+.si .inner{width:250px;margin:0 auto}
+.si .mark{font-size:13px;font-weight:700;letter-spacing:-.01em;margin-bottom:22px}
+.si .why{border-left:3px solid var(--ink);background:var(--fill);padding:6px 0 6px 9px;margin-bottom:16px;font-size:9.5px}
+.si .lb{font-size:8px;letter-spacing:.11em;color:var(--soft);display:block;margin-bottom:4px}
+.si .inp{border:1.5px solid var(--ink);padding:7px 9px;color:var(--soft);margin-bottom:11px}
+.si .btn{border:1.5px solid var(--ink);background:var(--ink);color:#fff;padding:6px 0;text-align:center;font-weight:700;margin-bottom:13px}
+.si .rec{color:var(--soft);font-size:9.5px}
+.si .ac{position:absolute;right:9px;bottom:7px;color:var(--soft);font-size:8px}
+
+.sim{width:360px;min-width:360px;padding:26px 0 20px}
+.sim .inner{width:280px}
+
+.flow{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr 26px 1fr;gap:0;width:100%;min-width:700px;max-width:820px;align-items:stretch}
+.flow > div{border:1px solid var(--ink);padding:15px 11px 11px;position:relative}
+.flow .ar{border:none;display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:14px}
+.flow .u{font-weight:700;margin-bottom:5px}
+.flow .n{color:var(--soft);font-size:9px;line-height:1.4}
+.flow .here{background:var(--fill)}
+
+.never{width:100%}
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+
+.two{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.two > div{flex:0 0 auto}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+@media (max-width:720px){ .flow{grid-template-columns:1fr;min-width:0} .flow .ar{display:none} }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 1.1 &middot; Cluster 1</p>
+<h1>Sign in</h1>
+<p class="lede">The only public URL in the product, and the smallest screen in it. Both facts matter, and the second one is the design: there is almost nothing here, and what little there is has to survive being the door at 03:00.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">1.1</dd></div>
+  <div><dt>Type</dt><dd>Page</dd></div>
+  <div><dt>Page type</dt><dd>F, sign in</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Route</dt><dd><code>/sign-in</code></dd></div>
+  <div><dt>Permission</dt><dd><strong>Public</strong>, and the only one</dd></div>
+</dl>
+
+<section id="seo">
+<h2>01 &middot; The one node where the SEO block could have applied</h2>
+<p>0.1 recorded it: <em>"Harrier has one public URL and it is the sign in page, so what this layer settles ahead is addressing and permission instead."</em> This is that page, so the question is real here and nowhere else.</p>
+<div class="node"><span class="lbl">The answer is still noindex, and the reason is not laziness</span><p><strong>Nobody arrives at Harrier through a search engine.</strong> Seats are provisioned by the MDR provider, so every real arrival is a bookmark, a pager link or a message. A sign in page in the index serves an attacker mapping the estate and nobody else.</p><p>So: <code>noindex</code>, no schema, no marketing copy, and the A to E block a public product would carry here is <strong>deliberately not produced</strong>. The loop 0.1 opened is closed with a no.</p></div>
+</section>
+
+<section id="idfirst">
+<h2>02 &middot; Identifier first, and it is two vendors deep</h2>
+<div class="tw"><table>
+<thead><tr><th></th><th>PagerDuty identity</th><th>Microsoft Entra</th></tr></thead>
+<tbody>
+<tr><td>Fields on screen one</td><td><strong>one</strong>, email</td><td><strong>one</strong>, email (<code>loginfmt</code>)</td></tr>
+<tr><td>Password on screen one</td><td>no</td><td>no</td></tr>
+<tr><td>Button</td><td><code>Next</code></td><td><code>Next</code></td></tr>
+<tr><td>Recovery</td><td>on the second step</td><td><code>Can't access your account?</code> in reach</td></tr>
+</tbody></table></div>
+<p><strong>Identifier first is the block, and it is not ours.</strong> Two independent vendors, both in or adjacent to our category, both routing on the email before asking for anything secret.</p>
+<p><strong>Why it is right here specifically:</strong> every MDR provider has its own identity setup. The email domain is what decides whether this person goes to their provider's SSO or to a password, and asking for a password before knowing that is asking a question that might not apply. The field carries <code>autocomplete="username"</code>, which is what makes a password manager useful rather than in the way.</p>
+</section>
+
+<section id="mock">
+<h2>03 &middot; Wireframe</h2>
+<div class="two">
+<div>
+<div class="wfwrap"><div class="wfcap"><b>1440</b> <span>arrived by a deep link</span></div><div class="wfpad">
+<div class="wf si">
+  <span class="tag">1.1</span>
+  <div class="inner">
+    <div class="mark">Harrier</div>
+    <div class="why">A link needed you to sign in.<br><b>Ransomware precursor on FS-02</b><br>You will land on that case.</div>
+    <span class="lb">WORK EMAIL</span>
+    <div class="inp">you@provider.example</div>
+    <div class="btn">Next</div>
+    <div class="rec">Can&rsquo;t access your account?</div>
+  </div>
+  <span class="ac">autocomplete="username"</span>
+</div>
+</div></div>
+</div>
+<div>
+<div class="wfwrap"><div class="wfcap"><b>360</b> <span>not reduced, because there is nothing to reduce</span></div><div class="wfpad">
+<div class="wf si sim">
+  <span class="tag">1.1 AT 360</span>
+  <div class="inner">
+    <div class="mark">Harrier</div>
+    <div class="why">A link needed you to sign in.<br><b>Ransomware precursor on FS-02</b></div>
+    <span class="lb">WORK EMAIL</span>
+    <div class="inp">you@provider.example</div>
+    <div class="btn">Next</div>
+    <div class="rec">Can&rsquo;t access your account?</div>
+  </div>
+</div>
+</div></div>
+</div>
+</div>
+<p>Every other node in this layer either does not render at 360 or renders reduced. <strong>1.1 renders in full, because there is nothing to reduce.</strong> That is not a coincidence: the 03:00 scenario passes through this screen, so it is the one place where the mobile rendering is not a compromise. The desktop version is the same thing with more space around it.</p>
+</section>
+
+<section id="dest">
+<h2>04 &middot; The block that is ours: the destination survives</h2>
+<p>Neither reference has our problem. An on call analyst is paged at 03:00. She taps a link to <code>/case/{caseId}</code>. She is not signed in. <strong>She must land on that case</strong>, not on a bare queue with the case somewhere in it.</p>
+<div class="wfwrap"><div class="wfcap"><b>The journey the address has to survive</b> <span>and where it can be lost</span></div><div class="wfpad">
+<div class="wf flow" style="border:none">
+  <div><div class="u">Pager, 03:04</div><div class="n">a link to <code>/case/c-8903</code></div></div>
+  <div class="ar">&#8594;</div>
+  <div class="here"><span class="tag">1.1</span><div class="u">Sign in</div><div class="n">the address is <b>held</b>, and it is named on screen so she knows the link worked</div></div>
+  <div class="ar">&#8594;</div>
+  <div><div class="u">Provider SSO</div><div class="n">a round trip out of the product and back. <b>The place the address is usually lost</b></div></div>
+  <div class="ar">&#8594;</div>
+  <div><div class="u">4.2, the case</div><div class="n">not the queue. If it is out of scope, 8.1 instead</div></div>
+</div>
+</div></div>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>The security cost, and it is real</strong></td><td>A return address held in a URL is an <strong>open redirect</strong> unless it is validated. It is validated against the product's own routes only, and anything else is discarded silently rather than followed</td></tr>
+<tr><td><strong>If the destination is out of scope</strong></td><td>She lands on 8.1, not on an error saying "you do not have access to that case". <strong>Not found and not yours are indistinguishable</strong>, and this is the earliest point where that rule bites</td></tr>
+<tr><td><strong>Why it is worth the cost</strong></td><td>4.2 exists for this scenario and 5.4 exists for permalinks. <strong>A sign in that drops the destination makes both of those nodes half true</strong>, and it costs the one minute the entire 360 rendering was designed to save</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="never">
+<h2>05 &middot; What the page must not say</h2>
+<p>The whole node is three fields long, so the interesting part is the copy it <strong>refuses</strong>, and each refusal has a reason rather than a preference. <strong>Stage 05 writes the words; this node fixes the constraints.</strong></p>
+<div class="tw"><table>
+<thead><tr><th>Never</th><th>Because</th></tr></thead>
+<tbody>
+<tr><td><code>No account with that email</code></td><td>Account enumeration. <strong>The same family as the 8.1 rule, arriving three nodes earlier</strong></td></tr>
+<tr><td><code>Your organisation is not set up</code></td><td>Tells an outsider that a domain is not a customer, which is the same disclosure in reverse</td></tr>
+<tr><td><code>Wrong password</code> distinguished from <code>wrong email</code></td><td>Same reason again</td></tr>
+<tr><td>Anything naming a client or a tenant</td><td>This page is public. <strong>Nothing behind the login may leak in front of it</strong></td></tr>
+</tbody></table></div>
+<div class="absent">
+<h4>The cost of the first three, stated</h4>
+<p>An analyst at a provider whose SSO is not configured yet gets an unhelpful screen. <strong>That is a provisioning problem and it is fixed in provisioning</strong>, not by making the only public page in a security product more talkative.</p>
+</div>
+</section>
+
+<section id="blocks">
+<h2>06 &middot; Blocks, and the absence people forget</h2>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Block</th><th>Where it came from</th><th>Scope</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>One email field</strong>, <code>autocomplete="username"</code>, one button reading <code>Next</code></td><td>PagerDuty and Entra, independently</td><td>MVP</td></tr>
+<tr><td>2</td><td><strong>Recovery in reach of the field</strong></td><td>Entra: <code>Can't access your account?</code></td><td>MVP</td></tr>
+<tr><td>3</td><td><strong>The destination, held and restored</strong></td><td>Ours, section 04</td><td>MVP</td></tr>
+<tr><td>4</td><td><strong>Why you are here</strong>, when you did not arrive on purpose</td><td>Ours, from 1.2</td><td>MVP</td></tr>
+<tr><td>5</td><td>Passkey path</td><td>Entra ships FIDO support in the page</td><td><strong>LATER</strong>, and <code>[?]</code></td></tr>
+</tbody></table></div>
+<div class="absent">
+<h4>Absent: Sign up, Continue with Google, Continue with Apple, marketing copy, product screenshots</h4>
+<p><strong>The signup link is the absence people forget.</strong> Both references carry one. Harrier has <strong>no self serve signup</strong>: seats are provisioned by the MDR provider. A signup link would be a dead end wearing a primary colour, and on the only public page in a security product a dead end is also an invitation.</p>
+</div>
+</section>
+
+<section id="states">
+<h2>07 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Arrived on purpose</th><th>Arrived by a deep link</th><th>Session expired, from 1.2</th><th>Signed out deliberately</th><th>Identity provider errored</th></tr></thead>
+<tbody>
+<tr><td><strong>Why you are here</strong></td><td>Absent</td><td><strong>The case is named</strong>, so she knows the link worked</td><td><code>Your session ended. You will come back to where you were</code></td><td><code>You signed out</code></td><td>What failed, in plain words</td></tr>
+<tr><td><strong>Email field</strong></td><td>Empty, focused</td><td>Empty, focused</td><td><strong>Prefilled if known</strong>, focused</td><td>Empty</td><td>Prefilled</td></tr>
+<tr><td><strong>Destination</strong></td><td>none</td><td><strong>Held</strong></td><td><strong>Held</strong></td><td>Cleared</td><td>Held</td></tr>
+<tr><td><strong>After success</strong></td><td><code>/queue</code></td><td><strong>The case</strong></td><td>Where she was</td><td><code>/queue</code></td><td>Retry</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Signing out clears the destination and expiry does not</span><p>One is a decision to leave, the other is an interruption. <strong>Treating them the same would either strand her after an expiry or return her somewhere she chose to leave.</strong></p></div>
+<p><strong>Touch target:</strong> WCAG SC 2.5.8, Level AA, 24 by 24 CSS pixels minimum, already carried as a rule from 0.1. On a phone at 03:00, with one hand, that is a floor rather than a target.</p>
+</section>
+
+<section id="open">
+<h2>08 &middot; A note for stage 06, grounding, open questions</h2>
+<div class="node"><span class="lbl">A note for stage 06, recorded rather than decided</span><p>There is no brand yet; the visual language arrives at stage 06. <strong>This is the only screen a person can see before authenticating</strong>, which makes it the one place the product's identity is seen by anyone who is not already inside it. A node specification cannot choose a brand, but it can say which screen carries the whole weight of one.</p></div>
+<p><strong>Emotional support: none.</strong> No mechanism in the <code>sitemap.md</code> table lives here, and none is written in for completeness.</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Identifier first: one email field, no password, button reads <code>Next</code></td><td><strong>identity.pagerduty.com</strong> and <strong>login.microsoftonline.com</strong>, both opened this session</td></tr>
+<tr><td><code>autocomplete="username"</code> on the field</td><td>PagerDuty identity, read from the live page</td></tr>
+<tr><td><code>Can't access your account?</code> beside the field</td><td>Microsoft Entra, live page</td></tr>
+<tr><td>Consumer identity options exist on Entra</td><td>Same page: <code>Continue with Google</code>, <code>Continue with Apple</code>. <strong>Left</strong></td></tr>
+<tr><td>Passkey support is present in the page</td><td>Entra: <code>IsFidoSupported</code></td></tr>
+<tr><td>A signup link is shipped by both</td><td>Both pages. <strong>Left</strong>, no self serve signup</td></tr>
+<tr><td>24 by 24 CSS px minimum target</td><td>WCAG SC 2.5.8, Level AA, quoted in 0.1</td></tr>
+<tr><td>Not found and not yours are indistinguishable</td><td>8.1, and the tenant isolation requirement in <code>CLAUDE.md</code></td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>How long is a session?</strong> Nobody has chosen it. 1.2 exists because sessions end, and it cannot say anything specific until this number does. <strong>Same family as the retention window</strong>: a value the design depends on and the research never settled</td><td>Needs a decision, not a drawing</td></tr>
+<tr><td>2</td><td><strong>Does the product support one person at more than one provider?</strong> An analyst contracting to two MDRs has two identities and two scopes. <strong>Unaddressed anywhere in the layer</strong>, and it changes what "provider scope" means if the answer is yes</td><td>Open</td></tr>
+<tr><td>3</td><td>Does a passkey path ship? <code>[?]</code>, LATER. Entra has one, and an operator who signs in every shift is exactly the user it helps most</td><td>Later</td></tr>
+<tr><td>4</td><td>What does an unconfigured provider actually see? Section 05 chooses non disclosure and names the cost. Whether that cost is acceptable belongs to whoever owns onboarding, <strong>and this node has not met them</strong></td><td>Open</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#1.1">Structure (1.1)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/sign-in.md</code>. Block composition from <code>ia/docs/blocks.md</code>, type F, the one type where both halves of the bank are real live pages.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '1.1 Sign in';
+  window.NAV_SECTIONS = [
+    { id:'seo',     label:'The one SEO question' },
+    { id:'idfirst', label:'Identifier first' },
+    { id:'mock',    label:'Wireframe' },
+    { id:'dest',    label:'The destination survives' },
+    { id:'never',   label:'What it must not say' },
+    { id:'blocks',  label:'Blocks' },
+    { id:'states',  label:'State matrix' },
+    { id:'open',    label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

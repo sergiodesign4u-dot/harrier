@@ -32,7 +32,7 @@ window.IA_NAV = [
   { node:'8.3',  label:'Permission denied',             type:'state',   group:'global', scope:'MVP',   file:null },
   { node:'8.4',  label:'Toast stack',                   type:'section', group:'global', scope:'MVP',   file:'toast-stack.html' },
   /* 1 session */
-  { node:'1.1',  label:'Sign in',                       type:'page',    group:'pages',  scope:'MVP',   file:null },
+  { node:'1.1',  label:'Sign in',                       type:'page',    group:'pages',  scope:'MVP',   file:'sign-in.html' },
   { node:'1.2',  label:'Session expired',               type:'dialog',  group:'pages',  scope:'MVP',   file:null },
   /* 2 take the shift */
   { node:'2.1',  label:'Shift brief',                   type:'page',    group:'pages',  scope:'MVP',   file:'shift-brief.html' },
