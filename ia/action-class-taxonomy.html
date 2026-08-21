@@ -71,7 +71,7 @@
 <h2>01 &middot; Why a class rather than an action</h2>
 <p class="h2sub">Vendors publish actions. A provider cannot grant latitude per vendor button</p>
 <p>Microsoft Defender for Endpoint, response actions page opened this session, ships at least these: <code>Initiate automated investigation</code>, <code>Initiate live response session</code>, <code>Collect investigation package</code>, <code>Run Microsoft Defender Antivirus scan</code>, <code>Restrict app execution</code>, <code>Isolate devices from the network</code>, <code>Contain devices from the network</code>, <code>Contain IP addresses of undiscovered devices</code>, <code>Contain a user from the network</code>, <code>Consult a threat expert</code>.</p>
-<p>One analyst covers forty tenants running different tool stacks. A grant expressed as "Autopilot on <code>Restrict app execution</code>" is meaningless at a client that does not run that product. <strong>So the taxonomy is deliberately coarser than any one vendor&rsquo;s list, and vendor neutral</strong>, and every integration maps its own actions onto these classes.</p>
+<p>One analyst covers forty tenants running different tool stacks. A grant expressed as "acts alone on <code>Restrict app execution</code>" is meaningless at a client that does not run that product. <strong>So the taxonomy is deliberately coarser than any one vendor&rsquo;s list, and vendor neutral</strong>, and every integration maps its own actions onto these classes.</p>
 <div class="node"><span class="lbl">The cost, named rather than hidden</span><p>The mapping is where precision leaks. <strong>A class is only as honest as the worst action mapped into it.</strong> That is the price of being able to say one sentence about latitude across forty different tool stacks.</p></div>
 </section>
 
@@ -112,10 +112,10 @@
 <div class="wfwrap"><div class="wfcap"><b>7.2 grant grid, LATER</b><span>tenant against class is the whole screen, and it only exists because the class list does</span></div><div class="wfpad">
 <div class="wf"><div class="grid">
   <div class="hd"><div class="t">TENANT</div><div class="cell">INVESTIGATE</div><div class="cell">ENDPOINT</div><div class="cell">NETWORK</div><div class="cell">IDENTITY</div><div class="cell">CONTENT</div><div class="cell">POLICY</div></div>
-  <div class="rw"><div class="t">Meridian Freight</div><div class="cell hi">Autopilot</div><div class="cell hi">Autopilot</div><div class="cell mid">Guided</div><div class="cell mid">Guided</div><div class="cell">Dry-run</div><div class="cell">Read-only</div></div>
-  <div class="rw"><div class="t">Northwind</div><div class="cell hi">Autopilot</div><div class="cell mid">Guided</div><div class="cell mid">Guided</div><div class="cell">Dry-run</div><div class="cell">Read-only</div><div class="cell">Read-only</div></div>
-  <div class="rw"><div class="t">Halcyon Care</div><div class="cell hi">Autopilot</div><div class="cell">Dry-run</div><div class="cell">Dry-run</div><div class="cell">Read-only</div><div class="cell na">not integrated</div><div class="cell">Read-only</div></div>
-  <div class="rw"><div class="t">Pinemark</div><div class="cell mid">Guided</div><div class="cell">Read-only</div><div class="cell">Read-only</div><div class="cell">Read-only</div><div class="cell">Read-only</div><div class="cell">Read-only</div></div>
+  <div class="rw"><div class="t">Meridian Freight</div><div class="cell hi">Acts alone</div><div class="cell hi">Acts alone</div><div class="cell mid">Asks first</div><div class="cell mid">Asks first</div><div class="cell">Never</div><div class="cell">Never</div></div>
+  <div class="rw"><div class="t">Northwind</div><div class="cell hi">Acts alone</div><div class="cell mid">Asks first</div><div class="cell mid">Asks first</div><div class="cell">Never</div><div class="cell">Never</div><div class="cell">Never</div></div>
+  <div class="rw"><div class="t">Halcyon Care</div><div class="cell hi">Acts alone</div><div class="cell">Never</div><div class="cell">Never</div><div class="cell">Never</div><div class="cell na">not integrated</div><div class="cell">Never</div></div>
+  <div class="rw"><div class="t">Pinemark</div><div class="cell mid">Asks first</div><div class="cell">Never</div><div class="cell">Never</div><div class="cell">Never</div><div class="cell">Never</div><div class="cell">Never</div></div>
 </div></div>
 </div></div>
 <div class="wfwrap"><div class="wfcap"><b>3.6 filters</b><span>class as a facet, which is a different question from severity</span></div><div class="wfpad">
@@ -126,7 +126,7 @@
 <div class="tw"><table>
 <thead><tr><th>Reader</th><th>Uses</th><th>Shows</th></tr></thead>
 <tbody>
-<tr><td>0.3, reading A</td><td>The class of the selected case&rsquo;s proposed action</td><td><code>PERMITTED, ACCOUNT CONTAINMENT: Autopilot</code>. The class name is half the sentence</td></tr>
+<tr><td>0.3, reading A</td><td>The class of the selected case&rsquo;s proposed action</td><td><code>PERMITTED, CONTAIN IDENTITY: Acts alone</code>. The class name is half the sentence</td></tr>
 <tr><td>0.3, reading B</td><td>All classes on a tenant</td><td>The highest latitude in force, with the count of classes at it</td></tr>
 <tr><td>3.6 filters</td><td>Class as a facet</td><td>Narrow the queue to what Clerk proposes to <em>do</em></td></tr>
 <tr><td>7.2 grants, LATER</td><td>Class as the row of the grid</td><td>Tenant against class</td></tr>

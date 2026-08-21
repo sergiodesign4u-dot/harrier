@@ -23,7 +23,7 @@
 
 Vendors publish actions. Microsoft Defender for Endpoint, response actions page opened this session, ships at least these: `Initiate automated investigation`, `Initiate live response session`, `Collect investigation package`, `Run Microsoft Defender Antivirus scan`, `Restrict app execution`, `Isolate devices from the network`, `Contain devices from the network`, `Contain IP addresses of undiscovered devices`, `Contain a user from the network`, `Consult a threat expert`.
 
-**An MDR provider cannot grant latitude per vendor button.** One analyst covers 40 tenants running different tool stacks, and a grant expressed as "Autopilot on `Restrict app execution`" is meaningless at a client that does not run that product. So the taxonomy is deliberately **coarser than any one vendor's list and vendor neutral**, and every integration maps its own actions onto these classes.
+**An MDR provider cannot grant latitude per vendor button.** One analyst covers 40 tenants running different tool stacks, and a grant expressed as "acts alone on `Restrict app execution`" is meaningless at a client that does not run that product. So the taxonomy is deliberately **coarser than any one vendor's list and vendor neutral**, and every integration maps its own actions onto these classes.
 
 That is a cost, and it is worth naming: the mapping is where precision leaks. A class is only as honest as the worst action mapped into it.
 
@@ -52,7 +52,7 @@ Six, grouped by what they touch. Ordered by how cheaply a human can put it back.
 
 | Class | What it covers | Reversible | By whom | Latitude ceiling |
 |---|---|---|---|---|
-| **Investigate** | Enrich, query, collect an investigation package, run a scan. Changes nothing in the environment | n/a. Nothing to reverse | n/a | No ceiling. This is what Read-only already permits |
+| **Investigate** | Enrich, query, collect an investigation package, run a scan. Changes nothing in the environment | n/a. Nothing to reverse | n/a | No ceiling. Investigating changes nothing, so there is nothing to withhold |
 | **Contain endpoint** | Isolate a device, restrict app execution | Yes, and it can be time limited so it reverses itself | The analyst | High |
 | **Contain network** | Block an address, a domain, an indicator | Yes, on demand | The analyst | High |
 | **Contain identity** | Disable an account, revoke sessions or tokens | Yes | **Someone with more rights than the analyst** | Medium. The person who acts cannot undo |
@@ -67,7 +67,7 @@ Six, grouped by what they touch. Ordered by how cheaply a human can put it back.
 
 | Reader | Uses | Shows |
 |---|---|---|
-| **0.3, reading A** | The class of the selected case's proposed action | `PERMITTED, ACCOUNT CONTAINMENT: Autopilot`. The class name is half the sentence |
+| **0.3, reading A** | The class of the selected case's proposed action | `PERMITTED, CONTAIN IDENTITY: Acts alone`. The class name is half the sentence |
 | **0.3, reading B** | All classes on a tenant | The highest latitude in force, with the count of classes at it |
 | **3.6 filters** | Class as a facet | Narrow the queue to what Clerk proposes to do, which is a different question from severity |
 | **7.2 grants, LATER** | Class as the row of the grant grid | Tenant against class is the whole screen |

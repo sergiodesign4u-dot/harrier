@@ -93,7 +93,7 @@ Two absences that look like oversights and are not.
 
 **No undo.** 8.4 already settled it: an append only log cannot unwrite an entry. A rejection filed in error is corrected by a **superseding logged action**, visible in 5.6 as two entries with their times, not by erasing the first.
 
-**And there is no toast after a rejection at all.** 8.4 rules a filed verdict **No**: the row leaves the queue, and that is the feedback, already in the field of view. So the no undo constraint attaches to the record, not to a notification. **Corrected at the stage 08 audit**, where this sentence still assumed a toast that 8.4 had ruled out.
+**And there is no toast after a rejection at all.** 8.4 rules a filed verdict **No**: the row changes to decided **in place**, under her hand, and that is the feedback, already in the field of view. So the no undo constraint attaches to the record, not to a notification. **Corrected at the stage 08 audit**, where this sentence still assumed a toast that 8.4 had ruled out.
 
 ---
 
