@@ -1,21 +1,29 @@
-/* ia/_nav.js  ---  registry of DETAIL LAYER nodes (stage 03b).
+/* ia/_nav.js  ---  the ONE registry of stage 03b, doing TWO jobs from one record.
  *
- * Own namespace: window.IA_NAV. The roadmap of stage pages lives in the ROOT /_nav.js
- * (window.NAV, classes nav-*). Both scripts run on structure.html at once, so a name
- * collision here would silently break the roadmap sidebar.
+ * Job 1: the STAGE PANEL, rendered into <aside id="sidebar"> on EVERY page under ia/.
+ *        Groups: Base layer, Detail layer, then cluster by cluster with its X.Y nodes.
+ *        Node to node is one click; going back to the hub for a chip is not needed.
+ * Job 2: the CHIPS, rendered into <div id="ia-structure"> on the hub, structure.html.
+ *
+ * IA pages do NOT include the root /_nav.js and do NOT render the roadmap. Two panels on
+ * one page give two left gutters and the text slides under one of them. The root registry
+ * stays the owner of stage status (done, wip, Next) and is read there, not here.
+ * The way back out of the stage is the first panel item, because the roadmap is not present.
  *
  * One record per node of ia/docs/sitemap.md:
  *   node   'X.Y'                    number in the node map
  *   label  string                   name as it reads in the map
  *   type   page|dialog|state|section|loading|empty|error
- *   group  'global' | 'pages'       which section of the hub it lands in
+ *   group  'global' | 'pages'       which section of the hub chips it lands in
  *   scope  'MVP' | 'LATER'
- *   file   'name.html' or null      null = registered on the map, page not built yet
+ *   file   'name.html' or null      null = on the map, page not built yet
  *
- * A node with file:null is NOT a hole. The map is complete from step 1; pages arrive
- * one at a time, and the chip turns into a link the moment its page exists.
- * This file is included by the HUB ONLY (ia/structure.html). Node pages do not include
- * it: they register here with one record and declare NAV_ACTIVE plus NAV_ACTIVE_LABEL.
+ * A node with file:null is NOT a hole. The map is complete from step 1; pages arrive one
+ * at a time, and both the panel item and the chip turn into links the moment a page exists.
+ *
+ * A page may set window.IA_ACTIVE to name itself; otherwise the panel matches on filename.
+ * window.NAV_SECTIONS still carries the in-page sections and is rendered under the
+ * current item, exactly as the root registry does it.
  */
 window.IA_NAV = [
   /* 0 shell and navigation */
@@ -74,6 +82,130 @@ window.IA_NAV = [
   { node:'7.3',  label:'Grant change',                  type:'dialog',  group:'pages',  scope:'LATER', file:null },
 ];
 
+/* ---------- the panel's own two rules, injected so the shared sheet stays untouched ---------- */
+(function(){
+  if (document.getElementById('ia-panel-css')) return;
+  var st = document.createElement('style'); st.id = 'ia-panel-css';
+  st.textContent =
+    '#sidebar{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;' +
+      'scrollbar-width:thin;padding-right:4px}' +
+    '.nav-link .ia-num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;' +
+      'color:var(--nav-muted);min-width:26px;display:inline-block}' +
+    '.nav-link.is-current .ia-num{color:var(--nav-active)}' +
+    '.nav-item.is-active > .nav-top{color:var(--nav-active)}' +
+    '@media (max-width:900px){#sidebar{position:static;max-height:none;overflow:visible}}';
+  document.head.appendChild(st);
+})();
+
+/* ---------- job 1: the stage panel ---------- */
+(function(){
+  var el = document.getElementById('sidebar');
+  if (!el || !window.IA_NAV) return;
+
+  var SECTIONS = window.NAV_SECTIONS || [];
+  var CLUSTERS = {
+    '0':'0 \u00b7 Shell and globals', '1':'1 \u00b7 Session',        '2':'2 \u00b7 Take the shift',
+    '3':'3 \u00b7 Work the queue',    '4':'4 \u00b7 Rule on the case','5':'5 \u00b7 Answer for it later',
+    '6':'6 \u00b7 Tell the client',   '7':'7 \u00b7 Grant the rope',  '8':'8 \u00b7 Systemic'
+  };
+  var LAYER = [
+    { key:'base',   label:'Base layer',   pages:[ {k:'flows',    label:'Flows',       file:'flows.html'},
+                                                  {k:'concept',  label:'Concept map', file:'concept-map.html'} ] },
+    { key:'detail', label:'Detail layer', pages:[ {k:'sitemap',  label:'Sitemap',     file:'sitemap.html'},
+                                                  {k:'structure',label:'Structure',   file:'structure.html'} ] }
+  ];
+
+  var here = (location.pathname.split('/').pop() || 'index.html');
+  var active = window.IA_ACTIVE || null;
+  if (!active) {
+    var byFile = IA_NAV.filter(function(n){ return n.file === here; })[0];
+    if (byFile) active = byFile.node;
+    else LAYER.forEach(function(g){ g.pages.forEach(function(p){ if (p.file === here) active = p.k; }); });
+  }
+
+  function badge(text, kind){
+    var b = document.createElement('span');
+    b.className = 'nav-badge nav-badge-' + (kind || text.toLowerCase());
+    b.textContent = text; return b;
+  }
+  function sectionList(){
+    var s = document.createElement('ul'); s.className = 'nav-sections';
+    SECTIONS.forEach(function(sec){
+      var li = document.createElement('li'), a = document.createElement('a');
+      a.href = '#' + sec.id; a.className = 'nav-section';
+      a.setAttribute('data-section', sec.id); a.textContent = sec.label;
+      li.appendChild(a); s.appendChild(li);
+    });
+    return s;
+  }
+  function row(file, num, label, isCur, later){
+    var li = document.createElement('li'); li.className = 'nav-subitem';
+    var a = document.createElement(file ? 'a' : 'span');
+    if (file) a.href = file;
+    a.className = 'nav-link' + (isCur ? ' is-current' : '');
+    if (num) { var b = document.createElement('b'); b.className = 'ia-num'; b.textContent = num; a.appendChild(b); }
+    a.appendChild(document.createTextNode(label));
+    if (later) a.appendChild(badge('LATER','soon'));
+    li.appendChild(a);
+    if (isCur && SECTIONS.length) li.appendChild(sectionList());
+    return li;
+  }
+  function group(label, isActive, rows){
+    var li = document.createElement('li');
+    li.className = 'nav-item ' + (isActive ? 'is-active' : 'is-done');
+    var top = document.createElement('span'); top.className = 'nav-top'; top.textContent = label;
+    li.appendChild(top);
+    var sub = document.createElement('ul'); sub.className = 'nav-sub';
+    rows.forEach(function(r){ sub.appendChild(r); });
+    li.appendChild(sub);
+    return li;
+  }
+
+  var ul = document.createElement('ul'); ul.className = 'nav-roadmap';
+
+  /* the way out, because the roadmap is not rendered on IA pages */
+  var out = document.createElement('li'); out.className = 'nav-item is-done';
+  var oa = document.createElement('a'); oa.href = '../index.html'; oa.className = 'nav-top';
+  oa.textContent = '\u2190 Harrier pipeline';
+  out.appendChild(oa); ul.appendChild(out);
+
+  LAYER.forEach(function(g){
+    var isAct = g.pages.some(function(p){ return p.k === active; });
+    ul.appendChild(group(g.label, isAct, g.pages.map(function(p){
+      return row(p.file, null, p.label, p.k === active, false);
+    })));
+  });
+
+  Object.keys(CLUSTERS).forEach(function(c){
+    var nodes = IA_NAV.filter(function(n){ return n.node.split('.')[0] === c; });
+    if (!nodes.length) return;
+    var isAct = nodes.some(function(n){ return n.node === active; });
+    ul.appendChild(group(CLUSTERS[c], isAct, nodes.map(function(n){
+      return row(n.file, n.node, n.label, n.node === active, n.scope === 'LATER');
+    })));
+  });
+
+  el.innerHTML = ''; el.appendChild(ul);
+
+  if (SECTIONS.length && 'IntersectionObserver' in window) {
+    var links = {};
+    Array.prototype.forEach.call(document.querySelectorAll('.nav-section'), function(a){
+      links[a.getAttribute('data-section')] = a;
+    });
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var a = links[e.target.id]; if (!a) return;
+        if (e.isIntersecting) {
+          Object.keys(links).forEach(function(k){ links[k].classList.remove('is-current'); });
+          a.classList.add('is-current');
+        }
+      });
+    }, { rootMargin: '-10% 0px -70% 0px' });
+    SECTIONS.forEach(function(sec){ var t = document.getElementById(sec.id); if (t) obs.observe(t); });
+  }
+})();
+
+/* ---------- job 2: the chips on the hub ---------- */
 (function(){
   var el = document.getElementById('ia-structure');
   if (!el || !window.IA_NAV) return;

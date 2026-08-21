@@ -156,13 +156,14 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 <tr><td>4</td><td><strong>Codex</strong></td><td>Node 3.5 carried three different names across the registry, its <code>h1</code> and its md</td><td>One name. The registry was the odd one out</td></tr>
 <tr><td>5</td><td><strong>Claude, browser</strong></td><td><code>case-queue.html</code> defined a local <code>.q</code>, colliding with the reserved <code>[?]</code> marker in <code>research/_page.css</code>, which injected <code>white-space:nowrap</code> into the whole wireframe</td><td>Renamed. <strong>This was the real cause of a column collision fixed earlier by widening the frame</strong>, so the fix was right and the diagnosis was wrong</td></tr>
 <tr><td>6</td><td><strong>Claude, browser</strong></td><td>Two pages overflowed at a real 360: 1.1 and 4.2. Both from a flex column sizing to max-content</td><td>Fixed. <strong>The 4.2 check had never been run</strong>, which is worse than a check that failed</td></tr>
+<tr><td>7</td><td><strong>The stage contract, reread</strong></td><td><strong>Every IA page rendered the pipeline roadmap, not a stage panel.</strong> Moving from one node to another meant going back to the hub for a chip, and two registries were loaded on the hub at once</td><td><strong>The panel is rebuilt.</strong> <code>ia/_nav.js</code> now does both jobs from one record: it renders the stage panel on all 26 IA pages, grouped Base layer, Detail layer, then cluster by cluster with every <code>X.Y</code>, and the chips on the hub. <strong>Node to node is one click.</strong> The root registry is not loaded on IA pages at all, and the first panel item is the way back out</td></tr>
 </tbody></table></div>
 
 <h3>Raised and dismissed, with the reason</h3>
 <div class="tw"><table>
 <thead><tr><th>Who</th><th>Claim</th><th>Why it does not hold</th></tr></thead>
 <tbody>
-<tr><td>Codex</td><td>Registry mismatch on 0.3, 0.4, 4.1, 4.2, 5.4: the registry label differs from <code>NAV_ACTIVE_LABEL</code></td><td><strong>Two fields, two jobs.</strong> The registry label names the node in a chip; <code>NAV_ACTIVE_LABEL</code> is the short form with its number for the sidebar's active row. Deliberately different lengths. <strong>Recorded as a convention so it is not raised again</strong></td></tr>
+<tr><td>Codex</td><td>Registry mismatch on 0.3, 0.4, 4.1, 4.2, 5.4: the registry label differs from <code>NAV_ACTIVE_LABEL</code></td><td>Two fields, two jobs at the time it was raised. <strong>Overtaken by the panel rebuild below:</strong> <code>NAV_ACTIVE_LABEL</code> no longer exists on any IA page, so there is one name per node and nothing left to diverge</td></tr>
 <tr><td>Claude</td><td><code>reject.md</code> references node 4.11, which does not exist</td><td>Rhetorical: <em>"it is a dialog rather than node 4.11"</em>. The sentence exists to say the node was never created</td></tr>
 </tbody></table></div>
 
@@ -207,7 +208,7 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 <tr><td>Block bank real, both halves, missing half named out loud</td><td><strong>done</strong></td><td>Seven types. <strong>Type C says plainly that no page of that type could be opened</strong></td></tr>
 <tr><td>Every node's composition comes from the bank</td><td><strong>done</strong></td><td>Every block row on every node names its origin</td></tr>
 <tr><td>Audit before wireframes, with the result visible on the page</td><td><strong>done</strong></td><td>This section</td></tr>
-<tr><td>Every node registered once and rendered from that entry</td><td><strong>done, with one agreed deviation</strong></td><td>45 of 45 registered. The panel comes from the root registry and the chips from <code>ia/_nav.js</code>: <strong>two registries rather than one</strong>, agreed at Step 1</td></tr>
+<tr><td>Every node registered once and rendered from that entry</td><td><strong>done</strong></td><td>45 of 45 registered in <code>ia/_nav.js</code>, and that one record now renders <strong>both</strong> the panel item and the chip. <strong>The Step 1 deviation, two registries on IA pages, is closed by the panel rebuild below</strong></td></tr>
 <tr><td><code>concept-map.html</code> does not freeze</td><td><strong>partly, and it was stale</strong></td><td><strong>Found by this pass.</strong> The expansion line was there and said "forty three nodes". Corrected to forty five, thirty nine MVP, twenty two written. <strong>The matrix and the navigation model on that page are rebuilt at Step 9</strong>, which is where the contract puts them</td></tr>
 <tr><td>Closing ritual</td><td><strong>not done</strong></td><td>Step 9. Two items are already queued for it: the four item navigation line in <code>CLAUDE.md</code>, and the reserved class rule</td></tr>
 </tbody></table></div>
@@ -222,7 +223,6 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 </main>
 </div>
 <script>
-  window.NAV_BASE = '../';
   window.NAV_SECTIONS = [
     { id:'nodes',   label:'Nodes' },
     { id:'bank',    label:'Block bank' },
@@ -230,7 +230,6 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
     { id:'audit',   label:'Audit, before and after' },
   ];
 </script>
-<script src="../_nav.js"></script>
 <script src="_nav.js"></script>
 </body>
 </html>
