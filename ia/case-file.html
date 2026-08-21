@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 4.1 Case File in the detail pane</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+.pane{width:100%;min-width:660px;max-width:760px;padding-top:15px}
+.pane .bk{border-bottom:1px solid var(--hair);padding:10px 13px;position:relative}
+.pane .bnum{position:absolute;top:8px;right:8px;font-size:8px;color:var(--soft);letter-spacing:.1em}
+.pane h5{margin:0 0 6px;font-size:8px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;font-weight:400}
+.ttl{font-size:13px;font-weight:700;letter-spacing:-.01em}
+.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.st{border:1px solid var(--ink);padding:1px 5px;font-size:8px;letter-spacing:.06em;white-space:nowrap}
+.st.inv{background:var(--ink);color:#fff}
+.banner{border:1.5px solid var(--ink);background:var(--fill);padding:7px 10px;margin:0 0 2px;display:flex;gap:9px;flex-wrap:wrap;align-items:baseline}
+.verdict{font-size:12.5px;font-weight:700;line-height:1.4}
+.bas{border:1px solid var(--soft);color:var(--soft);padding:0 3px;font-size:8px;white-space:nowrap}
+.ent{border-bottom:1px dashed var(--ink)}
+.li{display:flex;gap:7px;margin:5px 0}
+.li .d{color:var(--soft);flex:0 0 92px}
+.li .t{flex:1}
+.absent-ev{border-left:3px solid var(--ink);padding-left:9px;margin-top:8px}
+.prov{display:flex;gap:0;flex-wrap:wrap}
+.prov div{flex:1 1 110px;border-right:1px solid var(--hair);padding:0 10px 0 0;margin-right:10px}
+.prov div:last-child{border-right:none}
+.prov .k{font-size:8px;color:var(--soft);letter-spacing:.1em}
+.prov .v{font-size:11.5px;font-weight:700}
+.lat{display:grid;grid-template-columns:150px 74px 1fr;gap:5px 9px;align-items:center}
+.lat .hd{font-size:8px;color:var(--soft);letter-spacing:.1em}
+.btn{border:1px solid var(--ink);padding:2px 7px;text-align:center;font-size:9px;white-space:nowrap}
+.btn.off{border-style:dashed;border-color:var(--soft);color:var(--soft);background:repeating-linear-gradient(135deg,#fff,#fff 4px,#f4f5f5 4px,#f4f5f5 8px)}
+.why{color:var(--soft);font-size:9px}
+.foot2{display:flex;gap:7px;flex-wrap:wrap;padding:11px 13px;border-top:1.5px solid var(--ink);align-items:center}
+.act{border:1.5px solid var(--ink);padding:4px 10px;font-size:10px;font-weight:700;display:flex;gap:7px;align-items:center}
+.act .k{border:1px solid var(--ink);font-size:8px;padding:0 3px;font-weight:400}
+.act.pri{background:var(--ink);color:#fff}
+.act.pri .k{border-color:#fff}
+.stampline{padding:8px 13px;color:var(--soft);font-size:9px;border-top:1px solid var(--hair)}
+
+.ctx{display:flex;width:100%;min-width:560px;max-width:640px;font-size:9px}
+.ctx div{border:1px solid var(--ink);padding:16px 8px 8px;position:relative;text-align:center}
+.ctx .l{flex:1.4;background:var(--fill);color:var(--soft)}
+.ctx .r{flex:1;border-left-width:1.5px;font-weight:700}
+
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 4.1 &middot; Cluster 4</p>
+<h1>Case File in the detail pane</h1>
+<p class="lede">The node the product exists for. Everything before it is arrangement; this is where the analyst rules on Clerk. It is also where the differentiator is spent: 0.3 asserts that a tenant&rsquo;s latitude is legible at a glance, and this is the one screen where the analyst is about to act on a specific client.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">4.1</dd></div>
+  <div><dt>Type</dt><dd>Page, as the right pane</dd></div>
+  <div><dt>Page type</dt><dd>B, record with AI narrative</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Route</dt><dd><code>/queue/case/{caseId}</code></dd></div>
+  <div><dt>Job</dt><dd>MAIN &middot; activation node</dd></div>
+</dl>
+
+<section id="purpose">
+<h2>01 &middot; Purpose, and the two rules that shape it</h2>
+<p>Clerk has already investigated. It collected the signals, correlated them, and filed a written verdict with its evidence. <strong>The analyst&rsquo;s job is not to investigate; it is to rule.</strong></p>
+<p>So the screen is built around one question, asked as early as possible: <em>does this verdict hold?</em> Everything above the fold serves answering it in seconds, and everything below serves defending the answer months later.</p>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>Clerk shows its work, up to a ceiling</strong></td><td>More explanation is not more trust. Cheapest correct thing first, depth one key away</td></tr>
+<tr><td><strong>Override is one key, and it teaches</strong></td><td>Rejecting is a first class action, not a fallback path, and it must cost less than accepting rather than more</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="blocks">
+<h2>02 &middot; Blocks, in priority order</h2>
+<p class="h2sub">From <code>blocks.md</code> type B: four references, and the order matches none of them</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Block</th><th>Where it came from</th><th>Traces to</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Case header.</strong> What it is, which client, state chips including <code>escalated</code>, <code>unrecorded</code>, and whether Clerk acted</td><td>Ours, plus Defender's chip row</td><td>The visible states rule</td></tr>
+<tr><td>2</td><td><strong>Action banner, only when Clerk already acted.</strong> Names the action, its class from 0.6, and whether it can still be undone and by whom</td><td>Defender: <em>"A potentially compromised account was disabled automatically by attack disruption"</em></td><td>The visible states rule</td></tr>
+<tr><td>3</td><td><strong>Clerk's verdict, one sentence, before the evidence</strong></td><td>Ours</td><td>Design principle 2</td></tr>
+<tr><td>4</td><td><strong>The narrative.</strong> Prose lead, then dated bullets, entities linked inline rather than listed at the end</td><td>Defender Copilot incident summary</td><td>MAIN</td></tr>
+<tr><td>5</td><td><strong>The evidence block.</strong> A chip on every claim opening source, field and reasoning. <strong>And what Clerk looked for and did not find</strong></td><td>Parallel for the chip; the absence half is ours</td><td>MAIN, Emotional P1</td></tr>
+<tr><td>6</td><td><strong>Provenance strip.</strong> Sources queried, how many, over what window, and the effort</td><td>Ours, from <code>Thought for 20s</code> banked DIFFERENT in type A</td><td>Principle 2, Emotional P1</td></tr>
+<tr><td>7</td><td><strong>Tenant context.</strong> Is this normal at this client. No baseline is a state, 4.8, not a blank</td><td>Ours</td><td>Design principle 4</td></tr>
+<tr><td>8</td><td><strong>Latitude on this case.</strong> What Clerk could have done here without asking, out of scope actions <strong>disabled and explained</strong> rather than hidden</td><td>Defender: <em>"Grayed out action buttons mean these actions are limited by your permission"</em>, plus 0.3 and 0.6</td><td><strong>HJ3, the differentiator</strong></td></tr>
+<tr><td>9</td><td><strong>Verdict controls at the foot.</strong> Accept, amend, reject, escalate. Each one key, each showing its key on itself</td><td>Ours</td><td>Design principle 3</td></tr>
+<tr><td>10</td><td><strong>Stamp and address.</strong> <code>Last updated</code> on the narrative, <code>?as-of</code> on the snapshot</td><td>Defender's stamped summary, plus the compliance requirement</td><td>R2, 5.4</td></tr>
+</tbody></table></div>
+
+<div class="absent">
+<h4>Deliberately absent, and one of them is load bearing</h4>
+<p>Gone: the incident graph, suggested prompts, the task pane, <code>Open in Security Copilot</code>, thumbs up and down, the blanket AI disclaimer. And <strong><code>Regenerate</code></strong>.</p>
+<p><strong><code>Regenerate</code> is to 4.1 what bulk actions were to 3.1.</strong> Regenerating a verdict before ruling on it means the thing accepted is not the thing that was filed, and an append only log cannot say which one it was. If Clerk is wrong the path is 4.4, and 4.4 teaches.</p>
+</div>
+
+<div class="node"><span class="lbl">Block 8 is a find, not an invention</span><p>Defender greys out actions the operator&rsquo;s role does not permit, and says why. We use the same affordance for a different bound: <strong>not what the analyst may do, but what Clerk may do here</strong>, on this tenant, on this action class. A hidden control teaches nothing. A disabled control with its ceiling stated teaches the ceiling, on the one screen where the ceiling matters.</p></div>
+</section>
+
+<section id="mock">
+<h2>03 &middot; Wireframe, the pane</h2>
+<p class="h2sub">Black and white. Colour arrives at stage 06</p>
+<div class="wfwrap"><div class="wfcap"><b>Where it sits</b> <span>split proportions are drawn on 3.1</span></div><div class="wfpad">
+<div class="wf ctx">
+  <div class="l"><span class="tag">3.1 LIST</span>the list survives the decision</div>
+  <div class="r"><span class="tag">4.1 THIS NODE</span>detail pane, resizable and remembered</div>
+</div>
+</div></div>
+<div class="wfwrap"><div class="wfcap"><b>/queue/case/c-8841</b> <span>a case Clerk already acted on</span> <span>blocks numbered as in section 02</span></div><div class="wfpad">
+<div class="wf pane">
+  <span class="tag">4.1 DETAIL PANE</span>
+  <div class="bk"><span class="bnum">1</span>
+    <div class="ttl">Credential stuffing against the edge VPN</div>
+    <div class="chips"><span class="st">Larkfield Logistics</span><span class="st">MED</span><span class="st inv">CLERK ACTED</span><span class="st">c-8841</span></div>
+  </div>
+  <div class="bk"><span class="bnum">2</span>
+    <div class="banner">
+      <b>Clerk blocked 3 source addresses at 04:12.</b>
+      <span>Class: Contain network</span>
+      <span class="st">REVERSIBLE BY YOU</span>
+    </div>
+  </div>
+  <div class="bk"><span class="bnum">3</span><h5>Clerk&rsquo;s verdict</h5>
+    <div class="verdict">True positive. Credential stuffing from a residential proxy pool, contained, no account compromised.</div>
+  </div>
+  <div class="bk"><span class="bnum">4</span><h5>What happened</h5>
+    <p style="margin:0">Between 03:47 and 04:12 the edge VPN saw 1,140 failed authentications against <span class="ent">14 accounts</span> <span class="bas">3 sources</span> from addresses in a single residential proxy range <span class="bas">2 sources</span>. No authentication succeeded.</p>
+    <div class="li"><span class="d">03:47</span><span class="t">Failure rate crosses the tenant threshold on <span class="ent">vpn-edge-01</span> <span class="bas">1 source</span></span></div>
+    <div class="li"><span class="d">04:02</span><span class="t">Same pattern reaches <span class="ent">vpn-edge-02</span>. Correlated into one case <span class="bas">2 sources</span></span></div>
+    <div class="li"><span class="d">04:12</span><span class="t">Clerk blocked <span class="ent">3 addresses</span>. Attempts stop within 40 seconds <span class="bas">2 sources</span></span></div>
+  </div>
+  <div class="bk"><span class="bnum">5</span><h5>Evidence</h5>
+    <div class="li"><span class="d">Supports</span><span class="t">All 1,140 attempts failed. No session established <span class="bas">auth log</span></span></div>
+    <div class="li"><span class="d">Supports</span><span class="t">Source range appears on 2 reputation feeds <span class="bas">TI feed</span></span></div>
+    <div class="li"><span class="d">Disagrees</span><span class="t">4 of the 14 accounts belong to one team, which could be a shared client rollout <span class="bas">directory</span></span></div>
+    <div class="absent-ev"><b>Looked for and did not find</b>
+      <div class="li"><span class="d">&#9679;</span><span class="t">Any successful sign in from the range, 30 days</span></div>
+      <div class="li"><span class="d">&#9679;</span><span class="t">MFA prompts approved by any of the 14 accounts</span></div>
+      <div class="li"><span class="d">&#9679;</span><span class="t">Matching pattern at any other tenant in scope</span></div>
+    </div>
+  </div>
+  <div class="bk"><span class="bnum">6</span><h5>Provenance</h5>
+    <div class="prov">
+      <div><div class="k">SOURCES</div><div class="v">6 queried</div></div>
+      <div><div class="k">RECORDS</div><div class="v">1,140 + 214</div></div>
+      <div><div class="k">WINDOW</div><div class="v">30 days</div></div>
+      <div><div class="k">EFFORT</div><div class="v">4 passes</div></div>
+    </div>
+  </div>
+  <div class="bk"><span class="bnum">7</span><h5>At this client</h5>
+    <div>Credential stuffing on the edge VPN: <b>9 cases in 30 days</b>, 8 upheld as true positive. <span class="why">This is ordinary here.</span></div>
+  </div>
+  <div class="bk"><span class="bnum">8</span><h5>What Clerk may do at Larkfield Logistics</h5>
+    <div class="lat">
+      <div class="hd">ACTION CLASS</div><div class="hd">LATITUDE</div><div class="hd">WHY</div>
+      <div>Investigate</div><div class="btn">Acts alone</div><div class="why">Changes nothing in the environment</div>
+      <div>Contain network</div><div class="btn">Acts alone</div><div class="why">Reversible by you. 51 of 52 upheld, 30 days</div>
+      <div>Contain endpoint</div><div class="btn">Acts alone</div><div class="why">Reversible by you, and it can time out on its own</div>
+      <div>Contain identity</div><div class="btn off">Asks first</div><div class="why">Only a Global Administrator can undo it</div>
+      <div>Remove content</div><div class="btn off">Asks first</div><div class="why">Reversible only inside a retention window</div>
+      <div>Change policy</div><div class="btn off">Never</div><div class="why">Propagation outlasts the undo</div>
+    </div>
+  </div>
+  <div class="foot2"><span class="bnum" style="position:static;margin-right:4px">9</span>
+    <span class="act pri">Accept <span class="k">A</span></span>
+    <span class="act">Amend <span class="k">M</span></span>
+    <span class="act">Reject <span class="k">R</span></span>
+    <span class="act">Escalate <span class="k">E</span></span>
+    <span class="why">prev and next <span class="bas">[</span> <span class="bas">]</span></span>
+  </div>
+  <div class="stampline">10 &middot; Filed by Clerk 04:12:38 &middot; snapshot addressable at <code>?as-of=2026-08-21T04:12:38Z</code></div>
+</div>
+</div></div>
+<p><strong>The out of latitude rows are drawn hatched rather than removed.</strong> That is the whole block 8 argument in one visual decision: the analyst can see that Clerk could not have disabled the account here even if it had wanted to, and why. Remove the row and the ceiling becomes invisible, which is what every configuration page in the category already does.</p>
+</section>
+
+<section id="canon">
+<h2>04 &middot; Three canonical components, defined here</h2>
+<p>Each appears again on 4.2 and 5.4. Defined once, referenced after. Three editions of the provenance strip would diverge first.</p>
+<div class="tw"><table>
+<thead><tr><th>Component</th><th>Requirement</th></tr></thead>
+<tbody>
+<tr><td rowspan="4"><strong>Evidence block</strong></td><td><strong>Claim:</strong> one line in product words, never a raw field</td></tr>
+<tr><td><strong>Chip:</strong> attached to the claim, not collected at the end. Opens the source, what kind of claim it is, and the reasoning behind that value</td></tr>
+<tr><td><strong>Absence:</strong> what Clerk looked for and did not find, with the same weight as what it found. <strong>The half no reference has</strong>, and the mechanism the emotional job depends on</td></tr>
+<tr><td><strong>Disagreement:</strong> signals that pointed the other way, kept visible rather than resolved away</td></tr>
+<tr><td><strong>Provenance strip</strong></td><td>Sources queried, how many, over what window, and the effort. <strong>Count first, never a bare percentage</strong>, the shape 0.3 already fixed. It exists because <code>Thought for 20s</code> is the right instinct badly executed: time says the agent was busy, not what it read</td></tr>
+<tr><td><strong>Verdict record</strong></td><td>Composed from <strong>structured parts, never free text</strong>: what was decided, on what grounds, against which snapshot, by whom, when, and if rejected the reason from 0.7 on both axes. Free text stays optional and nothing downstream depends on it</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="states">
+<h2>05 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Filed and waiting</th><th>Still working, 4.3</th><th>Clerk acted</th><th>No baseline, 4.8</th><th>Evidence expired, 4.7</th><th>Write failed, 4.9</th></tr></thead>
+<tbody>
+<tr><td><strong>Verdict line</strong></td><td>Present</td><td>Absent. <strong>What is being checked</strong> shown instead, so waiting is legible</td><td>Present</td><td>Present</td><td>Present, marked as resting on evidence no longer retrievable</td><td>Present, unfiled</td></tr>
+<tr><td><strong>Evidence block</strong></td><td>Full</td><td>Partial, arriving</td><td>Full</td><td>Full</td><td><strong>Tombstone.</strong> What was there, that it is gone, when. Never a blank</td><td>Full</td></tr>
+<tr><td><strong>Tenant context</strong></td><td>Base rate</td><td>Pending</td><td>Base rate</td><td><strong><code>No baseline for this tenant yet</code>.</strong> Not a zero and not a meaningless comparison</td><td>Base rate</td><td>Base rate</td></tr>
+<tr><td><strong>Latitude</strong></td><td>Permitted, and doing now</td><td>Doing now</td><td><strong>What it did, and whether it can be undone</strong></td><td>Permitted, and the record says how thin it is</td><td>Unchanged</td><td>Unchanged</td></tr>
+<tr><td><strong>Verdict controls</strong></td><td>All four live</td><td>Escalate only</td><td>All four live</td><td>All four live</td><td><strong>Escalate only.</strong> The honest exit, and 4.7 has no other</td><td>Retry, or hold locally into 4.10</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">4.7 and 4.9 must not share a treatment</span><p>One is evidence that aged out, the other is a write that did not land. The first leaves a decidable case with an undefendable record; the second leaves a decision nobody can see. <strong>4.10 is what happens when 4.9 is not resolved:</strong> the verdict is held, the case stays open, and the row in 3.1 wears <code>unrecorded</code>. That flag is the difference between a decision that exists and one only the analyst remembers making.</p></div>
+</section>
+
+<section id="keys">
+<h2>06 &middot; Keyboard</h2>
+<p>0.5 owns the mechanism and hands cluster 4 the meanings. <strong>Every key below is live only while the detail pane holds focus</strong>, which is the third condition of WCAG SC 2.1.4, Level A. While 4.4 or 4.5 holds a text field, letters are text and nothing else.</p>
+<div class="tw"><table>
+<thead><tr><th>Key</th><th>Does</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td><code>a</code></td><td>Accept Clerk's verdict as filed</td><td>Shown on the control itself. The map is a lookup, not the teacher</td></tr>
+<tr><td><code>r</code></td><td>Reject, opening 4.4</td><td>The reason is the action, not a step towards it. One dialog, no wizard</td></tr>
+<tr><td><code>m</code></td><td>Amend the narrative in place, 4.5</td><td>On entry, letters become text</td></tr>
+<tr><td><code>e</code></td><td>Escalate, opening 4.6</td><td>Also the only live control in 4.7</td></tr>
+<tr><td><code>[</code> <code>]</code></td><td>Previous and next case without returning to the list</td><td>Mouse equivalent is prev and next in the pane header, taken from Defender</td></tr>
+<tr><td><code>Escape</code></td><td>Returns focus to the list, keeping the selection</td><td>A dialog consumes it first and does not propagate, from 0.5</td></tr>
+</tbody></table></div>
+<p><strong>Every one of these is remappable and can be disabled</strong>, from the foot of 0.5. The focus rule alone would leave a speech user with no way to stop <code>a</code> from meaning accept while the pane is focused, which is the exact scenario the criterion describes.</p>
+</section>
+
+<section id="scope">
+<h2>07 &middot; Addressing and permission</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>Route</strong></td><td><code>/queue/case/{caseId}</code></td></tr>
+<tr><td><strong>Standalone</strong></td><td><code>/case/{caseId}</code> is 4.2: the same case without the list. Permalink, and the only rendering at 360</td></tr>
+<tr><td><strong>Snapshot</strong></td><td><code>?as-of={timestamp}</code> addresses the evidence as it stood. 5.4 is that address resolved from the log</td></tr>
+<tr><td><strong>Heading</strong></td><td>One <code>h1</code>, the case and its client. The pane is a labelled region, so traversing from the list announces where focus went</td></tr>
+<tr><td><strong>Permission</strong></td><td>Tenant inside provider scope. Actions bounded by role, <strong>shown disabled with the reason</strong> rather than hidden. A case outside scope resolves the same as a case that does not exist, from the 8.1 rule</td></tr>
+<tr><td><strong>Retention</strong></td><td><code>?as-of</code> promises an address that resolves. How long it resolves for is the retention window <code>research.md</code> section 10 still records as unchosen. <strong>4.7 exists because that number does not</strong></td></tr>
+</tbody></table></div>
+</section>
+
+<section id="m360">
+<h2>08 &middot; At 360, and it is a deliberate absence</h2>
+<p><strong>4.1 does not render at 360.</strong> The pane is the right half of a split, and at 360 there is no split.</p>
+<p>Selecting a case at 360 navigates to <strong>4.2</strong>, the same case at its own URL with the list not present. That is not a fallback: it is the reason 4.2 exists, a permalink for the log and the read and escalate surface for an on call analyst opening a paged case at 03:00. What 4.2 keeps and what it drops belongs to 4.2.</p>
+<p>Recorded here so nobody looks for a mobile rendering of this node and concludes it was forgotten.</p>
+</section>
+
+<section id="emo">
+<h2>09 &middot; Emotional support, and here it is not empty</h2>
+<p>3.1 carried none of the four mechanisms in <code>sitemap.md</code>. This node carries two.</p>
+<div class="tw"><table>
+<thead><tr><th>Job</th><th>Mechanism</th><th>Where on this node</th></tr></thead>
+<tbody>
+<tr><td><strong>Emotional, P1.</strong> Feel I was thorough rather than lucky</td><td>The evidence block renders <strong>what Clerk looked for and did not find</strong> as explicitly as what it found, so absence carries the same weight as presence. Beside it the provenance strip says how much effort was spent, which makes a fast decision attributable to the agent's work rather than to skipping</td><td>Blocks 5 and 6</td></tr>
+<tr><td><strong>Social, P1.</strong> Look like the work of someone who knew what they were doing</td><td>The verdict record is composed from <strong>structured parts rather than free text</strong>, so its quality does not depend on how tired the author was at 07:00</td><td>The verdict record</td></tr>
+</tbody></table></div>
+<p>Both mechanisms are structural, which is the point: neither depends on tone, so neither can be undone at stage 05 by a wording change. The remaining two live elsewhere, and <strong>the one with no mechanism</strong>, cases Clerk closed on its own and the analyst never sees, still has nothing and is still a backlog entry rather than an error.</p>
+</section>
+
+<section id="open">
+<h2>10 &middot; Not this node, grounding, open questions</h2>
+<div class="tw"><table>
+<thead><tr><th>Not this node</th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>0.1, 0.3</strong></td><td>The shell and the annunciator. The annunciator reads this node's selection but belongs to the shell</td></tr>
+<tr><td><strong>0.5</strong></td><td>The keyboard mechanism. This node declares meanings; 0.5 owns remap, disable and the map</td></tr>
+<tr><td><strong>0.6, 0.7</strong></td><td>The action classes and the rejection reasons. This node shows and opens them; they are defined there</td></tr>
+<tr><td><strong>4.2, 4.3 to 4.10</strong></td><td>The standalone route, everything at 360, and each state as its own node</td></tr>
+<tr><td><strong>5.4</strong></td><td>The same three components rendered from the log at a past <code>?as-of</code></td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Permission limited actions greyed out with their reason</td><td>Microsoft Learn, guided responses, opened in session</td></tr>
+<tr><td>The machine's completed action announced on the record</td><td>Defender: <em>"A potentially compromised account was disabled automatically by attack disruption"</em></td></tr>
+<tr><td>Narrative as prose lead then dated bullets, entities inline</td><td>Defender Copilot incident summary</td></tr>
+<tr><td>A chip on the claim opening source, field and reasoning</td><td>Parallel Deep Research, Refero <code>bb40b82c</code></td></tr>
+<tr><td>Latitude is per action class, not global</td><td>Simbian, quoted in 0.3</td></tr>
+<tr><td>Reversibility, not severity, orders the classes</td><td>Microsoft Learn response actions, quoted in 0.6</td></tr>
+<tr><td>Single character shortcuts must be focus scoped, remappable or disableable</td><td>WCAG SC 2.1.4, Level A, quoted in 0.5</td></tr>
+<tr><td>Structure removes variation in written handover</td><td>UCL handover study, stage 02</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Is <code>a</code> an acceptable key for accept, even focus scoped?</strong> SC 2.1.4 is satisfied by the focus rule, so this is not a compliance question. It is a question about a key that files a verdict against a client sitting under the analyst's resting hand</td><td>Stage 04 and 05 together</td></tr>
+<tr><td>2</td><td><strong>Does the latitude block sit above the verdict or below it?</strong> Above says "here is how much rope Clerk had before you read anything". Below says "here is what it could have done, now that you know what it concluded". These teach different things and only one can be first</td><td>Stage 04</td></tr>
+<tr><td>3</td><td>How much of the narrative is visible before scrolling, in a pane roughly a third of the window? Principle 2 says cheapest correct thing first, and this is where that gets measured rather than asserted</td><td>Stage 04</td></tr>
+<tr><td>4</td><td>Are disagreeing signals expanded or collapsed by default? Collapsed protects the ceiling in principle 2; expanded protects the emotional job in section 09. They pull opposite ways and the tie is not broken here</td><td>Stage 04</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#4.1">Structure (4.1)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/case-file.md</code>. Block composition from <code>ia/docs/blocks.md</code>, type B. Wireframes are black and white by rule; colour arrives at stage 06.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '4.1 Case File';
+  window.NAV_SECTIONS = [
+    { id:'purpose', label:'Purpose' },
+    { id:'blocks',  label:'Blocks' },
+    { id:'mock',    label:'Wireframe' },
+    { id:'canon',   label:'Canonical parts' },
+    { id:'states',  label:'State matrix' },
+    { id:'keys',    label:'Keyboard' },
+    { id:'scope',   label:'Permission' },
+    { id:'m360',    label:'At 360' },
+    { id:'emo',     label:'Emotional support' },
+    { id:'open',    label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
