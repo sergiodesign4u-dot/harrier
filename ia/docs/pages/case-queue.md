@@ -46,7 +46,7 @@ Priority reasoned from the desk at 1440, which is the stance in `CLAUDE.md`, and
 | **2** | **Scope readout.** What is in scope right now, counted: waiting cases, and how many tenants that covers. Not a metric card, not a percentage | Ours, from design principle 2 and the counts on Defender's tabs | MAIN | MVP |
 | **3** | **The list.** Virtualised, keyboard traversable, one row per case. Section 4 specifies the row | The pattern itself, shipped by Defender and PagerDuty | MAIN | MVP |
 | **4** | **Selection held.** The selected row stays visible and stays selected through the whole decision, including after a verdict is filed | Ours, from 0.1's guarantee | MAIN | MVP |
-| **5** | **The pane.** Resizable, width remembered per analyst. At rest it holds 3.5, the fleet. With a selection it holds 4.1 | PagerDuty draggable and remembered panel, which closed 0.1's open question | MAIN, HJ3 | MVP |
+| **5** | **The pane.** Resizable, width remembered per analyst. At rest it holds 3.5, the fleet. With a selection it holds 4.1 | PagerDuty draggable and remembered panel, which closed 0.1's open question | MAIN, P2-MAIN | MVP |
 | **6** | **Freshness, not a spinner.** The age of the list in words, carried by 0.4 in the shell rather than repeated here | 0.4, corrected upward from 0.1 | MAIN | MVP |
 | **7** | Export the current view | Fingerprint and PagerDuty CSV export | R2, compliance | **LATER** |
 

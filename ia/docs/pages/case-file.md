@@ -50,7 +50,7 @@ From `ia/docs/blocks.md`, type B. Ten blocks, assembled from four references, ma
 | **5** | **The evidence block.** Every claim carries a chip; the chip opens source, field and the reasoning for that one value. **And it renders what Clerk looked for and did not find** | Parallel Deep Research for the chip; the absence half is ours | MAIN, and Emotional P1 | MVP |
 | **6** | **Provenance strip.** Sources queried, how many, over what window, and the effort spent | Ours, from the `Thought for 20s` row banked DIFFERENT in type A | design principle 2, Emotional P1 | MVP |
 | **7** | **Tenant context.** Is this normal at this client, with the base rate. No baseline is a state, 4.8, not a blank | Ours, design principle 4 | MAIN | MVP |
-| **8** | **Latitude on this case.** What Clerk could have done here without asking, with out of scope actions **disabled and explained** rather than hidden | Defender: *"Grayed out action buttons mean these actions are limited by your permission"*, plus 0.3 and 0.6 | HJ3, the differentiator | MVP |
+| **8** | **Latitude on this case.** What Clerk could have done here without asking, with out of scope actions **disabled and explained** rather than hidden | Defender: *"Grayed out action buttons mean these actions are limited by your permission"*, plus 0.3 and 0.6 | P2-MAIN, the differentiator | MVP |
 | **9** | **Verdict controls at the foot.** Accept, amend, reject, escalate. Each one key, each showing its key on itself | Ours, design principle 3 | MAIN | MVP |
 | **10** | **Time stamp and address.** `Last updated` on the narrative, and the `?as-of` address of this snapshot | Defender's stamped summary, plus the compliance requirement | R2, 5.4 | MVP |
 
