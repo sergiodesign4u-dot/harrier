@@ -14,7 +14,7 @@ It was specified expecting a page. Specifying it found that two decisions taken 
 | **Name** | Permission denied |
 | **Type** | state |
 | **Group** | `pages`, systemic |
-| **Scope** | **MVP in `sitemap.md`. This specification disputes that.** See section 4 |
+| **Scope** | **LATER.** Was MVP; changed at the stage 08 audit. See section 4 |
 | **Page type for the bank** | **G, a systemic state** |
 | **Route** | none of its own |
 | **Job** | none |
@@ -58,6 +58,10 @@ So no address leads here either. Out of scope resolves to 8.1.
 > **8.3 is specified. Whether it ships is decided by Step 8, and the test is a coverage question, not a taste question: does any flow in `flows.md` or any state in any node's matrix reach it?**
 >
 > If none does, 8.3 becomes LATER and arrives with cluster 7, which is where its first real route lives.
+
+**Answered at Step 8, and the test found something worse than an unreachable node.** Three places did route to 8.3: `sitemap.md`, 0.1's state matrix and 0.3's scope note. All three routed the **out of scope tenant** here, which is exactly what 8.1 forbids. So the routes existed and every one of them was a defect.
+
+**With those three corrected to 8.1, nothing reaches 8.3, and its scope is now LATER.** It arrives with cluster 7. The specification below stands unchanged and is the thing cluster 7 will need.
 
 **This is the idle control working.** A declared list that never returns "not reachable" is being read formally, and here it returned one.
 

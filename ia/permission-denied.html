@@ -65,7 +65,7 @@
   <div><dt>Node</dt><dd class="num">8.3</dd></div>
   <div><dt>Type</dt><dd>State</dd></div>
   <div><dt>Page type</dt><dd>G, systemic state</dd></div>
-  <div><dt>Scope</dt><dd><strong>MVP, disputed</strong></dd></div>
+  <div><dt>Scope</dt><dd><strong>LATER</strong>, changed at the audit</dd></div>
   <div><dt>Route</dt><dd>none of its own</dd></div>
   <div><dt>Job</dt><dd>none</dd></div>
 </dl>
@@ -103,6 +103,7 @@
 <p><strong>8.3 is specified. Whether it ships is decided by Step 8</strong>, and the test is a coverage question rather than a taste question: <strong>does any flow in <code>flows.md</code>, or any state in any node&rsquo;s matrix, reach it?</strong> If none does, 8.3 becomes LATER and arrives with cluster 7, which is where its first real route lives.</p>
 <p><strong>This is the idle control working.</strong> A declared list that never returns "not reachable" is being read formally, and here it returned one.</p>
 </div>
+<div class="node"><span class="lbl">Answered at Step 8, and the test found something worse than an unreachable node</span><p><strong>Three places did route to 8.3:</strong> <code>sitemap.md</code>, 0.1's state matrix and 0.3's scope note. All three routed the <strong>out of scope tenant</strong> here, which is exactly what 8.1 forbids. So the routes existed, and every one of them was a defect.</p><p>With those three corrected to 8.1, <strong>nothing reaches 8.3, and its scope is now LATER.</strong> It arrives with cluster 7. The specification below stands unchanged and is what cluster 7 will need.</p></div>
 </section>
 
 <section id="mock">

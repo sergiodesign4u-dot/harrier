@@ -118,7 +118,7 @@ No route. The annunciator is never a destination, which is the point: the fleet 
 
 **Read only in the MVP.** Changing a grant is 7.2 and it is LATER. The gap between watching, which should be constant, and moving, which should be rare and considered, is deliberate and is stated on the map.
 
-**Scope.** Only tenants inside the analyst's provider scope render. A route naming a tenant outside it renders 8.3 rather than a hidden annunciator with a visible page.
+**Scope.** Only tenants inside the analyst's provider scope render. A route naming a tenant outside it renders **8.1**, identically to a case that does not exist. **Corrected at the stage 08 audit**, which found this node, 0.1 and `sitemap.md` all pointing at 8.3 while 8.1, 3.1, 4.1, 1.1 and 3.6 all required the opposite. Grounds in 8.1 section 2.
 
 **Not in the audit log.** Reading the annunciator writes nothing. Changing a grant writes to 5.1 with the evidence that justified it, and that is 7.3.
 

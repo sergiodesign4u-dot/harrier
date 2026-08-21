@@ -267,12 +267,12 @@ Group `global`. No node here is a dead end.
 |---|---|---|---|---|---|
 | **8.1 Not found** | state | A case number that does not resolve, usually a stale link out of a chat | 3.1 | None. Systemic | **MVP** |
 | **8.2 Service unavailable** | state | Names what is down and whether verdicts can still be filed | Retry | None. Systemic | **MVP** |
-| **8.3 Permission denied** | state | A tenant that is not this analyst's. Tenant isolation is a stated requirement, so this is compliance rather than courtesy | 3.1 | None. Compliance | **MVP** |
-| **8.4 Toast stack** | section | Filed, escalated, connection recovered. Never covers the evidence being decided on, per principle 5 | Dismisses in place | MAIN | **MVP** |
+| **8.3 Permission denied** | state | **Corrected at the stage 08 audit.** A tenant that is not this analyst's renders **8.1**, identically to a case that does not exist, or the address enumerates other providers' clients. What is left for 8.3 is a refusal by **role** on a resource she can see exists, and cluster 7 holds the first one | Back | None | **LATER**, changed at the audit |
+| **8.4 Toast stack** | section | **Corrected at the stage 08 audit.** Only what happened off screen: a connection recovered with a count, a failed write, a case taken by someone else. **Not** filed and **not** escalated, because both are visible where the analyst is already looking. Never covers the evidence being decided on, per principle 5 | Dismisses in place | MAIN | **MVP** |
 
 ### The count
 
-**Forty five nodes, forty of them MVP.** Five LATER, all of them in clusters 6 and 7. The map opened at forty three; 0.6 and 0.7 were added at the gate that closed the global elements, which is what discover-as-you-go is for.
+**Forty five nodes, thirty nine of them MVP.** Six LATER: five in clusters 6 and 7, plus 8.3, moved at the stage 08 audit when it turned out to have no reachable route in the MVP. The map opened at forty three; 0.6 and 0.7 were added at the gate that closed the global elements, which is what discover-as-you-go is for.
 
 Fourteen nodes arrived without a parent screen and had their scope set here rather than inherited: the whole of cluster 0 including the two taxonomies, both of cluster 1, 3.6, and the whole of cluster 8. All twelve are MVP, and each has a stated reason. 8.3 is not a nicety, it is tenant isolation from `CLAUDE.md`. 0.3 is the differentiator itself.
 

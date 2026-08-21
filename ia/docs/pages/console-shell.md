@@ -55,7 +55,7 @@ Rows are zones, columns are the states the shell has to survive. Cells say what 
 | **Z2 Connection strip** | `Live, last case 4s ago` | Same | **Names the age of the data in words rather than a timestamp** | Unchanged | Same place |
 | **Z3 Annunciator** | Fleet reading: the highest latitude in force, with how many action classes stand at it | This tenant: permitted for this case's action class, doing now, record | Unchanged, and marked as of the last good sync | Hidden. Latitude of a tenant that is not yours is not yours to read | One line under Z1, never dropped |
 | **Z4 List pane** | The list, nothing highlighted | The list, selected row held visible | The list, readable, marked stale | The list minus what is out of scope | Becomes the whole page |
-| **Z5 Detail pane** | **3.5 the fleet.** Not an empty state | 4.1 the case | Whatever it held, marked as of last sync | 8.3 | Not rendered. Selection navigates to 4.2 |
+| **Z5 Detail pane** | **3.5 the fleet.** Not an empty state | 4.1 the case | Whatever it held, marked as of last sync | **8.1**, corrected at the audit | Not rendered. Selection navigates to 4.2 |
 | **Z6 Toasts** | Available | Available | One persistent notice rather than repeated toasts | Available | Bottom, full width, above the safe area |
 
 **The cell that carries the differentiator is Z5 under "nothing selected".** If it renders as an empty state, the decision to keep the fleet out of the menu has failed, and the base layer said so before this node existed.
@@ -106,7 +106,9 @@ This is the block that a public product would spend on SEO. Harrier is behind a 
 
 **Heading hierarchy.** The shell carries no `h1`. The `h1` belongs to whatever fills Z4 plus Z5, so a case open in the pane makes the case the heading of the page. This is identity for assistive technology rather than for search.
 
-**Permission.** The analyst sees the tenants their provider scope covers, and nothing else. A route naming a tenant outside that scope renders 8.3 rather than an empty result, because tenant data isolation is a stated requirement in `CLAUDE.md` and an empty result is indistinguishable from a quiet client.
+**Permission.** The analyst sees the tenants their provider scope covers, and nothing else. A route naming a tenant outside that scope renders **8.1**, identically to a case that does not exist.
+
+**Corrected at the stage 08 audit, and the earlier reasoning was backwards.** This node originally said 8.3, arguing that an empty result is indistinguishable from a quiet client. That is true, and it is the smaller risk: she already knows which tenants she covers, and 3.6 never offers one she does not. The larger risk runs the other way. If out of scope renders differently from not found, the address bar distinguishes 'this client exists and is somebody's' from 'no such client', which is a disclosure across providers. **Inside her scope, an empty result may name the tenant. Outside it, everything is 8.1.**
 
 **What the log records.** Every render of 4.1 and every verdict action carries the analyst identity and the shift from Z1. That is why Z1 never scrolls away: it is not decoration, it is the subject of the audit record.
 
