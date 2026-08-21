@@ -93,7 +93,7 @@
 <h2>02 &middot; Wireframe</h2>
 <p class="h2sub">Black and white, both renderings</p>
 
-<div class="note"><p><strong>Corrected after node 0.3 was specified.</strong> The annunciator in these wireframes originally showed one latitude per tenant and a bare percentage. Both were wrong: latitude is held per action class, and design principle 2 forbids a number without its claim, scope, window and absolute count. The reasoning is on <a href="autonomy-annunciator.html">0.3</a>.</p></div>
+<div class="note"><p><strong>Corrected after nodes 0.3 and 0.4 were specified.</strong> The annunciator originally showed one latitude per tenant and a bare percentage; latitude is held per action class, and design principle 2 forbids a number without its claim, scope, window and absolute count. The connection strip was originally silent when healthy; a state inferred from absence is assumed rather than read. Reasoning on <a href="autonomy-annunciator.html">0.3</a> and <a href="connection-status.html">0.4</a>.</p></div>
 
 <div class="zonekey">
   <span><b>Z1 Top bar</b> Mark, navigation, analyst and shift, keyboard map</span>
@@ -117,7 +117,7 @@
         <span class="box dash">?</span>
       </div>
     </div>
-    <div class="z"><span class="tag">Z2</span><div class="row"><span class="box">Live</span><span class="note">silent while the connection holds</span></div></div>
+    <div class="z"><span class="tag">Z2</span><div class="row"><span class="box">Live</span><span class="note">last case 4s ago &middot; always present, see 0.4</span></div></div>
     <div class="z"><span class="tag">Z3</span>
       <div class="ann">
         <span class="k">TENANT</span><span class="v">Meridian Freight</span>
@@ -156,7 +156,7 @@
   <div class="wfpad">
   <div class="wf desk">
     <div class="z"><span class="tag">Z1</span><div class="row"><b>HARRIER</b><span class="box">Queue</span><span class="box dash">Shift</span><span class="box dash">Log</span><span class="box dash">Clients</span><span class="grow"></span><span class="note">R. Idrissi &middot; night shift</span></div></div>
-    <div class="z"><span class="tag">Z2</span><div class="row"><span class="box">Live</span><span class="note">stale: names the age of the data in words, list stays readable</span></div></div>
+    <div class="z"><span class="tag">Z2</span><div class="row"><span class="box">Live</span><span class="note">last case 4s ago &middot; when stale it names the age in words and the list stays readable</span></div></div>
     <div class="z"><span class="tag">Z3</span>
       <div class="ann"><span class="k">FLEET</span><span class="v">42 tenants</span><span class="k">HIGHEST IN FORCE</span><span class="v">Autopilot on 6</span><span class="k">GUIDED ON</span><span class="v">27</span><span class="k">DRY RUN OR BELOW</span><span class="v">9</span><span class="k">UNDER OVERRIDE</span><span class="v">2</span></div>
     </div>
@@ -210,7 +210,7 @@
 <thead><tr><th>Zone</th><th>Holds</th><th>Behaviour</th><th>Goes to</th></tr></thead>
 <tbody>
 <tr><td>Z1 Top bar</td><td>Product mark, global navigation, analyst identity with the shift, keyboard map trigger</td><td>Fixed. Never scrolls away, because the shift identity is what the log records against</td><td>0.2, 0.5, 2.1</td></tr>
-<tr><td>Z2 Connection strip</td><td>Connected, reconnecting, stale with the age of the data</td><td>Silent when connected. The only zone allowed to carry colour before stage 06</td><td>0.4, 3.3</td></tr>
+<tr><td>Z2 Connection strip</td><td>Connected, reconnecting or stale, always with the age of the data</td><td><strong>Always present.</strong> Even healthy it carries the freshness of the queue, which is the same slot that degrades. Corrected by 0.4</td><td>0.4, 3.3</td></tr>
 <tr><td>Z3 Annunciator</td><td>Two states at once: what Clerk is permitted to do on this action class, and what it is doing now. Plus the record, count first</td><td>Fixed position, always the same place. Reads the selection; with nothing selected it reads the fleet</td><td>0.3, 3.5, 7.2 later</td></tr>
 <tr><td>Z4 List pane</td><td>Whatever list the section owns</td><td>Left, keyboard traversable, survives every decision made in Z5</td><td>3.1, 5.1</td></tr>
 <tr><td>Z5 Detail pane</td><td>The fleet at rest, a case when selected</td><td>Right, never a modal</td><td>3.5, 4.1, 5.4</td></tr>
@@ -225,7 +225,7 @@
 <thead><tr><th>Zone</th><th>Nothing selected</th><th>Case selected</th><th>Connection stale</th><th>Permission denied</th><th>At 360</th></tr></thead>
 <tbody>
 <tr><td>Z1</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td><td>Compressed: mark, one control, identity</td></tr>
-<tr><td>Z2</td><td>Silent</td><td>Silent</td><td><strong>Visible, names the age in words rather than a timestamp</strong></td><td>Silent</td><td>Same place</td></tr>
+<tr><td>Z2</td><td><code>Live, last case 4s ago</code></td><td>Same</td><td><strong>Names the age in words rather than a timestamp</strong></td><td>Unchanged</td><td>Same place</td></tr>
 <tr><td>Z3</td><td>Fleet reading: highest latitude in force, with the count at it</td><td>This tenant: permitted for this action class, doing now, record</td><td>Unchanged, marked as of last good sync</td><td>Hidden. Latitude of a tenant that is not yours is not yours to read</td><td>One line, never dropped</td></tr>
 <tr><td>Z4</td><td>The list, nothing highlighted</td><td>The list, selected row held visible</td><td>Readable, marked stale</td><td>The list minus what is out of scope</td><td>Becomes the whole page</td></tr>
 <tr><td>Z5</td><td><strong>3.5 the fleet. Not an empty state</strong></td><td>4.1 the case</td><td>What it held, marked as of last sync</td><td>8.3</td><td>Not rendered. Selection goes to 4.2</td></tr>
