@@ -49,9 +49,9 @@ So no address leads here either. Out of scope resolves to 8.1.
 
 ---
 
-## 4. The scope label is in dispute, and it is not changed here
+## 4. The scope label was disputed here and decided at the audit
 
-`ia/docs/sitemap.md` marks 8.3 as **MVP**. This specification finds no route to it in the MVP.
+`ia/docs/sitemap.md` marked 8.3 as **MVP**. This specification found no route to it in the MVP.
 
 **The mark is not changed unilaterally.** Scope labels are carried, not re-derived, and that rule exists exactly so a node cannot quietly shrink the product on its own page. So the disagreement is recorded and handed on:
 

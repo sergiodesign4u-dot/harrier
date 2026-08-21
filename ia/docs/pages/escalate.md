@@ -147,7 +147,7 @@ The UCL finding behind it is the strongest evidence in this node: handover quali
 - **4.7** evidence expired, where this dialog is the only exit and arrives pre-filled
 - **4.10** held locally. A failed escalation leaves the case open and **unescalated**, which is not the same state
 - **2.1** the shift, which is where the rota this node depends on comes from
-- **0.5** the keyboard mechanism. **8.4** the toast, and the no undo rule
+- **0.5** the keyboard mechanism. **8.4** the no undo rule. **Not a toast**: 8.4 rules an escalation **No**, because the row stays and changes state visibly, which is the feedback
 - **5.1** where the escalation appears as an entry, and where un-escalating would appear as a second one
 
 ---

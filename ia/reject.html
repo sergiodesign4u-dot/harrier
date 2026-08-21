@@ -241,7 +241,7 @@
 <tr><td><strong>No confirmation step</strong></td><td>A second "are you sure" would make rejection cost two keys and acceptance one, which is the exact asymmetry principle 3 exists to remove. The dialog itself is the deliberate act</td></tr>
 <tr><td><strong>No undo</strong></td><td>8.4 already settled it: an append only log cannot unwrite an entry. A rejection filed in error is corrected by a <strong>superseding logged action</strong>, visible in 5.6 as two entries with their times, not by erasing the first</td></tr>
 </tbody></table></div>
-<p>So the dialog must never offer or imply undo, and the toast that follows must not carry one. Inherited from 8.4 rather than decided here.</p>
+<p><strong>And there is no toast after a rejection at all.</strong> 8.4 rules a filed verdict <strong>No</strong>: the row leaves the queue, and that is the feedback, already in the field of view. So the no undo constraint attaches to the record, not to a notification. <strong>Corrected at the stage 08 audit</strong>, where this sentence still assumed a toast that 8.4 had ruled out.</p>
 </section>
 
 <section id="states">
@@ -284,7 +284,7 @@
 <tbody>
 <tr><td><strong>0.7</strong></td><td>The taxonomy itself: six values, five derivations, the pairing rule. This node renders it, it does not define it</td></tr>
 <tr><td><strong>0.5</strong></td><td>The keyboard mechanism, remap and disable, and the rule that a modal consumes <code>Escape</code></td></tr>
-<tr><td><strong>8.4</strong></td><td>The toast that follows, and the no undo rule</td></tr>
+<tr><td><strong>8.4</strong></td><td>The no undo rule. <strong>Not a toast</strong>: a filed verdict produces none, because the row leaving the queue is the feedback</td></tr>
 <tr><td><strong>4.1, 4.6</strong></td><td>The case and the Reject control; and escalate, which is a different dialog that does not close the case</td></tr>
 <tr><td><strong>5.1, 5.6</strong></td><td>Where the rejection is read back later, and where a superseding correction appears beside it</td></tr>
 </tbody></table></div>

@@ -93,7 +93,7 @@ Two absences that look like oversights and are not.
 
 **No undo.** 8.4 already settled it: an append only log cannot unwrite an entry. A rejection filed in error is corrected by a **superseding logged action**, visible in 5.6 as two entries with their times, not by erasing the first.
 
-So the dialog must never offer or imply undo, and the toast that follows it must not carry one. That constraint is inherited from 8.4 rather than decided here.
+**And there is no toast after a rejection at all.** 8.4 rules a filed verdict **No**: the row leaves the queue, and that is the feedback, already in the field of view. So the no undo constraint attaches to the record, not to a notification. **Corrected at the stage 08 audit**, where this sentence still assumed a toast that 8.4 had ruled out.
 
 ---
 
@@ -153,7 +153,7 @@ Nothing else in the table lives here, and nothing is written in for completeness
 
 - **0.7** the taxonomy itself: the six values, the five derivations, the pairing rule. This node renders it and opens it, it does not define it
 - **0.5** the keyboard mechanism, the remap and disable controls, and the rule that a modal consumes `Escape`
-- **8.4** the toast that follows, and the no undo rule
+- **8.4** the no undo rule. **Not a toast**: a filed verdict produces none, because the row leaving the queue is the feedback
 - **4.1** the case, the verdict footer and the Reject control that opens this
 - **4.6** escalate, which is a different dialog with a different shape: it does not close the case
 - **5.1 and 5.6** where the rejection is read back later, and where a superseding correction appears beside it

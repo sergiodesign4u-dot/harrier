@@ -270,7 +270,7 @@ That is the whole claim, and this source is the strongest evidence we have for i
 
 ## Type G: a systemic state
 
-**Nodes:** 8.1 not found, 8.2 service unavailable, 8.3 permission denied. **Three nodes, all MVP.**
+**Nodes:** 8.1 not found, 8.2 service unavailable, 8.3 permission denied. **Three nodes, two MVP.** 8.3 became LATER at the stage 08 audit, and the row below says why.
 
 ### Sources opened this session
 
@@ -286,6 +286,6 @@ That is the whole claim, and this source is the strongest evidence we have for i
 | PagerDuty | **A plain statement and nothing else above it** (`Page Not Found` / *"The page you're looking for can't be found."*) | **TAKE** | 8.1 | MVP | No illustration, no joke, no apology paragraph. Correct |
 | PagerDuty | **Two named next actions in the sentence** (*"view or search all articles, or contact our Support Team"*) | **TAKE** | 8.1, 8.2 | MVP | The exits are named actions, not a lone `Go home` button. Ours are `Search the queue` and `Open the log`, because those are the two places a lost case id could still be |
 | PagerDuty | **A `More options` list of six further destinations** | **LEAVE** | nothing | n/a | Six links is a sitemap in a dead end. Two exits, chosen |
-| Defender | **Permission handled at the control, greyed out with a reason** | **TAKE, and it changes what 8.3 is** | 8.3, 0.6 | MVP | If permission is answered in place, the 8.3 page is only ever reached by a deep link into another tenant. **Idle control: if 8.3 turns out to be unreachable in the flows, that is a finding, not a page** |
+| Defender | **Permission handled at the control, greyed out with a reason** | **TAKE, and it removed a node** | 8.3, 0.6 | MVP | If permission is answered in place, the only route left to 8.3 was a deep link into another tenant. **The stage 08 audit found that route is itself a defect**: out of scope must render as 8.1 or the address enumerates other providers' clients. With it gone, nothing in the MVP reaches 8.3, and the node moved to LATER. The idle control returned a genuine "not reachable" |
 | Ours | **8.1 must not leak whether the case exists** | **TAKE, and it is ours** | 8.1, tenant data isolation | MVP | Neither reference has multi tenant isolation to protect. In an MDR console `no such case` and `not your tenant` must render **identically**, or the 404 becomes a way to enumerate other providers' clients. This is a security requirement expressed as a copy rule, and it goes to stage 05 |
 | Ours, 0.4 | **8.2 is the terminal form of the connection strip** | **TAKE** | 8.2, 0.4 | MVP | 0.4 already reports degraded connection in place. 8.2 is only for when nothing renders at all, which means the two must agree on their vocabulary or the analyst sees two different words for one condition |
