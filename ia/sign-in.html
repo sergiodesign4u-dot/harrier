@@ -83,6 +83,13 @@
 <div class="node"><span class="lbl">The answer is still noindex, and the reason is not laziness</span><p><strong>Nobody arrives at Harrier through a search engine.</strong> Seats are provisioned by the MDR provider, so every real arrival is a bookmark, a pager link or a message. A sign in page in the index serves an attacker mapping the estate and nobody else.</p><p>So: <code>noindex</code>, no schema, no marketing copy, and the A to E block a public product would carry here is <strong>deliberately not produced</strong>. The loop 0.1 opened is closed with a no.</p></div>
 </section>
 
+<section id="cookies">
+<h2>01b &middot; Cookies, and why there is no banner</h2>
+<p>Added at the stage 08 audit, where the contract checklist asked for a cookie node and found none. <strong>The answer is that there is nothing to consent to, and that has to be written down rather than assumed.</strong></p>
+<p><code>CLAUDE.md</code> puts the product under GDPR. This is the only public page, and the only cookie it sets is the session cookie that carries the sign in itself. A cookie strictly necessary to deliver a service the user asked for does not require consent, so <strong>no consent banner is specified anywhere in the product.</strong></p>
+<div class="node"><span class="lbl">Two conditions keep that true, and both are constraints rather than observations</span><p><strong>No analytics, no tag manager, no third party script on this page.</strong> The moment one lands, the answer changes and a banner becomes a real node.</p><p><strong>No cookie behind the login either.</strong> The console is a session, not a tracked visit.</p><p><strong>If either condition breaks, this section is where the change starts</strong>, because this is the only page a person can reach without an account.</p></div>
+</section>
+
 <section id="idfirst">
 <h2>02 &middot; Identifier first, and it is two vendors deep</h2>
 <div class="tw"><table>
@@ -242,6 +249,7 @@
   window.NAV_ACTIVE_LABEL = '1.1 Sign in';
   window.NAV_SECTIONS = [
     { id:'seo',     label:'The one SEO question' },
+    { id:'cookies', label:'Cookies' },
     { id:'idfirst', label:'Identifier first' },
     { id:'mock',    label:'Wireframe' },
     { id:'dest',    label:'The destination survives' },

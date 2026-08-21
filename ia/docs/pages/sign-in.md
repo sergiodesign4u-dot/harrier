@@ -32,6 +32,21 @@ So: `noindex`, no schema, no marketing copy, and **the A to E block that a publi
 
 ---
 
+## 2b. Cookies, and why there is no banner
+
+Added at the stage 08 audit, where the contract checklist asked for a cookie node and found none. **The answer is that there is nothing to consent to, and that has to be written down rather than assumed.**
+
+`CLAUDE.md` puts the product under GDPR. This is the only public page, and the only cookie it sets is the session cookie that carries the sign in itself. A cookie strictly necessary to deliver a service the user asked for does not require consent, so **no consent banner is specified anywhere in the product.**
+
+Two conditions keep that true, and both are constraints rather than observations:
+
+- **No analytics, no tag manager, no third party script on this page.** The moment one lands, the answer changes and a banner becomes a real node
+- **No cookie behind the login either.** The console is a session, not a tracked visit
+
+**If either condition breaks, this section is where the change starts**, because this is the only page a person can reach without an account.
+
+---
+
 ## 3. Identifier first, and it is two vendors deep
 
 Both live pages opened this session do the same thing:

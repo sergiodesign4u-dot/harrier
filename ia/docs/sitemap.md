@@ -272,6 +272,30 @@ Group `global`. No node here is a dead end.
 
 ### The count
 
+### What round one built, and what it deliberately did not
+
+Agreed at the Step 4 gate, option B: **eleven carrier nodes get their own specification, and every other state is specified inside the state matrix of the screen that owns it.** The globals and the systemic cluster were already committed, so round one is twenty two written nodes out of forty five.
+
+| Round one, written | Twenty two |
+|---|---|
+| Globals | 0.1 to 0.7, 8.4 |
+| Carriers | 1.1, 2.1, 3.1, 3.5, 3.6, 4.1, 4.2, 4.4, 4.6, 5.1, 5.4 |
+| Systemic | 8.1, 8.2, 8.3 |
+
+**Deferred, not forgotten. Twenty three nodes, and each one has a home already.**
+
+| Deferred | Where it is specified now | Why it can wait |
+|---|---|---|
+| 1.2 session expired | 1.1 state matrix | Its whole content is the return to 1.1, which is written |
+| 2.2 to 2.5 shift states | 2.1 state matrix | Four columns of one table, and 2.1 names the one that does not exist yet |
+| 3.2, 3.3, 3.4 queue states | 3.1 state matrix | Three columns of one table, and 3.4 is called out as the test of the fleet decision |
+| 4.3, 4.5, 4.7 to 4.10 case states | 4.1 state matrix, six columns | 4.7 and 4.9 are named as different failures there, which was the risk |
+| 5.2, 5.3, 5.5, 5.6 log states | 5.1 and 5.4 state matrices | 5.3 is written up as the search affordance rather than an empty state |
+| 6.1, 6.2 client summary | Node map only | Cluster 6 is LATER |
+| 7.1, 7.2, 7.3 autonomy | Node map only, plus the grant grid sketch in 0.6 | Cluster 7 is LATER |
+
+**The next round starts from this table**, and the first four rows are the ones with MVP scope. Nothing in it is undiscovered; the difference between written and deferred here is a page of its own versus a column in a parent's matrix.
+
 **Forty five nodes, thirty nine of them MVP.** Six LATER: five in clusters 6 and 7, plus 8.3, moved at the stage 08 audit when it turned out to have no reachable route in the MVP. The map opened at forty three; 0.6 and 0.7 were added at the gate that closed the global elements, which is what discover-as-you-go is for.
 
 Fourteen nodes arrived without a parent screen and had their scope set here rather than inherited: the whole of cluster 0 including the two taxonomies, both of cluster 1, 3.6, and the whole of cluster 8. All twelve are MVP, and each has a stated reason. 8.3 is not a nicety, it is tenant isolation from `CLAUDE.md`. 0.3 is the differentiator itself.
