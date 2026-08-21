@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 3.1 Case Queue</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.3;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink)}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+/* desktop frame */
+.q{width:100%;min-width:940px}
+.q .strip{border-bottom:1px solid var(--hair);padding:6px 10px;color:var(--soft);display:flex;gap:16px;font-size:9.5px}
+.q .cols{display:flex;align-items:stretch}
+.q .listpane{flex:1 1 auto;border-right:1.5px solid var(--ink);position:relative;padding-top:15px}
+.q .detpane{flex:0 0 340px;position:relative;padding-top:15px;background:var(--fill)}
+.q .scopebar{display:flex;flex-wrap:wrap;gap:5px;padding:9px 10px;border-bottom:1px solid var(--hair)}
+.chip{border:1px solid var(--ink);padding:2px 7px;white-space:nowrap}
+.chip.soft{border-style:dashed;color:var(--soft)}
+.q .readout{padding:8px 10px;border-bottom:1px solid var(--hair);font-weight:700}
+.q .readout span{font-weight:400;color:var(--soft)}
+.row{display:grid;grid-template-columns:64px 108px 1fr 1fr 84px 74px 44px;gap:8px;
+     padding:8px 10px;border-bottom:1px solid var(--hair);align-items:center}
+.row.hd{color:var(--soft);font-size:8px;letter-spacing:.1em;border-bottom:1px solid var(--ink)}
+.row.sel{background:var(--ink);color:#fff}
+.row.sel .dim{color:#b8bcbf}
+.dim{color:var(--soft)}
+.st{border:1px solid var(--ink);padding:1px 4px;font-size:8px;letter-spacing:.06em;white-space:nowrap}
+.st.inv{background:var(--ink);color:#fff}
+.row.sel .st{border-color:#fff}
+.fleethd{padding:8px 10px;border-bottom:1px solid var(--ink);font-weight:700}
+.frow{display:grid;grid-template-columns:1fr 92px 34px;gap:6px;padding:6px 10px;border-bottom:1px solid var(--hair)}
+.frow.hd{color:var(--soft);font-size:8px;letter-spacing:.1em}
+.foot{padding:7px 10px;color:var(--soft);border-top:1px solid var(--hair)}
+
+/* mobile frame */
+.qm{width:360px;min-width:360px;position:relative;padding-top:15px;font-size:9.5px}
+.qm .mrow{padding:8px 10px;border-bottom:1px solid var(--hair)}
+.qm .l1{display:flex;gap:7px;align-items:baseline}
+.qm .l1 b{flex:1}
+.qm .l2{display:flex;gap:7px;margin-top:3px;color:var(--soft)}
+.qm .l2 .v{color:var(--ink);flex:1}
+
+/* row anatomy */
+.anat{display:grid;grid-template-columns:64px 108px 1fr 1fr 84px 74px 44px;gap:8px;
+      font-family:var(--mono);font-size:9px;width:100%;min-width:940px}
+.anat > div{border:1px solid var(--rule);background:var(--panel);padding:8px;min-height:76px}
+.anat b{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 5px}
+.anat .why{color:var(--muted);margin-top:5px;font-family:inherit;font-size:9px;line-height:1.35}
+
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent ul{margin:0 0 10px;padding-left:20px}
+.absent p{margin:0;max-width:none}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 3.1 &middot; Reference page</p>
+<h1>Case Queue</h1>
+<p class="lede">The main dashboard, and the node design principle 1 was written for. Forty tenants produce more signal than one person can read, so this is not a list of things that happened. It is a list of decisions waiting to be made, and each line has to be worth the height it takes.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">3.1</dd></div>
+  <div><dt>Type</dt><dd>Page</dd></div>
+  <div><dt>Page type</dt><dd>A, list in a split pane</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Route</dt><dd><code>/queue</code></dd></div>
+  <div><dt>Job</dt><dd>MAIN</dd></div>
+</dl>
+
+<p><strong>This node is the reference page.</strong> 0.1 fixed the template for the detail layer; this one extends it for pages with two sections a global element does not need: the <strong>block composition</strong>, taken from <code>ia/docs/blocks.md</code> rather than from taste, and <strong>emotional support</strong>, taken from the table in <code>sitemap.md</code> and allowed to say that nothing lives here. Every page node from here takes this shape.</p>
+
+<section id="blocks">
+<h2>01 &middot; Blocks, in priority order</h2>
+<p class="h2sub">Every one of them has a source or a job, and the sources were opened in session</p>
+<p>Priority reasoned from the desk at 1440, which is the stance in <code>CLAUDE.md</code>, and then proved at 360. This is the first node where the bank does its work: the composition below is assembled from four references and matches none of them.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Block</th><th>Where it came from</th><th>Traces to</th><th>Scope</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Scope bar.</strong> Removable chips: tenant or tenant group, severity, what Clerk concluded, <code>escalated</code>, <code>unrecorded</code>. Sort is a chip like the rest</td><td>PagerDuty and Defender chips; tenant groups from Defender multitenant</td><td>MAIN, 3.6</td><td>MVP</td></tr>
+<tr><td>2</td><td><strong>Scope readout.</strong> What is in scope right now, counted. Not a metric card and not a percentage</td><td>Ours, from design principle 2 and the counts on Defender's tabs</td><td>MAIN</td><td>MVP</td></tr>
+<tr><td>3</td><td><strong>The list.</strong> Virtualised, keyboard traversable, one row per case</td><td>The pattern itself, shipped by Defender and PagerDuty</td><td>MAIN</td><td>MVP</td></tr>
+<tr><td>4</td><td><strong>Selection held</strong> through the whole decision, including after a verdict is filed</td><td>Ours, from 0.1's guarantee</td><td>MAIN</td><td>MVP</td></tr>
+<tr><td>5</td><td><strong>The pane.</strong> Resizable, width remembered. At rest it holds 3.5, the fleet</td><td>PagerDuty draggable and remembered panel, which closed 0.1's open question</td><td>MAIN, HJ3</td><td>MVP</td></tr>
+<tr><td>6</td><td><strong>Freshness in words</strong>, carried by 0.4 in the shell rather than repeated here</td><td>0.4, corrected upward from 0.1</td><td>MAIN</td><td>MVP</td></tr>
+<tr><td>7</td><td>Export the current view</td><td>Fingerprint and PagerDuty CSV export</td><td>R2, compliance</td><td><strong>LATER</strong></td></tr>
+</tbody></table></div>
+
+<div class="absent">
+<h4>Deliberately absent, seven blocks all four references ship</h4>
+<ul>
+<li>Summary cards &middot; saved views &middot; column builder &middot; density toggle &middot; per column filter icons &middot; chat composer</li>
+<li><strong>Bulk actions with checkboxes</strong></li>
+</ul>
+<p><strong>Bulk actions are the load bearing absence.</strong> A verdict is a judgement on one case with its own evidence. Bulk accept is the fastest way to destroy the audit trail this product exists to produce, and it would make design principle 3 a lie. Each of the other six carries its reason in <code>blocks.md</code>.</p>
+</div>
+</section>
+
+<section id="row">
+<h2>02 &middot; The row, and it is the canonical component</h2>
+<p class="h2sub">Defined once here; 5.1 reuses it, and anything that does not says why</p>
+<div class="wfwrap"><div class="wfcap"><b>Row anatomy</b> <span>seven slots, each earning its width</span></div><div class="wfpad">
+<div class="anat">
+  <div><b>Severity</b>Glyph plus word<div class="why">Redundant coding, so colour is not the only carrier. Taken from Defender</div></div>
+  <div><b>Client</b>Tenant, same position always<div class="why">Principle 4. The same signal is a Tuesday at one client and an incident at another</div></div>
+  <div><b>What it is</b>The shape of the case, short<div class="why">Not a generated sentence. Defender's incident name truncates in the row, putting the least decidable content in the widest column</div></div>
+  <div><b>Clerk concluded</b>The draft verdict<div class="why">The thing being ruled on. It is why the row exists at all</div></div>
+  <div><b>Cost to check</b>Size of the evidence, counted<div class="why">Ours, no reference. The honest input to "what do I open next"</div></div>
+  <div><b>State</b><code>escalated</code>, <code>unrecorded</code>, Clerk acted<div class="why">The visible states rule. A case that left her hands must not look like one that did not</div></div>
+  <div><b>Age</b>How long it has waited<div class="why">What is going cold</div></div>
+</div>
+</div></div>
+<p><strong>What the row must not carry:</strong> a checkbox, a bare priority score, or a truncating generated name. All three are named refusals from the bank rather than omissions.</p>
+</section>
+
+<section id="mock">
+<h2>03 &middot; Wireframe, 1440</h2>
+<p class="h2sub">Black and white. Colour arrives at stage 06</p>
+<div class="wfwrap"><div class="wfcap"><b>/queue</b> <span>nothing selected, so the pane holds the fleet</span> <span>rows are decisions, not records</span></div><div class="wfpad">
+<div class="wf q">
+  <div class="strip">Live, last case 4s ago <span class="dim">&middot; 0.4, lives in the shell</span></div>
+  <div class="cols">
+    <div class="listpane">
+      <span class="tag">LIST PANE &middot; 3.1</span>
+      <div class="scopebar">
+        <span class="chip">All tenants &#9662;</span>
+        <span class="chip">Severity: High, Medium &times;</span>
+        <span class="chip">Clerk: needs a human &times;</span>
+        <span class="chip">Unrecorded &times;</span>
+        <span class="chip soft">Sort: oldest first &#9662;</span>
+      </div>
+      <div class="readout">18 waiting <span>&middot; across 12 of 40 tenants in scope</span></div>
+      <div class="row hd"><div>SEV</div><div>CLIENT</div><div>WHAT IT IS</div><div>CLERK CONCLUDED</div><div>TO CHECK</div><div>STATE</div><div>AGE</div></div>
+      <div class="row sel">
+        <div>&#9646;&#9646;&#9646; HIGH</div><div>Norsk Marine</div>
+        <div>Ransomware precursor on FS-02</div><div>True positive, needs a human</div>
+        <div class="dim">9 signals<br>5 sources</div><div><span class="st inv">ESCALATED</span></div><div class="dim">27m</div>
+      </div>
+      <div class="row">
+        <div>&#9646;&#9646;&#9647; MED</div><div>Vestry Capital</div>
+        <div>Token replay from unknown ASN</div><div>Uncertain, no baseline yet</div>
+        <div class="dim">4 signals<br>2 sources</div><div><span class="st">UNRECORDED</span></div><div class="dim">1h 03m</div>
+      </div>
+      <div class="row">
+        <div>&#9646;&#9646;&#9647; MED</div><div>Larkfield Logistics</div>
+        <div>Credential stuffing, edge VPN</div><div>True positive, contained</div>
+        <div class="dim">11 signals<br>4 sources</div><div><span class="st">CLERK ACTED</span></div><div class="dim">12m</div>
+      </div>
+      <div class="row">
+        <div>&#9646;&#9646;&#9646; HIGH</div><div>Meridian Health</div>
+        <div>Impossible travel, 2 accounts</div><div>Benign, sanctioned VPN rollout</div>
+        <div class="dim">6 signals<br>3 sources</div><div class="dim">&ndash;</div><div class="dim">4m</div>
+      </div>
+      <div class="row">
+        <div>&#9646;&#9647;&#9647; LOW</div><div>Bramber Retail</div>
+        <div>Mass mailbox rule creation</div><div>Benign, new admin onboarding</div>
+        <div class="dim">3 signals<br>2 sources</div><div class="dim">&ndash;</div><div class="dim">41m</div>
+      </div>
+      <div class="foot">13 more &middot; virtualised &middot; arrow keys traverse, the pane follows</div>
+    </div>
+    <div class="detpane">
+      <span class="tag">DETAIL PANE &middot; 3.5 AT REST</span>
+      <div class="fleethd">Fleet <span class="dim">&middot; 40 tenants &middot; nothing selected</span></div>
+      <div class="frow hd"><div>TENANT</div><div>CLERK MAY</div><div>REC</div></div>
+      <div class="frow"><div>Larkfield Logistics</div><div>Contain network</div><div>51/52</div></div>
+      <div class="frow"><div>Meridian Health</div><div>Contain endpoint</div><div>34/36</div></div>
+      <div class="frow"><div>Bramber Retail</div><div>Contain endpoint</div><div>28/28</div></div>
+      <div class="frow"><div>Vestry Capital</div><div>Investigate only</div><div>9/14</div></div>
+      <div class="frow"><div>Norsk Marine</div><div>Investigate only</div><div>12/17</div></div>
+      <div class="foot">35 more &middot; upheld over 30 days &middot; readable, not settable</div>
+    </div>
+  </div>
+</div>
+</div></div>
+<p>The pane is 340 wide here for the drawing. In the product it is <strong>draggable and remembered per analyst</strong>, which is not our idea: it is documented behaviour in the PagerDuty Operations Console, and finding it closed an open question 0.1 was going to carry into stage 04.</p>
+</section>
+
+<section id="states">
+<h2>04 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Default</th><th>Streaming, 3.2</th><th>Stale, 3.3</th><th>Nothing waiting, 3.4</th><th>Filtered to nothing</th></tr></thead>
+<tbody>
+<tr><td><strong>Scope bar</strong></td><td>Chips, all removable</td><td>Same</td><td>Same</td><td>Same</td><td>Same, and the chip that emptied it is identifiable</td></tr>
+<tr><td><strong>Scope readout</strong></td><td><code>18 waiting, across 12 tenants</code></td><td><strong>Provisional and says so</strong>, the count is still arriving</td><td>Names the age of the count, not a fresh number</td><td><code>Nothing waiting</code></td><td><code>No case matches this scope</code></td></tr>
+<tr><td><strong>List</strong></td><td>Rows</td><td>Rows arrive as correlated</td><td><strong>Readable and marked stale.</strong> Never blanked</td><td>Empty</td><td>Empty</td></tr>
+<tr><td><strong>Pane</strong></td><td>3.5 the fleet</td><td>3.5</td><td>What it held, as of last sync</td><td><strong>3.5, and this is the test</strong></td><td>3.5</td></tr>
+<tr><td><strong>Filing a verdict</strong></td><td>Allowed</td><td>Allowed</td><td><strong>Allowed.</strong> 0.4 settled it: a degraded connection does not block a decision</td><td>n/a</td><td>n/a</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">3.4 is where the base layer's biggest decision gets tested</span><p>The fleet has no menu item because it is the resting state of this pane, which is what makes it cost zero taps. If an analyst with an empty queue reads the screen as <em>"there is nothing here"</em> rather than <em>"here is the fleet"</em>, that decision has failed, and it fails on this node first.</p></div>
+</section>
+
+<section id="keys">
+<h2>05 &middot; Keyboard</h2>
+<div class="tw"><table>
+<thead><tr><th>Key</th><th>Does</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td><code>Tab</code></td><td>Moves to the list as <strong>one stop</strong>, not to each row</td><td>ARIA APG Grid: <em>"Only one of the focusable elements contained by the grid is included in the page tab sequence"</em></td></tr>
+<tr><td><code>Up</code> <code>Down</code></td><td>Moves the selected row; the pane follows</td><td>The mouse equivalent is prev and next in the pane header, taken from Defender</td></tr>
+<tr><td><code>Enter</code></td><td>Opens the case into the pane and moves focus there</td><td>At 360 this navigates to 4.2 instead</td></tr>
+<tr><td><code>Escape</code></td><td>Returns focus to the list without deselecting</td><td>A dialog consumes <code>Escape</code> first and does not propagate, from 0.5</td></tr>
+<tr><td>Single keys for verdicts</td><td><strong>Active only when the case has focus</strong></td><td>WCAG SC 2.1.4 Character Key Shortcuts, Level A. Remap and disable ship in 0.5</td></tr>
+</tbody></table></div>
+<p>Traversal never leaves the list to reach the next case. That is the whole reason the pattern was chosen at stage 01.</p>
+</section>
+
+<section id="scope">
+<h2>06 &middot; Addressing and permission</h2>
+<p>Private. <code>noindex</code>, no schema, no crawlable surface. This section is what replaces the SEO block a public product would carry.</p>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>Route</strong></td><td><code>/queue</code></td></tr>
+<tr><td><strong>With a case</strong></td><td><code>/queue/case/{caseId}</code>. The list is part of the address, so the state is shareable and survives a reload</td></tr>
+<tr><td><strong>Scope in the URL</strong></td><td>Filters are addressable, so a scope can be handed to another analyst. <strong>Tenant is addressed by opaque id, never by client name</strong>, because a URL travels through pager, chat and ticket</td></tr>
+<tr><td><strong>Heading</strong></td><td>One <code>h1</code>, the queue and its scope. The list is a labelled region so assistive tech can name it without reading the shell</td></tr>
+<tr><td><strong>Permission</strong></td><td>Only tenants inside the analyst's provider scope. <strong>A scope naming a tenant outside it returns no results rather than an error</strong>, the same rule 8.1 carries: not found and not yours must be indistinguishable, or the URL enumerates other providers' clients</td></tr>
+<tr><td><strong>From a pager</strong></td><td>Lands here after 1.1 <em>with the case selected</em>, not on a bare queue. The block that makes this true belongs to 1.1</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="m360">
+<h2>07 &middot; At 360</h2>
+<p class="h2sub">Read and escalate. The stance is desktop first and this is the proof, not the origin</p>
+<div class="wfwrap"><div class="wfcap"><b>360</b> <span>list is the whole page</span> <span>selection navigates to 4.2</span></div><div class="wfpad">
+<div class="wf qm">
+  <span class="tag">3.1 AT 360</span>
+  <div class="strip">Live, last case 4s ago</div>
+  <div class="scopebar"><span class="chip">Scope &middot; 3 filters &#9662;</span><span class="chip soft">18 waiting</span></div>
+  <div class="mrow">
+    <div class="l1"><span>&#9646;&#9646;&#9646;</span><b>Norsk Marine</b><span class="dim">27m</span></div>
+    <div class="l2"><span class="v">Ransomware precursor on FS-02</span></div>
+    <div class="l2"><span class="v">True positive, needs a human</span><span class="st">ESCALATED</span></div>
+  </div>
+  <div class="mrow">
+    <div class="l1"><span>&#9646;&#9646;&#9647;</span><b>Vestry Capital</b><span class="dim">1h 03m</span></div>
+    <div class="l2"><span class="v">Token replay from unknown ASN</span></div>
+    <div class="l2"><span class="v">Uncertain, no baseline yet</span><span class="st">UNRECORDED</span></div>
+  </div>
+  <div class="mrow">
+    <div class="l1"><span>&#9646;&#9646;&#9647;</span><b>Larkfield Logistics</b><span class="dim">12m</span></div>
+    <div class="l2"><span class="v">Credential stuffing, edge VPN</span></div>
+    <div class="l2"><span class="v">True positive, contained</span><span class="st">CLERK ACTED</span></div>
+  </div>
+  <div class="foot">15 more &middot; tap opens 4.2, not a pane</div>
+</div>
+</div></div>
+<div class="tw"><table>
+<thead><tr><th>What changes</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>The list becomes the whole page; the pane is not rendered</td><td>A pane at 360 would cover the list, which is the one thing 0.1 guarantees</td></tr>
+<tr><td>Selecting navigates to <strong>4.2</strong>, the standalone route</td><td>4.2 exists for exactly two reasons: a permalink and this</td></tr>
+<tr><td>Row drops to two lines and <strong>loses "what checking will cost"</strong></td><td>On a phone she is not choosing what to read next. She was paged about one case</td></tr>
+<tr><td>Scope bar collapses to one control carrying the count of active filters</td><td>Five chips at 360 is a second scroll before the first case</td></tr>
+<tr><td>0.4's freshness line stays, same place</td><td>A silently stale queue on a phone at 03:00 is the worst version of that failure</td></tr>
+<tr><td><strong>The fleet is not rendered at 360</strong></td><td>It is a desk instrument. Saying so is better than shrinking it into something unreadable</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="emo">
+<h2>08 &middot; Emotional support, and it is empty</h2>
+<p>The table in <code>ia/docs/sitemap.md</code> lists four emotional and social mechanisms. <strong>None of them lives on this node.</strong> They sit on C1 the case, A1 the brief, D1 the log and F1 the grants.</p>
+<p>That is recorded rather than filled. Writing a mechanism here for completeness is exactly what the base layer's table was built to prevent.</p>
+<div class="node"><span class="lbl">One candidate, named for the table's owner rather than claimed here</span><p><em>What checking it will cost</em> may support <strong>Emotional, P1, thorough rather than lucky</strong>, because it lets the analyst choose the order of work on evidence instead of on impulse. It is not in the table, so it is a question for stage 03a's table and not an entry in this node.</p></div>
+</section>
+
+<section id="not">
+<h2>09 &middot; Not this node</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>0.1</strong></td><td>The shell, its zones and its fixed strips. The connection strip is Z2 and is not repeated here</td></tr>
+<tr><td><strong>0.3</strong></td><td>The annunciator. It reads this screen's selection but it belongs to the shell</td></tr>
+<tr><td><strong>3.5</strong></td><td>The fleet. It renders in the pane beside this node and has its own specification</td></tr>
+<tr><td><strong>3.6</strong></td><td>The filters themselves. This node places the scope bar; 3.6 says what is in it</td></tr>
+<tr><td><strong>4.1</strong></td><td>The case. Everything after <code>Enter</code></td></tr>
+<tr><td><strong>5.1</strong></td><td>The log. Same page type, and it reuses this row, which is what canonical means</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="open">
+<h2>10 &middot; Grounding and open questions</h2>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Split pane with keyboard traversal is shipped practice, not novelty</td><td>Microsoft Defender incident queue, opened in session</td></tr>
+<tr><td>Panel width draggable and remembered</td><td>PagerDuty: <em>"You can also change the width by dragging the side panel horizontally... PagerDuty will remember your settings for later visits."</em></td></tr>
+<tr><td>Tenant groups as the unit of scope</td><td>Defender multitenant: <em>"Organize the tenants you manage into named groups"</em></td></tr>
+<tr><td>One tab stop for the whole list</td><td>ARIA APG Grid pattern</td></tr>
+<tr><td>Single key shortcuts must be conditional</td><td>WCAG SC 2.1.4, Level A</td></tr>
+<tr><td>A bare score in a row is not decidable</td><td>Defender's <code>100</code>, banked DIFFERENT in type A</td></tr>
+<tr><td>Not found and not yours must be indistinguishable</td><td>Ours, from tenant data isolation. Also carried by 8.1</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Does the row carry latitude, or only the annunciator?</strong> A per row marker for what Clerk was permitted to do at that tenant puts the differentiator on forty lines at once. That is either the strongest version of the fleet claim or the thing that finally overloads the row</td><td><strong>Stage 04 draws both and one loses</strong></td></tr>
+<tr><td>2</td><td><strong>Is this a grid or a list?</strong> 0.1 assumed the ARIA grid model, right if the row is columnar. If the row turns out to be two lines of mixed content, <code>grid</code> is the wrong role and the keyboard contract changes with it</td><td>Stage 04, by drawing the row</td></tr>
+<tr><td>3</td><td>How many lines is a row? Density is principle 5 and there is no density toggle to hide behind, so this is one decision made once</td><td>Stage 04</td></tr>
+<tr><td>4</td><td>What is the unit of <em>what checking will cost</em>: signals, sources, minutes, something else. The wireframe above shows signals and sources, which is a placeholder, not a decision</td><td>Stage 04, against a drawn row</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#3.1">Structure (3.1)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/case-queue.md</code>. Block composition from <code>ia/docs/blocks.md</code>, type A. Wireframes are black and white by rule; colour arrives at stage 06.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '3.1 Case Queue';
+  window.NAV_SECTIONS = [
+    { id:'blocks', label:'Blocks' },
+    { id:'row',    label:'The row' },
+    { id:'mock',   label:'Wireframe' },
+    { id:'states', label:'State matrix' },
+    { id:'keys',   label:'Keyboard' },
+    { id:'scope',  label:'Permission' },
+    { id:'m360',   label:'At 360' },
+    { id:'emo',    label:'Emotional support' },
+    { id:'not',    label:'Not this node' },
+    { id:'open',   label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

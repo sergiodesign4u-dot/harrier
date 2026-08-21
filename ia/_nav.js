@@ -41,7 +41,7 @@ window.IA_NAV = [
   { node:'2.4',  label:'Closed by the outgoing analyst',type:'state',   group:'pages',  scope:'MVP',   file:null },
   { node:'2.5',  label:'Close failed',                  type:'error',   group:'pages',  scope:'MVP',   file:null },
   /* 3 work the queue */
-  { node:'3.1',  label:'Case Queue',                    type:'page',    group:'pages',  scope:'MVP',   file:null },
+  { node:'3.1',  label:'Case Queue',                    type:'page',    group:'pages',  scope:'MVP',   file:'case-queue.html' },
   { node:'3.2',  label:'Queue streaming in',            type:'loading', group:'pages',  scope:'MVP',   file:null },
   { node:'3.3',  label:'Queue stale',                   type:'error',   group:'pages',  scope:'MVP',   file:null },
   { node:'3.4',  label:'Nothing waiting on a decision', type:'empty',   group:'pages',  scope:'MVP',   file:null },
