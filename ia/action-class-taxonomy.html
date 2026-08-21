@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 0.6 Action class taxonomy</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;font-family:var(--mono);font-size:10.5px;color:var(--ink)}
+.ladder{width:860px;border:1.5px solid var(--ink);background:#fff}
+.ladder .hd{display:flex;background:var(--fill);border-bottom:1.5px solid var(--ink);font-size:8.5px;letter-spacing:.1em;color:var(--soft)}
+.ladder .hd div,.ladder .rw div{padding:8px 10px}
+.ladder .rw{display:flex;border-bottom:1px solid var(--hair);align-items:center}
+.ladder .rw:last-child{border-bottom:none}
+.ladder .c1{width:24%;font-weight:700}
+.ladder .c2{width:30%}
+.ladder .c3{width:26%}
+.ladder .c4{width:20%;text-align:right}
+.bar{display:inline-block;height:8px;background:var(--ink);vertical-align:middle}
+.bar.b5{width:66px}.bar.b4{width:53px}.bar.b3{width:40px}.bar.b2{width:27px}.bar.b1{width:14px}
+.ladder .soft{color:var(--soft)}
+.grid{width:860px;border:1.5px solid var(--ink);background:#fff}
+.grid .hd,.grid .rw{display:flex}
+.grid .hd{background:var(--fill);border-bottom:1.5px solid var(--ink);font-size:8.5px;letter-spacing:.08em;color:var(--soft)}
+.grid .rw{border-bottom:1px solid var(--hair)}
+.grid .rw:last-child{border-bottom:none}
+.grid .t{width:22%;padding:8px 10px;font-weight:700;border-right:1px solid var(--hair)}
+.grid .cell{flex:1;padding:8px 6px;text-align:center;border-right:1px solid var(--hair);font-size:9.5px}
+.grid .cell:last-child{border-right:none}
+.grid .cell.hi{background:var(--ink);color:#fff;font-weight:700}
+.grid .cell.mid{background:var(--fill);font-weight:700}
+.grid .cell.na{color:#c4c7c9}
+.chipsrow{display:flex;gap:6px;flex-wrap:wrap;width:860px}
+.chipsrow span{border:1px solid var(--ink);padding:5px 10px;background:#fff;min-height:24px;display:flex;align-items:center}
+.chipsrow span.on{background:var(--ink);color:#fff}
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 0.6 &middot; Global element</p>
+<h1>Action class taxonomy</h1>
+<p class="lede">Not a screen. A canonical list of values that four nodes read. It exists because latitude is granted per action class, and without an agreed list the annunciator, the filters and the grants drift into three vocabularies for one idea.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">0.6</dd></div>
+  <div><dt>Type</dt><dd>Section, data</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Read by</dt><dd class="num">0.3 &middot; 3.1 &middot; 3.6 &middot; 7.2</dd></div>
+  <div><dt>Written by</dt><dd>Nobody in the product</dd></div>
+  <div><dt>Classes</dt><dd>6, vendor neutral</dd></div>
+</dl>
+
+<section id="why">
+<h2>01 &middot; Why a class rather than an action</h2>
+<p class="h2sub">Vendors publish actions. A provider cannot grant latitude per vendor button</p>
+<p>Microsoft Defender for Endpoint, response actions page opened this session, ships at least these: <code>Initiate automated investigation</code>, <code>Initiate live response session</code>, <code>Collect investigation package</code>, <code>Run Microsoft Defender Antivirus scan</code>, <code>Restrict app execution</code>, <code>Isolate devices from the network</code>, <code>Contain devices from the network</code>, <code>Contain IP addresses of undiscovered devices</code>, <code>Contain a user from the network</code>, <code>Consult a threat expert</code>.</p>
+<p>One analyst covers forty tenants running different tool stacks. A grant expressed as "Autopilot on <code>Restrict app execution</code>" is meaningless at a client that does not run that product. <strong>So the taxonomy is deliberately coarser than any one vendor&rsquo;s list, and vendor neutral</strong>, and every integration maps its own actions onto these classes.</p>
+<div class="node"><span class="lbl">The cost, named rather than hidden</span><p>The mapping is where precision leaks. <strong>A class is only as honest as the worst action mapped into it.</strong> That is the price of being able to say one sentence about latitude across forty different tool stacks.</p></div>
+</section>
+
+<section id="axis">
+<h2>02 &middot; The ordering axis is reversibility, not severity</h2>
+<p class="h2sub">And that is evidence, not preference</p>
+<div class="tw"><table>
+<thead><tr><th>Opened this session, verbatim</th><th>What it establishes</th></tr></thead>
+<tbody>
+<tr><td><em>"Time-limited isolation: Isolation is automatically undone after a defined time window. You can also release isolation earlier after completing investigation and remediation."</em></td><td>Endpoint containment is reversible, and can even reverse itself</td></tr>
+<tr><td><em>"You can stop an IP address&rsquo; containment at any time. To stop containment, select the Contain IP action in the Action center. In the flyout, select Undo."</em></td><td>Network containment is reversible on demand, by the same operator</td></tr>
+<tr><td><em>"Undoing contain user actions requires membership in the <strong>Global Administrator</strong> role"</em></td><td>Identity containment is reversible <strong>only by someone else</strong>. The analyst who acted cannot undo it</td></tr>
+<tr><td><em>"Undoing the Contain user action reverts the GPO changes to their previous state, which will then start another AD GPO synchronization in your environment"</em></td><td>Policy level actions have a blast radius that outlasts the undo</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Severity would have ordered these differently, and worse</span><p>Isolating a production server is <em>severe</em> and cheap to undo. Containing a user is less dramatic and, for this analyst, effectively permanent until someone with more rights is found at 03:00. <strong>So the rule this taxonomy hands to 7.2: Clerk&rsquo;s latitude ceiling on a class is bounded by who can undo it.</strong> An action the analyst cannot personally reverse does not sit at the top of the ladder on a tenant with a short record.</p></div>
+</section>
+
+<section id="classes">
+<h2>03 &middot; The six classes</h2>
+<p class="h2sub">Ordered by how cheaply a human can put it back</p>
+<div class="wfwrap"><div class="wfcap"><b>The ladder</b><span>bar length is the latitude ceiling, and it is derived rather than chosen</span></div><div class="wfpad">
+<div class="wf"><div class="ladder">
+  <div class="hd"><div class="c1">CLASS</div><div class="c2">REVERSIBLE</div><div class="c3">BY WHOM</div><div class="c4">CEILING</div></div>
+  <div class="rw"><div class="c1">Investigate</div><div class="c2">Nothing to reverse</div><div class="c3 soft">n/a</div><div class="c4"><span class="bar b5"></span></div></div>
+  <div class="rw"><div class="c1">Contain endpoint</div><div class="c2">Yes, can be time limited</div><div class="c3">The analyst</div><div class="c4"><span class="bar b5"></span></div></div>
+  <div class="rw"><div class="c1">Contain network</div><div class="c2">Yes, on demand</div><div class="c3">The analyst</div><div class="c4"><span class="bar b4"></span></div></div>
+  <div class="rw"><div class="c1">Contain identity</div><div class="c2">Yes</div><div class="c3">Someone with more rights</div><div class="c4"><span class="bar b3"></span></div></div>
+  <div class="rw"><div class="c1">Remove content</div><div class="c2">Only while recoverable</div><div class="c3">The analyst, inside retention</div><div class="c4"><span class="bar b2"></span></div></div>
+  <div class="rw"><div class="c1">Change policy</div><div class="c2">Yes, but propagation does not un-happen</div><div class="c3">The analyst, plus a second sync</div><div class="c4"><span class="bar b1"></span></div></div>
+</div></div>
+</div></div>
+<div class="node"><span class="lbl">One class exposes a hole in the research</span><p><strong><code>Remove content</code> depends on the retention window</strong>, which <code>research.md</code> section 10 records as unchosen. Until that number exists the ceiling on this class cannot be set honestly, and the taxonomy says so rather than guessing. This is the second time the detail layer has run into the same missing number.</p></div>
+</section>
+
+<section id="readers">
+<h2>04 &middot; Where each reader uses it</h2>
+<p class="h2sub">One vocabulary, five places</p>
+<div class="wfwrap"><div class="wfcap"><b>7.2 grant grid, LATER</b><span>tenant against class is the whole screen, and it only exists because the class list does</span></div><div class="wfpad">
+<div class="wf"><div class="grid">
+  <div class="hd"><div class="t">TENANT</div><div class="cell">INVESTIGATE</div><div class="cell">ENDPOINT</div><div class="cell">NETWORK</div><div class="cell">IDENTITY</div><div class="cell">CONTENT</div><div class="cell">POLICY</div></div>
+  <div class="rw"><div class="t">Meridian Freight</div><div class="cell hi">Autopilot</div><div class="cell hi">Autopilot</div><div class="cell mid">Guided</div><div class="cell mid">Guided</div><div class="cell">Dry-run</div><div class="cell">Read-only</div></div>
+  <div class="rw"><div class="t">Northwind</div><div class="cell hi">Autopilot</div><div class="cell mid">Guided</div><div class="cell mid">Guided</div><div class="cell">Dry-run</div><div class="cell">Read-only</div><div class="cell">Read-only</div></div>
+  <div class="rw"><div class="t">Halcyon Care</div><div class="cell hi">Autopilot</div><div class="cell">Dry-run</div><div class="cell">Dry-run</div><div class="cell">Read-only</div><div class="cell na">not integrated</div><div class="cell">Read-only</div></div>
+  <div class="rw"><div class="t">Pinemark</div><div class="cell mid">Guided</div><div class="cell">Read-only</div><div class="cell">Read-only</div><div class="cell">Read-only</div><div class="cell">Read-only</div><div class="cell">Read-only</div></div>
+</div></div>
+</div></div>
+<div class="wfwrap"><div class="wfcap"><b>3.6 filters</b><span>class as a facet, which is a different question from severity</span></div><div class="wfpad">
+<div class="wf"><div class="chipsrow">
+  <span class="on">Any action</span><span>Investigate</span><span>Contain endpoint</span><span>Contain network</span><span>Contain identity</span><span>Remove content</span><span>Change policy</span>
+</div></div>
+</div></div>
+<div class="tw"><table>
+<thead><tr><th>Reader</th><th>Uses</th><th>Shows</th></tr></thead>
+<tbody>
+<tr><td>0.3, reading A</td><td>The class of the selected case&rsquo;s proposed action</td><td><code>PERMITTED, ACCOUNT CONTAINMENT: Autopilot</code>. The class name is half the sentence</td></tr>
+<tr><td>0.3, reading B</td><td>All classes on a tenant</td><td>The highest latitude in force, with the count of classes at it</td></tr>
+<tr><td>3.6 filters</td><td>Class as a facet</td><td>Narrow the queue to what Clerk proposes to <em>do</em></td></tr>
+<tr><td>7.2 grants, LATER</td><td>Class as the row of the grid</td><td>Tenant against class</td></tr>
+<tr><td>3.1 queue row</td><td>Class as a compact tag</td><td>Part of what checking it will cost</td></tr>
+</tbody></table></div>
+<p><strong>If the filter says "identity" and the annunciator says "account containment" for the same class, the product has two taxonomies and the analyst has to translate.</strong> That is the failure this node exists to prevent, and it is invisible until two screens are built by two people.</p>
+</section>
+
+<section id="states">
+<h2>05 &middot; State matrix</h2>
+<p class="h2sub">A data node still has states, because its readers do</p>
+<div class="tw"><table>
+<thead><tr><th>Situation</th><th>0.3</th><th>3.6</th><th>7.2</th></tr></thead>
+<tbody>
+<tr><td>Class known for this case</td><td>Named in full</td><td>Available as a facet</td><td>Row present</td></tr>
+<tr><td>Clerk still investigating, class not determined</td><td><code>Investigate</code> and nothing more</td><td>n/a</td><td>n/a</td></tr>
+<tr><td>A class the tenant&rsquo;s tooling does not support</td><td><strong>Not shown.</strong> A grant on a capability the client does not have is noise</td><td>Facet absent for that tenant</td><td>Row present but marked unavailable, because a grant may precede an integration</td></tr>
+<tr><td>Vendor action that maps to no class</td><td><strong>Named as unmapped, treated as <code>Change policy</code></strong></td><td>Grouped as unmapped</td><td>Flagged for the provider</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The default that matters</span><p><strong>An unmapped action falls to the least latitude, never the most.</strong> An action nobody has classified is not an action Clerk should be allowed to take unsupervised.</p></div>
+</section>
+
+<section id="open">
+<h2>06 &middot; Grounding and open questions</h2>
+<p class="h2sub">Six facts from one page, three decisions</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th><th>Standing</th></tr></thead>
+<tbody>
+<tr><td>The named response actions a real EDR ships</td><td>Microsoft Learn, respond to a device, opened this session</td><td>Fact</td></tr>
+<tr><td>Endpoint isolation is reversible and can be time limited</td><td>same page, verbatim</td><td>Fact</td></tr>
+<tr><td>Network containment is reversible on demand</td><td>same page, verbatim</td><td>Fact</td></tr>
+<tr><td>Undoing user containment requires a Global Administrator</td><td>same page, verbatim</td><td><strong>Fact, and it sets a ceiling</strong></td></tr>
+<tr><td>Policy changes propagate, and the propagation outlasts the undo</td><td>same page, on GPO sync</td><td>Fact</td></tr>
+<tr><td>Latitude is granted per action class</td><td>Simbian, opened this session</td><td>Fact</td></tr>
+<tr><td>Six classes, this grouping</td><td>this node</td><td>Decision. A different provider would draw five or eight</td></tr>
+<tr><td>Reversibility rather than severity as the ordering axis</td><td>this node, from the evidence above</td><td><strong>Decision, argued</strong></td></tr>
+<tr><td>Unmapped actions default to the lowest ceiling</td><td>this node</td><td>Decision</td></tr>
+</tbody></table></div>
+<ol>
+<li><strong>Who owns the taxonomy, the provider or the product?</strong> Written here as provider level configuration, which implies a settings surface that does not exist on the map. If it is product level, forty tenants share one list and integrations bend to it.</li>
+<li><strong>What is the retention window?</strong> <code>Remove content</code> cannot be ceilinged without it, and it is the same unchosen number that bounds 5.4 and the business outcome. <strong>Second time this layer has hit it.</strong></li>
+<li><strong>Does the analyst ever see the class to vendor action mapping?</strong> Hidden today. When Clerk proposes something and the analyst asks what exactly will happen, the class is not a sufficient answer, and that question belongs to 4.1.</li>
+</ol>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#0.6">Structure (0.6)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/action-class-taxonomy.md</code>. Its main reader: <a href="autonomy-annunciator.html">0.3</a>. Its sibling list: 0.7, next.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '0.6 Action class taxonomy';
+  window.NAV_SECTIONS = [
+    { id:'why',     label:'Class, not action' },
+    { id:'axis',    label:'Reversibility' },
+    { id:'classes', label:'The six classes' },
+    { id:'readers', label:'Who reads it' },
+    { id:'states',  label:'State matrix' },
+    { id:'open',    label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

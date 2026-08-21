@@ -151,6 +151,10 @@ Group `global`. Present on every authenticated node, specified once.
 | **0.3 Tenant autonomy annunciator** | section | The current tenant's latitude, its accuracy trend, and whether an override is in force. Fixed position, read only in the MVP | Reads from 3.5, changed only at 7.2 | HJ1, the bet | **MVP** |
 | **0.4 Live connection status** | state | Connected, reconnecting, stale. Named age of the data when not connected | 3.3 when stale | MAIN, because a stale queue is a wrong decision | **MVP** |
 | **0.5 Keyboard map** | dialog | Every shortcut the console answers to, grouped by what it does rather than by key | Overlays any node, returns to it | MAIN, design principle 5 | **MVP** |
+| **0.6 Action class taxonomy** | data | The canonical list of what Clerk can be permitted to do, grouped by what it touches, each class carrying its reversibility | Read by 0.3, 3.6, 7.2 and every queue row | HJ1, and it is what makes per class latitude expressible | **MVP** |
+| **0.7 Rejection reason taxonomy** | data | The canonical list of why a verdict was rejected, structured rather than free text | Written at 4.4, read by 5.1, leaves the product for tuning | R3, design principle 3 | **MVP** |
+
+**0.6 and 0.7 arrived discover-as-you-go**, at the gate that closes the global elements. Neither is a screen. Both are canonical lists of values that several nodes read, which is exactly the class the pipeline says to define once and reference rather than restate. They are marked MVP here because the nodes that read them are MVP: per class latitude is not expressible without 0.6, and a rejection reason that routes to tuning is not possible without 0.7.
 
 **0.3 is the whole differentiator in one element.** It is an annunciator rather than a menu item, taken in `benchmark.md` from the Flight Mode Annunciator where armed and active are read from a fixed place and `OVRD` is its own annunciated state. A mode that has to be inferred from context is a display failure.
 
@@ -268,9 +272,9 @@ Group `global`. No node here is a dead end.
 
 ### The count
 
-**Forty three nodes, thirty eight of them MVP.** Five LATER, all of them in clusters 6 and 7.
+**Forty five nodes, forty of them MVP.** Five LATER, all of them in clusters 6 and 7. The map opened at forty three; 0.6 and 0.7 were added at the gate that closed the global elements, which is what discover-as-you-go is for.
 
-Twelve nodes arrived without a parent screen and had their scope set here rather than inherited: the whole of cluster 0, both of cluster 1, 3.6, and the whole of cluster 8. All twelve are MVP, and each has a stated reason. 8.3 is not a nicety, it is tenant isolation from `CLAUDE.md`. 0.3 is the differentiator itself.
+Fourteen nodes arrived without a parent screen and had their scope set here rather than inherited: the whole of cluster 0 including the two taxonomies, both of cluster 1, 3.6, and the whole of cluster 8. All twelve are MVP, and each has a stated reason. 8.3 is not a nicety, it is tenant isolation from `CLAUDE.md`. 0.3 is the differentiator itself.
 
 **One inheritance looks contradictory and is not.** 7.2 is LATER while 0.3 and 3.5 are MVP. Latitude is read everywhere and changed nowhere in the MVP, which is the deliberate gap between watching, which should be constant, and moving, which should be rare.
 
