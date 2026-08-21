@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 0.5 Keyboard map</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.scene{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+       font-family:var(--mono);font-size:10.5px;width:880px;border:1.5px solid var(--ink);background:#fff;position:relative}
+.scene .under{padding:12px;color:#c4c7c9}
+.scene .under .l{height:6px;background:#eceded;margin:6px 0}
+.scene .under .l.s{width:40%}.scene .under .l.m{width:66%}
+.scene .inertnote{position:absolute;top:8px;right:10px;font-size:8.5px;color:var(--soft);letter-spacing:.08em}
+.modal{border:2px solid var(--ink);background:#fff;margin:0 auto;width:640px;position:relative;top:-8px}
+.modal h5{margin:0;padding:11px 14px;border-bottom:1.5px solid var(--ink);font-size:11px;letter-spacing:.06em;
+          display:flex;align-items:center;gap:10px}
+.modal h5 .grow{flex:1}
+.modal .grp{border-bottom:1px solid var(--hair);padding:9px 14px}
+.modal .grp:last-child{border-bottom:none}
+.modal .gname{font-size:8.5px;letter-spacing:.12em;color:var(--soft);margin-bottom:6px}
+.modal .kr{display:flex;align-items:baseline;gap:10px;padding:3px 0}
+.modal .key{border:1px solid var(--ink);padding:2px 7px;min-width:26px;text-align:center;font-weight:700;flex:none}
+.modal .act{flex:1}
+.modal .scopepill{font-size:8.5px;letter-spacing:.06em;color:var(--soft);border:1px dashed var(--soft);padding:2px 6px}
+.modal .foot{background:var(--fill);padding:10px 14px;display:flex;gap:10px;align-items:center;border-top:1.5px solid var(--ink)}
+.modal .btn{border:1px solid var(--ink);padding:5px 10px;min-height:24px;display:flex;align-items:center;background:#fff}
+.badrow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 20px}
+.badrow > div{border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--panel)}
+.badrow h4{margin:0;padding:10px 14px;font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--rule)}
+.badrow .no h4{background:#fbf6f6;color:#8a1b1b}
+.badrow .yes h4{background:var(--accent-soft);color:var(--accent)}
+.badrow .body{padding:14px;font-family:var(--mono);font-size:11.5px;line-height:1.6}
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+@media (max-width:600px){ .badrow{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 0.5 &middot; Global element</p>
+<h1>Keyboard map</h1>
+<p class="lede">Registered as a reference overlay. Specifying it found that the product&rsquo;s central interaction, one key to override, is regulated by a Level A success criterion, and that this node is where the required mechanism has to live.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">0.5</dd></div>
+  <div><dt>Type</dt><dd>Dialog, modal</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Owns</dt><dd>Remap and disable</dd></div>
+  <div><dt>Criterion</dt><dd>SC 2.1.4, Level A</dd></div>
+  <div><dt>At 360</dt><dd>Not rendered</dd></div>
+</dl>
+
+<div class="node"><span class="lbl">Why this node is not a help screen</span><p>WCAG 2.2 SC 2.1.4 Character Key Shortcuts is <strong>Level A</strong>, and it regulates exactly the interaction this product is built on. Verbatim: <em>"If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true"</em>, followed by three conditions: turn the shortcut off, remap it to include a non-printable key, or make it active only when the component has focus. <strong>Accept, amend and reject on single keys are precisely the case.</strong> So this node is the mechanism, not the manual.</p></div>
+
+<section id="routes">
+<h2>01 &middot; Which of the three routes the product takes</h2>
+<p class="h2sub">Two of them, and the reason is not bureaucratic</p>
+<p>The Understanding document is blunt about who single key shortcuts break. They <em>"are disastrous for speech users"</em>, because dictation is interpreted as commands, and <em>"keyboard-only users who have dexterity challenges can also be prone to accidentally hitting keys"</em>. In a product where one key files a verdict against a client, an accidental keypress is not an annoyance.</p>
+<div class="tw"><table>
+<thead><tr><th>Route</th><th>Status</th><th>Where it lives</th></tr></thead>
+<tbody>
+<tr><td>Active only when the component has focus</td><td><strong>Primary</strong></td><td>The focus model in 0.1, enforced by every node in cluster 4</td></tr>
+<tr><td>Remap to include a modifier</td><td>Shipped</td><td>This node</td></tr>
+<tr><td>Turn off entirely</td><td>Shipped</td><td>This node</td></tr>
+<tr><td>Nothing</td><td>Not taken</td><td>Recorded, because "engineering will handle it" is how a Level A criterion becomes a blocker found at the end</td></tr>
+</tbody></table></div>
+<p><strong>The primary route falls out of the split pane the product already has.</strong> The list is a grid with its own key handling and the case pane is a separate focus scope, so verdict keys being live only in the case pane is not a bolted on rule, it is the structure. The second route ships anyway, because focus scoping alone still leaves a speech user with no way to stop <code>a</code> meaning accept while the pane is focused, which is the exact scenario the criterion describes.</p>
+<div class="node"><span class="lbl">Inherited by cluster 4, stated here so it is not rediscovered ten nodes later</span><p>Every node that binds a single character key declares it in this map and honours the focus rule. <strong>A key that fires while a text field has focus is a defect, not a convenience:</strong> while 4.5 amend or the 4.4 reason field has focus, letters are text.</p></div>
+</section>
+
+<section id="overlay">
+<h2>02 &middot; The overlay exception</h2>
+<p class="h2sub">Principle 5 forbids overlays. This is one</p>
+<p>The contradiction is real and is resolved rather than ignored. <strong>It is allowed because it is the one overlay that carries no decision.</strong> It is opened deliberately, it asks nothing, and it leaves on one key. Nothing is lost behind it because nothing behind it is being read at that moment: an analyst opening a shortcut list is not mid sentence in a verdict.</p>
+<div class="badrow">
+  <div class="no"><h4>What would break the principle</h4><div class="body">An overlay that appears on its own<br>An overlay that asks a question<br>An overlay over the evidence being judged</div></div>
+  <div class="yes"><h4>What this is</h4><div class="body">Opened deliberately<br>Asks nothing<br>Leaves on one key, inert underneath</div></div>
+</div>
+<p><strong>And it is not the teaching mechanism.</strong> Principle 3 says override is one key <em>and it teaches</em>. Teaching happens at the control: every action with a key shows that key on itself, in place. The map is a lookup for the whole set. If the map is the only place a key is visible, the control has failed and the map is covering for it.</p>
+</section>
+
+<section id="escape">
+<h2>03 &middot; A collision this node found</h2>
+<p class="h2sub">Escape was already taken</p>
+<p>At 0.1, Escape deselects and returns the detail pane to the fleet. The dialog pattern says <em>"Escape: Closes the dialog."</em> Both are right, and together they are a bug.</p>
+<div class="node"><span class="lbl">Resolved, and inherited by every future dialog</span><p><strong>While the map is open, Escape closes the map and does not propagate.</strong> One press closes it, a second press deselects. Without that rule an analyst dismissing the map silently loses their case selection, which is the kind of loss that gets blamed on the person rather than on the interface. Stated as a product rule rather than a local fix: <strong>a modal consumes Escape.</strong> 4.4 and 4.6 inherit it.</p></div>
+</section>
+
+<section id="mock">
+<h2>04 &middot; Wireframe</h2>
+<p class="h2sub">Grouped by what the key does, with every row carrying its own scope</p>
+<div class="wfwrap"><div class="wfcap"><b>Open over the console</b><span>the screen beneath is inert, per the dialog pattern</span></div><div class="wfpad">
+<div class="scene">
+  <span class="inertnote">INERT</span>
+  <div class="under">
+    <div class="l m"></div><div class="l s"></div>
+  </div>
+  <div class="modal">
+    <h5>Keyboard<span class="grow"></span><span style="font-weight:400;color:#9aa0a6">Esc closes this map only</span></h5>
+    <div class="grp">
+      <div class="gname">MOVE</div>
+      <div class="kr"><span class="key">&uarr; &darr;</span><span class="act">Move between cases in the list</span><span class="scopepill">list has focus</span></div>
+      <div class="kr"><span class="key">Home</span><span class="act">First case in view</span><span class="scopepill">list has focus</span></div>
+      <div class="kr"><span class="key">Ctrl Home</span><span class="act">First case in the queue</span><span class="scopepill">list has focus</span></div>
+    </div>
+    <div class="grp">
+      <div class="gname">OPEN AND CLOSE</div>
+      <div class="kr"><span class="key">Enter</span><span class="act">Open the selected case in the pane</span><span class="scopepill">list has focus</span></div>
+      <div class="kr"><span class="key">Esc</span><span class="act">Deselect, the pane returns to the fleet</span><span class="scopepill">no dialog open</span></div>
+    </div>
+    <div class="grp">
+      <div class="gname">RULE ON THE CASE</div>
+      <div class="kr"><span class="key">a</span><span class="act">Accept Clerk&rsquo;s verdict</span><span class="scopepill">a case has focus</span></div>
+      <div class="kr"><span class="key">m</span><span class="act">Amend the narrative</span><span class="scopepill">a case has focus</span></div>
+      <div class="kr"><span class="key">r</span><span class="act">Reject and name the reason</span><span class="scopepill">a case has focus</span></div>
+      <div class="kr"><span class="key">e</span><span class="act">Escalate, the case stays open</span><span class="scopepill">a case has focus</span></div>
+    </div>
+    <div class="foot">
+      <span class="btn">Require a modifier for all keys</span>
+      <span class="btn">Turn single keys off</span>
+      <span style="color:#9aa0a6">SC 2.1.4, Level A</span>
+    </div>
+  </div>
+</div>
+</div></div>
+<p class="note" style="border:none;padding:0"><strong>Every row carries its own scope, on the row.</strong> A shortcut list that does not say when a key is live is a list of traps for the analyst who is typing a rejection reason. The remap and disable controls sit at the foot and apply to the whole set: per key remapping is not offered in the MVP, because a bespoke keymap across forty three nodes is a support burden with no job behind it.</p>
+</section>
+
+<section id="matrix">
+<h2>05 &middot; State matrix</h2>
+<p class="h2sub">One column is the reason the node exists</p>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Closed</th><th>Open</th><th>Open, remap active</th><th>Text field had focus</th><th>At 360</th></tr></thead>
+<tbody>
+<tr><td>Trigger in Z1</td><td>Present</td><td>Pressed</td><td>Pressed</td><td>Present</td><td><strong>Not rendered</strong></td></tr>
+<tr><td>Map body</td><td>Absent</td><td>Grouped by action</td><td>Same, rows editable</td><td>Absent. The key typed a character</td><td>n/a</td></tr>
+<tr><td>Underlying screen</td><td>Interactive</td><td><strong>Inert</strong></td><td>Inert</td><td>Interactive</td><td>n/a</td></tr>
+<tr><td>Escape</td><td>Deselects the case</td><td>Closes the map, does not propagate</td><td>Cancels the edit, then closes</td><td>Deselects</td><td>n/a</td></tr>
+<tr><td>Verdict keys</td><td>Live only when a case has focus</td><td>Inert, the map has focus</td><td>Inert</td><td><strong>Inert. Letters are text</strong></td><td>n/a</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The accidental verdict</span><p>The column headed <strong>text field had focus</strong> is the failure this node exists to make impossible. An analyst typing the word <em>malware</em> into a rejection reason must not file three verdicts on the way.</p></div>
+</section>
+
+<section id="dialog">
+<h2>06 &middot; Dialog behaviour</h2>
+<p class="h2sub">From the authoring practices, verbatim</p>
+<div class="tw"><table>
+<thead><tr><th>Requirement</th><th>Verbatim</th></tr></thead>
+<tbody>
+<tr><td>Tab</td><td><em>"Moves focus to the next tabbable element inside the dialog. If focus is on the last tabbable element inside the dialog, moves focus to the first tabbable element inside the dialog"</em></td></tr>
+<tr><td>Shift plus Tab</td><td>The reverse, wrapping to the last</td></tr>
+<tr><td>Escape</td><td><em>"Closes the dialog"</em></td></tr>
+<tr><td>Focus on open</td><td><em>"When a dialog opens, focus moves to an element inside the dialog"</em></td></tr>
+<tr><td>Focus on close</td><td><em>"When a dialog closes, focus returns to the element that invoked the dialog"</em></td></tr>
+<tr><td>Outside</td><td><em>"Windows under a modal dialog are inert. That is, users cannot interact with content outside an active dialog window"</em></td></tr>
+</tbody></table></div>
+<p><strong>The invoker is often a key rather than a button.</strong> Opened by shortcut, there is no invoking element, so focus returns to whatever held it before. That is the reading the pattern intends when it allows for an invoking element that no longer exists.</p>
+</section>
+
+<section id="open">
+<h2>07 &middot; Grounding and open questions</h2>
+<p class="h2sub">Three facts, three decisions, three holes</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th><th>Standing</th></tr></thead>
+<tbody>
+<tr><td>Single character shortcuts must be disableable, remappable or focus scoped. Level A</td><td>W3C, Understanding SC 2.1.4, opened this session</td><td><strong>Fact, and a launch condition</strong></td></tr>
+<tr><td>Single key shortcuts <em>"are disastrous for speech users"</em></td><td>same page, verbatim</td><td>Fact</td></tr>
+<tr><td>Modal keyboard model, inert background, focus return</td><td>W3C ARIA Authoring Practices, opened this session</td><td>Fact</td></tr>
+<tr><td>A modal consumes Escape and does not propagate</td><td>this node</td><td>Decision, inherited by 4.4 and 4.6</td></tr>
+<tr><td>Grouped by action rather than alphabetically by key</td><td>this node</td><td>Decision</td></tr>
+<tr><td>No per key remapping in the MVP</td><td>this node</td><td>Decision, scope</td></tr>
+</tbody></table></div>
+<ol>
+<li><strong>Which key opens the map?</strong> <code>?</code> is the convention, and <code>?</code> is Shift plus slash on most layouts, which makes the discovery gesture a two key chord. Unresolved, and it belongs to stages 04 and 05 together.</li>
+<li><strong>Does the focus rule survive the fleet?</strong> The pane at rest holds 3.5, not a case. Verdict keys must be inert there, so the focus scope is not "the pane" but "a case in the pane". A distinction with a real bug behind it.</li>
+<li><strong>Where does the disable setting live once a settings surface exists?</strong> There is no settings node on the map. Today it lives here, which is defensible while this is the only place keys are listed and indefensible once it is not.</li>
+</ol>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#0.5">Structure (0.5)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/keyboard-map.md</code>. Frame: <a href="console-shell.html">0.1</a>. The keys it governs: cluster 4, not yet specified.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '0.5 Keyboard map';
+  window.NAV_SECTIONS = [
+    { id:'routes',  label:'Three routes' },
+    { id:'overlay', label:'Overlay exception' },
+    { id:'escape',  label:'Escape collision' },
+    { id:'mock',    label:'Wireframe' },
+    { id:'matrix',  label:'State matrix' },
+    { id:'dialog',  label:'Dialog behaviour' },
+    { id:'open',    label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
