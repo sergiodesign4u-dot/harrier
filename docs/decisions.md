@@ -2,6 +2,76 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-21 - Two of the eight screens were never screens, and the node map says so
+
+Eight screens became forty six nodes because a dialog you have to design and a state you have to survive cost the same as a screen. The two that changed shape rather than multiplying are the ones the case turns on.
+
+**The fleet is a section, not a screen.** 3.5 has no route and never gets one. A route would give it a tap, and costing zero taps is the entire reason it is the resting state of the pane rather than a menu item. Rejected: a `/fleet` route "for a permalink", which would have made the differentiator a place you go.
+
+**The case file is one screen in two renderings.** 4.1 is the detail pane, 4.2 is the standalone route. They share three canonical components defined once at 4.1. Rejected: writing 4.2 as its own specification, which is how three editions of a provenance strip start.
+
+## 2026-08-21 - The block bank has one honest hole, and it is the domain half of type C
+
+Composition came from a bank built per page type, two sources per type: competitors for domain truth, Refero for craft. Nineteen pages were opened in session.
+
+**Type C, the shift digest, has no domain reference at all.** No competitor publishes a shift handover page outside a login, and we do not log in. The option taken, after showing three: leave it on named own research with the barrier stated in the comparison column, rather than hunting cross-industry analogues that answer a different question or cutting the type. What that costs is recorded in `blocks.md` rather than smoothed over.
+
+**A related claim was corrected during the stage.** Earlier text said no competitor publishes pages of these types outside a login at all. Vendor documentation publishes real product screenshots, which is where most of the bank came from, so the claim was wrong and is now narrowed to type C.
+
+## 2026-08-21 - A fourth critique instrument: a reader with clean context, given the next stage's real task
+
+Three instruments were already running: Codex on the source, the browser on the render, the stage contract as a checklist. All three read what exists, so none of them can see a specification that is complete and still not enough to draw from.
+
+The fourth is a subagent with no history of the project, given stage 04's actual job rather than "find defects". With "find defects" it correlates with Codex and returns the same list. It was allowed the repository, `CLAUDE.md` and `AGENTS.md`, and denied the chat and the critique log.
+
+**It returned 44 items it could not determine.** Roughly twenty were correctly recorded open questions, which is the system working. The rest were four contradictions and eleven missing rules, and every one had been read past by all three earlier instruments. Verification on its lines weighs triple, and it earned that: none of its four contradictions failed verification.
+
+## 2026-08-21 - The frame after a verdict is filed, and why the row does not vanish
+
+Two nodes described the same moment and could not both be drawn. 3.1 promised the selection is held including after a verdict is filed; 8.4 said the row leaves the queue and that is the feedback. Neither said what the pane does, and it is the most important moment in the product.
+
+**Settled at 3.1 because that node owns the list.** The row stays in place and changes to decided. It leaves only when the selection moves off it. The pane holds the case, states the outcome, and does not advance on its own.
+
+Rejected, and each for a reason rather than a taste: vanishing on the keystroke, because it takes the analyst's place in the list with it and removes the only evidence that the right case was ruled on; advancing the pane, because forty cases with the pane jumping ahead makes the next case arrive before the last one is understood, and principle 3 wants the override cheap, not the acceptance automatic; a toast, which 8.4 had already refused and now refuses for a better reason.
+
+## 2026-08-21 - One vocabulary for latitude, two axes that compose
+
+0.3 said `Read-only / Dry-run / Guided / Autopilot`, 3.5 listed action classes, 4.1 said `Acts alone / Asks first / Never`. 0.6 forbids exactly this in its own words, and the split made 3.5's hard constraint undrawable: the annunciator counted levels while the fleet listed classes, so the two could not be compared even in principle.
+
+**Resolved as two axes that compose:** the action class from 0.6, and one of three levels. Every surface says `acts alone up to <class>`. Simbian's four words go back to being a quotation, with three of them mapping onto ours and `Dry-run` having no equivalent because it is a rollout mode rather than a latitude.
+
+## 2026-08-21 - 0.8 Reading conventions, and the rule that numbers in a wireframe are fixtures
+
+Five things every surface renders had no definition anywhere: severity, time, effort, state chips, and the fixtures the mockups are drawn with. Each node was internally consistent and the set was not enough to draw from.
+
+They became a node rather than eleven scattered edits, for the same reason 0.6 and 0.7 are nodes: several surfaces read them, so they are defined once and referenced.
+
+**The drift was measured before the canon was written**, and the measurement found more than the reader had. Twelve tenant names across fourteen mockups, five of them second names for a client already in the set. `1h 03m`, two units and a leading zero, in both renderings. A selected row in a wireframe whose own caption said nothing was selected.
+
+**The rule the node exists to state:** numbers in a wireframe are fixtures, not findings. Sample content chosen to make a layout decidable, never quotable as evidence, and required to be internally consistent across every surface that shows them. It is the project's rule about written claims, applied to the drawings, because the drawings are what stage 07 puts in colour and colour is what people believe.
+
+## 2026-08-21 - One stage panel, one registry, two jobs
+
+The stage started with the roadmap in the sidebar of every IA page and the nodes as chips on the hub only, which meant node to node was two clicks through the hub.
+
+**Changed:** every page under `ia/` renders the stage panel and none renders the roadmap. `ia/_nav.js` does both jobs from one record, the panel and the hub chips. The hub is not an exception; it is an item of its own panel. The way back out of the stage is the first panel item.
+
+Two panels on one page give two left gutters and the text slides under one of them, which is why this is exclusive rather than additive. The root `/_nav.js` stays the owner of stage status and is not included on IA pages.
+
+## 2026-08-21 - An out of scope tenant renders 8.1, not 8.3, and that emptied 8.3
+
+Three files routed a tenant outside the analyst's provider scope to 8.3 permission denied, while 8.1, 3.1, 4.1, 1.1 and 3.6 all required 8.1. 0.1 had argued it explicitly: an empty result is indistinguishable from a quiet client.
+
+**Corrected upward in all three.** A permission error confirms the tenant exists, so a URL becomes an enumeration tool for other providers' clients. That removed 8.3's last three routes, so 8.3 moved to LATER. What is left for it is a refusal by role on a resource she can see exists, and the first one lives in cluster 7.
+
+## 2026-08-21 - The keyboard path costs one more keystroke than the mouse, on purpose
+
+Recounted at the close of the stage from the tree rather than from the concept sketch. Accept is two taps with a mouse and three keystrokes: arrows read, `Enter` decides, then the verdict key.
+
+**The third keystroke is an interlock.** A click names its target and a keystroke does not, so without it `A` pressed while scanning forty rows files a verdict into an append only log with no undo. It is also what makes single letter verdict keys legal: WCAG SC 2.1.4 allows a character key shortcut only if it can be turned off, remapped, or is active only on focus, and this is the third condition and the cheapest of the three.
+
+**The measurement also produced a finding rather than a reassurance.** Rejecting costs four taps against accepting's two, and design principle 3 says override must cost less than acceptance. Two of the extra steps are the teaching, which is the half of the principle worth collecting, so the count is handed to stage 04 as a constraint on how 4.4 is drawn rather than deleted.
+
 ## 2026-08-21 - Stage 03a closed, and what left CLAUDE.md
 
 Deleted as no longer accurate: "Two screens go to full colour: Case Queue (main dashboard) and Case File (AI-assisted case view)." The information architecture established that Case File is the detail pane of the queue plus a standalone route, not a second page. Left as written, stage 04 would have drawn two pages.

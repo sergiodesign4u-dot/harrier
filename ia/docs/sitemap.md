@@ -151,9 +151,9 @@ Group `global`. Present on every authenticated node, specified once.
 | **0.3 Tenant autonomy annunciator** | section | The current tenant's latitude, its accuracy trend, and whether an override is in force. Fixed position, read only in the MVP | Reads from 3.5, changed only at 7.2 | HJ1, the bet | **MVP** |
 | **0.4 Live connection status** | state | Connected, reconnecting, stale. Named age of the data when not connected | 3.3 when stale | MAIN, because a stale queue is a wrong decision | **MVP** |
 | **0.5 Keyboard map** | dialog | Every shortcut the console answers to, grouped by what it does rather than by key | Overlays any node, returns to it | MAIN, design principle 5 | **MVP** |
-| **0.6 Action class taxonomy** | data | The canonical list of what Clerk can be permitted to do, grouped by what it touches, each class carrying its reversibility | Read by 0.3, 3.6, 7.2 and every queue row | HJ1, and it is what makes per class latitude expressible | **MVP** |
-| **0.7 Rejection reason taxonomy** | data | The canonical list of why a verdict was rejected, structured rather than free text | Written at 4.4, read by 5.1, leaves the product for tuning | R3, design principle 3 | **MVP** |
-| **0.8 Reading conventions** | data | The canonical rendering of severity, time, effort, state chips and the mockup fixtures | Read by 3.1, 3.5, 3.6, 4.1, 5.1, 2.1 and every node stage 04 draws | design principles 1, 2 and 5 | **MVP** |
+| **0.6 Action class taxonomy** | section, data | The canonical list of what Clerk can be permitted to do, grouped by what it touches, each class carrying its reversibility | Read by 0.3, 3.6, 7.2 and every queue row | HJ1, and it is what makes per class latitude expressible | **MVP** |
+| **0.7 Rejection reason taxonomy** | section, data | The canonical list of why a verdict was rejected, structured rather than free text | Written at 4.4, read by 5.1, leaves the product for tuning | R3, design principle 3 | **MVP** |
+| **0.8 Reading conventions** | section, data | The canonical rendering of severity, time, effort, state chips and the mockup fixtures | Read by 3.1, 3.5, 3.6, 4.1, 5.1, 2.1 and every node stage 04 draws | design principles 1, 2 and 5 | **MVP** |
 
 **0.6 and 0.7 arrived discover-as-you-go**, at the gate that closes the global elements. Neither is a screen. Both are canonical lists of values that several nodes read, which is exactly the class the pipeline says to define once and reference rather than restate. They are marked MVP here because the nodes that read them are MVP: per class latitude is not expressible without 0.6, and a rejection reason that routes to tuning is not possible without 0.7.
 
@@ -196,7 +196,7 @@ Group `pages`. The landing surface. Route in `flows.md`, main job.
 | **3.2 Queue streaming in** | loading | Rows arrive as they are correlated. The count is provisional and says so | 3.1 | MAIN | **MVP** |
 | **3.3 Queue stale** | error | Connection lost. The list stays readable and carries the age of what is shown, because a silently frozen queue is worse than an empty one | Recovers into 3.2 | MAIN | **MVP** |
 | **3.4 Nothing waiting on a decision** | empty | The list is empty, the pane is not: this is where 3.5 does its work | 3.5 | MAIN | **MVP** |
-| **3.5 Fleet, the resting state of the pane** | section | Every tenant's current latitude and accuracy trend, legible at a glance. **Readable, not settable** | 7.1 for the detail, when it exists | HJ1 and P2-MAIN | **MVP** |
+| **3.5 Fleet, the resting state of the detail pane** | section | Every tenant's current latitude and accuracy trend, legible at a glance. **Readable, not settable** | 7.1 for the detail, when it exists | HJ1 and P2-MAIN | **MVP** |
 | **3.6 Scope and filters** | section | Tenant, severity, what Clerk concluded, what is escalated or unrecorded. Narrowing, **not saved views** | 3.1 | MAIN | **MVP** |
 
 **3.5 is not a route and never gets one.** It is what the detail pane shows when nothing is selected, so it costs zero taps. The price is named at stage 03a: returning to it is a deselection, and if 3.4 reads as "this is empty" rather than "this is the fleet", the decision has failed.
