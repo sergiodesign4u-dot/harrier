@@ -51,7 +51,7 @@ window.IA_NAV = [
   { node:'4.1',  label:'Case File in the detail pane',  type:'page',    group:'pages',  scope:'MVP',   file:'case-file.html' },
   { node:'4.2',  label:'Case File, standalone route',   type:'page',    group:'pages',  scope:'MVP',   file:null },
   { node:'4.3',  label:'Clerk still investigating',     type:'loading', group:'pages',  scope:'MVP',   file:null },
-  { node:'4.4',  label:'Reject with a reason',          type:'dialog',  group:'pages',  scope:'MVP',   file:null },
+  { node:'4.4',  label:'Reject with a reason',          type:'dialog',  group:'pages',  scope:'MVP',   file:'reject.html' },
   { node:'4.5',  label:'Amend the narrative',           type:'state',   group:'pages',  scope:'MVP',   file:null },
   { node:'4.6',  label:'Escalate',                      type:'dialog',  group:'pages',  scope:'MVP',   file:null },
   { node:'4.7',  label:'Evidence expired',              type:'error',   group:'pages',  scope:'MVP',   file:null },
