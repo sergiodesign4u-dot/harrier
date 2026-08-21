@@ -24,16 +24,16 @@
 .wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
 
 /* desktop frame */
-.q{width:100%;min-width:1330px;--tracks:62px 136px 208px 226px 88px 96px 50px}
-.q .strip{border-bottom:1px solid var(--hair);padding:6px 10px;color:var(--soft);display:flex;gap:16px;font-size:9.5px}
-.q .cols{display:flex;align-items:stretch}
-.q .listpane{flex:1 1 auto;border-right:1.5px solid var(--ink);position:relative;padding-top:15px}
-.q .detpane{flex:0 0 368px;position:relative;padding-top:15px;background:var(--fill)}
-.q .scopebar{display:flex;flex-wrap:wrap;gap:5px;padding:9px 10px;border-bottom:1px solid var(--hair)}
+.qwf{width:100%;min-width:1330px;--tracks:62px 136px 208px 226px 88px 96px 50px}
+.qwf .strip{border-bottom:1px solid var(--hair);padding:6px 10px;color:var(--soft);display:flex;gap:16px;font-size:9.5px}
+.qwf .cols{display:flex;align-items:stretch}
+.qwf .listpane{flex:1 1 auto;border-right:1.5px solid var(--ink);position:relative;padding-top:15px}
+.qwf .detpane{flex:0 0 368px;position:relative;padding-top:15px;background:var(--fill)}
+.qwf .scopebar{display:flex;flex-wrap:wrap;gap:5px;padding:9px 10px;border-bottom:1px solid var(--hair)}
 .chip{border:1px solid var(--ink);padding:2px 7px;white-space:nowrap}
 .chip.soft{border-style:dashed;color:var(--soft)}
-.q .readout{padding:8px 10px;border-bottom:1px solid var(--hair);font-weight:700}
-.q .readout span{font-weight:400;color:var(--soft)}
+.qwf .readout{padding:8px 10px;border-bottom:1px solid var(--hair);font-weight:700}
+.qwf .readout span{font-weight:400;color:var(--soft)}
 .row{display:grid;grid-template-columns:var(--tracks);gap:9px;
      padding:8px 10px;border-bottom:1px solid var(--hair);align-items:center}
 .row > div{min-width:0;overflow-wrap:anywhere}
@@ -143,7 +143,7 @@
 <h2>03 &middot; Wireframe, 1440</h2>
 <p class="h2sub">Black and white. Colour arrives at stage 06</p>
 <div class="wfwrap"><div class="wfcap"><b>/queue</b> <span>nothing selected, so the pane holds the fleet</span> <span>rows are decisions, not records</span></div><div class="wfpad">
-<div class="wf q">
+<div class="wf qwf">
   <div class="strip">Live, last case 4s ago <span class="dim">&middot; 0.4, lives in the shell</span></div>
   <div class="cols">
     <div class="listpane">
