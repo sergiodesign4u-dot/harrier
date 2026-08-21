@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 4.4 Reject with a reason</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+/* anchoring context */
+.anch{width:100%;min-width:440px;max-width:520px;padding-top:15px}
+.anch .ev{padding:11px 12px;border-bottom:1px solid var(--hair);color:var(--soft)}
+.anch .ev b{color:var(--ink)}
+.anch .dlgslot{margin:0;border-top:1.5px solid var(--ink);background:var(--fill);padding:11px 12px;font-weight:700}
+.anch .dlgslot span{font-weight:400;color:var(--soft);display:block;margin-top:3px}
+
+/* the dialog */
+.dlg{width:100%;min-width:430px;max-width:470px;padding-top:15px}
+.dlg .hd{padding:10px 13px;border-bottom:1px solid var(--hair)}
+.dlg .hd b{font-size:12px}
+.dlg .quoted{padding:9px 13px;border-bottom:1px solid var(--hair);background:var(--fill)}
+.dlg .quoted .k{font-size:8px;letter-spacing:.11em;color:var(--soft);display:block;margin-bottom:3px}
+.dlg .body{padding:10px 13px}
+.dlg .k{font-size:8px;letter-spacing:.11em;color:var(--soft)}
+.opt{display:grid;grid-template-columns:12px 16px 1fr 12px;gap:7px;padding:4px 0;align-items:baseline}
+.opt .rad{width:9px;height:9px;border:1px solid var(--ink);border-radius:50%;display:inline-block;position:relative;top:1px}
+.opt.on .rad{background:var(--ink);box-shadow:inset 0 0 0 2px #fff}
+.opt .n{color:var(--soft);font-size:9px}
+.opt.on .t{font-weight:700}
+.opt .i{color:var(--soft);font-size:9px}
+.cons{margin:9px 0 0;border-left:3px solid var(--ink);padding:6px 0 6px 9px;background:var(--fill)}
+.cons .k{display:block;margin-bottom:2px}
+.cons.empty{border-left-color:var(--hair);color:var(--soft)}
+.axisb{margin:11px 0 0;border-top:1px dashed var(--hair);padding-top:9px}
+.axisb.locked .opt .rad{border-style:dashed}
+.lockrow{display:flex;gap:7px;align-items:baseline;margin-top:5px}
+.lockchip{border:1px dashed var(--soft);color:var(--soft);padding:1px 5px;font-size:8px;letter-spacing:.06em}
+.note{margin:11px 0 0;border:1px dashed var(--hair);padding:7px 9px;color:var(--soft)}
+.dfoot{display:flex;gap:8px;align-items:center;padding:10px 13px;border-top:1.5px solid var(--ink);flex-wrap:wrap}
+.act{border:1.5px solid var(--ink);padding:4px 10px;font-size:10px;font-weight:700;display:flex;gap:7px;align-items:center}
+.act .kk{border:1px solid var(--ink);font-size:8px;padding:0 3px;font-weight:400}
+.act.pri{background:var(--ink);color:#fff}
+.act.pri .kk{border-color:#fff}
+.act.dis{border-style:dashed;border-color:var(--soft);color:var(--soft);font-weight:400}
+.dfoot .why{color:var(--soft);font-size:9px}
+
+.two{display:flex;gap:16px;flex-wrap:wrap}
+.two > div{flex:1 1 430px;min-width:0}
+.two h4{margin:0 0 8px;font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 4.4 &middot; Cluster 4</p>
+<h1>Reject with a reason</h1>
+<p class="lede">Design principle 3 says override is one key, <em>and it teaches</em>. This node is where both halves are either true or false. Everything else in the product can be right and this one dialog can still make the principle a slogan.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">4.4</dd></div>
+  <div><dt>Type</dt><dd>Dialog, anchored in 4.1</dd></div>
+  <div><dt>Page type</dt><dd>E, a dialog</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Opened by</dt><dd><code>r</code>, or the Reject control</dd></div>
+  <div><dt>Job</dt><dd>R3, inside MAIN</dd></div>
+</dl>
+
+<p><strong>Rejecting does not become a screen.</strong> A screen is a route, not a key. That was settled at the base layer and it is why this is a dialog rather than node 4.11.</p>
+
+<section id="afford">
+<h2>01 &middot; Purpose, and the number that makes it affordable</h2>
+<p>Clerk was wrong. The analyst has to say so in a way that defends the decision months later <em>and</em> does something before the next shift. Free text does neither: <code>jtbd.md</code> records that handover quality varies widely between individuals and that no organisation trains it.</p>
+<p>So the reason is structured, on the two paired axes from 0.7. The number that makes the structure affordable is this one: <strong>five of six values on axis A need no second question.</strong></p>
+<div class="tw"><table>
+<thead><tr><th>Axis A, what Clerk got wrong</th><th>Axis B, where it goes</th><th>Second question</th></tr></thead>
+<tbody>
+<tr><td>Real, called benign</td><td>Detection is too narrow</td><td>No</td></tr>
+<tr><td><strong>Benign, called a threat</strong></td><td>ambiguous: too broad, or tenant context</td><td><strong>Yes, one choice of two</strong></td></tr>
+<tr><td>Right answer, wrong reasoning</td><td>Clerk weighted the wrong signal</td><td>No</td></tr>
+<tr><td>Right answer, wrong scope</td><td>Clerk weighted the wrong signal</td><td>No</td></tr>
+<tr><td>Not enough evidence either way</td><td>Nothing to change</td><td>No</td></tr>
+<tr><td>Normal at this tenant</td><td>Tenant context missing, <strong>locked</strong></td><td>No</td></tr>
+</tbody></table></div>
+<p>The pairing does the work, so for five of six reasons this dialog is one selection and one key.</p>
+</section>
+
+<section id="teach">
+<h2>02 &middot; How it teaches, and that is the second half of the principle</h2>
+<p>Principle 3 does not say "override is cheap". It says override is one key <strong>and it teaches</strong>. A dialog that only collects a reason satisfies half a principle.</p>
+<p><strong>The mechanism: each reason states its consequence, in place, before it is chosen.</strong> Selecting a value changes one line under the list.</p>
+<div class="tw"><table>
+<thead><tr><th>Selected</th><th>The line says</th></tr></thead>
+<tbody>
+<tr><td>Real, called benign</td><td>Goes to the detection engineer. The rule that missed this is too narrow</td></tr>
+<tr><td>Benign, called a threat &middot; too broad</td><td>Goes to the detection engineer. The rule fires on too much</td></tr>
+<tr><td>Benign, called a threat &middot; tenant context</td><td>Stays with this client. Nothing changes for anyone else</td></tr>
+<tr><td>Right answer, wrong reasoning</td><td>Goes to Clerk's weighting. The verdict stands, the argument does not</td></tr>
+<tr><td>Right answer, wrong scope</td><td>Goes to Clerk's weighting. Correct event, wrong blast radius</td></tr>
+<tr><td>Not enough evidence either way</td><td>Nothing is tuned. Clerk should have escalated instead of concluding</td></tr>
+<tr><td><strong>Normal at this tenant</strong></td><td><strong>Updates this client's context. It never changes a detection</strong></td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The last row is where the most consequential rule in 0.7 meets a person</span><p>Without that line, an analyst who believes <em>normal here</em> retunes a detection for forty clients would have <strong>no way to learn otherwise from the interface</strong>. Stating consequences is taken from Webflow, whose confirmation dialog says what it will create and warns the change cannot be fully removed. The block is theirs; the consequences are ours.</p></div>
+</section>
+
+<section id="mock">
+<h2>03 &middot; Wireframe, two states</h2>
+<div class="wfwrap"><div class="wfcap"><b>Anchored, not centred</b> <span>principle 5: never over the evidence being disagreed with</span></div><div class="wfpad">
+<div class="wf anch">
+  <span class="tag">4.1 PANE</span>
+  <div class="ev">Evidence, provenance and tenant context <b>stay visible</b></div>
+  <div class="ev">Latitude on this case <b>stays visible</b></div>
+  <div class="dlgslot">4.4 opens here, at the foot<span>the thing being disagreed with is the least acceptable thing to hide</span></div>
+</div>
+</div></div>
+
+<div class="two">
+<div>
+<h4>State A &middot; the one value that asks a second question</h4>
+<div class="wfwrap"><div class="wfcap"><b>Benign, called a threat</b></div><div class="wfpad">
+<div class="wf dlg">
+  <span class="tag">4.4</span>
+  <div class="hd"><b>Reject Clerk&rsquo;s verdict</b></div>
+  <div class="quoted"><span class="k">YOU ARE REJECTING</span>True positive. Credential stuffing from a residential proxy pool, contained.</div>
+  <div class="body">
+    <span class="k">WHAT CLERK GOT WRONG</span>
+    <div class="opt"><span class="rad"></span><span class="n">1</span><span class="t">Real, called benign</span><span class="i">?</span></div>
+    <div class="opt on"><span class="rad"></span><span class="n">2</span><span class="t">Benign, called a threat</span><span class="i">?</span></div>
+    <div class="opt"><span class="rad"></span><span class="n">3</span><span class="t">Right answer, wrong reasoning</span><span class="i">?</span></div>
+    <div class="opt"><span class="rad"></span><span class="n">4</span><span class="t">Right answer, wrong scope</span><span class="i">?</span></div>
+    <div class="opt"><span class="rad"></span><span class="n">5</span><span class="t">Not enough evidence either way</span><span class="i">?</span></div>
+    <div class="opt"><span class="rad"></span><span class="n">6</span><span class="t">Normal at this tenant</span><span class="i">?</span></div>
+
+    <div class="axisb">
+      <span class="k">WHERE IT GOES &middot; ONE REQUIRED</span>
+      <div class="opt"><span class="rad"></span><span class="n"></span><span class="t">The rule fires on too much</span><span class="i"></span></div>
+      <div class="opt"><span class="rad"></span><span class="n"></span><span class="t">Missing context for this client</span><span class="i"></span></div>
+    </div>
+
+    <div class="cons empty"><span class="k">WHAT THIS DOES</span>Answer the question above and this line fills. The space is held so nothing jumps.</div>
+    <div class="note">Note, optional. Read by humans only, nothing downstream depends on it.</div>
+  </div>
+  <div class="dfoot">
+    <span class="act dis">Reject and tune <span class="kk">&crarr;</span></span>
+    <span class="act">Cancel <span class="kk">Esc</span></span>
+    <span class="why">disabled until the second question is answered</span>
+  </div>
+</div>
+</div></div>
+</div>
+
+<div>
+<h4>State B &middot; the value whose axis B is locked</h4>
+<div class="wfwrap"><div class="wfcap"><b>Normal at this tenant</b></div><div class="wfpad">
+<div class="wf dlg">
+  <span class="tag">4.4</span>
+  <div class="hd"><b>Reject Clerk&rsquo;s verdict</b></div>
+  <div class="quoted"><span class="k">YOU ARE REJECTING</span>True positive. Credential stuffing from a residential proxy pool, contained.</div>
+  <div class="body">
+    <span class="k">WHAT CLERK GOT WRONG</span>
+    <div class="opt"><span class="rad"></span><span class="n">1</span><span class="t">Real, called benign</span><span class="i">?</span></div>
+    <div class="opt"><span class="rad"></span><span class="n">2</span><span class="t">Benign, called a threat</span><span class="i">?</span></div>
+    <div class="opt"><span class="rad"></span><span class="n">3</span><span class="t">Right answer, wrong reasoning</span><span class="i">?</span></div>
+    <div class="opt"><span class="rad"></span><span class="n">4</span><span class="t">Right answer, wrong scope</span><span class="i">?</span></div>
+    <div class="opt"><span class="rad"></span><span class="n">5</span><span class="t">Not enough evidence either way</span><span class="i">?</span></div>
+    <div class="opt on"><span class="rad"></span><span class="n">6</span><span class="t">Normal at this tenant</span><span class="i">?</span></div>
+
+    <div class="axisb locked">
+      <span class="k">WHERE IT GOES</span>
+      <div class="lockrow"><span>Tenant context missing</span><span class="lockchip">DERIVED &middot; LOCKED</span></div>
+    </div>
+
+    <div class="cons"><span class="k">WHAT THIS DOES</span>Updates Larkfield Logistics&rsquo; context. <b>It never changes a detection.</b></div>
+    <div class="note">Note, optional. Read by humans only, nothing downstream depends on it.</div>
+  </div>
+  <div class="dfoot">
+    <span class="act pri">Reject and tune <span class="kk">&crarr;</span></span>
+    <span class="act">Cancel <span class="kk">Esc</span></span>
+  </div>
+</div>
+</div></div>
+</div>
+</div>
+
+<p><strong>Axis B is shown when it is locked, not hidden.</strong> Deriving it silently would be one fewer line and would teach nothing. The analyst sees what the system concluded on her behalf, which is the same contract Clerk operates under: it prepares, she can see what it prepared.</p>
+</section>
+
+<section id="blocks">
+<h2>04 &middot; Blocks, and the absence that carries the principle</h2>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Block</th><th>Where it came from</th><th>Traces to</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>What is being rejected</strong>, one line: Clerk's verdict as filed</td><td>Ours. You cannot disagree with something you cannot see</td><td>R3</td></tr>
+<tr><td>2</td><td><strong>Axis A as a single select list</strong>, six values, one control</td><td>YouTube Music report dialog</td><td>0.7</td></tr>
+<tr><td>3</td><td><strong>An info affordance on every value</strong></td><td>Same reference</td><td>0.7</td></tr>
+<tr><td>4</td><td><strong>The consequence line</strong>, changing with the selection</td><td>Webflow; the content is ours</td><td><strong>Principle 3, the teaching half</strong></td></tr>
+<tr><td>5</td><td><strong>Axis B, shown only when asked</strong>, and shown <strong>locked</strong> when derived</td><td>Ours, from 0.7's pairing</td><td>0.7</td></tr>
+<tr><td>6</td><td><strong>Optional note</strong>, read by humans only</td><td>0.7: free text stays and is never the carrier</td><td>R2</td></tr>
+<tr><td>7</td><td><strong>One primary action naming the outcome</strong>, and <code>Cancel</code></td><td>Ours, against Copy.ai's <code>OK</code></td><td>Principle 3</td></tr>
+</tbody></table></div>
+<div class="absent">
+<h4>Absent: Next, a warning icon, an illustration, a confirmation step, a verification code</h4>
+<p><strong><code>Next</code> is the load bearing absence.</strong> YouTube Music&rsquo;s report dialog ends in <code>Cancel</code> and <code>Next</code> because picking a reason is step 3 of 6. <strong>If rejecting Clerk costs more steps than accepting it, the analyst accepts.</strong> Principle 3 inverts that: reject must cost less. One selection, one key, done.</p>
+<p>Manus gates an irreversible action behind a fresh code with a countdown. Right weight for 7.3, changing what Clerk may do to a client. Far too heavy for a judgement taken forty times a shift.</p>
+</div>
+</section>
+
+<section id="noundo">
+<h2>05 &middot; No confirmation, and no undo</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>No confirmation step</strong></td><td>A second "are you sure" would make rejection cost two keys and acceptance one, which is the exact asymmetry principle 3 exists to remove. The dialog itself is the deliberate act</td></tr>
+<tr><td><strong>No undo</strong></td><td>8.4 already settled it: an append only log cannot unwrite an entry. A rejection filed in error is corrected by a <strong>superseding logged action</strong>, visible in 5.6 as two entries with their times, not by erasing the first</td></tr>
+</tbody></table></div>
+<p>So the dialog must never offer or imply undo, and the toast that follows must not carry one. Inherited from 8.4 rather than decided here.</p>
+</section>
+
+<section id="states">
+<h2>06 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Opened, nothing chosen</th><th>Five of six chosen</th><th><code>Benign, called a threat</code></th><th><code>Normal at this tenant</code></th><th>Write failed, 4.9</th></tr></thead>
+<tbody>
+<tr><td><strong>Axis A</strong></td><td>Six values, none selected</td><td>One selected</td><td>One selected</td><td>One selected</td><td>Frozen, selection kept</td></tr>
+<tr><td><strong>Consequence line</strong></td><td>Empty, <strong>and the space is held so nothing jumps</strong></td><td>The consequence for that value</td><td>Empty until axis B is answered</td><td><strong>Says it never changes a detection</strong></td><td>Last shown</td></tr>
+<tr><td><strong>Axis B</strong></td><td>Hidden</td><td>Hidden, derived silently</td><td><strong>Visible, two options, one required</strong></td><td><strong>Visible and locked</strong></td><td>Frozen</td></tr>
+<tr><td><strong>Note</strong></td><td>Empty, optional</td><td>Same</td><td>Same</td><td>Same</td><td>Preserved</td></tr>
+<tr><td><strong>Primary action</strong></td><td>Disabled, and it says a reason is required</td><td><code>Reject and tune</code></td><td>Disabled until axis B is answered</td><td><code>Reject and tune</code></td><td><code>Retry</code>, and 4.10 holds locally</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="keys">
+<h2>07 &middot; Keyboard</h2>
+<div class="tw"><table>
+<thead><tr><th>Key</th><th>Does</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td><code>r</code></td><td>Opens this dialog from 4.1</td><td>Declared in 0.5, live only while the pane has focus</td></tr>
+<tr><td><code>Up</code> <code>Down</code></td><td>Moves within the axis A list</td><td>Standard radio group behaviour. The list is a radio group, not a menu</td></tr>
+<tr><td><code>1</code> to <code>6</code></td><td>Jumps to a value</td><td>A single character shortcut, so it is declared in 0.5 and can be remapped or disabled</td></tr>
+<tr><td><code>Enter</code></td><td>Files the rejection</td><td>Only when the primary action is enabled</td></tr>
+<tr><td><code>Escape</code></td><td>Closes without filing</td><td><strong>The dialog consumes it and does not propagate</strong>, from 0.5</td></tr>
+<tr><td>Any letter, in the note</td><td>A letter</td><td>While the note has focus, letters are text. A key that acts while a text field has focus is a defect, not a convenience</td></tr>
+</tbody></table></div>
+<p>Focus moves into the dialog on open and returns to the Reject control on close.</p>
+</section>
+
+<section id="m360">
+<h2>08 &middot; At 360, and the cost of the decision</h2>
+<p><strong>Not rendered.</strong> <code>CLAUDE.md</code> sets the platform line: mobile exists for one scenario, an on call analyst opening a paged case at 03:00 <strong>to read it and escalate</strong>. 4.2 exposes escalate only, so there is no Reject control for this dialog to open.</p>
+<div class="node"><span class="lbl">The cost, stated rather than buried</span><p>A case an analyst reads at 03:00 and knows to be benign <strong>cannot be closed from the phone</strong>. It stays in the queue until she is at a desk. That is the platform line applied honestly rather than an omission, and it is a candidate to revisit if the on call scenario turns out to include closing rather than only escalating.</p></div>
+</section>
+
+<section id="open">
+<h2>09 &middot; Not this node, grounding, open questions</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>0.7</strong></td><td>The taxonomy itself: six values, five derivations, the pairing rule. This node renders it, it does not define it</td></tr>
+<tr><td><strong>0.5</strong></td><td>The keyboard mechanism, remap and disable, and the rule that a modal consumes <code>Escape</code></td></tr>
+<tr><td><strong>8.4</strong></td><td>The toast that follows, and the no undo rule</td></tr>
+<tr><td><strong>4.1, 4.6</strong></td><td>The case and the Reject control; and escalate, which is a different dialog that does not close the case</td></tr>
+<tr><td><strong>5.1, 5.6</strong></td><td>Where the rejection is read back later, and where a superseding correction appears beside it</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Single select reason list in a dialog, info affordance per value</td><td>YouTube Music report dialog, Refero <code>b509a225</code>, opened in session</td></tr>
+<tr><td>A dialog that states what it will do</td><td>Webflow ecommerce confirmation, Refero <code>59ddb501</code>, opened in session</td></tr>
+<tr><td><code>OK</code> as a confirm on a destructive action</td><td>Copy.ai bulk delete, Refero <code>913dc6cb</code>. <strong>Left</strong>, because <code>OK</code> names nothing</td></tr>
+<tr><td>Four classification values with a <code>Not set</code> default</td><td>Microsoft Learn, Manage incidents, quoted in 0.7</td></tr>
+<tr><td>Structure removes variation in written handover</td><td>UCL handover study, stage 02</td></tr>
+<tr><td>Single character shortcuts must be focus scoped, remappable or disableable</td><td>WCAG SC 2.1.4, Level A, quoted in 0.5</td></tr>
+<tr><td>An append only log cannot offer undo</td><td>8.4, from WCAG SC 2.2.1 and the compliance requirement</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Is <code>Real, called benign</code> reachable often enough to matter?</strong> From this dialog it is reachable whenever Clerk filed a benign verdict that reached the queue. What stays unreachable is the larger set: <strong>cases Clerk closed on its own and the analyst never sees</strong>. 0.7 recorded that hole; this node does not close it</td><td>Backlog. The analyst side review lane still has no job</td></tr>
+<tr><td>2</td><td><strong>Does the consequence line get read?</strong> It carries the teaching half of principle 3, and the RIT finding in <code>jtbd.md</code> is that analysts <em>"rarely mentioned using the fine-grained feature contribution graphs"</em> under time pressure. <strong>A line nobody reads teaches nothing</strong></td><td>First thing to test on this dialog rather than assert</td></tr>
+<tr><td>3</td><td>Should 4.2 expose reject at 360 after all? The cost is in section 08</td><td>Revisit only with evidence about what on call analysts do at 03:00</td></tr>
+<tr><td>4</td><td>Do the digit shortcuts survive stage 05? Six values with stable numbering is fast for a daily user and fragile if the taxonomy grows</td><td>Only as stable as 0.7's list</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#4.4">Structure (4.4)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/reject.md</code>. Block composition from <code>ia/docs/blocks.md</code>, type E. Taxonomy from <code>ia/docs/pages/rejection-reason-taxonomy.md</code>. Wireframes are black and white by rule.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '4.4 Reject with a reason';
+  window.NAV_SECTIONS = [
+    { id:'afford', label:'What makes it affordable' },
+    { id:'teach',  label:'How it teaches' },
+    { id:'mock',   label:'Wireframe' },
+    { id:'blocks', label:'Blocks' },
+    { id:'noundo', label:'No undo' },
+    { id:'states', label:'State matrix' },
+    { id:'keys',   label:'Keyboard' },
+    { id:'m360',   label:'At 360' },
+    { id:'open',   label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
