@@ -39,7 +39,7 @@ It serves the main job structurally rather than directly. Nobody opens the shell
 | **Z3 Autonomy annunciator** | Two states at once: what Clerk is **permitted** to do on this case's action class, and what it is **doing now**. Plus the record, count first. `OVRD` when an override is in force | Fixed position, always the same place. Reads from the selection in the detail pane; when nothing is selected it reads the fleet | 0.3, 3.5, 7.2 when that exists |
 | **Z4 List pane** | Whatever list the current section owns | Left, keyboard traversable, survives every decision made in Z5 | 3.1 on `/queue`, 5.1 on `/log` |
 | **Z5 Detail pane** | The fleet at rest, a case when one is selected | Right. Never a modal, because principle 5 forbids an overlay over the evidence being decided on | 3.5, 4.1, 5.4 |
-| **Z6 Toast region** | Filed, escalated, connection recovered | Bottom left, above the list rather than over the detail pane | 8.4 |
+| **Z6 Toast region** | Only what happened off screen: connection recovered with a count, a failed write, a case taken by someone else. **Not** filed and **not** escalated | Bottom left, above the list rather than over the detail pane. Persists until dismissed, never on a timer. Corrected by 8.4 | 8.4 |
 
 **Z5 is never a modal, and that is a rule rather than a preference.** Design principle 5: no overlay hides the evidence the analyst is deciding on. The two dialogs that do overlay, 4.4 reject and 4.6 escalate, are small, anchored, and never cover the evidence block. That constraint is inherited by every node in cluster 4.
 

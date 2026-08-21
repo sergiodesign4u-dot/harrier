@@ -93,7 +93,7 @@
 <h2>02 &middot; Wireframe</h2>
 <p class="h2sub">Black and white, both renderings</p>
 
-<div class="note"><p><strong>Corrected after nodes 0.3 and 0.4 were specified.</strong> The annunciator originally showed one latitude per tenant and a bare percentage; latitude is held per action class, and design principle 2 forbids a number without its claim, scope, window and absolute count. The connection strip was originally silent when healthy; a state inferred from absence is assumed rather than read. Reasoning on <a href="autonomy-annunciator.html">0.3</a> and <a href="connection-status.html">0.4</a>.</p></div>
+<div class="note"><p><strong>Corrected after nodes 0.3 and 0.4 were specified.</strong> The annunciator originally showed one latitude per tenant and a bare percentage; latitude is held per action class, and design principle 2 forbids a number without its claim, scope, window and absolute count. The connection strip was originally silent when healthy; a state inferred from absence is assumed rather than read. The toast region originally showed a filed verdict with an undo; filing needs no notice because the row leaves the queue, and an undo contradicts an append-only log. Reasoning on <a href="autonomy-annunciator.html">0.3</a>, <a href="connection-status.html">0.4</a> and <a href="toast-stack.html">8.4</a>.</p></div>
 
 <div class="zonekey">
   <span><b>Z1 Top bar</b> Mark, navigation, analyst and shift, keyboard map</span>
@@ -101,7 +101,7 @@
   <span><b>Z3 Annunciator</b> Latitude, fixed position, never dropped</span>
   <span><b>Z4 List pane</b> Keyboard grid, survives every decision</span>
   <span><b>Z5 Detail pane</b> Fleet at rest, case when selected. Never a modal</span>
-  <span><b>Z6 Toasts</b> Above the list, never over the evidence</span>
+  <span><b>Z6 Toasts</b> Off-screen events only, persist until dismissed</span>
 </div>
 
 <div class="wfwrap">
@@ -144,8 +144,8 @@
       </div>
     </div>
     <div class="z" style="border-bottom:none"><span class="tag">Z6</span>
-      <span class="toast">Verdict filed &middot; Northwind &middot; undo</span>
-      <span class="note" style="margin-left:10px">bottom left, above the list, never over Z5</span>
+      <span class="toast">12 cases arrived while you were disconnected</span>
+      <span class="note" style="margin-left:10px">bottom left, never over Z5. Filing a verdict earns no toast at all, see 8.4</span>
     </div>
   </div>
   </div>
@@ -214,7 +214,7 @@
 <tr><td>Z3 Annunciator</td><td>Two states at once: what Clerk is permitted to do on this action class, and what it is doing now. Plus the record, count first</td><td>Fixed position, always the same place. Reads the selection; with nothing selected it reads the fleet</td><td>0.3, 3.5, 7.2 later</td></tr>
 <tr><td>Z4 List pane</td><td>Whatever list the section owns</td><td>Left, keyboard traversable, survives every decision made in Z5</td><td>3.1, 5.1</td></tr>
 <tr><td>Z5 Detail pane</td><td>The fleet at rest, a case when selected</td><td>Right, never a modal</td><td>3.5, 4.1, 5.4</td></tr>
-<tr><td>Z6 Toast region</td><td>Filed, escalated, connection recovered</td><td>Bottom left, above the list rather than over the detail pane</td><td>8.4</td></tr>
+<tr><td>Z6 Toast region</td><td>Only what happened off screen: connection recovered with a count, a failed write, a case taken by someone else. <strong>Not</strong> filed and <strong>not</strong> escalated, whose results are already visible</td><td>Bottom left, above the list rather than over the detail pane. Persists until dismissed, never on a timer</td><td>8.4</td></tr>
 </tbody></table></div>
 </section>
 

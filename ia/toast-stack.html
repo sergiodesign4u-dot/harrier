@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 8.4 Toast stack</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.scene{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;font-family:var(--mono);font-size:10.5px;
+       width:820px;border:1.5px solid var(--ink);background:#fff;display:flex;min-height:190px}
+.scene.mob{width:360px;flex-direction:column;min-height:150px}
+.scene .left{width:42%;border-right:1.5px solid var(--ink);padding:10px;display:flex;flex-direction:column}
+.scene.mob .left{width:100%;border-right:none;border-bottom:1.5px solid var(--ink)}
+.scene .right{flex:1;padding:10px;background:#fcfcfc;color:#c4c7c9}
+.scene .l{height:6px;background:#eceded;margin:6px 0}
+.scene .l.s{width:42%}.scene .l.m{width:68%}.scene .l.g{background:#e3e4e6}
+.scene .spacer{flex:1}
+.tstack{display:flex;flex-direction:column;gap:5px}
+.t{border:1.5px solid var(--ink);background:#fff;padding:7px 9px;display:flex;align-items:center;gap:9px}
+.t.fail{background:var(--ink);color:#fff}
+.t .grow{flex:1}
+.t .x{border:1px solid currentColor;padding:1px 6px;min-width:24px;text-align:center}
+.t .role{font-size:8px;letter-spacing:.1em;opacity:.6}
+.t .more{color:var(--soft);font-size:9.5px}
+.paneguard{position:relative}
+.paneguard .never{font-size:8.5px;color:var(--soft);letter-spacing:.08em;text-align:right}
+.yesno{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 20px}
+.yesno > div{border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--panel)}
+.yesno h4{margin:0;padding:10px 14px;font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--rule)}
+.yesno .no h4{background:#fbf6f6;color:#8a1b1b}
+.yesno .yes h4{background:var(--accent-soft);color:var(--accent)}
+.yesno ul{margin:0;padding:12px 14px 14px 30px;font-size:13.5px}
+.yesno li{margin:0 0 6px}
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+@media (max-width:600px){ .yesno{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 8.4 &middot; Global element</p>
+<h1>Toast stack</h1>
+<p class="lede">Two things here contradict what was drawn at 0.1, and both corrections make the product simpler rather than richer. Toasts do not disappear on a timer, and filing a verdict does not produce one at all.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">8.4</dd></div>
+  <div><dt>Type</dt><dd>Section</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Lives in</dt><dd class="num">0.1 zone Z6</dd></div>
+  <div><dt>Fed by</dt><dd class="num">0.4 &middot; 4.9 &middot; off-screen events</dd></div>
+  <div><dt>Criterion</dt><dd>SC 2.2.1, Level A</dd></div>
+</dl>
+
+<section id="earns">
+<h2>01 &middot; What earns a toast</h2>
+<p class="h2sub">Three of six candidates are no, and that count is the point</p>
+<p>An analyst rules on dozens of cases a shift. If filing produces a notice, the product produces dozens of notices, and a notification the operator learns to dismiss without reading is worse than none: it trains the reflex that later dismisses the one that mattered.</p>
+<div class="node"><span class="lbl">The rule</span><p><strong>A toast only when the outcome is not visible where the analyst is looking.</strong></p></div>
+<div class="yesno">
+  <div class="no"><h4>No toast</h4><ul>
+    <li><strong>Verdict filed.</strong> The row leaves the queue. That is the feedback, already in the field of view</li>
+    <li><strong>Case escalated.</strong> The row stays and changes state visibly, which the map already requires</li>
+    <li><strong>Filters changed.</strong> The list is the answer</li>
+  </ul></div>
+  <div class="yes"><h4>Toast</h4><ul>
+    <li><strong>Connection recovered.</strong> Off screen, and it carries a count the analyst cannot otherwise get</li>
+    <li><strong>A write failed.</strong> The analyst believes a decision was recorded and it was not</li>
+    <li><strong>A case being read was taken by someone else.</strong> Off screen, and it changes what happens next</li>
+  </ul></div>
+</div>
+</section>
+
+<section id="timer">
+<h2>02 &middot; They do not disappear on a timer</h2>
+<p class="h2sub">An auto dismissing notice is a time limit, and the criterion is Level A</p>
+<p>WCAG 2.2 SC 2.2.1 Timing Adjustable, <strong>Level A</strong>: <em>"For each time limit that is set by the content, at least one of the following is true"</em>, followed by turn off, adjust over a range at least ten times the default, extend with a warning and at least twenty seconds, and three exceptions.</p>
+<div class="tw"><table>
+<thead><tr><th>Exception</th><th>Verbatim</th><th>Fits a toast?</th></tr></thead>
+<tbody>
+<tr><td>Real-time</td><td><em>"The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible"</em></td><td><strong>No.</strong> Nothing about a notice is an auction</td></tr>
+<tr><td>Essential</td><td><em>"The time limit is essential and extending it would invalidate the activity"</em></td><td><strong>No.</strong> A notice that stays invalidates nothing</td></tr>
+<tr><td>20 hours</td><td><em>"The time limit is longer than 20 hours"</em></td><td><strong>No</strong></td></tr>
+</tbody></table></div>
+<p>And the extend route is absurd here: warning the analyst that a toast is about to close, and offering twenty seconds to keep it, is more interruption than the toast. <strong>So they persist until dismissed or replaced.</strong> The Understanding document names who this is for: <em>"People with low vision need more time to locate things on screen and to read. People who are blind and using screen readers may need more time to understand screen layouts, to find information and to operate controls."</em></p>
+<p><strong>The stack is capped rather than allowed to grow:</strong> three visible, older collapse into a count. The cap is a layout decision; the persistence is a compliance one, and the two must not be confused when someone later argues for a timer.</p>
+</section>
+
+<section id="undo">
+<h2>03 &middot; There is no undo, and that is not a gap</h2>
+<p class="h2sub">0.1 drew one. Both halves of it were wrong</p>
+<p><strong>An undo on an append-only log is a contradiction.</strong> The compliance requirement in the project context is that every Clerk action and every human override writes to an append-only log carrying the evidence snapshot as it stood at decision time. A verdict that can be silently retracted is not that.</p>
+<p><strong>The alternative considered and rejected:</strong> hold the write for a few seconds so undo cancels an uncommitted action. It fails twice. It puts a deliberate delay on the one operation the product exists to make fast, and it contradicts 4.9, which assumes a write attempt the analyst can watch fail.</p>
+<div class="node"><span class="lbl">What replaces it</span><p>A wrong verdict is corrected by a <strong>new logged action that supersedes the first</strong>, visible in 5.6 as the history of that case. The correction is a record rather than an erasure, which is what an audit trail is for. Slower to type, and impossible to lose.</p></div>
+</section>
+
+<section id="mock">
+<h2>04 &middot; Wireframe</h2>
+<p class="h2sub">Bottom left, above the list, never over the detail pane</p>
+
+<div class="wfwrap"><div class="wfcap"><b>One notice</b><span>status, polite, dismissed explicitly</span></div><div class="wfpad">
+<div class="scene">
+  <div class="left">
+    <div class="l m"></div><div class="l s"></div><div class="l m"></div>
+    <div class="spacer"></div>
+    <div class="tstack">
+      <div class="t"><span>12 cases arrived while you were disconnected</span><span class="grow"></span><span class="role">status</span><span class="x">&times;</span></div>
+    </div>
+  </div>
+  <div class="right paneguard"><div class="never">DETAIL PANE, NEVER COVERED</div><div class="l g"></div><div class="l g"></div><div class="l g" style="width:80%"></div></div>
+</div>
+</div></div>
+
+<div class="wfwrap"><div class="wfcap"><b>Three plus a failure</b><span>the failure sits nearest the eye and does not collapse or dismiss</span></div><div class="wfpad">
+<div class="scene">
+  <div class="left">
+    <div class="l m"></div><div class="l s"></div>
+    <div class="spacer"></div>
+    <div class="tstack">
+      <div class="t"><span class="more">2 more notices</span><span class="grow"></span><span class="x">&times;</span></div>
+      <div class="t"><span>Halcyon Care case taken by T. Berg</span><span class="grow"></span><span class="role">status</span><span class="x">&times;</span></div>
+      <div class="t fail"><span>Verdict did not write. Northwind, held locally</span><span class="grow"></span><span class="role">alert</span><span class="x" style="opacity:.35">&times;</span></div>
+    </div>
+  </div>
+  <div class="right paneguard"><div class="never">DETAIL PANE, NEVER COVERED</div><div class="l g"></div><div class="l g" style="width:74%"></div></div>
+</div>
+</div></div>
+
+<div class="wfwrap"><div class="wfcap"><b>Mobile 360</b><span>bottom, full width, above the safe area</span></div><div class="wfpad">
+<div class="scene mob">
+  <div class="left">
+    <div class="l m"></div><div class="l s"></div>
+    <div class="spacer"></div>
+    <div class="tstack">
+      <div class="t"><span>Case taken by T. Berg</span><span class="grow"></span><span class="x">&times;</span></div>
+    </div>
+  </div>
+</div>
+</div></div>
+<p class="note" style="border:none;padding:0"><strong>The failure notice has a greyed dismiss control on purpose.</strong> A dismissible warning about a verdict that was never recorded is a way of forgetting it. The state clears when 4.10 resolves, not when the analyst clicks.</p>
+</section>
+
+<section id="matrix">
+<h2>05 &middot; State matrix and roles</h2>
+<p class="h2sub">Only failure is assertive, and nothing ever takes focus</p>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>None</th><th>One</th><th>Three or more</th><th>Failure present</th><th>Connection stale</th><th>At 360</th></tr></thead>
+<tbody>
+<tr><td>Stack</td><td>Absent</td><td>One notice</td><td>Three visible plus <code>n more</code></td><td>The failure sits at the bottom, nearest the eye, and does not collapse</td><td><strong>Suppressed.</strong> 0.4 owns one persistent strip instead</td><td>Bottom, full width</td></tr>
+<tr><td>Dismiss</td><td>n/a</td><td>Explicit, keyboard reachable</td><td>Per notice, plus dismiss all</td><td><strong>Not dismissible</strong> while the case is unrecorded</td><td>n/a</td><td>Same</td></tr>
+<tr><td>Detail pane</td><td>Unchanged</td><td>Never covered</td><td>Never covered</td><td>Never covered</td><td>Unchanged</td><td>n/a</td></tr>
+<tr><td>Focus</td><td>Untouched</td><td>Untouched</td><td>Untouched</td><td>Untouched</td><td>Untouched</td><td>Untouched</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>Case</th><th>Role</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Connection recovered, replay count</td><td><code>status</code></td><td>Polite. It is information, and the analyst may be mid sentence</td></tr>
+<tr><td>Case taken by another analyst</td><td><code>status</code></td><td>Polite. Changes what happens next, not what is on screen now</td></tr>
+<tr><td>Write failed</td><td><code>alert</code></td><td>Assertive. The analyst believes a decision was recorded and it was not</td></tr>
+</tbody></table></div>
+<p>SC 4.1.3, already carried at 0.4, requires status messages to be announced without receiving focus, and that holds for all three. <strong>The difference is politeness, not focus:</strong> nothing here ever takes focus, because focus belongs to the evidence being read.</p>
+</section>
+
+<section id="open">
+<h2>06 &middot; Grounding and open questions</h2>
+<p class="h2sub">Two Level A criteria, three decisions</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th><th>Standing</th></tr></thead>
+<tbody>
+<tr><td>An auto dismissing notice is a time limit under SC 2.2.1, Level A</td><td>W3C, Understanding SC 2.2.1, opened this session</td><td><strong>Fact, and a launch condition</strong></td></tr>
+<tr><td>None of the three exceptions applies to a toast</td><td>same page, all three quoted</td><td>Fact, reasoned</td></tr>
+<tr><td>Some people need more time to read and locate</td><td>same page, verbatim</td><td>Fact</td></tr>
+<tr><td>Status messages announced without focus</td><td>SC 4.1.3, opened at 0.4</td><td>Fact</td></tr>
+<tr><td>A toast only when the outcome is not visible on screen</td><td>this node</td><td>Decision, and it removes three of six candidates</td></tr>
+<tr><td>No undo. Correction is a superseding logged action</td><td>this node, from the compliance requirement</td><td>Decision, argued</td></tr>
+<tr><td>Cap of three visible</td><td>this node</td><td>Decision, layout</td></tr>
+</tbody></table></div>
+<ol>
+<li><strong>How long does a <code>status</code> notice persist if never dismissed?</strong> Persistence is required, but a notice from six hours ago is noise. Clearing on section change is the obvious answer and it is untested.</li>
+<li><strong>Does the analyst want to know a case was taken by someone else?</strong> Assumed yes. A shared console over forty tenants makes collisions likely, but no flow covers one, which is already an open question at 0.1.</li>
+<li><strong>Where do grant change notices go before cluster 7 exists?</strong> Nowhere in the MVP. Recorded so the gap is visible when 7.3 arrives.</li>
+</ol>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#8.4">Structure (8.4)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/toast-stack.md</code>. Frame: <a href="console-shell.html">0.1</a>. Feeds it: <a href="connection-status.html">0.4</a> and 4.9, not yet specified.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '8.4 Toast stack';
+  window.NAV_SECTIONS = [
+    { id:'earns',  label:'What earns a toast' },
+    { id:'timer',  label:'No timer' },
+    { id:'undo',   label:'No undo' },
+    { id:'mock',   label:'Wireframe' },
+    { id:'matrix', label:'States and roles' },
+    { id:'open',   label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
