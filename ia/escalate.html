@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 4.6 Escalate</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+.dlg{width:100%;min-width:420px;max-width:460px;padding-top:15px}
+.dlg.wide{max-width:460px}
+.dlg .hd{padding:10px 12px;border-bottom:1px solid var(--hair)}
+.dlg .hd b{font-size:12px}
+.dlg .quoted{padding:9px 12px;border-bottom:1px solid var(--hair);background:var(--fill)}
+.k{font-size:8px;letter-spacing:.11em;color:var(--soft);display:block;margin-bottom:3px}
+.dlg .body{padding:10px 12px}
+.rcp{border:1.5px solid var(--ink);padding:8px 10px;margin-bottom:11px}
+.rcp .nm{font-size:12px;font-weight:700}
+.rcp .meta{color:var(--soft);margin-top:3px}
+.rcp.none{border-style:dashed;border-color:var(--soft)}
+.rcp.none .nm{color:var(--soft)}
+.fld{border:1px dashed var(--hair);padding:7px 9px;margin:0 0 7px}
+.fld .lb{font-size:8px;letter-spacing:.11em;color:var(--soft);display:block;margin-bottom:4px}
+.fld .ph{color:var(--soft)}
+.fld.pre .ph{color:var(--ink)}
+.cons{border-left:3px solid var(--ink);padding:6px 0 6px 9px;background:var(--fill);margin-top:10px}
+.cons.warn{border-left-style:dashed;border-left-color:var(--soft)}
+.dfoot{display:flex;gap:8px;align-items:center;padding:10px 12px;border-top:1.5px solid var(--ink);flex-wrap:wrap}
+.act{border:1.5px solid var(--ink);padding:4px 10px;font-size:10px;font-weight:700;display:inline-flex;gap:7px;align-items:center}
+.act .kk{border:1px solid var(--ink);font-size:8px;padding:0 3px;font-weight:400}
+.act.pri{background:var(--ink);color:#fff}
+.act.pri .kk{border-color:#fff}
+.act.dis{border-style:dashed;border-color:var(--soft);color:var(--soft);font-weight:400}
+.why{color:var(--soft);font-size:9px}
+
+.m{width:360px;min-width:360px;font-size:9.5px;padding-top:15px}
+
+.two{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.two > div{flex:1 1 420px;min-width:0}
+.two h4{margin:0 0 8px;font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 4.6 &middot; Cluster 4</p>
+<h1>Escalate</h1>
+<p class="lede">The exit for a case the analyst cannot close. The smallest node in cluster 4 by surface and one of the most load bearing by dependency: <strong>4.2 makes it the only control at 360, and 4.7 makes it the only exit at all.</strong> It is also where a hole in the research became visible, and the node says so rather than routing around it.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">4.6</dd></div>
+  <div><dt>Type</dt><dd>Dialog</dd></div>
+  <div><dt>Page type</dt><dd>E, a dialog</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Opened by</dt><dd><code>e</code>, or the Escalate control</dd></div>
+  <div><dt>Job</dt><dd>MAIN, cannot close</dd></div>
+</dl>
+
+<section id="what">
+<h2>01 &middot; What escalating is, and what it is not</h2>
+<p><strong>It is not a verdict.</strong> No ruling is filed, nothing is tuned, the case does not close. The case stays open, gains the visible state <code>escalated</code>, and keeps its place in 3.1.</p>
+<p><strong>It is a handover of one case to one person.</strong> That framing decides everything else here, and it is why this dialog looks nothing like 4.4.</p>
+<div class="tw"><table>
+<thead><tr><th></th><th>4.4 Reject</th><th>4.6 Escalate</th></tr></thead>
+<tbody>
+<tr><td>Closes the case</td><td>Yes</td><td><strong>No</strong></td></tr>
+<tr><td>Produces a ruling</td><td>Yes</td><td>No</td></tr>
+<tr><td>Routes to</td><td>tuning, by taxonomy</td><td><strong>a person, by rota</strong></td></tr>
+<tr><td>What it collects</td><td>a structured reason</td><td><strong>a structured handover</strong></td></tr>
+<tr><td>Cost target</td><td>cheaper than accepting</td><td>as cheap as the handover allows</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="hole">
+<h2>02 &middot; The hole this node found</h2>
+<p>Escalation implies a recipient. <code>personas.md</code> describes two people: <strong>P1</strong>, the Tier 2 analyst, and <strong>P2</strong>, the SOC lead or service delivery manager. <strong>There is no third role in the research</strong>, and whether P2 uses the console at all is recorded as <code>[?]</code>.</p>
+<p>So "escalate to tier 3" would be an invented role wearing a confident label. <strong>This node does not invent one.</strong></p>
+<div class="node"><span class="lbl">The decision taken here instead</span><p>An escalation targets <strong>a named person on the current rota</strong>, not an abstract tier. The product already knows about shifts, because cluster 2 exists, so a rota is a thing it can hold. The dialog <strong>names the recipient before the analyst confirms</strong>, and it never files an escalation with nobody attached. That converts an unanswerable question into a dependency: <strong>4.6 depends on 2.1 knowing who is on.</strong></p></div>
+</section>
+
+<section id="mock">
+<h2>03 &middot; Wireframe, two states</h2>
+<div class="two">
+<div>
+<h4>Default &middot; there is someone on</h4>
+<div class="wfwrap"><div class="wfcap"><b>4.6</b> <span>anchored in 4.1</span></div><div class="wfpad">
+<div class="wf dlg">
+  <span class="tag">4.6</span>
+  <div class="hd"><b>Escalate this case</b></div>
+  <div class="quoted"><span class="k">YOU ARE ESCALATING</span>Ransomware precursor on FS-02 &middot; Norsk Marine<br><span class="why">Clerk filed: true positive, needs a human</span></div>
+  <div class="body">
+    <div class="rcp">
+      <span class="k">GOES TO</span>
+      <div class="nm">K. Adeyemi</div>
+      <div class="meta">SOC lead &middot; on shift until 08:00 &middot; paged and notified in Harrier</div>
+    </div>
+    <div class="fld"><span class="lb">WHAT I CHECKED</span><span class="ph">Clerk&rsquo;s evidence, the tenant base rate, the two disagreeing signals</span></div>
+    <div class="fld"><span class="lb">WHAT I COULD NOT DO</span><span class="ph">Isolate FS-02. Contain endpoint is not granted at this tenant</span></div>
+    <div class="fld"><span class="lb">WHAT I NEED FROM YOU</span><span class="ph">Authorise isolation, or tell me to leave it until 08:00</span></div>
+    <div class="cons"><span class="k">WHAT THIS DOES</span>The case <b>stays open</b> and appears in your queue as <code>escalated</code>. Written to the log either way.</div>
+  </div>
+  <div class="dfoot">
+    <span class="act pri">Escalate to K. Adeyemi</span>
+    <span class="act">Cancel <span class="kk">Esc</span></span>
+  </div>
+</div>
+</div></div>
+</div>
+
+<div>
+<h4>Nobody on the next level &middot; 03:00</h4>
+<div class="wfwrap"><div class="wfcap"><b>4.6</b> <span>the hardest state</span></div><div class="wfpad">
+<div class="wf dlg">
+  <span class="tag">4.6</span>
+  <div class="hd"><b>Escalate this case</b></div>
+  <div class="quoted"><span class="k">YOU ARE ESCALATING</span>Ransomware precursor on FS-02 &middot; Norsk Marine</div>
+  <div class="body">
+    <div class="rcp none">
+      <span class="k">WOULD HAVE GONE TO</span>
+      <div class="nm">SOC lead rota</div>
+      <div class="meta"><b>Nobody is on until 08:00.</b> Coverage gap on the rota</div>
+    </div>
+    <div class="rcp">
+      <span class="k">FALLBACK, DECLARED BY YOUR PROVIDER</span>
+      <div class="nm">Duty phone, +xx xxx</div>
+      <div class="meta">a configuration value, not a guess</div>
+    </div>
+    <div class="fld"><span class="lb">WHAT I NEED FROM YOU</span><span class="ph">Authorise isolation of FS-02</span></div>
+    <div class="cons warn"><span class="k">WHAT THIS DOES</span><b>Nothing is marked escalated yet.</b> An escalation to nobody is a case that looks handed over and is not.</div>
+  </div>
+  <div class="dfoot">
+    <span class="act dis">Escalate</span>
+    <span class="act">Call the duty phone</span>
+    <span class="why">disabled until a recipient exists</span>
+  </div>
+</div>
+</div></div>
+</div>
+</div>
+
+<div class="node"><span class="lbl">The coverage gap is grounded, not imagined</span><p>PagerDuty documents the same failure at the platform level, opened this session: <em>"Incidents are only created when an escalation policy has an on-call user. If there is no one to assign an incident to when an event is sent to PagerDuty, due to a coverage gap on a schedule for example, no incident is created."</em></p><p><strong>Their answer is to drop the incident. Ours cannot be</strong>, because the case already exists and the analyst is holding it.</p></div>
+</section>
+
+<section id="blocks">
+<h2>04 &middot; Blocks, and the absence that looks like an inconsistency</h2>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Block</th><th>Where it came from</th><th>Traces to</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>What is being escalated</strong>, one line: the case and Clerk's verdict as filed</td><td>Ours, same reason as 4.4</td><td>MAIN</td></tr>
+<tr><td>2</td><td><strong>The recipient, named</strong>, with their rota window and how they will be told</td><td>Ours, from section 02</td><td>MAIN</td></tr>
+<tr><td>3</td><td><strong>A structured handover, three short prompts</strong>: what I checked, what I could not do, what I need from you</td><td>UCL: structure removes variation in handover quality</td><td>MAIN, HJ2</td></tr>
+<tr><td>4</td><td><strong>The consequence line</strong>: stays open, gains <code>escalated</code>, written to the log either way</td><td>Webflow's consequence stating dialog</td><td>MAIN</td></tr>
+<tr><td>5</td><td><strong>One primary action naming the outcome and the person</strong>, and <code>Cancel</code></td><td>Ours, against Copy.ai's <code>OK</code></td><td>MAIN</td></tr>
+</tbody></table></div>
+<div class="absent">
+<h4>No taxonomy, and free text is the carrier here</h4>
+<p><strong>A rejection routes to a machine</strong>, so it must be machine readable, which is why 0.7 exists. <strong>An escalation routes to a person who will read it</strong>, so structure serves comprehension rather than routing. Three prompts do that; a dropdown of escalation reasons would produce a value nobody consumes.</p>
+<p>This is the exact opposite of 4.4, where free text is optional and never the carrier. Stated plainly because it looks like an inconsistency and is not: <strong>the difference is who reads the output.</strong></p>
+</div>
+</section>
+
+<section id="keys">
+<h2>05 &middot; Keyboard, and a chosen inconsistency</h2>
+<div class="tw"><table>
+<thead><tr><th>Key</th><th>Does</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td><code>e</code></td><td>Opens this dialog from 4.1 or 4.2</td><td>Declared in 0.5, live only while the pane has focus</td></tr>
+<tr><td><code>Tab</code></td><td>Moves between the three prompts</td><td>They are text fields, so letters are letters</td></tr>
+<tr><td><code>Enter</code></td><td><strong>Does not file.</strong> It is a newline inside a prompt</td><td>Deliberate difference from 4.4, where <code>Enter</code> files</td></tr>
+<tr><td><code>Escape</code></td><td>Closes without filing</td><td>The dialog consumes it and does not propagate, from 0.5</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Enter behaving differently in 4.4 and 4.6 is a real inconsistency, and it is chosen</span><p>In 4.4 the input is a selection and <code>Enter</code> completes it. In 4.6 the input is prose and <code>Enter</code> inside prose must make a line. <strong>Making them the same would break one of the two.</strong> Recorded here so 0.5 can carry it and stage 05 does not smooth it away.</p></div>
+</section>
+
+<section id="m360">
+<h2>06 &middot; At 360, and it is the only dialog that renders there</h2>
+<p>4.4 does not render at 360. <strong>4.6 does, and it is the whole reason 4.2 exists</strong>: the named scenario is read <em>and escalate</em>.</p>
+<div class="wfwrap"><div class="wfcap"><b>360</b> <span>recipient first, one prompt</span></div><div class="wfpad">
+<div class="wf dlg m">
+  <span class="tag">4.6 AT 360</span>
+  <div class="hd"><b>Escalate</b></div>
+  <div class="quoted">Ransomware precursor on FS-02 &middot; Norsk Marine</div>
+  <div class="body">
+    <div class="rcp"><span class="k">GOES TO</span><div class="nm">K. Adeyemi</div><div class="meta">on shift until 08:00 &middot; paged</div></div>
+    <div class="fld"><span class="lb">WHAT I NEED FROM YOU</span><span class="ph">Authorise isolation of FS-02</span></div>
+    <div class="cons"><span class="k">WHAT THIS DOES</span>Case stays open, marked <code>escalated</code>, written to the log.</div>
+  </div>
+  <div class="dfoot"><span class="act pri">Escalate to K. Adeyemi</span><span class="act">Cancel</span></div>
+</div>
+</div></div>
+<p>Reduced to what a person types on a phone at 03:00: <strong>the recipient first</strong>, because "who gets this" is the question, then <strong>one prompt, not three</strong>.</p>
+<div class="absent">
+<h4>The cost</h4>
+<p>The handover is thinner from a phone than from a desk. That is honest rather than ideal, and it is better than <strong>three empty fields nobody fills at 03:00 producing a handover that looks complete and is not.</strong></p>
+</div>
+</section>
+
+<section id="states">
+<h2>07 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Default</th><th>Opened from 4.7</th><th>Nobody on the next level</th><th>At 360</th><th>Write failed, 4.9</th></tr></thead>
+<tbody>
+<tr><td><strong>Recipient</strong></td><td>Named, with the rota window</td><td>Named</td><td><strong>Named as who it would have been, plus the fallback</strong></td><td>Named</td><td>Frozen</td></tr>
+<tr><td><strong>Handover prompts</strong></td><td>Three, all optional but prompted</td><td><strong>First prompt pre-filled</strong>: the evidence is no longer retrievable</td><td>Three</td><td><strong>One</strong>: what I need from you</td><td>Preserved</td></tr>
+<tr><td><strong>Consequence line</strong></td><td>Stays open, gains <code>escalated</code>, logged</td><td>Same, and it says 4.7 left no other exit</td><td><strong>Says no one is on, and what happens instead</strong></td><td>Same, shortened</td><td>Last shown</td></tr>
+<tr><td><strong>Primary action</strong></td><td><code>Escalate to &lt;name&gt;</code></td><td>Same</td><td>Disabled until a recipient exists</td><td><code>Escalate to &lt;name&gt;</code></td><td><code>Retry</code>, case stays open and <strong>unescalated</strong></td></tr>
+</tbody></table></div>
+<p><strong>Filing is allowed on a degraded connection</strong>, the same rule 0.4 settled for verdicts. A case that cannot be handed over because the network is poor is the case most likely to need handing over.</p>
+</section>
+
+<section id="open">
+<h2>08 &middot; Emotional support, not this node, grounding, open questions</h2>
+<div class="tw"><table>
+<thead><tr><th>Job</th><th>Mechanism</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td><strong>Social, P1.</strong> Look like the work of someone who knew what they were doing</td><td>Structure removes the variation. Three prompts produce a handover whose quality does not depend on how tired the author was</td><td>Block 3</td></tr>
+</tbody></table></div>
+<p>The UCL finding behind it is the strongest evidence in this node: handover quality varies widely between individuals, no organisation trains it formally, and seniors read newer analysts' notes. <strong>The person on the other end of this dialog is one of those seniors.</strong></p>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>4.4</strong></td><td>Reject, which closes the case and routes to a machine. Different shape for a different reader</td></tr>
+<tr><td><strong>4.1, 4.2, 4.7</strong></td><td>The case, the standalone route, and the state where this is the only exit</td></tr>
+<tr><td><strong>4.10</strong></td><td>Held locally. A failed escalation leaves the case open and <strong>unescalated</strong>, which is not the same state</td></tr>
+<tr><td><strong>2.1</strong></td><td>The shift, which is where the rota comes from</td></tr>
+<tr><td><strong>0.5, 8.4, 5.1</strong></td><td>Keys, the toast and no undo, and where the escalation is read back</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>A dialog that states what it will do before it does it</td><td>Webflow, Refero <code>59ddb501</code>, opened in session</td></tr>
+<tr><td><code>OK</code> names nothing</td><td>Copy.ai, Refero <code>913dc6cb</code>. Left</td></tr>
+<tr><td>Escalation policies fail when nobody is on call</td><td>PagerDuty Incidents, opened in session, quoted in section 03</td></tr>
+<tr><td>Structure removes variation in written handover</td><td>UCL handover study, stage 02</td></tr>
+<tr><td>The case stays open and wears a visible state</td><td><code>CLAUDE.md</code>, the visible states rule</td></tr>
+<tr><td>A degraded connection does not block filing</td><td>0.4</td></tr>
+<tr><td>There is no third persona</td><td><code>personas.md</code>. P2's use of the console is <code>[?]</code></td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Does the recipient see it in Harrier, or somewhere else?</strong> If P2 does not use the console, an escalation that only appears in Harrier is a message sent to a room nobody is in. <strong>The <code>[?]</code> on P2 is now blocking a real mechanism</strong>, which is a stronger reason to resolve it than it had at stage 02</td><td>Research, not drawing</td></tr>
+<tr><td>2</td><td><strong>Can an escalation be taken back?</strong> 8.4 forbids undo, so the honest answer is a second logged action. What that looks like is unspecified, and it is the same shape as the superseded entry question 5.1 left open</td><td>Stage 04, once for both</td></tr>
+<tr><td>3</td><td><strong>Does the rota come from Harrier or from the provider's existing on call tool?</strong> If it lives in PagerDuty or Opsgenie, 2.1 is reading it rather than owning it, and that is an integration this layer has not described</td><td>Not resolved here</td></tr>
+<tr><td>4</td><td>Are three prompts the right number at 1440? Two would be cheaper and one of the three is doing less work than the others</td><td>Stage 04 draws it, stage 05 writes them</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#4.6">Structure (4.6)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/escalate.md</code>. Block composition from <code>ia/docs/blocks.md</code>, type E. The recipient decision is taken at this node and depends on 2.1.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '4.6 Escalate';
+  window.NAV_SECTIONS = [
+    { id:'what',   label:'What it is not' },
+    { id:'hole',   label:'The hole it found' },
+    { id:'mock',   label:'Wireframe' },
+    { id:'blocks', label:'Blocks' },
+    { id:'keys',   label:'Keyboard' },
+    { id:'m360',   label:'At 360' },
+    { id:'states', label:'State matrix' },
+    { id:'open',   label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

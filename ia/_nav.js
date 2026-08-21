@@ -53,7 +53,7 @@ window.IA_NAV = [
   { node:'4.3',  label:'Clerk still investigating',     type:'loading', group:'pages',  scope:'MVP',   file:null },
   { node:'4.4',  label:'Reject with a reason',          type:'dialog',  group:'pages',  scope:'MVP',   file:'reject.html' },
   { node:'4.5',  label:'Amend the narrative',           type:'state',   group:'pages',  scope:'MVP',   file:null },
-  { node:'4.6',  label:'Escalate',                      type:'dialog',  group:'pages',  scope:'MVP',   file:null },
+  { node:'4.6',  label:'Escalate',                      type:'dialog',  group:'pages',  scope:'MVP',   file:'escalate.html' },
   { node:'4.7',  label:'Evidence expired',              type:'error',   group:'pages',  scope:'MVP',   file:null },
   { node:'4.8',  label:'No baseline for this tenant',   type:'empty',   group:'pages',  scope:'MVP',   file:null },
   { node:'4.9',  label:'Verdict did not write',         type:'error',   group:'pages',  scope:'MVP',   file:null },
