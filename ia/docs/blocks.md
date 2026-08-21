@@ -144,6 +144,7 @@ Top to bottom. As with 3.1, no single reference has this order.
 10. `Last updated` stamp, and the `?as-of` address of this snapshot. **Defender, plus the compliance requirement**
 
 **What is deliberately absent:** the incident graph, suggested prompts, `Regenerate`, the task pane, `Open in Security Copilot`, thumbs up and down, and the blanket AI disclaimer. Seven blocks the references ship and we do not.
+
 ---
 
 ## Type C: a shift digest
