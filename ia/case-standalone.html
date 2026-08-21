@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 4.2 Case File, standalone</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+/* two routes diagram */
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;min-width:600px;max-width:760px}
+.routes > div{border:1px solid var(--ink);padding:16px 13px 13px;position:relative}
+.routes > div:last-child{border-left:none}
+.routes .u{font-size:11px;font-weight:700;margin-bottom:6px}
+.routes .n{color:var(--soft);font-size:9px;line-height:1.45}
+.routes .mini{display:flex;height:44px;margin:9px 0;border:1px solid var(--ink)}
+.routes .mini .l{flex:1.4;background:var(--fill);border-right:1px solid var(--ink)}
+.routes .mini .r{flex:1}
+.routes .mini.solo .r{flex:1}
+
+/* 1440 header fragment */
+.hdr{width:100%;min-width:600px;max-width:760px;padding-top:15px}
+.hdr .row{padding:11px 13px;border-bottom:1px solid var(--hair)}
+.hdr .ttl{font-size:13px;font-weight:700}
+.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.st{border:1px solid var(--ink);padding:1px 5px;font-size:8px;letter-spacing:.06em;white-space:nowrap}
+.st.inv{background:var(--ink);color:#fff}
+.first{display:flex;gap:9px;align-items:center;padding:10px 13px;border-bottom:1.5px solid var(--ink);background:var(--fill);flex-wrap:wrap}
+.act{border:1.5px solid var(--ink);padding:4px 10px;font-size:10px;font-weight:700;display:inline-flex;gap:7px;align-items:center}
+.act.pri{background:var(--ink);color:#fff}
+.act .kk{border:1px solid var(--ink);font-size:8px;padding:0 3px;font-weight:400}
+.act.pri .kk{border-color:#fff}
+.why{color:var(--soft);font-size:9px}
+
+/* 360 */
+.m{width:360px;min-width:360px;font-size:9.5px;padding-top:15px;padding-bottom:34px}
+.m .strip{padding:5px 10px;border-bottom:1px solid var(--hair);color:var(--soft);font-size:9px}
+.m .bk{padding:9px 10px;border-bottom:1px solid var(--hair);position:relative}
+.m h5{margin:0 0 5px;font-size:8px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;font-weight:400}
+.m .ttl{font-size:12px;font-weight:700;line-height:1.3}
+.m .banner{border:1.5px solid var(--ink);background:var(--fill);padding:6px 8px;display:flex;gap:6px;flex-wrap:wrap;align-items:baseline}
+.m .verdict{font-size:11px;font-weight:700;line-height:1.4}
+.li{display:flex;gap:6px;margin:4px 0}
+.li .d{color:var(--soft);flex:0 0 74px}
+.li .d.n{flex:0 0 9px}
+.li .t{flex:1}
+.bas{border:1px solid var(--soft);color:var(--soft);padding:0 3px;font-size:8px;white-space:nowrap}
+.ent{border-bottom:1px dashed var(--ink)}
+.collapsed{border:1px dashed var(--hair);padding:5px 7px;margin-top:6px;color:var(--soft);display:flex;justify-content:space-between}
+.capped{color:var(--soft);font-size:9px;margin-top:3px}
+.provline{color:var(--soft)}
+.provline b{color:var(--ink)}
+.latm{display:grid;grid-template-columns:74px 1fr;gap:4px 8px}
+.latm .k{color:var(--soft);font-size:8px;letter-spacing:.1em}
+.latm .off{color:var(--soft)}
+.pinned{position:absolute;left:0;right:0;bottom:0;background:var(--ink);color:#fff;padding:8px 10px;
+  display:flex;gap:9px;align-items:center;justify-content:space-between;font-weight:700}
+.pinned .kk{border:1px solid #fff;font-size:8px;padding:0 3px;font-weight:400}
+.pinned .sub{font-weight:400;color:#b8bcbf;font-size:8.5px}
+
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+
+.two{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.two > .c1{flex:0 0 auto}
+.two > .c2{flex:1 1 300px;min-width:0}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+@media (max-width:640px){ .routes{grid-template-columns:1fr;min-width:0} .routes > div:last-child{border-left:1px solid var(--ink);border-top:none} }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 4.2 &middot; Cluster 4</p>
+<h1>Case File, standalone route</h1>
+<p class="lede">The same case at its own URL, with no list beside it. It exists for <strong>exactly two reasons</strong>, and both are worth stating first, because a node that exists for two reasons is the easiest kind to quietly grow a third.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">4.2</dd></div>
+  <div><dt>Type</dt><dd>Page</dd></div>
+  <div><dt>Page type</dt><dd>B, record with AI narrative</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Route</dt><dd><code>/case/{caseId}</code></dd></div>
+  <div><dt>Job</dt><dd>MAIN &middot; mobile scenario</dd></div>
+</dl>
+
+<section id="why">
+<h2>01 &middot; Two reasons, and the one thing it cannot inherit</h2>
+<div class="wfwrap"><div class="wfcap"><b>The same case, two addresses</b> <span>neither redirects to the other</span></div><div class="wfpad">
+<div class="routes">
+  <div><div class="u">4.1 &middot; <code>/queue/case/{id}</code></div>
+    <div class="mini"><div class="l"></div><div class="r"></div></div>
+    <div class="n">The pane. The list survives the decision, which is the guarantee 0.1 exists to make. Filing here leaves her on the next case</div></div>
+  <div><div class="u">4.2 &middot; <code>/case/{id}</code></div>
+    <div class="mini solo"><div class="r"></div></div>
+    <div class="n">A permalink, and the only rendering at 360. <strong>The list is not here</strong>, so filing leaves her on a case she has already ruled on</div></div>
+</div>
+</div></div>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>Reason 1</strong></td><td><strong>A permalink.</strong> The log, a ticket, a pager, a client email. An address that travels</td></tr>
+<tr><td><strong>Reason 2</strong></td><td><strong>The only rendering at 360.</strong> 4.1 is the right pane of a split, and at 360 there is no split</td></tr>
+</tbody></table></div>
+<p>4.2 is 4.1 without the list: the same ten blocks, same order, same bank rows. Repeating them here would create a second edition that drifts, so this node <strong>references rather than restates</strong>. <strong>What it cannot inherit is 0.1's guarantee</strong>, and that is not a defect. It is the cost of a permalink, and it produces the rule in section 02.</p>
+</section>
+
+<section id="desk">
+<h2>02 &middot; At 1440: it lands, and its first offer is the queue</h2>
+<p>An analyst arriving at <code>/case/{caseId}</code> on a desk almost always came from somewhere else: a ticket, a message, the log. She is about to do the main job <strong>in the one place the main job is worse</strong>.</p>
+<div class="wfwrap"><div class="wfcap"><b>/case/c-8841 at 1440</b> <span>the head of the page</span></div><div class="wfpad">
+<div class="wf hdr">
+  <span class="tag">4.2 AT 1440</span>
+  <div class="first">
+    <span class="act pri">Open in the queue</span>
+    <span class="why">puts the case back in the pane with the list beside it, which is 4.1</span>
+  </div>
+  <div class="row">
+    <div class="ttl">Credential stuffing against the edge VPN</div>
+    <div class="chips"><span class="st">Larkfield Logistics</span><span class="st">MED</span><span class="st inv">CLERK ACTED</span><span class="st">c-8841</span></div>
+  </div>
+  <div class="row why">below this point the page is 4.1, block for block, with all four verdict controls at the foot</div>
+</div>
+</div></div>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>Not blocked</strong></td><td>All four verdict controls work here. Blocking would be worse than the problem: an analyst who is sure does not need to be routed</td></tr>
+<tr><td><strong>But offered first</strong></td><td>Because the analyst who is <em>not</em> sure will want the next case, and this page cannot give her one</td></tr>
+<tr><td><strong>After filing here</strong></td><td>The page states the outcome and stays. It does not pretend to advance, because there is nothing to advance to</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Worth naming</span><p>This is <strong>the only place in the product where the same job has a better and a worse surface, and the product says so out loud.</strong></p></div>
+</section>
+
+<section id="m360">
+<h2>03 &middot; At 360, and this node owns that decision</h2>
+<p><code>CLAUDE.md</code>: <em>"Responsive down to 360 for one real scenario: an on-call analyst opening a paged case from a phone at 03:00 to read it and escalate."</em> Taken literally, and the consequences named.</p>
+
+<div class="two">
+<div class="c1">
+<div class="wfwrap"><div class="wfcap"><b>360</b> <span>read and escalate</span></div><div class="wfpad">
+<div class="wf m">
+  <span class="tag">4.2 AT 360</span>
+  <div class="strip">Live, last update 40s ago <span style="color:#d4d6d8">|</span> carried here, not by the shell</div>
+  <div class="bk">
+    <div class="ttl">Credential stuffing against the edge VPN</div>
+    <div class="chips"><span class="st">Larkfield Logistics</span><span class="st">MED</span><span class="st inv">CLERK ACTED</span></div>
+  </div>
+  <div class="bk">
+    <div class="banner"><b>Clerk blocked 3 addresses at 04:12.</b><span>Contain network</span><span class="st">REVERSIBLE BY YOU</span></div>
+  </div>
+  <div class="bk"><h5>Clerk&rsquo;s verdict</h5>
+    <div class="verdict">True positive. Credential stuffing from a residential proxy pool, contained, no account compromised.</div>
+  </div>
+  <div class="bk"><h5>What happened</h5>
+    <p style="margin:0">1,140 failed authentications against <span class="ent">14 accounts</span> <span class="bas">3 src</span> from one residential proxy range. None succeeded.</p>
+    <div class="li"><span class="d">03:47</span><span class="t">Threshold crossed on <span class="ent">vpn-edge-01</span></span></div>
+    <div class="li"><span class="d">04:12</span><span class="t">Clerk blocked 3 addresses. Attempts stop in 40s</span></div>
+  </div>
+  <div class="bk"><h5>Evidence</h5>
+    <div class="li"><span class="d">Supports</span><span class="t">All 1,140 attempts failed <span class="bas">auth log</span></span></div>
+    <div class="li"><span class="d">Supports</span><span class="t">Range on 2 reputation feeds <span class="bas">TI</span></span></div>
+    <div class="collapsed"><span>1 disagreeing signal</span><span>&#9656;</span></div>
+    <div style="margin-top:8px"><b>Looked for and did not find</b>
+      <div class="li"><span class="d n">&#9679;</span><span class="t">Any successful sign in from the range, 30 days</span></div>
+      <div class="li"><span class="d n">&#9679;</span><span class="t">MFA prompts approved by any of the 14</span></div>
+      <div class="li"><span class="d n">&#9679;</span><span class="t">Matching pattern at any other tenant</span></div>
+      <div class="capped">2 more</div>
+    </div>
+  </div>
+  <div class="bk"><h5>Provenance</h5>
+    <div class="provline"><b>6 sources</b> &middot; <b>1,354 records</b> &middot; <b>30 days</b> &middot; <b>4 passes</b></div>
+  </div>
+  <div class="bk"><h5>At this client</h5>
+    <div>Credential stuffing on the edge VPN: <b>9 cases in 30 days</b>, 8 upheld.</div>
+  </div>
+  <div class="bk"><h5>What Clerk may do here</h5>
+    <div class="latm">
+      <div class="k">ACTS ALONE</div><div>Investigate, Contain network, Contain endpoint</div>
+      <div class="k">ASKS FIRST</div><div class="off">Contain identity, Remove content</div>
+      <div class="k">NEVER</div><div class="off">Change policy</div>
+    </div>
+  </div>
+  <div class="bk why">Filed by Clerk 04:12:38 &middot; snapshot addressable</div>
+  <div class="pinned"><span>Escalate <span class="kk">E</span></span><span class="sub">the only control at 360</span></div>
+</div>
+</div></div>
+</div>
+
+<div class="c2">
+<div class="tw"><table>
+<thead><tr><th>Block</th><th>At 360</th></tr></thead>
+<tbody>
+<tr><td>Header, client, state chips</td><td><strong>Kept, first.</strong> Identity before anything</td></tr>
+<tr><td>Action banner, if Clerk already acted</td><td><strong>Kept.</strong> At 03:00 this is the single most valuable line on the screen</td></tr>
+<tr><td>Clerk's verdict</td><td><strong>Kept, second</strong></td></tr>
+<tr><td>The narrative</td><td>Kept, prose lead and dated bullets</td></tr>
+<tr><td>Evidence</td><td>Kept. <strong>Disagreeing signals collapsed by default</strong></td></tr>
+<tr><td>What Clerk did not find</td><td><strong>Capped at three</strong>, with a count of the rest</td></tr>
+<tr><td>Provenance</td><td><strong>Compressed to one line</strong></td></tr>
+<tr><td>Tenant context</td><td>Kept, one line. Principle 4 does not weaken on a phone</td></tr>
+<tr><td>Latitude</td><td><strong>Kept.</strong> See below</td></tr>
+<tr><td>Verdict controls</td><td><strong>Escalate only</strong></td></tr>
+</tbody></table></div>
+</div>
+</div>
+
+<div class="node"><span class="lbl">Latitude stays, and that is deliberate</span><p>It would be the easy thing to drop: a six row table on a 360 screen. <strong>It stays because at 03:00 the question "what has Clerk already done to this client, and what could it still do without me" is the fastest route to knowing whether this needs waking someone up.</strong> Compressed to the classes in force and the ones it had to ask about, without the reasons.</p></div>
+
+<div class="node"><span class="lbl">Escalate is pinned, and the tension with principle 5 is real</span><p>Principle 5 says no overlay hides the evidence the analyst is deciding on. A pinned bar covers a strip of text. <strong>We pin it anyway, and here is the argument rather than a shrug:</strong> the named scenario is read <em>and escalate</em>, and an action reachable only by scrolling past a full narrative is not the primary action of the surface. The bar is one control tall, the page scrolls under it, and <strong>she is not deciding here, she is handing over.</strong> Principle 5 protects a decision being made on evidence; this surface makes no decision.</p></div>
+
+<div class="absent">
+<h4>What is lost, said plainly</h4>
+<p><strong>A case she reads at 03:00 and knows to be benign cannot be closed from the phone.</strong> It stays in the queue until she is at a desk. That is the platform line applied honestly, and 4.4 records the same cost from the other side.</p>
+</div>
+</section>
+
+<section id="emo">
+<h2>04 &middot; Emotional support is reduced at 360, and that is coherent</h2>
+<p>At 4.1 the evidence block carries <strong>Emotional, P1, thorough rather than lucky</strong> by rendering what Clerk looked for and did not find with the same weight as what it found. At 360 that list is capped at three.</p>
+<p><strong>The mechanism is weakened, and it is the right trade</strong>, because the job at 360 is not to decide. The feeling of thorough against lucky attaches to a ruling, and no ruling is made here. What she needs instead is enough to justify waking someone up, which is a lower bar and an honest one.</p>
+<p><strong>Social, P1</strong> is untouched: the verdict record is structured wherever it is written, and nothing is written here.</p>
+</section>
+
+<section id="states">
+<h2>05 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>1440, arrived by link</th><th>1440, after filing</th><th>360, default</th><th>360, Clerk acted</th><th>360, connection stale</th></tr></thead>
+<tbody>
+<tr><td><strong>First control</strong></td><td><code>Open in the queue</code></td><td><code>Open in the queue</code></td><td>Escalate, pinned</td><td>Escalate, pinned</td><td>Escalate, pinned</td></tr>
+<tr><td><strong>Verdict controls</strong></td><td>All four</td><td>Replaced by the outcome, stated</td><td>Escalate only</td><td>Escalate only</td><td><strong>Escalate only, and still allowed.</strong> 0.4 settled that a degraded connection does not block a decision</td></tr>
+<tr><td><strong>Latitude</strong></td><td>Full, six classes with reasons</td><td>Full</td><td>Compressed, classes only</td><td><strong>What it did, and whether it can be undone</strong></td><td>As of last sync</td></tr>
+<tr><td><strong>Did not find</strong></td><td>Full list</td><td>Full</td><td>Three, with a count of the rest</td><td>Same</td><td>Same</td></tr>
+<tr><td><strong>Live freshness</strong></td><td>0.4 in the shell</td><td>Same</td><td><strong>On the page</strong>, because at 360 the shell has no strip to carry it</td><td>Same</td><td>Names the age in words</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The last row is a real inheritance break</span><p>At 1440 freshness lives in 0.1 zone Z2. At 360 the shell is compressed and the strip has nowhere to be, so <strong>this node carries it</strong>. Recorded rather than assumed, because a stale case at 03:00 is the worst version of that failure.</p></div>
+</section>
+
+<section id="open">
+<h2>06 &middot; Addressing, not this node, open questions</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>Route</strong></td><td><code>/case/{caseId}</code></td></tr>
+<tr><td><strong>The other route</strong></td><td><code>/queue/case/{caseId}</code> is 4.1, the same case with the list. <strong>Both resolve; neither redirects</strong></td></tr>
+<tr><td><strong>Which the product generates</strong></td><td>Notifications, pager links and log links emit <code>/case/{caseId}</code>, because it is the address that travels. The queue emits <code>/queue/case/{caseId}</code>, because it has a list to preserve</td></tr>
+<tr><td><strong>Case id</strong></td><td><strong>Opaque.</strong> A sequential id in a URL that travels through pager, chat and ticket is an enumeration surface</td></tr>
+<tr><td><strong>Through authentication</strong></td><td>The destination survives 1.1 and lands <strong>on this case</strong>, not on a bare queue. The mechanism belongs to 1.1; recorded here because this is the node that breaks if it is missed</td></tr>
+<tr><td><strong>Snapshot</strong></td><td><code>?as-of</code> resolves to 5.4, a different node with a frame and no controls. This one is always the live case</td></tr>
+<tr><td><strong>Not this node</strong></td><td><strong>4.1</strong> where all ten blocks and the three canonical components are defined &middot; <strong>0.1</strong> the shell &middot; <strong>4.3 to 4.10</strong> the states &middot; <strong>4.4</strong> which does not render at 360 and <strong>4.6</strong> which does &middot; <strong>5.4</strong> the frozen version &middot; <strong>1.1</strong> the surviving deep link</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Should <code>/case/{id}</code> redirect to <code>/queue/case/{id}</code> on a desk?</strong> Section 02 says no and offers instead. A redirect means the address she copied is not the address that opens</td><td>Not reopened without reopening that</td></tr>
+<tr><td>2</td><td><strong>Is a pinned escalate bar the right call, given principle 5?</strong> The argument in section 03 is an argument, not a proof</td><td>Stage 04 draws it at 360 and the tension is visible or it is not</td></tr>
+<tr><td>3</td><td><strong>What does the page do after a verdict is filed at 1440?</strong> It states the outcome and stays. Whether it should then offer the queue more loudly, or the next case in the same tenant, is unspecified and is <strong>the most likely dead end in this node</strong></td><td>Stage 04</td></tr>
+<tr><td>4</td><td>Does the compressed latitude at 360 still read as latitude, or as a list of capabilities? <strong>The differentiator survives compression or it does not, and 360 is where that is tested hardest</strong></td><td>Stage 04</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#4.2">Structure (4.2)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/case-standalone.md</code>. Blocks defined at 4.1, from <code>ia/docs/blocks.md</code> type B. This node specifies what changes, not what is the same.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '4.2 Case File, standalone';
+  window.NAV_SECTIONS = [
+    { id:'why',    label:'Two reasons' },
+    { id:'desk',   label:'At 1440' },
+    { id:'m360',   label:'At 360' },
+    { id:'emo',    label:'Emotional support' },
+    { id:'states', label:'State matrix' },
+    { id:'open',   label:'Addressing' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
