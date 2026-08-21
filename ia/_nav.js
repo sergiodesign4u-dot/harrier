@@ -27,9 +27,9 @@ window.IA_NAV = [
   { node:'0.6',  label:'Action class taxonomy',         type:'section', group:'global', scope:'MVP',   file:'action-class-taxonomy.html' },
   { node:'0.7',  label:'Rejection reason taxonomy',     type:'section', group:'global', scope:'MVP',   file:'rejection-reason-taxonomy.html' },
   /* 8 systemic, global too */
-  { node:'8.1',  label:'Not found',                     type:'state',   group:'global', scope:'MVP',   file:null },
-  { node:'8.2',  label:'Service unavailable',           type:'state',   group:'global', scope:'MVP',   file:null },
-  { node:'8.3',  label:'Permission denied',             type:'state',   group:'global', scope:'MVP',   file:null },
+  { node:'8.1',  label:'Not found',                     type:'state',   group:'global', scope:'MVP',   file:'not-found.html' },
+  { node:'8.2',  label:'Service unavailable',           type:'state',   group:'global', scope:'MVP',   file:'service-unavailable.html' },
+  { node:'8.3',  label:'Permission denied',             type:'state',   group:'global', scope:'MVP',   file:'permission-denied.html' },
   { node:'8.4',  label:'Toast stack',                   type:'section', group:'global', scope:'MVP',   file:'toast-stack.html' },
   /* 1 session */
   { node:'1.1',  label:'Sign in',                       type:'page',    group:'pages',  scope:'MVP',   file:'sign-in.html' },

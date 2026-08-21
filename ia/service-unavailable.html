@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 8.2 Service unavailable</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+.sys{width:100%;min-width:400px;max-width:560px;padding:30px 22px 22px}
+.sys .st1{font-size:14px;font-weight:700;margin-bottom:8px}
+.sys .p{margin-bottom:14px;line-height:1.5}
+.sys .exits{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.sys .btn{border:1.5px solid var(--ink);padding:4px 10px;font-weight:700;font-size:10px}
+.sys .btn.pri{background:var(--ink);color:#fff}
+.sys .addr{border:1px dashed var(--hair);padding:6px 8px;color:var(--soft);word-break:break-all}
+.sys .kv{display:grid;grid-template-columns:112px 1fr;gap:4px 10px;margin-bottom:14px}
+.sys .kv .k{color:var(--soft);font-size:8px;letter-spacing:.11em;padding-top:2px}
+.sysm{width:360px;min-width:360px;max-width:360px;font-size:9.5px;padding:24px 16px 18px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;min-width:600px;max-width:780px}
+.three > div{border:1px solid var(--ink);border-left:none;padding:15px 12px 12px;position:relative}
+.three > div:first-child{border-left:1.5px solid var(--ink)}
+.three .u{font-weight:700;margin-bottom:5px}
+.three .n{color:var(--soft);font-size:9px;line-height:1.4}
+.three .same{background:var(--fill)}
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+.two{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.two > div{flex:1 1 380px;min-width:0;max-width:100%}
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+@media (max-width:680px){ .three{grid-template-columns:1fr;min-width:0}
+  .three > div{border-left:1.5px solid var(--ink);border-top:none}
+  .three > div:first-child{border-top:1px solid var(--ink)} }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 8.2 &middot; Systemic</p>
+<h1>Service unavailable</h1>
+<p class="lede">The terminal form of 0.4. The connection strip reports degradation <em>in place</em> while the analyst keeps working; 8.2 is for when nothing renders at all. Its hardest requirement is not visual: <strong>a console this operator cannot open is an incident at the provider</strong>, so the page has to tell her what to do instead of using it.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">8.2</dd></div>
+  <div><dt>Type</dt><dd>State</dd></div>
+  <div><dt>Page type</dt><dd>G, systemic state</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Route</dt><dd>replaces what was requested</dd></div>
+  <div><dt>Job</dt><dd>none, and every job depends on it being rare</dd></div>
+</dl>
+
+<section id="agree">
+<h2>01 &middot; It must agree with 0.4, word for word</h2>
+<p>0.4 already names three connection states and their vocabulary. <strong>If 8.2 invents its own words, the analyst sees two different names for one condition</strong> and learns that the product does not know which is true.</p>
+<div class="tw"><table>
+<thead><tr><th>0.4, degraded but working</th><th>8.2, nothing renders</th></tr></thead>
+<tbody>
+<tr><td><code>Live, last case 4s ago</code></td><td>n/a</td></tr>
+<tr><td><code>Reconnecting, last case 6m ago</code></td><td>The same duration language, in a page instead of a strip</td></tr>
+<tr><td><code>Stale, showing what was known at 04:12</code></td><td>The same timestamp language</td></tr>
+</tbody></table></div>
+<p><strong>The rule:</strong> 8.2 borrows 0.4&rsquo;s vocabulary and adds only what a strip cannot say. It never renames a state that already has a name.</p>
+</section>
+
+<section id="mock">
+<h2>02 &middot; Wireframe, and the order inverts at 360</h2>
+<div class="two">
+<div>
+<div class="wfwrap"><div class="wfcap"><b>1440</b> <span>unplanned</span></div><div class="wfpad">
+<div class="wf sys">
+  <span class="tag">8.2</span>
+  <div class="st1">Harrier is not reachable.</div>
+  <div class="kv">
+    <div class="k">UNAVAILABLE</div><div>The console. Signals are still being collected</div>
+    <div class="k">SINCE</div><div><b>6 minutes ago</b></div>
+    <div class="k">ESTIMATE</div><div>No estimate</div>
+  </div>
+  <div class="p"><b>While it is down, reach your duty line.</b><br>Duty phone, +xx xxx &middot; declared by your provider</div>
+  <div class="exits"><span class="btn pri">Try again</span></div>
+</div>
+</div></div>
+</div>
+<div>
+<div class="wfwrap"><div class="wfcap"><b>360</b> <span>the worst screen to see at 03:00</span></div><div class="wfpad">
+<div class="wf sys sysm">
+  <span class="tag">8.2 AT 360</span>
+  <div class="p"><b>Duty phone, +xx xxx</b><br><span style="color:#9aa0a6">declared by your provider</span></div>
+  <div class="st1">Harrier is not reachable.</div>
+  <div class="kv">
+    <div class="k">SINCE</div><div><b>6 minutes ago</b></div>
+    <div class="k">ESTIMATE</div><div>No estimate</div>
+  </div>
+  <div class="exits"><span class="btn">Try again</span></div>
+</div>
+</div></div>
+</div>
+</div>
+<p><strong>At 360 the order inverts and the fallback contact comes first</strong>, above what is unavailable and since when. On a desk she wants to understand; on a phone at 03:00 she wants a number.</p>
+<div class="node"><span class="lbl">The block that makes this page useful</span><p>Every other error page in the world ends at "try again later". <strong>This one ends at a phone number</strong>, because the person reading it is on shift and the clients are still generating signal. It is <strong>the same declared fallback contact 4.6 uses when nobody is on the rota: one configuration value, two nodes.</strong></p></div>
+<p><strong>Also:</strong> <code>No estimate</code> rather than an invented time. The rule about invented numbers applies to interfaces too. And retry is an action she takes, not an automatic spinner, because a spinner hides whether anything is being attempted. <strong>Left:</strong> an illustration, an apology paragraph, and a status page link that may itself be down.</p>
+</section>
+
+<section id="gap">
+<h2>03 &middot; The state nobody owns yet</h2>
+<p>Three things can be unavailable and only two of them are this page.</p>
+<div class="tw"><table>
+<thead><tr><th>What is down</th><th>What the analyst sees</th><th>Which node</th></tr></thead>
+<tbody>
+<tr><td>The console</td><td>Nothing renders</td><td><strong>8.2</strong></td></tr>
+<tr><td>The connection between her and the console</td><td>Degraded, working</td><td><strong>0.4</strong>, and 3.3 for the queue</td></tr>
+<tr><td><strong>Clerk</strong></td><td>The console works. The queue works. Verdicts file. <strong>But nothing new is being correlated</strong></td><td><strong>Nobody</strong></td></tr>
+</tbody></table></div>
+<div class="absent">
+<h4>A real gap, found here</h4>
+<p>Clerk being unavailable is not the console being unavailable: every screen still renders and every control still works, and the only symptom is that <strong>the queue stops growing while the world does not.</strong></p>
+<p>A quiet queue is supposed to be good news, and 2.3 says so in those words. <strong>If Clerk is down, a quiet queue is the worst possible news, and the product currently cannot tell the two apart.</strong> That is a missing state rather than a missing page, and it belongs to 0.4 or to a new node. Recorded, not resolved.</p>
+</div>
+</section>
+
+<section id="states">
+<h2>04 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th></th><th>Planned maintenance</th><th>Unplanned</th><th>Partial</th></tr></thead>
+<tbody>
+<tr><td><strong>What is unavailable</strong></td><td>Named, with the window</td><td>Named, without one</td><td>The part, named</td></tr>
+<tr><td><strong>Since when</strong></td><td>Not shown. It started on time</td><td>Duration, in 0.4's language</td><td>Duration</td></tr>
+<tr><td><strong>Estimate</strong></td><td>The published window</td><td><code>No estimate</code></td><td>If known</td></tr>
+<tr><td><strong>Fallback contact</strong></td><td>Shown</td><td>Shown</td><td>Shown only if the down part matters to a decision</td></tr>
+<tr><td><strong>Retry</strong></td><td>Available</td><td>Available</td><td>Available</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="open">
+<h2>05 &middot; Not this node, grounding, open questions</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>0.4</strong></td><td>The connection strip, which owns the vocabulary and the degraded cases</td></tr>
+<tr><td><strong>3.3</strong></td><td>The stale queue, which is 0.4's effect on one surface</td></tr>
+<tr><td><strong>4.6</strong></td><td>Which uses the same fallback contact when nobody is on the rota</td></tr>
+<tr><td><strong>8.1</strong></td><td>A page that did not resolve, a different failure</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Three connection states and their wording</td><td>0.4, from the EventSource <code>readyState</code> mapping</td></tr>
+<tr><td>A degraded connection does not block a decision</td><td>0.4</td></tr>
+<tr><td>The provider's declared fallback contact exists</td><td>4.6, where it was introduced</td></tr>
+<tr><td>No invented numbers</td><td><code>CLAUDE.md</code>, rules of evidence, applied here to estimates</td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Who owns the Clerk down state?</strong> Section 03. It is a real hole and it makes 2.3 dangerous</td></tr>
+<tr><td>2</td><td>Is the fallback contact the right thing to show unauthenticated? A phone number on a page anyone can reach is a small disclosure and a large convenience. Not resolved</td></tr>
+<tr><td>3</td><td>Does planned maintenance ever happen during a shift? If the answer is no, the first column of section 04 is furniture. Nobody has said</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#8.2">Structure (8.2)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/service-unavailable.md</code>. Vocabulary inherited from 0.4; fallback contact shared with 4.6.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '8.2 Service unavailable';
+  window.NAV_SECTIONS = [
+    { id:'agree',  label:'Agrees with 0.4' },
+    { id:'mock',   label:'Wireframe' },
+    { id:'gap',    label:'The state nobody owns' },
+    { id:'states', label:'State matrix' },
+    { id:'open',   label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
