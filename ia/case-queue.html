@@ -106,7 +106,7 @@
 <tr><td>1</td><td><strong>Scope bar.</strong> Removable chips: tenant or tenant group, severity, what Clerk concluded, <code>escalated</code>, <code>unrecorded</code>. Sort is a chip like the rest</td><td>PagerDuty and Defender chips; tenant groups from Defender multitenant</td><td>MAIN, 3.6</td><td>MVP</td></tr>
 <tr><td>2</td><td><strong>Scope readout.</strong> What is in scope right now, counted. Not a metric card and not a percentage</td><td>Ours, from design principle 2 and the counts on Defender's tabs</td><td>MAIN</td><td>MVP</td></tr>
 <tr><td>3</td><td><strong>The list.</strong> Virtualised, keyboard traversable, one row per case</td><td>The pattern itself, shipped by Defender and PagerDuty</td><td>MAIN</td><td>MVP</td></tr>
-<tr><td>4</td><td><strong>Selection held</strong> through the whole decision, including after a verdict is filed</td><td>Ours, from 0.1's guarantee</td><td>MAIN</td><td>MVP</td></tr>
+<tr><td>4</td><td><strong>Selection held, and the decided row does not vanish.</strong> It stays in place, marked decided, and leaves only when the selection moves off it</td><td>Ours, from 0.1's guarantee</td><td>MAIN</td><td>MVP</td></tr>
 <tr><td>5</td><td><strong>The pane.</strong> Resizable, width remembered. At rest it holds 3.5, the fleet</td><td>PagerDuty draggable and remembered panel, which closed 0.1's open question</td><td>MAIN, P2-MAIN</td><td>MVP</td></tr>
 <tr><td>6</td><td><strong>Freshness in words</strong>, carried by 0.4 in the shell rather than repeated here</td><td>0.4, corrected upward from 0.1</td><td>MAIN</td><td>MVP</td></tr>
 <tr><td>7</td><td>Export the current view</td><td>Fingerprint and PagerDuty CSV export</td><td>R2, compliance</td><td><strong>LATER</strong></td></tr>
@@ -137,6 +137,20 @@
 </div>
 </div></div>
 <p><strong>What the row must not carry:</strong> a checkbox, a bare priority score, or a truncating generated name. All three are named refusals from the bank rather than omissions.</p>
+</section>
+
+<section id="filed">
+<h2>02b &middot; What happens the instant a verdict is filed</h2>
+<p><strong>Found at the stage 08 audit by a reader trying to draw it.</strong> Two nodes described the same moment and could not both be drawn: this node promised the selection is held <em>including after a verdict is filed</em>, and 8.4 said <em>the row leaves the queue, that is the feedback</em>. Neither said what the pane does. <strong>It is the single most important frame in the product and nobody had specified it.</strong></p>
+<div class="tw"><table>
+<thead><tr><th>The moment</th><th>What happens</th></tr></thead>
+<tbody>
+<tr><td>The verdict is filed</td><td>The row <strong>stays exactly where it is</strong> and changes to a decided state: what was decided, by whom, in place of what Clerk had concluded</td></tr>
+<tr><td>The pane</td><td>Holds the same case and states the outcome. <strong>It does not advance on its own</strong></td></tr>
+<tr><td>The next traversal</td><td>Moving the selection off the row is what <strong>removes it from the list</strong>. Not the filing</td></tr>
+<tr><td>Feedback</td><td>The row changing under her hand, which is the strongest version of what 8.4 already argued. <strong>Still no toast</strong>, and now for a better reason</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Why not vanish, and why not advance</span><p><strong>A row that disappears at the keystroke takes her place in the list with it</strong>, and 0.1 exists to stop exactly that. It also removes the only evidence that the right case was ruled on.</p><p><strong>The pane does not advance on its own</strong> because deciding forty cases with the pane jumping ahead makes the next case arrive before the last one is understood. Principle 3 wants the override cheap, not the acceptance automatic.</p></div>
 </section>
 
 <section id="mock">
@@ -221,8 +235,8 @@
 <thead><tr><th>Key</th><th>Does</th><th>Note</th></tr></thead>
 <tbody>
 <tr><td><code>Tab</code></td><td>Moves to the list as <strong>one stop</strong>, not to each row</td><td>ARIA APG Grid: <em>"Only one of the focusable elements contained by the grid is included in the page tab sequence"</em></td></tr>
-<tr><td><code>Up</code> <code>Down</code></td><td>Moves the selected row; the pane follows</td><td>The mouse equivalent is prev and next in the pane header, taken from Defender</td></tr>
-<tr><td><code>Enter</code></td><td>Opens the case into the pane and moves focus there</td><td>At 360 this navigates to 4.2 instead</td></tr>
+<tr><td><code>Up</code> <code>Down</code></td><td>Moves the selected row, <strong>and the pane follows</strong>. Focus stays in the list</td><td>The mouse equivalent is prev and next in the pane header, taken from Defender</td></tr>
+<tr><td><code>Enter</code></td><td><strong>Moves focus into the pane</strong>, which is what makes the verdict keys live</td><td>The case is already there; <code>Enter</code> is the step from reading to deciding. At 360 it navigates to 4.2 instead</td></tr>
 <tr><td><code>Escape</code></td><td>Returns focus to the list without deselecting</td><td>A dialog consumes <code>Escape</code> first and does not propagate, from 0.5</td></tr>
 <tr><td>Single keys for verdicts</td><td><strong>Active only when the case has focus</strong></td><td>WCAG SC 2.1.4 Character Key Shortcuts, Level A. Remap and disable ship in 0.5</td></tr>
 </tbody></table></div>
@@ -333,6 +347,7 @@
   window.NAV_SECTIONS = [
     { id:'blocks', label:'Blocks' },
     { id:'row',    label:'The row' },
+    { id:'filed',  label:'After it is filed' },
     { id:'mock',   label:'Wireframe' },
     { id:'states', label:'State matrix' },
     { id:'keys',   label:'Keyboard' },

@@ -45,7 +45,7 @@ Priority reasoned from the desk at 1440, which is the stance in `CLAUDE.md`, and
 | **1** | **Scope bar.** Removable chips: tenant or tenant group, severity, what Clerk concluded, `escalated`, `unrecorded`. Sort is a chip like the rest, not a separate control | PagerDuty and Defender filter chips; tenant groups from Defender multitenant | MAIN, 3.6 | MVP |
 | **2** | **Scope readout.** What is in scope right now, counted: waiting cases, and how many tenants that covers. Not a metric card, not a percentage | Ours, from design principle 2 and the counts on Defender's tabs | MAIN | MVP |
 | **3** | **The list.** Virtualised, keyboard traversable, one row per case. Section 4 specifies the row | The pattern itself, shipped by Defender and PagerDuty | MAIN | MVP |
-| **4** | **Selection held.** The selected row stays visible and stays selected through the whole decision, including after a verdict is filed | Ours, from 0.1's guarantee | MAIN | MVP |
+| **4** | **Selection held, and the decided row does not vanish.** It stays in place, marked decided, and leaves the list only when the selection moves off it. See section 4b | Ours, from 0.1's guarantee | MAIN | MVP |
 | **5** | **The pane.** Resizable, width remembered per analyst. At rest it holds 3.5, the fleet. With a selection it holds 4.1 | PagerDuty draggable and remembered panel, which closed 0.1's open question | MAIN, P2-MAIN | MVP |
 | **6** | **Freshness, not a spinner.** The age of the list in words, carried by 0.4 in the shell rather than repeated here | 0.4, corrected upward from 0.1 | MAIN | MVP |
 | **7** | Export the current view | Fingerprint and PagerDuty CSV export | R2, compliance | **LATER** |
@@ -74,6 +74,25 @@ Defined once here. Every other list in the product either uses this row or says 
 
 ---
 
+## 4b. What happens the instant a verdict is filed
+
+**Found at the stage 08 audit by a reader trying to draw it.** Two nodes described the same moment and could not both be drawn: this node promised the selection is held *including after a verdict is filed*, and 8.4 said *the row leaves the queue, that is the feedback*. Neither said what the pane does.
+
+**The decision, taken here because this node owns the list:**
+
+| The moment | What happens |
+|---|---|
+| The verdict is filed | The row **stays exactly where it is** and changes to a decided state: what was decided, by whom, in place of what Clerk had concluded |
+| The pane | Holds the same case and states the outcome. It does not advance on its own |
+| The next traversal | Moving the selection off the row is what **removes it from the list**. Not the filing |
+| Feedback | The row changing under her hand, which is the strongest version of what 8.4 already argued. **Still no toast**, and now for a better reason than before |
+
+**Why not vanish on filing.** A row that disappears at the moment of the keystroke takes the analyst's place in the list with it, and 0.1 exists to stop exactly that. It also removes the only evidence that the right case was ruled on.
+
+**Why not advance the pane automatically.** Deciding forty cases in a row with the pane jumping ahead makes the next case arrive before the last one is understood, and design principle 3 wants the override cheap, not the acceptance automatic.
+
+---
+
 ## 5. State matrix
 
 | Element | Default | Streaming in, 3.2 | Stale, 3.3 | Nothing waiting, 3.4 | Filtered to nothing | Out of scope |
@@ -96,8 +115,8 @@ Inherits the grid model from 0.1 and the constraints from 0.5.
 | Key | Does | Note |
 |---|---|---|
 | `Tab` | Moves to the list as **one stop**, not to each row | ARIA APG grid: only one focusable element in the grid is in the page tab sequence |
-| `Up` and `Down` | Moves the selected row, and the pane follows | The mouse equivalent is prev and next in the pane header, taken from Defender |
-| `Enter` | Opens the case into the pane and moves focus there | At 360 this navigates to 4.2 instead |
+| `Up` and `Down` | Moves the selected row, **and the pane follows**. Focus stays in the list | The mouse equivalent is prev and next in the pane header, taken from Defender |
+| `Enter` | **Moves focus into the pane**, which is what makes the verdict keys live | The case is already there; `Enter` is the step from reading to deciding. At 360 it navigates to 4.2 instead |
 | `Escape` | Returns focus to the list without deselecting | A dialog consumes `Escape` first and does not propagate, from 0.5 |
 | Single keys for verdicts | **Active only when the case has focus** | WCAG SC 2.1.4, Level A. Remap and disable ship in 0.5 |
 

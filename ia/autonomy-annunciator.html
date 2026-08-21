@@ -82,7 +82,8 @@
 <h2>02 &middot; The real design problem</h2>
 <p class="h2sub">A tenant does not have one latitude</p>
 <p>Simbian, opened again this session so the claim stays current: <em>"Progression from Read-only to Autopilot is not linear and not global. A mature deployment might run Autopilot on brute-force account containment, Guided on DLP violations, Dry-run on new EDR alert types, and Read-only on identity-provider actions that touch privileged accounts, all at once."</em></p>
-<p>So a tenant carries <strong>a latitude per action class</strong>, not a latitude. An annunciator that says "Meridian Freight: Guided" is a comforting lie. Two readings are needed, and they are different objects.</p>
+<p>So a tenant carries <strong>a latitude per action class</strong>, not a latitude. An annunciator that names one level for a whole tenant is a comforting lie. Two readings are needed, and they are different objects.</p>
+<div class="node"><span class="lbl">The level names are ours, and they were settled at the stage 08 audit</span><p>Three: <code>Acts alone</code>, <code>Asks first</code>, <code>Never</code>. <strong>Simbian&rsquo;s four stay a quotation, not a label.</strong> Three of them map onto ours and <code>Dry-run</code> is a rollout mode rather than a latitude, so it has no equivalent and none is invented. Grounds and the mapping in 0.6 section 5.</p></div>
 <div class="tw"><table>
 <thead><tr><th>Reading</th><th>When</th><th>Shows</th></tr></thead>
 <tbody>
@@ -113,7 +114,7 @@
 <div class="wfwrap"><div class="wfcap"><b>Reading A</b><span>a case is selected. Permitted and doing now are separate slots</span></div><div class="wfpad">
 <div class="wf"><div class="ann">
   <div class="cell"><span class="k">TENANT</span><span class="v">Meridian Freight</span></div>
-  <div class="cell armed"><span class="k">PERMITTED &middot; ACCOUNT CONTAINMENT</span><span class="v">Autopilot</span></div>
+  <div class="cell armed"><span class="k">PERMITTED &middot; CONTAIN IDENTITY</span><span class="v">Acts alone</span></div>
   <div class="cell active"><span class="k">DOING NOW</span><span class="v">Proposing</span></div>
   <div class="cell grow"><span class="k">RECORD</span><span class="v sm">34 of 36 upheld &middot; 30 days</span></div>
 </div></div>
@@ -122,7 +123,7 @@
 <div class="wfwrap"><div class="wfcap"><b>Reading B</b><span>nothing selected. Highest latitude in force, with how many classes stand at it</span></div><div class="wfpad">
 <div class="wf"><div class="ann">
   <div class="cell"><span class="k">FLEET</span><span class="v">42 tenants</span></div>
-  <div class="cell armed"><span class="k">HIGHEST IN FORCE</span><span class="v">Autopilot on 6</span></div>
+  <div class="cell armed"><span class="k">ACTS ALONE UP TO</span><span class="v">Contain network, 6 tenants</span></div>
   <div class="cell"><span class="k">GUIDED ON</span><span class="v">27</span></div>
   <div class="cell"><span class="k">DRY RUN OR BELOW</span><span class="v">9</span></div>
   <div class="cell grow"><span class="k">UNDER OVERRIDE</span><span class="v">2 tenants</span></div>
@@ -132,16 +133,16 @@
 <div class="wfwrap"><div class="wfcap"><b>Override in force</b><span>OVRD replaces the doing now slot rather than sitting beside it</span></div><div class="wfpad">
 <div class="wf"><div class="ann">
   <div class="cell"><span class="k">TENANT</span><span class="v">Halcyon Care</span></div>
-  <div class="cell armed"><span class="k">PERMITTED &middot; HOST ISOLATION</span><span class="v">Guided</span></div>
+  <div class="cell armed"><span class="k">PERMITTED &middot; CONTAIN ENDPOINT</span><span class="v">Asks first</span></div>
   <div class="cell ovrd"><span class="k">STATE</span><span class="v">OVRD</span></div>
   <div class="cell grow"><span class="k">SINCE</span><span class="v sm">R. Idrissi &middot; 02:14 &middot; this shift</span></div>
 </div></div>
 </div></div>
 
-<div class="wfwrap"><div class="wfcap"><b>New tenant</b><span>the cell that matters most: no record means Read-only, in words, never a blank</span></div><div class="wfpad">
+<div class="wfwrap"><div class="wfcap"><b>New tenant</b><span>the cell that matters most: no record means Never, in words, never a blank</span></div><div class="wfpad">
 <div class="wf"><div class="ann">
   <div class="cell"><span class="k">TENANT</span><span class="v">Pinemark</span></div>
-  <div class="cell armed"><span class="k">PERMITTED &middot; ALL CLASSES</span><span class="v">Read-only</span></div>
+  <div class="cell armed"><span class="k">PERMITTED &middot; ALL CLASSES</span><span class="v">Never</span></div>
   <div class="cell"><span class="k">DOING NOW</span><span class="v none">nothing</span></div>
   <div class="cell grow"><span class="k">RECORD</span><span class="v sm none">no record yet &middot; onboarded 9 days ago</span></div>
 </div></div>
@@ -150,7 +151,7 @@
 <div class="wfwrap"><div class="wfcap"><b>Mobile 360</b><span>three things survive, the record moves into the case body</span></div><div class="wfpad">
 <div class="wf"><div class="ann mob">
   <div class="cell"><span class="k">TENANT</span><span class="v">Meridian Freight</span></div>
-  <div class="cell armed grow"><span class="k">PERMITTED</span><span class="v">Autopilot</span></div>
+  <div class="cell armed grow"><span class="k">PERMITTED</span><span class="v">Acts alone</span></div>
 </div></div>
 </div></div>
 <p class="note" style="border:none;padding:0"><strong>Double left rule marks armed, solid left rule marks active.</strong> That is how the two states separate without colour. <code>OVRD</code> inverts, because an override should not look like a third reading of the same kind.</p>
@@ -163,12 +164,12 @@
 <thead><tr><th>Slot</th><th>Case selected</th><th>Nothing selected</th><th>Override in force</th><th>New tenant</th><th>Connection stale</th><th>Permission denied</th></tr></thead>
 <tbody>
 <tr><td>Tenant</td><td>This case&rsquo;s client</td><td>Fleet count</td><td>Unchanged</td><td>Unchanged</td><td>Marked as of last sync</td><td><strong>Hidden</strong></td></tr>
-<tr><td>Permitted</td><td>Latitude for this action class</td><td>Highest in force, with the count at it</td><td>Unchanged. The permission has not changed</td><td><code>Read-only</code>, the floor</td><td>Marked</td><td>Hidden</td></tr>
+<tr><td>Permitted</td><td>Latitude for this action class</td><td>Highest in force, with the count at it</td><td>Unchanged. The permission has not changed</td><td><code>Never</code>, the floor</td><td>Marked</td><td>Hidden</td></tr>
 <tr><td>Doing now</td><td>What Clerk is doing on this case</td><td>Not shown. No single answer across a fleet</td><td><code>OVRD</code> replaces this slot</td><td>Nothing</td><td>Last known, marked</td><td>Hidden</td></tr>
 <tr><td>OVRD</td><td>Present when in force</td><td>Count of tenants under override</td><td>The state itself</td><td>Absent</td><td>Marked</td><td>Hidden</td></tr>
 <tr><td>Record</td><td><code>n of m upheld, 30 days</code></td><td>Distribution across the fleet</td><td>Unchanged</td><td><code>no record yet</code>, in words</td><td>Unchanged</td><td>Hidden</td></tr>
 </tbody></table></div>
-<div class="node"><span class="lbl">Two cells decide whether this element is honest</span><p><strong>Permitted, under new tenant.</strong> A tenant with no record shows <code>Read-only</code> and the words <code>no record yet</code>, never a blank and never a hopeful default. Latitude that has not been earned is the exact thing this product refuses to assert. <strong>Permission denied hides the whole element</strong> rather than emptying it, because an emptied annunciator would still confirm that the tenant exists.</p></div>
+<div class="node"><span class="lbl">Two cells decide whether this element is honest</span><p><strong>Permitted, under new tenant.</strong> A tenant with no record shows <code>Never</code> and the words <code>no record yet</code>, never a blank and never a hopeful default. Latitude that has not been earned is the exact thing this product refuses to assert. <strong>Permission denied hides the whole element</strong> rather than emptying it, because an emptied annunciator would still confirm that the tenant exists.</p></div>
 </section>
 
 <section id="scope">
@@ -199,7 +200,7 @@
 <tr><td>Per-tenant autonomy configuration exists for MSSP and MDR</td><td>same page</td><td>Fact, and it is why ours has to be a view rather than configuration</td></tr>
 <tr><td>A bare percentage cannot be checked and hides sample size</td><td><code>benchmark.md</code>, principle 2</td><td>Decision, argued</td></tr>
 <tr><td>Highest latitude is the right fleet summary</td><td>this node</td><td><strong>Decision. First thing to test if the fleet fails to read</strong></td></tr>
-<tr><td><code>Read-only</code>, <code>Dry-run</code>, <code>Guided</code>, <code>Autopilot</code> as level names</td><td>Simbian&rsquo;s published vocabulary</td><td><strong>Placeholder.</strong> A competitor&rsquo;s exact words, used because they are legible in the market and because naming belongs to stage 05. Recorded so it stays a decision rather than becoming an accident</td></tr>
+<tr><td><code>Acts alone</code>, <code>Asks first</code>, <code>Never</code> as level names</td><td><strong>Ours, settled at the stage 08 audit</strong></td><td>Simbian&rsquo;s four were a placeholder and stayed one too long: a reader preparing stage 04 found <strong>three different vocabularies</strong> across 0.3, 3.5 and 4.1, which 0.6 forbids in its own words. The quotation stays as evidence; the labels are ours. Mapping in 0.6 section 5</td></tr>
 </tbody></table></div>
 <ol>
 <li><strong>Does the annunciator change on selection, or only when the tenant changes?</strong> A line that redraws on every arrow key is noise; one that lags is wrong. A stage 04 motion decision with a real failure mode on both sides.</li>
@@ -216,7 +217,7 @@
 <tbody>
 <tr><td><code>30d ACCURACY 94%</code></td><td>A bare percentage, which design principle 2 forbids in its own words</td><td><code>34 of 36 upheld, 30 days</code></td></tr>
 <tr><td>One latitude slot</td><td>The FMA carries armed <em>and</em> active. One slot is the collapse the annunciator exists to prevent</td><td>Permitted and doing now, separated by rule weight</td></tr>
-<tr><td><code>LATITUDE Guided</code> for a whole tenant</td><td>Latitude is per action class. A tenant-wide level is a comforting lie</td><td>Reading A names the action class; reading B names the summary rule</td></tr>
+<tr><td>One level for a whole tenant</td><td>Latitude is per action class. A tenant-wide level is a comforting lie</td><td>Reading A names the action class; reading B names the summary rule</td></tr>
 </tbody></table></div>
 <p>The fix was applied to <a href="console-shell.html">0.1</a> rather than noted, because a wireframe that contradicts the node it contains is worse than no wireframe.</p>
 </section>

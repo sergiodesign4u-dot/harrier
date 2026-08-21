@@ -28,7 +28,7 @@ An analyst rules on dozens of cases a shift. If filing produces a notice, the pr
 
 | Event | Toast | Why |
 |---|---|---|
-| Verdict filed | **No** | The row leaves the queue. That is the feedback, and it is in the field of view already |
+| Verdict filed | **No** | The row changes to decided **in place**, under her hand, and leaves only when the selection moves off it. That is the feedback, and it is in the field of view already. **Corrected at the stage 08 audit**: this row used to say the row leaves the queue on filing, which contradicted 3.1. Grounds in 3.1 section 4b |
 | Case escalated | **No** | The row stays and changes state visibly, which the map already requires |
 | Connection recovered, cases replayed | **Yes** | It happened off screen and carries a count the analyst cannot otherwise get |
 | A write failed | **Yes**, and it persists | 4.9 owns the state. The toast is how the analyst learns while looking elsewhere |

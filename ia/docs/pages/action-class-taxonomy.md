@@ -75,6 +75,17 @@ Six, grouped by what they touch. Ordered by how cheaply a human can put it back.
 
 **One vocabulary, five places.** If the filter says "identity" and the annunciator says "account containment" for the same class, the product has two taxonomies and the analyst has to translate.
 
+**Two axes, and the stage 08 audit found them collapsed into one.** A reader preparing stage 04 could not letter the wireframes, because three surfaces named latitude three different ways. The axes are separate and they compose:
+
+| Axis | Values | Owned by |
+|---|---|---|
+| **The action class** | Investigate, Contain endpoint, Contain network, Contain identity, Remove content, Change policy | this node, section 4 |
+| **The latitude on that class** | **`Acts alone`, `Asks first`, `Never`** | this row, and nowhere else |
+
+`Read-only`, `Dry-run`, `Guided` and `Autopilot` are **Simbian's words**, quoted in 0.3 as the evidence that latitude varies per class. They stay a quotation and stop being our labels. Three of the four map onto ours (`Read-only` is `Never`, `Guided` is `Asks first`, `Autopilot` is `Acts alone`) and `Dry-run` is a rollout mode rather than a latitude, so it has no equivalent and is not invented one.
+
+**Every surface now says the same two things:** which class, and which of the three levels. 0.3 reading A, 0.3 reading B, 3.5, 4.1 and 5.4.
+
 ---
 
 ## 6. State matrix

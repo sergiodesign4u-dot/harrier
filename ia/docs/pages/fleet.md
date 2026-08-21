@@ -68,7 +68,7 @@ From `ia/docs/blocks.md`, type D.
 |---|---|---|---|---|
 | **1** | **Pane header.** `Fleet`, the tenant count, and that nothing is selected. It names itself, because the whole decision rests on it not reading as empty | Ours, from the base layer rule | P2-MAIN | MVP |
 | **2** | **One row per tenant**, ordered by where attention is owed rather than alphabetically | n8n Insights per unit breakdown table | P2-MAIN | MVP |
-| **3** | **What Clerk may do here**, the highest latitude currently in force, named as an action class from 0.6 | 0.3 reading B, plus 0.6 | P2-MAIN, the differentiator | MVP |
+| **3** | **Acts alone up to**, the highest action class at which Clerk acts without asking at this tenant. Same two axes as everywhere: the class from 0.6, the level from the three in 0.6 section 5 | 0.3 reading B, plus 0.6 | P2-MAIN, the differentiator | MVP |
 | **4** | **The record, count first**: upheld out of ruled, over a stated window | 0.3, and the `71%` row banked DIFFERENT in type A | design principle 2 | MVP |
 | **5** | **The trend as two counts, not a line.** This window against the one before it | Ours. Section 5 | design principle 2 | MVP |
 | **6** | **Tenant groups** as the unit of narrowing, shared with 3.6 | Defender: *"Organize the tenants you manage into named groups"* | 3.6 | MVP |
@@ -129,6 +129,8 @@ The fleet orders by **where attention is owed**, in this priority:
 | **Agreement with 0.3** | The annunciator in the shell reads the same highest latitude and the same count | Same | Same | Same, both marked stale | Same |
 
 **The last row is a hard constraint, not a nicety.** 0.3 reading B and this node read the same underlying value in two places on the same screen. If they can disagree, the differentiator is a bug rather than a feature, and the analyst learns to trust neither.
+
+**The stage 08 audit found that constraint was not drawable.** Reading B counted levels in Simbian's vocabulary while this node listed action classes, so the two could not be compared even in principle. Both now say **acts alone up to `<class>`**, and reading B adds how many tenants stand there. The constraint is now a thing a person can check on screen.
 
 ---
 

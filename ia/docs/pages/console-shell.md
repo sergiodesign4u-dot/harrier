@@ -76,7 +76,7 @@ The list pane is a **grid** in the ARIA sense, not a list of links. The W3C ARIA
 | Up, Down | Move the selection between rows | APG grid, roving focus |
 | Home, End | First and last row in view | APG: "Home: moves focus to the first cell in the row that contains focus" adapted to whole-row selection |
 | Control plus Home, End | First and last row of the list | APG: "Control + Home: moves focus to the first cell in the first row" |
-| Enter | Opens the selected row into Z5 | Product |
+| Enter | **Moves focus into Z5.** The pane already follows the selection, so `Enter` is the step from reading to deciding | Product. **Corrected at the stage 08 audit**, where a reader found two models: this table said `Enter` opens, 3.1 said the pane follows the arrows. Both are now true and they divide the work: arrows read, `Enter` decides, and that is also what makes the verdict keys live under WCAG SC 2.1.4 |
 | Escape | Deselects, returns Z5 to the fleet | Product. This is the way back to 3.5, and it is the discoverability risk the base layer named |
 | ? | Opens 0.5 keyboard map | Product convention `[?]`, no source opened |
 

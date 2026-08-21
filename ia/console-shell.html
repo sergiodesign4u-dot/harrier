@@ -111,7 +111,7 @@
     <div class="z"><span class="tag">Z1</span>
       <div class="row">
         <b>HARRIER</b>
-        <span class="box">Queue</span><span class="box dash">Shift</span><span class="box dash">Log</span><span class="box dash">Clients</span>
+        <span class="box">Queue</span><span class="box dash">Shift</span><span class="box dash">Log</span>
         <span class="grow"></span>
         <span class="note">R. Idrissi &middot; night shift</span>
         <span class="box dash">?</span>
@@ -136,7 +136,7 @@
         <div class="note" style="margin-top:6px">one tab stop &middot; up and down move selection &middot; the list holds while Z5 changes</div>
       </div>
       <div class="pane-r"><span class="tag">Z5</span>
-        <div class="row"><b>4.1 Case File</b><span class="grow"></span><span class="box dash">accept</span><span class="box dash">amend</span><span class="box dash">reject</span></div>
+        <div class="row"><b>4.1 Case File</b><span class="grow"></span><span class="box dash">prev</span><span class="box dash">next</span></div>
         <div class="line l"></div><div class="line l"></div><div class="line m"></div>
         <div class="box dash" style="margin:8px 0;padding:8px">evidence block &middot; canonical component, also on 4.2 and 5.4</div>
         <div class="box dash" style="padding:6px">provenance strip</div>
@@ -155,10 +155,10 @@
   <div class="wfcap"><b>Desktop 1440</b><span>state: nothing selected, and this is the cell that carries the differentiator</span></div>
   <div class="wfpad">
   <div class="wf desk">
-    <div class="z"><span class="tag">Z1</span><div class="row"><b>HARRIER</b><span class="box">Queue</span><span class="box dash">Shift</span><span class="box dash">Log</span><span class="box dash">Clients</span><span class="grow"></span><span class="note">R. Idrissi &middot; night shift</span></div></div>
+    <div class="z"><span class="tag">Z1</span><div class="row"><b>HARRIER</b><span class="box">Queue</span><span class="box dash">Shift</span><span class="box dash">Log</span><span class="grow"></span><span class="note">R. Idrissi &middot; night shift</span></div></div>
     <div class="z"><span class="tag">Z2</span><div class="row"><span class="box">Live</span><span class="note">last case 4s ago &middot; when stale it names the age in words and the list stays readable</span></div></div>
     <div class="z"><span class="tag">Z3</span>
-      <div class="ann"><span class="k">FLEET</span><span class="v">42 tenants</span><span class="k">HIGHEST IN FORCE</span><span class="v">Autopilot on 6</span><span class="k">GUIDED ON</span><span class="v">27</span><span class="k">DRY RUN OR BELOW</span><span class="v">9</span><span class="k">UNDER OVERRIDE</span><span class="v">2</span></div>
+      <div class="ann"><span class="k">FLEET</span><span class="v">42 tenants</span><span class="k">ACTS ALONE UP TO</span><span class="v">Contain network, 6 tenants</span><span class="k">GUIDED ON</span><span class="v">27</span><span class="k">DRY RUN OR BELOW</span><span class="v">9</span><span class="k">UNDER OVERRIDE</span><span class="v">2</span></div>
     </div>
     <div class="split">
       <div class="pane-l"><span class="tag">Z4</span>
@@ -189,7 +189,8 @@
   <div class="wfpad">
   <div class="wf mob">
     <div class="z"><span class="tag">Z1</span><div class="row"><b>HARRIER</b><span class="grow"></span><span class="box dash">menu</span></div></div>
-    <div class="z"><span class="tag">Z3</span><div class="row" style="font-size:9.5px"><b>Meridian Freight</b><span class="grow"></span><span>Permitted: Autopilot</span></div></div>
+    <div class="z"><span class="tag">Z2</span><div class="row" style="font-size:9.5px"><span class="box">Live</span><span class="note">last case 4s ago &middot; same line, same place, from 0.4</span></div></div>
+    <div class="z"><span class="tag">Z3</span><div class="row" style="font-size:9.5px"><b>Meridian Health</b><span class="grow"></span><span>Acts alone up to: Contain network</span></div></div>
     <div class="z" style="padding-bottom:10px"><span class="tag">Z4</span>
       <div class="qrow"><div class="top"><b>Impossible travel</b></div><div class="top"><span>Meridian Freight &middot; 4m ago</span></div></div>
       <div class="qrow"><div class="top"><b>Beaconing to new domain</b></div><div class="top"><span>Halcyon Care &middot; 11m ago</span></div></div>
@@ -250,6 +251,7 @@
 <tr><td>?</td><td>Opens <a href="keyboard-map.html">0.5 keyboard map</a>, which also carries the remap and disable mechanism</td><td>Key choice is convention <span class="q">[?]</span>. The mechanism itself is WCAG SC 2.1.4, Level A</td></tr>
 </tbody></table></div>
 <p><strong>Verdict keys are not defined here.</strong> Accept, amend and reject belong to 4.1, because a key that files a verdict must not exist on a screen with no verdict to file.</p>
+<div class="node"><span class="lbl">Corrected a fourth time at the stage 08 audit, and this time it was the drawing</span><p>The prose of this node had been corrected three times by the nodes it contains. <strong>The wireframe never was</strong>, and a reader preparing stage 04 found four places where the frame disagreed with its own contents: the top bar drew <strong>four</strong> navigation items where 0.2 settled on three, the pane header carried <strong>verdict controls</strong> that 4.1 puts in the foot, the 360 frame <strong>omitted Z2</strong> which 0.4 requires in the same place, and the annunciator used a level name that 0.6 has since replaced.</p><p>All four are fixed above. <strong>The rule this produced:</strong> a container node is redrawn whenever a node inside it settles something, prose and drawing together. Prose alone is how a frame goes stale while reading as current.</p></div>
 <p><strong>And they are live only while a case has focus.</strong> That is not a refinement, it is how this product satisfies WCAG SC 2.1.4 Character Key Shortcuts, Level A. The reasoning and the remap mechanism are on <a href="keyboard-map.html">0.5</a>.</p>
 <p><strong>Pointer targets.</strong> WCAG 2.2 SC 2.5.8 Target Size (Minimum), Level AA: <em>"The size of the target for pointer inputs is at least 24 by 24 CSS pixels"</em>. Every control in the shell meets it. The stronger 44 by 44 figure often quoted belongs to a different criterion, which was not opened in this session, so it stands as <span class="q">[?]</span> rather than as a requirement.</p>
 </section>

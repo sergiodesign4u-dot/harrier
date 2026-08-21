@@ -54,7 +54,9 @@ The mechanism comes from the Flight Mode Annunciator, recorded in `benchmark.md`
 
 **Latitude is not one value per tenant.** Simbian, opened again this session to keep the claim current: "Progression from Read-only to Autopilot is not linear and not global. A mature deployment might run Autopilot on brute-force account containment, Guided on DLP violations, Dry-run on new EDR alert types, and Read-only on identity-provider actions that touch privileged accounts, all at once."
 
-So a tenant carries **a latitude per action class**, not a latitude. An annunciator that says "Meridian Freight: Guided" is a comforting lie.
+So a tenant carries **a latitude per action class**, not a latitude. An annunciator that names one level for a whole tenant is a comforting lie.
+
+**The level names are ours, and they were settled at the stage 08 audit.** Three: `Acts alone`, `Asks first`, `Never`. Simbian's four stay a quotation, not a label. Grounds and the mapping in 0.6 section 5.
 
 Two readings are needed, and they are different objects.
 
@@ -91,12 +93,12 @@ Design principle 2 is explicit: the number names its claim, its scope and its wi
 | Slot | Case selected | Nothing selected, fleet | Override in force | New tenant, no record | Connection stale | Permission denied |
 |---|---|---|---|---|---|---|
 | **Tenant** | This case's client | Fleet count | Unchanged | Unchanged | Unchanged, marked as of last sync | **Hidden** |
-| **Permitted** | Latitude for this case's action class | Highest in force, with the count of classes at it | Unchanged. The permission has not changed | `Read-only`, which is the floor for a tenant with no record | Unchanged, marked | Hidden |
+| **Permitted** | The class, and one of `Acts alone` / `Asks first` / `Never` | **Acts alone up to** the highest class, and how many tenants stand there | Unchanged. The permission has not changed | `Never`, which is the floor for a tenant with no record | Unchanged, marked | Hidden |
 | **Doing now** | What Clerk is doing on this case | Not shown. There is no single answer across a fleet | `OVRD`, and it replaces this slot rather than sitting beside it | Nothing | Last known, marked | Hidden |
 | **OVRD** | Present when in force | Count of tenants under override | The state itself | Absent | Marked as of last sync | Hidden |
 | **Record** | `n of m upheld, 30 days` for this tenant | Distribution across the fleet | Unchanged | `no record yet`, in words | Unchanged, marked | Hidden |
 
-**The cell that matters most is Permitted under "new tenant, no record".** A tenant with no record shows `Read-only` and the words `no record yet`, never a blank and never a hopeful default. Latitude that has not been earned is the exact thing this product refuses to assert.
+**The cell that matters most is Permitted under "new tenant, no record".** A tenant with no record shows `Never` and the words `no record yet`, never a blank and never a hopeful default. Latitude that has not been earned is the exact thing this product refuses to assert.
 
 **Permission denied hides the whole element rather than emptying it.** The latitude of a tenant that is not yours is not yours to read, and an emptied annunciator would still tell you the tenant exists.
 
@@ -147,7 +149,7 @@ No route. The annunciator is never a destination, which is the point: the fleet 
 | Per-tenant autonomy configuration exists for MSSP and MDR | same page | Fact, and it is why ours must be a view rather than configuration |
 | A bare percentage cannot be checked and hides sample size | `benchmark.md`, principle 2 | Decision, argued |
 | Highest latitude is the right fleet summary | this node | **Decision, first to test if the fleet fails to read** |
-| `Read-only`, `Dry-run`, `Guided`, `Autopilot` as the level names | Simbian's published vocabulary | **Placeholder.** These are a competitor's exact words, used here because they are legible in the market and because naming is stage 05's job, not this layer's. Recorded so it is a decision rather than an accident |
+| `Acts alone`, `Asks first`, `Never` as the level names | **Ours, settled at the stage 08 audit** | Simbian's four were a placeholder and stayed one for too long: a reader preparing stage 04 found three different vocabularies across 0.3, 3.5 and 4.1, and 0.6 forbids exactly that. The quotation stays as evidence; the labels are ours. Stage 05 may still polish the words, and now it polishes one set rather than three |
 
 1. **Does the annunciator change when the analyst changes selection, or only when the tenant changes?** A line that redraws on every arrow key is noise; one that lags is wrong. This is a stage 04 motion decision with a real failure mode on both sides.
 2. **What does "doing now" mean between cases?** Clerk works continuously across 40 tenants. The active slot is well defined for a selected case and ambiguous at rest, which is why reading B drops it. Whether that is a gap or the right answer is untested.
