@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 2.1 Shift brief</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
+    font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--ink);background:#fff;
+    border:1.5px solid var(--ink);position:relative}
+.wf .tag{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:8px;padding:2px 5px;letter-spacing:.08em}
+
+.br{width:100%;min-width:660px;max-width:760px;padding-top:15px}
+.br .hd1{padding:10px 12px;border-bottom:1.5px solid var(--ink)}
+.br .hd1 .t{font-size:13px;font-weight:700}
+.br .hd1 .m{color:var(--soft);margin-top:4px}
+.pr{display:grid;grid-template-columns:58px 1fr auto;gap:11px;padding:10px 12px;border-bottom:1px solid var(--hair);align-items:baseline}
+.pr .n{font-size:17px;font-weight:700;letter-spacing:-.02em;text-align:right}
+.pr .l{line-height:1.4}
+.pr .l .sub{color:var(--soft);font-size:9px;display:block;margin-top:2px}
+.dest{border:1px solid var(--ink);padding:2px 7px;font-size:9px;white-space:nowrap}
+.dest.none{border-style:dashed;border-color:#8a5a08;color:#8a5a08;background:#fdf6e8}
+.sec{padding:6px 12px 3px;color:var(--soft);font-size:8px;letter-spacing:.12em;background:var(--fill);
+     border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.note{display:grid;grid-template-columns:170px 1fr;gap:11px;padding:8px 12px;border-bottom:1px solid var(--hair)}
+.note .c{color:var(--soft)}
+.rota{padding:10px 12px;border-bottom:1px solid var(--hair);display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
+.rota .k{font-size:8px;letter-spacing:.11em;color:var(--soft)}
+.rota .v{font-weight:700}
+.seal{padding:11px 12px;border-top:1.5px solid var(--ink);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.act{border:1.5px solid var(--ink);padding:4px 10px;font-size:10px;font-weight:700;display:inline-flex;gap:7px;align-items:center}
+.act.pri{background:var(--ink);color:#fff}
+.why{color:var(--soft);font-size:9px}
+
+.quiet{width:100%;min-width:420px;max-width:520px;padding-top:15px}
+.quiet .hd1{padding:10px 12px;border-bottom:1.5px solid var(--ink);font-weight:700}
+.quiet .row{padding:8px 12px;border-bottom:1px solid var(--hair)}
+.quiet .big{font-size:12px;font-weight:700;padding:12px}
+
+.ev{border-left:3px solid var(--accent);background:var(--accent-soft);padding:13px 16px;margin:0 0 14px}
+.ev q{display:block;font-style:italic;margin-bottom:8px;line-height:1.5}
+.ev .req{font-weight:700}
+.ev .src{color:var(--muted);font-size:12px;margin-top:6px}
+
+.absent{border:1px solid var(--rule);border-left:3px solid var(--flag);background:var(--flag-soft);
+        border-radius:0 6px 6px 0;padding:16px 18px;margin:0 0 22px}
+.absent h4{margin:0 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--flag)}
+.absent p{margin:0 0 9px;max-width:none}
+.absent p:last-child{margin:0}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 2.1 &middot; Cluster 2</p>
+<h1>Shift brief</h1>
+<p class="lede">The node with the largest verified market gap and no reference to copy. <strong>Those are the same fact seen twice</strong>, and it is worth saying before the design: nobody builds this, which is why there was nothing to open.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">2.1</dd></div>
+  <div><dt>Type</dt><dd>Page</dd></div>
+  <div><dt>Page type</dt><dd>C, shift digest &middot; no reference</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Route</dt><dd><code>/shift</code></dd></div>
+  <div><dt>Job</dt><dd>R1</dd></div>
+</dl>
+
+<section id="gap">
+<h2>01 &middot; Two findings that are the same finding</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>In the market</strong></td><td><code>jtbd.md</code> scores R1 at <strong>3 for the primary persona</strong> and records gap 6 as <strong>verified across all thirteen products</strong>. Nobody ships it</td></tr>
+<tr><td><strong>In the bank</strong></td><td>Type C returned nothing. Three Refero searches produced calendars, changelogs and analytics dashboards; PagerDuty's on call handoff article is gone from the live knowledge base. <strong>There is no page of this type to open</strong></td></tr>
+</tbody></table></div>
+<p><strong>Those are one fact.</strong> The reason the bank came back empty is the reason the job scored a gap. This node is designed from evidence about the work rather than from evidence about interfaces, and every block below names which.</p>
+<div class="node"><span class="lbl">And a third finding, from inside our own files</span><p><code>jtbd.md</code> records the mirror finding: <em>"R1 has a job, has a product decision in <code>aarrr.md</code> for the shift handoff, and has <strong>no line in the canonical list of eight</strong>."</em> A job with importance 3 and a verified gap had no feature behind it. <strong>This node is that feature.</strong></p></div>
+</section>
+
+<section id="ucl">
+<h2>02 &middot; Three findings, three requirements</h2>
+<p>The evidence is the shift handover study quoted in <code>jtbd.md</code>. Each finding produces one constraint, and the constraint is not a preference.</p>
+
+<div class="ev">
+<q>"say there's been [an incident across] three days and three nights. Unless you go back and read, what, 6 handovers? You don't actually have that context of the week."</q>
+<p class="req">Requirement: the brief is not a document. It is pointers into cases.</p>
+<p>Every line resolves to a case or to a narrowed queue. Nothing in it is prose the incoming analyst has to hold in her head, because holding it in her head is the failure the quote describes.</p>
+<p class="src">UCL handover study, via <code>jtbd.md</code></p>
+</div>
+
+<div class="ev">
+<q>"The first day, second day, third day, they will start to ignore [the older handovers]."</q>
+<p class="req">Requirement: a brief covers one shift and never chains.</p>
+<p>No "previous brief" link and no stack to work back through. <strong>Continuity lives in the case</strong>, where 5.6 already holds every action in order, so a three day incident is read once on the case rather than six times across briefs.</p>
+<p class="src">UCL handover study, via <code>jtbd.md</code></p>
+</div>
+
+<div class="ev">
+<q>"it's still reliant on the person writing the handover. In a way, it's not foolproof: if they don't put down what they should be putting down, then the next team isn't aware, right?"</q>
+<p class="req">Requirement: Clerk assembles the brief, the analyst seals it.</p>
+<p>The same contract as the case. <strong>The structured half cannot be forgotten</strong> because a machine builds it from what actually happened; the prose half can be forgotten, and only the prose half is optional.</p>
+<p class="src">UCL handover study, via <code>jtbd.md</code></p>
+</div>
+
+<div class="node"><span class="lbl">This resolves an apparent inconsistency with 4.6</span><p>In 4.6 free text <em>is</em> the carrier, because a person reads it and nothing routes on it. Here <strong>structure carries coverage and prose carries nuance.</strong> Coverage is what "not foolproof" was about, and coverage is the half a machine can guarantee.</p></div>
+
+<p><strong>Context:</strong> 79% of SOCs run 24 by 7 [SANS SOC Survey 2025], and among UCL participants who work remotely the written handover has permanently replaced the verbal one. This is not an edge case; it happens several times a day and it is the only channel.</p>
+</section>
+
+<section id="mock">
+<h2>03 &middot; Wireframe, the brief as pointers</h2>
+<div class="wfwrap"><div class="wfcap"><b>/shift</b> <span>incoming analyst, 07:00</span> <span>every line resolves somewhere, except one</span></div><div class="wfpad">
+<div class="wf br">
+  <span class="tag">2.1 SHIFT BRIEF</span>
+  <div class="hd1">
+    <div class="t">Shift brief &middot; 19:00 to 07:00, 08 to 09 Jun 2026</div>
+    <div class="m">Coming on: R. Idrissi &middot; Went off: T. Okafor &middot; 12 tenants covered</div>
+  </div>
+
+  <div class="sec">WHAT IS WAITING ON YOU</div>
+  <div class="pr"><div class="n">9</div>
+    <div class="l">waiting on a decision<span class="sub">3 of them older than 4 hours</span></div>
+    <div><span class="dest">Open the queue &#8594;</span></div></div>
+  <div class="pr"><div class="n">6</div>
+    <div class="l">moved during the shift<span class="sub">Norsk Marine, Vestry Capital, Halden Freight and 3 more</span></div>
+    <div><span class="dest">Open the queue &#8594;</span></div></div>
+  <div class="pr"><div class="n">2</div>
+    <div class="l">tenants changed latitude<span class="sub">Norsk Marine narrowed, Bramber Retail widened</span></div>
+    <div><span class="dest">Open the fleet &#8594;</span></div></div>
+
+  <div class="sec">WHAT HAPPENED WITHOUT YOU</div>
+  <div class="pr"><div class="n">31</div>
+    <div class="l">closed by Clerk alone<span class="sub">no review surface exists for these</span></div>
+    <div><span class="dest none">nowhere to go</span></div></div>
+
+  <div class="sec">NOTES T. OKAFOR LEFT, ON THE CASES</div>
+  <div class="note"><div>Norsk Marine &middot; c-8903</div><div class="c">Waiting on the client to confirm the maintenance window before I isolate anything</div></div>
+  <div class="note"><div>Vestry Capital &middot; c-8918</div><div class="c">Third token replay this week. If it repeats, it is not noise</div></div>
+
+  <div class="rota"><span class="k">ON NEXT</span><span class="v">K. Adeyemi</span><span class="why">SOC lead &middot; until 08:00 &middot; 4.6 escalates here</span></div>
+
+  <div class="seal">
+    <span class="act pri">Seal this brief</span>
+    <span class="why">available to the outgoing analyst at any time. Sealing produces 2.4</span>
+  </div>
+</div>
+</div></div>
+
+<div class="absent">
+<h4>The one line with nowhere to go, and it stays that way</h4>
+<p><code>jtbd.md</code> records that <strong>the analyst side review lane maps to no formulated job</strong>. So this brief can say <em>how many</em> cases Clerk closed alone and cannot offer anywhere to review them.</p>
+<p><strong>Naming the count with no destination is uncomfortable and correct:</strong> it is the shape of the gap, made visible on the screen where it matters, instead of quietly omitted.</p>
+</div>
+
+<div class="wfwrap"><div class="wfcap"><b>2.3</b> <span>nothing carried over</span> <span>a real answer, not a failure</span></div><div class="wfpad">
+<div class="wf quiet">
+  <span class="tag">2.3</span>
+  <div class="hd1">Shift brief &middot; 19:00 to 07:00</div>
+  <div class="big">Nothing is waiting on you.</div>
+  <div class="row">Clerk handled 44 cases across 12 tenants and closed all of them inside latitude.</div>
+  <div class="row">No tenant changed latitude. No case was escalated.</div>
+  <div class="row"><span class="why">Quiet is the good outcome. This screen says what was quiet rather than "nothing to show"</span></div>
+  <div class="seal"><span class="act">Open the queue</span></div>
+</div>
+</div></div>
+</section>
+
+<section id="roles">
+<h2>04 &middot; One screen in two roles</h2>
+<p>Settled at the base layer and worth restating, because it is unusual: <strong>2.1 is one screen in two roles, not two screens.</strong></p>
+<div class="tw"><table>
+<thead><tr><th>Role</th><th>What the screen is</th></tr></thead>
+<tbody>
+<tr><td><strong>Outgoing, during the shift</strong></td><td>An object that <strong>accumulates</strong>. Clerk adds to it as things happen; she adds notes to cases, not to the brief</td></tr>
+<tr><td><strong>Outgoing, at the end</strong></td><td>A thing to <strong>seal</strong>. Sealing is 2.4, a state, not a separate page</td></tr>
+<tr><td><strong>Incoming</strong></td><td>A set of <strong>pointers</strong> to work, read once and left behind</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="blocks">
+<h2>05 &middot; Blocks, and every origin named</h2>
+<p>Type C has no reference half, so each row says whether it is a <strong>transfer</strong> from a banked type, <strong>evidence</strong> from the UCL study, or <strong>ours</strong> against a barrier.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Block</th><th>Origin</th><th>Traces to</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Shift identity.</strong> Who is coming on, who went off, the window</td><td>Ours</td><td>R1</td></tr>
+<tr><td>2</td><td><strong>What waits on a decision</strong>, counted, resolving into 3.1</td><td>Transfer, type A counts</td><td>R1, MAIN</td></tr>
+<tr><td>3</td><td><strong>What Clerk closed alone</strong>, counted</td><td>Evidence, finding 3, and <code>aarrr.md</code></td><td>R1</td></tr>
+<tr><td>4</td><td><strong>What moved</strong>, each a pointer</td><td>Evidence, finding 1</td><td>R1</td></tr>
+<tr><td>5</td><td><strong>Which tenants changed latitude</strong>, resolving into 3.5</td><td>Ours, and HJ1</td><td>HJ1, P2-MAIN</td></tr>
+<tr><td>6</td><td><strong>Notes the outgoing analyst left</strong>, attached to cases rather than to the brief</td><td>Evidence, finding 1</td><td>R1</td></tr>
+<tr><td>7</td><td><strong>The rota: who is on next</strong></td><td>Ours, added because 4.6 needs a recipient</td><td>R1, and 4.6</td></tr>
+<tr><td>8</td><td><strong>Seal</strong>, one action, producing 2.4</td><td>Evidence, finding 3</td><td>R1</td></tr>
+</tbody></table></div>
+<p><strong>Deliberately absent:</strong> a prose summary paragraph, a link to the previous brief, and any metric card. The first two are the failures findings 1 and 2 describe; the third was ruled out three times in the bank already.</p>
+</section>
+
+<section id="states">
+<h2>06 &middot; State matrix</h2>
+<div class="tw"><table>
+<thead><tr><th>Element</th><th>Incoming</th><th>Outgoing, during</th><th>Assembling, 2.2</th><th>Nothing carried, 2.3</th><th>Sealed, 2.4</th><th>Close failed, 2.5</th></tr></thead>
+<tbody>
+<tr><td><strong>Shift identity</strong></td><td>Both names, the window</td><td>Own name, window open</td><td>Same</td><td>Same</td><td><strong>Who sealed it and when</strong></td><td>Same, unsealed</td></tr>
+<tr><td><strong>Counted lines</strong></td><td>Counts, each a pointer</td><td>Counts, growing</td><td><strong>What is being gathered, named</strong>, not a spinner</td><td><code>Nothing waiting</code> and what was quiet</td><td>Frozen</td><td>Frozen</td></tr>
+<tr><td><strong>Notes</strong></td><td>Read only</td><td>Editable, on cases</td><td>n/a</td><td>n/a</td><td>Read only</td><td>Editable</td></tr>
+<tr><td><strong>Seal</strong></td><td>Absent</td><td>Available at any time</td><td>Absent</td><td>Available</td><td>Done</td><td><strong>Retry, and both analysts are warned</strong></td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">2.5 warns both analysts, and that is deliberate</span><p>This is the only place in the product where a failure is addressed to two people. An unsealed brief is a problem for the person leaving <em>and</em> for the person arriving, and telling only one of them <strong>recreates the diligence dependency finding 3 describes.</strong></p></div>
+</section>
+
+<section id="open">
+<h2>07 &middot; Addressing, 360, emotional support, open questions</h2>
+<div class="tw"><table>
+<tbody>
+<tr><td><strong>Route</strong></td><td><code>/shift</code></td></tr>
+<tr><td><strong>A past shift</strong></td><td><code>/shift/{shiftId}</code>, read only and sealed. <strong>Not linked from the current brief</strong>, per finding 2: reachable by address, never by a chain of "previous" links</td></tr>
+<tr><td><strong>Permission</strong></td><td>Tenants inside her provider scope, for the window of the shift. A tenant she did not cover does not appear even if a colleague covered it</td></tr>
+<tr><td><strong>At 360</strong></td><td><strong>Not rendered.</strong> Coming on shift happens at a desk with two monitors, which is the premise in <code>CLAUDE.md</code>. <strong>One dependency crosses the boundary and it is data, not screen:</strong> 4.6 renders at 360 and reads the rota this node displays</td></tr>
+<tr><td><strong>Emotional support</strong></td><td><strong>Social, P1.</strong> The brief is composed from structured parts rather than free text, so its quality does not depend on how tired the author was at 07:00. <strong>The analyst's reputation for a good handover stops depending on her diligence at the end of a twelve hour shift</strong></td></tr>
+</tbody></table></div>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>What happens to a brief nobody sealed?</strong> 2.5 covers sealing that <em>failed</em>. Sealing that was never <em>attempted</em>, because the analyst simply left, is a different state and it does not exist yet. <strong>Given finding 3, it is the most likely real world failure of this node</strong></td><td>Needs a node, not a drawing</td></tr>
+<tr><td>2</td><td><strong>Is the brief per analyst or per rotation?</strong> If two analysts cover overlapping tenants, whose brief is it and does a case appear in both? Same family as the shared tenant question 3.1 and 5.1 both left open</td><td>Answer once for all three</td></tr>
+<tr><td>3</td><td>Does the incoming analyst acknowledge the brief? UCL says handovers are read or ignored, and an acknowledgement is the only way to know which. It also adds a step to the start of every shift</td><td>Not decided</td></tr>
+<tr><td>4</td><td>Where does the rota come from? Same question 4.6 raised. If it lives in the provider's on call tool, this node reads it rather than owning it</td><td>Integration, undescribed</td></tr>
+</tbody></table></div>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#2.1">Structure (2.1)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/shift-brief.md</code>. Page type C in <code>ia/docs/blocks.md</code>, the type with no reference. Designed from the UCL handover study rather than from interfaces, and each block says so.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '2.1 Shift brief';
+  window.NAV_SECTIONS = [
+    { id:'gap',    label:'The same fact twice' },
+    { id:'ucl',    label:'Three requirements' },
+    { id:'mock',   label:'Wireframe' },
+    { id:'roles',  label:'Two roles' },
+    { id:'blocks', label:'Blocks' },
+    { id:'states', label:'State matrix' },
+    { id:'open',   label:'Addressing' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

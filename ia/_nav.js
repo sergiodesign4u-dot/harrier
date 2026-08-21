@@ -35,7 +35,7 @@ window.IA_NAV = [
   { node:'1.1',  label:'Sign in',                       type:'page',    group:'pages',  scope:'MVP',   file:null },
   { node:'1.2',  label:'Session expired',               type:'dialog',  group:'pages',  scope:'MVP',   file:null },
   /* 2 take the shift */
-  { node:'2.1',  label:'Shift brief',                   type:'page',    group:'pages',  scope:'MVP',   file:null },
+  { node:'2.1',  label:'Shift brief',                   type:'page',    group:'pages',  scope:'MVP',   file:'shift-brief.html' },
   { node:'2.2',  label:'Assembling',                    type:'loading', group:'pages',  scope:'MVP',   file:null },
   { node:'2.3',  label:'Nothing carried over',          type:'empty',   group:'pages',  scope:'MVP',   file:null },
   { node:'2.4',  label:'Closed by the outgoing analyst',type:'state',   group:'pages',  scope:'MVP',   file:null },
