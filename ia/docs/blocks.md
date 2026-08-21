@@ -144,3 +144,147 @@ Top to bottom. As with 3.1, no single reference has this order.
 10. `Last updated` stamp, and the `?as-of` address of this snapshot. **Defender, plus the compliance requirement**
 
 **What is deliberately absent:** the incident graph, suggested prompts, `Regenerate`, the task pane, `Open in Security Copilot`, thumbs up and down, and the blanket AI disclaimer. Seven blocks the references ship and we do not.
+---
+
+## Type C: a shift digest
+
+**Nodes:** 2.1 Shift brief, 2.2 assembling, 2.3 nothing carried over, 2.4 closed by the outgoing analyst, 2.5 close failed. **Five nodes, all MVP.**
+
+### The half that is missing, said out loud
+
+**This is the type with no reference, and the pack anticipated the case.** Three Refero searches (`shift handover daily digest`, `what changed since you were away`, `on call schedule handoff`) returned calendars, changelogs and analytics dashboards. None is a page of this type. On the domain side, PagerDuty's on call handoff article is gone from the current knowledge base (`/main/docs/on-call-handoff-notifications` returns 404, checked this session) and nothing in the live tree replaces it.
+
+So type C has **no craft half and no domain half**, and the substitute is named rather than silent: our own research from stage 01, the shift handover study in `research/screens/ucl-shift-handover-study.jpeg` and `research/screens/ucl-handover-difficulties.jpeg`, plus blocks already sourced in types A and B. **The comparison column below carries the barrier, not a comparison.** Nothing here should be read as "better than the market", because for this type we did not find the market.
+
+This is the pack's stop condition, and it goes to the user rather than being decided here.
+
+### The bank, from transfer and from the barrier
+
+| Source | Block | Verdict | Traces to | Scope | The barrier it answers |
+|---|---|---|---|---|---|
+| Transfer, type B | Prose lead then dated bullets, entities linked | **TAKE** | HJ2, pick up a shift | MVP | The brief is a narrative about a period, which is the same shape as a narrative about a case. One component, two uses |
+| Transfer, type B | `Last updated` stamp on generated text | **TAKE** | HJ2 | MVP | A brief with no time cannot be trusted at 07:00 to describe 03:00 |
+| Transfer, type A | Counts on every claim | **TAKE** | design principle 2 | MVP | `9 cases carried over` is decidable, `several open items` is not |
+| Transfer, type B | Machine and human actions in one stream | **TAKE** | HJ2, the append only log | MVP | What Clerk did overnight and what the outgoing analyst did are one history, or the incoming analyst reads two |
+| Own research | **What the outgoing analyst could not finish, and why** | **TAKE** | HJ2 | MVP | The barrier: handover fails on what was left implicit, not on what was recorded. This block has no reference because no product we opened has this job |
+| Own research | **The brief is generated and then edited by the outgoing analyst before it closes** | **TAKE** | HJ2, and the Clerk contract | MVP | Same contract as the case: Clerk drafts, the human signs. 2.4 and 2.5 exist because that signature can fail |
+| Barrier | An empty brief must read as `nothing carried over`, not as a failure | **TAKE** | 2.3 | MVP | The quiet shift is the good outcome and the interface must not make it look broken |
+| Transfer, type A | Live and Paused, saved views, density toggle | **LEAVE** | nothing | n/a | Already ruled on in type A. A digest is read once and closed |
+
+**What we cannot claim for type C.** That our brief is denser, faster or better than anyone's. We have no page of this type to compare against, and inventing one would be the exact failure this file exists to prevent.
+
+---
+
+## Type D: the fleet and the scope bar
+
+**Nodes:** 3.5 Fleet, the resting state of the detail pane, and 3.6 scope and filters. **Two nodes, both MVP.** 3.5 is the node the whole differentiator rides on.
+
+### Sources opened this session
+
+| Source | What it is | Where |
+|---|---|---|
+| **Defender multitenant management** | A shipped, documented multi tenant console for exactly our operator | [learn.microsoft.com](https://learn.microsoft.com/en-us/unified-secops/mto-overview) |
+| **n8n Insights** | Craft: how an automation platform reports its own agents' performance, per unit | Refero `7d7bd040-7dba-4808-9441-a6276ae90db2` |
+| **Fingerprint workspace overview** | Craft: status strip plus metric cards plus breakdown tables | Refero `802ff0b1-b86e-4316-8635-52a3e4cad2d3` |
+| **PagerDuty and Defender filters** | Carried from type A, same session | see type A |
+
+### The finding that must be stated before the table
+
+Microsoft ships this. Verbatim: multitenant management *"provides your security operations teams with a single, unified view of all the tenants you manage"*, and MSSP partners *"gain visibility into cases, security incidents, alerts, and threat hunting across multiple customers through a **single pane of glass**"*.
+
+**"Single pane of glass across tenants" is therefore not our claim and must never be presented as one.** Stage 02 already narrowed the differentiator once for this reason. What survives is narrower and it is confirmed by this page rather than weakened by it: in Defender the tenant list lives at **`Configuration > Settings`**, described as *"Lists the tenants you have access to. Use this page to view and manage your tenants."* Their fleet is an administration surface. Ours is the resting state of the working pane, at zero taps, showing latitude and accuracy rather than inventory.
+
+That is the whole claim, and this source is the strongest evidence we have for it.
+
+### The bank
+
+| Source | Block | Verdict | Traces to | Scope | Where we are better, and which barrier |
+|---|---|---|---|---|---|
+| Defender | **A unified cross tenant view of incidents for one operator** | **TAKE, and it is not ours** | MAIN | MVP | Shipped by Microsoft, documented publicly. We take it and we do not claim it |
+| Defender | **The tenant list as a settings page** | **DIFFERENT, and it is the differentiator** | HJ3, the fleet bet | MVP | Theirs answers "which tenants do I administer". Ours answers "how much rope does Clerk have here right now, and has it earned it". Same list, different question, different place in the product |
+| Defender | **Tenant groups**, *"Organize the tenants you manage into named groups"* | **TAKE** | 3.6 | MVP | Forty tenants need grouping or the scope bar is a scroll. Named groups, not saved filter sets, which type A already left |
+| Defender | **Two levels: all tenants, and one tenant** (*"For all tenants and at a tenant-specific level"*) | **TAKE the structure, DIFFERENT on the metric** | 3.5, 7.1 | MVP | The two level shape is right. Their per tenant values are inventory (`device type, device value, onboarding status, risk status`); ours are latitude in force and the upheld count behind it |
+| n8n | **Per unit breakdown table with the metric that matters, one row per workflow** | **TAKE** | 3.5, design principle 1 | MVP | A row per tenant beats a chart per tenant at forty rows. Their headline metric is average run time; ours is `34 of 36 upheld, 30 days`, because the operator's question is trust, not throughput |
+| n8n, Fingerprint | **KPI card row above the table** | **LEAVE** | nothing | n/a | Third time this bank has ruled against the summary card, and the reason has not changed: a portal wide number is not a per tenant decision |
+| Fingerprint | **Charts as the primary reading of the fleet** | **LEAVE in the MVP** | nothing yet | LATER | The fleet must be readable at a glance without decoding a chart. Whether a sparkline earns its width on the trend column is `[?]` until stage 04 draws it |
+| Type A | Filter chips, removable, sort as a chip | **TAKE** | 3.6 | MVP | Already banked. 3.6 reuses it rather than inventing a second filtering idiom |
+
+---
+
+## Type E: a dialog
+
+**Nodes:** 1.2 session expired, 4.4 reject with a reason, 4.6 escalate, 7.3 grant change. **Four nodes, three MVP**, 7.3 is LATER.
+
+### Sources opened this session
+
+| Source | What it is | Where |
+|---|---|---|
+| **YouTube Music, Report video** | Craft: single select reason list inside a dialog, the closest public analogue to 4.4 | Refero `b509a225-cf49-4888-b3f4-9246f7146855` |
+| **Webflow, turn site into a store** | Craft: a dialog that states what it will create and warns it cannot be fully undone | Refero `59ddb501-a856-4348-930e-1565b0b67fd9` |
+| **Copy.ai, bulk delete** | Craft: destructive confirm with a count | Refero `913dc6cb-3ed4-45a0-a57a-c4f88cf91fef` |
+| **Manus, delete account** | Craft: irreversible action gated by a fresh code with a countdown | Refero `aedac041-0b3d-41f9-8824-70c5ed160fbd` |
+| **Defender classification values** | Domain, carried from 0.7 | see `ia/docs/pages/rejection-reason-taxonomy.md` |
+
+### The bank
+
+| Source | Block | Verdict | Traces to | Scope | Where we are better, and which barrier |
+|---|---|---|---|---|---|
+| YouTube Music | **Single select reason list, one radio per reason** | **TAKE the shape** | 4.4, 0.7 | MVP | Right control for a taxonomy. Ours is 0.7's axis A, six values, and five of the six need no second question |
+| YouTube Music | **An info affordance on every reason** | **TAKE** | 0.7, design principle 3 | MVP | A reason nobody understands is a reason nobody picks correctly, and the whole tuning loop then runs on noise |
+| YouTube Music | **Eleven flat options with no grouping** | **DIFFERENT** | 0.7 | MVP | Eleven flat is a scan. Ours is two paired axes, and the pairing is what makes the second question disappear |
+| YouTube Music | **Footer reads `Cancel` and `Next`** (step 3 of 6) | **DIFFERENT, and it matters most** | design principle 3 | MVP | `Next` means the reason costs five more steps. Design principle 3 says override is one key and it teaches. **Rejecting Clerk must be cheaper than accepting it is, not dearer** |
+| Copy.ai | **Destructive confirm naming the count** (`4 selected rows`) | **TAKE the count** | 4.6 | MVP | Naming what is affected is right |
+| Copy.ai | **Buttons read `Cancel` and `OK`** | **LEAVE** | nothing | n/a | `OK` names nothing, which is how people confirm the wrong thing. Our buttons say the outcome: `Escalate to tier 3`, `Reject and tune` |
+| Webflow | **The dialog states what it will create and warns it cannot be fully removed** | **TAKE** | 4.6, and the append only log | MVP | A dialog that names its consequences. 4.6 must say who receives the escalation and that the handover is written to the log either way |
+| Manus | **A fresh verification code with a countdown before an irreversible action** | **LEAVE for MVP, keep for 7.3** | 7.3 | LATER | Far too heavy for a verdict taken forty times a shift. Right weight for changing what Clerk may do to a client without asking |
+| Ours, 0.5 | **The dialog consumes Escape and does not propagate** | **TAKE, already decided** | 0.5 | MVP | Inherited, not taken from a reference. It is what keeps the keyboard model honest when a dialog is open |
+| All four | **Warning icon or illustration in the header** | **LEAVE** | nothing | n/a | Design principle 5. The dialog is small because the evidence behind it must stay visible |
+
+---
+
+## Type F: sign in
+
+**Node:** 1.1 Sign in. **One node, MVP.** This is the one type where the public web is full of real examples, so both halves are real pages rather than documentation.
+
+### Sources opened this session
+
+| Source | What it is | Where |
+|---|---|---|
+| **PagerDuty identity** | A live pre login page from a product in our category | [identity.pagerduty.com](https://identity.pagerduty.com), screen in `research/screens/` |
+| **Microsoft Entra sign in** | The identity provider our persona's employer actually uses | [login.microsoftonline.com](https://login.microsoftonline.com), screen in `research/screens/entra-sign-in-2026-08-21.png` |
+| **Shuttle log in** | Craft: a minimal single card sign in | Refero `49bf1064-20ff-4e89-a500-723270919c65` |
+
+### The bank
+
+| Source | Block | Verdict | Traces to | Scope | Where we are better, and which barrier |
+|---|---|---|---|---|---|
+| PagerDuty, Entra | **Identifier first: one email field, no password on screen one, button reads `Next`** | **TAKE** | 1.1 | MVP | Both vendors, independently. The email decides whether the account goes to SSO or to a password, which is the only sane flow when every provider has its own identity setup. `autocomplete="username"` on the field |
+| Entra | **`Can't access your account?` in reach of the field** | **TAKE** | 1.1 | MVP | Recovery beside the failure, not in a footer |
+| Entra | **`Sign-in options` and `Continue with Google` / `Continue with Apple`** | **LEAVE** | nothing | n/a | Consumer identity. A Tier 2 analyst reaches Harrier through the provider's SSO, and offering anything else is an invitation to a shadow account |
+| PagerDuty, Entra | **`Sign up` / `No account? Create one!`** | **LEAVE** | nothing | n/a | Harrier has no self serve signup. Seats are provisioned by the MDR provider, so a signup link would be a dead end wearing a primary colour |
+| Entra | **Passkey support present in the page** (`IsFidoSupported`) | `[?]`, **LATER** | 1.1 | LATER | Whether Harrier offers a passkey path is unsettled. Recorded, not assumed |
+| Ours | **The deep link survives authentication** | **TAKE, and it is ours** | 1.1, 0.1 routes, the 03:00 scenario | MVP | Neither reference has our problem. An on call analyst opens `/case/{id}` from a pager at 03:00, hits the sign in, and must land **on that case**, not on the queue. A sign in that drops the destination costs the one minute the whole mobile rendering exists to save |
+
+---
+
+## Type G: a systemic state
+
+**Nodes:** 8.1 not found, 8.2 service unavailable, 8.3 permission denied. **Three nodes, all MVP.**
+
+### Sources opened this session
+
+| Source | What it is | Where |
+|---|---|---|
+| **PagerDuty 404** | A live not found page from a product in our category | `support.pagerduty.com/main/docs/this-page-does-not-exist-harrier-check`, screen in `research/screens/pagerduty-404-2026-08-21.png` |
+| **Defender permission behaviour** | Domain, carried from type B: *"Grayed out action buttons mean these actions are limited by your permission"* | see type B |
+
+### The bank
+
+| Source | Block | Verdict | Traces to | Scope | Where we are better, and which barrier |
+|---|---|---|---|---|---|
+| PagerDuty | **A plain statement and nothing else above it** (`Page Not Found` / *"The page you're looking for can't be found."*) | **TAKE** | 8.1 | MVP | No illustration, no joke, no apology paragraph. Correct |
+| PagerDuty | **Two named next actions in the sentence** (*"view or search all articles, or contact our Support Team"*) | **TAKE** | 8.1, 8.2 | MVP | The exits are named actions, not a lone `Go home` button. Ours are `Search the queue` and `Open the log`, because those are the two places a lost case id could still be |
+| PagerDuty | **A `More options` list of six further destinations** | **LEAVE** | nothing | n/a | Six links is a sitemap in a dead end. Two exits, chosen |
+| Defender | **Permission handled at the control, greyed out with a reason** | **TAKE, and it changes what 8.3 is** | 8.3, 0.6 | MVP | If permission is answered in place, the 8.3 page is only ever reached by a deep link into another tenant. **Idle control: if 8.3 turns out to be unreachable in the flows, that is a finding, not a page** |
+| Ours | **8.1 must not leak whether the case exists** | **TAKE, and it is ours** | 8.1, tenant data isolation | MVP | Neither reference has multi tenant isolation to protect. In an MDR console `no such case` and `not your tenant` must render **identically**, or the 404 becomes a way to enumerate other providers' clients. This is a security requirement expressed as a copy rule, and it goes to stage 05 |
+| Ours, 0.4 | **8.2 is the terminal form of the connection strip** | **TAKE** | 8.2, 0.4 | MVP | 0.4 already reports degraded connection in place. 8.2 is only for when nothing renders at all, which means the two must agree on their vocabulary or the analyst sees two different words for one condition |

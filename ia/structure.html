@@ -39,7 +39,7 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
   <div><dt>Nodes on the map</dt><dd><b>45</b> forty in the MVP</dd></div>
   <div><dt>Specified so far</dt><dd><b><span id="ia-tally">0 of 45</span></b></dd></div>
   <div><dt>Source of truth</dt><dd><code>ia/docs/sitemap.md</code></dd></div>
-  <div><dt>Block bank</dt><dd>Types A and B of 7 done</dd></div>
+  <div><dt>Block bank</dt><dd>7 of 7 types done</dd></div>
 </dl>
 
 <div class="note"><p><strong>The map is complete before the pages are.</strong> Every node is registered here from the moment it exists on the map, so a dashed chip is a declared piece of work rather than a hole someone forgot. The tree that produced these chips is on <a href="sitemap.html">Sitemap</a>; the routes through them are on <a href="flows.html">Flows</a>.</p></div>
@@ -59,11 +59,11 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 <tbody>
 <tr><td><strong>A. List in a split pane</strong></td><td>3.1&ndash;3.4, 5.1&ndash;5.3, 5.6</td><td>8</td><td><strong>done</strong></td></tr>
 <tr><td><strong>B. Record detail with an AI narrative</strong></td><td>4.1&ndash;4.3, 4.5, 4.7&ndash;4.10, 5.4, 5.5</td><td>10</td><td><strong>done</strong></td></tr>
-<tr><td>C. Shift digest</td><td>2.1&ndash;2.5</td><td>5</td><td>yes</td></tr>
-<tr><td>D. Fleet and filters</td><td>3.5, 3.6</td><td>2</td><td>yes</td></tr>
-<tr><td>E. Dialog</td><td>1.2, 4.4, 4.6, 7.3</td><td>3</td><td>yes</td></tr>
-<tr><td>F. Sign in</td><td>1.1</td><td>1</td><td>yes</td></tr>
-<tr><td>G. Systemic state</td><td>8.1&ndash;8.3</td><td>3</td><td>yes</td></tr>
+<tr><td><strong>C. Shift digest</strong></td><td>2.1&ndash;2.5</td><td>5</td><td><strong>done</strong></td></tr>
+<tr><td><strong>D. Fleet and filters</strong></td><td>3.5, 3.6</td><td>2</td><td><strong>done</strong></td></tr>
+<tr><td><strong>E. Dialog</strong></td><td>1.2, 4.4, 4.6, 7.3</td><td>3</td><td><strong>done</strong></td></tr>
+<tr><td><strong>F. Sign in</strong></td><td>1.1</td><td>1</td><td><strong>done</strong></td></tr>
+<tr><td><strong>G. Systemic state</strong></td><td>8.1&ndash;8.3</td><td>3</td><td><strong>done</strong></td></tr>
 <tr><td>H. Grant grid</td><td>7.1, 7.2</td><td>0</td><td>no, all LATER</td></tr>
 <tr><td>I. Client summary composer</td><td>6.1, 6.2</td><td>0</td><td>no, all LATER</td></tr>
 </tbody></table></div>
@@ -108,6 +108,18 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 </tbody></table></div>
 <div class="node"><span class="lbl">What type B found, stated rather than implied</span><p><strong>One block was worth the whole type: the greyed out action with its reason.</strong> Defender uses it for role based access; we use it for latitude. The analyst sees, on this case, what Clerk could have done here and could not, which is the differentiator doing work on the screen rather than on a settings page.</p><p><code>Basis 69</code> joins <code>100</code>, <code>71%</code> and <code>Thought for 20s</code>. Four references, four numbers, none naming its claim. Type A called this one differentiator and type B does not make it two; it makes it better evidenced.</p></div>
 <p><strong>Seven blocks the references ship in 4.1 and we do not:</strong> the incident graph, suggested prompts, <code>Regenerate</code>, the task pane, <code>Open in Security Copilot</code>, thumbs up and down, and the blanket AI disclaimer. The ten block composition for 4.1 is in <code>blocks.md</code> and matches no single source.</p>
+<h3>Types C to G, one finding each</h3>
+<p>Five smaller types, closed in one pass. Sources opened live: <a href="https://learn.microsoft.com/en-us/unified-secops/mto-overview">Defender multitenant management</a>, <a href="https://identity.pagerduty.com">PagerDuty identity</a>, <a href="https://login.microsoftonline.com">Microsoft Entra sign in</a>, a live PagerDuty 404, plus five Refero screens. Full tables in <code>ia/docs/blocks.md</code>.</p>
+<div class="tw"><table>
+<thead><tr><th>Type</th><th>The finding</th><th>What it changes</th></tr></thead>
+<tbody>
+<tr><td><strong>C</strong><br>Shift digest</td><td><strong>No reference exists.</strong> Three Refero searches returned calendars and changelogs; PagerDuty's on call handoff article is gone from the live knowledge base (404, checked this session)</td><td>The bank is built by transfer from types A and B plus our own stage 01 handover research, and it is labelled as such. <strong>Nothing in type C may be claimed as better than the market, because we did not find the market</strong></td></tr>
+<tr><td><strong>D</strong><br>Fleet</td><td>Microsoft ships cross tenant already: <em>"a single, unified view of all the tenants you manage"</em>, <em>"single pane of glass"</em>. <strong>But their tenant list lives at <code>Configuration &gt; Settings</code></strong>, described as a page to <em>"view and manage your tenants"</em></td><td>Single pane of glass is <strong>not our claim</strong> and never presented as one. What survives is exactly what stage 02 narrowed to: their fleet is an administration surface, ours is the resting state of the working pane at zero taps, showing latitude and the upheld count rather than device inventory. This page is the strongest evidence we have for the differentiator</td></tr>
+<tr><td><strong>E</strong><br>Dialog</td><td>YouTube Music's report dialog ends in <code>Cancel</code> and <strong><code>Next</code></strong>, because picking a reason is step 3 of 6</td><td>Design principle 3 says override is one key and it teaches. <strong>Rejecting Clerk must cost less than accepting it, not more.</strong> Our reason dialog is the action, not a step towards it. Also left: <code>OK</code> as a confirm label, and every warning illustration</td></tr>
+<tr><td><strong>F</strong><br>Sign in</td><td>PagerDuty and Entra both do <strong>identifier first</strong>: one email field, no password, button reads <code>Next</code>. Neither reference has our problem</td><td>The block that is ours: <strong>the deep link survives authentication</strong>. An on call analyst opens a case from a pager at 03:00 and must land on that case, not on the queue. Left behind: consumer identity buttons and the signup link, since seats are provisioned by the provider</td></tr>
+<tr><td><strong>G</strong><br>Systemic</td><td>PagerDuty's 404 is a plain sentence with <strong>two named exits</strong> and no illustration. Defender answers permission at the control, greyed out with a reason</td><td>8.3 is therefore rarely reached, and if it turns out unreachable that is a finding rather than a page. The block that is ours: <strong>8.1 must render <code>no such case</code> and <code>not your tenant</code> identically</strong>, or the 404 enumerates other providers' clients. A security requirement written as a copy rule, and it goes to stage 05</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The bank is closed, and two of its entries are admissions</span><p>Seven types, nineteen sources, all opened in session. Two entries are worth more than the takes. <strong>Type C has no reference at all</strong> and says so instead of inventing one. <strong>Type D found our differentiator half shipped</strong> by Microsoft and narrowed the claim to the half that survives, which is where it lives in the product rather than whether it exists. A bank that only ever confirmed us would not have been worth building.</p></div>
 </section>
 
 <section id="reading">
