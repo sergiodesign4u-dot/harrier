@@ -2,7 +2,7 @@
 
 **Why this file exists.** Every other artefact in this pipeline has a rule of origin: a research fact cites a source, a job traces to evidence, a colour comes from a pixel. The composition of a page did not. A node template that says "blocks: 1, 2, 3" and does not say where they came from gets the median of everything the model has seen, and that median only becomes visible at stage 04, when the structure is already rolled out.
 
-So the source is fixed here, **per page type** rather than per node. Forty five nodes are nine types, and seven of them are in round one.
+So the source is fixed here, **per page type** rather than per node. Forty six nodes are nine types, and seven of them are in round one.
 
 **Two sources answering two different questions.**
 

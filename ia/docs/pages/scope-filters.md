@@ -151,6 +151,7 @@ Two consequences:
 
 ## 11. Not this node
 
+- **0.8** the reading conventions. Severity, time, the effort units, the chip set and the tenant fixtures are defined there and read here
 - **3.1** which places the bar and owns the queue. **3.5** and **5.1**, which place the same bar with their own facets
 - **3.4** and **5.3**, the empty states this node's section 4 makes useful
 - **0.5** the keyboard mechanism and the remap controls

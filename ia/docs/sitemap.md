@@ -147,14 +147,17 @@ Group `global`. Present on every authenticated node, specified once.
 | Node | Type | Includes | Goes to | Job | Scope |
 |---|---|---|---|---|---|
 | **0.1 Console shell** | page | Split pane, list on the left and detail on the right, keyboard traversal of the list. Holds 0.2 to 0.5 | Wraps 3.1, and any node the analyst opens without leaving the split | MAIN, structurally | **MVP** |
-| **0.2 Global navigation** | section | Queue, Shift, Log, Clients. Four items, no item for the fleet | 3.1, 2.1, 5.1, 7.1 | MAIN, R1, R2, P2-MAIN | **MVP** |
+| **0.2 Global navigation** | section | Queue, Shift, Log. Three items in the MVP, Clients when cluster 7 ships, no item for the fleet | 3.1, 2.1, 5.1, 7.1 | MAIN, R1, R2, P2-MAIN | **MVP** |
 | **0.3 Tenant autonomy annunciator** | section | The current tenant's latitude, its accuracy trend, and whether an override is in force. Fixed position, read only in the MVP | Reads from 3.5, changed only at 7.2 | HJ1, the bet | **MVP** |
 | **0.4 Live connection status** | state | Connected, reconnecting, stale. Named age of the data when not connected | 3.3 when stale | MAIN, because a stale queue is a wrong decision | **MVP** |
 | **0.5 Keyboard map** | dialog | Every shortcut the console answers to, grouped by what it does rather than by key | Overlays any node, returns to it | MAIN, design principle 5 | **MVP** |
 | **0.6 Action class taxonomy** | data | The canonical list of what Clerk can be permitted to do, grouped by what it touches, each class carrying its reversibility | Read by 0.3, 3.6, 7.2 and every queue row | HJ1, and it is what makes per class latitude expressible | **MVP** |
 | **0.7 Rejection reason taxonomy** | data | The canonical list of why a verdict was rejected, structured rather than free text | Written at 4.4, read by 5.1, leaves the product for tuning | R3, design principle 3 | **MVP** |
+| **0.8 Reading conventions** | data | The canonical rendering of severity, time, effort, state chips and the mockup fixtures | Read by 3.1, 3.5, 3.6, 4.1, 5.1, 2.1 and every node stage 04 draws | design principles 1, 2 and 5 | **MVP** |
 
 **0.6 and 0.7 arrived discover-as-you-go**, at the gate that closes the global elements. Neither is a screen. Both are canonical lists of values that several nodes read, which is exactly the class the pipeline says to define once and reference rather than restate. They are marked MVP here because the nodes that read them are MVP: per class latitude is not expressible without 0.6, and a rejection reason that routes to tuning is not possible without 0.7.
+
+**0.8 arrived the same way, later and from a different instrument.** 0.6 and 0.7 are canonical lists of values; 0.8 is the canonical list of renderings. It was found at the stage 08 audit by a reader with clean context who tried to draw from the specification: no node was wrong, and severity, time, effort, chips and fixtures were all used as though the reader already knew what they meant. It is MVP because stage 04 cannot draw a row without it.
 
 **0.3 is the whole differentiator in one element.** It is an annunciator rather than a menu item, taken in `benchmark.md` from the Flight Mode Annunciator where armed and active are read from a fixed place and `OVRD` is its own annunciated state. A mode that has to be inferred from context is a display failure.
 
@@ -274,11 +277,11 @@ Group `global`. No node here is a dead end.
 
 ### What round one built, and what it deliberately did not
 
-Agreed at the Step 4 gate, option B: **eleven carrier nodes get their own specification, and every other state is specified inside the state matrix of the screen that owns it.** The globals and the systemic cluster were already committed, so round one is twenty two written nodes out of forty five.
+Agreed at the Step 4 gate, option B: **eleven carrier nodes get their own specification, and every other state is specified inside the state matrix of the screen that owns it.** The globals and the systemic cluster were already committed, so round one is twenty three written nodes out of forty six: 0.8 was added at the audit.
 
-| Round one, written | Twenty two |
+| Round one, written | Twenty three |
 |---|---|
-| Globals | 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 8.4 |
+| Globals | 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 8.4 |
 | Carriers | 1.1, 2.1, 3.1, 3.5, 3.6, 4.1, 4.2, 4.4, 4.6, 5.1, 5.4 |
 | Systemic | 8.1, 8.2, 8.3 |
 
@@ -296,7 +299,7 @@ Agreed at the Step 4 gate, option B: **eleven carrier nodes get their own specif
 
 **The next round starts from this table**, and the first four rows are the ones with MVP scope. Nothing in it is undiscovered; the difference between written and deferred here is a page of its own versus a column in a parent's matrix.
 
-**Forty five nodes, thirty nine of them MVP.** Six LATER: five in clusters 6 and 7, plus 8.3, moved at the stage 08 audit when it turned out to have no reachable route in the MVP. The map opened at forty three; 0.6 and 0.7 were added at the gate that closed the global elements, which is what discover-as-you-go is for.
+**Forty six nodes, forty of them MVP.** Six LATER: five in clusters 6 and 7, plus 8.3, moved at the stage 08 audit when it turned out to have no reachable route in the MVP. The map opened at forty three; 0.6 and 0.7 were added at the gate that closed the global elements, and 0.8 at the audit, which is what discover-as-you-go is for.
 
 Fourteen nodes arrived without a parent screen and had their scope set here rather than inherited: the whole of cluster 0 including the two taxonomies, both of cluster 1, 3.6, and the whole of cluster 8. All twelve are MVP, and each has a stated reason. 8.3 is not a nicety, it is tenant isolation from `CLAUDE.md`. 0.3 is the differentiator itself.
 

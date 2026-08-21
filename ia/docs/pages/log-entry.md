@@ -139,6 +139,7 @@ Both are written at 4.1 and 4.4 and **redeemed here**. That is the case for stru
 
 ## 9. Not this node
 
+- **0.8** the reading conventions. Severity, time, the effort units, the chip set and the tenant fixtures are defined there and read here
 - **5.1** the log itself, and the pane this renders in
 - **5.5** when the snapshot did not survive. It takes over this node rather than sitting inside it
 - **5.6** the history of one case: every entry for a case in order, where this is one of them

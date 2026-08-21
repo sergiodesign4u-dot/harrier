@@ -127,13 +127,13 @@
 <p class="h2sub">Defined once here; 5.1 reuses it, and anything that does not says why</p>
 <div class="wfwrap"><div class="wfcap"><b>Row anatomy</b> <span>seven slots, each earning its width</span></div><div class="wfpad">
 <div class="anat">
-  <div><b>Severity</b>Glyph plus word<div class="why">Redundant coding, so colour is not the only carrier. Taken from Defender</div></div>
+  <div><b>Severity</b>Glyph plus word, three levels<div class="why">Redundant coding, so colour is not the only carrier. Taken from Defender. The scale is 0.8</div></div>
   <div><b>Client</b>Tenant, same position always<div class="why">Principle 4. The same signal is a Tuesday at one client and an incident at another</div></div>
   <div><b>What it is</b>The shape of the case, short<div class="why">Not a generated sentence. Defender's incident name truncates in the row, putting the least decidable content in the widest column</div></div>
-  <div><b>Clerk concluded</b>The draft verdict<div class="why">The thing being ruled on. It is why the row exists at all</div></div>
-  <div><b>Cost to check</b>Size of the evidence, counted<div class="why">Ours, no reference. The honest input to "what do I open next"</div></div>
-  <div><b>State</b><code>escalated</code>, <code>unrecorded</code>, Clerk acted<div class="why">The visible states rule. A case that left her hands must not look like one that did not</div></div>
-  <div><b>Age</b>How long it has waited<div class="why">What is going cold</div></div>
+  <div><b>Clerk concluded</b>The draft verdict, and whether the action is above this tenant&rsquo;s latitude<div class="why">The thing being ruled on. It is why the row exists at all. The latitude mark makes rank 2 of the order legible instead of mysterious, and it is <b>not</b> a state chip</div></div>
+  <div><b>Cost to check</b>Counted in signals<div class="why">Ours, no reference. The honest input to &ldquo;what do I open next&rdquo;, and 0.8 binds it to the number the evidence block renders in the pane</div></div>
+  <div><b>State</b>The chips from 0.8, at most two<div class="why">The visible states rule. A case that left her hands must not look like one that did not</div></div>
+  <div><b>Age</b>How long it has waited, elapsed<div class="why">What is going cold. Bare unit, one unit, from 0.8</div></div>
 </div>
 </div></div>
 <p><strong>What the row must not carry:</strong> a checkbox, a bare priority score, or a truncating generated name. All three are named refusals from the bank rather than omissions.</p>
@@ -153,6 +153,35 @@
 <div class="node"><span class="lbl">Why not vanish, and why not advance</span><p><strong>A row that disappears at the keystroke takes her place in the list with it</strong>, and 0.1 exists to stop exactly that. It also removes the only evidence that the right case was ruled on.</p><p><strong>The pane does not advance on its own</strong> because deciding forty cases with the pane jumping ahead makes the next case arrive before the last one is understood. Principle 3 wants the override cheap, not the acceptance automatic.</p></div>
 </section>
 
+<section id="order">
+<h2>02c &middot; Default order, and where a case goes when she is done with it</h2>
+<p class="h2sub">Both were missing, and the reader found them together because they are the same question</p>
+<p>The queue is a set with an order, and neither the set nor the order had been written down.</p>
+<h3 style="font:600 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:26px 0 12px">The set: what the default view holds</h3>
+<p><strong>The queue is what is waiting on a decision, in her scope.</strong> That is a narrowing like any other, which is why 3.6 puts <code>escalated</code> and <code>unrecorded</code> in the scope bar as chips rather than inventing a second surface for them.</p>
+<div class="tw"><table>
+<thead><tr><th>State</th><th>Stays in the default view</th><th>Where it is otherwise</th></tr></thead>
+<tbody>
+<tr><td>Waiting on a decision</td><td><strong>Yes.</strong> This is the set</td><td>n/a</td></tr>
+<tr><td><code>investigating</code></td><td><strong>Yes.</strong> Clerk is working, and she needs to know it is coming</td><td>n/a</td></tr>
+<tr><td><code>decided</code></td><td>Until the selection moves off the row, then it leaves. Section 02b</td><td>5.1, and the <code>decided</code> narrowing</td></tr>
+<tr><td><code>escalated</code></td><td><strong>No.</strong> It left her hands, so it is not waiting on her decision</td><td>The <code>escalated</code> chip, one click. 2.1 carries what she escalated this shift</td></tr>
+<tr><td><code>unrecorded</code></td><td><strong>Yes, and it does not leave until the write lands</strong></td><td>Nowhere else. That is the point</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The load bearing row</span><p><code>unrecorded</code> staying is the one that matters. 4.10 says the verdict is held locally and the case stays open, so the console is then <strong>the only place that decision exists</strong>. Removing the row would remove the last trace of it. It leaves when the write succeeds, and not before.</p></div>
+<h3 style="font:600 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:26px 0 12px">The order</h3>
+<div class="tw"><table>
+<thead><tr><th>Rank</th><th>Sorted by</th><th>Why it is above the next one</th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong></td><td><code>unrecorded</code></td><td>Her attention here repairs a record rather than making a decision. Nothing else in the queue is already broken</td></tr>
+<tr><td><strong>2</strong></td><td><strong>Blocked on her.</strong> Clerk proposes an action above this tenant&rsquo;s latitude, so nothing has happened and nothing will until she rules</td><td>The only rows where waiting has a cost outside the console. It comes straight from 0.6, and <strong>no reference in the bank orders a queue this way</strong></td></tr>
+<tr><td><strong>3</strong></td><td>Severity, high first</td><td>The scale is 0.8</td></tr>
+<tr><td><strong>4</strong></td><td>Age, oldest first</td><td>What is going cold</td></tr>
+</tbody></table></div>
+<p>Sort is a chip in the scope bar like any other narrowing, so this is a default rather than a constraint. <strong>Rank 2 is a claim about the job and it is falsifiable</strong>, in the same test as the fleet bet: if her first question is &ldquo;what is worst&rdquo; rather than &ldquo;what is stuck on me&rdquo;, ranks 2 and 3 swap and the row is unaffected.</p>
+<p><strong>When narrowing returns nothing</strong>, 3.6 section 4 owns the mechanism and already specifies it: the responsible chip is named in the bar where the question was asked, all of them if more than one, and the bar says so when no single removal helps. This node states the requirement and does not restate the answer.</p>
+</section>
+
 <section id="mock">
 <h2>03 &middot; Wireframe, 1440</h2>
 <p class="h2sub">Black and white. Colour arrives at stage 06</p>
@@ -164,39 +193,42 @@
       <span class="tag">LIST PANE &middot; 3.1</span>
       <div class="scopebar">
         <span class="chip">All tenants &#9662;</span>
-        <span class="chip">Severity: High, Medium &times;</span>
-        <span class="chip">Clerk: needs a human &times;</span>
-        <span class="chip">Unrecorded &times;</span>
-        <span class="chip soft">Sort: oldest first &#9662;</span>
+        <span class="chip">Waiting on a decision &times;</span>
+        <span class="chip soft">Sort: default &#9662;</span>
       </div>
       <div class="readout">18 waiting <span>&middot; across 12 of 40 tenants in scope</span></div>
       <div class="row hd"><div>SEV</div><div>CLIENT</div><div>WHAT IT IS</div><div>CLERK CONCLUDED</div><div>TO CHECK</div><div>STATE</div><div>AGE</div></div>
-      <div class="row sel">
+      <div class="row">
+        <div>&#9646;&#9646;&#9647; MEDIUM</div><div>Meridian Health</div>
+        <div>Token replay from unknown ASN</div><div>Rejected by R. Idrissi</div>
+        <div class="dim">4 signals</div><div><span class="st">DECIDED</span> <span class="st inv">UNRECORDED</span></div><div class="dim">1h</div>
+      </div>
+      <div class="row">
         <div>&#9646;&#9646;&#9646; HIGH</div><div>Norsk Marine</div>
-        <div>Ransomware precursor on FS-02</div><div>True positive, needs a human</div>
-        <div class="dim">9 signals<br>5 sources</div><div><span class="st inv">ESCALATED</span></div><div class="dim">27m</div>
-      </div>
-      <div class="row">
-        <div>&#9646;&#9646;&#9647; MED</div><div>Vestry Capital</div>
-        <div>Token replay from unknown ASN</div><div>Uncertain, no baseline yet</div>
-        <div class="dim">4 signals<br>2 sources</div><div><span class="st">UNRECORDED</span></div><div class="dim">1h 03m</div>
-      </div>
-      <div class="row">
-        <div>&#9646;&#9646;&#9647; MED</div><div>Larkfield Logistics</div>
-        <div>Credential stuffing, edge VPN</div><div>True positive, contained</div>
-        <div class="dim">11 signals<br>4 sources</div><div><span class="st">CLERK ACTED</span></div><div class="dim">12m</div>
+        <div>Ransomware precursor on FS-02</div><div>Real, contain identity<br><span class="dim">above latitude here</span></div>
+        <div class="dim">9 signals</div><div class="dim">&ndash;</div><div class="dim">27m</div>
       </div>
       <div class="row">
         <div>&#9646;&#9646;&#9646; HIGH</div><div>Meridian Health</div>
         <div>Impossible travel, 2 accounts</div><div>Benign, sanctioned VPN rollout</div>
-        <div class="dim">6 signals<br>3 sources</div><div class="dim">&ndash;</div><div class="dim">4m</div>
+        <div class="dim">6 signals</div><div class="dim">&ndash;</div><div class="dim">4m</div>
+      </div>
+      <div class="row">
+        <div>&#9646;&#9646;&#9647; MEDIUM</div><div>Larkfield Logistics</div>
+        <div>Credential stuffing, edge VPN</div><div>Real, contained</div>
+        <div class="dim">11 signals</div><div><span class="st">CLERK ACTED</span></div><div class="dim">12m</div>
+      </div>
+      <div class="row">
+        <div>&#9646;&#9646;&#9647; MEDIUM</div><div>Aubrey Dental Group</div>
+        <div>Sign in from an unseen device</div><div class="dim">no verdict yet</div>
+        <div class="dim">counting</div><div><span class="st">INVESTIGATING</span></div><div class="dim">6m</div>
       </div>
       <div class="row">
         <div>&#9646;&#9647;&#9647; LOW</div><div>Bramber Retail</div>
         <div>Mass mailbox rule creation</div><div>Benign, new admin onboarding</div>
-        <div class="dim">3 signals<br>2 sources</div><div class="dim">&ndash;</div><div class="dim">41m</div>
+        <div class="dim">3 signals</div><div class="dim">&ndash;</div><div class="dim">41m</div>
       </div>
-      <div class="foot">13 more &middot; virtualised &middot; arrow keys traverse, the pane follows</div>
+      <div class="foot">12 more &middot; virtualised &middot; arrow keys traverse, the pane follows &middot; order is 02c: unrecorded, then blocked on her, then severity, then age</div>
     </div>
     <div class="detpane">
       <span class="tag">DETAIL PANE &middot; 3.5 AT REST</span>
@@ -205,7 +237,7 @@
       <div class="frow"><div>Larkfield Logistics</div><div>Contain network</div><div>51/52</div></div>
       <div class="frow"><div>Meridian Health</div><div>Contain endpoint</div><div>34/36</div></div>
       <div class="frow"><div>Bramber Retail</div><div>Contain endpoint</div><div>28/28</div></div>
-      <div class="frow"><div>Vestry Capital</div><div>Investigate only</div><div>9/14</div></div>
+      <div class="frow"><div>Meridian Health</div><div>Investigate only</div><div>9/14</div></div>
       <div class="frow"><div>Norsk Marine</div><div>Investigate only</div><div>12/17</div></div>
       <div class="foot">35 more &middot; upheld over 30 days &middot; readable, not settable</div>
     </div>
@@ -266,19 +298,19 @@
   <div class="strip">Live, last case 4s ago</div>
   <div class="scopebar"><span class="chip">Scope &middot; 3 filters &#9662;</span><span class="chip soft">18 waiting</span></div>
   <div class="mrow">
-    <div class="l1"><span>&#9646;&#9646;&#9646;</span><b>Norsk Marine</b><span class="dim">27m</span></div>
-    <div class="l2"><span class="v">Ransomware precursor on FS-02</span></div>
-    <div class="l2"><span class="v">True positive, needs a human</span><span class="st">ESCALATED</span></div>
+    <div class="l1"><span>&#9646;&#9646;&#9647;</span><b>Meridian Health</b><span class="dim">1h</span></div>
+    <div class="l2"><span class="v">Token replay from unknown ASN</span></div>
+    <div class="l2"><span class="v">Rejected by R. Idrissi</span><span class="st">UNRECORDED</span></div>
   </div>
   <div class="mrow">
-    <div class="l1"><span>&#9646;&#9646;&#9647;</span><b>Vestry Capital</b><span class="dim">1h 03m</span></div>
-    <div class="l2"><span class="v">Token replay from unknown ASN</span></div>
-    <div class="l2"><span class="v">Uncertain, no baseline yet</span><span class="st">UNRECORDED</span></div>
+    <div class="l1"><span>&#9646;&#9646;&#9646;</span><b>Norsk Marine</b><span class="dim">27m</span></div>
+    <div class="l2"><span class="v">Ransomware precursor on FS-02</span></div>
+    <div class="l2"><span class="v">Real, contain identity</span><span class="dim">above latitude</span></div>
   </div>
   <div class="mrow">
     <div class="l1"><span>&#9646;&#9646;&#9647;</span><b>Larkfield Logistics</b><span class="dim">12m</span></div>
     <div class="l2"><span class="v">Credential stuffing, edge VPN</span></div>
-    <div class="l2"><span class="v">True positive, contained</span><span class="st">CLERK ACTED</span></div>
+    <div class="l2"><span class="v">Real, contained</span><span class="st">CLERK ACTED</span></div>
   </div>
   <div class="foot">15 more &middot; tap opens 4.2, not a pane</div>
 </div>
@@ -289,6 +321,7 @@
 <tr><td>The list becomes the whole page; the pane is not rendered</td><td>A pane at 360 would cover the list, which is the one thing 0.1 guarantees</td></tr>
 <tr><td>Selecting navigates to <strong>4.2</strong>, the standalone route</td><td>4.2 exists for exactly two reasons: a permalink and this</td></tr>
 <tr><td>Row drops to two lines and <strong>loses "what checking will cost"</strong></td><td>On a phone she is not choosing what to read next. She was paged about one case</td></tr>
+<tr><td><strong>Only one state chip survives</strong>, where the desk row carries up to two</td><td>0.8 orders the chips by what changes her next action, so the row keeps the highest one. The dropped one is still on 4.2, which is where the tap lands</td></tr>
 <tr><td>Scope bar collapses to one control carrying the count of active filters</td><td>Five chips at 360 is a second scroll before the first case</td></tr>
 <tr><td>0.4's freshness line stays, same place</td><td>A silently stale queue on a phone at 03:00 is the worst version of that failure</td></tr>
 <tr><td><strong>The fleet is not rendered at 360</strong></td><td>It is a desk instrument. Saying so is better than shrinking it into something unreadable</td></tr>
@@ -312,6 +345,7 @@
 <tr><td><strong>3.6</strong></td><td>The filters themselves. This node places the scope bar; 3.6 says what is in it</td></tr>
 <tr><td><strong>4.1</strong></td><td>The case. Everything after <code>Enter</code></td></tr>
 <tr><td><strong>5.1</strong></td><td>The log. Same page type, and it reuses this row, which is what canonical means</td></tr>
+<tr><td><strong>0.8</strong></td><td>How the slots are rendered. Severity scale, time grammar, the signal count and the chip set are defined once there and read here</td></tr>
 </tbody></table></div>
 </section>
 
@@ -348,6 +382,7 @@
     { id:'blocks', label:'Blocks' },
     { id:'row',    label:'The row' },
     { id:'filed',  label:'After it is filed' },
+    { id:'order',  label:'Order and residency' },
     { id:'mock',   label:'Wireframe' },
     { id:'states', label:'State matrix' },
     { id:'keys',   label:'Keyboard' },

@@ -146,6 +146,7 @@ The UCL evidence behind this mechanism is the same quote as finding 3, and this 
 
 ## 10. Not this node
 
+- **0.8** the reading conventions. Severity, time, the effort units, the chip set and the tenant fixtures are defined there and read here
 - **2.2 to 2.5** the states, each its own node. Sealing is 2.4 and it is a state, not a page
 - **3.1** the queue every pointer resolves into, and **4.1** the case a case pointer resolves into
 - **3.5** the fleet, which block 5 points at

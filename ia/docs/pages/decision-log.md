@@ -140,6 +140,7 @@ The mechanism is written at 4.1 and 4.4, and **read here**. That is the whole ar
 
 ## 10. Not this node
 
+- **0.8** the reading conventions. Severity, time, the effort units, the chip set and the tenant fixtures are defined there and read here
 - **3.1** the queue, and the canonical row this one redefines
 - **3.6** the narrowing chips. Same control, defined there
 - **0.1** the shell and the pane. **0.4** the freshness strip

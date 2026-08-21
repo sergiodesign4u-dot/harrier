@@ -213,25 +213,60 @@
 <thead><tr><th>Component</th><th>Requirement</th></tr></thead>
 <tbody>
 <tr><td rowspan="4"><strong>Evidence block</strong></td><td><strong>Claim:</strong> one line in product words, never a raw field</td></tr>
-<tr><td><strong>Chip:</strong> attached to the claim, not collected at the end. Opens the source, what kind of claim it is, and the reasoning behind that value</td></tr>
+<tr><td><strong>Chip:</strong> attached to the claim, not collected at the end. Opens the source, what kind of claim it is, and the reasoning behind that value. <strong>It expands in place</strong>, and section 04b says why that is not a style preference</td></tr>
 <tr><td><strong>Absence:</strong> what Clerk looked for and did not find, with the same weight as what it found. <strong>The half no reference has</strong>, and the mechanism the emotional job depends on</td></tr>
 <tr><td><strong>Disagreement:</strong> signals that pointed the other way, kept visible rather than resolved away</td></tr>
-<tr><td><strong>Provenance strip</strong></td><td>Sources queried, how many, over what window, and the effort. <strong>Count first, never a bare percentage</strong>, the shape 0.3 already fixed. It exists because <code>Thought for 20s</code> is the right instinct badly executed: time says the agent was busy, not what it read</td></tr>
+<tr><td><strong>Provenance strip</strong></td><td>Sources queried, how many, and over what window. The unit is <code>sources</code>, and 0.8 says why it is not the same number as the row&rsquo;s <code>signals</code>. <strong>Count first, never a bare percentage</strong>, the shape 0.3 already fixed. It exists because <code>Thought for 20s</code> is the right instinct badly executed: time says the agent was busy, not what it read</td></tr>
 <tr><td><strong>Verdict record</strong></td><td>Composed from <strong>structured parts, never free text</strong>: what was decided, on what grounds, against which snapshot, by whom, when, and if rejected the reason from 0.7 on both axes. Free text stays optional and nothing downstream depends on it</td></tr>
 </tbody></table></div>
+</section>
+
+<section id="chipopens">
+<h2>04b &middot; What the evidence chip opens, settled by a principle rather than a taste</h2>
+<p class="h2sub">Popover, modal, side sheet and inline are four different screens, and three of them were already forbidden here</p>
+<p><strong>The reader could not draw the evidence block because nothing said what happens on the chip.</strong> Design principle 5, in its own words: <em>no overlay that hides the evidence the analyst is deciding on</em>. A modal hides all of it. A popover hides the claims underneath the one she opened, which are exactly the claims she is weighing it against. A side sheet takes the width the pane needs.</p>
+<p><strong>So it expands in place, inside the evidence block, and pushes the rest down.</strong></p>
+<div class="tw"><table>
+<thead><tr><th>Property</th><th>Decision</th></tr></thead>
+<tbody>
+<tr><td>Where</td><td>In the block, under its claim, at the same indent</td></tr>
+<tr><td>What it costs</td><td>Vertical space, the cheapest thing in a scrolling pane and the only budget principle 5 allows spending</td></tr>
+<tr><td>How many at once</td><td><strong>More than one.</strong> Comparing two claims is the job, and an accordion that closes the other hides the thing she opened it to compare against</td></tr>
+<tr><td>Close</td><td>The same key that opened it, and <code>Escape</code> closes all of them</td></tr>
+<tr><td>At 360</td><td>Identical. In place expansion is the one disclosure pattern that survives a phone, and 4.2 inherits it rather than choosing again</td></tr>
+<tr><td>Focus</td><td>Stays on the chip, so traversal continues from where she was</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">What this rules out downstream</span><p>Stage 04 may not draw a hover popover for evidence detail, and stage 07 may not promote it to a modal for the sake of a cleaner pane. <strong>The pane is not supposed to be clean. It is supposed to be legible with everything on it.</strong></p></div>
+</section>
+
+<section id="gap">
+<h2>04c &middot; Evidence that arrives while the connection is degraded</h2>
+<p class="h2sub">0.4 named this node as the owner. This node had never picked it up</p>
+<p>Naming an owner and then not writing the behaviour is worse than leaving it unowned, because the map reads as complete.</p>
+<div class="tw"><table>
+<thead><tr><th>Moment</th><th>What the pane does</th></tr></thead>
+<tbody>
+<tr><td>Connection degrades while she is reading</td><td>The evidence block holds what it had, <strong>marked as of the last sync</strong> with its age. Never blanked, never a spinner</td></tr>
+<tr><td>Verdict controls</td><td><strong>Stay live.</strong> 0.4 already settled that a degraded connection does not block a decision</td></tr>
+<tr><td>New evidence arrives after reconnect</td><td>It <strong>never silently changes the block she is reading.</strong> It lands as a marked addition at the top, with when it arrived, and the verdict line is marked as drafted before it</td></tr>
+<tr><td>She files anyway, having seen only the older set</td><td>Allowed, and the log records <strong>the snapshot she actually saw</strong>. Not a compromise: it is the compliance requirement, which asks for the evidence as it stood at decision time rather than as it stands now</td></tr>
+<tr><td>New evidence for a case she already filed on</td><td><strong>It does not reopen the case.</strong> A filed verdict is a fact about a moment. Where the new signal goes is Clerk&rsquo;s problem, not this pane&rsquo;s</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The last row leaves a real hole, named rather than hidden</span><p>Whether Clerk raises a new case, appends to the closed one, or does nothing is <code>[?]</code> and belongs to a node nobody owns yet. It joins the same list as the analyst side review lane, which also has no job.</p></div>
 </section>
 
 <section id="states">
 <h2>05 &middot; State matrix</h2>
 <div class="tw"><table>
-<thead><tr><th>Element</th><th>Filed and waiting</th><th>Still working, 4.3</th><th>Clerk acted</th><th>No baseline, 4.8</th><th>Evidence expired, 4.7</th><th>Write failed, 4.9</th></tr></thead>
+<thead><tr><th>Element</th><th>Filed and waiting</th><th>Still working, 4.3</th><th>Clerk acted</th><th><strong>Amending, 4.5</strong></th><th>No baseline, 4.8</th><th>Evidence expired, 4.7</th><th>Write failed, 4.9</th></tr></thead>
 <tbody>
-<tr><td><strong>Verdict line</strong></td><td>Present</td><td>Absent. <strong>What is being checked</strong> shown instead, so waiting is legible</td><td>Present</td><td>Present</td><td>Present, marked as resting on evidence no longer retrievable</td><td>Present, unfiled</td></tr>
-<tr><td><strong>Evidence block</strong></td><td>Full</td><td>Partial, arriving</td><td>Full</td><td>Full</td><td><strong>Tombstone.</strong> What was there, that it is gone, when. Never a blank</td><td>Full</td></tr>
-<tr><td><strong>Tenant context</strong></td><td>Base rate</td><td>Pending</td><td>Base rate</td><td><strong><code>No baseline for this tenant yet</code>.</strong> Not a zero and not a meaningless comparison</td><td>Base rate</td><td>Base rate</td></tr>
-<tr><td><strong>Latitude</strong></td><td>Permitted, and doing now</td><td>Doing now</td><td><strong>What it did, and whether it can be undone</strong></td><td>Permitted, and the record says how thin it is</td><td>Unchanged</td><td>Unchanged</td></tr>
-<tr><td><strong>Verdict controls</strong></td><td>All four live</td><td>Escalate only</td><td>All four live</td><td>All four live</td><td><strong>Escalate only.</strong> The honest exit, and 4.7 has no other</td><td>Retry, or hold locally into 4.10</td></tr>
+<tr><td><strong>Verdict line</strong></td><td>Present</td><td>Absent. <strong>What is being checked</strong> shown instead, so waiting is legible</td><td>Present</td><td><strong>Editable, and Clerk&rsquo;s original stays visible beside it.</strong> Never replaced, because the amendment is only defensible next to what it amended</td><td>Present</td><td>Present, marked as resting on evidence no longer retrievable</td><td>Present, unfiled</td></tr>
+<tr><td><strong>Evidence block</strong></td><td>Full</td><td>Partial, arriving</td><td>Full</td><td><strong>Full, and it does not move.</strong> She is amending against it</td><td>Full</td><td><strong>Tombstone.</strong> What was there, that it is gone, when. Never a blank</td><td>Full</td></tr>
+<tr><td><strong>Tenant context</strong></td><td>Base rate</td><td>Pending</td><td>Base rate</td><td>Base rate</td><td><strong><code>No baseline for this tenant yet</code>.</strong> Not a zero and not a meaningless comparison</td><td>Base rate</td><td>Base rate</td></tr>
+<tr><td><strong>Latitude</strong></td><td>Permitted, and doing now</td><td>Doing now</td><td><strong>What it did, and whether it can be undone</strong></td><td>Unchanged. Amending the narrative changes no grant</td><td>Permitted, and the record says how thin it is</td><td>Unchanged</td><td>Unchanged</td></tr>
+<tr><td><strong>Verdict controls</strong></td><td>All four live</td><td>Escalate only</td><td>All four live</td><td><strong>File the amendment, or cancel.</strong> While the field has focus, letters are text and nothing else, which is section 06</td><td>All four live</td><td><strong>Escalate only.</strong> The honest exit, and 4.7 has no other</td><td>Retry, or hold locally into 4.10</td></tr>
 </tbody></table></div>
+<div class="node"><span class="lbl">Amend is the third verdict, and it carries no reason code</span><p>0.7&rsquo;s taxonomy exists because a rejection has to reach a detection engineer as a structured value. An amendment does not: <strong>the amended text is the reason</strong>, and it is already structured by being the verdict record&rsquo;s own field. Adding a code would ask her to classify her own writing.</p></div>
 <div class="node"><span class="lbl">4.7 and 4.9 must not share a treatment</span><p>One is evidence that aged out, the other is a write that did not land. The first leaves a decidable case with an undefendable record; the second leaves a decision nobody can see. <strong>4.10 is what happens when 4.9 is not resolved:</strong> the verdict is held, the case stays open, and the row in 3.1 wears <code>unrecorded</code>. That flag is the difference between a decision that exists and one only the analyst remembers making.</p></div>
 </section>
 
@@ -293,6 +328,7 @@
 <tr><td><strong>0.6, 0.7</strong></td><td>The action classes and the rejection reasons. This node shows and opens them; they are defined there</td></tr>
 <tr><td><strong>4.2, 4.3 to 4.10</strong></td><td>The standalone route, everything at 360, and each state as its own node</td></tr>
 <tr><td><strong>5.4</strong></td><td>The same three components rendered from the log at a past <code>?as-of</code></td></tr>
+<tr><td><strong>0.8</strong></td><td>The reading conventions. The severity scale, the time grammar and the <code>sources</code> unit in the provenance strip are defined there and read here</td></tr>
 </tbody></table></div>
 <div class="tw"><table>
 <thead><tr><th>Claim</th><th>Source</th></tr></thead>
@@ -327,6 +363,8 @@
     { id:'blocks',  label:'Blocks' },
     { id:'mock',    label:'Wireframe' },
     { id:'canon',   label:'Canonical parts' },
+    { id:'chipopens',label:'What the chip opens' },
+    { id:'gap',     label:'Evidence in a gap' },
     { id:'states',  label:'State matrix' },
     { id:'keys',    label:'Keyboard' },
     { id:'scope',   label:'Permission' },

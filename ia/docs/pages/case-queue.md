@@ -62,13 +62,13 @@ Defined once here. Every other list in the product either uses this row or says 
 
 | Slot | Carries | Why it earns its width |
 |---|---|---|
-| **Severity** | Glyph plus the word | Redundant coding, so colour is not the only carrier. Taken from Defender |
+| **Severity** | Glyph plus the word. **Three levels, and the scale is 0.8** | Redundant coding, so colour is not the only carrier. Taken from Defender |
 | **Client** | Tenant name, always in the same position | Design principle 4. The same signal is a Tuesday at one client and an incident at another |
 | **What it is** | The shape of the case in a short phrase | **Not** a generated sentence. Defender's incident name truncates in the row, which puts the least decidable content in the widest column |
-| **What Clerk concluded** | The draft verdict, in a phrase | This is the thing being ruled on. It is why the row exists |
-| **What checking it will cost** | The size of the evidence behind the verdict, as a count | Ours, and it has no reference. The analyst is choosing what to open next, and the honest input to that choice is how much reading it takes |
-| **State** | `escalated`, `unrecorded`, and whether Clerk already acted | The visible states rule from `CLAUDE.md`. A case that left the analyst's hands must not look identical to one that did not |
-| **Age** | How long it has been waiting | SLA belongs to the secondary persona, but the analyst still needs to know what is going cold |
+| **What Clerk concluded** | The draft verdict, in a phrase, and **whether the action it proposes is above this tenant's latitude** | This is the thing being ruled on. It is why the row exists. The latitude mark is what makes rank 2 of the order legible instead of mysterious, and it is not a state chip |
+| **What checking it will cost** | The size of the evidence behind the verdict, **counted in signals, 0.8**, and it is the same number the evidence block renders in the pane | Ours, and it has no reference. The analyst is choosing what to open next, and the honest input to that choice is how much reading it takes |
+| **State** | The chips from **0.8**, at most two, highest first | The visible states rule from `CLAUDE.md`. A case that left the analyst's hands must not look identical to one that did not |
+| **Age** | How long it has been waiting. **Elapsed, bare unit, 0.8** | SLA belongs to the secondary persona, but the analyst still needs to know what is going cold |
 
 **What the row must not carry:** a checkbox, a bare priority score, or a truncating generated name. The first three are named refusals from the bank, not omissions.
 
@@ -90,6 +90,41 @@ Defined once here. Every other list in the product either uses this row or says 
 **Why not vanish on filing.** A row that disappears at the moment of the keystroke takes the analyst's place in the list with it, and 0.1 exists to stop exactly that. It also removes the only evidence that the right case was ruled on.
 
 **Why not advance the pane automatically.** Deciding forty cases in a row with the pane jumping ahead makes the next case arrive before the last one is understood, and design principle 3 wants the override cheap, not the acceptance automatic.
+
+---
+
+## 4c. Default order, and where a case goes when she is done with it
+
+**Both were missing, and the reader found them together because they are the same question.** The queue is a set with an order, and neither the set nor the order had been written down.
+
+### The set: what the default view holds
+
+**The queue is what is waiting on a decision, in her scope.** That is a narrowing like any other, which is why 3.6 puts `escalated` and `unrecorded` in the scope bar as chips rather than inventing a second surface for them.
+
+| State | Stays in the default view | Where it is otherwise |
+|---|---|---|
+| Waiting on a decision | **Yes.** This is the set | n/a |
+| `investigating` | **Yes.** Clerk is working, and she needs to know it is coming | n/a |
+| `decided` | Until the selection moves off the row, then it leaves. Section 4b | 5.1, and the `decided` narrowing |
+| `escalated` | **No.** It left her hands, so it is not waiting on her decision | The `escalated` chip, one click. 2.1 carries what she escalated this shift |
+| `unrecorded` | **Yes, and it does not leave until the write lands** | Nowhere else. That is the point |
+
+**`unrecorded` staying is the load bearing row in that table.** 4.10 says the verdict is held locally and the case stays open. The console is then the only place that decision exists, so removing the row would remove the last trace of it. It leaves when the write succeeds, and not before.
+
+### The order
+
+| Rank | Sorted by | Why it is above the next one |
+|---|---|---|
+| **1** | `unrecorded` | Her attention here repairs a record rather than making a decision. Nothing else in the queue is already broken |
+| **2** | **Blocked on her.** Clerk proposes an action above this tenant's latitude, so nothing has happened and nothing will until she rules | These are the only rows where waiting has a cost outside the console. It comes straight from 0.6, and no reference orders a queue this way |
+| **3** | Severity, high first | 0.8 |
+| **4** | Age, oldest first | What is going cold |
+
+Sort is a chip in the scope bar like any other narrowing, so this is a default rather than a constraint. **Rank 2 is a claim about the job and it is falsifiable**, in the same test as the fleet bet: if the analyst's first question is "what is worst" rather than "what is stuck on me", rank 2 and rank 3 swap and the row is unaffected.
+
+### When narrowing returns nothing
+
+3.6 section 4 owns the mechanism and already specifies it: the responsible chip is named **in the bar, where the question was asked**, all of them if more than one, and the bar says so when no single removal helps. This node states the requirement; it does not restate the answer.
 
 ---
 
@@ -170,6 +205,7 @@ One candidate is worth naming for the table's owner rather than claiming here: *
 - **The filters themselves.** 3.6. This node places the scope bar; 3.6 says what is in it
 - **The case.** 4.1. Everything that happens after `Enter`
 - **The log.** 5.1 is the same page type and reuses this row, which is what "canonical" means
+- **How the slots are rendered.** 0.8. Severity scale, time grammar, the signal count and the chip set are defined once there and read here
 
 ---
 

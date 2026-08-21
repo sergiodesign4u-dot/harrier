@@ -34,6 +34,7 @@ window.IA_NAV = [
   { node:'0.5',  label:'Keyboard map',                  type:'dialog',  group:'global', scope:'MVP',   file:'keyboard-map.html' },
   { node:'0.6',  label:'Action class taxonomy',         type:'section', group:'global', scope:'MVP',   file:'action-class-taxonomy.html' },
   { node:'0.7',  label:'Rejection reason taxonomy',     type:'section', group:'global', scope:'MVP',   file:'rejection-reason-taxonomy.html' },
+  { node:'0.8',  label:'Reading conventions',           type:'section', group:'global', scope:'MVP',   file:'reading-conventions.html' },
   /* 8 systemic, global too */
   { node:'8.1',  label:'Not found',                     type:'state',   group:'global', scope:'MVP',   file:'not-found.html' },
   { node:'8.2',  label:'Service unavailable',           type:'state',   group:'global', scope:'MVP',   file:'service-unavailable.html' },

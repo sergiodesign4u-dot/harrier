@@ -131,6 +131,7 @@ At 360 that list is capped at three. **The mechanism is weakened, and it is the 
 
 ## 8. Not this node
 
+- **0.8** the reading conventions. Severity, time, the effort units, the chip set and the tenant fixtures are defined there and read here
 - **4.1** the pane rendering, and where all ten blocks and the three canonical components are defined
 - **0.1** the shell. At 360 it is compressed and this node picks up the freshness line
 - **4.3 to 4.10** the states, which apply to both renderings

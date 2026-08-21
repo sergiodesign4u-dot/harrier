@@ -158,6 +158,7 @@ That is a real hole and it is the same one section 4 names: readable, not settab
 
 ## 10. Not this node
 
+- **0.8** the reading conventions. Severity, time, the effort units, the chip set and the tenant fixtures are defined there and read here
 - **0.3** the annunciator. It reads the same values into the shell strip; this node is the full reading, the strip is the one line version
 - **0.6** the action classes. The ladder and its ceilings are defined there
 - **3.1** the queue beside it, and the pane it sits in, which belongs to 0.1

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 0.8 Reading conventions</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;font-family:var(--mono);font-size:10.5px;color:var(--ink)}
+
+/* node local classes take the rc prefix: .note .q .node .lede .tw belong to research/_page.css */
+.rcgrid{width:100%;min-width:560px;border:1.5px solid var(--ink);background:#fff}
+.rcgrid .r{display:flex;border-bottom:1px solid var(--hair)}
+.rcgrid .r:last-child{border-bottom:none}
+.rcgrid .r.hd{background:var(--fill);border-bottom:1.5px solid var(--ink);font-size:8.5px;letter-spacing:.1em;color:var(--soft)}
+.rcgrid .c{padding:8px 12px;border-right:1px solid var(--hair);min-width:0;overflow-wrap:anywhere}
+.rcgrid .c:last-child{border-right:none}
+.rcgrid .k{flex:0 0 118px;font-weight:700}
+.rcgrid .g{flex:0 0 74px}
+.rcgrid .v{flex:1 1 auto}
+.rcgrid .r.hd .k,.rcgrid .r.hd .g,.rcgrid .r.hd .v{font-weight:400}
+
+.bars{display:inline-flex;gap:2px;align-items:flex-end;height:11px}
+.bars i{display:block;width:3px;border:1px solid var(--ink);background:#fff}
+.bars i.on{background:var(--ink)}
+.bars i:nth-child(1){height:5px}
+.bars i:nth-child(2){height:8px}
+.bars i:nth-child(3){height:11px}
+
+.rcrow{width:100%;min-width:660px;border:1.5px solid var(--ink);background:#fff}
+.rcrow .hdr{display:flex;padding:7px 12px;border-bottom:1.5px solid var(--ink);background:var(--fill);
+            font-size:8.5px;letter-spacing:.1em;color:var(--soft)}
+.rcrow .line{display:flex;padding:9px 12px;border-bottom:1px solid var(--hair);align-items:center}
+.rcrow .line:last-child{border-bottom:none}
+.rcrow .s1{flex:0 0 84px;display:flex;align-items:center;gap:6px}
+.rcrow .s2{flex:0 0 132px;font-weight:700}
+.rcrow .s3{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.rcrow .s4{flex:0 0 92px}
+.rcrow .s5{flex:0 0 118px;display:flex;gap:4px;flex-wrap:wrap}
+.rcrow .s6{flex:0 0 42px;text-align:right}
+.chip{border:1px solid var(--ink);padding:1px 5px;font-size:9px;letter-spacing:.04em;white-space:nowrap}
+.chip.solid{background:var(--ink);color:#fff}
+.chip.ghost{border-style:dashed;color:var(--soft)}
+
+.tstack{display:flex;gap:0;flex-wrap:wrap;border:1.5px solid var(--ink);background:#fff;min-width:520px}
+.tstack div{flex:1 1 170px;padding:11px 13px;border-right:1px solid var(--hair)}
+.tstack div:last-child{border-right:none}
+.tstack dt{font-size:8.5px;letter-spacing:.1em;color:var(--soft);margin:0 0 7px}
+.tstack dd{margin:0 0 4px;font-weight:700;font-size:12px}
+.tstack p{margin:6px 0 0;color:var(--soft);font-size:9.5px;line-height:1.45}
+
+.pairs2{width:100%;min-width:520px;border:1.5px solid var(--ink);background:#fff}
+.pairs2 .r{display:flex;border-bottom:1px solid var(--hair)}
+.pairs2 .r:last-child{border-bottom:none}
+.pairs2 .a{flex:0 0 210px;padding:8px 12px;border-right:1px solid var(--hair);display:flex;gap:4px}
+.pairs2 .b{flex:1 1 auto;padding:8px 12px;color:var(--soft);min-width:0;overflow-wrap:anywhere}
+.rcno{border:1px dashed var(--soft);padding:9px 12px;color:var(--soft);margin:10px 0 0}
+
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+@media (max-width:760px){.idbar div{flex:1 1 120px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 0.8 &middot; Global element</p>
+<h1>Reading conventions</h1>
+<p class="lede">Five things every surface renders, and none of them had a definition. Severity, time, effort, state chips, and the fixtures the mockups are drawn with. This node exists because a reader with clean context tried to draw from the specification and could not: no node was wrong, and the set was still not enough to draw from.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">0.8</dd></div>
+  <div><dt>Type</dt><dd>Section, data</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Arrived</dt><dd>Step 8, from the reader</dd></div>
+  <div><dt>Read by</dt><dd class="num">3.1 &middot; 3.5 &middot; 4.1 &middot; 5.1 &middot; 2.1</dd></div>
+  <div><dt>Conventions</dt><dd>5</dd></div>
+</dl>
+
+<section id="drift">
+<h2>01 &middot; The drift, measured rather than suspected</h2>
+<p class="h2sub">Twelve tenant names across fourteen mockups, and five of them are second names for a client already in the set</p>
+<div class="tw"><table>
+<thead><tr><th>Found</th><th>Where</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td><code>Meridian Health</code> and <code>Meridian Freight</code></td><td>3.1, 0.1, 3.5 against 0.6, 0.3, 0.4, 0.7</td><td><strong>Collision.</strong> One prefix, two industries, and no node meant two clients</td></tr>
+<tr><td><code>Bramber Retail</code> and <code>Cadence Retail</code></td><td>3.1, 5.1, 3.5, 5.4, 2.1 against 0.4, 0.1</td><td><strong>Collision</strong></td></tr>
+<tr><td><code>Halden Freight</code> and <code>Meridian Freight</code></td><td>3.5, 2.1 against 0.6, 0.3, 0.4</td><td>Same client, two names</td></tr>
+<tr><td><code>Northwind</code>, with no industry at all</td><td>0.6, 0.1, 0.4, 8.4</td><td>The only name whose shape was never stated</td></tr>
+<tr><td><code>Vestry Capital</code> and <code>Ashgrove Legal</code></td><td>3.1, 3.5, 2.1 and 0.1, 0.4</td><td>Two more names, each carrying no role another was not already carrying</td></tr>
+<tr><td><code>6m ago</code>, <code>as of 6m ago</code>, and <code>27m</code></td><td>0.4, 0.1, 3.1</td><td>One value, three forms, and the middle one says the same thing twice</td></tr>
+<tr><td><code>1h 03m</code></td><td>3.1, both renderings</td><td>Two units where the glance can take one, and a leading zero on the smaller</td></tr>
+</tbody></table></div>
+<p><strong>Twelve tenant names across fourteen mockups.</strong> None of this is visible reading one node. It is visible only reading the stage, which is what the fourth instrument is for.</p>
+<p><strong>One thing the table does not say, because it was checked and did not hold.</strong> The two ISO timestamps in the stage, <code>2026-06-08T22:41:03Z</code> on 5.4 and <code>2026-08-21T04:12:38Z</code> on 4.1, looked like one entry under two dates. They are two different records, and a log holding only entries from today would be the stranger artefact. Kept here rather than deleted, because a finding that does not survive verification is still worth one line.</p>
+</section>
+
+<section id="severity">
+<h2>02 &middot; Severity, and it is three levels</h2>
+<p class="h2sub">Glyph plus the word, always both. Three, because a fourth is a distinction she reads and then resolves the same way</p>
+<div class="wfwrap"><div class="wfcap"><b>Severity scale</b><span>glyph plus word</span><span>read by 3.1, 3.6, 5.1, 4.1, 2.1</span></div>
+<div class="wfpad"><div class="wf">
+<div class="rcgrid">
+  <div class="r hd"><div class="c k">LEVEL</div><div class="c g">GLYPH</div><div class="c v">WHAT IT CHANGES FOR HER</div></div>
+  <div class="r"><div class="c k">High</div><div class="c g"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div class="c v">Decide it before the queue moves</div></div>
+  <div class="r"><div class="c k">Medium</div><div class="c g"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span></div><div class="c v">Decide it this shift</div></div>
+  <div class="r"><div class="c k">Low</div><div class="c g"><span class="bars"><i class="on"></i><i></i><i></i></span></div><div class="c v">Decide it, and it can wait behind everything above</div></div>
+</div>
+<p class="rcno">Colour is not the only carrier. That is the reason the glyph is banked from the Defender incident row, and it is what stage 06 will need when colour arrives.</p>
+</div></div></div>
+<p><strong>Severity is not the action class.</strong> 0.6 orders its ladder by reversibility and says so in its own words: isolating a production server is severe and cheap to undo. Two axes, and they are allowed to disagree about the same case.</p>
+<p><strong>Open, and it is a real product question:</strong> an MDR provider ingests severity from many source tools with incompatible scales. How a source scale maps onto these three is <code>[?]</code> and belongs to whoever owns ingestion.</p>
+</section>
+
+<section id="time">
+<h2>03 &middot; Time, two grammars because there are two questions</h2>
+<p class="h2sub">She decides on elapsed. She defends on absolute</p>
+<div class="wfwrap"><div class="wfcap"><b>Time grammar</b><span>three forms, one per question</span></div>
+<div class="wfpad"><div class="wf">
+<dl class="tstack">
+  <div><dt>HOW LONG HAS THIS BEEN TRUE</dt><dd>27m &middot; 4h &middot; 3d</dd><p>Bare unit, no <code>ago</code>. Queue rows, freshness, the age of a case, the annunciator window</p></div>
+  <div><dt>WHEN EXACTLY DID THIS HAPPEN</dt><dd>2026-08-21T04:12:38Z</dd><p>ISO 8601 in UTC. 5.1, 5.4, the snapshot, anything that leaves the product</p></div>
+  <div><dt>WHICH SHIFT</dt><dd>19:00 to 07:00</dd><p>Wall clock, and the surface names the zone. 2.1 only</p></div>
+</dl>
+</div></div></div>
+<ol>
+<li><strong>Bare unit in a column, <code>ago</code> only in a sentence.</strong> Repeated down forty rows it carries nothing and costs the width of a word forty times. Prose keeps its preposition.</li>
+<li><strong>One unit, never two.</strong> <code>1h 20m</code> is two numbers where the glance can take one. Precision that changes no decision is not precision.</li>
+<li><strong>An absolute time never appears alone on a working surface, and an elapsed time never appears alone in the log.</strong> 4.1 carries both, because it is the one surface that does both jobs.</li>
+<li><strong>UTC in the log, and it is not a preference.</strong> One analyst covers tenants across the United States and the EU, so a local rendering in an append only record makes two entries incomparable at the exact moment someone is comparing them.</li>
+</ol>
+</section>
+
+<section id="effort">
+<h2>04 &middot; Effort, two different numbers wearing one word</h2>
+<p class="h2sub">The reader could not tell what unit <code>effort</code> was in. Reading the stage, there were two of them, meaning opposite things</p>
+<div class="tw"><table>
+<thead><tr><th>Number</th><th>Whose cost</th><th>Unit</th><th>Where</th><th>Form</th></tr></thead>
+<tbody>
+<tr><td><strong>What checking will cost</strong></td><td><strong>hers</strong></td><td>correlated <strong>signals</strong> in the case</td><td>the queue row, 3.1</td><td><code>9 signals</code></td></tr>
+<tr><td><strong>What Clerk spent</strong></td><td><strong>its</strong></td><td><strong>sources</strong> queried, and the window</td><td>the provenance strip, 4.1</td><td><code>6 sources, 24h</code></td></tr>
+</tbody></table></div>
+<p><strong>The two are bound by a constraint, and that is the useful part.</strong> The signal count in the row is the number of lines the evidence block renders in the pane. The row makes a promise about how much reading stands behind the verdict, and the pane is where that promise is kept or broken. Stage 04 draws them together and checks the number is the same one.</p>
+<p><strong>Never seconds.</strong> 4.1 already ruled that <code>Thought for 20s</code> is the right instinct badly executed: time alone says the agent was busy, not what it read. No duration is the headline of the provenance strip, and in the MVP it carries none at all.</p>
+</section>
+
+<section id="chips">
+<h2>05 &middot; State chips, a closed set and a stacking rule</h2>
+<p class="h2sub">Five values, rendered in the order in which they change what she does next</p>
+<div class="wfwrap"><div class="wfcap"><b>3.1 row</b><span>1440</span><span>the slots that read from this node</span></div>
+<div class="wfpad"><div class="wf">
+<div class="rcrow">
+  <div class="hdr"><div class="s1">SEV</div><div class="s2">CLIENT</div><div class="s3">WHAT IT IS &middot; WHAT CLERK CONCLUDED</div><div class="s4">TO CHECK</div><div class="s5">STATE</div><div class="s6">AGE</div></div>
+  <div class="line"><div class="s1"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</div><div class="s2">Larkfield Logistics</div><div class="s3">Token replay from a new ASN &middot; <b>Real, contain identity</b></div><div class="s4">9 signals</div><div class="s5"><span class="chip solid">acted</span></div><div class="s6">27m</div></div>
+  <div class="line"><div class="s1"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</div><div class="s2">Bramber Retail</div><div class="s3">Mass file rename on one host &middot; <b>Benign, backup agent</b></div><div class="s4">4 signals</div><div class="s5"><span class="chip">decided</span><span class="chip solid">unrecorded</span></div><div class="s6">1h</div></div>
+  <div class="line"><div class="s1"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</div><div class="s2">Meridian Health</div><div class="s3">Impossible travel, two offices &middot; <b>Needs a human</b></div><div class="s4">11 signals</div><div class="s5"><span class="chip">escalated</span><span class="chip solid">acted</span></div><div class="s6">3h</div></div>
+  <div class="line"><div class="s1"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</div><div class="s2">Aubrey Dental Group</div><div class="s3">Sign in from an unseen device &middot; <span style="color:#9aa0a6">no verdict yet</span></div><div class="s4"><span style="color:#9aa0a6">counting</span></div><div class="s5"><span class="chip ghost">investigating</span></div><div class="s6">6m</div></div>
+</div>
+</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Chip</th><th>Means</th><th>Set by</th></tr></thead>
+<tbody>
+<tr><td><code>unrecorded</code></td><td>A verdict exists and the write did not land</td><td>4.9, held at 4.10</td></tr>
+<tr><td><code>escalated</code></td><td>It left her hands</td><td>4.6</td></tr>
+<tr><td><code>decided</code></td><td>Ruled, and still in place until the selection moves off it</td><td>4.1, and 3.1 section 4b</td></tr>
+<tr><td><code>acted</code></td><td>Clerk already did something under its latitude</td><td>0.6</td></tr>
+<tr><td><code>investigating</code></td><td>Clerk is still working, no verdict yet</td><td>4.3</td></tr>
+</tbody></table></div>
+<p><strong>A row renders at most two, highest first.</strong> That is not a truncation rule, it is a claim about the taxonomy, and it is checkable: three of these can never be true at once. <code>investigating</code> excludes everything below a verdict, and <code>unrecorded</code> presupposes a verdict so it excludes <code>investigating</code>. The pairs that genuinely occur are three:</p>
+<p><strong><code>blocked on her</code> is not one of these, and that is deliberate.</strong> 3.1 sorts by it, so it has to be legible, but it is read from what Clerk concluded against the tenant&rsquo;s latitude and it renders as a mark on that phrase rather than a sixth chip. A chip would put a derived value in the slot reserved for facts about the case.</p>
+<div class="wfwrap"><div class="wfcap"><b>Every pair that can occur</b><span>if stage 04 finds a fourth, the taxonomy is what gets fixed</span></div>
+<div class="wfpad"><div class="wf">
+<div class="pairs2">
+  <div class="r"><div class="a"><span class="chip">decided</span><span class="chip solid">unrecorded</span></div><div class="b">Exactly 4.10. The decision exists and only she can see it</div></div>
+  <div class="r"><div class="a"><span class="chip">escalated</span><span class="chip solid">acted</span></div><div class="b">Clerk contained it under its latitude, and the case still went up</div></div>
+  <div class="r"><div class="a"><span class="chip">decided</span><span class="chip solid">acted</span></div><div class="b">The ordinary shape of a case Clerk was already permitted to act on</div></div>
+</div>
+<p class="rcno">A row that silently dropped a state would break the rule from CLAUDE.md that a case which left the analyst&rsquo;s hands must not look identical to one that did not.</p>
+</div></div></div>
+</section>
+
+<section id="fixtures">
+<h2>06 &middot; Fixtures, and the standing of every number in a mockup</h2>
+<p class="h2sub">Seven tenants, one canonical case, and one paragraph that binds every stage after this one</p>
+<div class="tw"><table>
+<thead><tr><th>Tenant</th><th>Shape</th><th>Why it is in the set</th></tr></thead>
+<tbody>
+<tr><td><strong>Larkfield Logistics</strong></td><td>mid market logistics</td><td>The canonical case belongs here. Appears on 3.1, 4.1, 4.2, 4.4, 5.1</td></tr>
+<tr><td><strong>Bramber Retail</strong></td><td>retail, many endpoints</td><td>The high volume tenant. Carries the fleet&rsquo;s best record</td></tr>
+<tr><td><strong>Meridian Health</strong></td><td>healthcare, tight change control</td><td>The tenant where latitude is deliberately narrow</td></tr>
+<tr><td><strong>Norsk Marine</strong></td><td>shipping, assets offline for days at a time</td><td><strong>The tenant where a stale reading is normal</strong>, which makes 0.4&rsquo;s states concrete rather than hypothetical</td></tr>
+<tr><td><strong>Halcyon Care</strong></td><td>care provider</td><td>The tenant with too few rulings to compare</td></tr>
+<tr><td><strong>Halden Freight</strong></td><td>freight</td><td>Carried over a shift boundary on 2.1</td></tr>
+<tr><td><strong>Aubrey Dental Group</strong></td><td>small, few assets</td><td>The quiet tenant, which is what makes an empty result ambiguous</td></tr>
+</tbody></table></div>
+<p><strong>Retired at this node, with where each one goes:</strong> <code>Meridian Freight</code> to <strong>Halden Freight</strong>, <code>Cadence Retail</code> to <strong>Bramber Retail</strong>, <code>Northwind</code> to <strong>Norsk Marine</strong>, <code>Vestry Capital</code> to <strong>Meridian Health</strong>, <code>Ashgrove Legal</code> to <strong>Aubrey Dental Group</strong>. Five names, none of which carried a role another was not already carrying.</p>
+<p><strong>One canonical case: <code>C-4417</code>, at Larkfield Logistics.</strong> Every node that draws a case draws this one, and it shows the same severity, the same signal count and the same verdict on 3.1, 4.1, 4.2 and 5.4.</p>
+<p><strong>The id carries no meaning, and that is a decision rather than laziness.</strong> An id that encoded the tenant or the date would leak across tenant isolation the moment a link is pasted into a channel someone else can read, and it would defeat 8.1, which requires that not found and not yours are indistinguishable. It is short because it gets read aloud on a phone at 03:00.</p>
+<div class="rcno" style="border-style:solid;border-color:#16181a;color:#16181a;font-family:var(--mono);font-size:11px;line-height:1.6">
+<strong>Numbers in a wireframe are fixtures, not findings.</strong> They are sample content, chosen to make a layout decidable, and none of them is a measurement. No fixture may be quoted anywhere as evidence about the market, about analysts, or about this product&rsquo;s performance. What they must be is <strong>internally consistent</strong>: the same case, the same tenant and the same count read the same on every surface that shows them.
+</div>
+<p>This is the rule the project already runs on written claims, applied to the drawings, because the drawings are what stage 07 puts in colour and colour is what people believe.</p>
+</section>
+
+<section id="grounding">
+<h2>07 &middot; Grounding and open questions</h2>
+<p class="h2sub">Two facts about references, five decisions, and one hole that belongs to ingestion</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th><th>Standing</th></tr></thead>
+<tbody>
+<tr><td>Severity as a three bar glyph plus the word</td><td>Defender incident row, banked at step 4 from a page opened this session</td><td>Fact about a reference</td></tr>
+<tr><td>Reversibility rather than severity orders the action classes</td><td>0.6, from Microsoft Learn response actions</td><td>Fact, argued there</td></tr>
+<tr><td><code>Thought for 20s</code> is time without content</td><td>4.1, from the reference bank</td><td>Decision, argued</td></tr>
+<tr><td>Three severity levels</td><td>this node</td><td><strong>Decision.</strong> Untested with an analyst, like everything else here</td></tr>
+<tr><td>Elapsed bare, absolute in UTC</td><td>this node</td><td>Decision</td></tr>
+<tr><td>Signals for her cost, sources for Clerk&rsquo;s</td><td>this node, reconciling two existing usages</td><td>Decision</td></tr>
+<tr><td>At most two chips, and only three pairs occur</td><td>this node</td><td><strong>Decision, and falsifiable at stage 04</strong></td></tr>
+<tr><td>The seven tenants and <code>C-4417</code></td><td>this node</td><td>Fixtures. Not findings, see 06</td></tr>
+</tbody></table></div>
+<ol>
+<li><strong>How does a source tool&rsquo;s severity map onto three levels?</strong> Belongs to ingestion, not to this stage. <code>[?]</code></li>
+<li><strong>Does the queue row need both the word and the glyph at 360?</strong> Section 8 of 3.1 already drops the cost of checking on a phone. Whether the word survives is drawn, not argued.</li>
+<li><strong>Is <code>acted</code> one chip, or does it need its class with it?</strong> <code>acted</code> alone says something happened; <code>acted, contain endpoint</code> says what, and costs width on every row. Stage 04 decides by drawing forty of them.</li>
+<li><strong>Who owns these conventions after the MVP?</strong> The same question 0.6 and 0.7 both ended on, and still the same missing settings surface.</li>
+</ol>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#0.8">Structure (0.8)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/reading-conventions.md</code>. Sibling lists: <a href="action-class-taxonomy.html">0.6</a> and <a href="rejection-reason-taxonomy.html">0.7</a>.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_SECTIONS = [
+    { id:'drift',     label:'The drift, measured' },
+    { id:'severity',  label:'Severity' },
+    { id:'time',      label:'Time' },
+    { id:'effort',    label:'Effort' },
+    { id:'chips',     label:'State chips' },
+    { id:'fixtures',  label:'Fixtures' },
+    { id:'grounding', label:'Grounding' },
+  ];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -71,13 +71,13 @@ Each appears again on 4.2 and 5.4. Defined once, referenced after. Three edition
 | Part | Requirement |
 |---|---|
 | Claim | One line, in product words, never a raw field |
-| Chip | Attached to the claim, not collected at the end. Opens the source, what kind of claim it is, and the reasoning behind that value |
+| Chip | Attached to the claim, not collected at the end. Opens the source, what kind of claim it is, and the reasoning behind that value. **It expands in place, and section 4b says why that is not a style preference** |
 | **Absence** | **What Clerk looked for and did not find, rendered with the same weight as what it found.** This is the half no reference has, and it is the mechanism the emotional job depends on |
 | Disagreement | Signals that pointed the other way, kept visible rather than resolved away |
 
 ### The provenance strip
 
-Sources queried, how many, over what window, and the effort spent. **Count first, never a bare percentage.** This is the shape 0.3 already fixed for the record: `34 of 36 upheld, 30 days`, not `94%`.
+Sources queried, how many, and over what window. **Count first, never a bare percentage.** This is the shape 0.3 already fixed for the record: `34 of 36 upheld, 30 days`, not `94%`. The unit is `sources`, and it is not the same number as the row's `signals`: 0.8 owns both and says which is whose.
 
 It exists because `Thought for 20s` is the right instinct badly executed. Time alone says the agent was busy. It does not say what it read.
 
@@ -89,17 +89,56 @@ Free text stays as an optional addition and nothing downstream ever depends on i
 
 ---
 
+## 4b. What the evidence chip opens, and it is settled by a principle rather than a taste
+
+**The reader could not draw the evidence block because nothing said what happens on the chip.** Popover, modal, side sheet and inline are four different screens, and three of them are already forbidden here.
+
+Design principle 5, in its own words: **no overlay that hides the evidence the analyst is deciding on.** A modal hides all of it. A popover hides the claims underneath the one she opened, which are exactly the claims she is weighing it against. A side sheet takes the width the pane needs.
+
+**So it expands in place, inside the evidence block, and pushes the rest down.**
+
+| Property | Decision |
+|---|---|
+| Where | In the block, under its claim, at the same indent |
+| What it costs | Vertical space, which is the cheapest thing in a scrolling pane and the only budget principle 5 allows spending |
+| How many at once | **More than one.** Comparing two claims is the job, and an accordion that closes the other one hides the thing she opened it to compare against |
+| Close | The same key that opened it, and `Escape` closes all of them |
+| At 360 | Identical. In place expansion is the one disclosure pattern that survives a phone, and 4.2 inherits it rather than choosing again |
+| Focus | Stays on the chip, so traversal continues from where she was |
+
+**What this rules out downstream:** stage 04 may not draw a hover popover for evidence detail, and stage 07 may not promote it to a modal for the sake of a cleaner pane. The pane is not supposed to be clean; it is supposed to be legible with everything on it.
+
+---
+
+## 4c. Evidence that arrives while the connection is degraded
+
+**0.4 says this case belongs to 4.1. 4.1 had never picked it up.** Naming an owner and then not writing the behaviour is worse than leaving it unowned, because the map reads as complete.
+
+| Moment | What the pane does |
+|---|---|
+| Connection degrades while she is reading | The evidence block holds what it had, **marked as of the last sync** with its age. Never blanked, never spinner |
+| Verdict controls | **Stay live.** 0.4 already settled that a degraded connection does not block a decision |
+| New evidence arrives after reconnect | It **never silently changes the block she is reading.** It lands as a marked addition at the top of the block, with when it arrived, and the verdict line is marked as drafted before it |
+| She files anyway, having seen only the older set | Allowed, and the append only log records **the snapshot she actually saw**. That is not a compromise: it is the compliance requirement in `CLAUDE.md`, which asks for the evidence as it stood at decision time rather than as it stands now |
+| New evidence for a case she already filed on | **It does not reopen the case.** A filed verdict is a fact about a moment. Where the new signal goes is Clerk's problem, not this pane's |
+
+**The last row leaves a real hole and it is named rather than hidden.** Whether Clerk raises a new case, appends to the closed one, or does nothing is `[?]` and belongs to a node nobody owns yet. It joins the same list as the analyst side review lane, which also has no job.
+
+---
+
 ## 5. State matrix
 
-| Element | Filed and waiting | Clerk still working, 4.3 | Clerk already acted | No baseline, 4.8 | Evidence expired, 4.7 | Write failed, 4.9 |
-|---|---|---|---|---|---|---|
-| **Header** | State chips | `investigating` | Banner above, naming the action and its class | Unchanged | Unchanged | Unchanged |
-| **Verdict line** | Present | Absent. **What is being checked** is shown instead, so waiting is legible | Present | Present | Present, and marked as resting on evidence that can no longer be retrieved | Present, unfiled |
-| **Evidence block** | Full | Partial, arriving | Full | Full | **Tombstone.** What was there, that it is gone, and when. Never a blank | Full |
-| **Provenance** | Full | Counting up | Full | Full | As of the last good read | Full |
-| **Tenant context** | Base rate | Pending | Base rate | **`No baseline for this tenant yet`.** Not a zero and not a comparison that means nothing | Base rate | Base rate |
-| **Latitude** | Permitted and doing now | Doing now | **What it did, and whether it can be undone** | Permitted, and the record says how thin it is | Unchanged | Unchanged |
-| **Verdict controls** | All four live | Escalate only | All four live | All four live | **Escalate only.** The honest exit, and 4.7 has no other | Retry, or hold locally into 4.10 |
+| Element | Filed and waiting | Clerk still working, 4.3 | Clerk already acted | **Amending, 4.5** | No baseline, 4.8 | Evidence expired, 4.7 | Write failed, 4.9 |
+|---|---|---|---|---|---|---|---|
+| **Header** | State chips | `investigating` | Banner above, naming the action and its class | Unchanged, plus that the narrative is being amended | Unchanged | Unchanged | Unchanged |
+| **Verdict line** | Present | Absent. **What is being checked** is shown instead, so waiting is legible | Present | **Editable, and Clerk's original stays visible beside it.** Never replaced, because the amendment is only defensible next to what it amended | Present | Present, and marked as resting on evidence that can no longer be retrieved | Present, unfiled |
+| **Evidence block** | Full | Partial, arriving | Full | **Full, and it does not move.** She is amending against it | Full | **Tombstone.** What was there, that it is gone, and when. Never a blank | Full |
+| **Provenance** | Full | Counting up | Full | Full, and it gains a second line once filed: amended, by whom, when | Full | As of the last good read | Full |
+| **Tenant context** | Base rate | Pending | Base rate | Base rate | **`No baseline for this tenant yet`.** Not a zero and not a comparison that means nothing | Base rate | Base rate |
+| **Latitude** | Permitted and doing now | Doing now | **What it did, and whether it can be undone** | Unchanged. Amending the narrative changes no grant | Permitted, and the record says how thin it is | Unchanged | Unchanged |
+| **Verdict controls** | All four live | Escalate only | All four live | **File the amendment, or cancel.** While the field has focus, letters are text and nothing else, which is section 6 | All four live | **Escalate only.** The honest exit, and 4.7 has no other | Retry, or hold locally into 4.10 |
+
+**Amend is the third verdict, and it carries no reason code.** 0.7's taxonomy exists because a rejection has to reach a detection engineer as a structured value. An amendment does not: the amended text **is** the reason, and it is already structured by being the verdict record's own field. Adding a code to it would ask her to classify her own writing.
 
 **4.7 and 4.9 must not share a treatment**, and the base layer already said so. One is evidence that aged out, the other is a write that did not land. The first leaves a decidable case with an undefendable record; the second leaves a decision nobody can see. Both leave the analyst holding an open case.
 
@@ -170,6 +209,7 @@ The remaining two live elsewhere. **Emotional, P1, the part with no mechanism**,
 - **0.7** the rejection reasons. This node opens 4.4; the taxonomy is defined there
 - **4.2** the standalone route and everything at 360. **4.3 to 4.10** the states, each its own node
 - **5.4** the same components rendered from the log at a past `?as-of`
+- **0.8** the reading conventions. The severity scale, the time grammar and the `sources` unit in the provenance strip are defined there and read here
 
 ---
 
