@@ -278,7 +278,7 @@ Agreed at the Step 4 gate, option B: **eleven carrier nodes get their own specif
 
 | Round one, written | Twenty two |
 |---|---|
-| Globals | 0.1 to 0.7, 8.4 |
+| Globals | 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 8.4 |
 | Carriers | 1.1, 2.1, 3.1, 3.5, 3.6, 4.1, 4.2, 4.4, 4.6, 5.1, 5.4 |
 | Systemic | 8.1, 8.2, 8.3 |
 
@@ -287,9 +287,9 @@ Agreed at the Step 4 gate, option B: **eleven carrier nodes get their own specif
 | Deferred | Where it is specified now | Why it can wait |
 |---|---|---|
 | 1.2 session expired | 1.1 state matrix | Its whole content is the return to 1.1, which is written |
-| 2.2 to 2.5 shift states | 2.1 state matrix | Four columns of one table, and 2.1 names the one that does not exist yet |
+| 2.2, 2.3, 2.4, 2.5 shift states | 2.1 state matrix | Four columns of one table, and 2.1 names the one that does not exist yet |
 | 3.2, 3.3, 3.4 queue states | 3.1 state matrix | Three columns of one table, and 3.4 is called out as the test of the fleet decision |
-| 4.3, 4.5, 4.7 to 4.10 case states | 4.1 state matrix, six columns | 4.7 and 4.9 are named as different failures there, which was the risk |
+| 4.3, 4.5, 4.7, 4.8, 4.9, 4.10 case states | 4.1 state matrix, six columns | 4.7 and 4.9 are named as different failures there, which was the risk |
 | 5.2, 5.3, 5.5, 5.6 log states | 5.1 and 5.4 state matrices | 5.3 is written up as the search affordance rather than an empty state |
 | 6.1, 6.2 client summary | Node map only | Cluster 6 is LATER |
 | 7.1, 7.2, 7.3 autonomy | Node map only, plus the grant grid sketch in 0.6 | Cluster 7 is LATER |
