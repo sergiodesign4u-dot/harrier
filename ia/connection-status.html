@@ -18,9 +18,9 @@
 .wfcap b{color:var(--fg)}
 .wfpad{padding:20px}
 .strip{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;
-       font-family:var(--mono);font-size:10.5px;width:880px;border:1.5px solid var(--ink);
+       font-family:var(--mono);font-size:10.5px;width:100%;min-width:640px;border:1.5px solid var(--ink);
        display:flex;align-items:center;gap:12px;padding:8px 12px;background:#fff;color:var(--ink)}
-.strip.mob{width:360px;font-size:9.5px}
+.strip.mob{width:360px;min-width:360px;font-size:9.5px}
 .strip .state{font-weight:700;font-size:11.5px;border:1.5px solid var(--ink);padding:3px 9px}
 .strip .state.warn{border-style:dashed}
 .strip .state.bad{background:var(--ink);color:#fff}
@@ -28,7 +28,7 @@
 .strip .grow{flex:1}
 .strip .btn{border:1px solid var(--ink);padding:5px 10px;min-height:24px;display:flex;align-items:center}
 .strip .soft{color:var(--soft)}
-.qmini{--ink:#16181a;--hair:#d4d6d8;font-family:var(--mono);font-size:10px;width:880px;border:1.5px solid var(--ink);border-top:none;background:#fff}
+.qmini{--ink:#16181a;--hair:#d4d6d8;font-family:var(--mono);font-size:10px;width:100%;min-width:640px;border:1.5px solid var(--ink);border-top:none;background:#fff}
 .qmini .r{padding:6px 12px;border-bottom:1px solid var(--hair);display:flex;gap:10px}
 .qmini .r:last-child{border-bottom:none}
 .qmini .r.new{border-left:4px solid var(--ink)}
