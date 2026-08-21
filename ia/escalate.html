@@ -263,13 +263,13 @@
 <tr><td>A degraded connection does not block filing</td><td>0.4</td></tr>
 <tr><td>There is no third persona</td><td><code>personas.md</code>. P2's use of the console is <code>[?]</code></td></tr>
 </tbody></table></div>
+<p><strong>Settled before stage 04.</strong> 3 settled, 0 drawn at stage 04, 0 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
 <div class="tw"><table>
-<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>1</td><td><strong>Does the recipient see it in Harrier, or somewhere else?</strong> If P2 does not use the console, an escalation that only appears in Harrier is a message sent to a room nobody is in. <strong>The <code>[?]</code> on P2 is now blocking a real mechanism</strong>, which is a stronger reason to resolve it than it had at stage 02</td><td>Research, not drawing</td></tr>
-<tr><td>2</td><td><strong>Can an escalation be taken back?</strong> 8.4 forbids undo, so the honest answer is a second logged action. What that looks like is unspecified, and it is the same shape as the superseded entry question 5.1 left open</td><td>Stage 04, once for both</td></tr>
-<tr><td>3</td><td><strong>Does the rota come from Harrier or from the provider's existing on call tool?</strong> If it lives in PagerDuty or Opsgenie, 2.1 is reading it rather than owning it, and that is an integration this layer has not described</td><td>Not resolved here</td></tr>
-<tr><td>4</td><td>Are three prompts the right number at 1440? Two would be cheaper and one of the three is doing less work than the others</td><td>Stage 04 draws it, stage 05 writes them</td></tr>
+<tr><td>1</td><td>Does the recipient see it in Harrier, or somewhere else?</td><td><strong>Settled</strong>. <strong>Somewhere else, and Harrier records that it was sent.</strong> The escalation goes through the channel the rota names; Harrier is not the delivery mechanism. That is what removes the dependency on the <code>[?]</code> over whether P2 uses the console: if they do, 4.2&rsquo;s permalink is what they open.</td></tr>
+<tr><td>2</td><td>Can an escalation be taken back?</td><td><strong>Settled</strong>. <strong>No, and the case comes back instead.</strong> Nothing in this product is undone; 5.1 supersedes rather than deletes. An escalation wrongly sent is answered by the recipient handing it back, which is a new event with its own record.</td></tr>
+<tr><td>3</td><td>Does the rota come from Harrier or the provider&rsquo;s on call tool?</td><td><strong>Settled</strong>. <strong>Harrier reads the rota, it does not own it.</strong> Providers already run on call tooling and a second rota is a second truth. When the rota is unreachable the recipient is 8.2&rsquo;s declared fallback contact, which is the value both nodes already share.</td></tr>
 </tbody></table></div>
 </section>
 

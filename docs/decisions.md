@@ -2,6 +2,22 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-22 - Seventy seven open questions, counted together for the first time and given verdicts
+
+Twenty three node specifications each ended with a list of open questions and nobody had ever added them up. **Seventy seven.** Read as one set rather than one node at a time, most were not open: the answer already followed from something the product had decided, and nobody had written it down.
+
+**Fifty two settled, seven handed to stage 04 as drawings, eighteen genuinely open.** A question was settled only where the answer follows from an existing decision; where it does not, the row names who can answer and what it blocks.
+
+**Four decisions closed more than one question each.** Harrier reads the rota rather than owning it, which answers 4.6 and 2.1 together and makes 8.2's fallback contact the recipient when the rota is unreachable. An escalation is delivered out of band with Harrier recording that it was sent, which unblocks the `[?]` over whether the secondary persona uses the console at all. Clerk being down is 0.4's fourth state rather than a new node. Retention is two windows with the number left to the provider's contract, and the rule that makes the unchosen number harmless is that the log entry renders how long its own snapshot will remain retrievable.
+
+**Three answers changed a drawing rather than a paragraph.** A fleet row narrows the queue to its tenant, which turns the most likely dead end in the product into an entry. A second analyst picking up a case changes the row for the first, which gave 0.8 a sixth chip and a fourth pair, and which records a collision through 5.1 rather than preventing it with a lock. The queue is a grid with one tab stop rather than a list, because the row is columnar and its cells have to be addressable.
+
+**Rejected along the way, each for a reason rather than a taste.** Showing only the tenants that need attention, because deciding what she does not see is the more dangerous kind of decision. Redirecting the standalone case route on a desk, because a permalink that bounces cannot be quoted in a ticket. Taking an escalation back, because nothing in this product is undone and the case comes back as a new event instead. Exposing reject at 360, because a rejection needs the taxonomy and the evidence in view and neither fits on a phone.
+
+**What the eighteen still open have in common.** Four of them point at one hole: 0.5, 0.6, 0.7 and 0.8 all end on the missing settings surface, and four nodes naming one absence is stronger than any of them alone. Six need a person in front of the screen. The rest belong to somebody else: a contract term, an ingestion mapping, an engineer's choice of transport.
+
+**One got worse rather than better, and it is recorded that way.** 0.7 asks whether the analyst ever learns what happened to a rejection reason. Step 9 counted that R3 is carried by two nodes out of forty six and neither closes the loop. A rejection that never visibly changes anything stops being filled in honestly, so the thinnest job in the product is the one design principle 3 depends on.
+
 ## 2026-08-21 - Stage 03b closed, and what left CLAUDE.md
 
 **Deleted as no longer true:** "No competitor publishes a page of this type outside a login, so the domain half of that bank is our own research." Vendor documentation publishes real product screenshots and that is where most of the block bank came from. The claim was written before the bank was built and read as context afterwards, which is the exact failure mode the `PREMISE` rule exists for, applied to a claim about the market rather than about the product. Narrowed to the one page type where it is true.

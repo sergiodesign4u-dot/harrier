@@ -135,6 +135,8 @@ Grouped by what the key does, not by which key it is. An alphabetical list of ke
 
 ## 10. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 0 drawn at stage 04, 1 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source | Standing |
 |---|---|---|
 | Single character shortcuts must be disableable, remappable, or focus scoped. Level A | W3C, Understanding SC 2.1.4, opened this session | **Fact, and it is a launch condition** |
@@ -147,3 +149,15 @@ Grouped by what the key does, not by which key it is. An alphabetical list of ke
 1. **Which key opens the map?** `?` is the convention and `?` is Shift plus slash on most layouts, which makes it a two key gesture on the keyboards this analyst probably uses. Not resolved, and it is a stage 05 and stage 04 decision together.
 2. **Does the focus rule survive the fleet?** The detail pane at rest holds 3.5, not a case. Verdict keys must be inert there, which means the focus scope is not "the pane" but "a case in the pane". A distinction with a real bug behind it.
 3. **Where does the disable setting live once there is a settings surface?** There is no settings node on the map. Today it lives here, which is defensible while the map is the only place keys are listed and indefensible once it is not.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Which key opens the map? | **Settled**. **`?`, and the chord is not the discovery path.** The map is discovered from a visible control in the shell; `?` is the shortcut for people who already know it exists. That removes the problem rather than solving a keyboard layout. |
+| 2 | Does the focus rule survive the fleet? | **Settled**. **The scope is the case in the pane, not the pane.** With 3.5 at rest there is no case, so the verdict keys are inert. It is a sharper statement of the same SC 2.1.4 condition, and it is exactly what 3.1's `Enter` arms. |
+| 3 | Where does the disable setting live once a settings surface exists? | **Still open**. The same missing settings surface as 0.6, 0.7 and 0.8. |

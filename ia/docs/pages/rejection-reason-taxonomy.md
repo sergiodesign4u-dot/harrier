@@ -115,6 +115,8 @@ Design principle 3 says override is one key. A rejection that asks for two dropd
 
 ## 7. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 0 settled, 0 drawn at stage 04, 3 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source | Standing |
 |---|---|---|
 | The four classification values a major XDR ships | Microsoft Learn, manage incidents, opened this session, verbatim | Fact |
@@ -128,3 +130,15 @@ Design principle 3 says override is one key. A rejection that asks for two dropd
 1. **Does the analyst ever learn what happened to the reason?** Principle 3 says override teaches. Today the reason leaves the product and nothing comes back. A rejection that never visibly changes anything stops being filled in honestly, and there is no node on the map that closes this loop.
 2. **Who maintains the list?** Same question as 0.6, and probably the same answer, which means the same missing settings surface.
 3. **Is `Real, called benign` even reachable?** The analyst sees cases Clerk filed a verdict on. A case Clerk closed on its own never reaches the queue, and that is the review sample with no job, already recorded twice in the inventory. So the most expensive error in the product is one this taxonomy can only catch by accident.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does the analyst ever learn what happened to the reason? | **Still open**. **The sharpest hole in the product, and step 9 made it sharper.** R3 is carried by two nodes out of forty six, and neither closes the loop: the reason leaves the product and nothing comes back. A rejection that never visibly changes anything stops being filled in honestly. |
+| 2 | Who maintains the list? | **Still open**. The missing settings surface, for the third time. |
+| 3 | Is `Real, called benign` even reachable? | **Still open**. The review lane that has no job. Recorded in the inventory twice and still unowned. |

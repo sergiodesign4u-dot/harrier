@@ -116,6 +116,8 @@ A data node still has states, because the readers do.
 
 ## 8. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 0 drawn at stage 04, 1 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source | Standing |
 |---|---|---|
 | The named response actions a real EDR ships | Microsoft Learn, respond to a device, opened this session | Fact |
@@ -131,3 +133,15 @@ A data node still has states, because the readers do.
 1. **Who owns the taxonomy, the provider or the product?** Written here as provider level configuration, which means a settings surface that does not exist on the map. If it is product level, forty tenants share one list and integrations have to bend to it.
 2. **What is the retention window?** `Remove content` cannot be ceilinged without it, and it is the same unchosen number that bounds 5.4 and the business outcome. Second time this layer has hit it.
 3. **Does the analyst ever see the class to vendor action mapping?** Hidden today. When Clerk proposes something and the analyst asks what exactly will happen, the class is not a sufficient answer, and that question belongs to 4.1.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Who owns the taxonomy, the provider or the product? | **Still open**. The same missing settings surface 0.7 and 0.8 both end on. Three nodes now point at one hole, which is the strongest form the question has taken. |
+| 2 | What is the retention window? | **Settled**. **Settled in shape, and the number stays `[?]` because it is a contract term.** Two windows, not one: the verdict record is kept for the life of the record, and the **evidence snapshot** has a shorter one, which is why 4.7 exists. The rule that removes the blocker: **5.4 renders how long its snapshot will remain retrievable**, so the analyst learns the window from the entry and never from a failure. |
+| 3 | Does the analyst ever see the class to vendor action mapping? | **Settled**. **Yes, on demand.** Principle 2: the cheapest correct thing first, depth one key away. The class is what the row says; what exactly will happen at this tenant sits behind the same in place expansion 4.1 section 04b defines. |

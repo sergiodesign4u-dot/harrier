@@ -175,7 +175,22 @@ Two consequences:
 
 ## 13. Open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 0 drawn at stage 04, 2 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Does persistent scope surprise people?** Section 2 argues it is safe because it is always counted. That is an argument, and the failure it guards against, missing a client for a whole shift, is severe enough to be worth testing rather than reasoning about.
 2. **Does the log inherit the queue's tenant scope?** Section 2 says yes for tenant, no for everything else. An auditor's question often arrives about a tenant **outside** the current scope, and then the persistence is friction rather than help. The rule may need an exception on 5.1.
 3. **Is sort as a chip discoverable?** Both references do it, so it is not novel, but neither has a keyboard first operator who never opens the bar with a mouse.
 4. **Multi-select within a facet.** Severity as `High, Medium` is obviously right. Tenant as a list of five clients rather than a group is less obvious, and it is the difference between a group being a shortcut and a group being the only unit.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does persistent scope surprise people? | **Still open**. Needs a person. The failure mode is silent, which is why it is worth testing rather than reasoning about. |
+| 2 | Does the log inherit the queue's tenant scope? | **Settled**. **No.** This node already rules that filters do not travel. The log is where you answer for a decision, and inheriting an hour old narrowing is how a person concludes that something did not happen. |
+| 3 | Is sort as a chip discoverable? | **Still open**. Needs a person. |
+| 4 | Multi-select within a facet? | **Settled**. **Yes for severity and state, no for tenant.** Tenant multi-select duplicates the tenant group, which is the unit taken from Defender. Two ways of saying the same thing is how a group stops being the unit. |

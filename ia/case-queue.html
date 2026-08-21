@@ -133,7 +133,7 @@
   <div><b>What it is</b>The shape of the case, short<div class="why">Not a generated sentence. Defender's incident name truncates in the row, putting the least decidable content in the widest column</div></div>
   <div><b>Clerk concluded</b>The draft verdict, and whether the action is above this tenant&rsquo;s latitude<div class="why">The thing being ruled on. It is why the row exists at all. The latitude mark makes rank 2 of the order legible instead of mysterious, and it is <b>not</b> a state chip</div></div>
   <div><b>Cost to check</b>Counted in signals<div class="why">Ours, no reference. The honest input to &ldquo;what do I open next&rdquo;, and 0.8 binds it to the number the evidence block renders in the pane</div></div>
-  <div><b>State</b>The chips from 0.8, at most two<div class="why">The visible states rule. A case that left her hands must not look like one that did not</div></div>
+  <div><b>State</b>The chips from 0.8, at most two, <code>taken</code> among them<div class="why">The visible states rule. A case that left her hands must not look like one that did not</div></div>
   <div><b>Age</b>How long it has waited, elapsed<div class="why">What is going cold. Bare unit, one unit, from 0.8</div></div>
 </div>
 </div></div>
@@ -191,7 +191,7 @@
   <div class="strip">Live, last case 4s ago <span class="dim">&middot; 0.4, lives in the shell</span></div>
   <div class="cols">
     <div class="listpane">
-      <span class="tag">LIST PANE &middot; 3.1</span>
+      <span class="tag">LIST PANE &middot; 3.1 &middot; role=grid</span>
       <div class="scopebar">
         <span class="chip">All tenants &#9662;</span>
         <span class="chip">Waiting on a decision &times;</span>
@@ -258,6 +258,7 @@
 <tr><td><strong>List</strong></td><td>Rows</td><td>Rows arrive as correlated</td><td><strong>Readable and marked stale.</strong> Never blanked</td><td>Empty</td><td>Empty</td></tr>
 <tr><td><strong>Pane</strong></td><td>3.5 the fleet</td><td>3.5</td><td>What it held, as of last sync</td><td><strong>3.5, and this is the test</strong></td><td>3.5</td></tr>
 <tr><td><strong>Filing a verdict</strong></td><td>Allowed</td><td>Allowed</td><td><strong>Allowed.</strong> 0.4 settled it: a degraded connection does not block a decision</td><td>n/a</td><td>n/a</td></tr>
+<tr><td><strong>Taken by another analyst</strong></td><td>The row wears <code>taken</code>, with a name and since when</td><td>Same</td><td><strong>Marked as of last sync.</strong> Filing is still allowed, and a real collision is recorded by 5.1 rather than prevented by a lock</td><td>n/a</td><td>n/a</td></tr>
 </tbody></table></div>
 <div class="node"><span class="lbl">3.4 is where the base layer's biggest decision gets tested</span><p>The fleet has no menu item because it is the resting state of this pane, which is what makes it cost zero taps. If an analyst with an empty queue reads the screen as <em>"there is nothing here"</em> rather than <em>"here is the fleet"</em>, that decision has failed, and it fails on this node first.</p></div>
 </section>
@@ -363,13 +364,14 @@
 <tr><td>A bare score in a row is not decidable</td><td>Defender's <code>100</code>, banked DIFFERENT in type A</td></tr>
 <tr><td>Not found and not yours must be indistinguishable</td><td>Ours, from tenant data isolation. Also carried by 8.1</td></tr>
 </tbody></table></div>
+<p><strong>Settled before stage 04.</strong> 3 settled, 1 drawn at stage 04, 0 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
 <div class="tw"><table>
-<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>1</td><td><strong>Does the row carry latitude, or only the annunciator?</strong> A per row marker for what Clerk was permitted to do at that tenant puts the differentiator on forty lines at once. That is either the strongest version of the fleet claim or the thing that finally overloads the row</td><td><strong>Stage 04 draws both and one loses</strong></td></tr>
-<tr><td>2</td><td><strong>Is this a grid or a list?</strong> 0.1 assumed the ARIA grid model, right if the row is columnar. If the row turns out to be two lines of mixed content, <code>grid</code> is the wrong role and the keyboard contract changes with it</td><td>Stage 04, by drawing the row</td></tr>
-<tr><td>3</td><td>How many lines is a row? Density is principle 5 and there is no density toggle to hide behind, so this is one decision made once</td><td>Stage 04</td></tr>
-<tr><td>4</td><td>What is the unit of <em>what checking will cost</em>: signals, sources, minutes, something else. The wireframe above shows signals and sources, which is a placeholder, not a decision</td><td>Stage 04, against a drawn row</td></tr>
+<tr><td>1</td><td>Does the row carry latitude, or only the annunciator?</td><td><strong>Settled</strong>. The row carries <strong>whether the action Clerk proposes is above this tenant&rsquo;s latitude</strong>, as a mark on the conclusion. Not the latitude value, which lives in 0.3 and 3.5. It is what makes rank 2 of the default order legible instead of mysterious, and it costs a phrase rather than a column.</td></tr>
+<tr><td>2</td><td>Is this a grid or a list?</td><td><strong>Settled</strong>. <strong>A grid</strong>, <code>role="grid"</code>, one tab stop. The row is columnar and she reads across it, so the cells have to be individually addressable for assistive tech. A list would turn the state chip and the cost into run-on text.</td></tr>
+<tr><td>3</td><td>How many lines is a row?</td><td><strong>Stage 04 draws it</strong>. Stage 04, and it is one decision made once because there is no density toggle to hide behind.</td></tr>
+<tr><td>4</td><td>What is the unit of what checking will cost?</td><td><strong>Settled</strong>. Closed by <strong>0.8</strong>: <code>signals</code>, and the count is bound to the number of lines the evidence block renders in the pane.</td></tr>
 </tbody></table></div>
 </section>
 

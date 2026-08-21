@@ -186,11 +186,14 @@
 <tr><td>Grouped by action rather than alphabetically by key</td><td>this node</td><td>Decision</td></tr>
 <tr><td>No per key remapping in the MVP</td><td>this node</td><td>Decision, scope</td></tr>
 </tbody></table></div>
-<ol>
-<li><strong>Which key opens the map?</strong> <code>?</code> is the convention, and <code>?</code> is Shift plus slash on most layouts, which makes the discovery gesture a two key chord. Unresolved, and it belongs to stages 04 and 05 together.</li>
-<li><strong>Does the focus rule survive the fleet?</strong> The pane at rest holds 3.5, not a case. Verdict keys must be inert there, so the focus scope is not "the pane" but "a case in the pane". A distinction with a real bug behind it.</li>
-<li><strong>Where does the disable setting live once a settings surface exists?</strong> There is no settings node on the map. Today it lives here, which is defensible while this is the only place keys are listed and indefensible once it is not.</li>
-</ol>
+<p><strong>Settled before stage 04.</strong> 2 settled, 0 drawn at stage 04, 1 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Which key opens the map?</td><td><strong>Settled</strong>. <strong><code>?</code>, and the chord is not the discovery path.</strong> The map is discovered from a visible control in the shell; <code>?</code> is the shortcut for people who already know it exists. That removes the problem rather than solving a keyboard layout.</td></tr>
+<tr><td>2</td><td>Does the focus rule survive the fleet?</td><td><strong>Settled</strong>. <strong>The scope is the case in the pane, not the pane.</strong> With 3.5 at rest there is no case, so the verdict keys are inert. It is a sharper statement of the same SC 2.1.4 condition, and it is exactly what 3.1&rsquo;s <code>Enter</code> arms.</td></tr>
+<tr><td>3</td><td>Where does the disable setting live once a settings surface exists?</td><td><strong>Still open</strong>. The same missing settings surface as 0.6, 0.7 and 0.8.</td></tr>
+</tbody></table></div>
 </section>
 
 <p class="backlink">&larr; <a href="structure.html#0.5">Structure (0.5)</a>

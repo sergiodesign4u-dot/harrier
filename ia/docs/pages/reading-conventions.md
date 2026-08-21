@@ -98,11 +98,12 @@ The reader could not tell what unit `effort` was in. Reading the stage, there we
 
 ## 6. State chips, a closed set and a stacking rule
 
-Five values, and the order below is the order they render in, because it is the order in which they change what she does next.
+Six values, and the order below is the order they render in, because it is the order in which they change what she does next.
 
 | Chip | Means | Set by |
 |---|---|---|
 | **`unrecorded`** | A verdict exists and the write did not land | 4.9, held at 4.10 |
+| **`taken`** | Another analyst is deciding it now, with their name and since when | 0.1, settled at the close of the stage |
 | **`escalated`** | It left her hands | 4.6 |
 | **`decided`** | Ruled, and still in place until the selection moves off it | 4.1, and see 3.1 section 4b |
 | **`acted`** | Clerk already did something under its latitude | 0.6 |
@@ -113,10 +114,13 @@ Five values, and the order below is the order they render in, because it is the 
 - `decided` and `unrecorded`, which is exactly 4.10
 - `escalated` and `acted`
 - `decided` and `acted`
+- `taken` and `acted`, which is the shape of a case Clerk contained and a colleague is now ruling on
 
 **`blocked on her` is not one of these, and that is deliberate.** 3.1 sorts by it, so it has to be legible, but it is read from what Clerk concluded against the tenant's latitude and it renders as a mark on that phrase rather than a sixth chip. A chip would put a derived value in the slot reserved for facts about the case.
 
-**If stage 04 finds a fourth pair, this rule is wrong and the taxonomy is what gets fixed, not the row.** A row that silently drops a state would break the rule from `CLAUDE.md` that a case which left the analyst's hands must not look identical to one that did not.
+**`taken` was the sixth value and it arrived after this list was closed**, from 0.1's decision that a second analyst picking up a case must change the row for the first. It brought a fourth pair with it. That is the taxonomy gaining a value, not the rule breaking: the rule says at most two chips render, and it still holds.
+
+**If stage 04 finds a fifth pair, this rule is wrong and the taxonomy is what gets fixed, not the row.** A row that silently drops a state would break the rule from `CLAUDE.md` that a case which left the analyst's hands must not look identical to one that did not.
 
 ---
 
@@ -200,7 +204,22 @@ The one thing that behaves like a state is the tenant with too few rulings to co
 
 ## 11. Open questions
 
+**Every question below carries a verdict at the end of this file.** 0 settled, 2 drawn at stage 04, 2 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **How does a source tool's severity map onto three levels?** Belongs to ingestion, not to this stage. `[?]`
 2. **Does the queue row need both the severity word and the glyph at 360?** Section 8 of 3.1 already drops the cost of checking on a phone. Whether the word survives is drawn, not argued.
 3. **Is `acted` one chip or does it need the class with it?** `acted` alone says something happened; `acted, contained endpoint` says what. The second costs width on every row. Stage 04 decides by drawing forty of them.
 4. **Who owns these conventions after the MVP?** Same question 0.6 and 0.7 both ended on, and still the same missing settings surface.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | How does a source tool's severity map onto three levels? | **Still open**. Belongs to ingestion, not to this stage. |
+| 2 | Does the queue row need both the word and the glyph at 360? | **Stage 04 draws it**. Stage 04, drawn rather than argued. |
+| 3 | Is `acted` one chip, or does it need its class with it? | **Stage 04 draws it**. Stage 04, by drawing forty of them. |
+| 4 | Who owns these conventions after the MVP? | **Still open**. The missing settings surface, for the fourth time. Four nodes now point at one hole. |

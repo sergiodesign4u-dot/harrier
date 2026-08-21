@@ -299,13 +299,14 @@
 <tr><td>Single character shortcuts must be focus scoped, remappable or disableable</td><td>WCAG SC 2.1.4, Level A, quoted in 0.5</td></tr>
 <tr><td>An append only log cannot offer undo</td><td>8.4, from WCAG SC 2.2.1 and the compliance requirement</td></tr>
 </tbody></table></div>
+<p><strong>Settled before stage 04.</strong> 1 settled, 1 drawn at stage 04, 2 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
 <div class="tw"><table>
-<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>1</td><td><strong>Is <code>Real, called benign</code> reachable often enough to matter?</strong> From this dialog it is reachable whenever Clerk filed a benign verdict that reached the queue. What stays unreachable is the larger set: <strong>cases Clerk closed on its own and the analyst never sees</strong>. 0.7 recorded that hole; this node does not close it</td><td>Backlog. The analyst side review lane still has no job</td></tr>
-<tr><td>2</td><td><strong>Does the consequence line get read?</strong> It carries the teaching half of principle 3, and the RIT finding in <code>jtbd.md</code> is that analysts <em>"rarely mentioned using the fine-grained feature contribution graphs"</em> under time pressure. <strong>A line nobody reads teaches nothing</strong></td><td>First thing to test on this dialog rather than assert</td></tr>
-<tr><td>3</td><td>Should 4.2 expose reject at 360 after all? The cost is in section 08</td><td>Revisit only with evidence about what on call analysts do at 03:00</td></tr>
-<tr><td>4</td><td>Do the digit shortcuts survive stage 05? Six values with stable numbering is fast for a daily user and fragile if the taxonomy grows</td><td>Only as stable as 0.7's list</td></tr>
+<tr><td>1</td><td>Is <code>Real, called benign</code> reachable often enough to matter?</td><td><strong>Still open</strong>. Tied to the review lane that has no job. <strong>The most expensive error in the product is one this taxonomy can only catch by accident</strong>, and no node closes it.</td></tr>
+<tr><td>2</td><td>Does the consequence line get read?</td><td><strong>Still open</strong>. Needs a person in front of the dialog.</td></tr>
+<tr><td>3</td><td>Should 4.2 expose reject at 360 after all?</td><td><strong>Settled</strong>. <strong>No.</strong> 4.2 at 360 is read and escalate. A rejection needs the taxonomy and the evidence in view and neither fits on a phone; escalate is the honest exit and it is already there.</td></tr>
+<tr><td>4</td><td>Do the digit shortcuts survive stage 05?</td><td><strong>Stage 04 draws it</strong>. Stage 05 owns the labels; this node owns the requirement that the reason be one selection.</td></tr>
 </tbody></table></div>
 </section>
 

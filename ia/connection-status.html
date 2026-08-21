@@ -122,6 +122,22 @@
 <p class="note" style="border:none;padding:0"><strong>Solid box is healthy, dashed is transitional, inverted is stale.</strong> The three states separate without colour, which stage 06 will add rather than replace.</p>
 </section>
 
+<section id="clerkdown">
+<h2>03b &middot; The fourth state, and it is not a transport state</h2>
+<p class="h2sub">8.2 asked who owns &ldquo;Clerk is down but the console is up&rdquo;. The answer is this node, because it is a freshness condition and freshness is what this strip is for</p>
+<p>The three states above describe <strong>the connection</strong>. This one describes <strong>the source</strong>, and the transport cannot tell them apart on its own.</p>
+<div class="tw"><table>
+<thead><tr><th></th><th>The console lost the server</th><th>The server is fine and Clerk is not working</th></tr></thead>
+<tbody>
+<tr><td><strong>Strip reads</strong></td><td><code>Reconnecting</code> or <code>Stale</code>, plus the gap</td><td><strong><code>Clerk is not investigating</code></strong>, plus since when</td></tr>
+<tr><td><strong>What is true about the queue</strong></td><td>Unknown. Cases may be arriving and not reaching her</td><td><strong>The queue is complete.</strong> Nothing is missing and nothing new will arrive</td></tr>
+<tr><td><strong>What she does</strong></td><td>Waits, and decides on what she has</td><td><strong>Works through it.</strong> Every case in front of her is every case there is</td></tr>
+<tr><td><strong>3.4, an empty queue</strong></td><td>Ambiguous, and it must say so</td><td>Unambiguous, and the one case where an empty queue is genuinely good news</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">It also disarms 2.3</span><p><code>Nothing carried over</code> was dangerous because a shift with nothing in it and a shift where the agent produced nothing read the same. With the source named separately, <strong>2.1 can tell the incoming analyst which of the two she is walking into.</strong></p></div>
+<p><strong>What the strip must never do is infer this from silence.</strong> Silence is what <code>Reconnecting</code> already means. The source state comes from the server saying so, and if the server cannot be reached then the state is <code>Reconnecting</code> and nothing more is claimed.</p>
+</section>
+
 <section id="matrix">
 <h2>04 &middot; State matrix</h2>
 <p class="h2sub">What each state does to everything else on screen</p>
@@ -166,11 +182,14 @@
 <tr><td>Always present rather than silent when healthy</td><td>this node, <strong>reverses 0.1</strong></td><td>Decision, argued</td></tr>
 <tr><td>Duration rather than clock time</td><td>this node</td><td>Decision</td></tr>
 </tbody></table></div>
-<ol>
-<li><strong>What is the threshold between <code>Reconnecting</code> and <code>Stale</code>?</strong> The transport distinguishes them exactly, but the analyst needs a moment where the wording escalates. Not measured, and it decides how often the strip cries wolf.</li>
-<li><strong>Does a case already open go stale?</strong> Specified here as no: an open case is a snapshot being decided on. If new evidence arrives on that case during the gap, nothing currently tells the analyst. <strong>That is a real hole</strong>, and it belongs to 4.1.</li>
-<li><strong>Is the transport actually server-sent events?</strong> It is a hypothesis in the project context, not a decision made with an engineer. If it becomes a socket the three states survive, but the resumption story changes.</li>
-</ol>
+<p><strong>Settled before stage 04.</strong> 2 settled, 0 drawn at stage 04, 1 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>What is the threshold between Reconnecting and Stale?</td><td><strong>Settled</strong>. <strong>The transport&rsquo;s own retry exhaustion, not an invented number.</strong> The wording escalates at the moment a decision made on this data could be wrong, and that moment is a fact about the connection rather than a figure we would have had to make up.</td></tr>
+<tr><td>2</td><td>Does a case already open go stale?</td><td><strong>Settled</strong>. <strong>No, and 4.1 section 04c now carries the whole behaviour</strong>, which is where this node had always said it belonged.</td></tr>
+<tr><td>3</td><td>Is the transport actually server-sent events?</td><td><strong>Still open</strong>. An engineer answers. What does not change either way: the states, their wording, and the rule that a degraded connection never blocks a decision.</td></tr>
+</tbody></table></div>
 </section>
 
 <p class="backlink">&larr; <a href="structure.html#0.4">Structure (0.4)</a>
@@ -181,6 +200,7 @@
 <script>
   window.NAV_SECTIONS = [
     { id:'states3',   label:'Three states' },
+    { id:'clerkdown', label:'The fourth state' },
     { id:'missed',    label:'What it missed' },
     { id:'mock',      label:'Wireframe' },
     { id:'matrix',    label:'State matrix' },

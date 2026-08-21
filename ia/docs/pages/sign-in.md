@@ -178,7 +178,22 @@ Recorded here rather than decided: a node specification cannot choose a brand, b
 
 ## 13. Open questions
 
+**Every question below carries a verdict at the end of this file.** 4 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **How long is a session?** Nobody has chosen it. 1.2 exists because sessions end, and it cannot say anything specific until this number does. **Same family as the retention window**: a value the design depends on and the research never settled.
 2. **Does the product support one person at more than one provider?** An analyst contracting to two MDRs has two identities and two scopes. Unaddressed anywhere in the layer, and it changes what "provider scope" means if the answer is yes.
 3. **Does a passkey path ship?** `[?]`, LATER. Entra has one, and an operator who signs in every shift is exactly the user it helps most.
 4. **What does an unconfigured provider actually see?** Section 6 chooses non disclosure and names the cost. Whether that cost is acceptable belongs to whoever owns onboarding, and this node has not met them.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | How long is a session? | **Settled**. **Bounded by inactivity, never by a clock, and never expiring while a verdict is unfiled.** A hard expiry at 03:40 mid case is the worst possible moment. WCAG SC 2.2.1 makes the warning and the extension a requirement rather than a courtesy, and an unfiled verdict is held by 4.10's existing machinery rather than lost. **The number is the provider's security policy and stays `[?]`**; nothing in the design depends on it. |
+| 2 | Does the product support one person at more than one provider? | **Settled**. **No. One account is one provider.** Cross provider access inside one session is exactly what tenant isolation exists to prevent, and every URL rule in this stage assumes a single provider scope. A person working for two providers has two accounts. |
+| 3 | Does a passkey path ship? | **Settled**. **Not in the MVP, and not for effort.** The provider owns identity, so Harrier hands off to their SSO and the method is theirs to choose. What ships is the identifier first handoff and nothing more opinionated. |
+| 4 | What does an unconfigured provider actually see? | **Settled**. Settled by the answer above: **a provisioning failure, fixed in provisioning.** This node already declines to make the only public page in a security product more talkative about which providers exist. |

@@ -168,7 +168,21 @@ The UCL finding behind it is the strongest evidence in this node: handover quali
 
 ## 12. Open questions
 
+**Every question below carries a verdict at the end of this file.** 3 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Does the recipient see it in Harrier, or somewhere else?** If P2 does not use the console, an escalation that only appears in Harrier is a message sent to a room nobody is in. **The `[?]` on P2 is now blocking a real mechanism**, which is a stronger reason to resolve it than it had at stage 02.
 2. **Can an escalation be taken back?** 8.4 forbids undo, so the honest answer is a second logged action. What that looks like on the case and in 5.1 is unspecified, and it is the same shape as the superseded entry question 5.1 left open.
 3. **Does the rota come from Harrier or from the provider's existing on call tool?** Section 3 assumes the product knows who is on. If the rota lives in PagerDuty or Opsgenie, 2.1 is reading it rather than owning it, and that is an integration this layer has not described.
 4. Are three prompts the right number at 1440? Two would be cheaper and one of the three is doing less work than the others. Not settled; stage 04 draws it and stage 05 writes them.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does the recipient see it in Harrier, or somewhere else? | **Settled**. **Somewhere else, and Harrier records that it was sent.** The escalation goes through the channel the rota names; Harrier is not the delivery mechanism. That is what removes the dependency on the `[?]` over whether P2 uses the console: if they do, 4.2's permalink is what they open. |
+| 2 | Can an escalation be taken back? | **Settled**. **No, and the case comes back instead.** Nothing in this product is undone; 5.1 supersedes rather than deletes. An escalation wrongly sent is answered by the recipient handing it back, which is a new event with its own record. |
+| 3 | Does the rota come from Harrier or the provider's on call tool? | **Settled**. **Harrier reads the rota, it does not own it.** Providers already run on call tooling and a second rota is a second truth. When the rota is unreachable the recipient is 8.2's declared fallback contact, which is the value both nodes already share. |

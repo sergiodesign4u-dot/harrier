@@ -305,11 +305,14 @@
 <tr><td>The pane at rest should read as the fleet</td><td><code>sitemap.md</code>, base layer</td><td>Decision</td></tr>
 <tr><td><code>?</code> opens a shortcut map</td><td>convention</td><td><span class="q">[?]</span></td></tr>
 </tbody></table></div>
-<ol>
-<li><strong>Is the split resizable, and is that position remembered per analyst? Answered, and the answer is yes.</strong> Closed at step 4 of the block bank: the PagerDuty Operations Console documentation, opened live, states that the side panel width is changed by dragging and that <em>"PagerDuty will remember your settings for later visits."</em> A shipped console in this exact category does both, so this is a requirement rather than an open question, and it does not travel to stage 04.</li>
-<li><strong>What does Z5 hold on <code>/shift</code>?</strong> The brief does not hold the split. Either the shell has a no split mode, which weakens the guarantee in section 1, or 2.1 sits outside the shell entirely. Named here rather than settled, because the answer is a drawing decision.</li>
-<li><strong>Does a second analyst picking up a case change the row for the first?</strong> The console is multi analyst by premise, but no flow covers a collision. If yes, it is a state that does not exist on the map yet.</li>
-</ol>
+<p><strong>Settled before stage 04.</strong> 3 settled, 0 drawn at stage 04, 0 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Is the split resizable, and is the position remembered per analyst?</td><td><strong>Settled</strong>. Closed at step 4 of the block bank. <strong>Yes</strong>, and it is documented PagerDuty behaviour rather than our invention.</td></tr>
+<tr><td>2</td><td>What does Z5 hold on <code>/shift</code>?</td><td><strong>Settled</strong>. <strong>The shell has no no-split mode.</strong> On <code>/shift</code> the pane holds the brief&rsquo;s pointers resolved: selecting a carried over case puts that case in Z5, which is the same pane doing the same job. That is also what makes the two tap path from the brief real rather than asserted.</td></tr>
+<tr><td>3</td><td>Does a second analyst picking up a case change the row for the first?</td><td><strong>Settled</strong>. <strong>Yes, and it must.</strong> Two analysts ruling the same case is the failure this product cannot afford. The row shows taken, by whom, since when, over the same live channel as the queue. If the connection is stale the marker is stale and says so, filing is still allowed under 0.4, and a genuine collision is <strong>recorded</strong> by 5.1&rsquo;s superseded machinery rather than prevented by a lock.</td></tr>
+</tbody></table></div>
 </section>
 
 <p class="backlink">&larr; <a href="structure.html#0.1">Structure (0.1)</a>

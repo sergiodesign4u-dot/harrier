@@ -231,7 +231,22 @@ The remaining two live elsewhere. **Emotional, P1, the part with no mechanism**,
 
 ## 12. Open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 2 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Is `a` an acceptable key for accept, even focus scoped?** SC 2.1.4 is satisfied by the focus rule, so this is not a compliance question. It is a question about a key that files a verdict against a client sitting under the analyst's resting hand. **Stage 04 and stage 05 together.**
 2. **Where does the latitude block sit, above the verdict or below it?** Above says "here is how much rope Clerk had before you read anything". Below says "here is what it could have done, now that you know what it concluded". These teach different things and only one can be first.
 3. **How much of the narrative is visible before scrolling in a pane that is roughly a third of the window?** Design principle 2 says cheapest correct thing first, and this is where that gets measured rather than asserted. Stage 04.
 4. **Does the evidence block show disagreeing signals expanded or collapsed by default?** Collapsed protects the ceiling in principle 2; expanded protects the emotional job in section 9. They pull opposite ways and the tie is not broken here.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Is `a` an acceptable key for accept, even focus scoped? | **Settled**. **Yes.** Focus scoped is SC 2.1.4's third condition and the case in the pane is the scope; while a text field has focus, letters are text. The objection was a collision, and there is none. |
+| 2 | Where does the latitude block sit, above the verdict or below it? | **Stage 04 draws it**. Stage 04, by drawing both. |
+| 3 | How much of the narrative is visible before scrolling? | **Stage 04 draws it**. Stage 04, measured at 1440 with the pane at roughly a third of the window. |
+| 4 | Are disagreeing signals expanded or collapsed by default? | **Settled**. **Expanded.** Principle 2 makes absence and disagreement the half no reference has. Collapsing makes a disagreement optional, and an optional disagreement is a hidden one. The cost is vertical space, which section 04b already ruled is the budget this pane spends. |

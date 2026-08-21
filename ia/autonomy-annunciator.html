@@ -202,11 +202,14 @@
 <tr><td>Highest latitude is the right fleet summary</td><td>this node</td><td><strong>Decision. First thing to test if the fleet fails to read</strong></td></tr>
 <tr><td><code>Acts alone</code>, <code>Asks first</code>, <code>Never</code> as level names</td><td><strong>Ours, settled at the stage 08 audit</strong></td><td>Simbian&rsquo;s four were a placeholder and stayed one too long: a reader preparing stage 04 found <strong>three different vocabularies</strong> across 0.3, 3.5 and 4.1, which 0.6 forbids in its own words. The quotation stays as evidence; the labels are ours. Mapping in 0.6 section 5</td></tr>
 </tbody></table></div>
-<ol>
-<li><strong>Does the annunciator change on selection, or only when the tenant changes?</strong> A line that redraws on every arrow key is noise; one that lags is wrong. A stage 04 motion decision with a real failure mode on both sides.</li>
-<li><strong>What does "doing now" mean between cases?</strong> Clerk works continuously across forty tenants. The active slot is well defined for a selected case and ambiguous at rest, which is why reading B drops it. Whether that is a gap or the right answer is untested.</li>
-<li><strong>Is 30 days the right window?</strong> Chosen for legibility, not measured. It interacts with the evidence retention window still unchosen in <code>research.md</code> section 10.</li>
-</ol>
+<p><strong>Settled before stage 04.</strong> 2 settled, 0 drawn at stage 04, 1 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Does the annunciator change on selection, or only when the tenant changes?</td><td><strong>Settled</strong>. <strong>On tenant change.</strong> Arrowing through forty rows across eight tenants must not redraw the strip forty times; it redraws when the tenant under the selection changes, which is the only moment its value differs.</td></tr>
+<tr><td>2</td><td>What does "doing now" mean between cases?</td><td><strong>Settled</strong>. <strong>It is scoped to the selected tenant, never to Clerk globally.</strong> Clerk works across forty tenants at once, so a global <em>doing now</em> is never false and never useful. With nothing selected the strip reads the fleet, which is what the pane holds anyway.</td></tr>
+<tr><td>3</td><td>Is 30 days the right window?</td><td><strong>Still open</strong>. Chosen for legibility, not measured, and it interacts with the retention shape settled at 0.6.</td></tr>
+</tbody></table></div>
 </section>
 
 <section id="fixed">

@@ -98,6 +98,8 @@ Short, because the honest version is short.
 
 ## 8. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 0 drawn at stage 04, 1 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source |
 |---|---|
 | Permission answered at the control, greyed with its reason | Microsoft Learn, guided responses, opened this session and banked in type B |
@@ -108,3 +110,15 @@ Short, because the honest version is short.
 1. **Does 8.3 ship?** Section 4. The answer is a coverage test at Step 8.
 2. **Do the two kinds of limit read differently?** Clerk's latitude ceiling (0.6) and the analyst's role limit (this node) both render as a control that cannot be used. **If they look the same, the analyst cannot tell whether the agent is restrained or she is.** That is a stage 04 drawing question and it is more important than this page.
 3. If provisioning ever enters the product, block 3 grows a request path. It does not today.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does 8.3 ship? | **Settled**. **Not in the MVP.** The coverage test ran at step 8 and it has no reachable route, because every path that led here was a defect. What is left for it is a refusal by role, and the first one lives in cluster 7. |
+| 2 | Do the two kinds of limit read differently? | **Settled**. **Yes, and the difference is who can lift it.** Clerk's ceiling is lifted by a grant at 7.2; the analyst's role limit is lifted by a person. A control that says *not permitted* without saying who can permit it teaches nothing, which is 4.1's block 8 argument applied to the other bound. |
+| 3 | Does block 3 grow a request path? | **Still open**. Only if provisioning enters the product, and it has not. |

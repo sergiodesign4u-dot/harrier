@@ -154,6 +154,20 @@ The split collapses and the pattern stops being itself, which `ux-patterns.md` s
 
 ## 10. Open questions
 
+**Every question below carries a verdict at the end of this file.** 3 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Is the split resizable, and is that position remembered per analyst? CLOSED at step 4.** The PagerDuty Operations Console documentation, opened live, states the side panel width is changed by dragging and that "PagerDuty will remember your settings for later visits." A shipped console in this category does both, so this is a requirement rather than an open question.
 2. **What does Z5 hold on `/shift`?** The brief does not hold the split. Either the shell has a no-split mode, which weakens the guarantee in section 2, or 2.1 sits outside the shell entirely. Named here rather than settled, because the answer is a drawing decision.
 3. **Does a second analyst picking up a case change the row for the first?** The console is multi-analyst by premise, 40 or more tenants per person, but no flow covers a collision. If yes, it is a state that does not exist on the map yet.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Is the split resizable, and is the position remembered per analyst? | **Settled**. Closed at step 4 of the block bank. **Yes**, and it is documented PagerDuty behaviour rather than our invention. |
+| 2 | What does Z5 hold on `/shift`? | **Settled**. **The shell has no no-split mode.** On `/shift` the pane holds the brief's pointers resolved: selecting a carried over case puts that case in Z5, which is the same pane doing the same job. That is also what makes the two tap path from the brief real rather than asserted. |
+| 3 | Does a second analyst picking up a case change the row for the first? | **Settled**. **Yes, and it must.** Two analysts ruling the same case is the failure this product cannot afford. The row shows taken, by whom, since when, over the same live channel as the queue. If the connection is stale the marker is stale and says so, filing is still allowed under 0.4, and a genuine collision is **recorded** by 5.1's superseded machinery rather than prevented by a lock. |

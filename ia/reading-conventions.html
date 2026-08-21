@@ -160,7 +160,7 @@
 
 <section id="chips">
 <h2>05 &middot; State chips, a closed set and a stacking rule</h2>
-<p class="h2sub">Five values, rendered in the order in which they change what she does next</p>
+<p class="h2sub">Six values, rendered in the order in which they change what she does next</p>
 <div class="wfwrap"><div class="wfcap"><b>3.1 row</b><span>1440</span><span>the slots that read from this node</span></div>
 <div class="wfpad"><div class="wf">
 <div class="rcrow">
@@ -175,19 +175,22 @@
 <thead><tr><th>Chip</th><th>Means</th><th>Set by</th></tr></thead>
 <tbody>
 <tr><td><code>unrecorded</code></td><td>A verdict exists and the write did not land</td><td>4.9, held at 4.10</td></tr>
+<tr><td><code>taken</code></td><td>Another analyst is deciding it now, with their name and since when</td><td>0.1, settled at the close of the stage</td></tr>
 <tr><td><code>escalated</code></td><td>It left her hands</td><td>4.6</td></tr>
 <tr><td><code>decided</code></td><td>Ruled, and still in place until the selection moves off it</td><td>4.1, and 3.1 section 4b</td></tr>
 <tr><td><code>acted</code></td><td>Clerk already did something under its latitude</td><td>0.6</td></tr>
 <tr><td><code>investigating</code></td><td>Clerk is still working, no verdict yet</td><td>4.3</td></tr>
 </tbody></table></div>
 <p><strong>A row renders at most two, highest first.</strong> That is not a truncation rule, it is a claim about the taxonomy, and it is checkable: three of these can never be true at once. <code>investigating</code> excludes everything below a verdict, and <code>unrecorded</code> presupposes a verdict so it excludes <code>investigating</code>. The pairs that genuinely occur are three:</p>
+<p><strong><code>taken</code> was the sixth value and it arrived after this list was closed</strong>, from 0.1&rsquo;s decision that a second analyst picking up a case must change the row for the first. It brought a fourth pair with it. That is the taxonomy gaining a value, not the rule breaking: at most two chips render, and that still holds.</p>
 <p><strong><code>blocked on her</code> is not one of these, and that is deliberate.</strong> 3.1 sorts by it, so it has to be legible, but it is read from what Clerk concluded against the tenant&rsquo;s latitude and it renders as a mark on that phrase rather than a sixth chip. A chip would put a derived value in the slot reserved for facts about the case.</p>
-<div class="wfwrap"><div class="wfcap"><b>Every pair that can occur</b><span>if stage 04 finds a fourth, the taxonomy is what gets fixed</span></div>
+<div class="wfwrap"><div class="wfcap"><b>Every pair that can occur</b><span>if stage 04 finds a fifth, the taxonomy is what gets fixed</span></div>
 <div class="wfpad"><div class="wf">
 <div class="pairs2">
   <div class="r"><div class="a"><span class="chip">decided</span><span class="chip solid">unrecorded</span></div><div class="b">Exactly 4.10. The decision exists and only she can see it</div></div>
   <div class="r"><div class="a"><span class="chip">escalated</span><span class="chip solid">acted</span></div><div class="b">Clerk contained it under its latitude, and the case still went up</div></div>
   <div class="r"><div class="a"><span class="chip">decided</span><span class="chip solid">acted</span></div><div class="b">The ordinary shape of a case Clerk was already permitted to act on</div></div>
+  <div class="r"><div class="a"><span class="chip">taken</span><span class="chip solid">acted</span></div><div class="b">Clerk contained it, and a colleague is ruling on it right now</div></div>
 </div>
 <p class="rcno">A row that silently dropped a state would break the rule from CLAUDE.md that a case which left the analyst&rsquo;s hands must not look identical to one that did not.</p>
 </div></div></div>
@@ -238,12 +241,15 @@
 <tr><td>At most two chips, and only three pairs occur</td><td>this node</td><td><strong>Decision, and falsifiable at stage 04</strong></td></tr>
 <tr><td>The seven tenants and <code>C-4417</code></td><td>this node</td><td>Fixtures. Not findings, see 06</td></tr>
 </tbody></table></div>
-<ol>
-<li><strong>How does a source tool&rsquo;s severity map onto three levels?</strong> Belongs to ingestion, not to this stage. <code>[?]</code></li>
-<li><strong>Does the queue row need both the word and the glyph at 360?</strong> Section 8 of 3.1 already drops the cost of checking on a phone. Whether the word survives is drawn, not argued.</li>
-<li><strong>Is <code>acted</code> one chip, or does it need its class with it?</strong> <code>acted</code> alone says something happened; <code>acted, contain endpoint</code> says what, and costs width on every row. Stage 04 decides by drawing forty of them.</li>
-<li><strong>Who owns these conventions after the MVP?</strong> The same question 0.6 and 0.7 both ended on, and still the same missing settings surface.</li>
-</ol>
+<p><strong>Settled before stage 04.</strong> 0 settled, 2 drawn at stage 04, 2 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>How does a source tool&rsquo;s severity map onto three levels?</td><td><strong>Still open</strong>. Belongs to ingestion, not to this stage.</td></tr>
+<tr><td>2</td><td>Does the queue row need both the word and the glyph at 360?</td><td><strong>Stage 04 draws it</strong>. Stage 04, drawn rather than argued.</td></tr>
+<tr><td>3</td><td>Is <code>acted</code> one chip, or does it need its class with it?</td><td><strong>Stage 04 draws it</strong>. Stage 04, by drawing forty of them.</td></tr>
+<tr><td>4</td><td>Who owns these conventions after the MVP?</td><td><strong>Still open</strong>. The missing settings surface, for the fourth time. Four nodes now point at one hole.</td></tr>
+</tbody></table></div>
 </section>
 
 <p class="backlink">&larr; <a href="structure.html#0.8">Structure (0.8)</a>

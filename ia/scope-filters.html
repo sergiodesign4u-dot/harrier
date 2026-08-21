@@ -251,13 +251,14 @@
 <tr><td>Density is the feature</td><td><code>CLAUDE.md</code>, design principle 5</td></tr>
 <tr><td>Not found and not yours are indistinguishable</td><td>8.1 and the tenant isolation requirement</td></tr>
 </tbody></table></div>
+<p><strong>Settled before stage 04.</strong> 2 settled, 0 drawn at stage 04, 2 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
 <div class="tw"><table>
-<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>1</td><td><strong>Does persistent scope surprise people?</strong> Section 01 argues it is safe because it is always counted. That is an argument, and the failure it guards against, missing a client for a whole shift, is severe enough to test rather than reason about</td><td>Test</td></tr>
-<tr><td>2</td><td><strong>Does the log inherit the queue's tenant scope?</strong> Section 01 says yes for tenant. But an auditor's question often arrives about a tenant <strong>outside</strong> the current scope, and then persistence is friction rather than help. <strong>The rule may need an exception on 5.1</strong></td><td>Stage 04</td></tr>
-<tr><td>3</td><td>Is sort as a chip discoverable? Both references do it, so it is not novel, but neither has a keyboard first operator who never opens the bar with a mouse</td><td>Stage 04</td></tr>
-<tr><td>4</td><td>Multi-select within a facet. Severity as <code>High, Medium</code> is obviously right. Tenant as a list of five clients rather than a group is less obvious, and it is the difference between a group being a shortcut and a group being the only unit</td><td>Stage 04</td></tr>
+<tr><td>1</td><td>Does persistent scope surprise people?</td><td><strong>Still open</strong>. Needs a person. The failure mode is silent, which is why it is worth testing rather than reasoning about.</td></tr>
+<tr><td>2</td><td>Does the log inherit the queue&rsquo;s tenant scope?</td><td><strong>Settled</strong>. <strong>No.</strong> This node already rules that filters do not travel. The log is where you answer for a decision, and inheriting an hour old narrowing is how a person concludes that something did not happen.</td></tr>
+<tr><td>3</td><td>Is sort as a chip discoverable?</td><td><strong>Still open</strong>. Needs a person.</td></tr>
+<tr><td>4</td><td>Multi-select within a facet?</td><td><strong>Settled</strong>. <strong>Yes for severity and state, no for tenant.</strong> Tenant multi-select duplicates the tenant group, which is the unit taken from Defender. Two ways of saying the same thing is how a group stops being the unit.</td></tr>
 </tbody></table></div>
 </section>
 

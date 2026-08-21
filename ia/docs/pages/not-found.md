@@ -96,6 +96,8 @@ Stage 05 writes the words. This node fixes the constraints.
 
 ## 8. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source |
 |---|---|
 | A plain statement with two named exits and no illustration | PagerDuty 404, opened this session, screen in `research/screens/pagerduty-404-2026-08-21.png` |
@@ -104,3 +106,14 @@ Stage 05 writes the words. This node fixes the constraints.
 
 1. **Does the audit actually diff the three renderings?** The rule is only as real as the test. Stage 04 draws one page; **Step 8 of this stage should assert that no branch produces a second one.**
 2. Should the failed address be shown at all? It helps her send it back to whoever sent it. It also puts a possibly foreign id on screen. The id is opaque, so the disclosure is small, but it is not zero.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does the audit actually diff the three renderings? | **Settled**. **It did, at step 8 of this stage, and they disagreed.** Three files routed an out of scope tenant to 8.3; all three were corrected upward to 8.1. The rule is tested rather than asserted. |
+| 2 | Should the failed address be shown at all? | **Settled**. **Yes.** 0.8 settled that a case id carries no meaning and no tenant, so showing it discloses nothing and lets her send it back to whoever sent it. |

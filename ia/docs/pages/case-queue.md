@@ -44,7 +44,7 @@ Priority reasoned from the desk at 1440, which is the stance in `CLAUDE.md`, and
 |---|---|---|---|---|
 | **1** | **Scope bar.** Removable chips: tenant or tenant group, severity, what Clerk concluded, `escalated`, `unrecorded`. Sort is a chip like the rest, not a separate control | PagerDuty and Defender filter chips; tenant groups from Defender multitenant | MAIN, 3.6 | MVP |
 | **2** | **Scope readout.** What is in scope right now, counted: waiting cases, and how many tenants that covers. Not a metric card, not a percentage | Ours, from design principle 2 and the counts on Defender's tabs | MAIN | MVP |
-| **3** | **The list.** Virtualised, keyboard traversable, one row per case. Section 4 specifies the row | The pattern itself, shipped by Defender and PagerDuty | MAIN | MVP |
+| **3** | **The list.** Virtualised, keyboard traversable, one row per case, `role="grid"` with one tab stop. Section 4 specifies the row | The pattern itself, shipped by Defender and PagerDuty | MAIN | MVP |
 | **4** | **Selection held, and the decided row does not vanish.** It stays in place, marked decided, and leaves the list only when the selection moves off it. See section 4b | Ours, from 0.1's guarantee | MAIN | MVP |
 | **5** | **The pane.** Resizable, width remembered per analyst. At rest it holds 3.5, the fleet. With a selection it holds 4.1 | PagerDuty draggable and remembered panel, which closed 0.1's open question | MAIN, P2-MAIN | MVP |
 | **6** | **Freshness, not a spinner.** The age of the list in words, carried by 0.4 in the shell rather than repeated here | 0.4, corrected upward from 0.1 | MAIN | MVP |
@@ -67,7 +67,7 @@ Defined once here. Every other list in the product either uses this row or says 
 | **What it is** | The shape of the case in a short phrase | **Not** a generated sentence. Defender's incident name truncates in the row, which puts the least decidable content in the widest column |
 | **What Clerk concluded** | The draft verdict, in a phrase, and **whether the action it proposes is above this tenant's latitude** | This is the thing being ruled on. It is why the row exists. The latitude mark is what makes rank 2 of the order legible instead of mysterious, and it is not a state chip |
 | **What checking it will cost** | The size of the evidence behind the verdict, **counted in signals, 0.8**, and it is the same number the evidence block renders in the pane | Ours, and it has no reference. The analyst is choosing what to open next, and the honest input to that choice is how much reading it takes |
-| **State** | The chips from **0.8**, at most two, highest first | The visible states rule from `CLAUDE.md`. A case that left the analyst's hands must not look identical to one that did not |
+| **State** | The chips from **0.8**, at most two, highest first. `taken` among them, naming the colleague deciding it and since when | The visible states rule from `CLAUDE.md`. A case that left the analyst's hands must not look identical to one that did not |
 | **Age** | How long it has been waiting. **Elapsed, bare unit, 0.8** | SLA belongs to the secondary persona, but the analyst still needs to know what is going cold |
 
 **What the row must not carry:** a checkbox, a bare priority score, or a truncating generated name. The first three are named refusals from the bank, not omissions.
@@ -134,10 +134,11 @@ Sort is a chip in the scope bar like any other narrowing, so this is a default r
 |---|---|---|---|---|---|---|
 | **Scope bar** | Chips, all removable | Same | Same | Same | Same, and the chip that emptied it is identifiable | Tenants outside scope are not offered |
 | **Scope readout** | `18 waiting, across 12 tenants` | **Provisional and says so**, because the count is still arriving | Names the age of the count rather than a fresh number | `Nothing waiting` | `No case matches this scope` | Counts only what is in scope |
-| **List** | Rows | Rows arrive as correlated | **Readable and marked stale.** Never blanked | Empty | Empty | Silently narrowed |
+| **List** | Rows, `role="grid"`, one tab stop | Rows arrive as correlated | **Readable and marked stale.** Never blanked | Empty | Empty | Silently narrowed |
 | **Pane** | 3.5 the fleet | 3.5 | Whatever it held, marked as of last sync | **3.5, and this is the test:** it must read as the fleet, not as an empty screen | 3.5 | 3.5, narrowed |
 | **Filing a verdict** | Allowed | Allowed | **Allowed.** 0.4 settled this: a degraded connection does not block a decision | n/a | n/a | n/a |
 | **Row focus** | Held | Held through arrival | Held | n/a | n/a | Held |
+| **Taken by another analyst** | The row wears `taken`, with a name and since when | Same | **Marked as of last sync.** Filing is still allowed, and a real collision is recorded by 5.1 rather than prevented by a lock | n/a | n/a | Only inside her scope |
 
 **3.4 is the node that proves the biggest decision of the base layer.** The fleet has no menu item because it is the resting state of this pane. If an analyst with an empty queue reads the screen as "there is nothing here" rather than "here is the fleet", that decision has failed, and it fails here first.
 
@@ -227,7 +228,22 @@ One candidate is worth naming for the table's owner rather than claiming here: *
 
 ## 12. Open questions
 
+**Every question below carries a verdict at the end of this file.** 3 settled, 1 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Does the row carry latitude, or only the annunciator?** A per row marker for what Clerk was permitted to do at that tenant would put the differentiator on forty lines at once, which is either the strongest version of the fleet claim or the thing that finally overloads the row. Not settled here. **Stage 04 draws both and one loses.**
 2. **Is this a grid or a list?** 0.1 assumed the ARIA grid model, which is right if the row is columnar. If the row turns out to be two lines of mixed content rather than aligned columns, `grid` is the wrong role and the keyboard contract changes with it. Stage 04 settles it by drawing the row.
 3. **How many lines is a row?** Density is design principle 5 and there is no density toggle to hide behind, so this is one decision made once. `[?]` until 04.
 4. **What is the unit of "what checking will cost"?** Signals, sources, minutes, or something else. No invented number goes in here; the block states the information requirement and stage 04 picks the unit against a drawn row.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does the row carry latitude, or only the annunciator? | **Settled**. The row carries **whether the action Clerk proposes is above this tenant's latitude**, as a mark on the conclusion. Not the latitude value, which lives in 0.3 and 3.5. It is what makes rank 2 of the default order legible instead of mysterious, and it costs a phrase rather than a column. |
+| 2 | Is this a grid or a list? | **Settled**. **A grid**, `role="grid"`, one tab stop. The row is columnar and she reads across it, so the cells have to be individually addressable for assistive tech. A list would turn the state chip and the cost into run-on text. |
+| 3 | How many lines is a row? | **Stage 04 draws it**. Stage 04, and it is one decision made once because there is no density toggle to hide behind. |
+| 4 | What is the unit of what checking will cost? | **Settled**. Closed by **0.8**: `signals`, and the count is bound to the number of lines the evidence block renders in the pane. |

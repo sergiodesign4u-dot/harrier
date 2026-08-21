@@ -42,6 +42,27 @@ The states map onto the transport rather than onto a mood. WHATWG HTML, server-s
 
 ---
 
+## 3b. The fourth state, and it is not a transport state
+
+**Settled at the close of the stage. 8.2 asked who owns "Clerk is down but the console is up" and the answer is this node**, because it is a data freshness condition and freshness is what this strip is for. It is not a new node and it was not going to be one.
+
+The three states above describe **the connection**. This one describes **the source**, and the transport cannot tell them apart on its own:
+
+| | The console lost the server | The server is fine and Clerk is not working |
+|---|---|---|
+| Strip reads | `Reconnecting` or `Stale`, plus the gap | **`Clerk is not investigating`, plus since when** |
+| What is true about the queue | Unknown. Cases may be arriving and not reaching her | **The queue is complete.** Nothing is missing and nothing new will arrive |
+| What she does | Waits, and decides on what she has | **Works through it.** Every case in front of her is every case there is |
+| 3.4, an empty queue | Ambiguous, and it must say so | Unambiguous, and it is the one case where an empty queue is genuinely good news |
+
+**This is the sharper half.** Under a lost connection an empty queue and a quiet night look identical, which is the failure this node exists to prevent. Under a working connection with Clerk stopped, an empty queue means something precise and the strip can say it.
+
+**It also disarms 2.3.** `Nothing carried over` was dangerous because a shift with nothing in it and a shift where the agent produced nothing read the same. With the source named separately, 2.1 can tell the incoming analyst which of the two she is walking into.
+
+**What the strip must never do** is infer this from silence. Silence is what `Reconnecting` already means. The source state comes from the server saying so, and if the server cannot be reached then the state is `Reconnecting` and nothing more is claimed.
+
+---
+
 ## 4. What the queue can honestly say about what it missed
 
 The transport carries a resumption mechanism. WHATWG: "The `Last-Event-ID` HTTP request header reports an EventSource object's last event ID string to the server when the user agent is to reestablish the connection."
@@ -120,6 +141,8 @@ What is dropped is the retry control: at 360 a reload is the gesture the platfor
 
 ## 10. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 0 drawn at stage 04, 1 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source | Standing |
 |---|---|---|
 | Three connection states and their exact meanings | WHATWG HTML, server-sent events, opened this session | Fact |
@@ -132,3 +155,15 @@ What is dropped is the retry control: at 360 a reload is the gesture the platfor
 1. **What is the threshold between `Reconnecting` and `Stale`?** The transport distinguishes them exactly, but the analyst needs a moment where the wording escalates. Not measured, and it decides how often the strip cries wolf.
 2. **Does a case already open go stale?** Specified here as no: an open case is a snapshot being decided on. If new evidence arrives on that case during the gap, nothing currently tells the analyst. That is a real hole, and it belongs to 4.1.
 3. **Is the transport actually server-sent events?** It is a hypothesis in the project context, not a decision made with an engineer. If it becomes a socket, the three states survive but the resumption story changes.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | What is the threshold between Reconnecting and Stale? | **Settled**. **The transport's own retry exhaustion, not an invented number.** The wording escalates at the moment a decision made on this data could be wrong, and that moment is a fact about the connection rather than a figure we would have had to make up. |
+| 2 | Does a case already open go stale? | **Settled**. **No, and 4.1 section 04c now carries the whole behaviour**, which is where this node had always said it belonged. |
+| 3 | Is the transport actually server-sent events? | **Still open**. An engineer answers. What does not change either way: the states, their wording, and the rule that a degraded connection never blocks a decision. |

@@ -137,6 +137,14 @@ Both are written at 4.1 and 4.4 and **redeemed here**. That is the case for stru
 
 ---
 
+## 7b. Two requirements settled at the close of the stage
+
+**It has to survive print, and that is a requirement rather than a nicety.** This is the artefact that leaves the building when someone asks the provider to account for a decision. So in print: the `?as-of` address is **on the page**, every evidence expansion is **open**, and nothing exists only on hover. A frame that is only true on screen is not an audit record.
+
+**It renders how long its own snapshot will remain retrievable.** 0.6 settled the shape of retention and left the number to the provider's contract: the verdict record is kept for the life of the record, the evidence snapshot has a shorter window, and 4.7 exists because that window ends. The rule that makes the unchosen number harmless is here: **the analyst learns the window from the entry, never from a failure.** 5.1's pane at rest carries the same value for the view; this carries it for the one snapshot in front of her.
+
+---
+
 ## 9. Not this node
 
 - **0.8** the reading conventions. Severity, time, the effort units, the chip set and the tenant fixtures are defined there and read here
@@ -165,7 +173,21 @@ Both are written at 4.1 and 4.4 and **redeemed here**. That is the case for stru
 
 ## 11. Open questions
 
+**Every question below carries a verdict at the end of this file.** 3 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Does the frame survive print and PDF?** An auditor's most likely next action is to save or print this page, and a frame that only exists on screen loses the one marking that keeps as-was from reading as as-is. **Nobody has drawn a print stylesheet in this pipeline**, and this is the first node that genuinely needs one.
 2. **How is the timestamp written?** UTC, the analyst's zone, or the tenant's. All three are defensible and only one can be first. It is a stage 05 decision with a real consequence for R2.
 3. **What happens to an entry whose tenant has been offboarded?** The client is gone, the record is still ours to answer for. Scope says tenants inside provider scope, and an offboarded tenant is outside it. **That rule and this node disagree**, and the disagreement is not resolved here.
 4. Does the count of what changed since ever ship, or does the statement suffice? Section 2 defers it. Revisit only if someone asks the question the count answers.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does the frame survive print and PDF? | **Settled**. **Yes, and it is a requirement rather than a nicety.** This is the artefact that leaves the building for an audit. In print the `?as-of` address is on the page, every evidence expansion is open, and nothing exists only on hover. |
+| 2 | How is the timestamp written? | **Settled**. Closed by **0.8**: ISO 8601 in UTC, because one analyst covers tenants on two continents and a local rendering in an append only record makes two entries incomparable. |
+| 3 | What happens to an entry whose tenant has been offboarded? | **Settled**. **The entry survives and says the tenant is offboarded.** Offboarding removes access to live tenant data; the append only log is the one thing that must not be deleted, because it records decisions taken while the tenant was live. Live links die and the snapshot follows the retention rule in 0.6. |

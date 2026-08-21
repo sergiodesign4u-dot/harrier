@@ -173,7 +173,22 @@ The UCL evidence behind this mechanism is the same quote as finding 3, and this 
 
 ## 12. Open questions
 
+**Every question below carries a verdict at the end of this file.** 4 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **What happens to a brief nobody sealed?** 2.5 covers sealing that **failed**. Sealing that was never **attempted**, because the analyst simply left, is a different state and it does not exist yet. Given finding 3, it is the most likely real world failure of this node.
 2. **Is the brief per analyst or per rotation?** If two analysts cover overlapping tenants on the same shift, whose brief is it and does a case appear in both? Unspecified, and it is the same family as the shared tenant question 3.1 and 5.1 both left open.
 3. **Does the incoming analyst acknowledge the brief?** UCL says handovers are read or ignored, and an acknowledgement is the only way to know which. It also adds a step to the start of every shift. Not decided.
 4. **Where does the rota come from?** Same question 4.6 raised. If it lives in the provider's on call tool, this node reads it rather than owning it, and that integration is undescribed.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | What happens to a brief nobody sealed? | **Settled**. **The incoming analyst gets it marked unsealed**, assembled by Clerk from the record with the prose half missing. Worse than a sealed brief and not nothing, and the difference is visible, which is the same rule that governs `escalated` and `unrecorded`. |
+| 2 | Is the brief per analyst or per rotation? | **Settled**. **Per analyst.** The handoff is person to person, and stage 02 found it is signposting into cases rather than a document. A rotation level brief is the document. |
+| 3 | Does the incoming analyst acknowledge the brief? | **Settled**. **Yes, and taking the shift is the acknowledgement.** One act with two meanings: it seals the outgoing brief and opens the incoming one, which removes a separate control from the busiest minute of the day. |
+| 4 | Where does the rota come from? | **Settled**. Settled with 4.6: **read, not owned.** Harrier renders who is on now from the provider's existing on call tool and never edits it. |

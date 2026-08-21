@@ -120,6 +120,8 @@ A tab bar with three destinations, icon plus label, one always active. Positione
 
 ## 10. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 3 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source | Standing |
 |---|---|---|
 | Three to five destinations in a bottom navigation bar | Material Design 3, navigation bar guidelines, opened this session | Fact |
@@ -131,3 +133,15 @@ A tab bar with three destinations, icon plus label, one always active. Positione
 1. **Does Queue carry a count?** A badge saying how many cases wait is either the most useful number in the product or a permanent alarm that stops being read. Nothing in the research answers it, and it is a stage 04 decision.
 2. **Does Shift stay visible mid shift?** The brief is read once and abandoned. An item that is useful for four minutes of a ten hour shift may be occupying one of three slots that the guidance says are scarce.
 3. **What happens to the three item bar when Clients arrives?** Four items still fits the range. Recorded so that the change is a planned step rather than a surprise.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does Queue carry a count? | **Settled**. **No.** A permanent badge over a queue that is never empty is an alarm that stops being read. The count already exists where it is decidable, in 3.1's scope readout, narrowed to what she is actually looking at. |
+| 2 | Does Shift stay visible mid shift? | **Settled**. **Yes.** R1 says the brief is written across the shift rather than read once at the start, so hiding the item would make the outgoing half of the job invisible for nine hours of ten. |
+| 3 | What happens to the three item bar when Clients arrives? | **Settled**. A planned step rather than a surprise: four items still fits, and cluster 7 is when it happens. |

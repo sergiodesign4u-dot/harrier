@@ -177,7 +177,22 @@ Nothing else in the table lives here, and nothing is written in for completeness
 
 ## 12. Open questions
 
+**Every question below carries a verdict at the end of this file.** 1 settled, 1 drawn at stage 04, 2 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Is `Real, called benign` reachable often enough to matter?** From this dialog it is reachable whenever Clerk filed a benign verdict that reached the queue. What remains unreachable is the larger set: **cases Clerk closed on its own and the analyst never sees.** 0.7 recorded that hole; this node does not close it, and the analyst side review lane still has no job.
 2. **Does the consequence line get read?** It is the mechanism carrying the teaching half of principle 3, and the RIT finding quoted in `jtbd.md` is that analysts "rarely mentioned using the fine-grained feature contribution graphs" under time pressure. **A line nobody reads teaches nothing**, and this is the first thing to test on the dialog rather than to assert.
 3. **Should 4.2 expose reject at 360 after all?** The platform line says read and escalate. The cost is in section 8. Revisit only with evidence about what on call analysts actually do at 03:00.
 4. **Do the digit shortcuts survive stage 05?** Six values with stable numbering is fast for a daily user and fragile if the taxonomy ever grows. The taxonomy is a decision of 0.7, so the numbering is only as stable as that list.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Is `Real, called benign` reachable often enough to matter? | **Still open**. Tied to the review lane that has no job. **The most expensive error in the product is one this taxonomy can only catch by accident**, and no node closes it. |
+| 2 | Does the consequence line get read? | **Still open**. Needs a person in front of the dialog. |
+| 3 | Should 4.2 expose reject at 360 after all? | **Settled**. **No.** 4.2 at 360 is read and escalate. A rejection needs the taxonomy and the evidence in view and neither fits on a phone; escalate is the honest exit and it is already there. |
+| 4 | Do the digit shortcuts survive stage 05? | **Stage 04 draws it**. Stage 05 owns the labels; this node owns the requirement that the reason be one selection. |

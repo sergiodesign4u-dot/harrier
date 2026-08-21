@@ -99,6 +99,8 @@ So at 360 the order inverts: **the fallback contact comes first**, above what is
 
 ## 8. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 1 settled, 0 drawn at stage 04, 2 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source |
 |---|---|
 | Three connection states and their wording | 0.4, from the EventSource `readyState` mapping |
@@ -109,3 +111,15 @@ So at 360 the order inverts: **the fallback contact comes first**, above what is
 1. **Who owns the Clerk down state?** Section 4. It is a real hole and it makes 2.3 dangerous.
 2. **Is the fallback contact the right thing to show unauthenticated?** A phone number on a page anyone can reach is a small disclosure and a large convenience. Not resolved.
 3. Does planned maintenance ever happen during a shift? If the answer is no, the first column of section 5 is furniture. Nobody has said.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Who owns the Clerk down state? | **Settled**. **0.4 does, as a fourth state.** It is a data freshness condition, which is 0.4's job. The distinction it must now draw: the console lost the server, against the server is fine and Clerk is not working. Her action differs. In the first she waits. In the second **the queue is complete and she can work through it**, and nothing new will arrive. That also disarms 2.3, which was dangerous precisely because *nothing carried over* and *Clerk produced nothing* looked identical. |
+| 2 | Is the fallback contact the right thing to show unauthenticated? | **Still open**. A provider's disclosure call, not ours. A phone number on a page anyone can reach is a small disclosure and a large convenience. |
+| 3 | Does planned maintenance ever happen during a shift? | **Still open**. Nobody has said. If the answer is no, the first column of the state matrix is furniture. |

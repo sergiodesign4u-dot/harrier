@@ -156,7 +156,21 @@ At 360 that list is capped at three. **The mechanism is weakened, and it is the 
 
 ## 10. Open questions
 
+**Every question below carries a verdict at the end of this file.** 3 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Should `/case/{caseId}` redirect to `/queue/case/{caseId}` on a desk?** Section 3 says no and offers instead. The alternative is one fewer decision for the analyst and one broken promise for the permalink, since a redirect means the address she copied is not the address that opens. **Not reopened without reopening that.**
 2. **Is a pinned escalate bar the right call, given principle 5?** The argument is in section 4 and it is an argument, not a proof. Stage 04 draws it at 360 and the tension is visible or it is not.
 3. **What does the page do after a verdict is filed at 1440?** It states the outcome and stays. Whether it should then offer the queue more loudly, or the next case in the same tenant, is unspecified and is the most likely dead end in this node.
 4. Does the compressed latitude at 360 still read as latitude, or does it read as a list of capabilities? The differentiator survives compression or it does not, and 360 is where that is tested hardest.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Should `/case/{caseId}` redirect to `/queue/case/{caseId}` on a desk? | **Settled**. **No.** A permalink that bounces cannot be quoted in a ticket. At 1440 the page offers *open in the queue* as a link, and the analyst decides. |
+| 2 | Is a pinned escalate bar the right call, given principle 5? | **Settled**. **Yes, pinned.** It reserves a strip rather than overlaying evidence, and overlaying is what principle 5 forbids. At 360 the whole scenario is read and escalate, so the exit may not sit below the fold of the case. |
+| 3 | What does the page do after a verdict is filed at 1440? | **Settled**. The same shape as 3.1 section 02b: it **holds the case and states the outcome**. Having no list to return to, it offers the queue as the next step rather than navigating on its own. |

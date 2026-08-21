@@ -189,11 +189,14 @@
 <tr><td>No undo. Correction is a superseding logged action</td><td>this node, from the compliance requirement</td><td>Decision, argued</td></tr>
 <tr><td>Cap of three visible</td><td>this node</td><td>Decision, layout</td></tr>
 </tbody></table></div>
-<ol>
-<li><strong>How long does a <code>status</code> notice persist if never dismissed?</strong> Persistence is required, but a notice from six hours ago is noise. Clearing on section change is the obvious answer and it is untested.</li>
-<li><strong>Does the analyst want to know a case was taken by someone else?</strong> Assumed yes. A shared console over forty tenants makes collisions likely, but no flow covers one, which is already an open question at 0.1.</li>
-<li><strong>Where do grant change notices go before cluster 7 exists?</strong> Nowhere in the MVP. Recorded so the gap is visible when 7.3 arrives.</li>
-</ol>
+<p><strong>Settled before stage 04.</strong> 3 settled, 0 drawn at stage 04, 0 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>How long does a status notice persist if never dismissed?</td><td><strong>Settled</strong>. <strong>Until the condition ends, never on a timer.</strong> This node already gives notices only to conditions, and a condition that has ended has no notice. Nothing is dismissed by age.</td></tr>
+<tr><td>2</td><td>Does the analyst want to know a case was taken by someone else?</td><td><strong>Settled</strong>. <strong>Yes, and it changes the row rather than raising a toast.</strong> Settled at 0.1. The row is where she is looking, and a toast about a case she cannot see is noise.</td></tr>
+<tr><td>3</td><td>Where do grant change notices go before cluster 7 exists?</td><td><strong>Settled</strong>. <strong>Nowhere, and correctly:</strong> there are no grant changes in the MVP because 7.3 is LATER. Recorded so the gap is visible when it arrives.</td></tr>
+</tbody></table></div>
 </section>
 
 <p class="backlink">&larr; <a href="structure.html#8.4">Structure (8.4)</a>

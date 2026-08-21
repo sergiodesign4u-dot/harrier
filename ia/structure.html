@@ -135,8 +135,74 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 <div class="node"><span class="lbl">What this hub is not</span><p>It is not the sidebar. The roadmap on the left tracks stages of the pipeline; this tracks nodes of the product. Forty six nodes and twelve pipeline stages are two different registries, and this hub owns neither panel: the stage panel on the left is rendered from <code>ia/_nav.js</code>, the same record these chips come from.</p></div>
 </section>
 
+<section id="settled">
+<h2>04 &middot; Settled before stage 04</h2>
+<p class="h2sub">Seventy seven open questions across twenty three nodes, every one given a verdict rather than carried forward as a list</p>
+
+<p>Twenty three node specifications ended with open questions, and nobody had ever counted them together. <strong>Seventy seven.</strong> Read as one set rather than one node at a time, most of them were not open at all: the answer already followed from something the product had decided, and nobody had written it down.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Verdict</th><th>Count</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td><strong>Settled</strong></td><td><strong>52</strong></td><td>The answer follows from a decision the product already made, so it is taken here and written into the node that owns it</td></tr>
+<tr><td><strong>Stage 04 draws it</strong></td><td><strong>7</strong></td><td>Genuinely undecidable in prose. Drawing is the instrument, and arguing would be pretending</td></tr>
+<tr><td><strong>Still open</strong></td><td><strong>18</strong></td><td>Needs a person we do not have, or a business decision that is not ours. Each one says who can answer and what it blocks</td></tr>
+</tbody></table></div>
+
+<h3>Four decisions that closed more than one question each</h3>
+<div class="tw"><table>
+<thead><tr><th>Decision</th><th>Closed</th><th>Why it is the answer</th></tr></thead>
+<tbody>
+<tr><td><strong>Harrier reads the rota, it does not own it</strong></td><td>4.6 and 2.1</td><td>Providers already run on call tooling, and a second rota is a second truth. When the rota is unreachable the recipient is 8.2&rsquo;s declared fallback contact, a value both nodes already shared</td></tr>
+<tr><td><strong>An escalation is delivered out of band, and Harrier records that it was sent</strong></td><td>4.6, and it unblocks the <code>[?]</code> on P2</td><td>Harrier is not the delivery mechanism, so whether the secondary persona uses the console stops blocking a mechanism. If they do, 4.2&rsquo;s permalink is what they open</td></tr>
+<tr><td><strong>Clerk down is 0.4&rsquo;s fourth state, not a new node</strong></td><td>8.2, and it disarms 2.3</td><td>It is a freshness condition, which is what the strip is for. The distinction it draws is the useful part: under a lost connection an empty queue is ambiguous; with Clerk stopped, <strong>the queue is complete and she can work through it</strong></td></tr>
+<tr><td><strong>Retention is two windows, and the entry says how long its own snapshot lasts</strong></td><td>0.6, 5.4, 5.1, and 4.7 keeps its reason</td><td>The number is a contract term and stays <code>[?]</code>. What removes the blocker is the rule rather than the figure: <strong>the analyst learns the window from the entry, never from a failure</strong></td></tr>
+</tbody></table></div>
+
+<h3>Three answers that changed a drawing rather than a paragraph</h3>
+<div class="tw"><table>
+<thead><tr><th>Question</th><th>Answer</th><th>What it changed</th></tr></thead>
+<tbody>
+<tr><td>What does a fleet row do on click, when 7.1 is LATER?</td><td><strong>It narrows the queue to that tenant</strong></td><td>The most likely dead end in the product becomes an entry. A record that moved down is one click from the cases behind it, and 3.6 already owns the mechanism</td></tr>
+<tr><td>Does a second analyst picking up a case change the row for the first?</td><td><strong>Yes, and it must</strong></td><td>0.8&rsquo;s chip set gained a sixth value, <code>taken</code>, and a fourth pair. A collision is <strong>recorded</strong> by 5.1&rsquo;s superseded machinery rather than prevented by a lock</td></tr>
+<tr><td>Is the queue a grid or a list?</td><td><strong>A grid</strong>, one tab stop</td><td>The row is columnar and she reads across it, so cells must be addressable. A list would turn the state chip and the cost into run-on text</td></tr>
+</tbody></table></div>
+
+<h3>Per node</h3>
+<div class="tw"><table>
+<thead><tr><th>Node</th><th>Questions</th><th>Settled</th><th>Drawn</th><th>Open</th><th>What stays open</th></tr></thead>
+<tbody>
+<tr><td><strong>0.1</strong></td><td>3</td><td>3</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>0.2</strong></td><td>3</td><td>3</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>0.3</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>Is 30 days the right window</td></tr>
+<tr><td><strong>0.4</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>Is the transport actually server-sent events</td></tr>
+<tr><td><strong>0.5</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>Where does the disable setting live once a settings surface exists</td></tr>
+<tr><td><strong>0.6</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>Who owns the taxonomy, the provider or the product</td></tr>
+<tr><td><strong>0.7</strong></td><td>3</td><td>0</td><td>0</td><td>3</td><td>Does the analyst ever learn what happened to the reason; Who maintains the list; Is `Real, called benign` even reachable</td></tr>
+<tr><td><strong>0.8</strong></td><td>4</td><td>0</td><td>2</td><td>2</td><td>How does a source tool's severity map onto three levels; Who owns these conventions after the MVP</td></tr>
+<tr><td><strong>1.1</strong></td><td>4</td><td>4</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>2.1</strong></td><td>4</td><td>4</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>3.1</strong></td><td>4</td><td>3</td><td>1</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>3.5</strong></td><td>4</td><td>2</td><td>1</td><td>1</td><td>Does the ordering in section 6 match what an analyst asks at shift start</td></tr>
+<tr><td><strong>3.6</strong></td><td>4</td><td>2</td><td>0</td><td>2</td><td>Does persistent scope surprise people; Is sort as a chip discoverable</td></tr>
+<tr><td><strong>4.1</strong></td><td>4</td><td>2</td><td>2</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>4.2</strong></td><td>3</td><td>3</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>4.4</strong></td><td>4</td><td>1</td><td>1</td><td>2</td><td>Is `Real, called benign` reachable often enough to matter; Does the consequence line get read</td></tr>
+<tr><td><strong>4.6</strong></td><td>3</td><td>3</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>5.1</strong></td><td>4</td><td>3</td><td>0</td><td>1</td><td>Is the resting pane in section 5 read, or is it furniture</td></tr>
+<tr><td><strong>5.4</strong></td><td>3</td><td>3</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>8.1</strong></td><td>2</td><td>2</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+<tr><td><strong>8.2</strong></td><td>3</td><td>1</td><td>0</td><td>2</td><td>Is the fallback contact the right thing to show unauthenticated; Does planned maintenance ever happen during a shift</td></tr>
+<tr><td><strong>8.3</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>Does block 3 grow a request path</td></tr>
+<tr><td><strong>8.4</strong></td><td>3</td><td>3</td><td>0</td><td>0</td><td><span style="color:#9aa0a6">none</span></td></tr>
+</tbody></table></div>
+
+<div class="node"><span class="lbl">What the eighteen that stay open have in common</span><p>They fall into three piles and none of them is a gap in the design. <strong>Four point at one hole:</strong> 0.6, 0.7, 0.8 and 0.5 all end on the missing settings surface, and four nodes naming one absence is a stronger statement than any of them alone. <strong>Six need a person in front of the screen</strong>, which is the honest answer for whether a line gets read. <strong>The rest belong to somebody else:</strong> a contract term, an ingestion mapping, an engineer&rsquo;s choice of transport.</p>
+<p><strong>And one of them got worse rather than better.</strong> 0.7 asks whether the analyst ever learns what happened to a rejection reason. Step 9 counted that R3 is carried by two nodes out of forty six and neither closes the loop. A rejection that never visibly changes anything stops being filled in honestly, so <strong>the thinnest job in the product is the one design principle 3 depends on.</strong></p></div>
+</section>
+
 <section id="audit">
-<h2>04 &middot; Audit before wireframes, before and after</h2>
+<h2>05 &middot; Audit before wireframes, before and after</h2>
 <p class="h2sub">Four instruments, run independently, deduplicated after</p>
 <div class="tw"><table>
 <thead><tr><th>Instrument</th><th>Radius</th><th>Raised</th><th>Held</th></tr></thead>
@@ -279,6 +345,7 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
     { id:'nodes',   label:'Nodes' },
     { id:'bank',    label:'Block bank' },
     { id:'reading', label:'How to read a chip' },
+    { id:'settled',  label:'Settled before 04' },
     { id:'audit',   label:'Audit, before and after' },
   ];
 </script>

@@ -111,6 +111,8 @@ And the extend route is absurd here: warning the analyst that a toast is about t
 
 ## 8. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 3 settled, 0 drawn at stage 04, 0 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source | Standing |
 |---|---|---|
 | An auto dismissing notice is a time limit and falls under SC 2.2.1, Level A | W3C, Understanding SC 2.2.1, opened this session | **Fact, and a launch condition** |
@@ -124,3 +126,15 @@ And the extend route is absurd here: warning the analyst that a toast is about t
 1. **How long does a `status` toast persist if never dismissed?** Persistence is required, but a notice from six hours ago is noise. Clearing on section change is the obvious answer and it is untested.
 2. **Does the analyst want to know that another analyst took a case?** Assumed yes. The premise of a shared console with forty tenants makes collisions likely, but no flow covers one, which is already recorded as an open question at 0.1.
 3. **Where do grant change notices go before cluster 7 exists?** Nowhere in the MVP. Recorded so the gap is visible when 7.3 arrives.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | How long does a status notice persist if never dismissed? | **Settled**. **Until the condition ends, never on a timer.** This node already gives notices only to conditions, and a condition that has ended has no notice. Nothing is dismissed by age. |
+| 2 | Does the analyst want to know a case was taken by someone else? | **Settled**. **Yes, and it changes the row rather than raising a toast.** Settled at 0.1. The row is where she is looking, and a toast about a case she cannot see is noise. |
+| 3 | Where do grant change notices go before cluster 7 exists? | **Settled**. **Nowhere, and correctly:** there are no grant changes in the MVP because 7.3 is LATER. Recorded so the gap is visible when it arrives. |

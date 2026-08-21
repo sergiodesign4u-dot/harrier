@@ -258,6 +258,13 @@
 </div>
 </section>
 
+<section id="settled">
+<h2>06b &middot; Two requirements settled at the close of the stage</h2>
+<p class="h2sub">It has to survive print, and it has to say how long its own snapshot will last</p>
+<p><strong>Print is a requirement rather than a nicety.</strong> This is the artefact that leaves the building when someone asks the provider to account for a decision. So in print the <code>?as-of</code> address is <strong>on the page</strong>, every evidence expansion is <strong>open</strong>, and nothing exists only on hover. A frame that is only true on screen is not an audit record.</p>
+<div class="node"><span class="lbl">The retention window, and why the unchosen number is now harmless</span><p>0.6 settled the shape and left the number to the provider&rsquo;s contract: the verdict record is kept for the life of the record, the evidence snapshot has a shorter window, and 4.7 exists because that window ends. <strong>The analyst learns the window from the entry, never from a failure.</strong> 5.1&rsquo;s pane at rest carries the same value for the view; this carries it for the one snapshot in front of her.</p></div>
+</section>
+
 <section id="open">
 <h2>07 &middot; Emotional support, not this node, grounding, open questions</h2>
 <div class="tw"><table>
@@ -284,13 +291,13 @@
 <tr><td>Latitude is per action class and per tenant</td><td>Simbian in 0.3; classes in 0.6</td></tr>
 <tr><td>The retention window is unchosen</td><td><code>research.md</code> section 10</td></tr>
 </tbody></table></div>
+<p><strong>Settled before stage 04.</strong> 3 settled, 0 drawn at stage 04, 0 still open, taken at the close of stage 03b. A question is settled only when the answer follows from something the product already decided; where it does not, the row says who can answer and what it blocks.</p>
 <div class="tw"><table>
-<thead><tr><th>#</th><th>Open question</th><th>Who settles it</th></tr></thead>
+<thead><tr><th>#</th><th>Question</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>1</td><td><strong>Does the frame survive print and PDF?</strong> An auditor's most likely next action is to save or print this page, and a frame that only exists on screen loses the one marking that keeps as-was from reading as as-is. <strong>Nobody has drawn a print stylesheet in this pipeline</strong>, and this is the first node that genuinely needs one</td><td>Stage 04, and it is new work</td></tr>
-<tr><td>2</td><td><strong>How is the timestamp written?</strong> UTC, the analyst's zone, or the tenant's. All three are defensible and only one can be first</td><td>Stage 05, with a real consequence for R2</td></tr>
-<tr><td>3</td><td><strong>What happens to an entry whose tenant has been offboarded?</strong> The client is gone, the record is still ours to answer for. Scope says tenants inside provider scope, and an offboarded tenant is outside it. <strong>That rule and this node disagree</strong></td><td>Not resolved here. It needs a decision, not a drawing</td></tr>
-<tr><td>4</td><td>Does the count of what changed since ever ship, or does the statement suffice?</td><td>Revisit only if someone asks the question the count answers</td></tr>
+<tr><td>1</td><td>Does the frame survive print and PDF?</td><td><strong>Settled</strong>. <strong>Yes, and it is a requirement rather than a nicety.</strong> This is the artefact that leaves the building for an audit. In print the <code>?as-of</code> address is on the page, every evidence expansion is open, and nothing exists only on hover.</td></tr>
+<tr><td>2</td><td>How is the timestamp written?</td><td><strong>Settled</strong>. Closed by <strong>0.8</strong>: ISO 8601 in UTC, because one analyst covers tenants on two continents and a local rendering in an append only record makes two entries incomparable.</td></tr>
+<tr><td>3</td><td>What happens to an entry whose tenant has been offboarded?</td><td><strong>Settled</strong>. <strong>The entry survives and says the tenant is offboarded.</strong> Offboarding removes access to live tenant data; the append only log is the one thing that must not be deleted, because it records decisions taken while the tenant was live. Live links die and the snapshot follows the retention rule in 0.6.</td></tr>
 </tbody></table></div>
 </section>
 
@@ -307,6 +314,7 @@
     { id:'states',  label:'State matrix' },
     { id:'m360',    label:'At 360' },
     { id:'blocks',  label:'Blocks' },
+    { id:'settled',   label:'Settled at the close' },
     { id:'open',    label:'Grounding' },
   ];
 </script>

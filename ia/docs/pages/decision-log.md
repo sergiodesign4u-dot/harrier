@@ -168,7 +168,22 @@ The mechanism is written at 4.1 and 4.4, and **read here**. That is the whole ar
 
 ## 12. Open questions
 
+**Every question below carries a verdict at the end of this file.** 3 settled, 0 drawn at stage 04, 1 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **How far back does the log render by default?** A date range chosen for us by performance is a compliance answer chosen by accident. Tied to the retention window, so it cannot be settled before that number exists.
 2. **What does a superseded entry look like beside the original?** Both must be readable and it must be obvious which is current. Two rows, a nested pair, or one row with a marker; not decided, and stage 04 draws it.
 3. **Does an analyst see decisions made by analysts at other providers?** No, because tenant scope forbids it. But the same tenant can be covered by more than one analyst inside one provider, and whether that is visible on the row is unspecified. **It is the same question 3.1 left about a second analyst taking a case.**
 4. **Is the resting pane in section 5 read, or is it furniture?** It carries the only person facing statement of retention in the product, which makes it load bearing for R2 and easy to skip past. Same class of risk as the consequence line in 4.4.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | How far back does the log render by default? | **Settled**. **The current shift and the one before it.** The shift is the unit the product already has, and anything older is a search rather than a scroll, which is what 5.3 is written as. |
+| 2 | What does a superseded entry look like beside the original? | **Settled**. **Both render in place, the superseded one marked.** Section 5 already says the first stays; this settles that it stays *beside*, not behind a control. |
+| 3 | Does an analyst see decisions made by analysts at other providers? | **Settled**. **No.** Tenant isolation, the same rule 8.1 carries. |
+| 4 | Is the resting pane in section 5 read, or is it furniture? | **Still open**. Needs a person. It matters more than it looks: it is the only place in the product where the retention window is visible, so if it is furniture then that fact has no reader. |

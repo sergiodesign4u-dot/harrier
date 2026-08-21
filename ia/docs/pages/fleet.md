@@ -74,6 +74,10 @@ From `ia/docs/blocks.md`, type D.
 | **6** | **Tenant groups** as the unit of narrowing, shared with 3.6 | Defender: *"Organize the tenants you manage into named groups"* | 3.6 | MVP |
 | **7** | Per tenant detail on selection | Defender's *"for all tenants and at a tenant-specific level"* | 7.1 | **LATER**, 7.1 is LATER |
 
+| **8** | **A tenant row narrows the queue to that tenant.** Settled at the close of the stage | 3.6, whose mechanism this reuses | P2-MAIN into MAIN | MVP |
+
+**Block 8 is what stops this node being a dead end**, and it was the most likely one in the product. 7.1 does not exist in the MVP, so a row that did nothing would leave the differentiator as a poster. Narrowing is a mechanism 3.6 already owns, so it costs no new machinery, and it turns the fleet from a display into an entry: **a record that moved down is one click from the cases behind it.**
+
 **Deliberately absent:** KPI cards above the table, charts as the primary reading, and any control that changes a grant.
 
 **The last one is a scope decision with teeth.** 3.5 is **readable, not settable**. Changing what Clerk may do is 7.2, which is LATER, so in the MVP an analyst who disagrees with a tenant's latitude has **nowhere to go from here**. That is a named gap, not an oversight, and it is recorded in section 9.
@@ -184,7 +188,22 @@ That is a real hole and it is the same one section 4 names: readable, not settab
 
 ## 12. Open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 1 drawn at stage 04, 1 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 1. **Does a sparkline earn its width next to the two counts?** Decided at stage 04 by drawing forty rows, not five. The two count form ships either way; the chart is additive or absent.
 2. **Does the fleet show all forty, or only the tenants that need attention?** Forty rows is a scroll inside a pane. Showing eight is a decision about what the analyst does not see, which is the more dangerous kind.
-3. **What does a tenant row do on click in the MVP, when 7.1 does not exist?** Options: nothing, filter the queue to that tenant, or a small expansion in place. Currently unspecified, and it is the most likely place for a dead end.
+3. **Settled at the close of the stage:** the row narrows the queue to that tenant. Section 4, block 8.
 4. **Does the ordering in section 6 match what an analyst actually asks at shift start?** Same test as the bet in section 3, and the same three analysts answer both.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does a sparkline earn its width next to the two counts? | **Stage 04 draws it**. Stage 04, by drawing forty rows rather than five. |
+| 2 | Does the fleet show all forty, or only the tenants that need attention? | **Settled**. **All of them, ordered by where attention is owed.** Showing eight is a decision about what she does not see, which this node already calls the more dangerous kind. The order does the work and the scroll is the price. |
+| 3 | What does a tenant row do on click in the MVP, when 7.1 does not exist? | **Settled**. **It narrows the queue to that tenant.** Not nothing, which is a dead end, and not an expansion in place, which would be a stub of 7.1. Narrowing is a mechanism 3.6 already owns, and it turns the fleet from a display into an entry: a record that moved down is one click from the cases behind it. |
+| 4 | Does the ordering in section 6 match what an analyst asks at shift start? | **Still open**. The same three analysts who answer the bet. Unresolved by design rather than by neglect. |

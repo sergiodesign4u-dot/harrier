@@ -142,6 +142,8 @@ No route. The annunciator is never a destination, which is the point: the fleet 
 
 ## 10. Grounding and open questions
 
+**Every question below carries a verdict at the end of this file.** 2 settled, 0 drawn at stage 04, 1 still open, decided at the close of stage 03b so that stage 04 draws against answers rather than against a list.
+
 | Claim | Source | Standing |
 |---|---|---|
 | Armed and active shown at once; override is an annunciated mode; permanent fixed position | SKYbrary via `benchmark.md`, stage 01 | Fact |
@@ -154,3 +156,15 @@ No route. The annunciator is never a destination, which is the point: the fleet 
 1. **Does the annunciator change when the analyst changes selection, or only when the tenant changes?** A line that redraws on every arrow key is noise; one that lags is wrong. This is a stage 04 motion decision with a real failure mode on both sides.
 2. **What does "doing now" mean between cases?** Clerk works continuously across 40 tenants. The active slot is well defined for a selected case and ambiguous at rest, which is why reading B drops it. Whether that is a gap or the right answer is untested.
 3. **Is 30 days the right window?** Chosen for legibility, not measured. It interacts with the evidence retention window that is still unchosen in `research.md` section 10.
+
+---
+
+## Settled before stage 04
+
+Taken at the close of stage 03b. A question is settled here only when the answer follows from something the product already decided; where it does not, it says who can answer and what it blocks.
+
+| # | Question | Verdict |
+|---|---|---|
+| 1 | Does the annunciator change on selection, or only when the tenant changes? | **Settled**. **On tenant change.** Arrowing through forty rows across eight tenants must not redraw the strip forty times; it redraws when the tenant under the selection changes, which is the only moment its value differs. |
+| 2 | What does "doing now" mean between cases? | **Settled**. **It is scoped to the selected tenant, never to Clerk globally.** Clerk works across forty tenants at once, so a global *doing now* is never false and never useful. With nothing selected the strip reads the fleet, which is what the pane holds anyway. |
+| 3 | Is 30 days the right window? | **Still open**. Chosen for legibility, not measured, and it interacts with the retention shape settled at 0.6. |
