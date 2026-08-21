@@ -46,7 +46,7 @@ window.IA_NAV = [
   { node:'3.3',  label:'Queue stale',                   type:'error',   group:'pages',  scope:'MVP',   file:null },
   { node:'3.4',  label:'Nothing waiting on a decision', type:'empty',   group:'pages',  scope:'MVP',   file:null },
   { node:'3.5',  label:'Fleet, resting state of the pane', type:'section', group:'pages', scope:'MVP', file:'fleet.html' },
-  { node:'3.6',  label:'Scope and filters',             type:'section', group:'pages',  scope:'MVP',   file:null },
+  { node:'3.6',  label:'Scope and filters',             type:'section', group:'pages',  scope:'MVP',   file:'scope-filters.html' },
   /* 4 rule on the case */
   { node:'4.1',  label:'Case File in the detail pane',  type:'page',    group:'pages',  scope:'MVP',   file:'case-file.html' },
   { node:'4.2',  label:'Case File, standalone route',   type:'page',    group:'pages',  scope:'MVP',   file:'case-standalone.html' },
