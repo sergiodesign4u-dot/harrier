@@ -39,7 +39,7 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
   <div><dt>Nodes on the map</dt><dd><b>45</b> forty in the MVP</dd></div>
   <div><dt>Specified so far</dt><dd><b><span id="ia-tally">0 of 45</span></b></dd></div>
   <div><dt>Source of truth</dt><dd><code>ia/docs/sitemap.md</code></dd></div>
-  <div><dt>Block bank</dt><dd>arrives at step 4</dd></div>
+  <div><dt>Block bank</dt><dd>Type A of 7 done</dd></div>
 </dl>
 
 <div class="note"><p><strong>The map is complete before the pages are.</strong> Every node is registered here from the moment it exists on the map, so a dashed chip is a declared piece of work rather than a hole someone forgot. The tree that produced these chips is on <a href="sitemap.html">Sitemap</a>; the routes through them are on <a href="flows.html">Flows</a>.</p></div>
@@ -50,8 +50,46 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 <div id="ia-structure"></div>
 </section>
 
+<section id="bank">
+<h2>02 &middot; Block bank, by page type</h2>
+<p class="h2sub">Where the composition of a page comes from, so it is not taken from the air</p>
+<p>Every other artefact in this pipeline has a rule of origin. The composition of a page did not: a template that says "blocks: 1, 2, 3" and does not say where they came from returns the median of everything the model has seen, and that median only becomes visible at stage 04, when the structure is already rolled out. So the source is fixed here, <strong>per page type</strong> rather than per node. Full bank in <code>ia/docs/blocks.md</code>.</p>
+<div class="tw"><table>
+<thead><tr><th>Type</th><th>Nodes</th><th>MVP</th><th>Round one</th></tr></thead>
+<tbody>
+<tr><td><strong>A. List in a split pane</strong></td><td>3.1&ndash;3.4, 5.1&ndash;5.3, 5.6</td><td>8</td><td><strong>done</strong></td></tr>
+<tr><td>B. Record detail with an AI narrative</td><td>4.1&ndash;4.3, 4.5, 4.7&ndash;4.10, 5.4, 5.5</td><td>10</td><td>yes</td></tr>
+<tr><td>C. Shift digest</td><td>2.1&ndash;2.5</td><td>5</td><td>yes</td></tr>
+<tr><td>D. Fleet and filters</td><td>3.5, 3.6</td><td>2</td><td>yes</td></tr>
+<tr><td>E. Dialog</td><td>1.2, 4.4, 4.6, 7.3</td><td>3</td><td>yes</td></tr>
+<tr><td>F. Sign in</td><td>1.1</td><td>1</td><td>yes</td></tr>
+<tr><td>G. Systemic state</td><td>8.1&ndash;8.3</td><td>3</td><td>yes</td></tr>
+<tr><td>H. Grant grid</td><td>7.1, 7.2</td><td>0</td><td>no, all LATER</td></tr>
+<tr><td>I. Client summary composer</td><td>6.1, 6.2</td><td>0</td><td>no, all LATER</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">A correction to what was said at the entry gate</span><p>At the gate I said no competitor publishes a page of this type outside a login, so the domain half of the bank would have to be our own research. <strong>That was wrong in a useful way: vendor documentation publishes screenshots of the real product</strong>, and those are public pages of exactly the right type. PagerDuty documents its Operations Console and Microsoft documents the Defender incident queue, both with the split pane visible. The domain half of this bank is real, not a substitute.</p></div>
+<h3>Type A, what the four sources gave</h3>
+<div class="tw"><table>
+<thead><tr><th>Block</th><th>Source</th><th>Verdict</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>AI assessment as named factors with counts, each expandable</td><td>Defender</td><td><strong>TAKE</strong></td><td>The best thing on the reference. Cheapest correct thing first, depth one key away, every factor carries a count</td></tr>
+<tr><td>Inline source chip attached to the claim</td><td>Rox, Intercom</td><td><strong>TAKE</strong></td><td>Citation at the claim rather than a bibliography at the end. What makes a narrative checkable in seconds</td></tr>
+<tr><td>Prev and next in the panel header</td><td>Defender</td><td><strong>TAKE</strong></td><td>The mouse equivalent of the keyboard grid model already in 0.1</td></tr>
+<tr><td>Panel width draggable and remembered</td><td>PagerDuty</td><td><strong>TAKE</strong></td><td>Not an improvement on them, a correction to us: it closes an open question 0.1 was carrying to stage 04</td></tr>
+<tr><td>Summary cards, <code>71% last 30 days</code></td><td>Defender</td><td>DIFFERENT</td><td>A window with no absolute count, which design principle 2 forbids in its own words</td></tr>
+<tr><td>Row with a bare priority score <code>100</code> and a truncating generated name</td><td>Defender</td><td>DIFFERENT</td><td>The widest column carries the least decidable content. Our row carries what Clerk concluded and what checking it costs</td></tr>
+<tr><td><code>Thought for 20s</code> above the AI output</td><td>Rox</td><td>DIFFERENT</td><td>Effort is right, time alone is thin. Ours names sources, how many, over what window</td></tr>
+<tr><td>The panel ends in <code>Open incident page</code></td><td>Defender</td><td><strong>LEAVE, and it is the differentiator</strong></td><td>Their panel previews, ours decides. The list has to survive the decision</td></tr>
+<tr><td>Chat composer at the foot of the panel</td><td>Rox</td><td>LEAVE</td><td>The most tempting block on the reference. The foot of our panel belongs to the verdict</td></tr>
+<tr><td>Bulk actions on checked rows</td><td>PagerDuty</td><td>LEAVE</td><td>Bulk accept is the fastest way to destroy the audit trail this product exists to produce</td></tr>
+<tr><td>Saved views, column builder, density toggle</td><td>Defender, PagerDuty</td><td>LEAVE</td><td>No job, and configurability is what ships when a product cannot decide what the row should say</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">What the comparison column actually found</span><p>Three of our advantages are the same advantage: <strong>the references show numbers without their claim, their scope, their window or their count.</strong> <code>71%</code>, <code>100</code>, <code>Thought for 20s</code>. Each is legible and none is checkable. That is one differentiator, and calling it three would be inflating the count. The one structural difference is the panel: <strong>theirs previews and ours decides</strong>, and no bulk actions, no chat composer and verdict controls at the foot all follow from it.</p></div>
+<p><strong>Six blocks that all four references ship and we do not:</strong> summary cards, saved views, a column builder, a density toggle, bulk actions, a chat composer. Each with a reason in <code>blocks.md</code>. A composition that matched one source one to one would be a copy, and this one matches none.</p>
+</section>
+
 <section id="reading">
-<h2>02 &middot; How to read a chip</h2>
+<h2>03 &middot; How to read a chip</h2>
 <p class="h2sub">Three things carried by every node</p>
 <div class="tw"><table>
 <thead><tr><th>Carried</th><th>Why it is on the chip</th></tr></thead>
@@ -69,6 +107,7 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
   window.NAV_BASE = '../';
   window.NAV_SECTIONS = [
     { id:'nodes',   label:'Nodes' },
+    { id:'bank',    label:'Block bank' },
     { id:'reading', label:'How to read a chip' },
   ];
 </script>

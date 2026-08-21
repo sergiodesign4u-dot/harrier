@@ -152,6 +152,6 @@ The split collapses and the pattern stops being itself, which `ux-patterns.md` s
 
 ## 10. Open questions
 
-1. **Is the split resizable, and is that position remembered per analyst?** Two monitors at 1440 to 1920 make this likely to matter, and nothing in the research answers it. Carried to stage 04.
+1. **Is the split resizable, and is that position remembered per analyst? CLOSED at step 4.** The PagerDuty Operations Console documentation, opened live, states the side panel width is changed by dragging and that "PagerDuty will remember your settings for later visits." A shipped console in this category does both, so this is a requirement rather than an open question.
 2. **What does Z5 hold on `/shift`?** The brief does not hold the split. Either the shell has a no-split mode, which weakens the guarantee in section 2, or 2.1 sits outside the shell entirely. Named here rather than settled, because the answer is a drawing decision.
 3. **Does a second analyst picking up a case change the row for the first?** The console is multi-analyst by premise, 40 or more tenants per person, but no flow covers a collision. If yes, it is a state that does not exist on the map yet.
