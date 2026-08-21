@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; 0.7 Rejection reason taxonomy</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+.idbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);margin:0 0 28px}
+.idbar div{flex:1 1 130px;padding:13px 18px 13px 0}
+.idbar dt{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.idbar dd{margin:0;font-size:14px;line-height:1.4;font-weight:600}
+.idbar .num{font-family:var(--mono);color:var(--accent)}
+.wfwrap{border:1px solid var(--rule);border-radius:6px;background:var(--panel);margin:0 0 12px;overflow-x:auto}
+.wfcap{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+       padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
+.wfcap b{color:var(--fg)}
+.wfpad{padding:20px}
+.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;font-family:var(--mono);font-size:10.5px;color:var(--ink)}
+.rej{width:100%;min-width:640px;border:1.5px solid var(--ink);background:#fff}
+.rej .hd{padding:9px 12px;border-bottom:1.5px solid var(--ink);font-weight:700;display:flex;align-items:center;gap:10px}
+.rej .hd .grow{flex:1}
+.rej .hd .soft{font-weight:400;color:var(--soft)}
+.rej .opt{display:flex;align-items:center;gap:10px;padding:7px 12px;border-bottom:1px solid var(--hair)}
+.rej .opt:last-of-type{border-bottom:1.5px solid var(--ink)}
+.rej .k{border:1px solid var(--ink);padding:1px 7px;font-weight:700;min-width:22px;text-align:center;flex:none}
+.rej .lbl2{flex:1}
+.rej .to{font-size:9px;color:var(--soft);letter-spacing:.04em}
+.rej .opt.sel{background:var(--fill)}
+.rej .opt.sel .k{background:var(--ink);color:#fff}
+.rej .locked .to{border:1px dashed var(--soft);padding:2px 6px}
+.rej .foot{padding:9px 12px;color:var(--soft);display:flex;gap:12px;align-items:center}
+.rej .foot .box{border:1px dashed var(--soft);padding:5px 9px;flex:1}
+.pairs{width:100%;min-width:640px;border:1.5px solid var(--ink);background:#fff}
+.pairs .r{display:flex;border-bottom:1px solid var(--hair)}
+.pairs .r:last-child{border-bottom:none}
+.pairs .r.hd2{background:var(--fill);border-bottom:1.5px solid var(--ink);font-size:8.5px;letter-spacing:.1em;color:var(--soft)}
+.pairs .a{width:38%;padding:8px 12px;font-weight:700;border-right:1px solid var(--hair)}
+.pairs .b{flex:1;padding:8px 12px;border-right:1px solid var(--hair)}
+.pairs .q{width:16%;padding:8px 12px;text-align:center}
+.pairs .r.hd2 .a,.pairs .r.hd2 .b{font-weight:400}
+.pairs .ask{background:var(--ink);color:#fff;font-weight:700}
+.pairs .lock{font-size:9px;color:var(--soft)}
+.backlink{margin-top:64px;padding-top:22px;border-top:1px solid var(--fg);font-size:14px}
+.backlink a{font-weight:600}
+.backlink .meta{color:var(--faint);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 03b &middot; Node 0.7 &middot; Global element</p>
+<h1>Rejection reason taxonomy</h1>
+<p class="lede">The interface to a person who never opens this product. The entity inventory names the detection engineer as the recipient of a rejection reason and records that they have no screen here, so this list is the only thing that reaches them.</p>
+
+<dl class="idbar">
+  <div><dt>Node</dt><dd class="num">0.7</dd></div>
+  <div><dt>Type</dt><dd>Section, data</dd></div>
+  <div><dt>Scope</dt><dd>MVP</dd></div>
+  <div><dt>Written at</dt><dd class="num">4.4</dd></div>
+  <div><dt>Read by</dt><dd class="num">5.1 &middot; 5.6 &middot; tuning</dd></div>
+  <div><dt>Axes</dt><dd>2, paired</dd></div>
+</dl>
+
+<section id="market">
+<h2>01 &middot; What the market captures, and where it loses the useful half</h2>
+<p class="h2sub">The structured half is auditable and useless. The useful half is unreadable at scale</p>
+<p>Microsoft Defender, manage incidents page opened this session, offers these classification values verbatim: <strong>Not set</strong> the default, <strong>True positive</strong> with a type of threat, <strong>Informational, expected activity</strong> with a type of activity, and <strong>False positive</strong> <em>"for types of incidents that you determine can be ignored because they&rsquo;re technically inaccurate or misleading"</em>. The page states the purpose plainly: <em>"Classifying incidents and specifying their status and type helps tune Microsoft Defender to provide better detection determination over time."</em></p>
+<p>Alongside it sits a free text resolution note, and comments where <em>"Each comment is limited to 30,000 characters."</em></p>
+<div class="node"><span class="lbl">The hole, and it is the whole reason this node exists</span><p><code>False positive</code> says the alert was wrong. <strong>It does not say what should change</strong>, and the thing that would say it is thirty thousand characters of prose no tuning pipeline can read.</p></div>
+<p><strong>And our object is not the same object.</strong> Defender classifies an alert. Harrier rejects <strong>an agent&rsquo;s conclusion</strong>. Clerk has already classified; the analyst is ruling on the classification. A taxonomy borrowed unchanged would record what the alert was and lose what Clerk got wrong.</p>
+</section>
+
+<section id="axes">
+<h2>02 &middot; Two axes, and the pairing is the point</h2>
+<p class="h2sub">Axis A alone is a complaint. Axis B alone is unaudited</p>
+<div class="wfwrap"><div class="wfcap"><b>4.4 reject, inline</b><span>one keystroke picks axis A. Axis B is derived and shown, not asked</span></div><div class="wfpad">
+<div class="wf"><div class="rej">
+  <div class="hd">Reject Clerk&rsquo;s verdict<span class="grow"></span><span class="soft">Impossible travel, 2 assets &middot; Meridian Freight</span></div>
+  <div class="opt"><span class="k">1</span><span class="lbl2">Real, called benign</span><span class="to">&rarr; detection too narrow</span></div>
+  <div class="opt sel"><span class="k">2</span><span class="lbl2">Benign, called a threat</span><span class="to">&rarr; asks one more question</span></div>
+  <div class="opt"><span class="k">3</span><span class="lbl2">Right answer, wrong reasoning</span><span class="to">&rarr; Clerk weighted the wrong signal</span></div>
+  <div class="opt"><span class="k">4</span><span class="lbl2">Right answer, wrong scope</span><span class="to">&rarr; Clerk weighted the wrong signal</span></div>
+  <div class="opt"><span class="k">5</span><span class="lbl2">Not enough evidence either way</span><span class="to">&rarr; nothing to change</span></div>
+  <div class="opt locked"><span class="k">6</span><span class="lbl2">Normal at this tenant</span><span class="to">&rarr; tenant baseline only, locked</span></div>
+  <div class="foot"><span class="box">optional note, read by humans only</span><span>Esc cancels</span></div>
+</div></div>
+</div></div>
+<div class="wfwrap"><div class="wfcap"><b>The pairing table</b><span>five of six need no second question, and that is what makes structure affordable</span></div><div class="wfpad">
+<div class="wf"><div class="pairs">
+  <div class="r hd2"><div class="a">AXIS A, WHAT CLERK GOT WRONG</div><div class="b">AXIS B, WHERE IT GOES</div><div class="q">ASKED?</div></div>
+  <div class="r"><div class="a">Real, called benign</div><div class="b">Detection is too narrow</div><div class="q">no</div></div>
+  <div class="r"><div class="a">Benign, called a threat</div><div class="b">Ambiguous: too broad, or tenant context</div><div class="q ask">yes</div></div>
+  <div class="r"><div class="a">Right answer, wrong reasoning</div><div class="b">Clerk weighted the wrong signal</div><div class="q">no</div></div>
+  <div class="r"><div class="a">Right answer, wrong scope</div><div class="b">Clerk weighted the wrong signal</div><div class="q">no</div></div>
+  <div class="r"><div class="a">Not enough evidence either way</div><div class="b">Nothing to change</div><div class="q">no</div></div>
+  <div class="r"><div class="a">Normal at this tenant</div><div class="b">Tenant context missing <span class="lock">&middot; locked</span></div><div class="q">no</div></div>
+</div></div>
+</div></div>
+<div class="node"><span class="lbl">The most consequential rule in the taxonomy</span><p><strong><code>Normal at this tenant</code> pairs with tenant context and never with a detection change.</strong> Sending one client&rsquo;s normality to detection engineering is how a rule gets weakened for the thirty nine other tenants who did need it. Straight from design principle 4: the same signal is a Tuesday at one client and an incident at another.</p></div>
+</section>
+
+<section id="cost">
+<h2>03 &middot; What it costs the analyst</h2>
+<p class="h2sub">Which is the constraint, not a detail</p>
+<p>Design principle 3 says override is one key. A rejection that asks for two dropdowns and a paragraph is not one key, and at 03:00 it will be answered with whatever sits at the top of the list. So the structure had to pay for itself: <strong>one keystroke picks axis A, axis B is derived from it, and a second question appears only where the pairing is genuinely ambiguous.</strong></p>
+<p><strong>Free text stays, and it is never the carrier.</strong> Optional, additive, read by humans only. Stage 02 found that handover quality varies widely between individuals and that no organisation trains it formally; structure is what removes the variation, so nothing downstream may depend on the prose.</p>
+</section>
+
+<section id="states">
+<h2>04 &middot; State matrix</h2>
+<p class="h2sub">Including the one that counts itself</p>
+<div class="tw"><table>
+<thead><tr><th>Situation</th><th>4.4 reject</th><th>5.1 log</th><th>Tuning route</th></tr></thead>
+<tbody>
+<tr><td>Ordinary rejection</td><td>Axis A by keystroke, axis B derived</td><td>Both axes with the evidence snapshot</td><td>Routed on write</td></tr>
+<tr><td>Ambiguous pairing</td><td>Second question, two options, still keyboard</td><td>Both recorded</td><td>Routed on write</td></tr>
+<tr><td><code>Normal at this tenant</code></td><td>Axis B locked, and shown as locked</td><td>Both recorded</td><td>Tenant baseline only. <strong>Never detection</strong></td></tr>
+<tr><td>Analyst disagrees with every value</td><td>Free text required, axis A set to a named <code>other</code></td><td>Recorded and <strong>counted</strong></td><td>Held, not routed</td></tr>
+<tr><td>Rejection while the verdict fails to write</td><td>Reason held with the verdict</td><td>Nothing yet</td><td>Deferred until 4.10 resolves</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">The idle control on this list</span><p><strong><code>Other</code> is counted rather than swallowed.</strong> A taxonomy where five per cent of rejections are <code>other</code> is working. One where thirty per cent are is a taxonomy describing the wrong product, and counting is the only way anyone finds out.</p></div>
+</section>
+
+<section id="open">
+<h2>05 &middot; Grounding and open questions</h2>
+<p class="h2sub">Three facts, four decisions, and one hole that is bigger than this node</p>
+<div class="tw"><table>
+<thead><tr><th>Claim</th><th>Source</th><th>Standing</th></tr></thead>
+<tbody>
+<tr><td>The four classification values a major XDR ships</td><td>Microsoft Learn, manage incidents, opened this session, verbatim</td><td>Fact</td></tr>
+<tr><td>Classification exists to tune detection over time</td><td>same page, verbatim</td><td>Fact</td></tr>
+<tr><td>Free text notes run to 30,000 characters alongside it</td><td>same page, verbatim</td><td>Fact</td></tr>
+<tr><td>Rejecting an agent&rsquo;s conclusion is a different object from classifying an alert</td><td>this node</td><td>Decision, argued</td></tr>
+<tr><td>Two axes, paired rather than independent</td><td>this node</td><td>Decision</td></tr>
+<tr><td><code>Normal at this tenant</code> never routes to detection</td><td>this node, from design principle 4</td><td><strong>Decision, and the most consequential one here</strong></td></tr>
+<tr><td>Six values on axis A, five on axis B</td><td>this node</td><td>Decision. Untested with an analyst, like everything else in this project</td></tr>
+</tbody></table></div>
+<ol>
+<li><strong>Does the analyst ever learn what happened to the reason?</strong> Principle 3 says override teaches. Today the reason leaves the product and nothing comes back. A rejection that never visibly changes anything stops being filled in honestly, and <strong>no node on the map closes this loop</strong>.</li>
+<li><strong>Who maintains the list?</strong> Same question as 0.6, probably the same answer, which means the same missing settings surface.</li>
+<li><strong>Is <code>Real, called benign</code> even reachable?</strong> The analyst sees cases Clerk filed a verdict on. A case Clerk closed on its own never reaches the queue, and that is the review sample with no job, recorded twice already in the inventory. <strong>So the most expensive error in the product is one this taxonomy can only catch by accident.</strong></li>
+</ol>
+</section>
+
+<p class="backlink">&larr; <a href="structure.html#0.7">Structure (0.7)</a>
+<span class="meta">Source of truth: <code>ia/docs/pages/rejection-reason-taxonomy.md</code>. Written at 4.4, not yet specified. Sibling list: <a href="action-class-taxonomy.html">0.6</a>.</span></p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'ia/structure.html';
+  window.NAV_ACTIVE_LABEL = '0.7 Rejection reason taxonomy';
+  window.NAV_SECTIONS = [
+    { id:'market', label:'What the market loses' },
+    { id:'axes',   label:'Two axes' },
+    { id:'cost',   label:'What it costs' },
+    { id:'states', label:'State matrix' },
+    { id:'open',   label:'Grounding' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
