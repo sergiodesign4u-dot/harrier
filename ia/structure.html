@@ -135,6 +135,51 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 <div class="node"><span class="lbl">What this hub is not</span><p>It is not the sidebar. The roadmap on the left tracks stages of the pipeline; this tracks nodes of the product. Forty five nodes in a sidebar would bury the twelve stages that still have to happen, so the two registries stay in separate namespaces and the sidebar never grows a node list.</p></div>
 </section>
 
+<section id="audit">
+<h2>04 &middot; Audit before wireframes, before and after</h2>
+<p class="h2sub">Three instruments, run independently, deduplicated after</p>
+<div class="tw"><table>
+<thead><tr><th>Instrument</th><th>Radius</th><th>Raised</th><th>Held</th></tr></thead>
+<tbody>
+<tr><td><strong>Codex</strong>, <code>--sandbox read-only</code></td><td>The source: contradictions between files, unresolved references, scope drift, registry mismatch, facts without a citation</td><td>9</td><td><strong>3</strong></td></tr>
+<tr><td><strong>Claude with a browser</strong></td><td>The output: real 360 on every page, live link resolution, backlink hashes, em dash, class collisions with the shared sheet</td><td>4</td><td><strong>3</strong></td></tr>
+<tr><td><strong>The stage contract as a checklist</strong></td><td>Steps that never happened, which neither of the other two can see</td><td>2</td><td><strong>2</strong></td></tr>
+</tbody></table></div>
+
+<h3>What was fixed</h3>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Who found it</th><th>Was</th><th>Is</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Claude</strong></td><td><strong>Three files routed an out of scope tenant to 8.3.</strong> <code>sitemap.md</code>, 0.1's state matrix and 0.3's scope note. 0.1 argued for it explicitly: <em>"an empty result is indistinguishable from a quiet client"</em></td><td>All three render <strong>8.1</strong>. If out of scope rendered differently from not found, the address bar would distinguish "this client is somebody's" from "no such client", a disclosure across providers. <strong>Five nodes already required this and three contradicted it</strong></td></tr>
+<tr><td>2</td><td><strong>Claude</strong>, corroborated by Codex</td><td>8.3 marked MVP with no reachable route</td><td><strong>LATER.</strong> Fixing finding 1 removed its last three routes, all of which were themselves defects. Counts updated: <strong>39 MVP, six LATER</strong></td></tr>
+<tr><td>3</td><td><strong>Codex</strong></td><td><code>sitemap.md</code> listed the toast stack as <em>"Filed, escalated, connection recovered"</em>. 8.4 rules <strong>No</strong> for filed and <strong>No</strong> for escalated</td><td>The map row now says what 8.4 says: only what happened off screen. <strong>The map was not corrected upward when 8.4 refined the policy</strong></td></tr>
+<tr><td>4</td><td><strong>Codex</strong></td><td>Node 3.5 carried three different names across the registry, its <code>h1</code> and its md</td><td>One name. The registry was the odd one out</td></tr>
+<tr><td>5</td><td><strong>Claude, browser</strong></td><td><code>case-queue.html</code> defined a local <code>.q</code>, colliding with the reserved <code>[?]</code> marker in <code>research/_page.css</code>, which injected <code>white-space:nowrap</code> into the whole wireframe</td><td>Renamed. <strong>This was the real cause of a column collision fixed earlier by widening the frame</strong>, so the fix was right and the diagnosis was wrong</td></tr>
+<tr><td>6</td><td><strong>Claude, browser</strong></td><td>Two pages overflowed at a real 360: 1.1 and 4.2. Both from a flex column sizing to max-content</td><td>Fixed. <strong>The 4.2 check had never been run</strong>, which is worse than a check that failed</td></tr>
+</tbody></table></div>
+
+<h3>Raised and dismissed, with the reason</h3>
+<div class="tw"><table>
+<thead><tr><th>Who</th><th>Claim</th><th>Why it does not hold</th></tr></thead>
+<tbody>
+<tr><td>Codex</td><td>Registry mismatch on 0.3, 0.4, 4.1, 4.2, 5.4: the registry label differs from <code>NAV_ACTIVE_LABEL</code></td><td><strong>Two fields, two jobs.</strong> The registry label names the node in a chip; <code>NAV_ACTIVE_LABEL</code> is the short form with its number for the sidebar's active row. Deliberately different lengths. <strong>Recorded as a convention so it is not raised again</strong></td></tr>
+<tr><td>Claude</td><td><code>reject.md</code> references node 4.11, which does not exist</td><td>Rhetorical: <em>"it is a dialog rather than node 4.11"</em>. The sentence exists to say the node was never created</td></tr>
+</tbody></table></div>
+
+<h3>Held open, and why</h3>
+<div class="tw"><table>
+<thead><tr><th>Who</th><th>Finding</th><th>Why it is not fixed here</th></tr></thead>
+<tbody>
+<tr><td>Codex</td><td><code>CLAUDE.md</code> says global navigation has four items. 0.2 found three in the MVP</td><td>Real, and known since 0.2. <code>CLAUDE.md</code> is a rules file with its own owner: <strong>the closing ritual at Step 9</strong>, which is also where the reserved class rule lands</td></tr>
+<tr><td>Contract</td><td>Two accepted deviations from the pack: node pages were registered from Step 1 rather than incrementally, and types C to G of the block bank were closed in one pass</td><td>Both were shown and agreed at the time. Recorded so the deviation is visible rather than invisible</td></tr>
+</tbody></table></div>
+
+<div class="node"><span class="lbl">What the two instruments actually proved</span><p><strong>The overlap was one finding out of thirteen.</strong> Codex reads the source and found a map row never corrected upward and a name carried three ways. The browser reads the output and found a stylesheet collision and two real overflows. <strong>Neither could have found the other's list</strong>, and the biggest finding, three files routing an out of scope tenant to the wrong page, came from reading what the nodes require of each other rather than from either instrument's radius.</p></div>
+
+<div class="node"><span class="lbl">What the sweep now covers, and it is reusable</span><p>Every one of the 22 built pages, loaded in a 360 wide frame and measured: <code>clientWidth</code> 360, <code>scrollWidth</code> 360, <strong>zero overflowing</strong>. Every local link on every page fetched: <strong>zero broken</strong>. Em dash: <strong>zero</strong>. Backlink present on all 22. <strong>One pass, and it should run again at stage 04.</strong></p></div>
+</section>
+
+
 </main>
 </div>
 <script>
@@ -142,6 +187,7 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
   window.NAV_SECTIONS = [
     { id:'nodes',   label:'Nodes' },
     { id:'bank',    label:'Block bank' },
+    { id:'audit',   label:'Audit, before and after' },
     { id:'reading', label:'How to read a chip' },
   ];
 </script>
