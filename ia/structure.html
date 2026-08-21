@@ -174,6 +174,20 @@ a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 <tr><td>Contract</td><td>Two accepted deviations from the pack: node pages were registered from Step 1 rather than incrementally, and types C to G of the block bank were closed in one pass</td><td>Both were shown and agreed at the time. Recorded so the deviation is visible rather than invisible</td></tr>
 </tbody></table></div>
 
+<h3>Second pass, on the nodes the fixes touched</h3>
+<p>Both instruments again, on the six fixes only. <strong>Three came back incomplete</strong>, and all three were a fix that moved a neighbour.</p>
+<div class="tw"><table>
+<thead><tr><th>Fix</th><th>Verdict</th><th>What the second pass found</th></tr></thead>
+<tbody>
+<tr><td>1, out of scope renders 8.1</td><td><strong>complete</strong></td><td>Every remaining mention of 8.3 describes the corrected past state</td></tr>
+<tr><td>2, 8.3 becomes LATER</td><td><strong>incomplete</strong></td><td><code>blocks.md</code> still called the systemic type "three nodes, all MVP" <strong>and still described 8.3 as reachable by a deep link into another tenant</strong>, which is the route the audit had just deleted. <code>sitemap.html</code> still said "Forty MVP nodes". 8.3's own section 03 still spoke in the present tense. All three corrected</td></tr>
+<tr><td>3, the toast row</td><td><strong>incomplete</strong></td><td><strong>The best find of the second pass.</strong> The map row was fixed, but 4.4 and 4.6 both still referenced "the toast that follows". Under 8.4 neither produces one: a filed verdict has none because the row leaves the queue, and an escalation has none because the row stays and changes state visibly. <strong>Both nodes now say so and say why</strong></td></tr>
+<tr><td>4, 3.5's name</td><td>complete</td><td>Registry, <code>h1</code> and md agree</td></tr>
+<tr><td>5, the class collision</td><td>complete</td><td>No local <code>.q</code>, <code>.note</code>, <code>.node</code> or <code>.lede</code> anywhere under <code>ia/</code></td></tr>
+<tr><td>6, the 360 overflows</td><td>complete</td><td>No <code>flex:0 0 auto</code> anywhere; the 22 page sweep is clean</td></tr>
+</tbody></table></div>
+<div class="node"><span class="lbl">Why the second pass is not optional</span><p>Three of six fixes were incomplete, and none of the three was incomplete in the file that was edited. <strong>Every one had moved a neighbour instead:</strong> a bank entry describing a route that no longer exists, a count in a sibling page, and two dialogs promising a notification a third node had already ruled out. <strong>A single pass would have shipped all three.</strong></p></div>
+
 <div class="node"><span class="lbl">What the two instruments actually proved</span><p><strong>The overlap was one finding out of thirteen.</strong> Codex reads the source and found a map row never corrected upward and a name carried three ways. The browser reads the output and found a stylesheet collision and two real overflows. <strong>Neither could have found the other's list</strong>, and the biggest finding, three files routing an out of scope tenant to the wrong page, came from reading what the nodes require of each other rather than from either instrument's radius.</p></div>
 
 <div class="node"><span class="lbl">What the sweep now covers, and it is reusable</span><p>Every one of the 22 built pages, loaded in a 360 wide frame and measured: <code>clientWidth</code> 360, <code>scrollWidth</code> 360, <strong>zero overflowing</strong>. Every local link on every page fetched: <strong>zero broken</strong>. Em dash: <strong>zero</strong>. Backlink present on all 22. <strong>One pass, and it should run again at stage 04.</strong></p></div>
