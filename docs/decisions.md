@@ -2,6 +2,22 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-21 - Stage 03b closed, and what left CLAUDE.md
+
+**Deleted as no longer true:** "No competitor publishes a page of this type outside a login, so the domain half of that bank is our own research." Vendor documentation publishes real product screenshots and that is where most of the block bank came from. The claim was written before the bank was built and read as context afterwards, which is the exact failure mode the `PREMISE` rule exists for, applied to a claim about the market rather than about the product. Narrowed to the one page type where it is true.
+
+**Deleted as chronicle:** the two layer preamble under Structure, which explained which layer was settled at which stage. Both exist now, so the provenance decides nothing. "After stage 02 this is the only surviving differentiator" lost its date for the same reason.
+
+**Converted rather than deleted:** "whether the secondary persona uses the console at all is `[?]`, and stage 02 made it less likely" was a chronicle sentence. It now says that 4.6 depends on the answer, because an escalation names a recipient. The same open question, stated as a live dependency instead of a past event.
+
+**Corrected as stale:** four navigation items to three in the MVP, eight screens to forty six nodes, six clusters to six intents plus three that are not intents, two critique instruments to four.
+
+**Added, four rules and each one a path rather than a copy:** a number in a drawing is a fixture and not a finding, with the canon in 0.8; a container node is redrawn whenever a node inside it settles something, prose and drawing together; page-local CSS takes a page-local prefix, because five class names belong to the shared sheet and silently restyle anything that reuses them; and a measurement attached to design principle 3, that reject costs four taps against accept's two and stage 04 draws against that number.
+
+**Kept after being considered for deletion:** the tech stack hypothesis, for the second stage running. Virtualised tables produced 3.1's list and server-sent events produced 0.4's stale queue. ClickHouse, Postgres and Claude have still shaped nothing, and they stay on the same condition as last time rather than on habit.
+
+CLAUDE.md went from 107 to 108 lines against a 200 ceiling. Four deletions, four corrections, four additions, and the file grew by one line, which is the shape a ritual should have.
+
 ## 2026-08-21 - Two of the eight screens were never screens, and the node map says so
 
 Eight screens became forty six nodes because a dialog you have to design and a state you have to survive cost the same as a screen. The two that changed shape rather than multiplying are the ones the case turns on.
