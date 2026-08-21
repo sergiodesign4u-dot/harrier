@@ -275,6 +275,14 @@ Group `global`. No node here is a dead end.
 
 ### The count
 
+### Indexing, settled once for the whole stage
+
+**Every node in this map except 1.1 sits behind authentication.** All of them are `noindex`, none carries schema, and none has a crawlable surface. That is a property of the product rather than a per node decision, so it is stated here once instead of restated forty six times, and the nodes that spell it out in their own addressing section are repeating it for the reader rather than deciding it.
+
+**1.1 is the exception, and it decided the same way for a different reason.** It is the only public URL in the product, so the question is real there and nowhere else. Its answer is still `noindex`, because nobody arrives at Harrier through a search engine and a sign in page in the index serves an attacker mapping the estate. **The A to E block a public product would carry there is deliberately not produced**, which closes the loop 0.1 opened.
+
+---
+
 ### What round one built, and what it deliberately did not
 
 Agreed at the Step 4 gate, option B: **eleven carrier nodes get their own specification, and every other state is specified inside the state matrix of the screen that owns it.** The globals and the systemic cluster were already committed, so round one is twenty three written nodes out of forty six: 0.8 was added at the audit.

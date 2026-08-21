@@ -163,6 +163,16 @@ This is the same rule the project already runs on written claims, applied to the
 
 ---
 
+## 8b. No state matrix, and that is the answer rather than an omission
+
+0.6 and 0.7 both carry one, because both render: 0.6 as the grant grid, 0.7 as the option list inside 4.4. **0.8 renders nowhere.** It has no surface of its own, no route and no states, and every value in it is drawn by a node that has its own matrix.
+
+**What replaces it is section 8**, which names, per convention, which nodes read it. A matrix here would be a table of other nodes' states copied into a third place, and a second copy is the one that goes stale.
+
+The one thing that behaves like a state is the tenant with too few rulings to compare, and that belongs to 3.5, which owns it and renders it.
+
+---
+
 ## 9. Not this node
 
 - **0.6** action classes. What Clerk may do, ordered by reversibility. A different axis from severity, and both may be on screen at once
