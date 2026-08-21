@@ -38,7 +38,7 @@
 .pairs .r.hd2{background:var(--fill);border-bottom:1.5px solid var(--ink);font-size:8.5px;letter-spacing:.1em;color:var(--soft)}
 .pairs .a{width:38%;padding:8px 12px;font-weight:700;border-right:1px solid var(--hair)}
 .pairs .b{flex:1;padding:8px 12px;border-right:1px solid var(--hair)}
-.pairs .q{width:16%;padding:8px 12px;text-align:center}
+.pairs .askcol{width:16%;padding:8px 12px;text-align:center}
 .pairs .r.hd2 .a,.pairs .r.hd2 .b{font-weight:400}
 .pairs .ask{background:var(--ink);color:#fff;font-weight:700}
 .pairs .lock{font-size:9px;color:var(--soft)}
@@ -91,13 +91,13 @@
 </div></div>
 <div class="wfwrap"><div class="wfcap"><b>The pairing table</b><span>five of six need no second question, and that is what makes structure affordable</span></div><div class="wfpad">
 <div class="wf"><div class="pairs">
-  <div class="r hd2"><div class="a">AXIS A, WHAT CLERK GOT WRONG</div><div class="b">AXIS B, WHERE IT GOES</div><div class="q">ASKED?</div></div>
-  <div class="r"><div class="a">Real, called benign</div><div class="b">Detection is too narrow</div><div class="q">no</div></div>
-  <div class="r"><div class="a">Benign, called a threat</div><div class="b">Ambiguous: too broad, or tenant context</div><div class="q ask">yes</div></div>
-  <div class="r"><div class="a">Right answer, wrong reasoning</div><div class="b">Clerk weighted the wrong signal</div><div class="q">no</div></div>
-  <div class="r"><div class="a">Right answer, wrong scope</div><div class="b">Clerk weighted the wrong signal</div><div class="q">no</div></div>
-  <div class="r"><div class="a">Not enough evidence either way</div><div class="b">Nothing to change</div><div class="q">no</div></div>
-  <div class="r"><div class="a">Normal at this tenant</div><div class="b">Tenant context missing <span class="lock">&middot; locked</span></div><div class="q">no</div></div>
+  <div class="r hd2"><div class="a">AXIS A, WHAT CLERK GOT WRONG</div><div class="b">AXIS B, WHERE IT GOES</div><div class="askcol">ASKED?</div></div>
+  <div class="r"><div class="a">Real, called benign</div><div class="b">Detection is too narrow</div><div class="askcol">no</div></div>
+  <div class="r"><div class="a">Benign, called a threat</div><div class="b">Ambiguous: too broad, or tenant context</div><div class="askcol ask">yes</div></div>
+  <div class="r"><div class="a">Right answer, wrong reasoning</div><div class="b">Clerk weighted the wrong signal</div><div class="askcol">no</div></div>
+  <div class="r"><div class="a">Right answer, wrong scope</div><div class="b">Clerk weighted the wrong signal</div><div class="askcol">no</div></div>
+  <div class="r"><div class="a">Not enough evidence either way</div><div class="b">Nothing to change</div><div class="askcol">no</div></div>
+  <div class="r"><div class="a">Normal at this tenant</div><div class="b">Tenant context missing <span class="lock">&middot; locked</span></div><div class="askcol">no</div></div>
 </div></div>
 </div></div>
 <div class="node"><span class="lbl">The most consequential rule in the taxonomy</span><p><strong><code>Normal at this tenant</code> pairs with tenant context and never with a detection change.</strong> Sending one client&rsquo;s normality to detection engineering is how a rule gets weakened for the thirty nine other tenants who did need it. Straight from design principle 4: the same signal is a Tuesday at one client and an incident at another.</p></div>
