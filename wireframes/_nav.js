@@ -265,7 +265,10 @@ window.WF_SHELL = function(o){
            than one that is plainly not built, and this heals itself as screens are built */
         var rec = (window.WF_NAV.screens || []).filter(function(x){ return x.screen === n.id; })[0];
         if (rec && rec.status !== 'built')
-          return '<span title="not drawn yet">' + n.label + '</span>';
+          /* every MVP nav item is built, so this branch is unreachable today. It is kept
+           because `Clients` arrives with cluster 7, and it now says something a person
+           could read rather than naming the prototype's own state. */
+        return '<span title="Not in this release">' + n.label + '</span>';
         return '<a href="' + n.href + '"' + (n.id === o.current ? ' aria-current="page"' : '') + '>' + n.label + '</a>';
       }).join('') + '</nav>' +
       '<span class="spacer"></span>' +
@@ -274,7 +277,12 @@ window.WF_SHELL = function(o){
          that drew the map, which is the only place the absence was checkable. */
       '<a class="kmap" href="keyboard.html" title="Keyboard map, 0.5" aria-label="Keyboard map">?</a>' +
       '<p class="annun" aria-label="Tenant autonomy"><b>' + a.lead + '</b>' +
-        a.parts.map(function(p){ return '<span class="sep">|</span>' + p; }).join('') +
+        a.parts.map(function(p){
+          /* each part is its own element on purpose. As bare text runs, hiding the
+             separator at 360 merged the neighbours into one anonymous flex item and
+             the fleet reading rendered as `40 tenantsacts alone up to`. */
+          return '<span class="sep">|</span><span class="part">' + p + '</span>';
+        }).join('') +
       '</p>' +
       '<span class="mono dim" style="font-size:var(--t-xs)">R. Idrissi</span>';
   }

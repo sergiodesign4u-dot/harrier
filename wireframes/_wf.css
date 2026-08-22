@@ -252,11 +252,11 @@ a.opt:hover{background:var(--fill)}
 /* 4.4 says it in its own words: the dialog is ANCHORED, not centred, and it never covers the
    evidence block, because the thing being disagreed with is the least acceptable thing to hide.
    So it is held clear of the pane by the pane's own width, and lands over the list instead. */
-.scrim{position:fixed;inset:0;background:rgba(22,24,26,.28);display:flex;
+.scrim{position:fixed;inset:0;background:var(--scrim);display:flex;
        align-items:flex-start;justify-content:flex-end;
        padding:var(--s6) calc(var(--pane) + var(--s5)) var(--s6) var(--s5)}
 .dialog{background:var(--paper);border:var(--line-ink);border-radius:var(--radius);
-        width:min(520px,100%);max-height:calc(100vh - var(--s7));overflow:hidden;
+        width:min(var(--dialog-w),100%);max-height:calc(100vh - var(--s7));overflow:hidden;
         display:flex;flex-direction:column}
 .dialog > header{padding:var(--s4);border-bottom:var(--line-ink);flex:0 0 auto}
 .dialog > header h2{margin:0;font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
@@ -414,7 +414,10 @@ a.opt:hover{background:var(--fill)}
    or more bold runs. Found by four agents separately, and best said by one of them: every
    screen built before the fan-out happened to put its bold only at the start, so it never
    showed. Text flows as a paragraph now and the action floats clear of it. */
-.banner{display:flow-root}
+/* `:not(.only-narrow)` is load bearing. Plain `.banner{display:flow-root}` has the same
+   specificity as `.only-narrow{display:none}` above and sits later in the file, so it won
+   the cascade and showed the 360 only block at 1440 on twenty two pages. */
+.banner:not(.only-narrow){display:flow-root}
 .banner > .act{float:right;margin:0 0 var(--s2) var(--s3)}
 
 /* 2. `.only-narrow` HAD NO COMPLEMENT, so three generators privately invented `.esc-desk`,
@@ -447,6 +450,12 @@ a.opt:hover{background:var(--fill)}
 @media (max-width:900px){
   .wf-shell{height:auto}
   .z4{overflow-y:visible}
+  /* 13. THE PANE FOOT WAS STICKY AND NEVER STUCK AT 360. The shell stops scrolling here and
+     the document takes over, but .z5 kept its own `overflow-y:auto`, so `bottom:0` pinned to
+     a box that never scrolls and the decision sat two viewports down. 4.2 had found this and
+     fixed it privately for one screen; every other pane kept the defect. */
+  .z5,.z5.is-paper{overflow:visible}
+  .pane-foot{padding:var(--s2) var(--s3)}
   .claim{flex-wrap:wrap}
   .claim .src{margin-left:auto}
   .only-desk,.only-desk-i{display:none}
@@ -480,10 +489,31 @@ a.opt:hover{background:var(--fill)}
    lengths on four screens, a space token was doing a tap target's job, and the dialog width
    was a literal in one place and a second literal in another. */
 :root{
+  --scrim:rgba(22,24,26,.28);  /* --ink at 28 per cent. The dialog ground */
   --measure:66ch;       /* a single column of prose. 8.1 */
   --sheet:760px;        /* a case sitting on its own with no list beside it. 4.2 */
   --frame:820px;        /* the framed record. 5.4 */
   --dialog-w:520px;     /* 4.4, 4.6 */
   --dialog-w-wide:720px;/* 0.5, which is a reference table rather than a decision */
-  --tap:24px;           /* WCAG SC 2.5.8 floor. It was --s5, a space token doing a size job */
+           /* WCAG SC 2.5.8 floor. It was --s5, a space token doing a size job */
 }
+
+
+/* ---------------------------------------------------------------------------------------
+   14. THE AUTHOR'S NOTE IS NOT PRODUCT COPY, AND UNTIL STEP 9 IT LOOKED EXACTLY LIKE IT.
+   The prototype argues for its own decisions in the same typographic slots as real hints,
+   in the second person, addressed to a reviewer. Two instruments found it independently:
+   the browser pass called it the dominant defect of the stage, and the clean context reader
+   could not tell which sentences stage 05 was supposed to rewrite.
+   Settled by the user: the argument stays on the screen and takes a register of its own.
+   A dotted rail and a WHY label, so it reads as a margin note at a glance and can never be
+   mistaken for a string the analyst is meant to act on. Stage 05 owns everything that is
+   NOT `.why`; `.why` belongs to whoever is presenting the case.
+   --------------------------------------------------------------------------------------- */
+.why{margin:var(--s3) 0 0;padding:0 0 0 var(--s3);border-left:1px dotted var(--soft);
+     font-size:var(--t-xs);line-height:1.55;color:var(--soft)}
+.why::before{content:"WHY";display:block;margin-bottom:var(--s1);
+             font:700 9.5px/1 var(--mono);letter-spacing:.14em;color:var(--soft)}
+.why b,.why strong{color:var(--soft);font-weight:700}
+.why code{font-size:inherit}
+.why + .why{margin-top:var(--s2)}
