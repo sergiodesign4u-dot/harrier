@@ -97,7 +97,7 @@ window.WF_NAV = {
       ], noState:[] },
 
     { screen:'reject', node:'4.4', ia:'reject.html', label:'Reject with a reason',
-      cluster:'4', flow:'main', scope:'MVP', status:'spec',
+      cluster:'4', flow:'main', scope:'MVP', status:'built',
       states:[
         {slug:'',              label:'Opened, nothing chosen', kind:'base'},
         {slug:'chosen',        label:'Reason chosen',          kind:'success'},

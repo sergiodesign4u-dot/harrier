@@ -211,7 +211,10 @@ body{
 .opt .key{font-family:var(--mono);font-size:var(--t-xs);border:var(--line-ink);
           border-radius:var(--radius);padding:0 var(--s1);flex:0 0 auto}
 .opt.is-chosen .key{background:var(--ink);color:var(--paper)}
-.opt .routes{margin-left:auto;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.opt .lbl{flex:1 1 auto;min-width:0}
+.opt .routes{margin-left:auto;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+             flex:0 0 auto;text-align:right}
+.dialog > header h2{margin:0;font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
 
 /* ============================================================
    STATE FURNITURE. Every state page uses these, so they live here
