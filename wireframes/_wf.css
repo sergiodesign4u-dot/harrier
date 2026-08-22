@@ -118,7 +118,7 @@ body{
 .row{display:grid;grid-template-columns:var(--row-tracks);gap:var(--s2);align-items:start;
      padding:var(--s2) var(--s4);border-bottom:var(--line);font-size:var(--t-sm);
      text-decoration:none;color:inherit;line-height:1.35}
-:root{--row-tracks:90px 132px minmax(112px,1fr) minmax(132px,1.2fr) 72px 108px 40px}
+:root{--row-tracks:90px 120px minmax(104px,1fr) minmax(120px,1.2fr) 72px 100px 40px}
 .row > *{min-width:0;overflow-wrap:anywhere}
 .row--head{position:sticky;top:0;background:var(--fill);border-bottom:var(--line-ink);
            font:600 var(--t-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;
@@ -242,6 +242,18 @@ body{
 .dialog > footer{padding:var(--s3) var(--s4);border-top:var(--line-ink);
                  display:flex;gap:var(--s2);align-items:center}
 .dialog > footer .grow{flex:1 1 auto}
+
+/* ------------------------------------------------------------
+   The prototype carries a 244px stage panel that the product does not, so at the product's
+   own minimum of 1280 the screen is running in about 1040. The pane is resizable in the
+   product, so narrowing it here is the honest move rather than letting the list scroll
+   sideways, which is the one thing the density argument cannot afford.
+   ------------------------------------------------------------ */
+@media (max-width:1560px){
+  :root{--pane:320px}
+  .row{padding-left:var(--s3);padding-right:var(--s3)}
+  .row--head{padding-left:var(--s3);padding-right:var(--s3)}
+}
 
 /* ============================================================
    NARROW. One live screen, narrowed. Not a second file and not a second frame.
