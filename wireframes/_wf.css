@@ -1,0 +1,277 @@
+/* wireframes/_wf.css  ---  the ONE home of how a wireframe looks.
+ *
+ * Grey contract. No colour, no brand, no icons, no shadows, no images: those are stages 06 to 08,
+ * and they arrive on COPIES of these screens under design/, never by painting this file.
+ *
+ * The palette below is inherited verbatim from the black and white mockups of stage 03b
+ * (ia/*.html, the .wf block). The type scale is deliberately NOT inherited: those mockups were
+ * miniatures inside a document at 10.5px mono, and these are live screens at 1440.
+ *
+ * Inline CSS on a screen is TRANSPORT, not a home. Two rules decide every declaration:
+ *   1. a token VALUE never lives inline, not even once. It is a variable here and a var() there
+ *   2. a rule that appears on two or more screens moves here
+ * Anything genuinely one-off stays inline, still written through var(), and opens with
+ *   /* INLINE: <screen> :: for reconcile into _wf.css *\/
+ * so the parent finds every one of them mechanically at step 8 rather than by reading twenty files.
+ */
+
+:root{
+  /* ---- palette, inherited from the stage 03b mockups ---- */
+  --ink:#16181a;        /* text, borders that carry structure */
+  --soft:#9aa0a6;       /* secondary text, disabled, placeholders */
+  --hair:#d4d6d8;       /* hairlines inside a component */
+  --fill:#f2f3f3;       /* filled band: table head, resting pane, selected row */
+  --paper:#ffffff;      /* surface a component sits on */
+  --bg:#fbfbfa;         /* the page behind everything */
+
+  /* ---- type. Density is design principle 5, so the base is small and the scale is short ---- */
+  --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --t-xs:11px;          /* column heads, chips, meta */
+  --t-sm:12.5px;        /* dense data: rows, tables */
+  --t-md:14px;          /* body, controls */
+  --t-lg:17px;          /* screen title, pane title */
+  --t-xl:21px;          /* the one heading a page is allowed */
+  --lh:1.45;
+  --lh-tight:1.25;
+
+  /* ---- space. One scale, used everywhere ---- */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+
+  /* ---- structure ---- */
+  --radius:2px;         /* almost square. A wireframe is not soft */
+  --line:1px solid var(--hair);
+  --line-ink:1px solid var(--ink);
+  --z-top:56px;         /* Z1 top bar */
+  --z-strip:26px;       /* Z2 connection strip */
+  --pane:380px;         /* Z5 detail pane, resizable in the product */
+  --focus:2px solid var(--ink);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font:var(--t-md)/var(--lh) var(--ui);
+  -webkit-font-smoothing:antialiased;
+}
+:focus-visible{outline:var(--focus);outline-offset:1px}
+
+/* ============================================================
+   SHELL. The five zones of node 0.1, and the stage panel beside them
+   ============================================================ */
+.wf-shell{display:flex;min-height:100vh;align-items:stretch}
+#wf-panel{flex:0 0 244px;border-right:var(--line);background:var(--paper);min-width:0}
+.wf-screen{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;background:var(--bg)}
+
+/* Z1 top bar */
+.z1{flex:0 0 auto;min-height:var(--z-top);display:flex;align-items:center;gap:var(--s5);
+    padding:0 var(--s4);border-bottom:var(--line-ink);background:var(--paper)}
+.z1 .wordmark{font:600 var(--t-lg)/1 var(--ui);letter-spacing:-.01em}
+.z1 nav{display:flex;gap:var(--s4)}
+.z1 nav a{color:var(--soft);text-decoration:none;font-size:var(--t-md);padding:var(--s2) 0;
+          border-bottom:2px solid transparent}
+.z1 nav a[aria-current="page"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.z1 .spacer{flex:1 1 auto}
+
+/* Z3 annunciator, node 0.3. A fixed slot, read only in the MVP */
+.annun{display:flex;align-items:center;gap:var(--s3);font-family:var(--mono);font-size:var(--t-xs);
+       border:var(--line-ink);padding:var(--s1) var(--s3);white-space:nowrap}
+.annun b{font-weight:700}
+.annun .sep{color:var(--hair)}
+.annun .ovrd{background:var(--ink);color:var(--paper);padding:0 var(--s1);font-weight:700}
+
+/* Z2 connection strip, node 0.4. Never silent when connected */
+.z2{flex:0 0 auto;min-height:var(--z-strip);display:flex;align-items:center;gap:var(--s3);
+    padding:0 var(--s4);border-bottom:var(--line);background:var(--fill);
+    font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.z2 b{color:var(--ink);font-weight:700}
+.z2.is-degraded{border-bottom:var(--line-ink);background:var(--paper)}
+.z2.is-degraded b{text-decoration:underline;text-underline-offset:2px}
+
+/* Z4 + Z5, the split */
+.z45{flex:1 1 auto;display:flex;min-height:0;align-items:stretch}
+.z4{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;border-right:var(--line-ink);background:var(--paper)}
+.z5{flex:0 0 var(--pane);min-width:0;display:flex;flex-direction:column;background:var(--fill);overflow-y:auto}
+.z5.is-paper{background:var(--paper)}
+
+/* ============================================================
+   SCOPE BAR, node 3.6
+   ============================================================ */
+.scopebar{display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center;
+          padding:var(--s3) var(--s4);border-bottom:var(--line)}
+.readout{padding:var(--s2) var(--s4);border-bottom:var(--line);font-size:var(--t-sm)}
+.readout b{font-weight:700}
+.readout .dim{color:var(--soft)}
+
+.chip{display:inline-flex;align-items:center;gap:var(--s1);border:var(--line-ink);
+      border-radius:var(--radius);padding:var(--s1) var(--s2);font-size:var(--t-xs);
+      background:var(--paper);color:var(--ink);cursor:pointer;font-family:var(--ui);white-space:nowrap}
+.chip--ghost{border-style:dashed;color:var(--soft)}
+.chip--solid{background:var(--ink);color:var(--paper)}
+.chip--state{font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;cursor:default}
+
+/* ============================================================
+   THE ROW, node 3.1 section 4. Canonical: 5.1 reuses it or says why not
+   ============================================================ */
+.rows{flex:1 1 auto;overflow-y:auto;min-height:0}
+.row{display:grid;grid-template-columns:var(--row-tracks);gap:var(--s3);align-items:start;
+     padding:var(--s3) var(--s4);border-bottom:var(--line);font-size:var(--t-sm);
+     text-decoration:none;color:inherit}
+:root{--row-tracks:92px 148px minmax(180px,1fr) minmax(180px,1.1fr) 84px 132px 52px}
+.row > *{min-width:0;overflow-wrap:anywhere}
+.row--head{position:sticky;top:0;background:var(--fill);border-bottom:var(--line-ink);
+           font:600 var(--t-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+           color:var(--soft);padding-top:var(--s2);padding-bottom:var(--s2)}
+.row.is-selected{background:var(--fill);box-shadow:inset 3px 0 0 var(--ink)}
+.row:hover:not(.row--head){background:var(--fill)}
+.row .sev{display:flex;align-items:center;gap:var(--s2);white-space:nowrap;font-family:var(--mono)}
+.row .client{font-weight:600}
+.row .concluded b{font-weight:600}
+.row .dim{color:var(--soft)}
+.row .cost,.row .age{font-family:var(--mono);color:var(--soft);text-align:right}
+.row .states{display:flex;flex-wrap:wrap;gap:var(--s1)}
+
+/* severity, node 0.8: glyph plus the word, three levels */
+.bars{display:inline-flex;gap:2px;align-items:flex-end;height:12px}
+.bars i{display:block;width:3px;border:1px solid var(--ink);background:var(--paper)}
+.bars i.on{background:var(--ink)}
+.bars i:nth-child(1){height:5px} .bars i:nth-child(2){height:8.5px} .bars i:nth-child(3){height:12px}
+
+/* ============================================================
+   PANE CONTENT: fleet 3.5, case file 4.1, log entry 5.4
+   ============================================================ */
+.pane-head{position:sticky;top:0;background:inherit;padding:var(--s4);border-bottom:var(--line-ink)}
+.pane-head h2{margin:0;font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
+.pane-head .sub{margin:var(--s1) 0 0;color:var(--soft);font-size:var(--t-sm)}
+.pane-body{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s5)}
+.pane-foot{margin-top:auto;position:sticky;bottom:0;background:inherit;
+           padding:var(--s3) var(--s4);border-top:var(--line-ink);display:flex;gap:var(--s2);flex-wrap:wrap}
+
+.block{display:flex;flex-direction:column;gap:var(--s2)}
+.block > h3{margin:0;font:600 var(--t-xs)/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+
+/* evidence, node 4.1 section 4. The chip expands in place, never over the block */
+.claim{border-top:var(--line);padding:var(--s2) 0;display:flex;gap:var(--s2);align-items:baseline}
+.claim:first-of-type{border-top:none}
+.claim .txt{flex:1 1 auto;min-width:0}
+.claim .src{flex:0 0 auto;font-family:var(--mono);font-size:var(--t-xs)}
+.claim--absence{color:var(--soft)}
+.claim--absence .txt::before{content:"not found  ";font-family:var(--mono);font-size:var(--t-xs);
+                             letter-spacing:.06em;text-transform:uppercase}
+.claim--against .txt::before{content:"points the other way  ";font-family:var(--mono);
+                             font-size:var(--t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.expand{margin:var(--s2) 0 var(--s3) var(--s4);border-left:2px solid var(--hair);
+        padding:var(--s2) var(--s3);font-size:var(--t-sm);background:var(--fill)}
+
+.prov{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+      border-top:var(--line);padding-top:var(--s2)}
+.prov b{color:var(--ink)}
+
+/* fleet, node 3.5 */
+.frow{display:grid;grid-template-columns:minmax(0,1fr) 128px 78px;gap:var(--s2);
+      padding:var(--s2) var(--s4);border-bottom:var(--line);font-size:var(--t-sm);
+      text-decoration:none;color:inherit}
+.frow--head{background:var(--fill);border-bottom:var(--line-ink);
+            font:600 var(--t-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.frow:hover:not(.frow--head){background:var(--paper)}
+.frow .rec{font-family:var(--mono);text-align:right}
+.frow .was{display:block;color:var(--soft);font-size:var(--t-xs)}
+
+/* ============================================================
+   CONTROLS. Real elements, draft strings. Stage 05 owns the words
+   ============================================================ */
+.btn{font:var(--t-md)/1 var(--ui);border:var(--line-ink);border-radius:var(--radius);
+     background:var(--paper);color:var(--ink);padding:var(--s2) var(--s3);cursor:pointer;
+     display:inline-flex;align-items:center;gap:var(--s2);text-decoration:none}
+.btn--primary{background:var(--ink);color:var(--paper);font-weight:600}
+.btn--quiet{border-color:var(--hair);color:var(--soft)}
+.btn[disabled],.btn[aria-disabled="true"]{border-color:var(--hair);color:var(--soft);
+     background:var(--paper);cursor:not-allowed}
+.btn .key{font-family:var(--mono);font-size:var(--t-xs);border:1px solid currentColor;
+          border-radius:var(--radius);padding:0 var(--s1);opacity:.75}
+.btn--primary .key{opacity:.85}
+
+.field{display:flex;flex-direction:column;gap:var(--s1)}
+.field > label{font:600 var(--t-xs)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.field input,.field textarea,.field select{
+  font:var(--t-md)/var(--lh) var(--ui);color:var(--ink);background:var(--paper);
+  border:var(--line-ink);border-radius:var(--radius);padding:var(--s2) var(--s3);width:100%}
+.field .hint{font-size:var(--t-xs);color:var(--soft)}
+
+/* radio list, node 4.4. A radio group, not a menu */
+.optlist{display:flex;flex-direction:column;border:var(--line-ink);border-radius:var(--radius)}
+.opt{display:flex;gap:var(--s3);align-items:baseline;padding:var(--s2) var(--s3);
+     border-bottom:var(--line);cursor:pointer}
+.opt:last-child{border-bottom:none}
+.opt.is-chosen{background:var(--fill)}
+.opt .key{font-family:var(--mono);font-size:var(--t-xs);border:var(--line-ink);
+          border-radius:var(--radius);padding:0 var(--s1);flex:0 0 auto}
+.opt.is-chosen .key{background:var(--ink);color:var(--paper)}
+.opt .routes{margin-left:auto;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+
+/* ============================================================
+   STATE FURNITURE. Every state page uses these, so they live here
+   ============================================================ */
+.banner{border:var(--line-ink);border-radius:var(--radius);background:var(--paper);
+        padding:var(--s3);display:flex;gap:var(--s3);align-items:baseline;font-size:var(--t-sm)}
+.banner b{font-weight:700}
+.banner--quiet{border-color:var(--hair);color:var(--soft)}
+.banner .act{margin-left:auto;flex:0 0 auto}
+
+.empty{padding:var(--s7) var(--s4);text-align:center;color:var(--soft);font-size:var(--t-sm)}
+.empty b{display:block;color:var(--ink);font-size:var(--t-md);margin-bottom:var(--s2)}
+
+/* loading is a shape that fills, never a spinner and never a skeleton of the whole screen */
+.arriving{height:2px;background:var(--hair);position:relative;overflow:hidden}
+.arriving::after{content:"";position:absolute;inset:0 60% 0 0;background:var(--ink)}
+
+.tomb{border:1px dashed var(--soft);border-radius:var(--radius);padding:var(--s3);
+      color:var(--soft);font-size:var(--t-sm)}
+.tomb b{color:var(--ink)}
+
+/* dialog, nodes 4.4 and 4.6. Over the pane, never over the evidence being decided on */
+.scrim{position:fixed;inset:0;background:rgba(22,24,26,.28);display:flex;
+       align-items:flex-start;justify-content:flex-end;padding:var(--s6) var(--s5)}
+.dialog{background:var(--paper);border:var(--line-ink);border-radius:var(--radius);
+        width:min(520px,100%);max-height:calc(100vh - var(--s7));overflow-y:auto;
+        display:flex;flex-direction:column}
+.dialog > header{padding:var(--s4);border-bottom:var(--line-ink)}
+.dialog > header h2{margin:0;font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
+.dialog > .body{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s4)}
+.dialog > footer{padding:var(--s3) var(--s4);border-top:var(--line-ink);
+                 display:flex;gap:var(--s2);align-items:center}
+.dialog > footer .grow{flex:1 1 auto}
+
+/* ============================================================
+   NARROW. One live screen, narrowed. Not a second file and not a second frame.
+   The stance is desktop first: this is the 360 rendering being PROVED, not the origin
+   ============================================================ */
+@media (max-width:900px){
+  .wf-shell{display:block}
+  #wf-panel{border-right:none;border-bottom:var(--line-ink);flex:none}
+  .z1{gap:var(--s3);flex-wrap:wrap;min-height:auto;padding:var(--s2) var(--s3)}
+  .z1 nav{order:3;width:100%;gap:var(--s3);overflow-x:auto}
+  .annun{order:2}
+  .z2{padding:0 var(--s3)}
+  .z45{display:block}
+  .z4{border-right:none}
+  .z5{display:none}            /* the pane is a desk instrument. 3.1 settled this */
+  .z5.is-standalone{display:flex;flex:1 1 auto}
+  :root{--row-tracks:1fr}
+  .row{gap:var(--s1);padding:var(--s3)}
+  .row--head{display:none}     /* column heads mean nothing once the row is two lines */
+  .row .cost{display:none}     /* on a phone she is not choosing what to read next */
+  .row .age,.row .sev{text-align:left}
+  .scopebar{padding:var(--s2) var(--s3)}
+  .pane-body,.pane-head{padding:var(--s3)}
+  .scrim{padding:0;align-items:stretch}
+  .dialog{width:100%;max-height:100vh;border:none}
+  .frow{grid-template-columns:minmax(0,1fr) 96px;padding:var(--s2) var(--s3)}
+  .frow .rec{grid-column:2}
+}
+
+/* utility, and the list is short on purpose */
+.dim{color:var(--soft)}
+.mono{font-family:var(--mono)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
