@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Escalate, default</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+.nar{margin:0;font-size:var(--t-sm)}
+.nar + .nar{margin-top:var(--s2)}
+.nar b{font-weight:600}
+.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+           display:inline-block;min-width:46px}
+.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+           border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div:last-child{border-bottom:none}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .off{color:var(--soft)}
+.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .ceiling{background:var(--fill);font-weight:600}
+.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
+.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+.cons{border:var(--line);border-radius:var(--radius);padding:var(--s2) var(--s3);
+      font-size:var(--t-sm);min-height:58px}
+.cons.is-empty{border-style:dashed;color:var(--soft)}
+.cons b{font-weight:600}
+.rcpt{border:var(--line);border-radius:var(--radius);padding:var(--s3);
+      display:flex;flex-direction:column;gap:var(--s1)}
+.rcpt .who{font-size:var(--t-md);font-weight:600}
+.rcpt .meta{font-size:var(--t-sm);color:var(--soft)}
+.rcpt .how{font-size:var(--t-sm)}
+.rcpt.is-gone{border-style:dashed}
+.rcpt.is-gone .who{color:var(--soft);text-decoration:line-through}
+.prompts{display:flex;flex-direction:column;gap:var(--s3)}
+.dialog > .body > .block--rcpt{order:-1}
+@media (max-width:900px){
+  .esc-desk{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="qh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip" type="button">All tenants &#9662;</button>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+
+      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+
+      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Client</span>
+          <span role="columnheader">What it is</span>
+          <span role="columnheader">What Clerk concluded</span>
+          <span role="columnheader">To check</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">Age</span>
+        </div>
+        <a class="row" role="row" href="queue-decided.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Mass file rename on one host</span>
+          <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
+          <span role="gridcell" class="cost">4 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="age" role="gridcell">1h</span>
+        </a>
+        <a class="row is-selected" role="row" href="escalate.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">27m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">14 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">52m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span role="gridcell">Sign in from an unseen device</span>
+          <span class="concluded" role="gridcell"><span class="dim">no verdict yet</span></span>
+          <span role="gridcell" class="cost dim">counting</span>
+          <span class="states" role="gridcell"><i class="chip chip--state chip--ghost">investigating</i></span>
+          <span class="age" role="gridcell">6m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Halden Freight</span>
+          <span role="gridcell">Impossible travel, two offices</span>
+          <span class="concluded" role="gridcell"><b>Benign, sanctioned VPN rollout</b></span>
+          <span role="gridcell" class="cost">6 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">4m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Halcyon Care</span>
+          <span role="gridcell">Beaconing to a new domain</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">5 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">2h</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Bramber Retail</span>
+          <span role="gridcell">Mass mailbox rule creation</span>
+          <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
+          <span role="gridcell" class="cost">3 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">41m</span>
+        </a>
+      </div>
+
+      <p class="qfoot">
+        <span>7 of 18 shown, one selected</span>
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, blocked on her, severity, age</span>
+      </p>
+    </section>
+
+    <aside class="z5 is-paper" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+        <p class="sub">Token replay from a new ASN &middot; High &middot; 9 signals &middot; 6 sources, 24h</p>
+      </div>
+      <div class="pane-body">
+        <section class="block">
+          <h3>What Clerk concluded</h3>
+          <p class="nar"><b>Real, and it wants to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen, and an inbox rule was created from it.</p>
+        </section>
+        <section class="block">
+          <h3>What happened</h3>
+          <p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p>
+          <p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</p>
+          <p class="nar"><span class="when">04:13</span>Inbox rule created, forwarding to an external address.</p>
+        </section>
+        <section class="block">
+          <h3>Evidence, 9 signals</h3>
+          <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="expand">Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</div>
+          <div class="claim"><span class="txt">No MFA prompt on the second use</span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
+          <div class="claim claim--absence"><span class="txt">no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>
+          <div class="claim claim--against"><span class="txt">this user has travelled to this region twice in 90 days</span><a class="src" href="case.html">tenant baseline</a></div>
+          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><a href="case.html">3 more signals</a></p>
+        </section>
+        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline. Count first, never a bare percentage.</p>
+        <section class="block">
+          <h3>Normal at this client</h3>
+          <p class="nar"><b>2 token replays</b> at Larkfield Logistics in 90 days, both real</p>
+        </section>
+        <section class="block">
+          <h3>What Clerk may do here, on this tenant</h3>
+          <div class="lat">
+            <div><span class="mark">yes</span><span>Investigate</span></div>
+            <div class="ceiling"><span class="mark">yes</span><span>Contain endpoint</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude, so it waited for you</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain network</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Remove content</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Change policy</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+          </div>
+          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">Out of reach actions are shown disabled with the ceiling stated, not hidden. A hidden control teaches nothing.</p>
+        </section>
+        <p class="stamp">Filed by Clerk <b>27m</b> ago &middot; <code>?as-of=2026-08-22T04:12:38Z</code></p>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary" href="queue-decided.html">Accept <span class="key">a</span></a>
+        <a class="btn" href="escalate.html">Escalate <span class="key">e</span></a>
+      </div>
+    </aside>
+  <div class="scrim">
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh">
+      <header>
+        <h2 id="dh">Escalate C-4417</h2>
+        <p class="dim" style="margin:var(--s1) 0 0;font-size:var(--t-sm)">C-4417 &middot; Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b>, and it is still open</p>
+      </header>
+      <div class="body">
+        <section class="block block--rcpt">
+          <h3>Who this goes to</h3>
+          <div class="rcpt">
+            <span class="who">S. Varga</span>
+            <span class="meta">SOC lead &middot; on for another <b>3h</b></span>
+            <span class="how">Paged through the provider&rsquo;s on call tool. <b>Harrier reads the rota, it does not own it</b>, and it records that this was sent rather than delivering it.</span>
+          </div>
+        </section>
+        <section class="block">
+          <h3>The handover</h3>
+          <div class="prompts">
+            <div class="field esc-desk"><label for="p1">What I checked</label><textarea id="p1" rows="2" placeholder="Optional, and prompted anyway"></textarea></div>
+            <div class="field esc-desk"><label for="p2">What I could not do</label><textarea id="p2" rows="2" placeholder="Optional, and prompted anyway"></textarea></div>
+            <div class="field"><label for="p3">What I need from you</label><textarea id="p3" rows="2" placeholder="Optional, and prompted anyway"></textarea></div>
+          </div>
+          <p class="dim esc-desk" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">Three prompts, all optional. <b>No taxonomy and no severity picker:</b> a rejection routes to a machine so it must be machine readable, and this routes to a person who will read it. Structure here serves comprehension, and it is what stops the quality of a handover depending on how tired its author was.</p>
+          <p class="dim only-narrow" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><b>One prompt here, not three.</b> Three empty fields at 03:00 produce a handover that looks complete and is not. The handover is thinner from a phone, and that is honest rather than ideal.</p>
+        </section>
+        <section class="block">
+          <h3>What happens when you send it</h3>
+          <div class="cons"><span class="esc-desk">The case <b>stays open</b> and gains <b>escalated</b>, so it keeps its place in the queue and stops looking like a case nobody has touched. <b>No verdict is filed and nothing is tuned.</b> The escalation is written to the log either way, and it cannot be taken back: if it comes back to you, that is a new entry rather than an erased one.</span><span class="only-narrow">The case <b>stays open</b> and gains <b>escalated</b>. No verdict is filed. It is written to the log.</span></div>
+        </section>
+      </div>
+      <footer>        <span class="dim esc-desk" style="font-size:var(--t-xs)"><b>Enter</b> makes a line here, it does not file. The button files.</span><span class="grow"></span><a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a><a class="btn btn--primary" href="queue-escalated.html">Escalate to S. Varga</a></footer>
+    </section>
+  </div>
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'queue', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] } });</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Case queue, just escalated</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="qh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip" type="button">All tenants &#9662;</button>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+
+      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+
+      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Client</span>
+          <span role="columnheader">What it is</span>
+          <span role="columnheader">What Clerk concluded</span>
+          <span role="columnheader">To check</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">Age</span>
+        </div>
+        <a class="row" role="row" href="queue-decided.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Mass file rename on one host</span>
+          <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
+          <span role="gridcell" class="cost">4 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="age" role="gridcell">1h</span>
+        </a>
+        <a class="row is-selected" role="row" href="queue-escalated.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">handed to S. Varga, 4s ago</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state chip--solid">escalated</i></span>
+          <span class="age" role="gridcell">27m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">14 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">52m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span role="gridcell">Sign in from an unseen device</span>
+          <span class="concluded" role="gridcell"><span class="dim">no verdict yet</span></span>
+          <span role="gridcell" class="cost dim">counting</span>
+          <span class="states" role="gridcell"><i class="chip chip--state chip--ghost">investigating</i></span>
+          <span class="age" role="gridcell">6m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Halden Freight</span>
+          <span role="gridcell">Impossible travel, two offices</span>
+          <span class="concluded" role="gridcell"><b>Benign, sanctioned VPN rollout</b></span>
+          <span role="gridcell" class="cost">6 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">4m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Halcyon Care</span>
+          <span role="gridcell">Beaconing to a new domain</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">5 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">2h</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Bramber Retail</span>
+          <span role="gridcell">Mass mailbox rule creation</span>
+          <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
+          <span role="gridcell" class="cost">3 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">41m</span>
+        </a>
+      </div>
+
+      <p class="qfoot">
+        <span>7 of 18 shown, the escalated row holds its place</span>
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, blocked on her, severity, age</span>
+      </p>
+    </section>
+
+    <aside class="z5 is-paper" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+        <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
+        <p class="chips-hd"><i class="chip chip--state chip--solid">escalated</i></p>
+      </div>
+      <div class="pane-body">
+        <div class="banner"><b>Handed to S. Varga, 4s ago.</b> Sent through the provider&rsquo;s on call tool. Harrier recorded that it was sent; it is not the thing that delivered it.</div>
+        <section class="block">
+          <h3>What changed, and what did not</h3>
+          <p style="margin:0"><b>No verdict was filed.</b> Clerk&rsquo;s conclusion stands unruled, the case is still open, and the count above is still 18. What changed is that the row no longer looks like a case nobody has touched.</p>
+        </section>
+        <section class="block">
+          <h3>Where it is now</h3>
+          <p style="margin:0"><a href="entry.html">The log entry, with the handover as it was written</a></p>
+        </section>
+        <p class="prov">It cannot be taken back. If S. Varga hands it back, that is a second entry rather than an erased one. <b>No toast:</b> the row wears <b>escalated</b>, which is the feedback.</p>
+      </div>
+      <div class="pane-foot">
+        <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
+        <a class="btn btn--quiet" href="log.html">Open the log</a>
+      </div>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'queue', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] } });</script>
+</body>
+</html>

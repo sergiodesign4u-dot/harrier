@@ -80,6 +80,7 @@ window.WF_NAV = {
         {slug:'decided',     label:'Just filed',           kind:'success'},
         {slug:'clerk-down',  label:'Clerk not investigating', kind:'domain'},
         {slug:'taken',       label:'Taken by a colleague', kind:'domain'},
+        {slug:'escalated',   label:'Just escalated, 4.6', kind:'success'},
       ],
       noState:[{label:'Out of scope', why:'Not a state of the page. Tenants outside her provider scope are never rendered, not even greyed, so there is nothing to draw. It is an absence in the data'}] },
 
@@ -108,7 +109,7 @@ window.WF_NAV = {
       noState:[{label:'Loading', why:'Nothing is fetched. The taxonomy is a canonical list already in the client, from 0.7'}] },
 
     { screen:'escalate', node:'4.6', ia:'escalate.html', label:'Escalate',
-      cluster:'4', flow:'main', scope:'MVP', status:'spec',
+      cluster:'4', flow:'main', scope:'MVP', status:'built',
       states:[
         {slug:'',             label:'Default',              kind:'base'},
         {slug:'from-expired', label:'Opened from 4.7',      kind:'domain'},

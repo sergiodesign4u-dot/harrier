@@ -245,4 +245,38 @@ page('queue-taken.html', 'Case queue, taken by a colleague', 'live',
         FOOT % '7 of 18 shown, 1 taken by a colleague'),
      fleet())
 
-print('generated 8 pages')
+# ---------------------------------------------------------------- 9. just escalated, 4.6
+ESCALATED = [BASE_ROWS[0],
+   ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity',
+    'handed to S. Varga, 4s ago','9 signals',['escalated!'],'27m','queue-escalated.html','is-selected')] + BASE_ROWS[2:]
+ESC_PANE = """    <aside class="z5 is-paper" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+        <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
+        <p class="chips-hd"><i class="chip chip--state chip--solid">escalated</i></p>
+      </div>
+      <div class="pane-body">
+        <div class="banner"><b>Handed to S. Varga, 4s ago.</b> Sent through the provider&rsquo;s on call tool. Harrier recorded that it was sent; it is not the thing that delivered it.</div>
+        <section class="block">
+          <h3>What changed, and what did not</h3>
+          <p style="margin:0"><b>No verdict was filed.</b> Clerk&rsquo;s conclusion stands unruled, the case is still open, and the count above is still 18. What changed is that the row no longer looks like a case nobody has touched.</p>
+        </section>
+        <section class="block">
+          <h3>Where it is now</h3>
+          <p style="margin:0"><a href="entry.html">The log entry, with the handover as it was written</a></p>
+        </section>
+        <p class="prov">It cannot be taken back. If S. Varga hands it back, that is a second entry rather than an erased one. <b>No toast:</b> the row wears <b>escalated</b>, which is the feedback.</p>
+      </div>
+      <div class="pane-foot">
+        <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
+        <a class="btn btn--quiet" href="log.html">Open the log</a>
+      </div>
+    </aside>
+"""
+page('queue-escalated.html', 'Case queue, just escalated', 'live',
+     z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+        grid(rows_html(ESCALATED)), FOOT % '7 of 18 shown, the escalated row holds its place'),
+     ESC_PANE,
+     extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+
+print('generated 9 pages')

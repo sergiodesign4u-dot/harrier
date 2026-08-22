@@ -47,6 +47,7 @@ Column groups: the four system states are the floor, then the states each node's
 | ✓ Success | `queue-decided.html` | The instant after a verdict is filed: the row stays in place and changes to decided, section 4b of the node |
 | ✓ Source stopped | `queue-clerk-down.html` | 0.4's fourth state. The connection is fine and Clerk is not investigating, so **the queue is complete** |
 | ✓ Taken by another analyst | `queue-taken.html` | A colleague is deciding a row. Settled at the close of 03b, and it is what the `taken` chip is for |
+| ✓ Escalated, 4.6 | `queue-escalated.html` | The instant after a handover. **Added at step 6 as a correction:** 0.8 closes the chip set at six values and names 4.6 as what sets `escalated`, and `CLAUDE.md` binds it as a visible state, but step 1 drew it nowhere. The count stays 18, because no verdict was filed |
 | - Out of scope | none | **Not a state of the page.** Tenants outside her provider scope are never rendered, not even greyed, so there is nothing to draw. It is an absence in the data |
 
 ### 4.1 Case File in the detail pane
@@ -144,15 +145,15 @@ It is the flow that reuses the reference most, and every screen in it is a varia
 
 | Screen | Pages |
 |---|---|
-| 3.1 Case Queue | 8 |
+| 3.1 Case Queue | 9 |
 | 4.1 Case File in the pane | 8 |
 | 4.4 Reject | 5 |
 | 4.6 Escalate | 4 |
 | 5.1 Decision log | 5 |
 | 5.4 Log entry | 5 |
-| **Total, main flow** | **35** |
+| **Total, main flow** | **36** |
 
-Plus `overview.html`, the hub. **7 cells marked `-`, each with its reason above**, and 35 states drawn.
+Plus `overview.html`, the hub. **7 cells marked `-`, each with its reason above**, and 36 states drawn. The thirty sixth arrived at step 6 rather than step 1, and the row above says why.
 
 ---
 
