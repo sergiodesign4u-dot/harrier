@@ -121,7 +121,7 @@ window.WF_NAV = {
         {label:'At 360',  why:'A viewport, not a state. The same page narrowed, which is what the responsive rule means'}] },
 
     { screen:'log', node:'5.1', ia:'decision-log.html', label:'Decision log',
-      cluster:'5', flow:'main', scope:'MVP', status:'spec',
+      cluster:'5', flow:'main', scope:'MVP', status:'built',
       states:[
         {slug:'',              label:'Default',            kind:'base'},
         {slug:'narrowing',     label:'Narrowing, 5.2',     kind:'loading'},

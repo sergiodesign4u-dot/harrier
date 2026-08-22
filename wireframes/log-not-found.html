@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Decision log, not findable</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+.nar{margin:0;font-size:var(--t-sm)}
+.nar + .nar{margin-top:var(--s2)}
+.nar b{font-weight:600}
+.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+           display:inline-block;min-width:46px}
+.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+           border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div:last-child{border-bottom:none}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .off{color:var(--soft)}
+.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .ceiling{background:var(--fill);font-weight:600}
+.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
+.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+/* The canonical row, three slots changed. 5.1 section 4 owns the list of changes; this owns
+   only the widths they need. `To check` is gone and `Age` became an absolute UTC stamp, and
+   an ISO 8601 string does not fit in the 40px the relative age used. */
+.rows--log{--row-tracks:86px 118px minmax(96px,1fr) minmax(150px,1.35fr) 118px 104px 152px}
+.rows--log .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+                 overflow-wrap:anywhere}
+.rows--log .why{font-size:var(--t-xs);color:var(--soft)}
+.row.is-superseded{background:repeating-linear-gradient(135deg,transparent 0 7px,var(--fill) 7px 8px)}
+.row .sup{display:block;font-size:var(--t-xs);color:var(--soft);margin-top:var(--s1)}
+.covers{display:flex;flex-direction:column;gap:var(--s1);font-size:var(--t-sm)}
+.covers .k{font:600 var(--t-xs)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+           color:var(--soft)}
+.covers .v{margin-bottom:var(--s2)}
+.seek{display:flex;flex-direction:column;gap:var(--s3)}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="lh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip chip--solid" type="button">Actor: R. Idrissi &times;</button>
+        <button class="chip chip--solid" type="button">Meridian Health &times;</button>
+        <button class="chip chip--solid" type="button">2026-06-01 to 2026-06-30 &times;</button>
+        <button class="chip chip--ghost" type="button">Any decision &#9662;</button>
+      </div>
+
+      <h1 id="lh" class="readout"><b>No entry matches this scope</b> <span class="dim">4 filters, 1 tenant</span></h1>
+
+      <div class="banner qbanner"><b>Actor: R. Idrissi is what emptied it.</b> Remove it and 4 entries come back, all ruled by D. Okonkwo. The chip is marked in the bar above, where the question was asked.<span class="act"><a class="btn btn--primary" href="log.html">Remove Actor: R. Idrissi</a></span></div>
+
+      <div class="rows rows--log" role="grid" aria-labelledby="lh" tabindex="0">
+        <p class="empty"><b>Nothing matched, and the pane is the next attempt.</b>
+          Not a shrug and not an illustration: the fields on the right are the search, prefilled with what you already narrowed to.</p>
+      </div>
+
+      <p class="qfoot">
+        <span>no rows in this scope</span>
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span><kbd>Enter</kbd> opens the entry at its own address</span>
+        <span>order: newest first, always. Nothing here is sorted by urgency</span>
+      </p>
+    </section>
+
+    <aside class="z5 is-paper" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">Find the decision</h2>
+        <p class="sub">Someone asked you a question, so this is the start of the next attempt rather than the end of this one</p>
+      </div>
+      <div class="pane-body">
+        <div class="seek">
+          <div class="field"><label for="cid">Case id, if the client quoted one</label><input id="cid" placeholder="C-4417"></div>
+          <div class="field"><label for="ten">Tenant</label><input id="ten" value="Meridian Health"></div>
+          <div class="field"><label for="dr">Date range, UTC</label><input id="dr" value="2026-06-01 to 2026-06-30"></div>
+          <div class="field"><label for="act">Who decided it</label><input id="act" value="R. Idrissi"><p class="hint">Leave this empty to search every analyst in your provider scope</p></div>
+        </div>
+        <section class="block">
+          <h3>What emptied it</h3>
+          <p class="nar"><b>Actor: R. Idrissi.</b> Without it, <b>4 entries</b> match, all of them ruled by D. Okonkwo. You did not work that shift, which is exactly the case the log exists for.</p>
+        </section>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary" href="log.html">Search without the actor <span class="key">Enter</span></a>
+        <a class="btn btn--quiet" href="log.html">Clear all four</a>
+      </div>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'log', strip:'live', annun:{ lead:'40 TENANTS', parts:['<b>7 of 40</b> act alone above investigate','<b>219 of 231</b> upheld, 30 days'] } });</script>
+</body>
+</html>

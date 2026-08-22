@@ -80,7 +80,7 @@ FOOT = ('      <p class="qfoot">\n'
         '        <span>order: unrecorded, blocked on her, severity, age</span>\n'
         '      </p>\n')
 
-def page(fname, title, strip, z4, z5, extra_script=''):
+def page(fname, title, strip, z4, z5, extra_script='', current='queue'):
     html = """<!doctype html>
 <html lang="en">
 <head>
@@ -105,10 +105,10 @@ def page(fname, title, strip, z4, z5, extra_script=''):
 </div>
 </div>
 <script src="_nav.js"></script>
-<script>WF_SHELL({ current:'queue', strip:'%s'%s });</script>
+<script>WF_SHELL({ current:'%s', strip:'%s'%s });</script>
 </body>
 </html>
-""" % (title, INLINE, z4, z5, strip, extra_script)
+""" % (title, INLINE, z4, z5, current, strip, extra_script)
     open(os.path.join(OUT, fname), 'w').write(html)
     return fname
 

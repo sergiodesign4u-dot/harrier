@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Decision log, the snapshot did not survive</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+.nar{margin:0;font-size:var(--t-sm)}
+.nar + .nar{margin-top:var(--s2)}
+.nar b{font-weight:600}
+.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+           display:inline-block;min-width:46px}
+.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+           border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div:last-child{border-bottom:none}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .off{color:var(--soft)}
+.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .ceiling{background:var(--fill);font-weight:600}
+.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
+.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+/* The canonical row, three slots changed. 5.1 section 4 owns the list of changes; this owns
+   only the widths they need. `To check` is gone and `Age` became an absolute UTC stamp, and
+   an ISO 8601 string does not fit in the 40px the relative age used. */
+.rows--log{--row-tracks:86px 118px minmax(96px,1fr) minmax(150px,1.35fr) 118px 104px 152px}
+.rows--log .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+                 overflow-wrap:anywhere}
+.rows--log .why{font-size:var(--t-xs);color:var(--soft)}
+.row.is-superseded{background:repeating-linear-gradient(135deg,transparent 0 7px,var(--fill) 7px 8px)}
+.row .sup{display:block;font-size:var(--t-xs);color:var(--soft);margin-top:var(--s1)}
+.covers{display:flex;flex-direction:column;gap:var(--s1);font-size:var(--t-sm)}
+.covers .k{font:600 var(--t-xs)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+           color:var(--soft)}
+.covers .v{margin-bottom:var(--s2)}
+.seek{display:flex;flex-direction:column;gap:var(--s3)}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="lh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip chip--solid" type="button">Norsk Marine &times;</button>
+        <button class="chip chip--solid" type="button">2026-06-01 to 2026-06-30 &times;</button>
+        <button class="chip chip--ghost" type="button">Any actor &#9662;</button>
+        <button class="chip chip--ghost" type="button">Any decision &#9662;</button>
+      </div>
+
+      <h1 id="lh" class="readout"><b>3 entries</b> <span class="dim">Norsk Marine, June 2026, one selected</span></h1>
+
+      <div class="rows rows--log" role="grid" aria-labelledby="lh" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Client</span>
+          <span role="columnheader">What it was</span>
+          <span role="columnheader">What was decided, and by whom</span>
+          <span role="columnheader">Reason</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">When, UTC</span>
+        </div>
+        <a class="row" role="row" href="log.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Beaconing from a bridge workstation</span>
+          <span class="concluded" role="gridcell"><b>Rejected by D. Okonkwo</b></span>
+          <span class="why" role="gridcell">Detection is too broad</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">rejected</i></span>
+          <span class="when" role="gridcell">2026-06-19T11:26:40Z</span>
+        </a>
+        <a class="row is-selected" role="row" href="log.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Upheld by D. Okonkwo</b></span>
+          <span class="why" role="gridcell"><span class="dim">&ndash;</span></span>
+          <span class="states" role="gridcell"><i class="chip chip--state">upheld</i></span>
+          <span class="when" role="gridcell">2026-06-08T22:41:03Z</span>
+        </a>
+        <a class="row" role="row" href="log.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Sign in from an unseen device</span>
+          <span class="concluded" role="gridcell"><b>Contained by Clerk, inside this tenant&rsquo;s latitude</b></span>
+          <span class="why" role="gridcell"><span class="dim">&ndash;</span></span>
+          <span class="states" role="gridcell"><i class="chip chip--state">Clerk acted alone</i></span>
+          <span class="when" role="gridcell">2026-06-02T05:09:57Z</span>
+        </a>
+      </div>
+
+      <p class="qfoot">
+        <span>3 of 3 shown, one snapshot unreadable</span>
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span><kbd>Enter</kbd> opens the entry at its own address</span>
+        <span>order: newest first, always. Nothing here is sorted by urgency</span>
+      </p>
+    </section>
+
+    <aside class="z5 is-paper" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">C-3180 &middot; Norsk Marine</h2>
+        <p class="sub">Upheld by D. Okonkwo &middot; <b>2026-06-08T22:41:03Z</b></p>
+        <p class="chips-hd"><i class="chip chip--state">upheld</i></p>
+      </div>
+      <div class="pane-body">
+        <section class="block">
+          <h3>What was decided</h3>
+          <p class="nar">Clerk concluded <b>real, contain endpoint</b>, and D. Okonkwo upheld it. That is recorded, it is not going anywhere, and no control on this screen can change it.</p>
+        </section>
+        <section class="block">
+          <h3>The evidence as it stood</h3>
+          <div class="tomb"><b>The snapshot did not survive.</b> Fourteen signals stood behind this verdict and the stored snapshot failed its integrity check on <b>2026-07-30T03:14:02Z</b>. <b>The failure is itself an entry</b>, written by the system and readable like any other.<br><br>What was decided is here. What it was decided on is not, and this frame says so rather than showing you a blank and letting you assume it was empty.</div>
+        </section>
+        <p class="prov">6 sources were queried over 24h at decision time. <b>The count survived; the content did not.</b></p>
+        <p class="stamp">Snapshot <code>?as-of=2026-06-08T22:39:11Z</code> &middot; unreadable since 2026-07-30</p>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary" href="entry-gone.html">Open at its own address <span class="key">Enter</span></a>
+        <a class="btn btn--quiet" href="log.html">Back to the list</a>
+      </div>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'log', strip:'live', annun:{ lead:'40 TENANTS', parts:['<b>7 of 40</b> act alone above investigate','<b>219 of 231</b> upheld, 30 days'] } });</script>
+</body>
+</html>
