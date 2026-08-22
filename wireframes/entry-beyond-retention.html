@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Log entry, beyond retention</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+.nar{margin:0;font-size:var(--t-sm)}
+.nar + .nar{margin-top:var(--s2)}
+.nar b{font-weight:600}
+.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+           display:inline-block;min-width:46px}
+.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+           border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div:last-child{border-bottom:none}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .off{color:var(--soft)}
+.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .ceiling{background:var(--fill);font-weight:600}
+.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
+.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+/* 5.4 has no pane. It is the artefact the lists point at, so it is one column and a frame. */
+.z4--entry{border-right:none;overflow-y:auto;align-items:center}
+.frame{width:min(820px,100%);margin:var(--s5) auto;border:2px solid var(--ink);
+       border-radius:var(--radius);background:var(--paper);display:flex;flex-direction:column}
+/* Mechanism 1 of the node, in one property: the marking is a FRAME, not a banner.
+   A banner scrolls away, and someone who arrives by permalink and reads the middle must
+   still know what they are reading. So the top rail sticks and the border never leaves. */
+.rail{position:sticky;top:0;z-index:2;background:var(--ink);color:var(--paper);
+      font:600 var(--t-xs)/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;
+      padding:var(--s2) var(--s4);display:flex;gap:var(--s3);flex-wrap:wrap;align-items:baseline}
+.rail .soft{font-weight:400;text-transform:none;letter-spacing:0;opacity:.72}
+.rail--foot{position:static;background:var(--fill);color:var(--soft);border-top:2px solid var(--ink)}
+.doc{padding:var(--s5) var(--s4);display:flex;flex-direction:column;gap:var(--s5)}
+.doc h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
+.doc h1 .stampline{display:block;font:400 var(--t-sm)/1.4 var(--mono);color:var(--soft);
+                   margin-top:var(--s2);overflow-wrap:anywhere}
+.addr{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;
+      border:var(--line);border-radius:var(--radius);padding:var(--s2) var(--s3);background:var(--fill)}
+.addr code{font-size:var(--t-sm);overflow-wrap:anywhere;flex:1 1 220px}
+.gone-all{border:2px dashed var(--soft);border-radius:var(--radius);padding:var(--s5);
+          text-align:center;color:var(--soft)}
+.gone-all b{color:var(--ink);display:block;font-size:var(--t-lg);margin-bottom:var(--s3)}
+/* 7b, settled at the close of 03b: this is the artefact that leaves the building.
+   In print every expansion is open, the address is on the page, and the panel is gone. */
+@media print{
+  #sidebar,.z1,.z2{display:none}
+  .frame{border:2px solid #000;margin:0}
+  .rail{position:static;background:#fff;color:#000;border-bottom:2px solid #000}
+  .expand{display:block}
+  .doc{padding:16pt}
+}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4 z4--entry">
+      <article class="frame">
+      <p class="rail">AS IT STOOD <b>2024-11-02T09:20:44Z</b><span class="soft">The address resolved. The record behind it is outside the retention window.</span></p>
+      <div class="doc">
+        <h1>C-0441 &middot; Bramber Retail
+          <span class="stampline">Asked for <b>2024-11-02T09:20:44Z</b> &middot; this is the part being refused</span>
+        </h1>
+        <div class="gone-all"><b>The log does not reach back this far.</b>
+          Entries before <b>2026-02-03T08:14:20Z</b> are outside the window your provider set, so there is no verdict record, no evidence and no grant to show you.<br><br>
+          <b style="display:inline;font-size:inherit">This is not a 404.</b> A 404 says the address is wrong. The address is right and the answer no longer exists, which is a different sentence and a different thing for an auditor to write down.</div>
+        <section class="block">
+          <h3>What you can still be told</h3>
+          <p class="nar">The window is named above rather than left for you to infer from an empty page. <b>You learn the window from the entry, never from a failure</b>, and this is the second place in the product that carries it: 5.1&rsquo;s resting pane carries it for a whole view, this carries it for one address.</p>
+        </section>
+        <section class="block">
+          <h3>The address you asked for</h3>
+          <div class="addr"><code>/log/e-04417?as-of=2024-11-02T09:20:44Z</code><a class="btn" href="log.html">Back to the log</a></div>
+        </section>
+        <p class="dim" style="font-size:var(--t-xs);border-top:var(--line);padding-top:var(--s3)"><b>There are no verdict controls on this page, at any width.</b> You cannot rule on the past, and an <code>Accept</code> here would be a second decision wearing the first one&rsquo;s date.</p>
+      </div>
+      <p class="rail rail--foot">End of the record as it stood 2024-11-02T09:20:44Z. Nothing below this line, and nothing on this page, can be edited.</p>
+      </article>
+    </section>
+
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'log', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] } });</script>
+</body>
+</html>

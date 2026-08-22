@@ -132,7 +132,7 @@ window.WF_NAV = {
       noState:[{label:'Success', why:'Nothing is submitted here. The log is read only, and the write happened at 4.1'}] },
 
     { screen:'entry', node:'5.4', ia:'log-entry.html', label:'Log entry, ?as-of',
-      cluster:'5', flow:'main', scope:'MVP', status:'spec',
+      cluster:'5', flow:'main', scope:'MVP', status:'built',
       states:[
         {slug:'',                 label:'Full snapshot',    kind:'base'},
         {slug:'partial',          label:'Partly gone',      kind:'domain'},

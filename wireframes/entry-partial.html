@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Log entry, partly gone</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+.nar{margin:0;font-size:var(--t-sm)}
+.nar + .nar{margin-top:var(--s2)}
+.nar b{font-weight:600}
+.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+           display:inline-block;min-width:46px}
+.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+           border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div:last-child{border-bottom:none}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .off{color:var(--soft)}
+.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .ceiling{background:var(--fill);font-weight:600}
+.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
+.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+/* 5.4 has no pane. It is the artefact the lists point at, so it is one column and a frame. */
+.z4--entry{border-right:none;overflow-y:auto;align-items:center}
+.frame{width:min(820px,100%);margin:var(--s5) auto;border:2px solid var(--ink);
+       border-radius:var(--radius);background:var(--paper);display:flex;flex-direction:column}
+/* Mechanism 1 of the node, in one property: the marking is a FRAME, not a banner.
+   A banner scrolls away, and someone who arrives by permalink and reads the middle must
+   still know what they are reading. So the top rail sticks and the border never leaves. */
+.rail{position:sticky;top:0;z-index:2;background:var(--ink);color:var(--paper);
+      font:600 var(--t-xs)/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;
+      padding:var(--s2) var(--s4);display:flex;gap:var(--s3);flex-wrap:wrap;align-items:baseline}
+.rail .soft{font-weight:400;text-transform:none;letter-spacing:0;opacity:.72}
+.rail--foot{position:static;background:var(--fill);color:var(--soft);border-top:2px solid var(--ink)}
+.doc{padding:var(--s5) var(--s4);display:flex;flex-direction:column;gap:var(--s5)}
+.doc h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
+.doc h1 .stampline{display:block;font:400 var(--t-sm)/1.4 var(--mono);color:var(--soft);
+                   margin-top:var(--s2);overflow-wrap:anywhere}
+.addr{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;
+      border:var(--line);border-radius:var(--radius);padding:var(--s2) var(--s3);background:var(--fill)}
+.addr code{font-size:var(--t-sm);overflow-wrap:anywhere;flex:1 1 220px}
+.gone-all{border:2px dashed var(--soft);border-radius:var(--radius);padding:var(--s5);
+          text-align:center;color:var(--soft)}
+.gone-all b{color:var(--ink);display:block;font-size:var(--t-lg);margin-bottom:var(--s3)}
+/* 7b, settled at the close of 03b: this is the artefact that leaves the building.
+   In print every expansion is open, the address is on the page, and the panel is gone. */
+@media print{
+  #sidebar,.z1,.z2{display:none}
+  .frame{border:2px solid #000;margin:0}
+  .rail{position:static;background:#fff;color:#000;border-bottom:2px solid #000}
+  .expand{display:block}
+  .doc{padding:16pt}
+}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4 z4--entry">
+      <article class="frame">
+      <p class="rail">AS IT STOOD <b>2026-08-22T04:12:38Z</b><span class="soft">A record of what was known then. This is not the live case.</span></p>
+      <div class="doc">
+        <h1>C-4417 &middot; Larkfield Logistics
+          <span class="stampline">Decided <b>2026-08-22T04:41:12Z</b> &middot; 4 of 6 sources retained</span>
+        </h1>
+        <section class="block">
+          <h3>What was decided, and by whom</h3>
+          <p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi through the provider&rsquo;s on call tool. Clerk&rsquo;s conclusion, <b>real, contain identity</b>, stands unruled.</p>
+          <p class="nar"><b>No reason code, and that is correct rather than missing.</b> The taxonomy in 0.7 routes rejections to tuning. An escalation routes to a person, so what it carries is the handover below.</p>
+        </section>
+        <section class="block">
+          <h3>The handover, as it was written</h3>
+          <p class="nar"><b>What I checked.</b> Correlated the token against the corporate range and confirmed the same correlationId on both sign ins.</p>
+          <p class="nar"><b>What I could not do.</b> Could not reach the tenant&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.</p>
+          <p class="nar"><b>What I need from you.</b> A call to the client, and a decision on whether to disable the account before 08:00.</p>
+        </section>
+        <div class="banner"><b>The decision is always retained, whatever happened to the evidence.</b> Two of the six sources are gone and the record above is untouched by that.</div>
+        <section class="block">
+          <h3>The evidence as it stood, 9 signals</h3>
+          <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><span class="src">Entra sign in</span></div>
+          <div class="tomb">Two signals from <b>Exchange audit</b> stood here and are no longer retrievable. The source aged out of the tenant&rsquo;s own retention on <b>2026-08-14</b>. What was here is recorded; what it said is not.</div>
+          <div class="claim claim--absence"><span class="txt">no password change, and no new device enrolment</span><span class="src">Entra, EDR</span></div>
+          <div class="claim claim--against"><span class="txt">this user has travelled to this region twice in 90 days</span><span class="src">tenant baseline</span></div>
+          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><b>What Clerk looked for and did not find is part of the record</b>, and so is the one signal that argued the other way. An evidence trail that keeps only the supporting half is an argument, not a record.</p>
+        </section>
+        <p class="prov"><b>6 sources</b> were queried over <b>24h</b>. <b>4 retained</b>, and <b>2 no longer retrievable</b>: Exchange audit and proxy aged out of the tenant&rsquo;s own retention on 2026-08-14. The two counts are kept apart on purpose, because &ldquo;4 sources&rdquo; and &ldquo;4 of 6 sources&rdquo; are different claims and only one of them is true here.</p>
+        <section class="block">
+          <h3>Normal at this client, on that date</h3>
+          <p class="nar"><b>2 token replays</b> at Larkfield Logistics in the 90 days to 2026-08-22, both real. Retained.</p>
+        </section>
+        <section class="block">
+          <h3>What Clerk was permitted to do here, on 2026-08-22</h3>
+          <div class="lat">
+            <div><span class="mark">yes</span><span>Investigate</span></div>
+            <div class="ceiling"><span class="mark">yes</span><span>Contain endpoint</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">not reversible without the client, so it asked</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain network</span><span class="why">not reversible without the client, so it asked</span></div>
+            <div class="off"><span class="mark">no</span><span>Remove content</span><span class="why">destructive, so it always asks</span></div>
+            <div class="off"><span class="mark">no</span><span>Change policy</span><span class="why">destructive, so it always asks</span></div>
+          </div>
+          <p class="nar" style="margin-top:var(--s3)">The record that stood behind the grant on that date: <b>34 of 36</b> upheld over the 30 days to 2026-08-22.</p>
+          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">An auditor rarely asks whether this was the right call. They ask <b>why the machine was allowed to do that</b>, and a settings page cannot answer it: it shows the grant now, and the grant may have been widened twice since. <b>3.5 shows the present. This shows the past, and only one of the two is evidence.</b></p>
+        </section>
+        <p class="prov"><b>This snapshot stays retrievable until 2026-11-20T04:12:38Z</b>, from your provider&rsquo;s contract. The verdict record above is kept for the life of the record. <b>You learn the window here rather than from a failure.</b></p>
+        <section class="block">
+          <h3>The address of this record</h3>
+          <div class="addr"><code>/log/e-88214?as-of=2026-08-22T04:12:38Z</code><a class="btn" href="entry.html">Copy</a></div>
+          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">The address is the artefact. Without <code>?as-of</code> it resolves to this entry&rsquo;s own decision time, and the product writes the parameter into every link it generates so a copied address never depends on a default.</p>
+        </section>
+        <section class="block">
+          <h3>The live case</h3>
+          <p class="nar">A different thing, named and linked rather than shown beside this one. Current values next to historical ones is the confusion, not the cure.</p>
+          <p style="margin:var(--s2) 0 0"><a href="case.html">Open C-4417 as it is now</a></p>
+        </section>
+        <p class="dim" style="font-size:var(--t-xs);border-top:var(--line);padding-top:var(--s3)"><b>There are no verdict controls on this page, at any width.</b> You cannot rule on the past, and an <code>Accept</code> here would be a second decision wearing the first one&rsquo;s date.</p>
+      </div>
+      <p class="rail rail--foot">End of the record as it stood 2026-08-22T04:12:38Z. Nothing below this line, and nothing on this page, can be edited.</p>
+      </article>
+    </section>
+
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'log', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] } });</script>
+</body>
+</html>
