@@ -110,7 +110,13 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
   .do{grid-template-columns:1fr}
   .rf > div{grid-template-columns:1fr;gap:1px}
   .fx{grid-template-columns:1fr}
-  .fx td:first-child{width:92px;padding-right:9px}
+  /* a 92px label column broke words mid-token at 360, so the label goes above the value
+     and the table stops being a table */
+  .fx table,.fx tbody,.fx tr,.fx td{display:block;width:auto}
+  .fx tr{border-top:1px solid var(--rule);padding:7px 0}
+  .fx tr:first-child{border-top:none;padding-top:0}
+  .fx td{border-top:none;padding:0}
+  .fx td:first-child{padding:0 0 2px}
   .sc{width:100%}
   .flowline .arrow{display:none}
   .do > div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
