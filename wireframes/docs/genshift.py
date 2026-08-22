@@ -134,7 +134,7 @@ WAITS_FROZEN = waits_frozen()
 # Block 3 names a count and has nowhere to send you, and that is the specification rather than
 # an omission: the analyst side review lane maps to no formulated job, so the shape of the gap
 # is drawn instead of being closed with an invented screen.
-CLERK_ALONE = bline('1', 'closed by Clerk alone, inside that tenant&rsquo;s latitude',
+CLERK_ALONE = bline('6', 'closed by Clerk alone, inside that tenant&rsquo;s latitude',
                     'nowhere to review', quiet=True,
                     ex='<b>There is nowhere to review these.</b> The count is here because a shift '
                        'where Clerk closed nothing alone and a shift where it closed a dozen are '

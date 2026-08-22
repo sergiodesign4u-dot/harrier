@@ -133,7 +133,7 @@ def address(asof, entry=ADDR_ID):
             'the parameter into every link it generates so a copied address never depends on a default.</p>\n'
             '        </section>\n') % (entry, asof)
 
-def retention(until='2026-11-20T04:12:38Z'):
+def retention(until='2026-11-20T04:14:05Z'):
     return ('        <p class="prov"><b>This snapshot stays retrievable until %s</b>, from your provider&rsquo;s '
             'contract. The verdict record above is kept for the life of the record. '
             '<b>You learn the window here rather than from a failure.</b></p>\n') % until
@@ -152,14 +152,14 @@ NO_CONTROLS = ('        <p class="dim" style="font-size:var(--t-xs);border-top:v
                '<b>There are no verdict controls on this page, at any width.</b> You cannot rule on the past, and an '
                '<code>Accept</code> here would be a second decision wearing the first one&rsquo;s date.</p>\n')
 
-ASOF = '2026-08-22T04:12:38Z'
+ASOF = '2026-08-22T04:14:05Z'
 WHEN = '2026-08-22T04:41:12Z'
 
 # ---------------------------------------------------------------------------- 1. full snapshot
 page('entry.html', 'Log entry, the full snapshot', ASOF,
      '      <div class="doc">\n'
      + heading('C-4417', 'Larkfield Logistics', WHEN,
-               ' &middot; snapshot read 29m before the ruling')
+               ' &middot; snapshot read 27m before the ruling')
      + VERDICT_ESC + evidence()
      + '        <p class="prov"><b>6 sources</b> queried over <b>24h</b> as it stood: Entra ID, Exchange audit, EDR, '
        'proxy, threat intel, tenant baseline.</p>\n'

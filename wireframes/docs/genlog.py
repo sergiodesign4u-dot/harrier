@@ -46,7 +46,7 @@ SHIFT_ROWS = [
    'Contained by Clerk, inside this tenant&rsquo;s latitude', None, ['Clerk acted alone'], ''),
   ('2026-08-22T02:17:30Z','Low','Bramber Retail','Mass mailbox rule creation',
    'Upheld by R. Idrissi: benign, new admin onboarding', None, ['upheld'], ''),
-  ('2026-08-22T01:44:09Z','Medium','Halden Freight','Impossible travel, two offices',
+  ('2026-08-22T01:44:09Z','Medium','Bramber Retail','Impossible travel, two offices',
    'Rejected by R. Idrissi', 'Tenant context missing', ['rejected'], ''),
   ('2026-08-21T23:12:41Z','High','Meridian Health','Credential stuffing on the VPN',
    'Amended by D. Okonkwo', None, ['amended'], 'Supersedes the entry below. Both stay.'),
@@ -133,11 +133,11 @@ def page(fname, title, chips, h1, body, foot, pane, current='log'):
 
 # ---------------------------------------------------------------------------- 1. default
 page('log.html', 'Decision log', CHIPS,
-     '<b>7 entries</b> <span class="dim">this shift and the one before, across 6 of 40 tenants</span>',
+     '<b>34 entries</b> <span class="dim">this shift and the one before, across 6 of 40 tenants</span>',
      grid(rows(SHIFT_ROWS)),
-     LFOOT % '7 of 7 shown, newest first',
+     LFOOT % '7 of 34 shown, newest first',
      covers('All tenants in your provider scope. No actor filter, no decision filter',
-            '7', '<b>2026-08-21T19:00:00Z</b> to now'))
+            '34', '<b>2026-08-21T19:00:00Z</b> to now'))
 
 # ---------------------------------------------------------------------------- 2. narrowing, 5.2
 CHIPS_RUN = ('        <button class="chip chip--solid" type="button">Meridian Health &times;</button>\n'
@@ -228,7 +228,7 @@ ENTRY = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
           <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><a href="entry.html">All 9 signals, at the address below</a></p>
         </section>
         <p class="prov"><b>6 sources</b> queried over <b>24h</b>. The snapshot is addressed, not reconstructed: what follows is the state the sources were in when Clerk read them, not what they say today.</p>
-        <p class="stamp">Snapshot <code>?as-of=2026-08-22T04:12:38Z</code> &middot; filed 29m before the ruling</p>
+        <p class="stamp">Snapshot <code>?as-of=2026-08-22T04:14:05Z</code> &middot; filed 27m before the ruling</p>
       </div>
       <div class="pane-foot">
         <a class="btn btn--primary" href="entry.html">Open at its own address <span class="key">Enter</span></a>
@@ -237,9 +237,9 @@ ENTRY = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
     </aside>
 """)
 page('log-selected.html', 'Decision log, entry selected', CHIPS,
-     '<b>7 entries</b> <span class="dim">this shift and the one before, one selected</span>',
+     '<b>34 entries</b> <span class="dim">this shift and the one before, one selected</span>',
      grid(rows(SHIFT_ROWS, selected='2026-08-22T04:41:12Z')),
-     LFOOT % '7 of 7 shown, one selected',
+     LFOOT % '7 of 34 shown, one selected',
      ENTRY)
 
 # ---------------------------------------------------------------------------- 5. snapshot gone, 5.5

@@ -63,8 +63,8 @@ def latitude(ceiling='Contain endpoint'):
     return out
 
 def stamp(extra=''):
-    return ('        <p class="stamp">Filed by Clerk <b>27m</b> ago &middot; '
-            '<code>?as-of=2026-08-22T04:12:38Z</code>%s</p>\n' % extra)
+    return ('        <p class="stamp">Filed by Clerk <b>26m</b> ago &middot; '
+            '<code>?as-of=2026-08-22T04:14:05Z</code>%s</p>\n' % extra)
 
 def foot(buttons):
     return '      <div class="pane-foot">\n' + ''.join(

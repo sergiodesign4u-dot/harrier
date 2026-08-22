@@ -60,7 +60,7 @@ SEV = 'High'
 OPENED = ('2026-08-22T04:12:09Z', SEV, TENANT, WHAT,
           'Case opened by Clerk', None, ['Clerk opened the case'],
           '9 signals correlated from 6 sources. No verdict yet, and no action taken')
-FILED = ('2026-08-22T04:12:38Z', SEV, TENANT, WHAT,
+FILED = ('2026-08-22T04:14:05Z', SEV, TENANT, WHAT,
          'Verdict filed by Clerk: real, contain identity', None, ['Clerk filed a verdict'],
          'Above this tenant&rsquo;s latitude, so it waited for a person rather than running')
 ESCALATED = ('2026-08-22T04:41:12Z', SEV, TENANT, WHAT,
