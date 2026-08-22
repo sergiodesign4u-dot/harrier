@@ -17,10 +17,10 @@
           padding:16px 18px;margin:0 0 12px}
 .flowcard > h3{margin:0 0 4px;font-size:15px}
 .flowcard > p{margin:0 0 12px;color:var(--faint);font-size:13px}
-.flowline{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.flowline{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
 .flowline .arrow{color:var(--faint);font-family:var(--mono);font-size:11px}
-.sc{display:inline-flex;flex-direction:column;gap:3px;border:1px solid var(--fg);border-radius:4px;
-    padding:6px 9px;text-decoration:none;color:var(--fg);min-width:0}
+.sc{display:flex;flex:0 0 auto;width:164px;flex-direction:column;gap:3px;border:1px solid var(--fg);
+    border-radius:4px;padding:7px 9px;text-decoration:none;color:var(--fg);min-width:0}
 .sc.is-spec{border-style:dashed;border-color:var(--faint);color:var(--faint)}
 .sc b{font:600 12.5px/1.2 inherit}
 .sc .num{font-family:var(--mono);font-size:10px;color:var(--faint)}
@@ -69,6 +69,8 @@
 @media (max-width:900px){
   .hubwrap{flex-direction:column;gap:24px;padding:24px 18px 64px}
   .do{grid-template-columns:1fr}
+  .sc{width:100%}
+  .flowline .arrow{display:none}
   .do > div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
 }
 </style>
