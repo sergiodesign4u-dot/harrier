@@ -455,6 +455,7 @@ a.opt:hover{background:var(--fill)}
      a box that never scrolls and the decision sat two viewports down. 4.2 had found this and
      fixed it privately for one screen; every other pane kept the defect. */
   .z5,.z5.is-paper{overflow:visible}
+  .z4--solo,.z4--entry{overflow:visible}
   .pane-foot{padding:var(--s2) var(--s3)}
   .claim{flex-wrap:wrap}
   .claim .src{margin-left:auto}
