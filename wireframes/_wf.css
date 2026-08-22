@@ -115,10 +115,10 @@ body{
    THE ROW, node 3.1 section 4. Canonical: 5.1 reuses it or says why not
    ============================================================ */
 .rows{flex:1 1 auto;overflow-y:auto;min-height:0}
-.row{display:grid;grid-template-columns:var(--row-tracks);gap:var(--s3);align-items:start;
-     padding:var(--s3) var(--s4);border-bottom:var(--line);font-size:var(--t-sm);
-     text-decoration:none;color:inherit}
-:root{--row-tracks:92px 148px minmax(180px,1fr) minmax(180px,1.1fr) 84px 132px 52px}
+.row{display:grid;grid-template-columns:var(--row-tracks);gap:var(--s2);align-items:start;
+     padding:var(--s2) var(--s4);border-bottom:var(--line);font-size:var(--t-sm);
+     text-decoration:none;color:inherit;line-height:1.35}
+:root{--row-tracks:90px 132px minmax(112px,1fr) minmax(132px,1.2fr) 72px 108px 40px}
 .row > *{min-width:0;overflow-wrap:anywhere}
 .row--head{position:sticky;top:0;background:var(--fill);border-bottom:var(--line-ink);
            font:600 var(--t-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;
@@ -169,7 +169,7 @@ body{
 .prov b{color:var(--ink)}
 
 /* fleet, node 3.5 */
-.frow{display:grid;grid-template-columns:minmax(0,1fr) 128px 78px;gap:var(--s2);
+.frow{display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--s2);
       padding:var(--s2) var(--s4);border-bottom:var(--line);font-size:var(--t-sm);
       text-decoration:none;color:inherit}
 .frow--head{background:var(--fill);border-bottom:var(--line-ink);
