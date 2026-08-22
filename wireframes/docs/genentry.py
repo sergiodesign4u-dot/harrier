@@ -5,7 +5,6 @@ import genqueue as Q, gencase as C
 
 INLINE = C.INLINE + """
 /* 5.4 has no pane. It is the artefact the lists point at, so it is one column and a frame. */
-.z4--entry{border-right:none;overflow-y:auto;align-items:center}
 .frame{width:min(var(--frame),100%);margin:var(--s5) auto;border:2px solid var(--ink);
        border-radius:var(--radius);background:var(--paper);display:flex;flex-direction:column}
 /* Mechanism 1 of the node, in one property: the marking is a FRAME, not a banner.
@@ -24,9 +23,6 @@ INLINE = C.INLINE + """
 .doc h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
 .doc h1 .stampline{display:block;font:400 var(--t-sm)/1.4 var(--mono);color:var(--soft);
                    margin-top:var(--s2);overflow-wrap:anywhere}
-.addr{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;
-      border:var(--line);border-radius:var(--radius);padding:var(--s2) var(--s3);background:var(--fill)}
-.addr code{font-size:var(--t-sm);overflow-wrap:anywhere;flex:1 1 220px}
 .gone-all{border:2px dashed var(--soft);border-radius:var(--radius);padding:var(--s5);
           text-align:center;color:var(--soft)}
 .gone-all b{color:var(--ink);display:block;font-size:var(--t-lg);margin-bottom:var(--s3)}

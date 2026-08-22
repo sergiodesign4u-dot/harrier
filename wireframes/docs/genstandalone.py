@@ -13,7 +13,6 @@ INLINE = C.INLINE + """
 /* The pane IS the page. At the desk it is one centred sheet standing in the space the split
    used to hold; at 360 it is the same sheet, full bleed. _wf.css already reserves
    .z5.is-standalone for the narrow half of that, so this only adds the desk half. */
-:root{--sheet:760px}   /* the one new measure this node needs: the sheet a case sits on when
                           it has no list beside it. Declared as a token so nothing reads a raw px */
 .z45:has(> .z5.is-standalone){justify-content:center}
 .z5.is-standalone{flex:1 1 auto;max-width:var(--sheet);
@@ -34,10 +33,7 @@ INLINE = C.INLINE + """
           border:var(--line);border-radius:var(--radius);padding:var(--s1) var(--s2)}
 .sa-fresh b{color:var(--ink)}
 /* The complement of .only-narrow, which _wf.css already carries on its own. */
-.only-desk{display:block}
-.only-desk-i{display:inline}
 .pane-foot .btn.only-desk{display:inline-flex}
-.btn .key:empty{display:none}
 @media (max-width:900px){
   /* overflow:visible hands the sticky foot back to the viewport, which is what pins escalate
      to the bottom edge. Inside a scrolling pane it would only stick to the pane. */
