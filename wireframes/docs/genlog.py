@@ -24,13 +24,13 @@ INLINE = C.INLINE + """
    a paged case read and escalated, and answering an auditor is not it. So the narrowed
    rendering says that instead of squeezing seven columns into a phone. 5.4 is the boundary
    case and it is different: a permalink can arrive anywhere. */
+/* The log's pane is white like 4.1's, but it deliberately does NOT take `is-paper`.
+   That class is what tells _wf.css to swap the pane in for the list at 360, and on this
+   screen there is no swap to make: nothing here renders on a phone. Same paint, no swap. */
+.z5--paper{background:var(--paper)}
 @media (max-width:900px){
   .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,
   .z4--log .banner:not(.only-narrow){display:none}
-  .z45:has(> .z4--log) > .z5{display:none}
-  /* _wf.css swaps the pane in for the list at 360; on the log there is no swap to make,
-     so the screen keeps its own frame and says why it stops here. */
-  .z45:has(> .z4--log) > .z4{display:flex}
   .z4--log .only-narrow{margin:var(--s4)}
 }"""
 Q.INLINE = INLINE
@@ -183,7 +183,7 @@ CHIPS_EMPTY = ('        <button class="chip chip--solid" type="button">Actor: R.
                '        <button class="chip chip--solid" type="button">Meridian Health &times;</button>\n'
                '        <button class="chip chip--solid" type="button">2026-06-01 to 2026-06-30 &times;</button>\n'
                '        <button class="chip chip--ghost" type="button">Any decision &#9662;</button>\n')
-SEEK = ("""    <aside class="z5 is-paper" aria-labelledby="ph">
+SEEK = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
       <div class="pane-head">
         <h2 id="ph">Find the decision</h2>
         <p class="sub">Someone asked you a question, so this is the start of the next attempt rather than the end of this one</p>
@@ -220,7 +220,7 @@ page('log-not-found.html', 'Decision log, not findable', CHIPS_EMPTY,
      SEEK)
 
 # ---------------------------------------------------------------------------- 4. entry selected
-ENTRY = ("""    <aside class="z5 is-paper" aria-labelledby="ph">
+ENTRY = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
       <div class="pane-head">
         <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
         <p class="sub">Escalated to S. Varga by R. Idrissi &middot; <b>2026-08-22T04:41:12Z</b></p>
@@ -271,7 +271,7 @@ CHIPS_JUNE = ('        <button class="chip chip--solid" type="button">Norsk Mari
               '        <button class="chip chip--solid" type="button">2026-06-01 to 2026-06-30 &times;</button>\n'
               '        <button class="chip chip--ghost" type="button">Any actor &#9662;</button>\n'
               '        <button class="chip chip--ghost" type="button">Any decision &#9662;</button>\n')
-GONE = ("""    <aside class="z5 is-paper" aria-labelledby="ph">
+GONE = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
       <div class="pane-head">
         <h2 id="ph">C-3180 &middot; Norsk Marine</h2>
         <p class="sub">Upheld by D. Okonkwo &middot; <b>2026-06-08T22:41:03Z</b></p>
