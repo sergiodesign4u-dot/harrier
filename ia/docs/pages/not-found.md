@@ -117,3 +117,16 @@ Taken at the close of stage 03b. A question is settled here only when the answer
 |---|---|---|
 | 1 | Does the audit actually diff the three renderings? | **Settled**. **It did, at step 8 of this stage, and they disagreed.** Three files routed an out of scope tenant to 8.3; all three were corrected upward to 8.1. The rule is tested rather than asserted. |
 | 2 | Should the failed address be shown at all? | **Settled**. **Yes.** 0.8 settled that a case id carries no meaning and no tenant, so showing it discloses nothing and lets her send it back to whoever sent it. |
+
+
+---
+
+## Corrected at the stage 04 fan-out
+
+Seven screens were drawn at once against this layer, and drawing is what made these visible. Each entry says what was found, who found it and what changes here rather than downstream.
+
+### The pair with 5.5 was asymmetric, and one side of it was doing all the work
+
+`entry-beyond-retention` says on the page that it is **not** a 404, and points here to say what a 404 would mean. This node's section 7 listed 5.5 under "not this node" and gave no reciprocal line, so the pair only held when read from one side.
+
+**One sentence is added to this node's page**: a record that resolved and then aged out is a different page, and that one can name its window. **This one cannot name anything at all**, and that is the whole point: naming the window here would be a fact about the address, and a fact about the address is exactly what tenant isolation forbids. No third link, so the two exit rule holds.

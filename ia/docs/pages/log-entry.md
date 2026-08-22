@@ -191,3 +191,23 @@ Taken at the close of stage 03b. A question is settled here only when the answer
 | 1 | Does the frame survive print and PDF? | **Settled**. **Yes, and it is a requirement rather than a nicety.** This is the artefact that leaves the building for an audit. In print the `?as-of` address is on the page, every evidence expansion is open, and nothing exists only on hover. |
 | 2 | How is the timestamp written? | **Settled**. Closed by **0.8**: ISO 8601 in UTC, because one analyst covers tenants on two continents and a local rendering in an append only record makes two entries incomparable. |
 | 3 | What happens to an entry whose tenant has been offboarded? | **Settled**. **The entry survives and says the tenant is offboarded.** Offboarding removes access to live tenant data; the append only log is the one thing that must not be deleted, because it records decisions taken while the tenant was live. Live links die and the snapshot follows the retention rule in 0.6. |
+
+
+---
+
+## Corrected at the stage 04 fan-out
+
+Seven screens were drawn at once against this layer, and drawing is what made these visible. Each entry says what was found, who found it and what changes here rather than downstream.
+
+### Beyond retention and nothing survived were one column apart and meant two different things
+
+The state matrix gives `Beyond retention` an **absent** verdict record, while section 7b says the verdict record is **kept for the life of the record** and only the snapshot has a shorter window. Both cannot be true, and drawing them side by side is what made it obvious.
+
+**They are two different failures and the matrix column was the ambiguous one.**
+
+| | The entry | The snapshot |
+|---|---|---|
+| **Nothing survived, 5.5** | Present, and it says what was decided | Died. Tombstone, with the date it failed its integrity check |
+| **Beyond retention** | **Not there at all.** The log does not reach back this far | Never in scope |
+
+So `Beyond retention` is not an entry stripped of its evidence; it is an address that resolves to a window the log does not cover. Section 7b stands unchanged, the matrix column is the one that meant something narrower than it said, and the drawing states the distinction on the page because an auditor writes down a different sentence for each.

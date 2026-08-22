@@ -174,3 +174,18 @@ Taken at the close of stage 03b. A question is settled here only when the answer
 | 1 | Should `/case/{caseId}` redirect to `/queue/case/{caseId}` on a desk? | **Settled**. **No.** A permalink that bounces cannot be quoted in a ticket. At 1440 the page offers *open in the queue* as a link, and the analyst decides. |
 | 2 | Is a pinned escalate bar the right call, given principle 5? | **Settled**. **Yes, pinned.** It reserves a strip rather than overlaying evidence, and overlaying is what principle 5 forbids. At 360 the whole scenario is read and escalate, so the exit may not sit below the fold of the case. |
 | 3 | What does the page do after a verdict is filed at 1440? | **Settled**. The same shape as 3.1 section 02b: it **holds the case and states the outcome**. Having no list to return to, it offers the queue as the next step rather than navigating on its own. |
+
+
+---
+
+## Corrected at the stage 04 fan-out
+
+Seven screens were drawn at once against this layer, and drawing is what made these visible. Each entry says what was found, who found it and what changes here rather than downstream.
+
+### Two instructions in this node argue with nodes that outrank it
+
+**Freshness on the page at 360 assumed there is no shell strip. There is.** The node puts the live freshness line on the page "because there is no shell strip to carry it", and 0.1's Z2 renders at 360 on every screen, reading `Live, last case 4s`. **0.1 wins**: the strip is the shell's and it is on every authenticated screen, so this node's own freshness line is duplicate chrome on the one rendering that can least afford it. The line is dropped and Z2 carries it, which is what Z2 is for.
+
+**Collapsing the disagreeing signal at 360 argues against 4.1, which settled it from principle.** 4.1 says, in its own words: *"Collapsing makes a disagreement optional, and an optional disagreement is a hidden one."* It carves out no width, and at 360 a collapsed summary line is as tall as the claim it hides, so the instruction saves nothing and costs the one thing the evidence block exists for. **4.1 wins and this node withdraws the instruction.** The signal that argues the other way renders expanded at every width.
+
+Both were found by drawing the node, which is the point of drawing before building.

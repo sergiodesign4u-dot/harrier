@@ -197,3 +197,18 @@ Taken at the close of stage 03b. A question is settled here only when the answer
 | 2 | Does the product support one person at more than one provider? | **Settled**. **No. One account is one provider.** Cross provider access inside one session is exactly what tenant isolation exists to prevent, and every URL rule in this stage assumes a single provider scope. A person working for two providers has two accounts. |
 | 3 | Does a passkey path ship? | **Settled**. **Not in the MVP, and not for effort.** The provider owns identity, so Harrier hands off to their SSO and the method is theirs to choose. What ships is the identifier first handoff and nothing more opinionated. |
 | 4 | What does an unconfigured provider actually see? | **Settled**. Settled by the answer above: **a provisioning failure, fixed in provisioning.** This node already declines to make the only public page in a security product more talkative about which providers exist. |
+
+
+---
+
+## Corrected at the stage 04 fan-out
+
+Seven screens were drawn at once against this layer, and drawing is what made these visible. Each entry says what was found, who found it and what changes here rather than downstream.
+
+### Block 2, recovery, has no destination node anywhere in this layer
+
+The block list names recovery and the map holds nothing for it: there is no password reset, no support surface, and section 11 puts provisioning outside the product. On the only public page in the product, a link to nothing is worse than no link.
+
+**Drawn as a disclosure rather than a route**, whose body is the answer the product already has: Harrier holds no password and creates no accounts, so the seat and the sign in method both come from the provider. Depth one key away, which is design principle 2 applied to a dead end.
+
+**This is a real gap and it is left open rather than closed by invention.** If stage 05 wants a link there, it needs a node first, and whoever owns provisioning owns the answer.

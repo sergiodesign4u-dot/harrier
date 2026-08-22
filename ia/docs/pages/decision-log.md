@@ -187,3 +187,33 @@ Taken at the close of stage 03b. A question is settled here only when the answer
 | 2 | What does a superseded entry look like beside the original? | **Settled**. **Both render in place, the superseded one marked.** Section 5 already says the first stays; this settles that it stays *beside*, not behind a control. |
 | 3 | Does an analyst see decisions made by analysts at other providers? | **Settled**. **No.** Tenant isolation, the same rule 8.1 carries. |
 | 4 | Is the resting pane in section 5 read, or is it furniture? | **Still open**. Needs a person. It matters more than it looks: it is the only place in the product where the retention window is visible, so if it is furniture then that fact has no reader. |
+
+
+---
+
+## Corrected at the stage 04 fan-out
+
+Seven screens were drawn at once against this layer, and drawing is what made these visible. Each entry says what was found, who found it and what changes here rather than downstream.
+
+### The State vocabulary has no value for an entry Clerk wrote, and that is a hole rather than an omission
+
+Section 4 fixes six values: `upheld`, `amended`, `rejected`, `escalated`, `superseded`, `Clerk acted alone`. Node 5.6 draws the history of a single case, and there the two commonest entries are Clerk **filing a verdict** and Clerk **opening the case**. Neither has a value.
+
+**`Clerk acted alone` is the only machine value the list holds, and on the canonical case it is the one thing that did not happen**, because contain identity is above Larkfield's ceiling. So the busiest actor in the product had no vocabulary on the surface that records it.
+
+**Two values are added here**, in the register of the existing one, and both name an action rather than a decision because that is what they are:
+
+| Value | Means |
+|---|---|
+| **`Clerk filed a verdict`** | The agent finished and put a ruling in front of a person. The commonest entry in the log by a distance |
+| **`Clerk opened the case`** | The agent correlated signals into a case. The first entry any case has |
+
+**Eight values now, and the closed set in 0.8 is unaffected**, because that set is the chips a *queue row* wears and this is the State column of a *log row*. They were already different lists with different jobs; this makes the difference say so.
+
+### The log row has no slot for the case, so nothing can route into 5.6
+
+Section 4 defines seven slots and none of them is the case. The consequence is not cosmetic: **a row in 5.1 cannot be the way into 5.6**, and the only surface in the product that names `C-4417` is 5.4 inside the pane. The history of one case is reachable only from an address somebody already has.
+
+**The case id joins the row as part of the Client slot**, not as an eighth column. The slot becomes the tenant and the case beneath it, which costs no width, keeps the canonical row at seven, and gives the row something to link to. A row's own link stays 5.4 as before; the case id is what opens 5.6.
+
+**Found by the agent drawing 5.6**, which is the one node in cluster 5 that has no `md` of its own. Three of its seven slots also carry nothing on a one-case history, since severity, client and what it was repeat on every row and the reason is empty because 0.7 is the taxonomy of rejections. That is recorded rather than fixed: re-deciding the canonical row for one screen is how a canonical row stops being one.

@@ -171,3 +171,20 @@ Taken at the close of stage 03b. A question is settled here only when the answer
 | 1 | Is the split resizable, and is the position remembered per analyst? | **Settled**. Closed at step 4 of the block bank. **Yes**, and it is documented PagerDuty behaviour rather than our invention. |
 | 2 | What does Z5 hold on `/shift`? | **Settled**. **The shell has no no-split mode.** On `/shift` the pane holds the brief's pointers resolved: selecting a carried over case puts that case in Z5, which is the same pane doing the same job. That is also what makes the two tap path from the brief real rather than asserted. |
 | 3 | Does a second analyst picking up a case change the row for the first? | **Settled**. **Yes, and it must.** Two analysts ruling the same case is the failure this product cannot afford. The row shows taken, by whom, since when, over the same live channel as the queue. If the connection is stale the marker is stale and says so, filing is still allowed under 0.4, and a genuine collision is **recorded** by 5.1's superseded machinery rather than prevented by a lock. |
+
+
+---
+
+## Corrected at the stage 04 fan-out
+
+Seven screens were drawn at once against this layer, and drawing is what made these visible. Each entry says what was found, who found it and what changes here rather than downstream.
+
+### Z1 had no rendering for a navigation item whose destination is down
+
+8.2 can take part of the console away while the rest of it runs: the decision log is unreachable and the queue is live. Z1 then has to render a section that exists, is permitted, and cannot be opened. **The specification had no rendering for that**, and the agent drawing 8.2 sidestepped it by putting the partial outage on the section she is already in, where the live link doubles as the retry.
+
+**The rendering is the one Z1 already uses for a screen that is not built**, and it is the same idea: an item that is plainly unavailable is better than an item that resolves to a failure. The item stays in its place, unlinked, and the strip below says what is down. It is never removed, because a navigation that quietly loses an item teaches the analyst that the product is smaller than it is.
+
+### The keyboard map had no trigger anywhere in the shell
+
+0.2 section 4 puts the map in Z1 and the shell never rendered the control, so 0.5 was unreachable from inside the product. **Found by the agent that drew the map**, which is the only place the absence was checkable: every other screen could be complete without it. A single character control now sits at the right of Z1, and it is absent on exactly two kinds of screen, both for the node's own reasons: before authentication there is no shell, and a console that is down cannot draw its own navigation.

@@ -178,6 +178,45 @@ flowchart TD
 
 ---
 
+## Flow 4: get in, and arrive where the link pointed
+
+> **Added at stage 04.** `screens.md` and the wireframe registry both named a fourth flow, the door, and this file held three. The gap was found by the agent drawing 1.1, which had no route to read and had to work from the node's own section 4 instead. That is exactly backwards.
+
+```mermaid
+flowchart TD
+    S4([A pager at 03:00, a link in a ticket, or the start of a shift]) --> In{Is she signed in?}
+    In -->|yes| Dest[Where the link pointed]
+    In -->|no| Door[E1 Sign in, the only public URL in the product]
+    Expired["Session expired mid decision, 1.2"] --> Door
+    Out["Signed out deliberately"] --> Door
+    Door --> Held{Was there a destination?}
+    Held -->|yes| Keep[The address is held across the round trip]
+    Held -->|no| Plain[No destination, so the queue]
+    Keep --> Idp[The provider's identity provider decides]
+    Plain --> Idp
+    Idp --> Ok{Did it answer?}
+    Ok -->|no| Fail["Error: the identity provider failed, and it is not her password"]
+    Fail --> Idp
+    Ok -->|yes| Dest
+    Dest --> Won4(["Job closed: she is inside, on the screen the link named"])
+
+    classDef success fill:#e6f4ee,stroke:#1c7a58,color:#123d2d;
+    classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    class S4,Won4 success;
+    class In,Dest,Door,Expired,Out,Held,Keep,Plain,Idp,Ok,Fail neutral;
+    linkStyle 0,1,5,6,8,10,12,13 stroke:#1c7a58,stroke-width:2px;
+```
+
+**Decisions.** Is she signed in. Was there a destination. Did the identity provider answer.
+
+**States.** `Error` when the identity provider fails, which is the one failure here that is **not hers** and must not tell her to change anything. Two domain states that look alike and are not: a session that expired underneath her keeps the destination, and a deliberate sign out clears it and says so. No `Empty`: one field and one button hold no collection that can be empty.
+
+**No dead end, and that is not luck.** Every route out of this flow ends inside the product, because the only failure it can raise is one that retrying can clear. A refusal by role is 8.3, which is LATER, and a tenant that is not hers is 8.1, which is already inside.
+
+**The whole flow exists for one line in `CLAUDE.md`**, the named mobile scenario: an on call analyst opening a paged case at 03:00. If the destination does not survive the round trip through the identity provider, she lands on the queue at three in the morning and has to find the case by hand, which is the failure the permalink was built to prevent. `Keep` is therefore the load bearing node of this diagram, not `Ok`.
+
+---
+
 ## What the flows did not change, and one debt they record
 
 **No new screens appeared.** Every screen node already exists in the concept sitemap: A1, B1, B2, C1, D1. `Pointer`, `Overlap`, `Esc`, `Own` and `Route` are steps or events rather than screens, and `Route` deliberately leaves the product.

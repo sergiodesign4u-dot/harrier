@@ -223,3 +223,39 @@ Taken at the close of stage 03b. A question is settled here only when the answer
 | 2 | Does the queue row need both the word and the glyph at 360? | **Stage 04 draws it**. Stage 04, drawn rather than argued. |
 | 3 | Is `acted` one chip, or does it need its class with it? | **Stage 04 draws it**. Stage 04, by drawing forty of them. |
 | 4 | Who owns these conventions after the MVP? | **Still open**. The missing settings surface, for the fourth time. Four nodes now point at one hole. |
+
+
+---
+
+## Corrected at the stage 04 fan-out
+
+Seven screens were drawn at once against this layer, and drawing is what made these visible. Each entry says what was found, who found it and what changes here rather than downstream.
+
+### A fourth grammar of time, because 8.2 needed one and there was none
+
+Section 4 gives three: elapsed, ISO 8601 in UTC, and wall clock on 2.1 only. All three describe the past or the present. **A planned maintenance window is in the future**, and there was no grammar for it.
+
+| Question | Grammar | Where |
+|---|---|---|
+| **When will this be over?** | ISO 8601 in UTC, the same as the log | 8.2 planned maintenance, and anything else that publishes a window ahead of time |
+
+The argument is the one that already settled UTC for the log: one analyst covers tenants in the United States and the EU, so a local rendering of a maintenance window makes two people disagree about when it ends. An estimate that is not published is **not rendered as a number at all**; the surface names who owns the value instead.
+
+### Three fixtures added at stage 04, and why each had to exist
+
+| Fixture | Why the canon could not do without it |
+|---|---|
+| **S. Varga**, SOC lead | 4.6 files an escalation to a named person on the rota, and the canon had one analyst and one peer. An escalation to the peer is not an escalation |
+| **C-4482** at Aubrey Dental Group | 4.8 is the tenant with no baseline, so its case cannot be `C-4417`, whose tenant has one |
+| **C-3180** at Norsk Marine, June 2026 | 5.5 needs an entry old enough for its snapshot to have failed, and the canonical case is four hours old |
+
+**The canonical case is still one**, `C-4417`, and it is still what 3.1, 4.1, 4.2 and 5.4 draw. These three exist because a state needed a case the canonical one cannot be, which is the same reason 4.8 was allowed a different tenant in the first place.
+
+### Two timestamps in the drawings contradicted the events they carried
+
+Both were caught by the agent drawing 5.6, which is the only surface that puts a case's whole life in one column.
+
+- **The snapshot was stamped before the last event it records.** `?as-of` read `04:12:38Z` while the narrative it carries ends with an inbox rule created at `04:13`. A record cannot be read before the thing it records. It is `04:14:05Z`
+- **The case was filed after it was escalated.** `Filed by Clerk 27m ago` put now at `04:39`, before the `04:41:12` escalation that two other screens already show as written. It is `26m`, which puts now one minute before she escalates
+
+Neither is a rule; both are the rule in section 7 failing in practice. **Fixtures must be internally consistent, and internal consistency includes arithmetic.**

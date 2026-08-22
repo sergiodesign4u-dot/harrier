@@ -184,8 +184,40 @@
 <div class="node"><span class="lbl">The same dead end appears twice</span><p>Here and in the main flow, both routes fail at the same place: evidence that no longer exists. The business outcome in the research is the share of client escalations where the original evidence answered the question without new investigation, and this is the node that decides it.</p></div>
 </section>
 
+<section id="door">
+<h2>04 &middot; Flow 4</h2>
+<p class="h2sub">Get in, and arrive where the link pointed</p>
+<div class="note"><p><strong>Added after publication, at stage 04.</strong> The wireframe registry and <code>wireframes/docs/screens.md</code> both named a fourth flow and this page held three. The gap was found by the agent drawing 1.1, which had no route to read and worked from the node instead. That is backwards, so the route is here now.</p></div>
+<div class="diagram"><pre class="mermaid">flowchart TD
+    S4([A pager at 03:00, a link in a ticket, or the start of a shift]) --&gt; In{Is she signed in?}
+    In --&gt;|yes| Dest[Where the link pointed]
+    In --&gt;|no| Door[E1 Sign in, the only public URL in the product]
+    Expired["Session expired mid decision, 1.2"] --&gt; Door
+    Out["Signed out deliberately"] --&gt; Door
+    Door --&gt; Held{Was there a destination?}
+    Held --&gt;|yes| Keep[The address is held across the round trip]
+    Held --&gt;|no| Plain[No destination, so the queue]
+    Keep --&gt; Idp[The provider&#39;s identity provider decides]
+    Plain --&gt; Idp
+    Idp --&gt; Ok{Did it answer?}
+    Ok --&gt;|no| Fail["Error: the identity provider failed, and it is not her password"]
+    Fail --&gt; Idp
+    Ok --&gt;|yes| Dest
+    Dest --&gt; Won4(["Job closed: she is inside, on the screen the link named"])
+
+    classDef success fill:#e6f4ee,stroke:#1c7a58,color:#123d2d;
+    classDef neutral fill:#ffffff,stroke:#c9ccce,color:#16181a;
+    class S4,Won4 success;
+    class In,Dest,Door,Expired,Out,Held,Keep,Plain,Idp,Ok,Fail neutral;
+    linkStyle 0,1,5,6,8,10,12,13 stroke:#1c7a58,stroke-width:2px;
+</pre></div>
+<p><strong>Decisions.</strong> Is she signed in. Was there a destination. Did the identity provider answer.</p>
+<p><strong>States.</strong> <code>Error</code> when the identity provider fails, which is the one failure here that is <strong>not hers</strong> and must not tell her to change anything. Two domain states that look alike and are not: a session that expired underneath her keeps the destination, and a deliberate sign out clears it and says so. No <code>Empty</code>: one field and one button hold no collection that can be empty.</p>
+<p><strong>The whole flow exists for one line in <code>CLAUDE.md</code></strong>, the named mobile scenario: an on call analyst opening a paged case at 03:00. If the destination does not survive the round trip through the identity provider, she lands on the queue at three in the morning and has to find the case by hand, which is the failure the permalink was built to prevent. <strong><code>Keep</code> is the load bearing node of this diagram, not <code>Ok</code>.</strong></p>
+</section>
+
 <section id="held">
-<h2>04 &middot; What the flows did not change</h2>
+<h2>05 &middot; What the flows did not change</h2>
 <p class="h2sub">The concept map held</p>
 <p><strong>No new screens appeared.</strong> Every node that is a screen already exists in the concept sitemap: A1, B1, B2, C1, D1. <code>Pointer</code>, <code>Overlap</code> and <code>Route</code> are steps or events rather than screens, and <code>Route</code> deliberately leaves the product.</p>
 <div class="note"><p><strong>Recorded debt, found by the second instrument.</strong> E1, F1 and F2 have no flows, because drawing a route for a deferred screen implies it is being built. The consequence is written down rather than left implicit: <strong>when those screens come off the backlog they will arrive with no empty, error or loading states defined</strong>, and whichever stage picks them up owes that work before drawing them.</p></div>
@@ -216,6 +248,7 @@
     { id:'main',   label:'Main job' },
     { id:'shift',  label:'R1 the shift' },
     { id:'answer', label:'R2 answer later' },
+    { id:'door',   label:'Flow 4 the door' },
     { id:'held',   label:'What did not change' },
   ];
 </script>
