@@ -11,29 +11,6 @@
 /* INLINE: queue :: for reconcile into _wf.css
    Only what is genuinely one-off for this screen family, every value through var().
    The shell, the row, the chips and the fleet already live in _wf.css. */
-#sidebar{padding:var(--s5) var(--s3)}
-.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
-       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-       display:flex;gap:var(--s4);flex-wrap:wrap}
-.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
-.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
-.qbanner{margin:var(--s3) var(--s4) 0}
-.nar{margin:0;font-size:var(--t-sm)}
-.nar + .nar{margin-top:var(--s2)}
-.nar b{font-weight:600}
-.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-           display:inline-block;min-width:46px}
-.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
-.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
-           border-bottom:var(--line);font-size:var(--t-sm)}
-.lat > div:last-child{border-bottom:none}
-.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
-.lat .off{color:var(--soft)}
-.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
-.lat .ceiling{background:var(--fill);font-weight:600}
-.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
-.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
 </style>
 </head>
 <body>
@@ -142,16 +119,16 @@
       </div>
       <div class="pane-body">
         <section class="block">
-          <h3>Amend the verdict</h3>
-          <div class="field">
-            <label for="amend">Your wording</label>
-            <textarea id="amend" rows="4">Real, but the containment should be the endpoint rather than the identity: the account is shared by the depot shift and disabling it stops four people working.</textarea>
-            <p class="hint">While this field has focus, letters are text and nothing else. The verdict keys are inert.</p>
-          </div>
-          <div class="banner banner--quiet"><b>Clerk wrote:</b> Real, and it wants to contain the identity. <b>Kept beside yours</b>, never replaced, because an amendment is only defensible next to what it amended.</div>
-          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">No reason code. The amended text is the reason, and asking you to classify your own writing would add a step that teaches nobody.</p>
-        </section>
-        <section class="block">
+              <h3>Amend the verdict</h3>
+              <div class="field">
+                <label for="amend">Your wording</label>
+                <textarea id="amend" rows="4">Real, but the containment should be the endpoint rather than the identity: the account is shared by the depot shift and disabling it stops four people working.</textarea>
+                <p class="hint">While this field has focus, letters are text and nothing else. The verdict keys are inert.</p>
+              </div>
+              <div class="banner banner--quiet"><b>Clerk wrote:</b> Real, and it wants to contain the identity. <b>Kept beside yours</b>, never replaced, because an amendment is only defensible next to what it amended.</div>
+              <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">No reason code. The amended text is the reason, and asking you to classify your own writing would add a step that teaches nobody.</p>
+            </section>
+            <section class="block">
           <h3>Evidence, 9 signals</h3>
           <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="case.html">Entra sign in</a></div>
           <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="case.html">Entra sign in</a></div>

@@ -4,14 +4,7 @@ OUT = '/Users/sergiyshevchenko/Claud Projects/B2B AI flow /wireframes/'
 
 INLINE = """/* INLINE: queue :: for reconcile into _wf.css
    Only what is genuinely one-off for this screen family, every value through var().
-   The shell, the row, the chips and the fleet already live in _wf.css. */
-#sidebar{padding:var(--s5) var(--s3)}
-.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
-       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-       display:flex;gap:var(--s4);flex-wrap:wrap}
-.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
-.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
-.qbanner{margin:var(--s3) var(--s4) 0}"""
+   The shell, the row, the chips and the fleet already live in _wf.css. */"""
 
 def bars(n):
     return '<span class="bars">' + ''.join('<i class="on"></i>' if i < n else '<i></i>' for i in range(3)) + '</span>'

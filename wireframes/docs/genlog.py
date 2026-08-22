@@ -1,37 +1,13 @@
 # -*- coding: utf-8 -*-
-import sys
-sys.path.insert(0, '/private/tmp/claude-501/-Users-sergiyshevchenko-Claud-Projects-B2B-AI-flow-/ca733e22-18c6-48ed-bd85-19994527642b/scratchpad')
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import genqueue as Q, gencase as C
 
 INLINE = C.INLINE + """
-/* The canonical row, three slots changed. 5.1 section 4 owns the list of changes; this owns
-   only the widths they need. `To check` is gone and `Age` became an absolute UTC stamp, and
-   an ISO 8601 string does not fit in the 40px the relative age used.
-   Everything except the stamp is FLUID, for the same reason the queue's row is: the pane is
-   resizable, and the prototype's own 244px panel means the screen runs in about 1040 at 1280. */
-.rows--log{--row-tracks:74px 96px minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr) 106px 138px}
-/* The stamp never breaks mid string: half an ISO 8601 on each line is not the grammar
-   0.8 defined. If it stops fitting, that is a measurable failure rather than an ugly wrap. */
-.rows--log .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-                 white-space:nowrap;overflow-wrap:normal}
-.rows--log .states{display:flex;flex-wrap:wrap;gap:var(--s1);align-content:start}
-.rows--log .states .chip{white-space:normal;text-align:center}
-.rows--log .why{font-size:var(--t-xs);color:var(--soft)}
-.row.is-superseded{background:repeating-linear-gradient(135deg,transparent 0 7px,var(--fill) 7px 8px)}
-.row .sup{display:block;font-size:var(--t-xs);color:var(--soft);margin-top:var(--s1)}
-.covers{display:flex;flex-direction:column;gap:var(--s1);font-size:var(--t-sm)}
-.covers .k{font:600 var(--t-xs)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
-           color:var(--soft)}
-.covers .v{margin-bottom:var(--s2)}
-.seek{display:flex;flex-direction:column;gap:var(--s3)}
 /* 5.1 section 8: the log is NOT rendered at 360. `CLAUDE.md` gives the phone one scenario,
    a paged case read and escalated, and answering an auditor is not it. So the narrowed
    rendering says that instead of squeezing seven columns into a phone. 5.4 is the boundary
    case and it is different: a permalink can arrive anywhere. */
-/* The log's pane is white like 4.1's, but it deliberately does NOT take `is-paper`.
-   That class is what tells _wf.css to swap the pane in for the list at 360, and on this
-   screen there is no swap to make: nothing here renders on a phone. Same paint, no swap. */
-.z5--paper{background:var(--paper)}
 @media (max-width:900px){
   .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,
   .z4--log .banner:not(.only-narrow){display:none}

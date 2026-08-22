@@ -1,26 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys, os
-sys.path.insert(0, '/private/tmp/claude-501/-Users-sergiyshevchenko-Claud-Projects-B2B-AI-flow-/ca733e22-18c6-48ed-bd85-19994527642b/scratchpad')
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import genqueue as Q   # reuse the row builders so the list cannot drift between screens
 OUT = Q.OUT
 
-INLINE = Q.INLINE + """
-.nar{margin:0;font-size:var(--t-sm)}
-.nar + .nar{margin-top:var(--s2)}
-.nar b{font-weight:600}
-.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-           display:inline-block;min-width:46px}
-.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
-.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
-           border-bottom:var(--line);font-size:var(--t-sm)}
-.lat > div:last-child{border-bottom:none}
-.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
-.lat .off{color:var(--soft)}
-.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
-.lat .ceiling{background:var(--fill);font-weight:600}
-.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
-.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}"""
+INLINE = Q.INLINE
 Q.INLINE = INLINE   # page() renders the module level constant, so hand it ours
 
 def z4_with_case(selected_href, rows=None, sel_state=None):

@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
-import sys
-sys.path.insert(0, '/private/tmp/claude-501/-Users-sergiyshevchenko-Claud-Projects-B2B-AI-flow-/ca733e22-18c6-48ed-bd85-19994527642b/scratchpad')
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import genqueue as Q, gencase as C
 
 INLINE = C.INLINE + """
-.cons{border:var(--line);border-radius:var(--radius);padding:var(--s2) var(--s3);
-      font-size:var(--t-sm);min-height:58px}
-.cons.is-empty{border-style:dashed;color:var(--soft)}
-.cons b{font-weight:600}
 .axisb{display:flex;flex-direction:column;gap:var(--s2)}
 .axisb .locked{display:flex;gap:var(--s2);align-items:baseline;border:1px dashed var(--soft);
                border-radius:var(--radius);padding:var(--s2) var(--s3);font-size:var(--t-sm);color:var(--soft)}

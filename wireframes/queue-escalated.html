@@ -11,13 +11,6 @@
 /* INLINE: queue :: for reconcile into _wf.css
    Only what is genuinely one-off for this screen family, every value through var().
    The shell, the row, the chips and the fleet already live in _wf.css. */
-#sidebar{padding:var(--s5) var(--s3)}
-.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
-       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-       display:flex;gap:var(--s4);flex-wrap:wrap}
-.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
-.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
-.qbanner{margin:var(--s3) var(--s4) 0}
 </style>
 </head>
 <body>
@@ -120,29 +113,29 @@
     </section>
 
     <aside class="z5 is-paper" aria-labelledby="ph">
-      <div class="pane-head">
-        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
-        <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
-        <p class="chips-hd"><i class="chip chip--state chip--solid">escalated</i></p>
-      </div>
-      <div class="pane-body">
-        <div class="banner"><b>Handed to S. Varga, 4s ago.</b> Sent through the provider&rsquo;s on call tool. Harrier recorded that it was sent; it is not the thing that delivered it.</div>
-        <section class="block">
-          <h3>What changed, and what did not</h3>
-          <p style="margin:0"><b>No verdict was filed.</b> Clerk&rsquo;s conclusion stands unruled, the case is still open, and the count above is still 18. What changed is that the row no longer looks like a case nobody has touched.</p>
-        </section>
-        <section class="block">
-          <h3>Where it is now</h3>
-          <p style="margin:0"><a href="entry.html">The log entry, with the handover as it was written</a></p>
-        </section>
-        <p class="prov">It cannot be taken back. If S. Varga hands it back, that is a second entry rather than an erased one. <b>No toast:</b> the row wears <b>escalated</b>, which is the feedback.</p>
-      </div>
-      <div class="pane-foot">
-        <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
-        <a class="btn btn--quiet" href="log.html">Open the log</a>
-      </div>
-    </aside>
-  </main>
+          <div class="pane-head">
+            <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+            <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
+            <p class="chips-hd"><i class="chip chip--state chip--solid">escalated</i></p>
+          </div>
+          <div class="pane-body">
+            <div class="banner"><b>Handed to S. Varga, 4s ago.</b> Sent through the provider&rsquo;s on call tool. Harrier recorded that it was sent; it is not the thing that delivered it.</div>
+            <section class="block">
+              <h3>What changed, and what did not</h3>
+              <p style="margin:0"><b>No verdict was filed.</b> Clerk&rsquo;s conclusion stands unruled, the case is still open, and the count above is still 18. What changed is that the row no longer looks like a case nobody has touched.</p>
+            </section>
+            <section class="block">
+              <h3>Where it is now</h3>
+              <p style="margin:0"><a href="entry.html">The log entry, with the handover as it was written</a></p>
+            </section>
+            <p class="prov">It cannot be taken back. If S. Varga hands it back, that is a second entry rather than an erased one. <b>No toast:</b> the row wears <b>escalated</b>, which is the feedback.</p>
+          </div>
+          <div class="pane-foot">
+            <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
+            <a class="btn btn--quiet" href="log.html">Open the log</a>
+          </div>
+        </aside>
+      </main>
 </div>
 </div>
 <script src="_nav.js"></script>
