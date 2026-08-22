@@ -15,7 +15,8 @@ INLINE = C.INLINE + """
       font:600 var(--t-xs)/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;
       padding:var(--s2) var(--s4);display:flex;gap:var(--s3);flex-wrap:wrap;align-items:baseline}
 .rail .soft{font-weight:400;text-transform:none;letter-spacing:0;opacity:.72}
-.rail--foot{position:static;background:var(--fill);color:var(--soft);border-top:2px solid var(--ink)}
+.rail--foot{position:static;background:var(--fill);color:var(--soft);border-top:2px solid var(--ink);
+            text-transform:none;letter-spacing:0;font-weight:400;font-size:var(--t-sm)}
 .doc{padding:var(--s5) var(--s4);display:flex;flex-direction:column;gap:var(--s5)}
 .doc h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
 .doc h1 .stampline{display:block;font:400 var(--t-sm)/1.4 var(--mono);color:var(--soft);
@@ -140,7 +141,7 @@ def retention(until='2026-11-20T04:12:38Z'):
 def live(text=None):
     return ('        <section class="block">\n          <h3>The live case</h3>\n'
             '          <p class="nar">%s</p>\n'
-            '          <p style="margin:var(--s2) 0 0"><a href="case.html">Open C-4417 as it is now</a></p>\n'
+            '          <p style="margin:var(--s2) 0 0"><a class="btn" href="case.html">Open C-4417 as it is now</a></p>\n'
             '        </section>\n'
             ) % (text or 'A different thing, named and linked rather than shown beside this one. '
                          'Current values next to historical ones is the confusion, not the cure.')
@@ -214,7 +215,7 @@ page('entry-gone.html', 'Log entry, nothing survived', ASOF_OLD,
      + address(ASOF_OLD, entry='e-71903')
      + '        <section class="block">\n          <h3>The live case</h3>\n'
        '          <p class="nar">C-3180 closed on 2026-06-09 and its page still resolves.</p>\n'
-       '          <p style="margin:var(--s2) 0 0"><a href="log-snapshot-gone.html">Back to the log, June 2026</a></p>\n'
+       '          <p style="margin:var(--s2) 0 0"><a class="btn" href="log-snapshot-gone.html">Back to the log, June 2026</a></p>\n'
        '        </section>\n'
      + NO_CONTROLS + '      </div>\n')
 
