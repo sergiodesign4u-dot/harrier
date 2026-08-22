@@ -288,10 +288,6 @@ window.WF_SHELL = function(o){
   st.textContent =
     '#sidebar{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow-y:auto;' +
       'scrollbar-width:thin;padding-right:4px}' +
-    /* The panel is the STAGE's chrome, not the product's, and at 360 a full height tree
-       pushes the screen being reviewed off the bottom of the phone. It keeps its place
-       and scrolls inside 120px instead, so the thing under review is what you land on. */
-    '@media (max-width:900px){#sidebar{position:static;max-height:120px;padding:12px 10px}}' +
     '.wf-badge{display:inline-block;font:600 10px/1 var(--mono,monospace);letter-spacing:.14em;' +
       'border:1px solid var(--nav-active);color:var(--nav-active);border-radius:3px;padding:3px 6px}' +
     '.wf-sub{margin:6px 0 14px;font-size:11.5px;color:var(--nav-muted)}' +
@@ -310,7 +306,10 @@ window.WF_SHELL = function(o){
     '.wf-out{margin-top:18px;padding-top:12px;border-top:1px solid var(--nav-rule);font-size:12px}' +
     '.wf-out a{color:var(--nav-muted);text-decoration:none;display:block;padding:3px 10px}' +
     '.wf-out a:hover{color:var(--nav-active)}' +
-    '@media (max-width:900px){#sidebar{position:static;max-height:none;overflow:visible}}';
+    /* The panel is the STAGE's chrome, not the product's. Unstuck at narrow, and CAPPED:
+       a full height tree put the screen being reviewed 1278px down a 760px phone, so the
+       first thing you landed on was the navigation rather than the thing under review. */
+    '@media (max-width:900px){#sidebar{position:static;max-height:120px;overflow-y:auto;padding:12px 10px}}';
   document.head.appendChild(st);
 })();
 
