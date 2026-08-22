@@ -455,7 +455,6 @@ a.opt:hover{background:var(--fill)}
      a box that never scrolls and the decision sat two viewports down. 4.2 had found this and
      fixed it privately for one screen; every other pane kept the defect. */
   .z5,.z5.is-paper{overflow:visible}
-  .z4--solo,.z4--entry{overflow:visible}
   .pane-foot{padding:var(--s2) var(--s3)}
   .claim{flex-wrap:wrap}
   .claim .src{margin-left:auto}
@@ -522,3 +521,15 @@ a.opt:hover{background:var(--fill)}
 .anote b,.anote strong{color:var(--soft);font-weight:700}
 .anote code{font-size:inherit}
 .anote + .anote{margin-top:var(--s2)}
+
+
+/* ---------------------------------------------------------------------------------------
+   15. THE NARROW OVERFLOW RESETS LIVE AT THE END OF THE FILE ON PURPOSE.
+   Written first inside the narrow block at section 13, they lost to `.z4--solo,.z4--entry`
+   at section 10, which is later in the file and carries the same specificity. A media query
+   adds no weight, so the only thing that decides it is order. Anything overriding a rule
+   from the moved sections belongs below them.
+   --------------------------------------------------------------------------------------- */
+@media (max-width:900px){
+  .z4--solo,.z4--entry{overflow:visible}
+}
