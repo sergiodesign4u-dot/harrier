@@ -28,6 +28,9 @@ INLINE = C.INLINE + """
   .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,
   .z4--log .banner:not(.only-narrow){display:none}
   .z45:has(> .z4--log) > .z5{display:none}
+  /* _wf.css swaps the pane in for the list at 360; on the log there is no swap to make,
+     so the screen keeps its own frame and says why it stops here. */
+  .z45:has(> .z4--log) > .z4{display:flex}
   .z4--log .only-narrow{margin:var(--s4)}
 }"""
 Q.INLINE = INLINE
