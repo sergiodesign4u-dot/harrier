@@ -118,6 +118,10 @@ Column groups: the four system states are the floor, then the states each node's
 | - Loading | none | It resolves as a page load; a spinner inside a permalink is a second wait for one navigation |
 | - Success | none | Nothing is submitted. This is the record, not a form |
 
+**One contradiction inside 5.4's own node, found by drawing it.** The state matrix gives `Beyond retention` an **absent** verdict record, while section 7b, added at the close of 03b, says the verdict record is **kept for the life of the record** and only the snapshot has a shorter window. Both cannot be true.
+
+Drawn per the matrix, because that is what stage 04 renders, and the reading that makes it coherent is written on the page: **beyond retention means the log does not reach back this far at all**, so there is no entry, not an entry stripped of its evidence. `entry-gone.html` is the other case, where the entry is present and the snapshot died. **For 5.4 to settle which it means.**
+
 ---
 
 ## 4. The two choices
