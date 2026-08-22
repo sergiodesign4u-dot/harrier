@@ -1,4 +1,4 @@
-# Stage 04: screens of the main flow, and their states
+# Stage 04: the screens of the product, and their states
 
 **Reference screen: `3.1 Case Queue`. First flow to assemble: the main job, Queue to Case File to verdict to log.** Both chosen at step 1 and argued in section 4. Stages 05 and 06 read the reference from this line and do not re-derive it.
 
@@ -6,7 +6,7 @@
 
 ## 1. What this file is
 
-Rows are screens of the **main flow only**. The rest of the product is estimated and rolled out at step 8, and the deferred list lives in section 6 so that nothing is quietly dropped.
+Rows were the **main flow only** until step 8, which expanded the matrix to the whole product before any estimate was shown. Section 5 now carries the estimate for all thirteen MVP screens, and section 6 carries the six that are not drawn in this round with the reason.
 
 A `✓` means the state is real and gets **its own page**, because the prototype has to navigate between states rather than describe them. A `-` means the scenario does not produce that state here, and **every `-` carries a reason**, because without one it cannot be told apart from a state somebody forgot. Stage 05 step 4 and stage 07 step 2 read this matrix as the complete list of states in the product.
 
@@ -124,6 +124,78 @@ Drawn per the matrix, because that is what stage 04 renders, and the reading tha
 
 ---
 
+## 3b. The matrix, the rest of the product
+
+Expanded at step 8, from each node's own state matrix, before the estimate below was shown. Nothing here was invented at this stage: a state that is not in a node's specification is not a row.
+
+### 2.1 Shift brief, flow 2
+
+| State | Page | Why it exists |
+|---|---|---|
+| ✓ Default | `shift.html` | Incoming. Both names, the window, and the counted lines that are each a pointer into a case |
+| ✓ Role, outgoing | `shift-outgoing.html` | The same node read by the analyst handing over mid shift. **The one screen in the product with two readers** |
+| ✓ Loading, 2.2 | `shift-assembling.html` | Assembling. What is being gathered is named, never a spinner |
+| ✓ Empty, 2.3 | `shift-nothing-carried.html` | Nothing carried over, and what was quiet said out loud rather than a blank |
+| ✓ Success, 2.4 | `shift-sealed.html` | Sealed by the outgoing analyst: who sealed it and when |
+| ✓ Error, 2.5 | `shift-close-failed.html` | The close did not write |
+| ✓ Domain | `shift-unsealed.html` | Nobody sealed it. The incoming analyst inherits a brief that was never closed |
+
+**Page type C, and it is the one type in the whole bank with no domain reference anywhere.** Three Refero searches returned calendars and changelogs; PagerDuty's on call handoff article is gone from the live knowledge base. The comparison column in `blocks.md` carries the barrier instead of a reference, so this screen is the most likely of the seven to need a second pass.
+
+### 4.2 Case File, standalone route, flow 1
+
+| State | Page | Why it exists |
+|---|---|---|
+| ✓ Default | `case-standalone.html` | Arrived by link. The same case, no list beside it, because the address resolved on its own |
+| ✓ Success | `case-standalone-filed.html` | After filing from the standalone route, where there is no queue to return the row to |
+| ✓ Error | `case-standalone-stale.html` | Connection stale on a route that has no list to fall back to |
+| - The three 360 columns of the node's matrix | none | **Viewports, not states.** The same three pages narrowed, which is what one live responsive screen means |
+
+**This is the screen the whole 360 promise rests on.** The named mobile scenario is an on call analyst opening a paged case at 03:00, reading it and escalating, and this is the route that arrives in the pager.
+
+### 1.1 Sign in, flow 4
+
+| State | Page | Why it exists |
+|---|---|---|
+| ✓ Default | `index.html` | Arrived on purpose. **The only public URL in the product**, and the product's home screen |
+| ✓ Role | `index-deep-link.html` | Arrived by a deep link, which must survive the round trip through the identity provider |
+| ✓ Domain, 1.2 | `index-expired.html` | The session expired underneath her, mid decision |
+| ✓ Domain | `index-signed-out.html` | Signed out deliberately, which is not the same message as expired |
+| ✓ Error | `index-idp-error.html` | The identity provider failed, and it is not her password |
+| - Empty | none | One field and one button. There is no collection here that can be empty |
+
+### 5.6 History of one case, flow 3
+
+| State | Page | Why it exists |
+|---|---|---|
+| ✓ Default | `case-history.html` | Every entry for one case in order. 5.1 with one chip applied |
+| ✓ Domain | `case-history-superseded.html` | A correction beside what it corrected, which is the shape the whole log is built on |
+| - Loading, error, success | none | It is a narrowing of 5.1 and inherits all three from it |
+
+### 8.2 Service unavailable, flow 5
+
+| State | Page | Why it exists |
+|---|---|---|
+| ✓ Default | `unavailable.html` | Unplanned. Names what is down and **whether verdicts can still be filed** |
+| ✓ Domain | `unavailable-planned.html` | Planned maintenance, which is a different sentence and a different decision |
+| ✓ Domain | `unavailable-partial.html` | Part of it is down, and the fallback contact appears only if the down part matters to a decision |
+
+### 8.1 Not found, flow 5
+
+| State | Page | Why it exists |
+|---|---|---|
+| ✓ Default | `not-found.html` | **A tenant that is not hers renders identically to a case that does not exist.** That is tenant isolation drawn rather than described |
+| - Everything else | none | It is itself an error state. A state of a state is a node the map does not have |
+
+### 0.5 Keyboard map, flow 5
+
+| State | Page | Why it exists |
+|---|---|---|
+| ✓ Default | `keyboard.html` | A dialog over any screen. It carries the one real inconsistency in the product, `Enter` filing in 4.4 and making a line in 4.6 |
+| - Loading, error, empty | none | A static list rendered from the client. None of the three can occur |
+
+---
+
 ## 4. The two choices
 
 ### Reference screen: 3.1 Case Queue
@@ -155,36 +227,53 @@ It is the flow that reuses the reference most, and every screen in it is a varia
 
 ---
 
-## 5. Page count for the main flow
+## 5. The estimate for the whole product, step 8
 
-| Screen | Pages |
-|---|---|
-| 3.1 Case Queue | 9 |
-| 4.1 Case File in the pane | 8 |
-| 4.4 Reject | 5 |
-| 4.6 Escalate | 4 |
-| 5.1 Decision log | 5 |
-| 5.4 Log entry | 5 |
-| **Total, main flow** | **36** |
+| Screen | Node | Scope | States | Pages | Status |
+|---|---|---|---|---|---|
+| Case Queue | 3.1 | MVP | 9 | 9 | **built** |
+| Case File in the pane | 4.1 | MVP | 8 | 8 | **built** |
+| Reject with a reason | 4.4 | MVP | 5 | 5 | **built** |
+| Escalate | 4.6 | MVP | 4 | 4 | **built** |
+| Decision log | 5.1 | MVP | 5 | 5 | **built** |
+| Log entry, `?as-of` | 5.4 | MVP | 5 | 5 | **built** |
+| Shift brief | 2.1 | MVP | 7 | 7 | to roll out |
+| Sign in | 1.1 | MVP | 5 | 5 | to roll out |
+| Case File, standalone route | 4.2 | MVP | 3 | 3 | to roll out |
+| Service unavailable | 8.2 | MVP | 3 | 3 | to roll out |
+| History of one case | 5.6 | MVP | 2 | 2 | to roll out |
+| Not found | 8.1 | MVP | 1 | 1 | to roll out |
+| Keyboard map | 0.5 | MVP | 1 | 1 | to roll out |
+| Client summary, and its sending | 6.1, 6.2 | LATER | 0 | 0 | not this round |
+| Tenant detail, grants, grant change | 7.1, 7.2, 7.3 | LATER | 0 | 0 | not this round |
+| Permission denied | 8.3 | LATER | 0 | 0 | not this round |
 
-Plus `overview.html`, the hub. **7 cells marked `-`, each with its reason above**, and 36 states drawn. The thirty sixth arrived at step 6 rather than step 1, and the row above says why.
+**Together 58 pages, of which 58 are in the MVP scope and 36 are already drawn. 22 remain, across 7 screens.** Plus `overview.html`, the hub. **Eleven cells marked `-`, each with its reason above.**
+
+### Every MVP node is accounted for, and this is the check that says so
+
+The map holds **46 nodes, 40 of them MVP**. A screen count alone cannot prove coverage, because most nodes are not screens.
+
+| How the node renders | Count | Which |
+|---|---|---|
+| **Its own screen** | 13 | 0.5, 1.1, 2.1, 3.1, 4.1, 4.2, 4.4, 4.6, 5.1, 5.4, 5.6, 8.1, 8.2 |
+| **A state of a screen** | 17 | 1.2, 2.2, 2.3, 2.4, 2.5, 3.2, 3.3, 3.4, 4.3, 4.5, 4.7, 4.8, 4.9, 4.10, 5.2, 5.3, 5.5 |
+| **Inside a host, with no page of its own** | 10 | 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 3.5, 3.6, 8.4 |
+| **Not drawn this round** | 6 | 6.1, 6.2, 7.1, 7.2, 7.3, 8.3, all LATER |
+
+13 + 17 + 10 = **40, which is every MVP node**, and the six LATER ones are named rather than missing.
 
 ---
 
-## 6. Deferred to step 8, and not forgotten
+## 6. Not drawn in this round, and why
 
-The main flow is the pattern. These are on the map with scope already carried, and the estimate for them is made at step 8 before anything is rolled out:
-
-| Node | Screen | Scope |
+| Node | Screen | Why it waits |
 |---|---|---|
-| 1.1, 1.2 | Sign in, session expired | MVP |
-| 2.1 to 2.5 | Shift brief and its four states. **Page type C, no domain reference** | MVP |
-| 3.5, 3.6 | Fleet and scope bar, drawn inside 3.1 and listed here so the coverage map counts them | MVP |
-| 4.2 | Case File standalone, the permalink and the 360 rendering | MVP |
-| 5.6 | History of one case | MVP |
-| 8.1, 8.2, 8.4 | Not found, service unavailable, toast stack | MVP |
-| 0.5 | Keyboard map, a dialog over any screen | MVP |
-| 6.1, 6.2, 7.1, 7.2, 7.3, 8.3 | Client summary, autonomy, permission denied | **LATER**, and they are not drawn in this round |
+| 6.1, 6.2 | Client summary draft, editing and sending | LATER on the map. Cluster 6 is the third job and it is not in the MVP three |
+| 7.1, 7.2, 7.3 | Tenant detail, autonomy grants, grant change | LATER, and the whole of cluster 7 arrives with the `Clients` navigation item that the MVP does not have |
+| 8.3 | Permission denied | LATER, changed at the stage 03b audit: a tenant that is not hers renders **8.1**, so what is left for 8.3 is a refusal by role, and cluster 7 holds the first one |
+
+**None of these is forgotten and none is a state of something built.** Each is a screen on the map with its scope already carried, so the round that picks them up starts from a specification rather than from a gap.
 
 ---
 
