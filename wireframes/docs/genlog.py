@@ -6,8 +6,10 @@ import genqueue as Q, gencase as C
 INLINE = C.INLINE + """
 /* The canonical row, three slots changed. 5.1 section 4 owns the list of changes; this owns
    only the widths they need. `To check` is gone and `Age` became an absolute UTC stamp, and
-   an ISO 8601 string does not fit in the 40px the relative age used. */
-.rows--log{--row-tracks:86px 118px minmax(96px,1fr) minmax(150px,1.35fr) 118px 104px 152px}
+   an ISO 8601 string does not fit in the 40px the relative age used.
+   Everything except the stamp is FLUID, for the same reason the queue's row is: the pane is
+   resizable, and the prototype's own 244px panel means the screen runs in about 1040 at 1280. */
+.rows--log{--row-tracks:74px 100px minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr) 90px 132px}
 .rows--log .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
                  overflow-wrap:anywhere}
 .rows--log .why{font-size:var(--t-xs);color:var(--soft)}
@@ -17,7 +19,16 @@ INLINE = C.INLINE + """
 .covers .k{font:600 var(--t-xs)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
            color:var(--soft)}
 .covers .v{margin-bottom:var(--s2)}
-.seek{display:flex;flex-direction:column;gap:var(--s3)}"""
+.seek{display:flex;flex-direction:column;gap:var(--s3)}
+/* 5.1 section 8: the log is NOT rendered at 360. `CLAUDE.md` gives the phone one scenario,
+   a paged case read and escalated, and answering an auditor is not it. So the narrowed
+   rendering says that instead of squeezing seven columns into a phone. 5.4 is the boundary
+   case and it is different: a permalink can arrive anywhere. */
+@media (max-width:900px){
+  .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,.z4--log .banner{display:none}
+  .z45:has(> .z4--log) > .z5{display:none}
+  .z4--log .only-narrow{margin:var(--s4)}
+}"""
 Q.INLINE = INLINE
 
 # ---------------------------------------------------------------------------- the row
@@ -91,10 +102,19 @@ CHIPS = ('        <button class="chip" type="button">All tenants &#9662;</button
          '        <button class="chip chip--ghost" type="button">Any actor &#9662;</button>\n'
          '        <button class="chip chip--ghost" type="button">Any decision &#9662;</button>\n')
 
+NARROW_NOTE = ('      <div class="banner only-narrow"><b>The decision log is a desk surface.</b> '
+               'The phone has one scenario in this product, a paged case read and escalated, and '
+               'answering an auditor is not it. Seven columns of record squeezed onto a phone would '
+               'be a second console pretending to be this one.<br><br>'
+               'The one thing here that does open on a phone is <b>a single entry at its own address</b>, '
+               'because a permalink can arrive anywhere.'
+               '<span class="act"><a class="btn" href="queue.html">Back to the queue</a></span></div>\n')
+
 def z4(chips, h1, body, foot):
-    return ('    <section class="z4" aria-labelledby="lh">\n'
+    return ('    <section class="z4 z4--log" aria-labelledby="lh">\n'
             '      <div class="scopebar" role="group" aria-label="Scope and filters">\n%s      </div>\n\n'
-            '      <h1 id="lh" class="readout">%s</h1>\n\n%s%s    </section>\n\n') % (chips, h1, body, foot)
+            '      <h1 id="lh" class="readout">%s</h1>\n\n%s%s%s    </section>\n\n'
+            ) % (chips, h1, NARROW_NOTE, body, foot)
 
 # ---------------------------------------------------------------------------- the pane at rest
 def covers(narrowing, count, span, earliest='2026-02-03T08:14:20Z'):
