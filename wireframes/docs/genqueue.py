@@ -132,157 +132,158 @@ def grid(rows_html, extra=''):
 def rows_html(items):
     return ''.join(row(*i) for i in items)
 
-# ---------------------------------------------------------------- 1. default
-page('queue.html', 'Case queue', 'live',
-     z4(CHIPS_LIVE, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
-        grid(rows_html(BASE_ROWS))),
-     fleet())
+if __name__ == '__main__':
+    # ---------------------------------------------------------------- 1. default
+    page('queue.html', 'Case queue', 'live',
+         z4(CHIPS_LIVE, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            grid(rows_html(BASE_ROWS))),
+         fleet())
 
-# ---------------------------------------------------------------- 2. streaming, 3.2
-page('queue-streaming.html', 'Case queue, streaming in', 'arriving',
-     z4(CHIPS_DEFAULT,
-        '<b>14 waiting so far</b> <span class="dim">provisional, Clerk is still correlating</span>',
-        grid(rows_html([BASE_ROWS[0],
-             ('High','Larkfield Logistics','Token replay from a new ASN',None,None,'counting',
-              ['investigating?'],'27m','case-investigating.html','')] + BASE_ROWS[2:4]) +
-             '        <p class="empty" style="padding:var(--s4)">Rows arrive as Clerk correlates them. '
-             '<b style="display:inline;font-size:inherit">The count above is provisional and says so</b>, '
-             'because a number that settles later without saying it was provisional is a number she acted on.</p>\n',
-             extra='        <div class="arriving" aria-label="Cases arriving"></div>\n'),
-        FOOT % '4 of 14 so far, more arriving'),
-     fleet())
+    # ---------------------------------------------------------------- 2. streaming, 3.2
+    page('queue-streaming.html', 'Case queue, streaming in', 'arriving',
+         z4(CHIPS_DEFAULT,
+            '<b>14 waiting so far</b> <span class="dim">provisional, Clerk is still correlating</span>',
+            grid(rows_html([BASE_ROWS[0],
+                 ('High','Larkfield Logistics','Token replay from a new ASN',None,None,'counting',
+                  ['investigating?'],'27m','case-investigating.html','')] + BASE_ROWS[2:4]) +
+                 '        <p class="empty" style="padding:var(--s4)">Rows arrive as Clerk correlates them. '
+                 '<b style="display:inline;font-size:inherit">The count above is provisional and says so</b>, '
+                 'because a number that settles later without saying it was provisional is a number she acted on.</p>\n',
+                 extra='        <div class="arriving" aria-label="Cases arriving"></div>\n'),
+            FOOT % '4 of 14 so far, more arriving'),
+         fleet())
 
-# ---------------------------------------------------------------- 3. stale, 3.3
-page('queue-stale.html', 'Case queue, stale', 'stale',
-     z4(CHIPS_DEFAULT,
-        '<b>18 waiting</b> <span class="dim">as of 6m, across 12 of 40 tenants in scope</span>',
-        '      <div class="banner qbanner"><b>Marked as of the last sync.</b> The list is readable and it is '
-        'not fresh. Filing a verdict is still allowed: a degraded connection does not block a decision, '
-        'and the log records the snapshot you actually saw.'
-        '<span class="act"><a class="btn" href="queue-streaming.html">Try to reconnect</a></span></div>\n\n'
-        + grid(rows_html(BASE_ROWS)),
-        FOOT % '7 of 18 shown, frozen at the last sync'),
-     fleet(sub='40 tenants, nothing selected. Frozen as of the last sync', stale=True))
+    # ---------------------------------------------------------------- 3. stale, 3.3
+    page('queue-stale.html', 'Case queue, stale', 'stale',
+         z4(CHIPS_DEFAULT,
+            '<b>18 waiting</b> <span class="dim">as of 6m, across 12 of 40 tenants in scope</span>',
+            '      <div class="banner qbanner"><b>Marked as of the last sync.</b> The list is readable and it is '
+            'not fresh. Filing a verdict is still allowed: a degraded connection does not block a decision, '
+            'and the log records the snapshot you actually saw.'
+            '<span class="act"><a class="btn" href="queue-streaming.html">Try to reconnect</a></span></div>\n\n'
+            + grid(rows_html(BASE_ROWS)),
+            FOOT % '7 of 18 shown, frozen at the last sync'),
+         fleet(sub='40 tenants, nothing selected. Frozen as of the last sync', stale=True))
 
-# ---------------------------------------------------------------- 4. nothing waiting, 3.4
-page('queue-empty.html', 'Case queue, nothing waiting', 'live',
-     z4(CHIPS_DEFAULT,
-        '<b>Nothing waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
-        '      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">\n'
-        '        <p class="empty"><b>Nothing is waiting on a decision.</b>\n'
-        '          21 cases were ruled on this shift and Clerk is investigating 3 more.<br>\n'
-        '          The pane on the right is the fleet, which is where this screen rests.<br>\n          <a class="btn" href="queue.html" style="margin-top:var(--s4)">Widen the scope to all tenants</a></p>\n'
-        '      </div>\n\n',
-        FOOT % 'nothing waiting, and the fleet holds the pane'),
-     fleet(sub='40 tenants. This is the resting state of the pane, and it is what an empty queue looks like'))
+    # ---------------------------------------------------------------- 4. nothing waiting, 3.4
+    page('queue-empty.html', 'Case queue, nothing waiting', 'live',
+         z4(CHIPS_DEFAULT,
+            '<b>Nothing waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            '      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">\n'
+            '        <p class="empty"><b>Nothing is waiting on a decision.</b>\n'
+            '          21 cases were ruled on this shift and Clerk is investigating 3 more.<br>\n'
+            '          The pane on the right is the fleet, which is where this screen rests.<br>\n          <a class="btn" href="queue.html" style="margin-top:var(--s4)">Widen the scope to all tenants</a></p>\n'
+            '      </div>\n\n',
+            FOOT % 'nothing waiting, and the fleet holds the pane'),
+         fleet(sub='40 tenants. This is the resting state of the pane, and it is what an empty queue looks like'))
 
-# ---------------------------------------------------------------- 5. filtered to nothing
-CHIPS_NARROW = ('        <button class="chip" type="button">Meridian Health &times;</button>\n'
-                '        <button class="chip chip--solid" type="button">Severity: High &times;</button>\n'
-                '        <button class="chip" type="button">Clerk: needs a human &times;</button>\n'
-                '        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>\n')
-page('queue-no-match.html', 'Case queue, no case matches', 'live',
-     z4(CHIPS_NARROW,
-        '<b>No case matches this scope</b> <span class="dim">3 filters, 1 tenant</span>',
-        '      <div class="banner qbanner"><b>Severity: High is what emptied it.</b> Remove it and 6 cases come back. '
-        'The chip is marked in the bar above, where the question was asked.'
-        '<span class="act"><a class="btn btn--primary" href="queue.html">Remove Severity: High</a></span></div>\n\n'
-        '      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">\n'
-        '        <p class="empty"><b>Nothing here, and it is the narrowing rather than the queue.</b>\n'
-        '          18 cases are waiting outside this scope.</p>\n'
-        '      </div>\n\n',
-        FOOT % 'no rows in this scope'),
-     fleet(sub='12 tenants in scope. The fleet narrows with the queue',
-           rows=[r for r in FLEET_ROWS if r[0] in ('Meridian Health','Halcyon Care','Larkfield Logistics')]))
+    # ---------------------------------------------------------------- 5. filtered to nothing
+    CHIPS_NARROW = ('        <button class="chip" type="button">Meridian Health &times;</button>\n'
+                    '        <button class="chip chip--solid" type="button">Severity: High &times;</button>\n'
+                    '        <button class="chip" type="button">Clerk: needs a human &times;</button>\n'
+                    '        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>\n')
+    page('queue-no-match.html', 'Case queue, no case matches', 'live',
+         z4(CHIPS_NARROW,
+            '<b>No case matches this scope</b> <span class="dim">3 filters, 1 tenant</span>',
+            '      <div class="banner qbanner"><b>Severity: High is what emptied it.</b> Remove it and 6 cases come back. '
+            'The chip is marked in the bar above, where the question was asked.'
+            '<span class="act"><a class="btn btn--primary" href="queue.html">Remove Severity: High</a></span></div>\n\n'
+            '      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">\n'
+            '        <p class="empty"><b>Nothing here, and it is the narrowing rather than the queue.</b>\n'
+            '          18 cases are waiting outside this scope.</p>\n'
+            '      </div>\n\n',
+            FOOT % 'no rows in this scope'),
+         fleet(sub='12 tenants in scope. The fleet narrows with the queue',
+               rows=[r for r in FLEET_ROWS if r[0] in ('Meridian Health','Halcyon Care','Larkfield Logistics')]))
 
-# ---------------------------------------------------------------- 6. just filed
-DECIDED = [('Medium','Meridian Health','Mass file rename on one host','Rejected by R. Idrissi',None,'4 signals',['decided','unrecorded!'],'1h','case-unrecorded.html','')] + \
-          [('High','Larkfield Logistics','Token replay from a new ASN','Accepted by R. Idrissi, 4s ago','was: Real, contain identity','9 signals',['decided','acted!'],'27m','queue-decided.html','is-selected')] + \
-          BASE_ROWS[2:]
-CASE_PANE = """    <aside class="z5 is-paper" aria-labelledby="ph">
-      <div class="pane-head">
-        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
-        <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
-      </div>
-      <div class="pane-body">
-        <div class="banner"><b>Accepted by R. Idrissi, 4s ago.</b> Written to the log against the snapshot as it stood.</div>
-        <section class="block">
-          <h3>What was decided</h3>
-          <p style="margin:0">Clerk concluded <b>real, contain identity</b>. The action was above this tenant&rsquo;s latitude, so it waited for a person, and it has now run.</p>
-        </section>
-        <section class="block">
-          <h3>Where it is now</h3>
-          <p style="margin:0"><a href="entry.html">The log entry, with the evidence as it stood</a></p>
-        </section>
-        <p class="prov">The row stays in place and reads <b>decided</b>. It leaves the list when the selection moves off it, not when the verdict is filed. <b>No toast:</b> the row changed under your hand, which says more.</p>
-      </div>
-      <div class="pane-foot">
-        <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
-        <a class="btn btn--quiet" href="log.html">Open the log</a>
-      </div>
-    </aside>
-"""
-page('queue-decided.html', 'Case queue, just filed', 'live',
-     z4(CHIPS_DEFAULT, '<b>17 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
-        grid(rows_html(DECIDED)), FOOT % '7 of 17 shown, the decided row holds its place'),
-     CASE_PANE,
-     extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
+    # ---------------------------------------------------------------- 6. just filed
+    DECIDED = [('Medium','Meridian Health','Mass file rename on one host','Rejected by R. Idrissi',None,'4 signals',['decided','unrecorded!'],'1h','case-unrecorded.html','')] + \
+              [('High','Larkfield Logistics','Token replay from a new ASN','Accepted by R. Idrissi, 4s ago','was: Real, contain identity','9 signals',['decided','acted!'],'27m','queue-decided.html','is-selected')] + \
+              BASE_ROWS[2:]
+    CASE_PANE = """    <aside class="z5 is-paper" aria-labelledby="ph">
+          <div class="pane-head">
+            <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+            <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
+          </div>
+          <div class="pane-body">
+            <div class="banner"><b>Accepted by R. Idrissi, 4s ago.</b> Written to the log against the snapshot as it stood.</div>
+            <section class="block">
+              <h3>What was decided</h3>
+              <p style="margin:0">Clerk concluded <b>real, contain identity</b>. The action was above this tenant&rsquo;s latitude, so it waited for a person, and it has now run.</p>
+            </section>
+            <section class="block">
+              <h3>Where it is now</h3>
+              <p style="margin:0"><a href="entry.html">The log entry, with the evidence as it stood</a></p>
+            </section>
+            <p class="prov">The row stays in place and reads <b>decided</b>. It leaves the list when the selection moves off it, not when the verdict is filed. <b>No toast:</b> the row changed under your hand, which says more.</p>
+          </div>
+          <div class="pane-foot">
+            <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
+            <a class="btn btn--quiet" href="log.html">Open the log</a>
+          </div>
+        </aside>
+    """
+    page('queue-decided.html', 'Case queue, just filed', 'live',
+         z4(CHIPS_DEFAULT, '<b>17 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            grid(rows_html(DECIDED)), FOOT % '7 of 17 shown, the decided row holds its place'),
+         CASE_PANE,
+         extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
 
-# ---------------------------------------------------------------- 7. Clerk not investigating
-page('queue-clerk-down.html', 'Case queue, Clerk not investigating', 'clerkdown',
-     z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
-        '      <div class="banner qbanner"><b>The queue is complete.</b> The connection is fine and Clerk stopped '
-        'investigating 11m ago, so nothing is missing and nothing new will arrive until it is back. '
-        'Every case in front of you is every case there is.'
-        '<span class="act"><span class="btn" aria-disabled="true" title="8.2, not drawn yet">What is down</span></span></div>\n\n'
-        + grid(rows_html(BASE_ROWS)),
-        FOOT % '7 of 18 shown, and 18 is all of them'),
-     fleet())
+    # ---------------------------------------------------------------- 7. Clerk not investigating
+    page('queue-clerk-down.html', 'Case queue, Clerk not investigating', 'clerkdown',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            '      <div class="banner qbanner"><b>The queue is complete.</b> The connection is fine and Clerk stopped '
+            'investigating 11m ago, so nothing is missing and nothing new will arrive until it is back. '
+            'Every case in front of you is every case there is.'
+            '<span class="act"><span class="btn" aria-disabled="true" title="8.2, not drawn yet">What is down</span></span></div>\n\n'
+            + grid(rows_html(BASE_ROWS)),
+            FOOT % '7 of 18 shown, and 18 is all of them'),
+         fleet())
 
-# ---------------------------------------------------------------- 8. taken by a colleague
-TAKEN = [BASE_ROWS[0],
-         ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity','above latitude here','9 signals',['taken!'],'27m','queue-taken.html','')] + BASE_ROWS[2:]
-page('queue-taken.html', 'Case queue, taken by a colleague', 'live',
-     z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
-        '      <div class="banner banner--quiet qbanner"><b>D. Okonkwo has had this case open for 2m.</b> '
-        'It is still yours to rule on if you need to: nothing is locked, and if you both file, the log records '
-        'both and marks the second as arriving after the first.</div>\n\n'
-        + grid(rows_html(TAKEN)),
-        FOOT % '7 of 18 shown, 1 taken by a colleague'),
-     fleet())
+    # ---------------------------------------------------------------- 8. taken by a colleague
+    TAKEN = [BASE_ROWS[0],
+             ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity','above latitude here','9 signals',['taken!'],'27m','queue-taken.html','')] + BASE_ROWS[2:]
+    page('queue-taken.html', 'Case queue, taken by a colleague', 'live',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            '      <div class="banner banner--quiet qbanner"><b>D. Okonkwo has had this case open for 2m.</b> '
+            'It is still yours to rule on if you need to: nothing is locked, and if you both file, the log records '
+            'both and marks the second as arriving after the first.</div>\n\n'
+            + grid(rows_html(TAKEN)),
+            FOOT % '7 of 18 shown, 1 taken by a colleague'),
+         fleet())
 
-# ---------------------------------------------------------------- 9. just escalated, 4.6
-ESCALATED = [BASE_ROWS[0],
-   ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity',
-    'handed to S. Varga, 4s ago','9 signals',['escalated!'],'27m','queue-escalated.html','is-selected')] + BASE_ROWS[2:]
-ESC_PANE = """    <aside class="z5 is-paper" aria-labelledby="ph">
-      <div class="pane-head">
-        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
-        <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
-        <p class="chips-hd"><i class="chip chip--state chip--solid">escalated</i></p>
-      </div>
-      <div class="pane-body">
-        <div class="banner"><b>Handed to S. Varga, 4s ago.</b> Sent through the provider&rsquo;s on call tool. Harrier recorded that it was sent; it is not the thing that delivered it.</div>
-        <section class="block">
-          <h3>What changed, and what did not</h3>
-          <p style="margin:0"><b>No verdict was filed.</b> Clerk&rsquo;s conclusion stands unruled, the case is still open, and the count above is still 18. What changed is that the row no longer looks like a case nobody has touched.</p>
-        </section>
-        <section class="block">
-          <h3>Where it is now</h3>
-          <p style="margin:0"><a href="entry.html">The log entry, with the handover as it was written</a></p>
-        </section>
-        <p class="prov">It cannot be taken back. If S. Varga hands it back, that is a second entry rather than an erased one. <b>No toast:</b> the row wears <b>escalated</b>, which is the feedback.</p>
-      </div>
-      <div class="pane-foot">
-        <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
-        <a class="btn btn--quiet" href="log.html">Open the log</a>
-      </div>
-    </aside>
-"""
-page('queue-escalated.html', 'Case queue, just escalated', 'live',
-     z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
-        grid(rows_html(ESCALATED)), FOOT % '7 of 18 shown, the escalated row holds its place'),
-     ESC_PANE,
-     extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+    # ---------------------------------------------------------------- 9. just escalated, 4.6
+    ESCALATED = [BASE_ROWS[0],
+       ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity',
+        'handed to S. Varga, 4s ago','9 signals',['escalated!'],'27m','queue-escalated.html','is-selected')] + BASE_ROWS[2:]
+    ESC_PANE = """    <aside class="z5 is-paper" aria-labelledby="ph">
+          <div class="pane-head">
+            <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+            <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
+            <p class="chips-hd"><i class="chip chip--state chip--solid">escalated</i></p>
+          </div>
+          <div class="pane-body">
+            <div class="banner"><b>Handed to S. Varga, 4s ago.</b> Sent through the provider&rsquo;s on call tool. Harrier recorded that it was sent; it is not the thing that delivered it.</div>
+            <section class="block">
+              <h3>What changed, and what did not</h3>
+              <p style="margin:0"><b>No verdict was filed.</b> Clerk&rsquo;s conclusion stands unruled, the case is still open, and the count above is still 18. What changed is that the row no longer looks like a case nobody has touched.</p>
+            </section>
+            <section class="block">
+              <h3>Where it is now</h3>
+              <p style="margin:0"><a href="entry.html">The log entry, with the handover as it was written</a></p>
+            </section>
+            <p class="prov">It cannot be taken back. If S. Varga hands it back, that is a second entry rather than an erased one. <b>No toast:</b> the row wears <b>escalated</b>, which is the feedback.</p>
+          </div>
+          <div class="pane-foot">
+            <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
+            <a class="btn btn--quiet" href="log.html">Open the log</a>
+          </div>
+        </aside>
+    """
+    page('queue-escalated.html', 'Case queue, just escalated', 'live',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            grid(rows_html(ESCALATED)), FOOT % '7 of 18 shown, the escalated row holds its place'),
+         ESC_PANE,
+         extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
 
-print('generated 9 pages')
+    print('generated 9 pages')
