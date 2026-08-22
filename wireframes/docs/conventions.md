@@ -159,3 +159,58 @@ A dropped connection, a colleague opening your case, a write that did not land a
 | Clicks from the queue to the activation node | **2**, which is the number `CLAUDE.md` claims |
 
 Two routing errors were found by drawing the graph rather than by reading the files. A row wearing `decided` and `unrecorded` opened `queue-decided.html`, so **a row in the list opened another rendering of the list**; rows open cases now, and nothing else. And `queue-clerk-down` linked to `unavailable.html`, which is 8.2 and is not drawn until step 8, so the control renders disabled rather than resolving to a 404.
+
+---
+
+## 12. The reconcile, step 8
+
+Seven agents drew seven screens at once. Each kept its own look inline behind the marker
+`/* INLINE: <screen> :: for reconcile into _wf.css */`, so the parent could find every rule
+mechanically instead of reading twenty files by eye. This is what came back.
+
+### What moved, and it moved verbatim
+
+| Block | Selectors | Was inline on |
+|---|---|---|
+| The shell chrome and the queue foot | `#sidebar`, `.qfoot`, `.qfoot kbd`, `.fleet-more`, `.qbanner` | **58 pages** |
+| The case pane: narrative, latitude ladder, snapshot stamp | `.nar` and its three, `.lat` and its six, `.stamp`, `.chips-hd` | **44 pages** |
+| The consequence box | `.cons`, `.cons.is-empty`, `.cons b` | 9 pages, reject and escalate |
+| The log row and the resting pane | `.rows--log` and its four, `.row.is-superseded`, `.row .sup`, `.covers` and its two, `.seek`, `.z5--paper` | 7 pages, log and history |
+
+**34 selectors, and not one of them was edited on the way.** A rule tidied while it moves is a
+change of appearance wearing the clothes of a refactor, and there is no way to catch it
+afterwards. `.lat` is the latitude ladder, which is to say the differentiator itself, and it was
+living inline on forty four pages.
+
+### The proof, and it is pixels rather than an assurance
+
+Three screens at two viewports, shot on the live URL before the move and again after it, then
+diffed in a canvas rather than by eye:
+
+| Pair | Size | Differing pixels |
+|---|---|---|
+| Case Queue at 1440 | 1440x900 | **0** |
+| Case File at 1440 | 1440x900 | **0** |
+| Shift brief at 1440 | 1440x900 | **0** |
+| Case Queue at 360 | 375x760 | **0** |
+| Case File at 360 | 375x760 | **0** |
+| Shift brief at 360 | 375x760 | **0** |
+
+Pairs in `wireframes/screens/`. Inline CSS on the reference screen fell from 685 bytes to 206,
+which is the marker comment and nothing else, and the classifier that reads the **output** rather
+than the generators now reports **zero rules living on two or more screens**.
+
+**The first run of that diff reported four of six pairs differing, and it was wrong.** The
+after shots had been taken against a cached stylesheet: forcing `_wf.css` on one page caches it
+under a different URL, so the next navigation still gets the stale one. Re-shot with the plain
+URL revalidated on every page, all six pairs are identical. It is the third time in this stage
+that a sub-resource cache has produced a confident false measurement, so it is written here:
+**a `?v=` on the HTML does not bust the stylesheet, and a measurement taken without forcing it
+is a measurement of the last deploy.**
+
+### One correctness fix the reconcile could not avoid
+
+Five generators carried an absolute path to a scratch folder on `sys.path`, so `import genqueue`
+resolved to a stale copy that still emitted its pages on import. The symptom was that
+`queue.html` kept reappearing with the pre-reconcile stylesheet no matter how often it was
+regenerated. Every generator now resolves its imports from its own folder.
