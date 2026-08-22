@@ -84,6 +84,12 @@ body{
 .annun .sep{color:var(--hair)}
 .annun .ovrd{background:var(--ink);color:var(--paper);padding:0 var(--s1);font-weight:700}
 
+/* The keyboard map trigger, 0.2 section 4. One character, so it costs the bar nothing, and
+   it is the only way into 0.5 from inside the product. */
+.z1 .kmap{font:600 var(--t-sm)/1 var(--mono);color:var(--soft);text-decoration:none;
+          border:var(--line);border-radius:var(--radius);padding:var(--s1) var(--s2)}
+.z1 .kmap:hover{color:var(--ink);border-color:var(--ink)}
+
 /* Z2 connection strip, node 0.4. Never silent when connected */
 .z2{flex:0 0 auto;min-height:var(--z-strip);display:flex;align-items:center;gap:var(--s3);
     padding:0 var(--s4);border-bottom:var(--line);background:var(--fill);
@@ -443,6 +449,7 @@ a.opt:hover{background:var(--fill)}
   .z4{overflow-y:visible}
   .claim{flex-wrap:wrap}
   .claim .src{margin-left:auto}
+  .only-desk,.only-desk-i{display:none}
 }
 
 /* 7. A SECTION HEADING IS NOT ALWAYS AN h3. In the pane it sits under the pane's h2, so h3 is

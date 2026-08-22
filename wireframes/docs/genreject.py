@@ -47,9 +47,10 @@ def page(fname, title, body, footer, sel_state=None):
     z4 = C.z4_with_case('reject.html', sel_state=sel_state)
     narrow_note = ('        <div class="banner only-narrow"><b>Reject is a desk action.</b> '
                    'It needs the six reasons and the evidence in view at the same time, and neither '
-                   'fits here. On a phone the exits are accept and escalate.</div>\n')
+                   'fits here. <b>On a phone the exit is escalate</b>, and only escalate: 4.2 settles that a '
+                   'case known to be benign cannot be closed from there either.</div>\n')
     z5 = C.pane(C.SUB, '', narrow_note + C.VERDICT + C.EVIDENCE + C.PROV + C.tenant_ctx() + C.latitude() + C.stamp(),
-                C.foot([('Accept','a','queue-decided.html',' btn--primary'),
+                C.foot([('Accept','a','queue-decided.html',' btn--primary only-desk'),
                         ('Escalate','e','escalate.html','')]))
     Q.page(fname, title, 'live', z4, z5 + dialog(body, footer),
            extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
@@ -99,9 +100,9 @@ page('reject-axis-b.html', 'Reject, second axis required',
      '        </section>\n'
      '        <section class="block">\n          <h3>Where it goes, and this is the one that has to ask</h3>\n'
      '          <div class="axisb">\n'
-     '            <a class="opt" href="reject-chosen.html"><span class="key">a</span><span class="lbl">Detection is too broad</span>'
+     '            <a class="opt" href="reject-chosen.html"><span class="key">1</span><span class="lbl">Detection is too broad</span>'
      '<span class="routes">detection engineering</span></a>\n'
-     '            <a class="opt" href="reject-chosen.html"><span class="key">b</span><span class="lbl">Tenant context missing</span>'
+     '            <a class="opt" href="reject-chosen.html"><span class="key">2</span><span class="lbl">Tenant context missing</span>'
      '<span class="routes">the tenant baseline</span></a>\n'
      '          </div>\n'
      '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">Two choices, not five. '
@@ -141,7 +142,7 @@ page('reject-write-failed.html', 'Reject, the write failed',
      '<b>Not sent.</b></div>\n        </section>\n',
      ('        <span class="dim" style="font-size:var(--t-xs)">Second attempt</span>'
       '<span class="grow"></span>'
-      '<a class="btn btn--quiet" href="case-unrecorded.html">Hold it locally <span class="key">h</span></a>'
+      '<a class="btn btn--quiet" href="case-unrecorded.html">Hold it locally</a>'
       '<a class="btn btn--primary" href="queue-decided.html">Retry <span class="key">Enter</span></a>'),
      sel_state=['unrecorded!'])
 

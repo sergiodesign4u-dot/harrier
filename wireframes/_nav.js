@@ -269,6 +269,10 @@ window.WF_SHELL = function(o){
         return '<a href="' + n.href + '"' + (n.id === o.current ? ' aria-current="page"' : '') + '>' + n.label + '</a>';
       }).join('') + '</nav>' +
       '<span class="spacer"></span>' +
+      /* 0.2 section 4 puts the keyboard map in Z1 and the shell never rendered it, so until
+         step 8 nothing in the prototype opened 0.5 except the stage panel. Found by the agent
+         that drew the map, which is the only place the absence was checkable. */
+      '<a class="kmap" href="keyboard.html" title="Keyboard map, 0.5" aria-label="Keyboard map">?</a>' +
       '<p class="annun" aria-label="Tenant autonomy"><b>' + a.lead + '</b>' +
         a.parts.map(function(p){ return '<span class="sep">|</span>' + p; }).join('') +
       '</p>' +

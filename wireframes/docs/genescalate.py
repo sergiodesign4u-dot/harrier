@@ -163,7 +163,7 @@ page('escalate-write-failed.html', 'Escalate, it did not write', SUB_DEFAULT,
      + cons('<b>Last shown, and it did not happen.</b> The case stays open and unescalated. Your three answers '
             'are preserved on this screen and nowhere else, so leaving now loses them.',
             '<b>It did not happen.</b> The case stays open and unescalated. Your answer is preserved here and nowhere else.'),
-     foot('<a class="btn btn--primary" href="queue-escalated.html">Try again <span class="key">&#8635;</span></a>',
+     foot('<a class="btn btn--primary" href="queue-escalated.html">Try again</a>',
           note='<b>Enter</b> makes a line here, it does not file. The button retries.'),
      case_href='escalate-write-failed.html')
 

@@ -141,7 +141,7 @@ if __name__ == '__main__':
               <div class="field">
                 <label for="amend">Your wording</label>
                 <textarea id="amend" rows="4">Real, but the containment should be the endpoint rather than the identity: the account is shared by the depot shift and disabling it stops four people working.</textarea>
-                <p class="hint">While this field has focus, letters are text and nothing else. The verdict keys are inert.</p>
+                <p class="hint">While this field has focus, letters are text and nothing else, and <b>Enter makes a line rather than filing</b>, which is the rule 4.6 keeps and the one place the product allows itself an inconsistency. The button files.</p>
               </div>
               <div class="banner banner--quiet"><b>Clerk wrote:</b> Real, and it wants to contain the identity. <b>Kept beside yours</b>, never replaced, because an amendment is only defensible next to what it amended.</div>
               <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">No reason code. The amended text is the reason, and asking you to classify your own writing would add a step that teaches nobody.</p>
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     Q.page('case-amend.html', 'Case file, amending', 'live',
            z4_with_case('case-amend.html'),
            pane(SUB, '', AMEND + EVIDENCE + PROV + tenant_ctx() + latitude() + stamp(),
-                foot([('File the amendment','&crarr;'.replace('&crarr;','Enter'),'queue-decided.html',' btn--primary'),
+                foot([('File the amendment','','queue-decided.html',' btn--primary'),
                       ('Cancel','Esc','case.html',' btn--quiet')])),
            extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
 
@@ -198,8 +198,8 @@ if __name__ == '__main__':
            pane(SUB, '',
                 '        <div class="banner"><b>The verdict did not write.</b> You accepted 40s ago and the log did not take it, so <b>nothing is recorded</b>. The decision exists only on this screen.<span class="act"><a class="btn btn--primary" href="queue-decided.html">Try again</a></span></div>\n'
                 + VERDICT + EVIDENCE + PROV + tenant_ctx() + latitude() + stamp(),
-                foot([('Try again','&#8635;','queue-decided.html',' btn--primary'),
-                      ('Hold it locally','h','case-unrecorded.html','')])),
+                foot([('Try again','','queue-decided.html',' btn--primary'),
+                      ('Hold it locally','','case-unrecorded.html','')])),
            extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
 
     # ---------------------------------------------------------------- 8. held locally, 4.10
@@ -209,7 +209,7 @@ if __name__ == '__main__':
                 '        <div class="banner"><b>Held locally, unrecorded.</b> You accepted 6m ago, the write has failed twice, and the case stays open. <b>This console is the only place the decision exists.</b> The row keeps its place in the queue and will not leave until the write lands.<span class="act"><a class="btn" href="queue-decided.html">Try again</a></span></div>\n'
                 + VERDICT + EVIDENCE + PROV + tenant_ctx() + latitude()
                 + stamp(' &middot; <b>no log entry yet</b>'),
-                foot([('Try again','&#8635;','queue-decided.html',' btn--primary'),
+                foot([('Try again','','queue-decided.html',' btn--primary'),
                       ('Escalate','e','escalate.html','')])),
            extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
 

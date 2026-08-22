@@ -211,7 +211,7 @@ if __name__ == '__main__':
             <p class="prov">The row stays in place and reads <b>decided</b>. It leaves the list when the selection moves off it, not when the verdict is filed. <b>No toast:</b> the row changed under your hand, which says more.</p>
           </div>
           <div class="pane-foot">
-            <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
+            <a class="btn" href="queue.html">Next case <span class="key">]</span></a>
             <a class="btn btn--quiet" href="log.html">Open the log</a>
           </div>
         </aside>
@@ -268,7 +268,7 @@ if __name__ == '__main__':
             <p class="prov">It cannot be taken back. If S. Varga hands it back, that is a second entry rather than an erased one. <b>No toast:</b> the row wears <b>escalated</b>, which is the feedback.</p>
           </div>
           <div class="pane-foot">
-            <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
+            <a class="btn" href="queue.html">Next case <span class="key">]</span></a>
             <a class="btn btn--quiet" href="log.html">Open the log</a>
           </div>
         </aside>
