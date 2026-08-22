@@ -217,7 +217,9 @@ body{
    STATE FURNITURE. Every state page uses these, so they live here
    ============================================================ */
 .banner{border:var(--line-ink);border-radius:var(--radius);background:var(--paper);
-        padding:var(--s3);display:flex;gap:var(--s3);align-items:baseline;font-size:var(--t-sm)}
+        padding:var(--s3);display:flex;gap:var(--s2) var(--s3);align-items:baseline;flex-wrap:wrap;
+        font-size:var(--t-sm)}
+.banner > *{min-width:0;overflow-wrap:anywhere}
 .banner b{font-weight:700}
 .banner--quiet{border-color:var(--hair);color:var(--soft)}
 .banner .act{margin-left:auto;flex:0 0 auto}
