@@ -34,7 +34,7 @@ def optlist(chosen=None):
     return out
 
 def dialog(body, footer, title='Reject Clerk&rsquo;s verdict'):
-    return ("""  <div class="scrim">
+    return ("""  <div class="scrim scrim--desk-only">
     <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh">
       <header>
         <h2 id="dh">%s</h2>
@@ -49,8 +49,12 @@ def dialog(body, footer, title='Reject Clerk&rsquo;s verdict'):
 
 def page(fname, title, body, footer, sel_state=None):
     z4 = C.z4_with_case('reject.html', sel_state=sel_state)
-    z5 = C.pane(C.SUB, '', C.VERDICT + C.EVIDENCE + C.PROV + C.tenant_ctx() + C.latitude() + C.stamp(),
-                C.foot(C.ALL_FOUR))
+    narrow_note = ('        <div class="banner only-narrow"><b>Reject is a desk action.</b> '
+                   'It needs the six reasons and the evidence in view at the same time, and neither '
+                   'fits here. On a phone the exits are accept and escalate.</div>\n')
+    z5 = C.pane(C.SUB, '', narrow_note + C.VERDICT + C.EVIDENCE + C.PROV + C.tenant_ctx() + C.latitude() + C.stamp(),
+                C.foot([('Accept','a','queue-decided.html',' btn--primary'),
+                        ('Escalate','e','escalate.html','')]))
     Q.page(fname, title, 'live', z4, z5 + dialog(body, footer),
            extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
 

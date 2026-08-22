@@ -254,6 +254,10 @@ body{
 .dialog > footer{padding:var(--s3) var(--s4);border-top:var(--line-ink);
                  display:flex;gap:var(--s2);align-items:center}
 .dialog > footer .grow{flex:1 1 auto}
+/* 4.4 settled that reject is not exposed at 360: it needs the taxonomy AND the evidence in
+   view, and neither fits on a phone. So the dialog is a desk action and the narrow rendering
+   says what the exits are instead of pretending to offer one that was ruled out. */
+.only-narrow{display:none}
 
 /* ------------------------------------------------------------
    The prototype carries a 244px stage panel that the product does not, so at the product's
@@ -300,6 +304,8 @@ body{
   .scopebar{padding:var(--s2) var(--s3)}
   .pane-body,.pane-head{padding:var(--s3)}
   .scrim{padding:0;align-items:stretch}  /* no pane at 360, so nothing to stay clear of */
+  .scrim--desk-only{display:none}
+  .only-narrow{display:block}
   .dialog{width:100%;max-height:100vh;border:none}
   .frow{grid-template-columns:minmax(0,1fr) 96px;padding:var(--s2) var(--s3)}
   .frow .rec{grid-column:2}
