@@ -9,9 +9,13 @@ INLINE = C.INLINE + """
    an ISO 8601 string does not fit in the 40px the relative age used.
    Everything except the stamp is FLUID, for the same reason the queue's row is: the pane is
    resizable, and the prototype's own 244px panel means the screen runs in about 1040 at 1280. */
-.rows--log{--row-tracks:74px 100px minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr) 90px 132px}
+.rows--log{--row-tracks:74px 96px minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr) 106px 138px}
+/* The stamp never breaks mid string: half an ISO 8601 on each line is not the grammar
+   0.8 defined. If it stops fitting, that is a measurable failure rather than an ugly wrap. */
 .rows--log .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-                 overflow-wrap:anywhere}
+                 white-space:nowrap;overflow-wrap:normal}
+.rows--log .states{display:flex;flex-wrap:wrap;gap:var(--s1);align-content:start}
+.rows--log .states .chip{white-space:normal;text-align:center}
 .rows--log .why{font-size:var(--t-xs);color:var(--soft)}
 .row.is-superseded{background:repeating-linear-gradient(135deg,transparent 0 7px,var(--fill) 7px 8px)}
 .row .sup{display:block;font-size:var(--t-xs);color:var(--soft);margin-top:var(--s1)}
