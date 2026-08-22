@@ -508,12 +508,16 @@ a.opt:hover{background:var(--fill)}
    Settled by the user: the argument stays on the screen and takes a register of its own.
    A dotted rail and a WHY label, so it reads as a margin note at a glance and can never be
    mistaken for a string the analyst is meant to act on. Stage 05 owns everything that is
-   NOT `.why`; `.why` belongs to whoever is presenting the case.
+   NOT `.anote`; `.anote` belongs to whoever is presenting the case.
+
+   The class is `.anote` and not `.why`, which was the first name written here: `.why` is
+   already owned three times over, by the latitude ladder, the log row and the outage line.
+   The fifth collision of this stage and the first one caught before it shipped.
    --------------------------------------------------------------------------------------- */
-.why{margin:var(--s3) 0 0;padding:0 0 0 var(--s3);border-left:1px dotted var(--soft);
-     font-size:var(--t-xs);line-height:1.55;color:var(--soft)}
-.why::before{content:"WHY";display:block;margin-bottom:var(--s1);
-             font:700 9.5px/1 var(--mono);letter-spacing:.14em;color:var(--soft)}
-.why b,.why strong{color:var(--soft);font-weight:700}
-.why code{font-size:inherit}
-.why + .why{margin-top:var(--s2)}
+.anote{margin:var(--s3) 0 0;padding:0 0 0 var(--s3);border-left:1px dotted var(--soft);
+       font-size:var(--t-xs);line-height:1.55;color:var(--soft)}
+.anote::before{content:"WHY";display:block;margin-bottom:var(--s1);
+               font:700 9.5px/1 var(--mono);letter-spacing:.14em;color:var(--soft)}
+.anote b,.anote strong{color:var(--soft);font-weight:700}
+.anote code{font-size:inherit}
+.anote + .anote{margin-top:var(--s2)}

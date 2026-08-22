@@ -138,7 +138,7 @@ def contact(meta, tail=''):
             'generating signal while this page is up.</p>\n'
             '%s'
             '          </div>\n'
-            '          <p class="dim out-desk" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><b>Shown here because you '
+            '          <p class="anote out-desk"><b>Shown here because you '
             'are signed in.</b> Whether it is shown to somebody who is not is a disclosure call for the provider '
             'rather than for us, and nobody has made it. The page is reachable either way, so the block either '
             'appears twice or it appears once, and that is the decision still outstanding.</p>\n'
@@ -151,13 +151,13 @@ def retry(primary_label, primary_href, second=None, note=None):
     if second:
         out += '          <a class="btn btn--quiet" href="%s">%s</a>\n' % (second[1], second[0])
     out += '        </div>\n'
-    out += ('        <p class="prov"><b>Retry is a button, not a spinner.</b> A spinner at four minutes looks '
+    out += ('        <p class="anote"><b>Retry is a button, not a spinner.</b> A spinner at four minutes looks '
             'exactly like a spinner at four seconds, so it never says whether anything is being attempted. '
             'You press this, and it tells you what happened.%s</p>\n') % ((' ' + note) if note else '')
     return out
 
 
-LEFT_OUT = ('        <p class="prov"><b>No illustration, no apology paragraph and no status page link.</b> '
+LEFT_OUT = ('        <p class="anote"><b>No illustration, no apology paragraph and no status page link.</b> '
             'A status page that lives beside the thing which is down can be down with it, and a dead link at '
             '03:00 costs a minute nobody has. What this page owes you is a name, a duration and somebody to '
             'call, and at 360 it hands them over in the other order.</p>\n')
@@ -190,9 +190,9 @@ dark_page(
         + line('Estimate', 'No estimate',
                'Your provider&rsquo;s service delivery owns this line. Harrier will not fill it with a plausible '
                'one while waiting.')
+        + retry('Try again', 'queue.html')
         + contact('The provider&rsquo;s declared fallback, and the same one an escalation reaches for when nobody '
                   'is on the rota. One configuration value, two places it shows up.')
-        + retry('Try again', 'queue.html')
         + LEFT_OUT))
 
 # ---------------------------------------------------------------------------------------------
@@ -216,10 +216,10 @@ dark_page(
         + line('Window closes', WINDOW_END,
                'The provider&rsquo;s published window, not an estimate Harrier made. UTC, because you carry tenants '
                'in the United States and the EU and a local rendering makes two people disagree about when this ends.')
+        + retry('Try again', 'queue.html', note='The window can close early, and this is how you find out.')
         + contact('The provider&rsquo;s declared fallback, and the same one an escalation reaches for when nobody '
                   'is on the rota. Shown during a planned window too: the clients did not agree to the window.')
-        + retry('Try again', 'queue.html', note='The window can close early, and this is how you find out.')
-        + '        <p class="prov"><b>Whether maintenance is ever scheduled inside a shift is still open.</b> '
+        + '        <p class="anote"><b>Whether maintenance is ever scheduled inside a shift is still open.</b> '
           'It is the provider&rsquo;s call rather than ours, and nobody has made it. If the answer turns out to be '
           'never, this state is furniture: an analyst would only ever meet it between shifts, and the page would be '
           'the unplanned one and the partial one and nothing else.</p>\n'
@@ -247,16 +247,16 @@ Q.page(
                'why it still reads Live above and this page is what says otherwise.')
         + line('Estimate', 'No estimate',
                'Your provider&rsquo;s service delivery owns this line, and nothing is published yet.')
+        + retry('Try again', 'log.html',
+                second=('Work the queue anyway', 'queue.html'),
+                note='The queue is a real exit here rather than a consolation: it is up, and the cases on it are '
+                     'the same cases.')
         + contact('<b>Shown because the part that is down blocks a decision.</b> If what were unavailable did not '
                   'touch one, this block would not be on the page and it would tell you to come back later '
                   'instead. Same value as an escalation with nobody on the rota.',
                   tail='            <p>Two things worth saying on the call: the log is not taking writes, and you '
                        'are still ruling, so there will be decisions to reconcile.</p>\n')
-        + retry('Try again', 'log.html',
-                second=('Work the queue anyway', 'queue.html'),
-                note='The queue is a real exit here rather than a consolation: it is up, and the cases on it are '
-                     'the same cases.')
-        + '        <p class="prov"><b>This is the state where the log&rsquo;s own rule bites.</b> Every Clerk action '
+        + '        <p class="anote"><b>This is the state where the log&rsquo;s own rule bites.</b> Every Clerk action '
           'and every human override writes to an append only record carrying the evidence as it stood. When that '
           'record is unreachable, ruling is still possible and <b>defending the ruling later is what is at risk</b>, '
           'which is why the line at the top of this page is the first thing on it.</p>\n'

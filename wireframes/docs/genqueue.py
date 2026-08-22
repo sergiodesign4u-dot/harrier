@@ -228,7 +228,7 @@ if __name__ == '__main__':
             '      <div class="banner qbanner"><b>The queue is complete.</b> The connection is fine and Clerk stopped '
             'investigating 11m ago, so nothing is missing and nothing new will arrive until it is back. '
             'Every case in front of you is every case there is.'
-            '<span class="act"><span class="btn" aria-disabled="true" title="8.2, not drawn yet">What is down</span></span></div>\n\n'
+            '<span class="act"><span class="btn" aria-disabled="true">What is down</span><span class="why">nothing to open: the outage page is what Clerk would have reported to, and it is not answering either</span></span></div>\n\n'
             + grid(rows_html(BASE_ROWS)),
             FOOT % '7 of 18 shown, and 18 is all of them'),
          fleet())

@@ -155,7 +155,7 @@ page('escalate-write-failed.html', 'Escalate, it did not write', SUB_DEFAULT,
      '        <div class="banner esc-first"><b>The escalation did not write.</b> You sent it 40s ago and the log did not '
      'take it, so <b>nobody has been told</b>. The case stays open and <b>unescalated</b>, which is not the same '
      'state as held locally: there, a decision exists and is unrecorded; here, no handover happened at all.'
-     '<span class="act"><a class="btn btn--primary" href="queue-escalated.html">Try again</a></span></div>\n'
+     '</div>\n'
      + rcpt(window='frozen at the last good read of the rota')
      + prompts(first='Correlated the token against the corporate range and confirmed the same correlationId on both sign ins.',
                second='Could not reach the tenant&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.',

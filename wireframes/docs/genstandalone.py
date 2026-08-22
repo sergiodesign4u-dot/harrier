@@ -73,7 +73,7 @@ def prov(long_inner=PROV_INNER, short_inner='<b>6 sources</b>, 24h'):
 
 def offer(why):
     return ('        <div class="sa-offer">\n'
-            '          <a class="btn btn--primary" href="case.html">Open in the queue</a>\n'
+            '          <a class="btn" href="case.html">Open in the queue</a>\n'
             '          <span class="why">%s</span>\n'
             '        </div>\n') % why
 

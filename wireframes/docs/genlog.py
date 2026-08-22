@@ -194,7 +194,7 @@ page('log-not-found.html', 'Decision log, not findable', CHIPS_EMPTY,
      '<b>No entry matches this scope</b> <span class="dim">4 filters, 1 tenant</span>',
      '      <div class="banner qbanner"><b>Actor: R. Idrissi is what emptied it.</b> Remove it and 4 entries '
      'come back, all ruled by D. Okonkwo. The chip is marked in the bar above, where the question was asked.'
-     '<span class="act"><a class="btn btn--primary" href="log.html">Remove Actor: R. Idrissi</a></span></div>\n\n'
+     '<span class="act"><a class="btn" href="log.html">Remove Actor: R. Idrissi</a></span></div>\n\n'
      '      <div class="rows rows--log" role="grid" aria-labelledby="lh" tabindex="0">\n'
      '        <p class="empty"><b>Nothing matched, and the pane is the next attempt.</b>\n'
      '          Not a shrug and not an illustration: the fields on the right are the search, prefilled with '

@@ -143,7 +143,7 @@ page('reject-write-failed.html', 'Reject, the write failed',
      ('        <span class="dim" style="font-size:var(--t-xs)">Second attempt</span>'
       '<span class="grow"></span>'
       '<a class="btn btn--quiet" href="case-unrecorded.html">Hold it locally</a>'
-      '<a class="btn btn--primary" href="queue-decided.html">Retry <span class="key">Enter</span></a>'),
+      '<a class="btn btn--primary" href="queue-decided.html">Try again <span class="key">Enter</span></a>'),
      sel_state=['unrecorded!'])
 
 print('generated 5 reject pages')

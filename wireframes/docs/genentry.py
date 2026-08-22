@@ -6,7 +6,7 @@ import genqueue as Q, gencase as C
 INLINE = C.INLINE + """
 /* 5.4 has no pane. It is the artefact the lists point at, so it is one column and a frame. */
 .z4--entry{border-right:none;overflow-y:auto;align-items:center}
-.frame{width:min(820px,100%);margin:var(--s5) auto;border:2px solid var(--ink);
+.frame{width:min(var(--frame),100%);margin:var(--s5) auto;border:2px solid var(--ink);
        border-radius:var(--radius);background:var(--paper);display:flex;flex-direction:column}
 /* Mechanism 1 of the node, in one property: the marking is a FRAME, not a banner.
    A banner scrolls away, and someone who arrives by permalink and reads the middle must
@@ -15,6 +15,9 @@ INLINE = C.INLINE + """
       font:600 var(--t-xs)/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;
       padding:var(--s2) var(--s4);display:flex;gap:var(--s3);flex-wrap:wrap;align-items:baseline}
 .rail .soft{font-weight:400;text-transform:none;letter-spacing:0;opacity:.72}
+.rail .rail-out{margin-left:auto;color:inherit;white-space:nowrap;
+                border:1px solid currentColor;border-radius:var(--radius);padding:0 var(--s2)}
+.rail--foot .rail-out{display:none}
 .rail--foot{position:static;background:var(--fill);color:var(--soft);border-top:2px solid var(--ink);
             text-transform:none;letter-spacing:0;font-weight:400;font-size:var(--t-sm)}
 .doc{padding:var(--s5) var(--s4);display:flex;flex-direction:column;gap:var(--s5)}
@@ -31,6 +34,9 @@ INLINE = C.INLINE + """
    In print every expansion is open, the address is on the page, and the panel is gone. */
 @media print{
   #sidebar,.z1,.z2{display:none}
+  /* true black on true white, and not the screen greys: --ink is #16181a, which prints as
+     a wash. The one place in the stage where a literal colour is correct, said out loud
+     here because two critique instruments flagged it independently at step 9. */
   .frame{border:2px solid #000;margin:0}
   .rail{position:static;background:#fff;color:#000;border-bottom:2px solid #000}
   .expand{display:block}
@@ -41,7 +47,10 @@ Q.INLINE = INLINE
 ADDR_ID = 'e-88214'
 
 def rail(asof, extra=''):
-    return ('      <p class="rail">AS IT STOOD <b>%s</b><span class="soft">%s</span></p>\n'
+    # The record runs to three viewports at 360 and its only exits were at the foot of it.
+    # The rail is the one element that never leaves, so the way back rides in it.
+    return ('      <p class="rail">AS IT STOOD <b>%s</b><span class="soft">%s</span>'
+            '<a class="rail-out" href="log.html">Back to the log</a></p>\n'
             ) % (asof, extra or 'A record of what was known then. This is not the live case.')
 
 def foot_rail(asof):

@@ -425,7 +425,7 @@ page('shift-close-failed.html', 'Shift brief, the close did not write', 'live',
      '        <div class="banner"><span><b>The brief did not seal, 40s ago.</b> It stays open and it stays '
      'readable, and <b>both of you have been told</b>: you, and D. Okonkwo, who is about to read it. '
      'Telling only the person leaving would put the handover back on one person remembering.</span>'
-     '<span class="act"><a class="btn btn--primary" href="shift-sealed.html">Try again</a></span></div>\n'
+     '</div>\n'
      + sect('What waits on a decision', waits_frozen('frozen at the attempt') + CLERK_ALONE)
      + sect('What moved this shift', moved_grid(OUTGOING_WHEN, frozen=True)
             + '          <p class="dim" style="margin:0;font-size:var(--t-xs)"><b>Frozen at the '

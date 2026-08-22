@@ -133,7 +133,7 @@ if __name__ == '__main__':
                 + VERDICT.replace('it wants to contain the identity', 'it contained the endpoint on its own')
                 + EVIDENCE + PROV + tenant_ctx() + latitude() + stamp(),
                 foot(ALL_FOUR)),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">ACTED</span> 24m ago'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">ACTED</span> 24m'] }")
 
     # ---------------------------------------------------------------- 4. amending, 4.5
     AMEND = """        <section class="block">
@@ -196,7 +196,7 @@ if __name__ == '__main__':
     Q.page('case-write-failed.html', 'Case file, the verdict did not write', 'live',
            z4_with_case('case-write-failed.html'),
            pane(SUB, '',
-                '        <div class="banner"><b>The verdict did not write.</b> You accepted 40s ago and the log did not take it, so <b>nothing is recorded</b>. The decision exists only on this screen.<span class="act"><a class="btn btn--primary" href="queue-decided.html">Try again</a></span></div>\n'
+                '        <div class="banner"><b>The verdict did not write.</b> You accepted 40s ago and the log did not take it, so <b>nothing is recorded</b>. The decision exists only on this screen.</div>\n'
                 + VERDICT + EVIDENCE + PROV + tenant_ctx() + latitude() + stamp(),
                 foot([('Try again','','queue-decided.html',' btn--primary'),
                       ('Hold it locally','','case-unrecorded.html','')])),
