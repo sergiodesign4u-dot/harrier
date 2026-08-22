@@ -209,6 +209,7 @@ SEEK = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
       </div>
       <div class="pane-foot">
         <a class="btn btn--primary" href="log.html">Search without the actor <span class="key">Enter</span></a>
+        <a class="btn btn--quiet" href="entry-beyond-retention.html">Try 2024 instead</a>
         <a class="btn btn--quiet" href="log.html">Clear all four</a>
       </div>
     </aside>

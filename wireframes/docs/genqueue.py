@@ -43,7 +43,7 @@ BASE_ROWS = [
     ('Medium','Meridian Health','Mass file rename on one host','Rejected by R. Idrissi',None,'4 signals',['decided','unrecorded!'],'1h','queue-decided.html',''),
     ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity','above latitude here','9 signals',[],'27m','case.html',''),
     ('High','Norsk Marine','Ransomware precursor on FS-02','Real, contained',None,'14 signals',['acted'],'52m','case.html',''),
-    ('Medium','Aubrey Dental Group','Sign in from an unseen device',None,None,'counting',['investigating?'],'6m','case.html',''),
+    ('Medium','Aubrey Dental Group','Sign in from an unseen device','Real, contain identity','above latitude here','9 signals',[],'6m','case-no-baseline.html',''),
     ('Medium','Halden Freight','Impossible travel, two offices','Benign, sanctioned VPN rollout',None,'6 signals',[],'4m','case.html',''),
     ('Low','Halcyon Care','Beaconing to a new domain','Real, contained',None,'5 signals',['acted'],'2h','case.html',''),
     ('Low','Bramber Retail','Mass mailbox rule creation','Benign, new admin onboarding',None,'3 signals',[],'41m','case.html',''),

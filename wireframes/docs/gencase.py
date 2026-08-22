@@ -47,7 +47,7 @@ EVIDENCE = """        <section class="block">
           <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
           <div class="claim claim--absence"><span class="txt">no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>
           <div class="claim claim--against"><span class="txt">this user has travelled to this region twice in 90 days</span><a class="src" href="case.html">tenant baseline</a></div>
-          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><a href="case.html">3 more signals</a></p>
+          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><a href="case-expired.html">3 more signals</a></p>
         </section>
 """
 PROV = """        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline. Count first, never a bare percentage.</p>
@@ -185,8 +185,7 @@ NOBASE_EVIDENCE = EVIDENCE.replace('Evidence, 9 signals', 'Evidence, 9 signals')
     'A sign in from a device with no enrolment record, first for this account')
 Q.page('case-no-baseline.html', 'Case file, no baseline', 'live',
        z4_with_case('case-no-baseline.html', rows=[
-         r if r[1] != 'Aubrey Dental Group' else
-         ('Medium','Aubrey Dental Group','Sign in from an unseen device','Real, contain identity','above latitude here','9 signals',[],'6m','case-no-baseline.html','is-selected')
+         r if r[1] != 'Aubrey Dental Group' else (r[:9] + ('is-selected',))
          for r in Q.BASE_ROWS]),
        pane('Sign in from an unseen device &middot; Medium &middot; 9 signals &middot; 6 sources, 24h', '',
             NOBASE_VERDICT + NOBASE_EVIDENCE + PROV
