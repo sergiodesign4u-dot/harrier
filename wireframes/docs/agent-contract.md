@@ -116,6 +116,7 @@ For point 5, measure rather than assert. A local check is enough at this stage, 
 python3 - <<'PY'
 import re
 h = open('wireframes/<your page>.html').read()
-print('em dash:', h.count('—'), '| h1:', h.count('<h1'), '| inline marker:', 'INLINE:' in h)
+# the rule has no exceptions, so the detector spells the character by code point
+print('em dash:', h.count(chr(8212)), '| h1:', h.count('<h1'), '| inline marker:', 'INLINE:' in h)
 PY
 ```

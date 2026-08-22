@@ -146,7 +146,7 @@ window.WF_NAV = {
 
     /* ---------- flow 2, the shift ---------- */
     { screen:'shift', node:'2.1', ia:'shift-brief.html', label:'Shift brief',
-      cluster:'2', flow:'shift', scope:'MVP', status:'spec',
+      cluster:'2', flow:'shift', scope:'MVP', status:'built',
       states:[
         {slug:'',                label:'Incoming',            kind:'base'},
         {slug:'outgoing',        label:'Outgoing, mid shift', kind:'role'},
@@ -159,7 +159,7 @@ window.WF_NAV = {
 
     /* ---------- flow 3, answer for it later ---------- */
     { screen:'case-history', node:'5.6', ia:null, label:'History of one case',
-      cluster:'5', flow:'answer', scope:'MVP', status:'spec',
+      cluster:'5', flow:'answer', scope:'MVP', status:'built',
       states:[
         {slug:'',           label:'Default',          kind:'base'},
         {slug:'superseded', label:'A superseded entry', kind:'domain'},
@@ -168,7 +168,7 @@ window.WF_NAV = {
 
     /* ---------- flow 1 at 360 and by permalink ---------- */
     { screen:'case-standalone', node:'4.2', ia:'case-standalone.html', label:'Case File, standalone route',
-      cluster:'4', flow:'main', scope:'MVP', status:'spec',
+      cluster:'4', flow:'main', scope:'MVP', status:'built',
       states:[
         {slug:'',      label:'Arrived by link', kind:'base'},
         {slug:'filed', label:'After filing',    kind:'success'},
@@ -178,7 +178,7 @@ window.WF_NAV = {
 
     /* ---------- flow 4, the door ---------- */
     { screen:'index', node:'1.1', ia:'sign-in.html', label:'Sign in',
-      cluster:'1', flow:'door', scope:'MVP', status:'spec',
+      cluster:'1', flow:'door', scope:'MVP', status:'built',
       states:[
         {slug:'',           label:'Arrived on purpose', kind:'base'},
         {slug:'deep-link',  label:'Arrived by a deep link', kind:'role'},
@@ -190,12 +190,12 @@ window.WF_NAV = {
 
     /* ---------- flow 5, systemic ---------- */
     { screen:'not-found', node:'8.1', ia:'not-found.html', label:'Not found',
-      cluster:'8', flow:'sys', scope:'MVP', status:'spec',
+      cluster:'8', flow:'sys', scope:'MVP', status:'built',
       states:[{slug:'', label:'Default', kind:'base'}],
       noState:[{label:'Everything else', why:'It is itself an error state. A state of a state is a node the map does not have'}] },
 
     { screen:'unavailable', node:'8.2', ia:'service-unavailable.html', label:'Service unavailable',
-      cluster:'8', flow:'sys', scope:'MVP', status:'spec',
+      cluster:'8', flow:'sys', scope:'MVP', status:'built',
       states:[
         {slug:'',         label:'Unplanned',          kind:'base'},
         {slug:'planned',  label:'Planned maintenance',kind:'domain'},
@@ -203,7 +203,7 @@ window.WF_NAV = {
       ], noState:[] },
 
     { screen:'keyboard', node:'0.5', ia:'keyboard-map.html', label:'Keyboard map',
-      cluster:'0', flow:'sys', scope:'MVP', status:'spec',
+      cluster:'0', flow:'sys', scope:'MVP', status:'built',
       states:[{slug:'', label:'Open over a screen', kind:'base'}],
       noState:[{label:'Loading, error, empty', why:'A static list rendered from the client. None of the three can occur'}] },
 

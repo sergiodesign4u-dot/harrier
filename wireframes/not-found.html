@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Not found</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+.nar{margin:0;font-size:var(--t-sm)}
+.nar + .nar{margin-top:var(--s2)}
+.nar b{font-weight:600}
+.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+           display:inline-block;min-width:46px}
+.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+           border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div:last-child{border-bottom:none}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .off{color:var(--soft)}
+.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .ceiling{background:var(--fill);font-weight:600}
+.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
+.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+/* INLINE: not-found :: for reconcile into _wf.css
+   One column, no pane, no fixtures. Every value through var() except the measure, which has
+   no token in the sheet yet: see point 4 of the report. */
+.z4--solo{border-right:none;overflow-y:auto;align-items:center}
+.nf{width:min(66ch,100%);margin:0 auto;padding:var(--s7) var(--s4);
+    display:flex;flex-direction:column;gap:var(--s5)}
+.nf h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
+.nf-say{margin:0;font-size:var(--t-lg);line-height:var(--lh)}
+.nf-say b{font-weight:700}
+/* Block 2 of the bank is TWO NAMED EXITS IN THE SENTENCE, not a lone button, so they are
+   links. inline-block buys them a real tap height at 360 without turning them into a pair
+   of buttons, which is the thing the bank ruled out. */
+.nf-exits{margin:0;font-size:var(--t-md)}
+.nf-exits a{display:inline-block;padding:var(--s1) 0;color:var(--ink);font-weight:600;
+            text-underline-offset:3px}
+.nf-addr{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;
+         border:var(--line);border-radius:var(--radius);padding:var(--s2) var(--s3);
+         background:var(--fill)}
+.nf-addr code{font-family:var(--mono);font-size:var(--t-sm);overflow-wrap:anywhere;
+              flex:1 1 auto;min-width:0}
+.nf-note{margin:0;font-size:var(--t-xs);color:var(--soft)}
+.nf-note b{color:var(--ink)}
+.nf-note--sep{border-top:var(--line);padding-top:var(--s3)}
+/* 360, and this page is reachable from a pager at 03:00 so it is a real width, not a proof.
+   Desktop first: the two exits are text in a sentence at the desk, and at a phone they keep
+   being text in a sentence and simply get bigger, which is what makes them tappable without
+   becoming the pair of buttons the block bank ruled out. */
+@media (max-width:900px){
+  .nf{padding:var(--s5) var(--s3) var(--s7);gap:var(--s4)}
+  .nf-exits{font-size:var(--t-lg)}
+  .nf-exits a{padding:var(--s2) 0}
+}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4 z4--solo" aria-labelledby="nfh">
+      <div class="nf">
+        <h1 id="nfh">Not found</h1>
+        <p class="nf-say"><b>Harrier has nothing to show at this address.</b> That is all this page can tell you, and it is all it tells anyone who opens it.</p>
+        <p class="nf-exits">A case id that did not resolve here is still worth two looks. <a href="queue.html">Search the queue</a> if it is open, or <a href="log.html">Open the log</a> if it was ruled on and closed.</p>
+        <section class="block">
+          <h3>The address you asked for</h3>
+          <div class="nf-addr"><code>/case/C-4419</code><a class="btn" href="not-found.html">Copy</a></div>
+          <p class="nf-note">Shown so you can send it back to whoever sent it. <b>A case id carries no tenant and no date</b>, which is what makes it safe to print on a page that can be reached without signing in.</p>
+        </section>
+        <p class="nf-note nf-note--sep"><b>Three different situations render this exact page.</b> An address that never existed, a record outside what this console covers, and a record this account does not open. The words do not change between them and neither does the title in the tab, because a page that changed would let anyone holding a list of ids work out which clients another provider holds. <b>Which of the three you are looking at is not something this page will say.</b> A record that resolved and then aged out of retention is a different page, and that one can name the window it fell outside. This one cannot name anything at all.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'', strip:'live' });</script>
+</body>
+</html>

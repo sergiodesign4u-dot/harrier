@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Keyboard map</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+.nar{margin:0;font-size:var(--t-sm)}
+.nar + .nar{margin-top:var(--s2)}
+.nar b{font-weight:600}
+.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+           display:inline-block;min-width:46px}
+.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+           border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div:last-child{border-bottom:none}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .off{color:var(--soft)}
+.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .ceiling{background:var(--fill);font-weight:600}
+.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
+.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+/* INLINE: keyboard :: for reconcile into _wf.css
+   The list itself reuses .optlist and .opt from 4.4: same component, a key chip with a label
+   and a right hand meta cell. Only the two-line label, the wider dialog and the remap foot
+   are new. Every value through var(). */
+.dialog--map{width:min(720px,100%)}
+.keys{flex:0 0 118px;display:flex;flex-wrap:wrap;gap:var(--s1)}
+.keys .key{font-family:var(--mono);font-size:var(--t-xs);border:var(--line-ink);
+           border-radius:var(--radius);padding:0 var(--s1);flex:0 0 auto;white-space:nowrap}
+.keys .key.is-none{border-style:dashed;color:var(--soft)}
+.keys .ksep{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);align-self:center}
+.kwhere{display:block;margin-top:var(--s1);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.kgap{border:1px dashed var(--soft);border-radius:var(--radius);padding:0 var(--s1);white-space:nowrap}
+.opt .routes.kscope{flex:0 0 152px;white-space:normal;line-height:1.3}
+.gnote{margin:var(--s2) 0 0;font-size:var(--t-xs);color:var(--soft)}
+.rmp{display:flex;flex-direction:column;border:var(--line-ink);border-radius:var(--radius)}
+.rmp-row{display:flex;gap:var(--s3);align-items:center;padding:var(--s2) var(--s3);
+         border-bottom:var(--line);font-size:var(--t-sm)}
+.rmp-row:last-child{border-bottom:none}
+.rmp-row .what{flex:1 1 auto;min-width:0}
+.rmp-row .what .kk{display:block;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.rmp-row select{flex:0 0 auto;font:var(--t-sm)/1.3 var(--ui);color:var(--ink);background:var(--paper);
+                border:var(--line-ink);border-radius:var(--radius);padding:var(--s1) var(--s2)}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="qh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip" type="button">All tenants &#9662;</button>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+
+      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+
+      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Client</span>
+          <span role="columnheader">What it is</span>
+          <span role="columnheader">What Clerk concluded</span>
+          <span role="columnheader">To check</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">Age</span>
+        </div>
+        <a class="row" role="row" href="case-unrecorded.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Mass file rename on one host</span>
+          <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
+          <span role="gridcell" class="cost">4 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="age" role="gridcell">1h</span>
+        </a>
+        <a class="row is-selected" role="row" href="keyboard.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">27m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">14 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">52m</span>
+        </a>
+        <a class="row" role="row" href="case-no-baseline.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span role="gridcell">Sign in from an unseen device</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">6m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Halden Freight</span>
+          <span role="gridcell">Impossible travel, two offices</span>
+          <span class="concluded" role="gridcell"><b>Benign, sanctioned VPN rollout</b></span>
+          <span role="gridcell" class="cost">6 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">4m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Halcyon Care</span>
+          <span role="gridcell">Beaconing to a new domain</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">5 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">2h</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Bramber Retail</span>
+          <span role="gridcell">Mass mailbox rule creation</span>
+          <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
+          <span role="gridcell" class="cost">3 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">41m</span>
+        </a>
+      </div>
+
+      <p class="qfoot">
+        <span>7 of 18 shown, one selected</span>
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, blocked on her, severity, age</span>
+      </p>
+    </section>
+
+    <aside class="z5 is-paper" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+        <p class="sub">Token replay from a new ASN &middot; High &middot; 9 signals &middot; 6 sources, 24h</p>
+      </div>
+      <div class="pane-body">
+        <div class="banner only-narrow"><b>There is no keyboard here, so there is no map.</b> The keyboard map is a desk surface and its trigger is dropped at this width rather than moved. On a phone the exits are accept and escalate, and both are buttons.</div>
+        <section class="block">
+          <h3>What Clerk concluded</h3>
+          <p class="nar"><b>Real, and it wants to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen, and an inbox rule was created from it.</p>
+        </section>
+        <section class="block">
+          <h3>What happened</h3>
+          <p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p>
+          <p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</p>
+          <p class="nar"><span class="when">04:13</span>Inbox rule created, forwarding to an external address.</p>
+        </section>
+        <section class="block">
+          <h3>Evidence, 9 signals</h3>
+          <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="expand">Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</div>
+          <div class="claim"><span class="txt">No MFA prompt on the second use</span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
+          <div class="claim claim--absence"><span class="txt">no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>
+          <div class="claim claim--against"><span class="txt">this user has travelled to this region twice in 90 days</span><a class="src" href="case.html">tenant baseline</a></div>
+          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><a href="case-expired.html">3 more signals</a></p>
+        </section>
+        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline. Count first, never a bare percentage.</p>
+        <section class="block">
+          <h3>Normal at this client</h3>
+          <p class="nar"><b>2 token replays</b> at Larkfield Logistics in 90 days, both real</p>
+        </section>
+        <section class="block">
+          <h3>What Clerk may do here, on this tenant</h3>
+          <div class="lat">
+            <div><span class="mark">yes</span><span>Investigate</span></div>
+            <div class="ceiling"><span class="mark">yes</span><span>Contain endpoint</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude, so it waited for you</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain network</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Remove content</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Change policy</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+          </div>
+          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">Out of reach actions are shown disabled with the ceiling stated, not hidden. A hidden control teaches nothing.</p>
+        </section>
+        <p class="stamp">Filed by Clerk <b>27m</b> ago &middot; <code>?as-of=2026-08-22T04:12:38Z</code></p>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary" href="queue-decided.html">Accept <span class="key">a</span></a>
+        <a class="btn" href="case-amend.html">Amend <span class="key">m</span></a>
+        <a class="btn" href="reject.html">Reject <span class="key">r</span></a>
+        <a class="btn" href="escalate.html">Escalate <span class="key">e</span></a>
+      </div>
+    </aside>
+  <div class="scrim scrim--desk-only">
+    <section class="dialog dialog--map" role="dialog" aria-modal="true" aria-labelledby="dh">
+      <header>
+        <h2 id="dh">Keyboard map</h2>
+        <p class="dim" style="margin:var(--s1) 0 0;font-size:var(--t-sm)">Grouped by what the key does, not by which key it is. <b>Every row says when the key is live</b>, because a key that fires while you are typing a rejection reason is a trap rather than a shortcut.</p>
+      </header>
+      <div class="body">
+        <div class="banner banner--quiet"><b>Every key below is inert right now.</b> The map holds focus, the screen behind it is inert while it is open, and Escape closes the map without touching the case you had selected.</div>
+        <section class="block">
+          <h3>Move in the list</h3>
+          <div class="optlist">
+            <div class="opt">
+              <span class="keys"><span class="key">&uarr;</span><span class="key">&darr;</span></span>
+              <span class="lbl">Move the selection. The pane follows, so reading costs nothing.<span class="kwhere">shown on: the list foot, 3.1</span></span>
+              <span class="routes kscope">the list has focus</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">Home</span><span class="key">End</span></span>
+              <span class="lbl">First and last row in view.<span class="kwhere">shown on: <span class="kgap">nowhere yet</span></span></span>
+              <span class="routes kscope">the list has focus</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">Ctrl + Home</span><span class="key">Ctrl + End</span></span>
+              <span class="lbl">First and last row of the whole list.<span class="kwhere">shown on: <span class="kgap">nowhere yet</span></span></span>
+              <span class="routes kscope">the list has focus</span>
+            </div>
+          </div>
+          <p class="gnote">None of these is a letter, a number or a symbol, so SC 2.1.4 does not reach them and they are not in the control at the foot of this map.</p>
+        </section>
+        <section class="block">
+          <h3>Open and close</h3>
+          <div class="optlist">
+            <div class="opt">
+              <span class="keys"><span class="key">Enter</span></span>
+              <span class="lbl">Moves focus into the pane. Arrows read, <b>Enter</b> decides, and that is what arms the three keys below.<span class="kwhere">shown on: the list foot, 3.1</span></span>
+              <span class="routes kscope">the list has focus</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">Escape</span></span>
+              <span class="lbl">Deselects the case and returns the pane to the fleet.<span class="kwhere">shown on: <span class="kgap">nowhere yet</span></span></span>
+              <span class="routes kscope">the list or the pane has focus, and no dialog is open</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">Escape</span></span>
+              <span class="lbl">Closes the dialog and <b>does not go any further</b>. One press closes, a second press deselects, so dismissing a dialog never costs you the case you had open.<span class="kwhere">shown on: the Cancel control on 4.4, 4.5 and 4.6</span></span>
+              <span class="routes kscope">a dialog is open</span>
+            </div>
+          </div>
+          <p class="gnote">Escape carries two meanings and this map says both, because the collision is real: the dialog pattern claims it and 0.1 already had it.</p>
+        </section>
+        <section class="block">
+          <h3>Rule on the case</h3>
+          <div class="optlist">
+            <div class="opt">
+              <span class="keys"><span class="key">a</span></span>
+              <span class="lbl">Accept Clerk&rsquo;s verdict as filed.<span class="kwhere">shown on: the Accept control, 4.1</span></span>
+              <span class="routes kscope">a case is in the pane &middot; SC 2.1.4</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">m</span></span>
+              <span class="lbl">Amend the narrative in place, 4.5. Once the field has focus, letters are letters.<span class="kwhere">shown on: the Amend control, 4.1</span></span>
+              <span class="routes kscope">a case is in the pane &middot; SC 2.1.4</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">r</span></span>
+              <span class="lbl">Reject and say what Clerk got wrong, 4.4.<span class="kwhere">shown on: the Reject control, 4.1</span></span>
+              <span class="routes kscope">a case is in the pane &middot; SC 2.1.4</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">1</span><span class="ksep">to</span><span class="key">6</span></span>
+              <span class="lbl">Pick what Clerk got wrong. One selection, one key.<span class="kwhere">shown on: each reason row, 4.4</span></span>
+              <span class="routes kscope">the reject dialog has focus and no text field does &middot; SC 2.1.4</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">Enter</span></span>
+              <span class="lbl">Files the rejection, and only once a reason is chosen.<span class="kwhere">shown on: the Reject and tune button, 4.4</span></span>
+              <span class="routes kscope">the reject dialog, outside the note field</span>
+            </div>
+          </div>
+          <p class="gnote">Live only while <b>a case</b> is in the pane. With the fleet at rest there is no case, so all of these are dead. That is the third route through SC 2.1.4 and it is what makes the set legal at all.</p>
+        </section>
+        <section class="block">
+          <h3>Leave the case open</h3>
+          <div class="optlist">
+            <div class="opt">
+              <span class="keys"><span class="key">e</span></span>
+              <span class="lbl">Escalate to the person on the rota, 4.6. Also the only live control on a case whose evidence has aged out, 4.7.<span class="kwhere">shown on: the Escalate control, 4.1</span></span>
+              <span class="routes kscope">a case is in the pane &middot; SC 2.1.4</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">Enter</span></span>
+              <span class="lbl"><b>Makes a line. It does not file.</b> The button files.<span class="kwhere">shown on: the footer note, 4.6</span></span>
+              <span class="routes kscope">the escalate dialog, inside a prompt</span>
+            </div>
+          </div>
+        </section>
+        <div class="banner"><span><b>Enter is not the same key in 4.4 and 4.6, and that was chosen.</b> In <b>reject</b> the input is a selection, so <b>Enter</b> completes it. In <b>escalate</b> the input is prose, and <b>Enter</b> inside prose has to make a line. Making the two agree would break one of them, and the one it would break is the handover written at 03:00. It is listed here rather than smoothed away, because a person who learns one and is surprised by the other is owed the reason.</span></div>
+        <section class="block">
+          <h3>Sections</h3>
+          <div class="optlist">
+            <div class="opt">
+              <span class="keys"><span class="key is-none">none</span></span>
+              <span class="lbl">Queue, Shift and Log. 0.2 gives each a destination and binds no key to any of them, so there is nothing to press. Listed so the absence is a decision you can see rather than a line somebody forgot.<span class="kwhere">shown on: the navigation in Z1, as a click</span></span>
+              <span class="routes kscope">always, and it is a pointer</span>
+            </div>
+          </div>
+        </section>
+        <section class="block">
+          <h3>This map</h3>
+          <div class="optlist">
+            <div class="opt">
+              <span class="keys"><span class="key">?</span></span>
+              <span class="lbl">Opens this map from anywhere. The map is found from the control in Z1; the key is for people who already know it is here.<span class="kwhere">shown on: <span class="kgap">nowhere yet</span>, and 0.2 puts the trigger in Z1</span></span>
+              <span class="routes kscope">no text field has focus &middot; SC 2.1.4</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">Escape</span></span>
+              <span class="lbl">Closes it. Nothing behind it changed and the selection is where you left it.<span class="kwhere">shown on: the Close control below</span></span>
+              <span class="routes kscope">the map has focus</span>
+            </div>
+            <div class="opt">
+              <span class="keys"><span class="key">Tab</span><span class="key">Shift + Tab</span></span>
+              <span class="lbl">Cycles through this map and wraps at either end. Nothing outside it is reachable while it is open.<span class="kwhere">shown on: nowhere, and Tab is not a shortcut</span></span>
+              <span class="routes kscope">the map has focus</span>
+            </div>
+          </div>
+        </section>
+        <p class="gnote"><b>shown on</b> names the control that teaches the key. Principle 3 says the control teaches and this map is only the lookup, so a row reading <span class="kgap">nowhere yet</span> is the map covering for a control that never printed its own key. <b>Four rows read that way.</b> Each one is a defect in that control, not in this list.</p>
+        <section class="block">
+          <h3>Turn them off, or make them need a modifier</h3>
+          <div class="rmp">
+            <div class="rmp-row"><span class="what"><b>Every single character shortcut</b><span class="kk">a &nbsp; m &nbsp; r &nbsp; e &nbsp; 1 to 6 &nbsp; ?</span></span><select aria-label="All single character shortcuts"><option>On, the letter alone</option><option>On, but it needs Ctrl</option><option>Off</option></select></div>
+            <div class="rmp-row"><span class="what">Rule on the case<span class="kk">a &nbsp; m &nbsp; r &nbsp; 1 to 6</span></span><select aria-label="Rule on the case shortcuts"><option>On, the letter alone</option><option>On, but it needs Ctrl</option><option>Off</option></select></div>
+            <div class="rmp-row"><span class="what">Leave the case open<span class="kk">e</span></span><select aria-label="Escalate shortcut"><option>On, the letter alone</option><option>On, but it needs Ctrl</option><option>Off</option></select></div>
+            <div class="rmp-row"><span class="what">This map<span class="kk">?</span></span><select aria-label="Keyboard map shortcut"><option>On, the letter alone</option><option>On, but it needs Ctrl</option><option>Off</option></select></div>
+          </div>
+          <p class="gnote">SC 2.1.4 is Level A and it asks for one of three things. The focus rule on every row above is the first. This is the second, and it is here because without it a speech user has no way to stop <b>a</b> meaning accept while the pane is focused, which is the exact person the criterion was written for.</p>
+          <p class="gnote"><b>Whole set and per group, never per key.</b> Forty two nodes of surface and a bespoke keymap is a support burden with no job behind it.</p>
+          <p class="gnote">Arrows, Home, End, Enter, Escape and Tab are not in this control. The criterion covers letter, punctuation, number and symbol keys, and none of those is one.</p>
+          <p class="gnote">This control sits in the map while the map is the only place keys are listed. Where it belongs once there is a settings surface is <b>open</b>, and it is the same missing surface 0.6, 0.7 and 0.8 already point at.</p>
+        </section>
+      </div>
+      <footer>        <span class="dim" style="font-size:var(--t-xs)">Nothing here rules on a case. The control that turns these keys off, or makes them need a modifier, is at the foot of the list.</span><span class="grow"></span><a class="btn btn--primary" href="case.html">Close <span class="key">Esc</span></a></footer>
+    </section>
+  </div>
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'queue', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] } });</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Sign in, provider error</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+/* INLINE: signin :: for reconcile into _wf.css
+   The only public URL in the product, and the only page with no shell. One card,
+   centred by auto margins rather than by justify-content, because a card taller than
+   the viewport must scroll rather than lose its top edge. */
+.door{flex:1 1 auto;display:flex;overflow-y:auto;padding:var(--s7) var(--s4)}
+.doorcard{margin:auto;width:min(440px,100%);display:flex;flex-direction:column;gap:var(--s4);
+          border:var(--line-ink);border-radius:var(--radius);background:var(--paper);padding:var(--s5)}
+.door p{margin:0}
+/* the wordmark is a paragraph, not the heading: the h1 names the screen, and the one
+   public page in a security product does not put a brand where the page title belongs */
+.doormark{font:600 var(--t-lg)/1 var(--ui);letter-spacing:-.01em}
+/* .banner makes a flex item of every element child, so a second <b> starts its own line and
+   the punctuation after it orphans. Seen at 1440 and fixed by giving the banner ONE child. */
+.door .banner > p{font-size:inherit}
+.door h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
+.door code{font-family:var(--mono);font-size:var(--t-sm);background:var(--fill);
+           padding:0 var(--s1);overflow-wrap:anywhere}
+.doorform{display:flex;flex-direction:column;gap:var(--s3)}
+.doorbtn{width:100%;justify-content:center}
+.doordest{gap:var(--s2)}
+/* recovery, in reach of the field. Depth one key away rather than a link to a page the
+   product does not own: identity belongs to the provider, and so does getting back in.
+   var(--s5) is 24px, the WCAG SC 2.5.8 floor the node names for a phone at 03:00. */
+.doorhelp{border-top:var(--line);padding-top:var(--s3);font-size:var(--t-sm)}
+.doorhelp summary{cursor:pointer;min-height:var(--s5);display:flex;align-items:center;
+                  text-decoration:underline;text-underline-offset:2px}
+.doorhelp p{margin:var(--s2) 0 0;color:var(--soft)}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <main class="door">
+    <div class="doorcard">
+      <p class="doormark">Harrier</p>
+      <h1>Sign in</h1>
+      <div class="banner"><p><b>Your provider&rsquo;s sign in did not finish.</b> Their identity service returned an error on the way back.<br><b>It is not your password.</b> Nothing about your account changed. Trying again is the right next step. If it fails again the fault is at your provider and Harrier cannot clear it from here.</p></div>
+      <section class="block doordest">
+        <h3>After you sign in</h3>
+        <p>You still land on <code>/case/C-4417</code></p>
+        <p class="prov">Still held. It survived the failure, so a retry goes to the case rather than starting you at the queue.</p>
+      </section>
+      <form class="doorform" action="case-standalone.html">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="username" placeholder="you@yourprovider" value="r.idrissi@example.com">
+          <p class="hint">Your email is the one you came back with. Nothing about it needs changing.</p>
+        </div>
+        <button class="btn btn--primary doorbtn" type="submit">Try again</button>
+        <a class="btn btn--quiet doorbtn" href="index.html">Use a different email</a>
+      </form>
+      <details class="doorhelp">
+        <summary>Cannot get in?</summary>
+        <p>Harrier does not hold your password and it does not create accounts. Your seat comes from your provider, and so does the way you sign in. If you cannot get in, the person who provisioned your seat is the one who can fix it.</p>
+      </details>
+    </div>
+  </main>
+</div>
+</div>
+<script>window.WF_ACTIVE = 'index-idp-error.html';</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Service unavailable, unplanned</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+.nar{margin:0;font-size:var(--t-sm)}
+.nar + .nar{margin-top:var(--s2)}
+.nar b{font-weight:600}
+.nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+           display:inline-block;min-width:46px}
+.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+           border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div:last-child{border-bottom:none}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .off{color:var(--soft)}
+.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .ceiling{background:var(--fill);font-weight:600}
+.stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
+.chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+/* INLINE: unavailable :: for reconcile into _wf.css */
+/* 8.2 has no pane and no list. One column, centred, and the same block furniture as everywhere. */
+.z4--sys{border-right:none;overflow-y:auto;align-items:center}
+.outage{width:min(660px,100%);margin:var(--s5) auto var(--s7);padding:0 var(--s4);
+        display:flex;flex-direction:column;gap:var(--s4)}
+.outage h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
+.outage h1 .sub{display:block;margin-top:var(--s2);font:400 var(--t-sm)/1.4 var(--mono);
+                color:var(--soft);overflow-wrap:anywhere}
+/* a fact and its label. Not a table: there are three of them and they read as sentences */
+.out-line{display:flex;gap:var(--s3);align-items:baseline;border-top:var(--line);padding-top:var(--s3)}
+.out-line .k{flex:0 0 128px;font:600 var(--t-xs)/1.4 var(--mono);letter-spacing:.08em;
+             text-transform:uppercase;color:var(--soft)}
+.out-line .v{flex:1 1 auto;min-width:0;font-size:var(--t-sm)}
+.out-line .v b{font-weight:700;font-size:var(--t-md)}
+.out-line .v .why{display:block;margin-top:var(--s1);color:var(--soft)}
+/* block 4, the one that makes the page useful. It is the only bordered thing here */
+.contact{border:var(--line-ink);border-radius:var(--radius);padding:var(--s3);
+         display:flex;flex-direction:column;gap:var(--s2)}
+.contact .who{font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
+.contact p{margin:0;font-size:var(--t-sm)}
+.contact .meta{color:var(--soft)}
+.out-act{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
+/* the complement of _wf.css's .only-narrow, which has no complement. See the report. */
+.out-desk{display:block}
+/* the reduced top bar. The console is what is down, so this is not the console's top bar */
+.z1--out .note{margin:0;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+/* Section 6 of the node, in one property. On a desk she wants to understand; on a phone at
+   03:00 she wants a number, so the contact leaves its place in the reading order and goes
+   first. One live page narrowed, not a second file. DOM order is untouched, so the heading
+   structure and the tab order both stay as written. */
+@media (max-width:900px){
+  .outage{margin:var(--s4) auto var(--s6);gap:var(--s4)}
+  .out-contact{order:-1}
+  /* a 128px label column costs a third of a phone. The label goes above its value instead */
+  .out-line{flex-direction:column;gap:var(--s1)}
+  .out-line .k{flex:none}
+  /* the contact goes first, so it has to be SHORT first. What is trimmed is the reasoning
+     about who owns the disclosure decision, which is a desk reading and not a 03:00 one. */
+  .out-desk{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header class="z1 z1--out">
+    <span class="wordmark">Harrier</span>
+    <span class="spacer"></span>
+    <p class="note">This page is all that answered. The console is not running.</p>
+  </header>
+  <main class="z45">
+    <section class="z4 z4--sys">
+      <div class="outage">
+        <h1>Harrier is unavailable
+          <span class="sub">Unplanned &middot; every screen, every tenant &middot; it is not your connection</span>
+        </h1>
+        <div class="banner"><b>No verdict can be filed until this is over.</b><span>There is no console to file from, so a decision you reach in the next few minutes exists only in your head. A degraded connection does not block a decision and still records the snapshot you saw. <b>This is not that.</b></span></div>
+        <div class="out-line"><span class="k">What is down</span><span class="v"><b>The whole console.</b><span class="why">Every screen and every tenant. Not the connection dropping and not Clerk stopping: both of those leave the console up, and the strip under the top bar says which one you have.</span></span></div>
+        <div class="out-line"><span class="k">Unreachable for</span><span class="v"><b>4m</b><span class="why">The same duration language the connection strip uses, for the same question. Four minutes in is a different situation from four seconds in.</span></span></div>
+        <div class="out-line"><span class="k">Estimate</span><span class="v"><b>No estimate</b><span class="why">Your provider&rsquo;s service delivery owns this line. Harrier will not fill it with a plausible one while waiting.</span></span></div>
+        <section class="block out-contact">
+          <h3>What to do instead</h3>
+          <div class="contact">
+            <span class="who">The service delivery duty line</span>
+            <p class="meta">The provider&rsquo;s declared fallback, and the same one an escalation reaches for when nobody is on the rota. One configuration value, two places it shows up.</p>
+            <p><b>The number is a value your provider declares.</b> Harrier does not carry one of its own, and a wrong number at 03:00 costs more than no number.</p>
+            <p>Tell them the console is not answering and for how long. The clients are still generating signal while this page is up.</p>
+          </div>
+          <p class="dim out-desk" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><b>Shown here because you are signed in.</b> Whether it is shown to somebody who is not is a disclosure call for the provider rather than for us, and nobody has made it. The page is reachable either way, so the block either appears twice or it appears once, and that is the decision still outstanding.</p>
+        </section>
+        <div class="out-act">
+          <a class="btn btn--primary" href="queue.html">Try again</a>
+        </div>
+        <p class="prov"><b>Retry is a button, not a spinner.</b> A spinner at four minutes looks exactly like a spinner at four seconds, so it never says whether anything is being attempted. You press this, and it tells you what happened.</p>
+        <p class="prov"><b>No illustration, no apology paragraph and no status page link.</b> A status page that lives beside the thing which is down can be down with it, and a dead link at 03:00 costs a minute nobody has. What this page owes you is a name, a duration and somebody to call, and at 360 it hands them over in the other order.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+</body>
+</html>
