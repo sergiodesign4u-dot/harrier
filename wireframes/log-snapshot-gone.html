@@ -55,7 +55,8 @@
    rendering says that instead of squeezing seven columns into a phone. 5.4 is the boundary
    case and it is different: a permalink can arrive anywhere. */
 @media (max-width:900px){
-  .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,.z4--log .banner{display:none}
+  .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,
+  .z4--log .banner:not(.only-narrow){display:none}
   .z45:has(> .z4--log) > .z5{display:none}
   .z4--log .only-narrow{margin:var(--s4)}
 }
