@@ -277,3 +277,27 @@ page that lists navigation keys as well as shortcuts.
   and escalate; 4.2 settles that a case known to be benign cannot be closed from a phone either.
   4.4 was wrong, the banner says escalate only, and the pane behind it now obeys the sentence
   above it rather than contradicting it
+
+---
+
+## 14. Two sections the hub was missing, and one collision they found
+
+Added after the twenty one, from a reader arriving at `overview.html` cold and being unable to say what the product was. That is the reader instrument working outside a scheduled pass: the hub listed screens, coverage and conventions, and never said what any of it was for.
+
+**`01 Read this first`** carries the product in three paragraphs, Clerk and why the name is the contract, the canonical case walked through its seven blocks, the four verdict keys, the seven step route as real links, and what gets filed at the end. It also carries two things written against us: that override still costs four taps against accept's two, and that interface wording here is a draft owned by stage 05, so a flat label is not yet a defect.
+
+**`02 Reading the fixtures`** is the whole cast: seven tenants with the state each one exists for, three people, three cases, three severity levels, four grammars of time, the two numbers that were wearing the word `effort`, and the closed set of six state chips with the four pairs that genuinely occur. Source of every value is `ia/docs/pages/reading-conventions.md`; nothing is restated with a second edition, and where the canon carries a reason the reason comes with it.
+
+### The sixth collision, and this one is not a class name
+
+`CLAUDE.md` records four collisions where a page-local class reused a name owned by `research/_page.css`. **This one is a bare element selector:**
+
+```
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.5;min-width:560px}
+```
+
+`min-width:560px` applies to every table on every page that links that stylesheet, and a card in a two column grid is 413px wide at 1440. The table pushed the page to a horizontal scroll of 1442, and `table-layout:fixed` did not fix it because the constraint was a minimum rather than a width. **A page-local table has to unset it, not just set its own width.**
+
+Both new sections were then measured on the live URL at 1440, 1024 and a genuine 360, with `document.documentElement.clientWidth === 360` asserted rather than assumed. Two more defects were caught only by looking at the render: `overflow-wrap:anywhere` split the ISO timestamp the legend exists to teach, and a 92px label column at 360 broke words mid token, so the legend stacks label over value below 900.
+
+**Measured after the fix, whole site:** 58 wireframe pages, 27 IA pages, 3 research pages and the root, each at three widths, **zero elements outside the viewport and zero horizontal scroll**.
