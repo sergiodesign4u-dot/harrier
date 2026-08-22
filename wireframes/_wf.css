@@ -239,8 +239,12 @@ body{
 .tomb b{color:var(--ink)}
 
 /* dialog, nodes 4.4 and 4.6. Over the pane, never over the evidence being decided on */
+/* 4.4 says it in its own words: the dialog is ANCHORED, not centred, and it never covers the
+   evidence block, because the thing being disagreed with is the least acceptable thing to hide.
+   So it is held clear of the pane by the pane's own width, and lands over the list instead. */
 .scrim{position:fixed;inset:0;background:rgba(22,24,26,.28);display:flex;
-       align-items:flex-start;justify-content:flex-end;padding:var(--s6) var(--s5)}
+       align-items:flex-start;justify-content:flex-end;
+       padding:var(--s6) calc(var(--pane) + var(--s5)) var(--s6) var(--s5)}
 .dialog{background:var(--paper);border:var(--line-ink);border-radius:var(--radius);
         width:min(520px,100%);max-height:calc(100vh - var(--s7));overflow-y:auto;
         display:flex;flex-direction:column}
@@ -295,7 +299,7 @@ body{
   .row .age,.row .sev{text-align:left}
   .scopebar{padding:var(--s2) var(--s3)}
   .pane-body,.pane-head{padding:var(--s3)}
-  .scrim{padding:0;align-items:stretch}
+  .scrim{padding:0;align-items:stretch}  /* no pane at 360, so nothing to stay clear of */
   .dialog{width:100%;max-height:100vh;border:none}
   .frow{grid-template-columns:minmax(0,1fr) 96px;padding:var(--s2) var(--s3)}
   .frow .rec{grid-column:2}
