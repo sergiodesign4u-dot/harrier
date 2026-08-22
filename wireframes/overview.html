@@ -86,10 +86,30 @@
 kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-width:2px;
     border-radius:3px;padding:1px 5px;background:var(--panel);color:var(--fg)}
 
+
+.fx{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;margin:16px 0 0}
+.fx > article{border:1px solid var(--rule);border-radius:6px;background:var(--panel);padding:14px 16px;min-width:0}
+.fx > article.fx-wide{grid-column:1 / -1}
+.fx h3{margin:0 0 2px;font-size:14.5px}
+.fx .fxsub{margin:0 0 10px;font-size:12.5px;color:var(--faint)}
+.fx table{width:100%;border-collapse:collapse;font-size:12.5px}
+.fx td{border-top:1px solid var(--rule);padding:6px 0;vertical-align:top;overflow-wrap:anywhere}
+.fx tr:first-child td{border-top:none}
+.fx td:first-child{width:150px;padding-right:12px}
+.fx td b{font:600 12px/1.45 var(--mono);color:var(--fg)}
+.fx .gnote{margin:10px 0 0;padding-top:9px;border-top:1px solid var(--rule);
+           font-size:12px;line-height:1.55;color:var(--faint)}
+.fx .gnote strong,.fx td strong{color:var(--fg)}
+
 @media (max-width:900px){
   .hubwrap{flex-direction:column;gap:24px;padding:24px 18px 64px}
   .do{grid-template-columns:1fr}
   .rf > div{grid-template-columns:1fr;gap:1px}
+  .fx{grid-template-columns:1fr}
+  .fx td{display:block;width:auto;padding:4px 0}
+  .fx tr:first-child td:first-child{border-top:none}
+  .fx td:first-child{width:auto;padding:6px 0 0;border-top:1px solid var(--rule)}
+  .fx td + td{padding-top:0;border-top:none}
   .sc{width:100%}
   .flowline .arrow{display:none}
   .do > div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
@@ -158,14 +178,108 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
 <div class="note" style="margin-top:16px"><p><strong>Two things this prototype deliberately is not.</strong> Interface strings here are drafts: wording is owned by stage 05, and a label that reads flat is not yet a defect. And there is no colour, no type family and no icons, because the visual language is invented at stage 06 on copies under <code>design/</code>. What is being judged at this stage is structure, state coverage and the route.</p></div>
 </section>
 
+<section id="fixtures">
+<h2>02 &middot; Reading the fixtures</h2>
+<p class="h2sub">Every name and number in the prototype, and where it comes from</p>
+<p>The prototype is full of client names, case ids, counts and timestamps. None of them is a measurement. This section is the whole cast, so that a screen can be read without guessing which parts are load bearing.</p>
+
+<div class="note"><p><strong>A number in a drawing is a fixture, not a finding.</strong> It is sample content chosen to make a layout decidable, and it is never quotable as evidence about the market, about analysts, or about this product&rsquo;s performance. What it must be is <strong>internally consistent</strong>: the same case, the same tenant and the same count read the same on every surface that shows them. Two arithmetic contradictions were caught this way at step 8 and are recorded in <code>ia/docs/pages/reading-conventions.md</code>. Where a real policy value would be needed, such as a retention window or a price, <strong>the surface names the value&rsquo;s owner instead of inventing a number</strong>.</p></div>
+
+<div class="fx">
+
+<article>
+<h3>Seven tenants, these and no others</h3>
+<p class="fxsub">Each one is in the set because a state needs it. None is decoration</p>
+<table>
+<tr><td><b>Larkfield Logistics</b></td><td>Mid market logistics. <strong>The canonical case belongs here</strong>, so it carries the queue row, the case file, the reject path and the log entry</td></tr>
+<tr><td><b>Norsk Marine</b></td><td>Shipping, assets offline for days. <strong>The tenant where a stale reading is normal</strong>, which is what makes the degraded connection states concrete rather than hypothetical</td></tr>
+<tr><td><b>Meridian Health</b></td><td>Healthcare, tight change control. The tenant where latitude is deliberately narrow</td></tr>
+<tr><td><b>Bramber Retail</b></td><td>Retail, many endpoints. The high volume tenant, and it carries the fleet&rsquo;s best record</td></tr>
+<tr><td><b>Halcyon Care</b></td><td>Care provider. Too few rulings to compare, which is a state and not a blank</td></tr>
+<tr><td><b>Aubrey Dental Group</b></td><td>Small, few assets. The quiet tenant, which is what makes an empty result ambiguous</td></tr>
+<tr><td><b>Halden Freight</b></td><td>Freight. The case carried across a shift boundary on the brief</td></tr>
+</table>
+</article>
+
+<article>
+<h3>Three people</h3>
+<p class="fxsub">The escalation recipient is a third person on purpose</p>
+<table>
+<tr><td><b>R. Idrissi</b></td><td>The analyst. Everything is seen from here. Her full profile is in <code>research/docs/personas.md</code>, the one file allowed to describe her</td></tr>
+<tr><td><b>D. Okonkwo</b></td><td>A peer analyst. Appears when a case is already <code>taken</code> by somebody else, and across a shift handover</td></tr>
+<tr><td><b>S. Varga</b></td><td>SOC lead, who receives escalations. <strong>Added at step 8</strong>, because an escalation to a peer is not an escalation</td></tr>
+</table>
+</article>
+
+<article>
+<h3>Three cases, and one of them is canonical</h3>
+<p class="fxsub">Two others exist only because a state cannot use the first</p>
+<table>
+<tr><td><b>C-4417</b></td><td>Larkfield Logistics, token replay, <code>High</code>, 9 signals. <strong>The canonical case.</strong> Same severity, same count, same verdict on every surface that draws it</td></tr>
+<tr><td><b>C-4482</b></td><td>Aubrey Dental Group. Exists because the no baseline state needs a tenant that has no baseline, and Larkfield has one</td></tr>
+<tr><td><b>C-3180</b></td><td>Norsk Marine, June 2026. Exists because a dead snapshot needs an entry old enough to have one, and the canonical case is four hours old</td></tr>
+</table>
+<p class="gnote"><strong>The id encodes nothing, and that is a decision.</strong> An id carrying the tenant or the date leaks across tenant isolation the moment a link is pasted into a channel someone else can read. It is short because it gets read aloud on a phone at 03:00.</p>
+</article>
+
+<article>
+<h3>Severity, three levels</h3>
+<p class="fxsub">Glyph and word, always both, because colour is not the only carrier</p>
+<table>
+<tr><td><b>High</b></td><td>Three bars filled</td></tr>
+<tr><td><b>Medium</b></td><td>Two bars filled</td></tr>
+<tr><td><b>Low</b></td><td>One bar filled</td></tr>
+</table>
+<p class="gnote"><strong>Three and not five,</strong> because every level has to change what she does next or it is noise in a column that costs width on forty rows. <strong>Severity is not the action class:</strong> that ladder orders by reversibility, and isolating a production server is severe and cheap to undo. Two axes, allowed to disagree on the same case.</p>
+</article>
+
+<article>
+<h3>Time, four grammars for four questions</h3>
+<p class="fxsub">A working surface and a permanent record do not ask the same thing</p>
+<table>
+<tr><td><b>How long has this been true?</b></td><td>Elapsed, bare unit, one unit, no <code>ago</code>: <code>27m</code>, <code>4h</code>, <code>3d</code>. Queue rows, freshness, case age</td></tr>
+<tr><td><b>When exactly did it happen?</b></td><td>ISO 8601 in UTC: <code>2026-08-22T04:41:12Z</code>. The log, the snapshot, anything that leaves the product</td></tr>
+<tr><td><b>Which shift?</b></td><td>Wall clock with the zone named: <code>19:00 to 07:00</code>. The shift brief only</td></tr>
+<tr><td><b>When will this be over?</b></td><td>ISO 8601 in UTC again. Planned maintenance. <strong>Added at step 8</strong>: the first three all describe the past</td></tr>
+</table>
+<p class="gnote"><strong>UTC in the log is not a preference.</strong> One analyst covers tenants in the United States and the EU, so a local rendering in an append only record makes two entries incomparable at the moment someone is trying to compare them. <strong>Today in every drawing is 2026-08-22.</strong></p>
+</article>
+
+<article>
+<h3>Effort, two numbers that were wearing one word</h3>
+<p class="fxsub">One is her cost, one is Clerk&rsquo;s, and they are bound</p>
+<table>
+<tr><td><b>9 signals</b></td><td><strong>What checking will cost her.</strong> Correlated signals in the case, shown on the queue row</td></tr>
+<tr><td><b>6 sources, 24h</b></td><td><strong>What Clerk spent.</strong> Sources queried and the window, shown on the provenance strip</td></tr>
+</table>
+<p class="gnote">The two are bound, and that is the useful part: <strong>the signal count in the row is the number of lines the evidence block renders in the pane.</strong> The row makes a promise about how much reading sits behind the verdict, and the pane is where the promise is kept or broken. <strong>Never seconds:</strong> time alone says the agent was busy, not what it read.</p>
+</article>
+
+<article class="fx-wide">
+<h3>State chips, a closed set of six</h3>
+<p class="fxsub">In render order, which is the order in which they change what she does next</p>
+<table>
+<tr><td><b>unrecorded</b></td><td>A verdict exists and the write did not land</td></tr>
+<tr><td><b>taken</b></td><td>Another analyst is deciding it now, with their name and since when</td></tr>
+<tr><td><b>escalated</b></td><td>It left her hands</td></tr>
+<tr><td><b>decided</b></td><td>Ruled, and still in place until the selection moves off it</td></tr>
+<tr><td><b>acted</b></td><td>Clerk already did something under this tenant&rsquo;s latitude</td></tr>
+<tr><td><b>investigating</b></td><td>Clerk is still working, no verdict yet</td></tr>
+</table>
+<p class="gnote"><strong>A row renders at most two, highest first.</strong> That is a claim about the taxonomy rather than a truncation rule, and it is checkable: <code>investigating</code> excludes everything below a verdict, and <code>unrecorded</code> presupposes one. Four pairs genuinely occur: <code>decided</code> with <code>unrecorded</code>, <code>escalated</code> with <code>acted</code>, <code>decided</code> with <code>acted</code>, and <code>taken</code> with <code>acted</code>. <strong>If a fifth pair is found, the taxonomy is what gets fixed, not the row</strong>, because a row that silently drops a state breaks the rule that a case which left her hands must not look identical to one that did not.</p>
+</article>
+
+</div>
+</section>
+
 <section id="flows">
-<h2>02 &middot; Ways in, by flow</h2>
+<h2>03 &middot; Ways in, by flow</h2>
 <p class="h2sub">Five flows from <code>ia/docs/flows.md</code>. A solid card is built, a dashed one is still only a specification</p>
 <div id="wf-flows"></div>
 </section>
 
 <section id="coverage">
-<h2>03 &middot; Coverage</h2>
+<h2>04 &middot; Coverage</h2>
 <p class="h2sub">What is built against what the map says exists. This answers &ldquo;how much is left&rdquo;, and the matrix below answers a different question</p>
 <div id="wf-coverage"></div>
 <p class="legend">
@@ -177,14 +291,14 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
 </section>
 
 <section id="matrix">
-<h2>04 &middot; State matrix</h2>
+<h2>05 &middot; State matrix</h2>
 <p class="h2sub">The complete list of states in the product. Stage 05 step 4 reads it for tone and stage 07 step 2 reads it for the component inventory</p>
 <p>The four system states are the <strong>floor</strong>, not the set: the real set comes from the state matrix of each node in <code>ia/docs/pages/</code>, and a state that is not in one is not drawn. <strong>Every gap carries its reason</strong>, because without one a state nobody needs cannot be told apart from a state somebody forgot.</p>
 <div id="wf-matrix" class="tw"></div>
 </section>
 
 <section id="conventions">
-<h2>05 &middot; Conventions</h2>
+<h2>06 &middot; Conventions</h2>
 <p class="h2sub">The contract every screen and every subagent works to. Full text in <code>wireframes/docs/conventions.md</code></p>
 
 <h3>The palette, inherited verbatim</h3>
@@ -229,6 +343,7 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
 <script>
   window.NAV_SECTIONS = [
     { id:'read-first',  label:'Read this first' },
+    { id:'fixtures',    label:'Reading the fixtures' },
     { id:'flows',       label:'Ways in, by flow' },
     { id:'coverage',    label:'Coverage' },
     { id:'matrix',      label:'State matrix' },
