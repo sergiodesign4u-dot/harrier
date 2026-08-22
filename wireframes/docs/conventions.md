@@ -214,3 +214,66 @@ Five generators carried an absolute path to a scratch folder on `sys.path`, so `
 resolved to a stale copy that still emitted its pages on import. The symptom was that
 `queue.html` kept reappearing with the pre-reconcile stylesheet no matter how often it was
 regenerated. Every generator now resolves its imports from its own folder.
+
+---
+
+## 13. The twenty one, and what each one cost
+
+The reconcile pairs matched first, then this list was worked. Groups A, B and C are closed.
+Group D is upward work on the IA and is listed at the end of `screens.md`.
+
+### A. Shared components, twelve fixes in one file
+
+The banner was a flex container, so a bold run mid sentence became its own flex item. Thirty
+pages carried one. `.only-narrow` had no complement, so three generators privately invented the
+same class. `.pane-foot` was sticky and had nothing to stick to, because the shell grew with its
+content instead of the columns scrolling. The annunciator overflowed at 1280, which is the
+product's declared minimum. An empty key slot rendered as an empty box. The source chip parked
+at the top right of a wrapping claim at 360. A section heading could not be an `h2`. The small
+soft note, the address block and the pane-less column each existed twice. The fleet row got
+double padding inside a pane. Six tokens the stage had been writing as raw lengths.
+
+**Measured after: 58 pages at 1280, 1440 and a real 360, 174 runs, zero failures. The pane foot
+now sits inside the viewport on 34 of the 34 pages that have one, where it had never once
+stuck.** That is design principle 3 becoming true rather than stated: the four verdict controls
+are on screen without scrolling to them.
+
+### B. Nine keyboard defects, and eight of them were mine
+
+The map was one page and one static list, and drawing it audited the whole stage, because every
+row had to match a key a built control already claimed.
+
+| Was | Now |
+|---|---|
+| `h` for "hold it locally", in no specification. A single character shortcut under **SC 2.1.4**, which 0.5 claims to own every one of | The control keeps its place and loses the key |
+| `a` and `b` on the second axis of 4.4, unspecified, and **`a` collided with Accept** | `1` and `2`, which is the grammar the first axis already uses |
+| `Enter` filed the amendment while the only input was prose, a **third** `Enter` behaviour beside the one chosen inconsistency | The button files, and the hint says so in 4.6's words |
+| A retry glyph inside a key slot, which reads as a key that does not exist | Gone |
+| `Next case` on the down arrow, where 4.1 section 6 says `[` and `]` | `]` |
+| **The keyboard map had no trigger in Z1** although 0.2 section 4 puts it there, so nothing in the product opened 0.5 | `?` in the top bar, on 51 of 58 pages |
+
+The seven pages without it are the five sign in states, which have no shell before
+authentication, and the two full outage states, where a console that is down cannot draw its own
+navigation. Both are the node's own reasoning, not an omission.
+
+**Measured: every key rendered on a control across 58 pages is now one of `a m r e 1..6 Enter
+Esc ] [`, and nothing else.** The map itself is excluded from that check, because it is the one
+page that lists navigation keys as well as shortcuts.
+
+### C. Four fixtures that contradicted each other, all four mine
+
+- **The snapshot was stamped before the last event it records.** `?as-of` read `04:12:38Z` while
+  the narrative it carries ends with an inbox rule at `04:13`. It moves to `04:14:05Z`
+- **The case was filed after it was escalated.** `Filed by Clerk 27m ago` put now at `04:39`,
+  before the `04:41:12` escalation that two other screens show as already written. `26m` puts
+  now one minute before she escalates, which is what that screen is
+- **The log said 7 entries and the queue said 21 were ruled this shift.** The log's list is
+  virtualised like the queue's, so the readout names what it holds, `34`, and the foot says
+  `7 of 34 shown`. The shift brief's Clerk count moves with it
+- **Halden Freight was in three states at once.** 0.8 reserves it for the case carried over a
+  shift boundary, and the log had it ruled at 01:44 while the queue had it open and four minutes
+  old. The log entry is Bramber Retail's now
+- **4.4 and 4.2 disagreed in print about the exits at 360.** 4.4's narrow banner offered accept
+  and escalate; 4.2 settles that a case known to be benign cannot be closed from a phone either.
+  4.4 was wrong, the banner says escalate only, and the pane behind it now obeys the sentence
+  above it rather than contradicting it
