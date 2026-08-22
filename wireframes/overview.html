@@ -95,7 +95,9 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
 /* research/_page.css sets min-width:560px on the bare `table` element, which is wider than
    a card in this grid. Page-local components have to unset it, not just set width */
 .fx table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;font-size:12.5px}
-.fx td{border-top:1px solid var(--rule);padding:6px 0;vertical-align:top;overflow-wrap:anywhere}
+/* break-word, not anywhere: `anywhere` breaks a word that would have fitted on the next
+   line, and it split the ISO timestamp this legend exists to teach */
+.fx td{border-top:1px solid var(--rule);padding:6px 0;vertical-align:top;overflow-wrap:break-word}
 .fx tr:first-child td{border-top:none}
 .fx td:first-child{width:150px;padding-right:12px}
 .fx td b{font:600 12px/1.45 var(--mono);color:var(--fg)}
