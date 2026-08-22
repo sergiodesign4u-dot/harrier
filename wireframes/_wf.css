@@ -246,14 +246,20 @@ body{
        align-items:flex-start;justify-content:flex-end;
        padding:var(--s6) calc(var(--pane) + var(--s5)) var(--s6) var(--s5)}
 .dialog{background:var(--paper);border:var(--line-ink);border-radius:var(--radius);
-        width:min(520px,100%);max-height:calc(100vh - var(--s7));overflow-y:auto;
+        width:min(520px,100%);max-height:calc(100vh - var(--s7));overflow:hidden;
         display:flex;flex-direction:column}
-.dialog > header{padding:var(--s4);border-bottom:var(--line-ink)}
+.dialog > header{padding:var(--s4);border-bottom:var(--line-ink);flex:0 0 auto}
 .dialog > header h2{margin:0;font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
-.dialog > .body{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s4)}
-.dialog > footer{padding:var(--s3) var(--s4);border-top:var(--line-ink);
-                 display:flex;gap:var(--s2);align-items:center}
+/* The BODY scrolls, not the dialog. Found on 4.6, where the handover is long enough to push
+   the footer past the fold: a primary action you have to scroll to find is a primary action
+   that is not there, and on the no recipient state the sentence saying WHY it is disabled
+   went with it. Header and footer are pinned; only the middle moves. */
+.dialog > .body{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s4);
+                flex:1 1 auto;overflow-y:auto;min-height:0}
+.dialog > footer{padding:var(--s3) var(--s4);border-top:var(--line-ink);flex:0 0 auto;
+                 display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap}
 .dialog > footer .grow{flex:1 1 auto}
+.dialog > footer .btn{flex:0 0 auto;white-space:nowrap}
 /* 4.4 settled that reject is not exposed at 360: it needs the taxonomy AND the evidence in
    view, and neither fits on a phone. So the dialog is a desk action and the narrow rendering
    says what the exits are instead of pretending to offer one that was ruled out. */
