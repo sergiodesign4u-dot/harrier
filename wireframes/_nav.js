@@ -84,7 +84,7 @@ window.WF_NAV = {
       noState:[{label:'Out of scope', why:'Not a state of the page. Tenants outside her provider scope are never rendered, not even greyed, so there is nothing to draw. It is an absence in the data'}] },
 
     { screen:'case', node:'4.1', ia:'case-file.html', label:'Case File in the detail pane',
-      cluster:'4', flow:'main', scope:'MVP', status:'spec',
+      cluster:'4', flow:'main', scope:'MVP', status:'built',
       states:[
         {slug:'',              label:'Filed and waiting',   kind:'base'},
         {slug:'investigating', label:'Clerk working, 4.3',  kind:'loading'},
