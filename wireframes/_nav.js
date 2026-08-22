@@ -288,6 +288,10 @@ window.WF_SHELL = function(o){
   st.textContent =
     '#sidebar{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow-y:auto;' +
       'scrollbar-width:thin;padding-right:4px}' +
+    /* The panel is the STAGE's chrome, not the product's, and at 360 a full height tree
+       pushes the screen being reviewed off the bottom of the phone. It keeps its place
+       and scrolls inside 120px instead, so the thing under review is what you land on. */
+    '@media (max-width:900px){#sidebar{position:static;max-height:120px;padding:12px 10px}}' +
     '.wf-badge{display:inline-block;font:600 10px/1 var(--mono,monospace);letter-spacing:.14em;' +
       'border:1px solid var(--nav-active);color:var(--nav-active);border-radius:3px;padding:3px 6px}' +
     '.wf-sub{margin:6px 0 14px;font-size:11.5px;color:var(--nav-muted)}' +
