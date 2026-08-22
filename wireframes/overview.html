@@ -92,7 +92,9 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
 .fx > article.fx-wide{grid-column:1 / -1}
 .fx h3{margin:0 0 2px;font-size:14.5px}
 .fx .fxsub{margin:0 0 10px;font-size:12.5px;color:var(--faint)}
-.fx table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:12.5px}
+/* research/_page.css sets min-width:560px on the bare `table` element, which is wider than
+   a card in this grid. Page-local components have to unset it, not just set width */
+.fx table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;font-size:12.5px}
 .fx td{border-top:1px solid var(--rule);padding:6px 0;vertical-align:top;overflow-wrap:anywhere}
 .fx tr:first-child td{border-top:none}
 .fx td:first-child{width:150px;padding-right:12px}
