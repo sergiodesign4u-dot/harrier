@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Harrier &middot; Case queue</title>
+<title>Harrier &middot; Case queue, just filed</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="_wf.css">
 <style>
@@ -34,7 +34,7 @@
         <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
       </div>
 
-      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+      <h1 id="qh" class="readout"><b>17 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
 
       <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
         <div class="row row--head" role="row">
@@ -55,13 +55,13 @@
           <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
           <span class="age" role="gridcell">1h</span>
         </a>
-        <a class="row" role="row" href="case.html">
+        <a class="row is-selected" role="row" href="queue-decided.html">
           <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
           <span class="client" role="gridcell">Larkfield Logistics</span>
           <span role="gridcell">Token replay from a new ASN</span>
-          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span class="concluded" role="gridcell"><b>Accepted by R. Idrissi, 4s ago</b><br><span class="dim">was: Real, contain identity</span></span>
           <span role="gridcell" class="cost">9 signals</span>
-          <span class="states" role="gridcell"></span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">acted</i></span>
           <span class="age" role="gridcell">27m</span>
         </a>
         <a class="row" role="row" href="case.html">
@@ -112,32 +112,39 @@
       </div>
 
       <p class="qfoot">
-        <span>7 of 18 shown, virtualised</span>
+        <span>7 of 17 shown, the decided row holds its place</span>
         <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
         <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
         <span>order: unrecorded, blocked on her, severity, age</span>
       </p>
     </section>
 
-    <aside class="z5" aria-labelledby="fh">
+    <aside class="z5 is-paper" aria-labelledby="ph">
       <div class="pane-head">
-        <h2 id="fh">Fleet</h2>
-        <p class="sub">40 tenants, nothing selected. Ordered by where attention is owed</p>
+        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+        <p class="sub">Token replay from a new ASN &middot; 9 signals &middot; 6 sources, 24h</p>
       </div>
-      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Record</span></div>
-      <a class="frow" href="queue.html"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
-      <a class="frow" href="queue.html"><span>Halcyon Care</span><span>Contain endpoint</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
-      <a class="frow" href="queue.html"><span>Aubrey Dental Group</span><span>Investigate</span><span class="rec">&ndash;<span class="was">no rulings yet</span></span></a>
-      <a class="frow" href="queue.html"><span>Bramber Retail</span><span>Contain network</span><span class="rec">51 of 52<span class="was">was 49 of 51</span></span></a>
-      <a class="frow" href="queue.html"><span>Halden Freight</span><span>Contain endpoint</span><span class="rec">27 of 29<span class="was">was 26 of 29</span></span></a>
-      <a class="frow" href="queue.html"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
-      <a class="frow" href="queue.html"><span>Norsk Marine</span><span>Investigate</span><span class="rec">18 of 20<span class="was">was 18 of 20</span></span></a>
-      <p class="fleet-more">33 more, 30 day window &middot; a row narrows the queue to that tenant</p>
+      <div class="pane-body">
+        <div class="banner"><b>Accepted by R. Idrissi, 4s ago.</b> Written to the log against the snapshot as it stood.</div>
+        <section class="block">
+          <h3>What was decided</h3>
+          <p style="margin:0">Clerk concluded <b>real, contain identity</b>. The action was above this tenant&rsquo;s latitude, so it waited for a person, and it has now run.</p>
+        </section>
+        <section class="block">
+          <h3>Where it is now</h3>
+          <p style="margin:0"><a href="entry.html">The log entry, with the evidence as it stood</a></p>
+        </section>
+        <p class="prov">The row stays in place and reads <b>decided</b>. It leaves the list when the selection moves off it, not when the verdict is filed. <b>No toast:</b> the row changed under your hand, which says more.</p>
+      </div>
+      <div class="pane-foot">
+        <a class="btn" href="queue.html">Next case <span class="key">&darr;</span></a>
+        <a class="btn btn--quiet" href="log.html">Open the log</a>
+      </div>
     </aside>
   </main>
 </div>
 </div>
 <script src="_nav.js"></script>
-<script>WF_SHELL({ current:'queue', strip:'live' });</script>
+<script>WF_SHELL({ current:'queue', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\"ovrd\">OVRD</span> human decided'] } });</script>
 </body>
 </html>

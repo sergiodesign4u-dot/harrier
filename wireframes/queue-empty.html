@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Case queue, nothing waiting</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+.qbanner{margin:var(--s3) var(--s4) 0}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="qh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip" type="button">All tenants &#9662;</button>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+
+      <h1 id="qh" class="readout"><b>Nothing waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+
+      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <p class="empty"><b>Nothing is waiting on a decision.</b>
+          21 cases were ruled on this shift and Clerk is investigating 3 more.<br>
+          The pane on the right is the fleet, which is where this screen rests.<br>
+          <a class="btn" href="queue.html" style="margin-top:var(--s4)">Widen the scope to all tenants</a></p>
+      </div>
+
+      <p class="qfoot">
+        <span>nothing waiting, and the fleet holds the pane</span>
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, blocked on her, severity, age</span>
+      </p>
+    </section>
+
+    <aside class="z5" aria-labelledby="fh">
+      <div class="pane-head">
+        <h2 id="fh">Fleet</h2>
+        <p class="sub">40 tenants. This is the resting state of the pane, and it is what an empty queue looks like</p>
+      </div>
+      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Record</span></div>
+      <a class="frow" href="queue.html"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+      <a class="frow" href="queue.html"><span>Halcyon Care</span><span>Contain endpoint</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+      <a class="frow" href="queue.html"><span>Aubrey Dental Group</span><span>Investigate</span><span class="rec">&ndash;<span class="was">no rulings yet</span></span></a>
+      <a class="frow" href="queue.html"><span>Bramber Retail</span><span>Contain network</span><span class="rec">51 of 52<span class="was">was 49 of 51</span></span></a>
+      <a class="frow" href="queue.html"><span>Halden Freight</span><span>Contain endpoint</span><span class="rec">27 of 29<span class="was">was 26 of 29</span></span></a>
+      <a class="frow" href="queue.html"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
+      <a class="frow" href="queue.html"><span>Norsk Marine</span><span>Investigate</span><span class="rec">18 of 20<span class="was">was 18 of 20</span></span></a>
+      <p class="fleet-more">33 more, 30 day window &middot; a row narrows the queue to that tenant</p>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'queue', strip:'live' });</script>
+</body>
+</html>

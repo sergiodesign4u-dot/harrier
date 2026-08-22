@@ -222,6 +222,59 @@ window.WF_NAV = {
   ],
 };
 
+/* ---------- the global shell, rendered once here so every page is thin ----------
+ * Z1 (0.1 zone 1 with 0.2 navigation and 0.3 annunciator) and Z2 (0.4 connection strip)
+ * are identical on every authenticated screen, so they are written once and called with
+ * what differs. A page that redraws the header is a page that will drift from it.
+ *
+ *   WF_SHELL({ current:'queue', annun:<fleet|tenant object>, strip:'live'|<object> })
+ */
+window.WF_SHELL = function(o){
+  o = o || {};
+  var NAVITEMS = [
+    { id:'queue', label:'Queue', href:'queue.html' },
+    { id:'shift', label:'Shift', href:'shift.html' },
+    { id:'log',   label:'Log',   href:'log.html'   },
+  ];
+
+  /* 0.3. With nothing selected it reads the fleet; with a case selected it reads that tenant.
+     It redraws on TENANT change, never on every arrow key. */
+  var FLEET = { kind:'fleet', lead:'FLEET', parts:['40 tenants',
+                'acts alone up to <b>contain network</b> at 3', '<b>1</b> moved down'] };
+  var a = o.annun || FLEET;
+  if (a === 'fleet') a = FLEET;
+
+  var STRIPS = {
+    live:        { cls:'',            html:'<b>Live</b> last case 4s <span class="sep">&middot;</span> Clerk investigating 3' },
+    arriving:    { cls:'',            html:'<b>Live</b> last case 1s <span class="sep">&middot;</span> <b>3 arriving</b>' },
+    reconnecting:{ cls:'is-degraded', html:'<b>Reconnecting</b> the queue has stood still for 40s <span class="sep">&middot;</span> how many cases were missed is not known' },
+    stale:       { cls:'is-degraded', html:'<b>Stale</b> nothing has arrived for 6m <span class="sep">&middot;</span> decide on what is here, it is marked as of the last sync' },
+    clerkdown:   { cls:'is-degraded', html:'<b>Clerk is not investigating</b> since 11m <span class="sep">&middot;</span> the connection is fine, so <b>the queue is complete</b>' },
+  };
+  var st = o.strip || 'live';
+  if (typeof st === 'string') st = STRIPS[st] || STRIPS.live;
+
+  var z1 = document.getElementById('wf-z1');
+  if (z1) {
+    z1.className = 'z1';
+    z1.innerHTML =
+      '<span class="wordmark">Harrier</span>' +
+      '<nav aria-label="Sections">' + NAVITEMS.map(function(n){
+        return '<a href="' + n.href + '"' + (n.id === o.current ? ' aria-current="page"' : '') + '>' + n.label + '</a>';
+      }).join('') + '</nav>' +
+      '<span class="spacer"></span>' +
+      '<p class="annun" aria-label="Tenant autonomy"><b>' + a.lead + '</b>' +
+        a.parts.map(function(p){ return '<span class="sep">|</span>' + p; }).join('') +
+      '</p>' +
+      '<span class="mono dim" style="font-size:var(--t-xs)">R. Idrissi</span>';
+  }
+  var z2 = document.getElementById('wf-z2');
+  if (z2) {
+    z2.className = 'z2 ' + st.cls;
+    z2.innerHTML = st.html + ' <span class="sep">&middot;</span> 0.4';
+  }
+};
+
 /* ---------- the panel's own rules, injected so the shared sheet stays untouched ---------- */
 (function(){
   if (document.getElementById('wf-panel-css')) return;

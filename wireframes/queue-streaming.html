@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Harrier &middot; Case queue</title>
+<title>Harrier &middot; Case queue, streaming in</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="_wf.css">
 <style>
@@ -34,9 +34,10 @@
         <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
       </div>
 
-      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+      <h1 id="qh" class="readout"><b>14 waiting so far</b> <span class="dim">provisional, Clerk is still correlating</span></h1>
 
       <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <div class="arriving" aria-label="Cases arriving"></div>
         <div class="row row--head" role="row">
           <span role="columnheader">Sev</span>
           <span role="columnheader">Client</span>
@@ -82,37 +83,11 @@
           <span class="states" role="gridcell"><i class="chip chip--state chip--ghost">investigating</i></span>
           <span class="age" role="gridcell">6m</span>
         </a>
-        <a class="row" role="row" href="case.html">
-          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
-          <span class="client" role="gridcell">Halden Freight</span>
-          <span role="gridcell">Impossible travel, two offices</span>
-          <span class="concluded" role="gridcell"><b>Benign, sanctioned VPN rollout</b></span>
-          <span role="gridcell" class="cost">6 signals</span>
-          <span class="states" role="gridcell"></span>
-          <span class="age" role="gridcell">4m</span>
-        </a>
-        <a class="row" role="row" href="case.html">
-          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
-          <span class="client" role="gridcell">Halcyon Care</span>
-          <span role="gridcell">Beaconing to a new domain</span>
-          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
-          <span role="gridcell" class="cost">5 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
-          <span class="age" role="gridcell">2h</span>
-        </a>
-        <a class="row" role="row" href="case.html">
-          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
-          <span class="client" role="gridcell">Bramber Retail</span>
-          <span role="gridcell">Mass mailbox rule creation</span>
-          <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
-          <span role="gridcell" class="cost">3 signals</span>
-          <span class="states" role="gridcell"></span>
-          <span class="age" role="gridcell">41m</span>
-        </a>
+        <p class="empty" style="padding:var(--s4)">Rows arrive as Clerk correlates them. <b style="display:inline;font-size:inherit">The count above is provisional and says so</b>, because a number that settles later without saying it was provisional is a number she acted on.</p>
       </div>
 
       <p class="qfoot">
-        <span>7 of 18 shown, virtualised</span>
+        <span>4 of 14 so far, more arriving</span>
         <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
         <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
         <span>order: unrecorded, blocked on her, severity, age</span>
@@ -138,6 +113,6 @@
 </div>
 </div>
 <script src="_nav.js"></script>
-<script>WF_SHELL({ current:'queue', strip:'live' });</script>
+<script>WF_SHELL({ current:'queue', strip:'arriving' });</script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Harrier &middot; Case queue</title>
+<title>Harrier &middot; Case queue, Clerk not investigating</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="_wf.css">
 <style>
@@ -35,6 +35,8 @@
       </div>
 
       <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+
+      <div class="banner qbanner"><b>The queue is complete.</b> The connection is fine and Clerk stopped investigating 11m ago, so nothing is missing and nothing new will arrive until it is back. Every case in front of you is every case there is.<span class="act"><a class="btn" href="unavailable.html">What is down</a></span></div>
 
       <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
         <div class="row row--head" role="row">
@@ -112,7 +114,7 @@
       </div>
 
       <p class="qfoot">
-        <span>7 of 18 shown, virtualised</span>
+        <span>7 of 18 shown, and 18 is all of them</span>
         <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
         <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
         <span>order: unrecorded, blocked on her, severity, age</span>
@@ -138,6 +140,6 @@
 </div>
 </div>
 <script src="_nav.js"></script>
-<script>WF_SHELL({ current:'queue', strip:'live' });</script>
+<script>WF_SHELL({ current:'queue', strip:'clerkdown' });</script>
 </body>
 </html>
