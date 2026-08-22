@@ -393,3 +393,90 @@ a.opt:hover{background:var(--fill)}
    That class is what tells _wf.css to swap the pane in for the list at 360, and on this
    screen there is no swap to make: nothing here renders on a phone. Same paint, no swap. */
 .z5--paper{background:var(--paper)}
+
+/* ============================================================
+   FOUND BY THE FAN-OUT, FIXED AFTER THE RECONCILE PAIRS MATCHED.
+   Seven agents drew seven screens against this sheet at the same time, which is the only
+   way these could have surfaced: four of them were found independently by more than one
+   agent, and the same missing utility was privately re-invented three times.
+   Nothing here was folded into the move itself. The move proved zero pixels changed; this
+   section is the part that deliberately changes them.
+   ============================================================ */
+
+/* 1. THE BANNER WAS A FLEX CONTAINER, so every run of plain text between two bold runs became
+   its own flex item with a 12px gap and its own wrap point. 30 pages carry a banner with two
+   or more bold runs. Found by four agents separately, and best said by one of them: every
+   screen built before the fan-out happened to put its bold only at the start, so it never
+   showed. Text flows as a paragraph now and the action floats clear of it. */
+.banner{display:flow-root}
+.banner > .act{float:right;margin:0 0 var(--s2) var(--s3)}
+
+/* 2. `.only-narrow` HAD NO COMPLEMENT, so three generators privately invented `.esc-desk`,
+   `.out-desk` and `.only-desk` for the identical job. Three names for one utility is not
+   three mistakes, it is one hole in this file found three times. */
+.only-desk{display:block}
+.only-desk-i{display:inline}
+
+/* 3. `.pane-foot` IS STICKY AND NEVER STUCK. `min-height:100vh` let the shell grow with its
+   content, so there was no scroll container for `bottom:0` to resolve against and the pane's
+   own `overflow-y:auto` never engaged either. The columns scroll, the page does not. */
+.wf-shell{height:100vh}
+.z4{overflow-y:auto}
+
+/* 4. THE ANNUNCIATOR OVERFLOWED AT 1280 on every page carrying three parts: `nowrap` plus a
+   third part pushed the analyst's name past the right edge, measured at 1344 in a 1280 window.
+   1280 is the product's declared minimum, so this was a defect at the width the spec names.
+   It wraps inside its own border rather than losing a part or clipping the bar. */
+@media (max-width:1400px){
+  .z1{flex-wrap:wrap;padding-top:var(--s2);padding-bottom:var(--s2)}
+  .annun{white-space:normal}
+}
+
+/* 5. AN EMPTY KEY SLOT RENDERED AS AN EMPTY BOX. `foot()` always emits the span, so a control
+   with no shortcut wore a bordered blank that reads as a key nobody can press. */
+.btn .key:empty{display:none}
+
+/* 6. THE CLAIM'S SOURCE CHIP PARKED AT THE TOP RIGHT at 360 and the claim wrapped underneath
+   it, so a two line claim read as two columns. It takes its own line now. */
+@media (max-width:900px){
+  .wf-shell{height:auto}
+  .z4{overflow-y:visible}
+  .claim{flex-wrap:wrap}
+  .claim .src{margin-left:auto}
+}
+
+/* 7. A SECTION HEADING IS NOT ALWAYS AN h3. In the pane it sits under the pane's h2, so h3 is
+   right; in Z4 with no pane title above it the same heading has to be an h2, and the shift
+   brief had to restyle it to the same face by hand. */
+.block > :is(h2,h3){margin:0;font:600 var(--t-xs)/1 var(--mono);letter-spacing:.1em;
+                    text-transform:uppercase;color:var(--soft)}
+
+/* 8. THE SMALL SOFT NOTE UNDER A BLOCK is the most duplicated thing in the stage: it was
+   written as a literal style attribute in three generators and on a dozen blocks. */
+.gnote{margin:var(--s2) 0 0;font-size:var(--t-xs);color:var(--soft)}
+
+/* 9. THE ADDRESS BLOCK EXISTED TWICE, once on 5.4 and once on 8.1, same hairline and same
+   wrapping. One component, and the sign in page can adopt it instead of a bare code chip. */
+.addr{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;
+      border:var(--line);border-radius:var(--radius);padding:var(--s2) var(--s3);background:var(--fill)}
+.addr code{font-size:var(--t-sm);overflow-wrap:anywhere;flex:1 1 220px}
+
+/* 10. A COLUMN WITH NO PANE BESIDE IT was written twice under two names, `.z4--entry` on 5.4
+   and `.z4--solo` on 8.1. It is one situation: the screen IS the page. */
+.z4--solo,.z4--entry{border-right:none;overflow-y:auto;align-items:center}
+
+/* 11. THE FLEET ROW REUSED INSIDE A PADDED PANE BODY doubles the padding, which the shift
+   brief hit first because it is the first screen to put the rota inside a pane. */
+.pane-body .frow{padding-left:0;padding-right:0}
+
+/* 12. TOKENS THE STAGE NEEDED AND DID NOT HAVE. Four different measures were written as raw
+   lengths on four screens, a space token was doing a tap target's job, and the dialog width
+   was a literal in one place and a second literal in another. */
+:root{
+  --measure:66ch;       /* a single column of prose. 8.1 */
+  --sheet:760px;        /* a case sitting on its own with no list beside it. 4.2 */
+  --frame:820px;        /* the framed record. 5.4 */
+  --dialog-w:520px;     /* 4.4, 4.6 */
+  --dialog-w-wide:720px;/* 0.5, which is a reference table rather than a decision */
+  --tap:24px;           /* WCAG SC 2.5.8 floor. It was --s5, a space token doing a size job */
+}
