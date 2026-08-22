@@ -25,9 +25,10 @@ Q.INLINE = INLINE   # page() renders the module level constant, so hand it ours
 
 def z4_with_case(selected_href, rows=None, sel_state=None):
     items = []
+    preselected = any((len(r) > 9 and r[9] == 'is-selected') for r in (rows or []))
     for i, r in enumerate(rows if rows else Q.BASE_ROWS):
         r = list(r)
-        if r[1] == 'Larkfield Logistics':
+        if r[1] == 'Larkfield Logistics' and not preselected:
             r[8] = selected_href
             r[9] = 'is-selected'
             if sel_state is not None: r[6] = sel_state
@@ -89,10 +90,10 @@ def foot(buttons):
 ALL_FOUR = [('Accept','a','queue-decided.html',' btn--primary'), ('Amend','m','case-amend.html',''),
             ('Reject','r','reject.html',''), ('Escalate','e','escalate.html','')]
 
-def pane(head_sub, chips, body, footer, extra_class=' is-paper'):
+def pane(head_sub, chips, body, footer, extra_class=' is-paper', title='C-4417 &middot; Larkfield Logistics'):
     return ('    <aside class="z5%s" aria-labelledby="ph">\n'
             '      <div class="pane-head">\n'
-            '        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>\n'
+            '        <h2 id="ph">' + title + '</h2>\n'
             '        <p class="sub">%s</p>\n%s      </div>\n'
             '      <div class="pane-body">\n%s      </div>\n%s    </aside>\n'
             ) % (extra_class, head_sub, chips, body, footer)
@@ -169,16 +170,29 @@ Q.page('case-amend.html', 'Case file, amending', 'live',
        extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
 
 # ---------------------------------------------------------------- 5. no baseline, 4.8
+NOBASE_VERDICT = """        <section class="block">
+          <h3>What Clerk concluded</h3>
+          <p class="nar"><b>Real, and it wants to contain the identity.</b> A first sign in for this account from a device the tenant has never enrolled, followed by a mailbox rule ninety seconds later.</p>
+        </section>
+        <section class="block">
+          <h3>What happened</h3>
+          <p class="nar"><span class="when">05:31</span>Sign in from an unenrolled device, MFA satisfied by push.</p>
+          <p class="nar"><span class="when">05:33</span>Inbox rule created, forwarding to an external address.</p>
+        </section>
+"""
+NOBASE_EVIDENCE = EVIDENCE.replace('Evidence, 9 signals', 'Evidence, 9 signals').replace(
+    'A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant',
+    'A sign in from a device with no enrolment record, first for this account')
 Q.page('case-no-baseline.html', 'Case file, no baseline', 'live',
        z4_with_case('case-no-baseline.html', rows=[
-         r if r[1] != 'Larkfield Logistics' else
-         ('High','Aubrey Dental Group','Token replay from a new ASN','Real, contain identity','above latitude here','9 signals',[],'27m','case-no-baseline.html','is-selected')
+         r if r[1] != 'Aubrey Dental Group' else
+         ('Medium','Aubrey Dental Group','Sign in from an unseen device','Real, contain identity','above latitude here','9 signals',[],'6m','case-no-baseline.html','is-selected')
          for r in Q.BASE_ROWS]),
-       pane('Token replay from a new ASN &middot; High &middot; 9 signals &middot; 6 sources, 24h', '',
-            VERDICT + EVIDENCE + PROV
+       pane('Sign in from an unseen device &middot; Medium &middot; 9 signals &middot; 6 sources, 24h', '',
+            NOBASE_VERDICT + NOBASE_EVIDENCE + PROV
             + tenant_ctx('<b>No baseline for this tenant yet.</b> Aubrey Dental Group was onboarded 9 days ago, so there is nothing to compare this against. Not a zero, and not a comparison that would mean nothing.')
             + latitude('Investigate') + stamp(),
-            foot(ALL_FOUR)),
+            foot(ALL_FOUR), title='C-4482 &middot; Aubrey Dental Group'),
        extra_script=", annun:{ lead:'AUBREY DENTAL GROUP', parts:['acts alone up to <b>investigate</b>','<b>no rulings yet</b>, 9 days'] }")
 
 # ---------------------------------------------------------------- 6. evidence expired, 4.7

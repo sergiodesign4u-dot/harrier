@@ -204,10 +204,14 @@ body{
 
 /* radio list, node 4.4. A radio group, not a menu */
 .optlist{display:flex;flex-direction:column;border:var(--line-ink);border-radius:var(--radius)}
+/* An option is a link once the state it produces exists as a page: choosing a reason is
+   something she DOES, so step 7 gives it a real href rather than a dead label. */
 .opt{display:flex;gap:var(--s3);align-items:baseline;padding:var(--s2) var(--s3);
+     text-decoration:none;color:inherit;cursor:pointer;
      border-bottom:var(--line);cursor:pointer}
 .opt:last-child{border-bottom:none}
 .opt.is-chosen{background:var(--fill)}
+a.opt:hover{background:var(--fill)}
 .opt .key{font-family:var(--mono);font-size:var(--t-xs);border:var(--line-ink);
           border-radius:var(--radius);padding:0 var(--s1);flex:0 0 auto}
 .opt.is-chosen .key{background:var(--ink);color:var(--paper)}

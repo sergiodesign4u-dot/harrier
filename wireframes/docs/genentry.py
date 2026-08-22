@@ -141,7 +141,9 @@ def retention(until='2026-11-20T04:12:38Z'):
 def live(text=None):
     return ('        <section class="block">\n          <h3>The live case</h3>\n'
             '          <p class="nar">%s</p>\n'
-            '          <p style="margin:var(--s2) 0 0"><a class="btn" href="case.html">Open C-4417 as it is now</a></p>\n'
+            '          <p style="margin:var(--s2) 0 0;display:flex;gap:var(--s2);flex-wrap:wrap">'
+            '<a class="btn" href="case.html">Open C-4417 as it is now</a>'
+            '<a class="btn btn--quiet" href="log-selected.html">Back to this entry in the log</a></p>\n'
             '        </section>\n'
             ) % (text or 'A different thing, named and linked rather than shown beside this one. '
                          'Current values next to historical ones is the confusion, not the cure.')

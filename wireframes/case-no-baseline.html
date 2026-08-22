@@ -71,9 +71,9 @@
           <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
           <span class="age" role="gridcell">1h</span>
         </a>
-        <a class="row is-selected" role="row" href="case-no-baseline.html">
+        <a class="row" role="row" href="case.html">
           <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
-          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
           <span role="gridcell">Token replay from a new ASN</span>
           <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
           <span role="gridcell" class="cost">9 signals</span>
@@ -89,13 +89,13 @@
           <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
           <span class="age" role="gridcell">52m</span>
         </a>
-        <a class="row" role="row" href="case.html">
+        <a class="row is-selected" role="row" href="case-no-baseline.html">
           <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
           <span class="client" role="gridcell">Aubrey Dental Group</span>
           <span role="gridcell">Sign in from an unseen device</span>
-          <span class="concluded" role="gridcell"><span class="dim">no verdict yet</span></span>
-          <span role="gridcell" class="cost dim">counting</span>
-          <span class="states" role="gridcell"><i class="chip chip--state chip--ghost">investigating</i></span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
           <span class="age" role="gridcell">6m</span>
         </a>
         <a class="row" role="row" href="case.html">
@@ -137,23 +137,22 @@
 
     <aside class="z5 is-paper" aria-labelledby="ph">
       <div class="pane-head">
-        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
-        <p class="sub">Token replay from a new ASN &middot; High &middot; 9 signals &middot; 6 sources, 24h</p>
+        <h2 id="ph">C-4482 &middot; Aubrey Dental Group</h2>
+        <p class="sub">Sign in from an unseen device &middot; Medium &middot; 9 signals &middot; 6 sources, 24h</p>
       </div>
       <div class="pane-body">
         <section class="block">
           <h3>What Clerk concluded</h3>
-          <p class="nar"><b>Real, and it wants to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen, and an inbox rule was created from it.</p>
+          <p class="nar"><b>Real, and it wants to contain the identity.</b> A first sign in for this account from a device the tenant has never enrolled, followed by a mailbox rule ninety seconds later.</p>
         </section>
         <section class="block">
           <h3>What happened</h3>
-          <p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p>
-          <p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</p>
-          <p class="nar"><span class="when">04:13</span>Inbox rule created, forwarding to an external address.</p>
+          <p class="nar"><span class="when">05:31</span>Sign in from an unenrolled device, MFA satisfied by push.</p>
+          <p class="nar"><span class="when">05:33</span>Inbox rule created, forwarding to an external address.</p>
         </section>
         <section class="block">
           <h3>Evidence, 9 signals</h3>
-          <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="claim"><span class="txt">A sign in from a device with no enrolment record, first for this account</span><a class="src" href="case.html">Entra sign in</a></div>
           <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="case.html">Entra sign in</a></div>
           <div class="expand">Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</div>
           <div class="claim"><span class="txt">No MFA prompt on the second use</span><a class="src" href="case.html">Entra sign in</a></div>

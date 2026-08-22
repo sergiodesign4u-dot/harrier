@@ -205,19 +205,19 @@
         <section class="block">
           <h3>What Clerk got wrong</h3>
           <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
-            <label class="opt"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></label>
-            <label class="opt is-chosen"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></label>
-            <label class="opt"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></label>
-            <label class="opt"><span class="key">4</span><span class="lbl">Right answer, wrong scope</span><span class="routes">agent tuning</span></label>
-            <label class="opt"><span class="key">5</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></label>
-            <label class="opt"><span class="key">6</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></label>
+            <a class="opt" href="reject-chosen.html"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+            <a class="opt is-chosen" href="reject-axis-b.html"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+            <a class="opt" href="reject-chosen.html"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
+            <a class="opt" href="reject-chosen.html"><span class="key">4</span><span class="lbl">Right answer, wrong scope</span><span class="routes">agent tuning</span></a>
+            <a class="opt" href="reject-chosen.html"><span class="key">5</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+            <a class="opt" href="reject-tenant-normal.html"><span class="key">6</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
           </div>
         </section>
         <section class="block">
           <h3>Where it goes, and this is the one that has to ask</h3>
           <div class="axisb">
-            <label class="opt"><span class="key">a</span><span class="lbl">Detection is too broad</span><span class="routes">detection engineering</span></label>
-            <label class="opt"><span class="key">b</span><span class="lbl">Tenant context missing</span><span class="routes">the tenant baseline</span></label>
+            <a class="opt" href="reject-chosen.html"><span class="key">a</span><span class="lbl">Detection is too broad</span><span class="routes">detection engineering</span></a>
+            <a class="opt" href="reject-chosen.html"><span class="key">b</span><span class="lbl">Tenant context missing</span><span class="routes">the tenant baseline</span></a>
           </div>
           <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">Two choices, not five. The other five reasons derive their answer, so this is the only place a second keystroke is asked for.</p>
         </section>

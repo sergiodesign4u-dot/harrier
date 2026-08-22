@@ -81,7 +81,7 @@ SHIFT_ROWS = [
    'Upheld by D. Okonkwo', None, ['upheld'], ''),
 ]
 
-def rows(items, selected=None):
+def rows(items, selected=None, href=None):
     out = ''
     for r in items:
         when, sev, client, what, decided, why, states, sup = r
@@ -89,10 +89,10 @@ def rows(items, selected=None):
         if 'superseded!' in states: cls = 'is-superseded'
         if when == selected: cls = (cls + ' is-selected').strip()
         out += lrow(when, sev, client, what, decided, why, states,
-                    href=HREF, cls=cls, sup=sup)
+                    href=href or HREF, cls=cls, sup=sup)
     return out
 
-HREF = 'log.html'
+HREF = 'log-selected.html'
 
 def grid(rows_html, extra=''):
     return ('      <div class="rows rows--log" role="grid" aria-labelledby="lh" tabindex="0">\n%s%s%s      </div>\n\n'
@@ -105,10 +105,10 @@ LFOOT = ('      <p class="qfoot">\n'
          '        <span>order: newest first, always. Nothing here is sorted by urgency</span>\n'
          '      </p>\n')
 
-CHIPS = ('        <button class="chip" type="button">All tenants &#9662;</button>\n'
+CHIPS = ('        <a class="chip" href="log-narrowing.html">All tenants &#9662;</a>\n'
          '        <button class="chip" type="button">This shift and the one before &times;</button>\n'
-         '        <button class="chip chip--ghost" type="button">Any actor &#9662;</button>\n'
-         '        <button class="chip chip--ghost" type="button">Any decision &#9662;</button>\n')
+         '        <a class="chip chip--ghost" href="log-narrowing.html">Any actor &#9662;</a>\n'
+         '        <a class="chip chip--ghost" href="log-narrowing.html">Any decision &#9662;</a>\n')
 
 NARROW_NOTE = ('      <div class="banner only-narrow"><b>The decision log is a desk surface.</b> '
                'The phone has one scenario in this product, a paged case read and escalated, and '
@@ -176,7 +176,10 @@ page('log-narrowing.html', 'Decision log, narrowing', CHIPS_RUN,
      '          The log holds every decision on forty tenants, so a list that fills in while you read '
      'invites answering from a partial one.<br>\n'
      '          The query is on screen while it runs, because a wait you can read is a wait you can '
-     'correct.</p>\n'
+     'correct.<br><br>\n'
+     '          It resolves two ways, and both are drawn: '
+     '<a href="log-snapshot-gone.html">it matched, 3 entries</a> or '
+     '<a href="log-not-found.html">it matched nothing</a>.</p>\n'
      '      </div>\n\n',
      LFOOT % 'counting, no rows drawn yet',
      covers('<b>Meridian Health</b>, decision <b>rejected</b>, June 2026', 'counting',
@@ -301,7 +304,7 @@ GONE = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
 """)
 page('log-snapshot-gone.html', 'Decision log, the snapshot did not survive', CHIPS_JUNE,
      '<b>3 entries</b> <span class="dim">Norsk Marine, June 2026, one selected</span>',
-     grid(rows(JUNE_ROWS, selected='2026-06-08T22:41:03Z')),
+     grid(rows(JUNE_ROWS, selected='2026-06-08T22:41:03Z', href='log-snapshot-gone.html')),
      LFOOT % '3 of 3 shown, one snapshot unreadable',
      GONE)
 

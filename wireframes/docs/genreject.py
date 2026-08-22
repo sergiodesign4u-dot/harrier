@@ -15,21 +15,21 @@ INLINE = C.INLINE + """
 Q.INLINE = INLINE
 
 AXIS_A = [
-  ('1','Real, called benign',            'Detection is too narrow',        'detection engineering'),
-  ('2','Benign, called a threat',        None,                             None),
-  ('3','Right answer, wrong reasoning',  'Clerk weighted the wrong signal','agent tuning'),
-  ('4','Right answer, wrong scope',      'Clerk weighted the wrong signal','agent tuning'),
-  ('5','Not enough evidence either way', 'Nothing to change',              'nowhere'),
-  ('6','Normal at this tenant',          'Tenant context missing',         'the tenant baseline, locked'),
+  ('1','Real, called benign',            'Detection is too narrow',        'detection engineering', 'reject-chosen.html'),
+  ('2','Benign, called a threat',        None,                             None,                    'reject-axis-b.html'),
+  ('3','Right answer, wrong reasoning',  'Clerk weighted the wrong signal','agent tuning',          'reject-chosen.html'),
+  ('4','Right answer, wrong scope',      'Clerk weighted the wrong signal','agent tuning',          'reject-chosen.html'),
+  ('5','Not enough evidence either way', 'Nothing to change',              'nowhere',               'reject-chosen.html'),
+  ('6','Normal at this tenant',          'Tenant context missing',         'the tenant baseline, locked', 'reject-tenant-normal.html'),
 ]
 
 def optlist(chosen=None):
     out = '          <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">\n'
-    for key, label, derived, routes in AXIS_A:
+    for key, label, derived, routes, href in AXIS_A:
         sel = ' is-chosen' if label == chosen else ''
         route = ('<span class="routes">%s</span>' % routes) if routes else '<span class="routes">asks one more</span>'
-        out += ('            <label class="opt%s"><span class="key">%s</span>'
-                '<span class="lbl">%s</span>%s</label>\n') % (sel, key, label, route)
+        out += ('            <a class="opt%s" href="%s"><span class="key">%s</span>'
+                '<span class="lbl">%s</span>%s</a>\n') % (sel, href, key, label, route)
     out += '          </div>\n'
     return out
 
@@ -103,10 +103,10 @@ page('reject-axis-b.html', 'Reject, second axis required',
      '        </section>\n'
      '        <section class="block">\n          <h3>Where it goes, and this is the one that has to ask</h3>\n'
      '          <div class="axisb">\n'
-     '            <label class="opt"><span class="key">a</span><span class="lbl">Detection is too broad</span>'
-     '<span class="routes">detection engineering</span></label>\n'
-     '            <label class="opt"><span class="key">b</span><span class="lbl">Tenant context missing</span>'
-     '<span class="routes">the tenant baseline</span></label>\n'
+     '            <a class="opt" href="reject-chosen.html"><span class="key">a</span><span class="lbl">Detection is too broad</span>'
+     '<span class="routes">detection engineering</span></a>\n'
+     '            <a class="opt" href="reject-chosen.html"><span class="key">b</span><span class="lbl">Tenant context missing</span>'
+     '<span class="routes">the tenant baseline</span></a>\n'
      '          </div>\n'
      '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">Two choices, not five. '
      'The other five reasons derive their answer, so this is the only place a second keystroke is asked for.</p>\n'

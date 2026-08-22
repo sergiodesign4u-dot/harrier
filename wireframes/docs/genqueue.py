@@ -120,6 +120,10 @@ def z4(scopebar, h1, body, foot=FOOT % '7 of 18 shown, virtualised'):
 CHIPS_DEFAULT = ('        <button class="chip" type="button">All tenants &#9662;</button>\n'
                  '        <button class="chip" type="button">Waiting on a decision &times;</button>\n'
                  '        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>\n')
+# On the default queue the scope bar is live: narrowing is something she DOES, so it links.
+CHIPS_LIVE = ('        <a class="chip" href="queue-no-match.html">All tenants &#9662;</a>\n'
+              '        <button class="chip" type="button">Waiting on a decision &times;</button>\n'
+              '        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>\n')
 
 def grid(rows_html, extra=''):
     return ('      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">\n%s%s%s      </div>\n\n'
@@ -130,7 +134,7 @@ def rows_html(items):
 
 # ---------------------------------------------------------------- 1. default
 page('queue.html', 'Case queue', 'live',
-     z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+     z4(CHIPS_LIVE, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
         grid(rows_html(BASE_ROWS))),
      fleet())
 
@@ -138,7 +142,9 @@ page('queue.html', 'Case queue', 'live',
 page('queue-streaming.html', 'Case queue, streaming in', 'arriving',
      z4(CHIPS_DEFAULT,
         '<b>14 waiting so far</b> <span class="dim">provisional, Clerk is still correlating</span>',
-        grid(rows_html(BASE_ROWS[:4]) +
+        grid(rows_html([BASE_ROWS[0],
+             ('High','Larkfield Logistics','Token replay from a new ASN',None,None,'counting',
+              ['investigating?'],'27m','case-investigating.html','')] + BASE_ROWS[2:4]) +
              '        <p class="empty" style="padding:var(--s4)">Rows arrive as Clerk correlates them. '
              '<b style="display:inline;font-size:inherit">The count above is provisional and says so</b>, '
              'because a number that settles later without saying it was provisional is a number she acted on.</p>\n',
@@ -153,7 +159,7 @@ page('queue-stale.html', 'Case queue, stale', 'stale',
         '      <div class="banner qbanner"><b>Marked as of the last sync.</b> The list is readable and it is '
         'not fresh. Filing a verdict is still allowed: a degraded connection does not block a decision, '
         'and the log records the snapshot you actually saw.'
-        '<span class="act"><a class="btn" href="queue.html">Try to reconnect</a></span></div>\n\n'
+        '<span class="act"><a class="btn" href="queue-streaming.html">Try to reconnect</a></span></div>\n\n'
         + grid(rows_html(BASE_ROWS)),
         FOOT % '7 of 18 shown, frozen at the last sync'),
      fleet(sub='40 tenants, nothing selected. Frozen as of the last sync', stale=True))
@@ -228,7 +234,7 @@ page('queue-clerk-down.html', 'Case queue, Clerk not investigating', 'clerkdown'
         '      <div class="banner qbanner"><b>The queue is complete.</b> The connection is fine and Clerk stopped '
         'investigating 11m ago, so nothing is missing and nothing new will arrive until it is back. '
         'Every case in front of you is every case there is.'
-        '<span class="act"><a class="btn" href="unavailable.html">What is down</a></span></div>\n\n'
+        '<span class="act"><span class="btn" aria-disabled="true" title="8.2, not drawn yet">What is down</span></span></div>\n\n'
         + grid(rows_html(BASE_ROWS)),
         FOOT % '7 of 18 shown, and 18 is all of them'),
      fleet())
