@@ -61,7 +61,7 @@ body{
    SHELL. The five zones of node 0.1, and the stage panel beside them
    ============================================================ */
 .wf-shell{display:flex;min-height:100vh;align-items:stretch}
-#wf-panel{flex:0 0 244px;border-right:var(--line);background:var(--paper);min-width:0}
+#sidebar{flex:0 0 var(--nav-w);border-right:var(--line);background:var(--paper);min-width:0}
 .wf-screen{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;background:var(--bg)}
 
 /* Z1 top bar */
@@ -249,7 +249,7 @@ body{
    ============================================================ */
 @media (max-width:900px){
   .wf-shell{display:block}
-  #wf-panel{border-right:none;border-bottom:var(--line-ink);flex:none}
+  #sidebar{border-right:none;border-bottom:var(--line-ink);flex:none;width:auto}
   .z1{gap:var(--s3);flex-wrap:wrap;min-height:auto;padding:var(--s2) var(--s3)}
   .z1 nav{order:3;width:100%;gap:var(--s3);overflow-x:auto}
   .annun{order:2}

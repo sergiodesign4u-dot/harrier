@@ -70,7 +70,7 @@ window.WF_NAV = {
   screens: [
     /* ---------- flow 1, the main job. Step 1 chose these six ---------- */
     { screen:'queue', node:'3.1', ia:'case-queue.html', label:'Case Queue',
-      cluster:'3', flow:'main', scope:'MVP', status:'spec', reference:true,
+      cluster:'3', flow:'main', scope:'MVP', status:'built', reference:true,
       states:[
         {slug:'',            label:'Default',              kind:'base'},
         {slug:'streaming',   label:'Streaming in, 3.2',    kind:'loading'},

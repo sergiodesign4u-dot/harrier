@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Case queue</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen, and every value through var().
+   Everything reusable is already in _wf.css: the shell, the row, the chips, the fleet. */
+#sidebar{padding:var(--s5) var(--s3)}
+.qfoot{flex:0 0 auto;padding:var(--s2) var(--s4);border-top:var(--line);
+       font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+       display:flex;gap:var(--s4);flex-wrap:wrap}
+.qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
+.fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+
+<div class="wf-screen">
+
+  <!-- Z1, node 0.1 zone 1. Global navigation is 0.2, three items in the MVP -->
+  <header class="z1">
+    <span class="wordmark">Harrier</span>
+    <nav aria-label="Sections">
+      <a href="queue.html" aria-current="page">Queue</a>
+      <a href="shift.html">Shift</a>
+      <a href="log.html">Log</a>
+    </nav>
+    <span class="spacer"></span>
+    <!-- Z3, node 0.3. Nothing is selected, so it reads the fleet -->
+    <p class="annun" aria-label="Tenant autonomy">
+      <b>FLEET</b><span class="sep">|</span>40 tenants<span class="sep">|</span>
+      acts alone up to <b>contain network</b> at 3<span class="sep">|</span>
+      <b>1</b> moved down
+    </p>
+    <span class="mono dim" style="font-size:var(--t-xs)">R. Idrissi</span>
+  </header>
+
+  <!-- Z2, node 0.4. Never silent when connected: a state inferred from absence is assumed, not read -->
+  <p class="z2"><b>Live</b> last case 4s <span class="sep">&middot;</span> Clerk investigating 3 <span class="sep">&middot;</span> 0.4</p>
+
+  <main class="z45">
+
+    <!-- Z4, the list pane -->
+    <section class="z4" aria-labelledby="qh">
+      <!-- 3.6 scope bar. Sort is a chip like the rest, not a separate control -->
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip" type="button">All tenants &#9662;</button>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+
+      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+
+      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Client</span>
+          <span role="columnheader">What it is</span>
+          <span role="columnheader">What Clerk concluded</span>
+          <span role="columnheader">To check</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">Age</span>
+        </div>
+
+        <a class="row" role="row" href="queue.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Mass file rename on one host</span>
+          <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
+          <span class="cost" role="gridcell">4 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="age" role="gridcell">1h</span>
+        </a>
+
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span class="cost" role="gridcell">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">27m</span>
+        </a>
+
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span class="cost" role="gridcell">14 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">52m</span>
+        </a>
+
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span role="gridcell">Sign in from an unseen device</span>
+          <span class="concluded dim" role="gridcell">no verdict yet</span>
+          <span class="cost dim" role="gridcell">counting</span>
+          <span class="states" role="gridcell"><i class="chip chip--state chip--ghost">investigating</i></span>
+          <span class="age" role="gridcell">6m</span>
+        </a>
+
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Halden Freight</span>
+          <span role="gridcell">Impossible travel, two offices</span>
+          <span class="concluded" role="gridcell"><b>Benign, sanctioned VPN rollout</b></span>
+          <span class="cost" role="gridcell">6 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">4m</span>
+        </a>
+
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Halcyon Care</span>
+          <span role="gridcell">Beaconing to a new domain</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span class="cost" role="gridcell">5 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">2h</span>
+        </a>
+
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Bramber Retail</span>
+          <span role="gridcell">Mass mailbox rule creation</span>
+          <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
+          <span class="cost" role="gridcell">3 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">41m</span>
+        </a>
+      </div>
+
+      <p class="qfoot">
+        <span>7 of 18 shown, virtualised</span>
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, blocked on her, severity, age</span>
+      </p>
+    </section>
+
+    <!-- Z5 at rest, node 3.5. It has no route: giving it one would give it a tap -->
+    <aside class="z5" aria-labelledby="fh">
+      <div class="pane-head">
+        <h2 id="fh">Fleet</h2>
+        <p class="sub">40 tenants, nothing selected. Ordered by where attention is owed</p>
+      </div>
+      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Record</span></div>
+
+      <a class="frow" href="queue.html"><span>Meridian Health</span><span>Investigate</span>
+        <span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+      <a class="frow" href="queue.html"><span>Halcyon Care</span><span>Contain endpoint</span>
+        <span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+      <a class="frow" href="queue.html"><span>Aubrey Dental Group</span><span>Investigate</span>
+        <span class="rec">&ndash;<span class="was">no rulings yet</span></span></a>
+      <a class="frow" href="queue.html"><span>Bramber Retail</span><span>Contain network</span>
+        <span class="rec">51 of 52<span class="was">was 49 of 51</span></span></a>
+      <a class="frow" href="queue.html"><span>Halden Freight</span><span>Contain endpoint</span>
+        <span class="rec">27 of 29<span class="was">was 26 of 29</span></span></a>
+      <a class="frow" href="queue.html"><span>Larkfield Logistics</span><span>Contain endpoint</span>
+        <span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
+      <a class="frow" href="queue.html"><span>Norsk Marine</span><span>Investigate</span>
+        <span class="rec">18 of 20<span class="was">was 18 of 20</span></span></a>
+
+      <p class="fleet-more">33 more, 30 day window &middot; a row narrows the queue to that tenant</p>
+    </aside>
+
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+</body>
+</html>
