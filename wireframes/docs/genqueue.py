@@ -40,7 +40,7 @@ HEAD = ('        <div class="row row--head" role="row">\n'
         + '        </div>\n')
 
 BASE_ROWS = [
-    ('Medium','Meridian Health','Mass file rename on one host','Rejected by R. Idrissi',None,'4 signals',['decided','unrecorded!'],'1h','queue-decided.html',''),
+    ('Medium','Meridian Health','Mass file rename on one host','Rejected by R. Idrissi',None,'4 signals',['decided','unrecorded!'],'1h','case-unrecorded.html',''),
     ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity','above latitude here','9 signals',[],'27m','case.html',''),
     ('High','Norsk Marine','Ransomware precursor on FS-02','Real, contained',None,'14 signals',['acted'],'52m','case.html',''),
     ('Medium','Aubrey Dental Group','Sign in from an unseen device','Real, contain identity','above latitude here','9 signals',[],'6m','case-no-baseline.html',''),
@@ -196,7 +196,7 @@ page('queue-no-match.html', 'Case queue, no case matches', 'live',
            rows=[r for r in FLEET_ROWS if r[0] in ('Meridian Health','Halcyon Care','Larkfield Logistics')]))
 
 # ---------------------------------------------------------------- 6. just filed
-DECIDED = [('Medium','Meridian Health','Mass file rename on one host','Rejected by R. Idrissi',None,'4 signals',['decided','unrecorded!'],'1h','queue-decided.html','')] + \
+DECIDED = [('Medium','Meridian Health','Mass file rename on one host','Rejected by R. Idrissi',None,'4 signals',['decided','unrecorded!'],'1h','case-unrecorded.html','')] + \
           [('High','Larkfield Logistics','Token replay from a new ASN','Accepted by R. Idrissi, 4s ago','was: Real, contain identity','9 signals',['decided','acted!'],'27m','queue-decided.html','is-selected')] + \
           BASE_ROWS[2:]
 CASE_PANE = """    <aside class="z5 is-paper" aria-labelledby="ph">
