@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; Wireframes</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+/* INLINE: overview :: hub chrome only. No screen uses these, so they stay here by the
+   one-off criterion in conventions.md section 2, and every value goes through var() */
+.hubwrap{display:flex;gap:40px;align-items:flex-start;max-width:1180px;margin:0 auto;padding:40px 32px 96px}
+.hubmain{flex:1 1 auto;min-width:0}
+
+.flowcard{border:1px solid var(--rule);border-radius:6px;background:var(--panel);
+          padding:16px 18px;margin:0 0 12px}
+.flowcard > h3{margin:0 0 4px;font-size:15px}
+.flowcard > p{margin:0 0 12px;color:var(--faint);font-size:13px}
+.flowline{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.flowline .arrow{color:var(--faint);font-family:var(--mono);font-size:11px}
+.sc{display:inline-flex;flex-direction:column;gap:3px;border:1px solid var(--fg);border-radius:4px;
+    padding:6px 9px;text-decoration:none;color:var(--fg);min-width:0}
+.sc.is-spec{border-style:dashed;border-color:var(--faint);color:var(--faint)}
+.sc b{font:600 12.5px/1.2 inherit}
+.sc .num{font-family:var(--mono);font-size:10px;color:var(--faint)}
+.sc .st{display:flex;flex-wrap:wrap;gap:3px;margin-top:2px}
+.sc .st i{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.03em;
+          border:1px solid var(--rule);border-radius:2px;padding:0 4px;color:var(--faint)}
+
+.cov-h{margin:22px 0 8px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.cov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:8px}
+.cov{border:1px solid var(--fg);border-radius:4px;padding:8px 10px;font-size:13px;min-width:0;
+     overflow-wrap:anywhere;background:var(--panel)}
+.cov b{font-family:var(--mono);font-size:11px;color:var(--accent);margin-right:5px}
+.cov .cov-meta{display:block;margin-top:3px;font-size:11px;color:var(--faint)}
+.cov.is-built{border-width:2px}
+.cov:not(.is-built){border-style:dashed;border-color:var(--faint)}
+.cov.is-later{color:var(--faint)}
+.cov.is-inside{border-style:dotted;background:transparent}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 0;font-size:12px;color:var(--faint)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:20px;height:0;border-top:2px solid var(--fg);display:inline-block}
+.legend i.d{border-top-style:dashed;border-color:var(--faint)}
+.legend i.t{border-top-style:dotted;border-color:var(--faint)}
+
+#wf-matrix table{width:100%;border-collapse:collapse;font-size:12.5px}
+#wf-matrix th,#wf-matrix td{border:1px solid var(--rule);padding:7px 9px;text-align:left;
+                            vertical-align:top;min-width:0;overflow-wrap:anywhere}
+#wf-matrix thead th{background:#f7f8f8;font:600 10px/1.3 var(--mono);letter-spacing:.08em;
+                    text-transform:uppercase;color:var(--faint)}
+#wf-matrix td.no{color:var(--faint);text-align:center}
+#wf-matrix td.why{font-size:11.5px;color:var(--faint)}
+#wf-matrix td.why b{color:var(--fg)}
+#wf-matrix .dim{color:var(--faint)}
+
+.pal{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin:0 0 16px}
+.pal div{flex:1 1 128px;min-width:0}
+.pal .sw{height:56px}
+.pal .lab{padding:8px 10px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;
+          color:var(--faint);line-height:1.5}
+.pal .lab b{display:block;color:var(--fg);font-size:11.5px}
+.do{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.do > div{padding:12px 14px;font-size:13px}
+.do > div:first-child{border-right:1px solid var(--rule)}
+.do h4{margin:0 0 8px;font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.do ul{margin:0;padding-left:18px}
+.do li{margin:0 0 5px}
+@media (max-width:900px){
+  .hubwrap{flex-direction:column;gap:24px;padding:24px 18px 64px}
+  .do{grid-template-columns:1fr}
+  .do > div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
+}
+</style>
+</head>
+<body>
+<div class="hubwrap">
+<aside id="sidebar"></aside>
+<main class="hubmain">
+
+<p class="eyebrow">Stage 04 &middot; Wireframes</p>
+<h1>All screens</h1>
+<p class="lede">The grey clickable prototype. Every screen at full viewport with every state it really has, linked along the flows, so the product can be walked with clicks rather than described. Nothing here is invented: structure comes from the forty six nodes of stage 03b, and a gap is fixed upward in the IA before it is drawn.</p>
+<p class="lede" style="font-size:15px"><b id="wf-tally">counting</b>. The reference screen is <b>3.1 Case Queue</b> and the first flow assembled is the main job, both chosen at step 1 and argued in <code>wireframes/docs/screens.md</code>.</p>
+
+<section id="flows">
+<h2>01 &middot; Ways in, by flow</h2>
+<p class="h2sub">Five flows from <code>ia/docs/flows.md</code>. A solid card is built, a dashed one is still only a specification</p>
+<div id="wf-flows"></div>
+</section>
+
+<section id="coverage">
+<h2>02 &middot; Coverage</h2>
+<p class="h2sub">What is built against what the map says exists. This answers &ldquo;how much is left&rdquo;, and the matrix below answers a different question</p>
+<div id="wf-coverage"></div>
+<p class="legend">
+  <span><i></i> built</span>
+  <span><i class="d"></i> specified, not drawn</span>
+  <span><i class="t"></i> not a screen: it renders inside one</span>
+</p>
+<div class="note"><p><strong>Forty six nodes, and every one of them is accounted for.</strong> Nineteen are screens with a file of their own. Ten are not screens at all and the map above names the host each one renders inside, because a node with no file has to be distinguishable from a node nobody built. The remaining seventeen are states, and each is a page of the screen that owns it. <strong>19 plus 10 plus 17 is 46</strong>, which is the whole of the detail layer and the reason this is a tracker rather than a gallery.</p></div>
+</section>
+
+<section id="matrix">
+<h2>03 &middot; State matrix</h2>
+<p class="h2sub">The complete list of states in the product. Stage 05 step 4 reads it for tone and stage 07 step 2 reads it for the component inventory</p>
+<p>The four system states are the <strong>floor</strong>, not the set: the real set comes from the state matrix of each node in <code>ia/docs/pages/</code>, and a state that is not in one is not drawn. <strong>Every gap carries its reason</strong>, because without one a state nobody needs cannot be told apart from a state somebody forgot.</p>
+<div id="wf-matrix" class="tw"></div>
+</section>
+
+<section id="conventions">
+<h2>04 &middot; Conventions</h2>
+<p class="h2sub">The contract every screen and every subagent works to. Full text in <code>wireframes/docs/conventions.md</code></p>
+
+<h3>The palette, inherited verbatim</h3>
+<p>Four values, lifted unchanged from the <code>.wf</code> block of the stage 03b mockups so that these screens read as a continuation rather than a second visual language. <strong>The type scale is deliberately not inherited</strong>: those were miniatures inside a document at 10.5px mono, these are live screens at 1440.</p>
+<div class="pal">
+  <div><div class="sw" style="background:#16181a"></div><div class="lab"><b>--ink</b>#16181a<br>text, structural borders</div></div>
+  <div><div class="sw" style="background:#9aa0a6"></div><div class="lab"><b>--soft</b>#9aa0a6<br>secondary, disabled, placeholder</div></div>
+  <div><div class="sw" style="background:#d4d6d8"></div><div class="lab"><b>--hair</b>#d4d6d8<br>hairlines inside a component</div></div>
+  <div><div class="sw" style="background:#f2f3f3"></div><div class="lab"><b>--fill</b>#f2f3f3<br>table head, resting pane, selection</div></div>
+  <div><div class="sw" style="background:#ffffff;box-shadow:inset 0 0 0 1px #e3e4e6"></div><div class="lab"><b>--paper</b>#ffffff<br>the surface a component sits on</div></div>
+</div>
+
+<h3>The four rules that decide arguments</h3>
+<div class="do">
+  <div>
+    <h4>Always</h4>
+    <ul>
+      <li><strong>A live screen, not a schematic.</strong> A real page filling the viewport that clicks and scrolls. The node anatomies of 03b are finished</li>
+      <li><strong>One live responsive screen per state</strong>, and the narrow rendering checked by narrowing the browser</li>
+      <li><strong>Every state is its own page</strong>, with a visible exit checked against the flow diagram</li>
+      <li><strong>Every zone answers why it is here</strong>, and there is exactly one primary action per screen</li>
+    </ul>
+  </div>
+  <div>
+    <h4>Never</h4>
+    <ul>
+      <li><strong>Colour, type family, icons, shadows, images.</strong> Stages 06 to 08, and they arrive on copies under <code>design/</code></li>
+      <li><strong>Two frames on one page</strong>, desktop beside mobile, or a caption annotating a zone</li>
+      <li><strong>A skeleton standing in for the screen</strong>, or a spinner where a duration is the information</li>
+      <li><strong>A token value inline.</strong> Not once, not on one screen. It is already a variable</li>
+    </ul>
+  </div>
+</div>
+
+<div class="note" style="margin-top:16px"><p><strong>Inline CSS is transport, not a home, and this is where the stage breaks quietly.</strong> At step 8 parallel agents cannot all write to <code>_wf.css</code>, so each puts its screen&rsquo;s rules inline behind the marker <code>/* INLINE: &lt;screen&gt; :: for reconcile into _wf.css */</code>. Reconcile brings them back the same step. Skipping it is not cosmetic: stage 07 derives the kit&rsquo;s component classes from these screens, and structure living in twenty inline blocks makes the extraction honestly collect the disagreements. <strong>The defect becomes visible at the token audit of stage 08, three stages after it was made.</strong></p></div>
+
+<div class="note" style="margin-top:12px;border-left-color:#8a5a08"><p><strong>One declared substitution.</strong> The stage pack says mobile-first and reasons block priority from the phone. <code>CLAUDE.md</code> says the opposite in its own words, and forty nodes were specified under it: the stance is desktop first, priority is reasoned from the desk at 1440, and 360 is then <em>proved</em> for one scenario. The project rule wins. What survives from the pack unchanged is the part that matters: one live responsive screen, never a second file.</p></div>
+</section>
+
+</main>
+</div>
+<script>
+  window.NAV_SECTIONS = [
+    { id:'flows',       label:'Ways in, by flow' },
+    { id:'coverage',    label:'Coverage' },
+    { id:'matrix',      label:'State matrix' },
+    { id:'conventions', label:'Conventions' },
+  ];
+</script>
+<script src="_nav.js"></script>
+<script>
+/* INLINE: overview :: renders the flow cards from the same WF_NAV the panel uses */
+(function(){
+  var N = window.WF_NAV, host = document.getElementById('wf-flows');
+  if (!N || !host) return;
+  var out = '';
+  N.flows.forEach(function(f){
+    var mine = N.screens.filter(function(s){ return s.flow === f.id && s.scope === 'MVP'; });
+    if (!mine.length) return;
+    out += '<article class="flowcard"><h3>' + f.label + '</h3><p>' + f.note + '</p><div class="flowline">';
+    mine.forEach(function(s, i){
+      if (i) out += '<span class="arrow">&rarr;</span>';
+      var live = s.status === 'built';
+      var tag = live ? 'a' : 'span';
+      var href = live ? ' href="' + s.screen + '.html"' : '';
+      out += '<' + tag + ' class="sc' + (live ? '' : ' is-spec') + '"' + href + '>' +
+             '<span class="num">' + s.node + '</span><b>' + s.label + '</b><span class="st">' +
+             s.states.map(function(st){ return '<i>' + (st.slug || 'base') + '</i>'; }).join('') +
+             '</span></' + tag + '>';
+    });
+    out += '</div></article>';
+  });
+  host.innerHTML = out;
+})();
+</script>
+</body>
+</html>
