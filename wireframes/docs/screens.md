@@ -96,6 +96,16 @@ Column groups: the four system states are the floor, then the states each node's
 | ✓ Error, 5.5 | `log-snapshot-gone.html` | The snapshot did not survive |
 | - Success | none | Nothing is submitted here. The log is read only, and the write happened at 4.1 |
 
+**One entry is deliberately absent, and it is the strongest consistency check in the stage.** `queue.html` shows Meridian Health wearing `decided` and `unrecorded`: a verdict exists and the write did not land. So there is **no log entry for it**, and drawing one would break the claim the whole product rests on. The log does not mention the gap either, because no node specifies a surface for that. **Logged as a question for 5.1 rather than invented here:** should the log name what it knows is missing?
+
+**Three fixtures were introduced at this step**, none of them in 0.8's canon, all of them sample content under the fixture rule:
+
+| Fixture | Why it had to exist |
+|---|---|
+| **S. Varga**, SOC lead | 4.6 files an escalation to a named person on the rota, and there was no second person besides the peer analyst `D. Okonkwo` |
+| **C-3180** at Norsk Marine | 5.5 needs an entry old enough for its snapshot to have failed, and `C-4417` is four hours old |
+| The June 2026 entries | 5.2 and 5.5 both narrow to a range outside the current shift, which is the only way to show that narrowing does anything |
+
 ### 5.4 Log entry, `?as-of`
 
 | State | Page | Why it exists |
