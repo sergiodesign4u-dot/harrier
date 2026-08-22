@@ -19,6 +19,7 @@ INLINE = C.INLINE + """
 .dialog > .body > .block--rcpt{order:-1}
 @media (max-width:900px){
   .esc-desk{display:none}
+  .dialog > .body > .esc-first{order:-2}
 }"""
 Q.INLINE = INLINE
 
@@ -155,7 +156,7 @@ page('escalate-no-recipient.html', 'Escalate, nobody on the rota', SUB_DEFAULT,
 
 # ---------------------------------------------------------------- 4. the escalation did not write, 4.9
 page('escalate-write-failed.html', 'Escalate, it did not write', SUB_DEFAULT,
-     '        <div class="banner"><b>The escalation did not write.</b> You sent it 40s ago and the log did not '
+     '        <div class="banner esc-first"><b>The escalation did not write.</b> You sent it 40s ago and the log did not '
      'take it, so <b>nobody has been told</b>. The case stays open and <b>unescalated</b>, which is not the same '
      'state as held locally: there, a decision exists and is unrecorded; here, no handover happened at all.'
      '<span class="act"><a class="btn btn--primary" href="queue-escalated.html">Try again</a></span></div>\n'
