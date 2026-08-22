@@ -251,6 +251,9 @@ body{
   .wf-shell{display:block}
   #sidebar{border-right:none;border-bottom:var(--line-ink);flex:none;width:auto}
   .z1{gap:var(--s3);flex-wrap:wrap;min-height:auto;padding:var(--s2) var(--s3)}
+  /* 0.3 stays on a phone, so it wraps rather than being dropped or clipped */
+  .annun{white-space:normal;flex-wrap:wrap;width:100%;order:2;font-size:10.5px;gap:var(--s2)}
+  .annun .sep{display:none}
   .z1 nav{order:3;width:100%;gap:var(--s3);overflow-x:auto}
   .annun{order:2}
   .z2{padding:0 var(--s3)}
