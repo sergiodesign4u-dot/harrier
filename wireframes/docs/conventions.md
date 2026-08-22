@@ -133,3 +133,29 @@ One navigation for the stage, and every page carries it, the hub included.
 `wireframes/_nav.js` holds the screens in `window.WF_NAV`, its own namespace, because `NAV*` and the `nav-*` classes belong to the root registry and a name collision silently renders the wrong array. Structure, top to bottom: `← Design process` out to the root, the `WIREFRAMES` badge with one line of subtitle, `All screens` first, then a three level tree of IA cluster to screen to state, accordion with only the current screen open, and at the bottom, quietly, `← IA specification` for the node this screen came from.
 
 **No roadmap on any page of this stage, and no thin state strip above a screen.** Two panels on one page give two left gutters and the text slides under one of them.
+
+---
+
+## 11. What gets a link, settled at step 7
+
+Step 7 asked for the flow to be clickable in both directions, and it produced a question the pack does not answer: which of thirty six state pages should be reachable by clicking, and which should be reachable only from the panel. Answering it case by case would have produced thirty six arguments, so it is one rule.
+
+> **A state the analyst produces by acting gets a real link from the control that produces it. A state the world produces gets an exit and the panel as its entry.**
+
+Choosing a rejection reason is an act, so the six options in 4.4 are `<a>` and each opens the state it produces. Narrowing the log is an act, so the scope chips link to 5.2. Asking for the rest of the evidence is an act, so `3 more signals` opens the case whose sources aged out, which is the `no` branch of the flow's own decision node. Selecting an entry is an act, so the log's rows open the entry in the pane.
+
+A dropped connection, a colleague opening your case, a write that did not land and a snapshot that failed its integrity check are not acts. **There is no control that means "let the write fail", and inventing one would be inventing product.** Those states keep their exits and are entered from the panel, which is what the pack means by navigation between states also being available there.
+
+**Measured on the live pages rather than asserted:**
+
+| | |
+|---|---|
+| Built state pages | 36 |
+| Reachable by clicking from the queue | **23** |
+| Reachable only from the panel | 13, and **every one of them is a condition the world raises** |
+| Dead ends | **0** |
+| Pages with no route back to the queue | **0** |
+| Broken links | **0** |
+| Clicks from the queue to the activation node | **2**, which is the number `CLAUDE.md` claims |
+
+Two routing errors were found by drawing the graph rather than by reading the files. A row wearing `decided` and `unrecorded` opened `queue-decided.html`, so **a row in the list opened another rendering of the list**; rows open cases now, and nothing else. And `queue-clerk-down` linked to `unavailable.html`, which is 8.2 and is not drawn until step 8, so the control renders disabled rather than resolving to a 404.
