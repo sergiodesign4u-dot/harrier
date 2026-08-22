@@ -66,9 +66,30 @@
 .do h4{margin:0 0 8px;font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
 .do ul{margin:0;padding-left:18px}
 .do li{margin:0 0 5px}
+
+.rf{display:grid;gap:0;border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin:0 0 16px}
+.rf > div{display:grid;grid-template-columns:210px 1fr;gap:14px;padding:10px 14px;font-size:13.5px;
+          border-top:1px solid var(--rule);min-width:0}
+.rf > div:first-child{border-top:none}
+.rf b{font:600 10.5px/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
+.rf span{min-width:0;overflow-wrap:anywhere}
+
+.rt{margin:0 0 16px;padding:0;list-style:none;counter-reset:rt}
+.rt li{counter-increment:rt;position:relative;padding:9px 0 9px 32px;font-size:13.5px;
+       border-top:1px solid var(--rule)}
+.rt li:first-child{border-top:none}
+.rt li::before{content:counter(rt);position:absolute;left:0;top:10px;
+               font:600 11px/1.6 var(--mono);color:var(--faint)}
+.rt li > a{font-weight:600}
+.rt li > span{display:block;margin-top:2px;font-size:12.5px;color:var(--faint)}
+.rt li > span.or{display:inline;margin:0 4px}
+kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-width:2px;
+    border-radius:3px;padding:1px 5px;background:var(--panel);color:var(--fg)}
+
 @media (max-width:900px){
   .hubwrap{flex-direction:column;gap:24px;padding:24px 18px 64px}
   .do{grid-template-columns:1fr}
+  .rf > div{grid-template-columns:1fr;gap:1px}
   .sc{width:100%}
   .flowline .arrow{display:none}
   .do > div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
@@ -85,14 +106,65 @@
 <p class="lede">The grey clickable prototype. Every screen at full viewport with every state it really has, linked along the flows, so the product can be walked with clicks rather than described. Nothing here is invented: structure comes from the forty six nodes of stage 03b, and a gap is fixed upward in the IA before it is drawn.</p>
 <p class="lede" style="font-size:15px"><b id="wf-tally">counting</b>. The reference screen is <b>3.1 Case Queue</b> and the first flow assembled is the main job, both chosen at step 1 and argued in <code>wireframes/docs/screens.md</code>.</p>
 
+<section id="read-first">
+<h2>01 &middot; Read this first</h2>
+<p class="h2sub">What the product is, who Clerk is, and one case walked end to end. Everything below this section assumes it</p>
+
+<p><strong>Harrier is an adjudication console for the queue that is left after an AI agent has closed everything it could close.</strong> It is not an alert triage tool, not a hunting tool, and not the page where the agent is configured. It is where a human rules on work the agent has already done.</p>
+
+<p>An MDR provider sells detection and response as a service to many client tenants at once, and its margin is set by how many tenants one analyst can carry <code>PREMISE</code>. The category answers that unanimously, and this part is verified on live pages: let the agent close most of the work. Simbian sells it as <em>&ldquo;your analysts review the 8% that need judgment, not the 92% that don&rsquo;t&rdquo;</em>. <strong>Liability does not follow the work.</strong> The provider signed the contract, so when a closed case turns out to have been an incident, the provider answers for it <code>PREMISE</code>.</p>
+
+<p>So what remains after auto resolution is a residual queue holding every hard decision, and it is where the analyst spends the whole shift. <strong>None of the thirteen products examined at stage 01 publishes a view of it.</strong> Every one of them sells the number of cases the human no longer sees. That gap is the product.</p>
+
+<h3>Clerk, and why the name is the contract</h3>
+<p><strong>A clerk prepares the case file and drafts the opinion. The judge rules.</strong> Clerk never issues a verdict in the analyst&rsquo;s name, and the interface is built so that the difference stays visible.</p>
+<p>Before the analyst has seen anything, Clerk has already collected the signals across the tenant&rsquo;s connected sources, correlated them into one case rather than seven alerts, run the first pass of the investigation, and filed a written verdict with its evidence. <strong>Sometimes it has also acted</strong>, when the action was inside that client&rsquo;s earned latitude. That is why a case can arrive in three structurally different conditions: waiting for a decision, already contained and waiting for confirmation, or held at the ceiling because the action it wanted is above what this tenant has granted.</p>
+
+<h3>One case, walked end to end</h3>
+<p>Every number below is a <strong>fixture</strong>, chosen to make the layout decidable. It is never quotable as evidence about the market, and it is identical on every surface that shows it. The canon is in <code>ia/docs/pages/reading-conventions.md</code>.</p>
+<div class="rf">
+  <div><b>The case</b><span>Larkfield Logistics, token replay from a new ASN. <strong>9 signals</strong> correlated from <strong>6 sources over 24h</strong>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline</span></div>
+  <div><b>What Clerk concluded</b><span>Real, and it wants to contain the identity. One sentence, before the evidence, because more explanation is not more trust</span></div>
+  <div><b>What happened</b><span><code>04:08</code> sign in from the corporate range, token issued. <code>04:12</code> the same token presented from ASN 41xxx, no MFA prompt. <code>04:13</code> an inbox rule created, forwarding to an external address</span></div>
+  <div><b>What Clerk looked for and did not find</b><span>No password change, and no new device enrolment. <strong>Rendered with the same weight as what it found.</strong> This is the half no reference product has</span></div>
+  <div><b>What points the other way</b><span>This user has travelled to this region twice in 90 days. The disagreeing signal stays visible rather than being resolved away</span></div>
+  <div><b>Normal at this client</b><span>Two token replays at Larkfield in 90 days, both real. The same signal is a Tuesday at one client and an incident at another</span></div>
+  <div><b>What Clerk may do here</b><span>Six action classes, two permitted and four <strong>shown disabled with the ceiling written on them</strong>: above this tenant&rsquo;s latitude, so it waited for you. A hidden control teaches nothing; a disabled one with its ceiling stated teaches the ceiling</span></div>
+</div>
+<p><strong>That last block is the differentiator.</strong> Earned autonomy per tenant is not ours: Prophet sells earned autonomy and Simbian sells it per tenant and per action class, in those words. What nothing published does is make every client&rsquo;s current latitude legible <em>where the analyst is about to act</em> rather than on a configuration page.</p>
+
+<h3>What the analyst is asked to do</h3>
+<p>Not to investigate. The screen asks one question as early as it can: <strong>does this verdict hold?</strong> Four answers, each one key, each key printed on its own control: <kbd>a</kbd> accept, <kbd>m</kbd> amend, <kbd>r</kbd> reject, <kbd>e</kbd> escalate. Rejecting is a first class action rather than a fallback path, and the reason goes straight to tuning.</p>
+<p><strong>One measured failure is recorded rather than hidden.</strong> The principle says override costs one key. Measured at the close of stage 03b it does not yet hold: reject costs four taps against accept&rsquo;s two, and stage 04 drew the reject screen against that number rather than around it.</p>
+
+<h3>The route, seven steps</h3>
+<p>Click straight through. The activation node is the case file, and it is <strong>two clicks from landing</strong>, which was measured at step 7 rather than asserted.</p>
+<ol class="rt">
+  <li><a href="index.html">Sign in</a><span>The requested address survives the round trip through the identity provider, because a case opened from a pager at 03:00 must not land in the queue</span></li>
+  <li><a href="shift.html">Shift brief</a><span>What happened while she was away, and a pointer straight into a waiting case</span></li>
+  <li><a href="queue.html">Case queue</a><span>Rows on the left, detail pane on the right. Every row is a decision, not a record</span></li>
+  <li><a href="case.html">Case file</a><span>The same screen in its second state. This is the node the product exists for</span></li>
+  <li><a href="reject.html">Reject</a> <span class="or">or</span> <a href="escalate.html">Escalate</a><span>The two paths that are not agreement. Accept and amend file from the case file itself</span></li>
+  <li><a href="log.html">Decision log</a><span>Append only. Every Clerk action and every human override lands here</span></li>
+  <li><a href="entry.html">Log entry</a><span>The full evidence snapshot as it stood at decision time, addressable with <code>?as-of</code></span></li>
+</ol>
+<p>The resting state of the detail pane is <strong>the fleet</strong>, every tenant with its current latitude and accuracy trend. That is why the fleet has no item in the global navigation, which carries three: Queue, Shift, Log. It costs zero taps. Press <kbd>?</kbd> on any screen for the keyboard map.</p>
+
+<h3>What gets filed at the end</h3>
+<p>Not a closed alert. A <strong>verdict record composed from structured parts, never from free text</strong>: what was decided, on what grounds, against which evidence snapshot, by whom, when, and if rejected, the reason on both axes. Free text stays optional and nothing downstream ever depends on it, because stage 02 found that handover quality varies widely between individuals and that no organisation trains it. Structure is what removes the variation.</p>
+<p>Underneath it is the one compliance requirement that shapes the design: <strong>an append only log carrying the evidence snapshot as it stood at decision time.</strong> The question arrives eight months later, and the file answers it, not the analyst&rsquo;s memory.</p>
+
+<div class="note" style="margin-top:16px"><p><strong>Two things this prototype deliberately is not.</strong> Interface strings here are drafts: wording is owned by stage 05, and a label that reads flat is not yet a defect. And there is no colour, no type family and no icons, because the visual language is invented at stage 06 on copies under <code>design/</code>. What is being judged at this stage is structure, state coverage and the route.</p></div>
+</section>
+
 <section id="flows">
-<h2>01 &middot; Ways in, by flow</h2>
+<h2>02 &middot; Ways in, by flow</h2>
 <p class="h2sub">Five flows from <code>ia/docs/flows.md</code>. A solid card is built, a dashed one is still only a specification</p>
 <div id="wf-flows"></div>
 </section>
 
 <section id="coverage">
-<h2>02 &middot; Coverage</h2>
+<h2>03 &middot; Coverage</h2>
 <p class="h2sub">What is built against what the map says exists. This answers &ldquo;how much is left&rdquo;, and the matrix below answers a different question</p>
 <div id="wf-coverage"></div>
 <p class="legend">
@@ -104,14 +176,14 @@
 </section>
 
 <section id="matrix">
-<h2>03 &middot; State matrix</h2>
+<h2>04 &middot; State matrix</h2>
 <p class="h2sub">The complete list of states in the product. Stage 05 step 4 reads it for tone and stage 07 step 2 reads it for the component inventory</p>
 <p>The four system states are the <strong>floor</strong>, not the set: the real set comes from the state matrix of each node in <code>ia/docs/pages/</code>, and a state that is not in one is not drawn. <strong>Every gap carries its reason</strong>, because without one a state nobody needs cannot be told apart from a state somebody forgot.</p>
 <div id="wf-matrix" class="tw"></div>
 </section>
 
 <section id="conventions">
-<h2>04 &middot; Conventions</h2>
+<h2>05 &middot; Conventions</h2>
 <p class="h2sub">The contract every screen and every subagent works to. Full text in <code>wireframes/docs/conventions.md</code></p>
 
 <h3>The palette, inherited verbatim</h3>
@@ -155,6 +227,7 @@
 </div>
 <script>
   window.NAV_SECTIONS = [
+    { id:'read-first',  label:'Read this first' },
     { id:'flows',       label:'Ways in, by flow' },
     { id:'coverage',    label:'Coverage' },
     { id:'matrix',      label:'State matrix' },
