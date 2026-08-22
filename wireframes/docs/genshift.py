@@ -253,7 +253,7 @@ def latitude_block(rows=None, tail=None):
     for t, lat, rec, was in rows:
         inner += ('          <a class="frow" href="queue.html"><span>%s</span><span>%s</span>'
                   '<span class="rec">%s<span class="was">%s</span></span></a>\n') % (t, lat, rec, was)
-    inner += ('          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">%s</p>\n'
+    inner += ('          <p class="gnote">%s</p>\n'
               % (tail if tail is not None else
                  '<b>Meridian Health moved down</b>, from contain endpoint to investigate, after two '
                  'rulings went against Clerk here. 1 of 40 tenants moved this shift and the other 39 '
@@ -271,7 +271,7 @@ def rota_block(now_who='R. Idrissi', now_role='analyst, on the console'):
              '<span class="role">SOC lead, takes escalations</span>'
              '<span class="when">until 07:00</span></div>\n'
              '          </div>\n'
-             '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">'
+             '          <p class="anote">'
              '<b>Read from the provider&rsquo;s on call tool, never owned here.</b> There is no control '
              'in this block because Harrier cannot change who is on. This is the value the escalate '
              'dialog names when it says who a case goes to.</p>\n') % (now_who, now_role, WINDOW)

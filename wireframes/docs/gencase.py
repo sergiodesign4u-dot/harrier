@@ -31,7 +31,7 @@ EVIDENCE = """        <section class="block">
           <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
           <div class="claim claim--absence"><span class="txt">no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>
           <div class="claim claim--against"><span class="txt">this user has travelled to this region twice in 90 days</span><a class="src" href="case.html">tenant baseline</a></div>
-          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><a href="case-expired.html">3 more signals</a></p>
+          <p class="gnote"><a href="case-expired.html">3 more signals</a></p>
         </section>
 """
 PROV = """        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline. Count first, never a bare percentage.</p>
@@ -57,7 +57,7 @@ def latitude(ceiling='Contain endpoint'):
         else:
             out += ('            <div class="off"><span class="mark">no</span><span>%s</span>'
                     '<span class="why">%s</span></div>\n') % (label, why)
-    out += ('          </div>\n          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">'
+    out += ('          </div>\n          <p class="anote">'
             'Out of reach actions are shown disabled with the ceiling stated, not hidden. '
             'A hidden control teaches nothing.</p>\n        </section>\n')
     return out
@@ -115,7 +115,7 @@ if __name__ == '__main__':
                 '        <div class="arriving" aria-label="Clerk is working"></div>\n'
                 '        <section class="block">\n          <h3>What is being checked</h3>\n'
                 '          <p class="nar">Whether the token was also used from the corporate range, and whether a mailbox rule followed. <b>Four of six sources answered.</b></p>\n'
-                '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">There is no verdict yet, so there is nothing to accept. What is being checked is shown instead, which is what makes waiting legible rather than blank.</p>\n        </section>\n'
+                '          <p class="anote">There is no verdict yet, so there is nothing to accept. What is being checked is shown instead, which is what makes waiting legible rather than blank.</p>\n        </section>\n'
                 + '        <section class="block">\n          <h3>Evidence, arriving</h3>\n'
                   '          <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="case-investigating.html">Entra sign in</a></div>\n'
                   '          <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="case-investigating.html">Entra sign in</a></div>\n'
@@ -144,7 +144,7 @@ if __name__ == '__main__':
                 <p class="hint">While this field has focus, letters are text and nothing else, and <b>Enter makes a line rather than filing</b>, which is the rule 4.6 keeps and the one place the product allows itself an inconsistency. The button files.</p>
               </div>
               <div class="banner banner--quiet"><b>Clerk wrote:</b> Real, and it wants to contain the identity. <b>Kept beside yours</b>, never replaced, because an amendment is only defensible next to what it amended.</div>
-              <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">No reason code. The amended text is the reason, and asking you to classify your own writing would add a step that teaches nobody.</p>
+              <p class="anote">No reason code. The amended text is the reason, and asking you to classify your own writing would add a step that teaches nobody.</p>
             </section>
     """
     Q.page('case-amend.html', 'Case file, amending', 'live',

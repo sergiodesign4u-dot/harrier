@@ -42,11 +42,11 @@ def prompts(first='', second='', third='', first_label='What I checked'):
     out += fld('p2', 'What I could not do', second, 'Optional, and prompted anyway', ' esc-desk')
     out += fld('p3', 'What I need from you', third, 'Optional, and prompted anyway')
     out += '          </div>\n'
-    out += ('          <p class="dim esc-desk" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">'
+    out += ('          <p class="anote esc-desk">'
             'Three prompts, all optional. <b>No taxonomy and no severity picker:</b> a rejection routes to a machine '
             'so it must be machine readable, and this routes to a person who will read it. Structure here serves '
             'comprehension, and it is what stops the quality of a handover depending on how tired its author was.</p>\n')
-    out += ('          <p class="dim only-narrow" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">'
+    out += ('          <p class="anote only-narrow">'
             '<b>One prompt here, not three.</b> Three empty fields at 03:00 produce a handover that looks complete '
             'and is not. The handover is thinner from a phone, and that is honest rather than ideal.</p>\n')
     out += '        </section>\n'
@@ -134,7 +134,7 @@ NOBODY = ('        <section class="block block--rcpt">\n          <h3>Who this g
           '            <label class="opt"><span class="key">1</span><span class="lbl">%s</span>'
           '<span class="routes">the provider&rsquo;s declared fallback</span></label>\n'
           '          </div>\n'
-          '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">A configuration value the '
+          '          <p class="anote">A configuration value the '
           'provider declared, not a guess, and the same one 8.2 shows when the console itself is down. '
           '<b>Choosing it is what makes a recipient exist.</b></p>\n'
           '        </section>\n') % (RCPT_NAME, DUTY[0].upper() + DUTY[1:])

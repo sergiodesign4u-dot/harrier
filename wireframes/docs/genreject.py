@@ -105,7 +105,7 @@ page('reject-axis-b.html', 'Reject, second axis required',
      '            <a class="opt" href="reject-chosen.html"><span class="key">2</span><span class="lbl">Tenant context missing</span>'
      '<span class="routes">the tenant baseline</span></a>\n'
      '          </div>\n'
-     '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">Two choices, not five. '
+     '          <p class="anote">Two choices, not five. '
      'The other five reasons derive their answer, so this is the only place a second keystroke is asked for.</p>\n'
      '        </section>\n',
      ('        <span class="dim" style="font-size:var(--t-xs)">Where it goes is required</span>'

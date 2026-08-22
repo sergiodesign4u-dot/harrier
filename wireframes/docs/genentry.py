@@ -98,7 +98,7 @@ def evidence(gone=None):
             'enrolment</span><span class="src">Entra, EDR</span></div>\n'
             '          <div class="claim claim--against"><span class="txt">this user has travelled to this region '
             'twice in 90 days</span><span class="src">tenant baseline</span></div>\n'
-            '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><b>What Clerk looked for '
+            '          <p class="anote"><b>What Clerk looked for '
             'and did not find is part of the record</b>, and so is the one signal that argued the other way. '
             'An evidence trail that keeps only the supporting half is an argument, not a record.</p>\n'
             '        </section>\n')
@@ -122,7 +122,7 @@ def latitude_then(date='2026-08-22', record='<b>34 of 36</b> upheld over the 30 
     out += ('          </div>\n'
             '          <p class="nar" style="margin-top:var(--s3)">The record that stood behind the grant on that '
             'date: %s.</p>\n'
-            '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">An auditor rarely asks '
+            '          <p class="anote">An auditor rarely asks '
             'whether this was the right call. They ask <b>why the machine was allowed to do that</b>, and a settings '
             'page cannot answer it: it shows the grant now, and the grant may have been widened twice since. '
             '<b>3.5 shows the present. This shows the past, and only one of the two is evidence.</b></p>\n'
@@ -133,7 +133,7 @@ def address(asof, entry=ADDR_ID):
     return ('        <section class="block">\n          <h3>The address of this record</h3>\n'
             '          <div class="addr"><code>/log/%s?as-of=%s</code>'
             '<a class="btn" href="entry.html">Copy</a></div>\n'
-            '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">The address is the artefact. '
+            '          <p class="anote">The address is the artefact. '
             'Without <code>?as-of</code> it resolves to this entry&rsquo;s own decision time, and the product writes '
             'the parameter into every link it generates so a copied address never depends on a default.</p>\n'
             '        </section>\n') % (entry, asof)

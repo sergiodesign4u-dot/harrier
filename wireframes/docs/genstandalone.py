@@ -124,7 +124,7 @@ if __name__ == '__main__':
     FILED_WHAT = ('        <section class="block">\n          <h3>What was decided</h3>\n'
                   '          <p class="nar">Clerk concluded <b>real, contain identity</b>. The action was '
                   'above this tenant&rsquo;s latitude, so it waited for a person, and it has now run.</p>\n'
-                  '          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)">On 4.1 the row '
+                  '          <p class="anote">On 4.1 the row '
                   'changes under your hand and that is the feedback. There is no row here, so the outcome '
                   'is stated instead and the queue is offered rather than taken.</p>\n        </section>\n')
     Q.page('case-standalone-filed.html', 'Case file, filed from the standalone route', 'live', '',

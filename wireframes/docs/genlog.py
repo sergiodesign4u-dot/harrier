@@ -225,7 +225,7 @@ ENTRY = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
           <h3>The evidence as it stood</h3>
           <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="entry.html">Entra sign in</a></div>
           <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="entry.html">Entra sign in</a></div>
-          <p class="dim" style="margin:var(--s2) 0 0;font-size:var(--t-xs)"><a href="entry.html">All 9 signals, at the address below</a></p>
+          <p class="gnote"><a href="entry.html">All 9 signals, at the address below</a></p>
         </section>
         <p class="prov"><b>6 sources</b> queried over <b>24h</b>. The snapshot is addressed, not reconstructed: what follows is the state the sources were in when Clerk read them, not what they say today.</p>
         <p class="stamp">Snapshot <code>?as-of=2026-08-22T04:14:05Z</code> &middot; filed 27m before the ruling</p>
