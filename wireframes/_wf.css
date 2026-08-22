@@ -72,6 +72,9 @@ body{
 .z1 nav a{color:var(--soft);text-decoration:none;font-size:var(--t-md);padding:var(--s2) 0;
           border-bottom:2px solid transparent}
 .z1 nav a[aria-current="page"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.z1 nav span{color:var(--soft);font-size:var(--t-md);padding:var(--s2) 0;
+             border-bottom:2px solid transparent;text-decoration:line-through;
+             text-decoration-color:var(--hair)}
 .z1 .spacer{flex:1 1 auto}
 
 /* Z3 annunciator, node 0.3. A fixed slot, read only in the MVP */

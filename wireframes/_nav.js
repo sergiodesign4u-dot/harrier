@@ -260,6 +260,11 @@ window.WF_SHELL = function(o){
     z1.innerHTML =
       '<span class="wordmark">Harrier</span>' +
       '<nav aria-label="Sections">' + NAVITEMS.map(function(n){
+        /* the registry decides whether this is a link yet. A global item that 404s is worse
+           than one that is plainly not built, and this heals itself as screens are built */
+        var rec = (window.WF_NAV.screens || []).filter(function(x){ return x.screen === n.id; })[0];
+        if (rec && rec.status !== 'built')
+          return '<span title="not drawn yet">' + n.label + '</span>';
         return '<a href="' + n.href + '"' + (n.id === o.current ? ' aria-current="page"' : '') + '>' + n.label + '</a>';
       }).join('') + '</nav>' +
       '<span class="spacer"></span>' +
