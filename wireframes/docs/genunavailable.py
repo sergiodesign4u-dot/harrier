@@ -59,6 +59,14 @@ INLINE = Q.INLINE + """
   /* the contact goes first, so it has to be SHORT first. What is trimmed is the reasoning
      about who owns the disclosure decision, which is a desk reading and not a 03:00 one. */
   .out-desk{display:none}
+  /* The contact reads first here by choice, which put the only action a viewport and a half
+     down. So the action pins to the bottom edge, the same device the pane foot uses at 360.
+     Both things are then true at once: the number is what she reads, and the retry is always
+     under her thumb. Found by the browser pass at step 9. */
+  .out-act{position:sticky;bottom:0;z-index:2;order:99;
+           margin:0 calc(var(--s4) * -1) calc(var(--s6) * -1);
+           padding:var(--s3) var(--s4);background:var(--paper);border-top:var(--line-ink)}
+  .out-act .btn{flex:1 1 auto;justify-content:center}
 }"""
 Q.INLINE = INLINE
 
