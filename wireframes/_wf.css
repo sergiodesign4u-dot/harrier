@@ -276,7 +276,14 @@ body{
   .z2{padding:0 var(--s3)}
   .z45{display:block}
   .z4{border-right:none}
-  .z5{display:none}            /* the pane is a desk instrument. 3.1 settled this */
+  /* The pane is a desk instrument, so with the fleet at rest it is simply not rendered:
+     3.1 settled that. A pane holding a CASE is different. 3.1 says selecting at 360 opens
+     the standalone rendering rather than a pane covering the list, so that is what happens
+     here: the case becomes the whole page and the list steps aside. Two routes, one
+     rendering, which is what 4.2 has always been. */
+  .z5{display:none}
+  .z5.is-paper{display:flex;flex:1 1 auto}
+  .z45:has(> .z5.is-paper) > .z4{display:none}
   .z5.is-standalone{display:flex;flex:1 1 auto}
   :root{--row-tracks:1fr}
   .row{gap:var(--s1);padding:var(--s3)}
