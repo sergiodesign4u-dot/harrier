@@ -338,3 +338,46 @@ a{color:inherit;text-decoration-color:var(--soft);text-underline-offset:2px}
 Re-measured on the live URL: **zero coloured elements on 62 pages.**
 
 **Whole site after the step:** 62 wireframe pages at three widths, zero overflow and zero horizontal scroll; 62 pages at two widths, one clipping finding, which is the known 3px line box rounding on the hub's own `h1` and was dismissed at verification.
+
+---
+
+## 16. Everything that was still inline, and a fix that had only been written down
+
+### Section 2 declared the survivor and never migrated the other two
+
+`_wf.css` section 2 says `.esc-desk`, `.out-desk` and `.only-desk` were three private names for one utility, calls it *one hole in this file found three times*, and declares `.only-desk`. It declared it and stopped. Both other generators still shipped their own copy, and `genunavailable` still carried the comment *"the complement of `_wf.css`'s `.only-narrow`, which has no complement"*, which had stopped being true the moment section 2 was written.
+
+**A comment that describes a fix is not the fix**, and a file that asserts something false about itself is worse than one that says nothing at all. Both callers use `.only-desk` and `.only-desk-i` now, and the two private definitions are gone. Verified live at both widths: every desk only element computes `block` or `inline` at 1440 and `none` at 360.
+
+### What moved, and what is allowed to stay
+
+| Was inline on | Is now | Pages |
+|---|---|---|
+| `<p class="dim" style="margin:var(--s1) 0 0;font-size:var(--t-sm)">` | `.dialog > header .sub`, merged with the pane's identical rule | 11 |
+| `<span class="dim" style="font-size:var(--t-xs)">` | `.dialog > footer .hint` | 11 |
+| `<p class="nar" style="margin-top:var(--s3)">` | `.nar--sep` | 4 |
+| `<div class="cons" style="margin-top:var(--s2)">` | `.cons--gap` | 2 |
+| `<p class="empty" style="padding:var(--s5)">` | `.empty--tight` | 2 |
+| `<b style="display:inline;font-size:inherit">` | `.empty b.run` | 2 |
+| `<p style="margin:var(--s2) 0 0;display:flex;...">` | `.wrapline` | 3 |
+| `<p style="margin:0">` | `.nar`, which is what that paragraph already was | 4 |
+| the three `.z4--log` rules | `_wf.css` section 17 | 5 |
+| eleven soft notes still wearing `class="dim"` plus a style | `.anote` or `.gnote`, the two registers group 1 settled | 16 |
+
+**Four inline declarations remain and each is used exactly once**, each written through `var()`. That is the criterion, not zero.
+
+### Two interface strings were living in a stylesheet
+
+`not found` and `points the other way` were `content:` strings on `.claim--absence` and `.claim--against`. Stage 05 owns every interface string in this product, and a string in a stylesheet cannot be found by reading the screens, cannot be changed without touching the shared file, and is exposed to assistive technology inconsistently. Both are markup now, on the surface the whole product exists for.
+
+**And the move nearly changed the drawing.** Written as a sibling of `.txt` the tag became a flex item of `.claim` and took a line of its own at 360, one extra line on every tagged claim on the densest screen in the product. It belongs inside `.txt`, where the pseudo element was. **A move changes where a thing is declared and nothing about how it looks**, and the only reason that was caught is that the row was measured before and after: 240px against 98px at 1440.
+
+### Three declarations that existed and did nothing
+
+- **`--measure` and `--dialog-w-wide`** were declared in section 12 and used zero times, while `66ch` and `720px` sat as literals on the two pages that needed them. Both applied. Every one of the 37 declared tokens is now used at least once.
+- **`--bg`** was declared in `_wf.css` and published in neither the hub palette nor this file. The contract a subagent works to was missing the value that decides what a screen sits on. Six swatches on the hub now, not five.
+- **The `reconnecting` strip** was a declared `readyState` of 0.4, with a variant written for it in `_nav.js`, used by **zero pages**. This is exactly the idle control the pipeline asks for: a declared entry that renders nowhere is indistinguishable from one nobody needed.
+
+**It is drawn rather than deleted, because CONNECTING is real and it is not stale.** Stale is CLOSED: the transport has given up, so the page offers a retry. Reconnecting is already retrying under exponential backoff, so its control is disabled and says why, and its count says it is 40 seconds old rather than presenting 18 as though it were still 18.
+
+**Whole site after the group:** 63 wireframe pages at three widths, zero overflow and zero horizontal scroll; at two widths, one clipping finding, the known 3px line box rounding on the hub's own `h1`.
