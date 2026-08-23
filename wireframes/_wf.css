@@ -505,7 +505,7 @@ a.opt:hover{background:var(--fill)}
   --dialog-w:520px;     /* 4.4, 4.6 */
   --dialog-w-wide:720px;/* 0.5, which is a reference table rather than a decision */
   --toast:400px;        /* 8.4, the notice stack. Narrow enough that it never reaches --pane */
-  --z6-clear:150px;     /* what the page ends above at 360 so one notice hides no content */
+  --z6-clear:180px;     /* what the page ends above at 360 so one notice hides no content */
 }
 
 
