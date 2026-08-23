@@ -874,6 +874,20 @@ Step 1 marks. Step 3 decides the dictionary, step 4 decides the microcopy rules,
 
 They do not say the same thing, and neither is wrong: one names the **ceiling** the fleet reaches and how many moved, the other names how many tenants sit **above a floor** and the aggregate record. Two sentences that answer two different questions in one fixed slot means the analyst learns to read whichever she saw first. A decision, not a typo, and it belongs to step 3.
 
+### 6a ter. A fifteenth, found at step 6 by the reference screen rather than by the inventory
+
+**D15. `record` carries three senses and one of them has no possessive to lean on.**
+
+| Sense | Where | Disambiguated by |
+|---|---|---|
+| What the log holds | `the record`, `A record of what was known then` | `the` |
+| Clerk's track record on a tenant | The fleet's third column header, `Record`. Also `CLAUDE.md`: "where the agent's record has earned latitude" | **Nothing.** A bare column header has no article |
+| One verdict as a document | `The verdict record above is kept for the life of the record` | Nothing, and this sentence uses the word twice for two things |
+
+The two prose senses survive, because English separates `the record` from `its record` without help. The bare column header does not, so it becomes **`Accepted`**, which is what the pair underneath it counts.
+
+**Why the inventory missed it and the reference screen did not.** The inventory compares strings to strings, and `Record` collides with nothing: it is the only occurrence of that exact string. The collision is between a **word** and its **senses**, and it is only visible when the column header and the annunciator are in the same eye at the same time, which is what opening the screen does.
+
 ### 6b. A closed taxonomy that is not closed on screen
 
 **D10.** 0.8 §6 closes the state chip set at six values: `unrecorded`, `taken`, `escalated`, `decided`, `acted`, `investigating`. The log and the case history also render `upheld`, `rejected`, `amended`, `superseded`, `Clerk filed a verdict`, `Clerk opened the case` and `Clerk acted alone`. That is either a second declared taxonomy for 5.1 and 5.6 or a break in the closed set. **It is fixed upward in `ia/docs/pages/reading-conventions.md`, not in a screen**, and this stage does not settle it alone.
@@ -917,4 +931,55 @@ Run over all 62 product pages with `.anote` and `<style>`/`<script>` stripped, o
 
 ## 7. Was and became
 
-Empty until step 6. The reference screen fills it first, then step 7 fills the rest, and step 8 pulls the pairs that carry a class into `voice/docs/critique.md` with a screenshot at 360.
+Step 6, the reference screen. **3.1 Case Queue and its eleven state pages**, taken from the top line of `wireframes/docs/screens.md` rather than re-derived. Step 7 fills the rest.
+
+### What changed, and under which rule
+
+| # | Was | Became | Rule | Files |
+|---|---|---|---|---|
+| 1 | order: unrecorded, **blocked on her**, severity, age | order: unrecorded, **waiting on you**, severity, age | Principle 1, and it was the most expensive counterexample in the product | 12 |
+| 2 | `Client`, queue column header | `Tenant` | D1 | 10 |
+| 3 | `What Clerk concluded`, queue column header | **`The verdict`** | D2, and see the correction below | 10 |
+| 4 | `Record`, fleet column header | **`Accepted`** | D15, new at this step | 10 |
+| 5 | 7 of 18 shown, **virtualised** | 7 of 18 shown | Never §6. `virtualised` is an engineering word in a product slot, the same register as a node number | 1 |
+| 6 | 7 of 18 shown, **frozen at** the last sync | 7 of 18 shown, **as of** the last sync | Freshness, grammar 1 | 1 |
+| 7 | 40 tenants, nothing selected. **Frozen as of** the last sync | 40 tenants, nothing selected. **As of** the last sync | Freshness, grammar 1 | 1 |
+| 8 | 33 more · **frozen as of** the last sync | 33 more · **as of** the last sync | Freshness, grammar 1 | 1 |
+| 9 | **Try to reconnect** | **Reconnect** | D5. The connection is what is retried, not her last action | 1 |
+| 10 | 40 tenants, nothing selected. **Frozen 40s ago** | 40 tenants, nothing selected. **As of 40s ago** | Freshness, grammar 1 | 1 |
+| 11 | 33 more · frozen **as of the last sync**, on `queue-reconnecting` | 33 more · **as of 40s ago** | Freshness, **and it disagreed with the pane heading directly above it**. Reconnecting is not stale | 1 |
+| 12 | The count above is provisional and says so, **because a number that settles later without saying it was provisional is a number she acted on** | The count above is provisional and says so. | Principle 1 and Never §6. The clause argued for the design, to a reviewer, in the third person about the reader | 1 |
+| 13 | 34 of 36 **upheld**, 30 days | 34 of 36 **accepted**, 30 days | D2 | 2 |
+| 14 | `OVRD` human decided | `DECIDED` by you | D14, no invented abbreviation, plus Principle 1. **And it is the layout case, see below** | 1 |
+| 15 | Clerk **concluded** real, contain identity | Clerk **filed** real, contain identity | D2. `conclude` retires | 1 |
+| 16 | Clerk's **conclusion** stands unruled | Clerk's **verdict** stands unruled | D2 | 1 |
+| 17 | The pane on the right is the fleet, which is where this screen rests. | *cut* | **False at 360**, and design commentary at 1440. See below | 1 |
+| 18 | 40 tenants. **This is the resting state of the pane, and it is what an empty queue looks like** | 40 tenants, nothing selected. Ordered by where attention is owed | Never §6, and it undercut the decision it described | 1 |
+| 19 | nothing waiting, **and the fleet holds the pane** | nothing waiting | Same as 17. The fleet is not rendered at 360 | 1 |
+| 20 | `↑ ↓ read, the pane follows` and `Enter decides, focus moves into the pane`, rendered at every width | Both `only-desk` | **False at 360 twice over**: no keyboard, no pane. Fixed upward in `ia/docs/pages/case-queue.md` §8 first | 12 |
+
+### The three findings only the screen could produce
+
+**A. A string that is true at the desk and false in the one scenario 360 exists for.** Rows 17, 19 and 20. `The pane on the right is the fleet` and `the fleet holds the pane` point at nothing on a phone, where the pane is `display:none` by 3.1's own specification. And the two key hints promise a keyboard and a pane, neither of which is there.
+
+**This is the class 360 was proved for, and it survived stage 04 intact** because the strings are impeccable at 1440 and a table of them looks perfect. Row 20 needed a fix upward: §8 of the node named what the row, the pane and the scope bar do at 360 and said nothing about the list foot, so stage 04 rendered it whole. The node now names it.
+
+**B. A string that broke the layout, cured by shortening the text.** Row 14. `OVRD human decided` became `DECIDED by you, 4s ago` on the first pass, which is four characters longer, and `R. Idrissi` wrapped onto two lines in the top bar. `4s ago` is already in the banner two lines below, so Principle 2 removes it and the name is back on one line. **Provable only in a browser**: in this table both versions look fine.
+
+**C. A header that was already false before this stage touched it.** Row 3. `What Clerk concluded` sits above a first row reading `Rejected by R. Idrissi`, which is not what Clerk concluded. The column carries Clerk's verdict while a case is unruled and the human's ruling once it is ruled, and the cell always says whose. The header stops attributing.
+
+### One gap found and deliberately not fixed
+
+§8 of `case-queue.md` says the scope bar **collapses to a single control carrying the count of active filters** at 360. It still renders all three chips. That is a stage 04 implementation gap rather than a text defect, and collapsing three controls into one is layout work rather than a class attribute. It is written into the node and carried into `voice/docs/critique.md` so it is not lost when `wireframes/` freezes after this stage.
+
+### One measurement, and what it actually compared
+
+All twelve pages at a **true 360**, asserted rather than intended: `document.documentElement.clientWidth === 360` and `scrollWidth === clientWidth`. All twelve pass. One page, `queue-clerk-down`, overflows by 14px at **341**, which is below the declared minimum of 360 and is therefore recorded rather than fixed.
+
+### Read aloud, and what it caught
+
+Every heading and every button on all twelve pages, said out loud. **It caught nothing the browser had not already caught**, which is worth writing down: the corpus stage 04 produced has no bureaucratic register in it. One phrase was tested and kept: `Ordered by where attention is owed` is formal but sayable, and rewriting a precise passive into a vaguer active would have been a loss.
+
+### Still on the reference screen, and deferred to step 7 by design
+
+`· 0.4`, appended by `wireframes/_nav.js` to the connection strip on all 55 authenticated screens, and the accessible name `Tenant autonomy`. Both are global strings, both live in `_nav.js`, and step 7 rewrites globals in the parent before any fan-out. They are named here so the acceptance is not read as complete.

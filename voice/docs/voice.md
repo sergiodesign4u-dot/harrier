@@ -184,7 +184,7 @@ One thing, one word. Fourteen divergences were marked in `microcopy.md` §6 and 
 |---|---|---|---|
 | **tenant** | *client*, when the sentence is about a scope, a row, a boundary or a latitude | It is the word the differentiator is built on, it is already 409 uses against 98, and the category uses it for the isolation boundary. Simbian gives each tenant a Context Lake, Microsoft ships multitenant management | Queue column header `Client` becomes `Tenant`, on **29 files**. `Normal at this client` becomes `Normal at this tenant`, on **22** |
 | **client** | *tenant*, when there is a person or a contract on the other end | The commercial relationship is real and it has people in it. `A call to the client before 08:00` is not a call to a boundary | `the tenant's mail admin` becomes `the client's mail admin`. `your provider's contract` stays |
-| **verdict** | *determination*, *conclusion* | Simbian uses `verdict` verbatim; Prophet's `determination` is the same word and the product needs one. `Conclusion` was this product's own second word for it | Column header `What Clerk concluded` becomes **`What Clerk filed`**. `Clerk's conclusion stands unruled` becomes `Clerk's verdict stands unruled` |
+| **verdict** | *determination*, *conclusion* | Simbian uses `verdict` verbatim; Prophet's `determination` is the same word and the product needs one. `Conclusion` was this product's own second word for it | Column header `What Clerk concluded` becomes **`The verdict`**, see the correction below. `Clerk's conclusion stands unruled` becomes `Clerk's verdict stands unruled` |
 | **file** | *submit*, *save*, *commit* | It is what you do to a verdict, and it is already the product's word: `Filed by Clerk`, `File the amendment` | Nothing. It is confirmed rather than changed |
 | **accept** | **upheld** | The control teaches the word, and the control says `Accept`. A record that says `Upheld` is a word the control never taught. And `accept, amend or reject` is the canonical triple in `CLAUDE.md`. `Uphold` fits the judicial metaphor and loses on this rule, which is written down in `docs/decisions.md` | `Upheld by D. Okonkwo` becomes `Accepted by D. Okonkwo`. Chip `upheld` becomes `accepted`. `34 of 36 upheld, 30 days` becomes `34 of 36 accepted, 30 days` |
 | **amend** | *edit*, *revise* | An amendment stands beside what it amended rather than replacing it, which is what the word already carries | Nothing |
@@ -340,7 +340,7 @@ Rules by element type. Every rule carries one real string from this product, so 
 | **Screen heading, `h1`** | **The readout, not the label.** It answers what is in front of you right now, as a count and a scope, and it changes with the state | `18 waiting across 12 of 40 tenants in scope` &middot; `No case matches this scope` &middot; `Nothing waiting` |
 | **Pane heading, `h2`** | What this pane holds, named as a thing | `Fleet` &middot; `C-4417 · Larkfield Logistics` &middot; `Find the decision` |
 | **Block heading, `h3`** | **A question the block answers, in her words.** This is the category's own pattern, not an invention | `What happened` &middot; `What Clerk filed` &middot; `What Clerk may do here, on this tenant` &middot; `What emptied it` &middot; `What cannot be done here` |
-| **Column header** | The shortest noun phrase that says what the cell holds. A question where the cell holds a judgement | `Sev` &middot; `Tenant` &middot; `What it is` &middot; `What Clerk filed` &middot; `To check` &middot; `State` &middot; `Age` |
+| **Column header** | The shortest noun phrase that says what the cell holds. **A header may not attribute what the cell attributes**, because the cell is right for every row and the header is right only for some | `Sev` &middot; `Tenant` &middot; `What it is` &middot; `The verdict` &middot; `To check` &middot; `State` &middot; `Age` |
 | **Sub-heading, `p.sub`** | Says what is true of this pane that the heading could not carry | `Nothing is selected, and this is not an empty pane. It is the answer to the question you are about to be asked` |
 
 **A heading never states the obvious identity of the screen.** `Case queue` as an `h1` would spend the most valuable line on the page telling her which screen she opened, which she knows. The `h1` is the readout.
@@ -388,6 +388,18 @@ Rules by element type. Every rule carries one real string from this product, so 
 ---
 
 ## Two checks this section had to pass
+
+### Two corrections the reference screen made to this document, before it changed a screen
+
+**Step 6 is allowed to fix the rule rather than the line**, and it did so twice. Both are written here rather than applied quietly, because a string corrected by hand travels alone while a corrected rule travels to every screen at step 7.
+
+**Correction 1. `What Clerk concluded` does not become `What Clerk filed`.** The dictionary was right that `conclusion` retires and `verdict` is the noun. It was wrong about the replacement, and the reference screen showed why in one glance: **the header was already false for the first row on `queue.html`, which reads `Rejected by R. Idrissi`.** That is not what Clerk concluded. The column carries Clerk's verdict while a case is unruled and the human's ruling once it is ruled, and every cell already states whose it is. So the header stops attributing and becomes **`The verdict`**, and the rule gains a clause: *a header may not attribute what the cell attributes.*
+
+**Correction 2. `record` had three senses, and the inventory found only two.** The dictionary ruled `entry` against `record` for a row of the log. The fleet's third column header is `Record`, meaning Clerk's **track record** on that tenant, which is also the sense `CLAUDE.md` uses in "where the agent's record has earned latitude". Three senses, one word, and the bare column header is the one with no possessive to disambiguate it. The two prose senses survive because English disambiguates them with `the` and `its`. **The column header becomes `Accepted`**, which also puts Principle 3 in the right place: the header names the claim, the cell carries the pair, the block foot carries the window.
+
+This is **D15**, and it is recorded in `microcopy.md` §6 with the other fourteen.
+
+---
 
 ### Check 1. Every rule against the phase it lands on
 

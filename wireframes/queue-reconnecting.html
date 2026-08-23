@@ -34,9 +34,9 @@
       <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
         <div class="row row--head" role="row">
           <span role="columnheader">Sev</span>
-          <span role="columnheader">Client</span>
+          <span role="columnheader">Tenant</span>
           <span role="columnheader">What it is</span>
-          <span role="columnheader">What Clerk concluded</span>
+          <span role="columnheader">The verdict</span>
           <span role="columnheader">To check</span>
           <span role="columnheader">State</span>
           <span role="columnheader">Age</span>
@@ -109,18 +109,18 @@
       <p class="anote">This is <b>not</b> the stale screen and it must not read like one. Stale is CLOSED: the transport has given up, so the page offers a retry. This is CONNECTING: the transport is already retrying under exponential backoff, so a retry control would be a button that does what is happening anyway. <b>What is honest here is the count.</b> Stale knows what it has and says as of when; reconnecting does not know what it is missing, and the one thing it must never do is show 18 as though it were 18.</p>
       <p class="qfoot">
         <span>7 of 18 as of 40s ago</span>
-        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
-        <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
-        <span>order: unrecorded, blocked on her, severity, age</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span class="only-desk"><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, waiting on you, severity, age</span>
       </p>
     </section>
 
     <aside class="z5" aria-labelledby="fh">
       <div class="pane-head">
         <h2 id="fh">Fleet</h2>
-        <p class="sub">40 tenants, nothing selected. Frozen 40s ago</p>
+        <p class="sub">40 tenants, nothing selected. As of 40s ago</p>
       </div>
-      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Record</span></div>
+      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
       <a class="frow" href="queue.html"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
       <a class="frow" href="queue.html"><span>Halcyon Care</span><span>Contain endpoint</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
       <a class="frow" href="queue.html"><span>Aubrey Dental Group</span><span>Investigate</span><span class="rec">&ndash;<span class="was">no rulings yet</span></span></a>
@@ -128,7 +128,7 @@
       <a class="frow" href="queue.html"><span>Halden Freight</span><span>Contain endpoint</span><span class="rec">27 of 29<span class="was">was 26 of 29</span></span></a>
       <a class="frow" href="queue.html"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
       <a class="frow" href="queue.html"><span>Norsk Marine</span><span>Investigate</span><span class="rec">18 of 20<span class="was">was 18 of 20</span></span></a>
-      <p class="fleet-more">33 more &middot; frozen as of the last sync</p>
+      <p class="fleet-more">33 more &middot; as of 40s ago</p>
     </aside>
   </main>
 </div>

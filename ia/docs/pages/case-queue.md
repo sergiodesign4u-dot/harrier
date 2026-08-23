@@ -185,6 +185,11 @@ Read and escalate, not the full console. The stance is desktop first and this is
 - The scope bar collapses to a single control carrying the count of active filters
 - 0.4's freshness line stays, in the same place, because a stale queue on a phone at 03:00 is the worst version of that failure
 - The fleet is **not** rendered at 360. It is a desk instrument, and saying so is better than shrinking it into something unreadable
+- **The list foot keeps the count and the sort order, and drops the two key hints.** `↑ ↓ read, the pane follows` and `Enter decides, focus moves into the pane` are false at this width twice over: there is no keyboard, and there is no pane. What remains, `7 of 18 shown` and `order: unrecorded, waiting on you, severity, age`, is true at both widths and it is what makes the list she is looking at explainable
+
+**The last line was added at stage 05, step 6, and it was found by opening the screen rather than by reading this file.** Section 8 named what the row, the pane and the scope bar do at 360 and said nothing about the foot, so stage 04 rendered it whole and two strings on the reference screen have been lying on every phone since. The class is the one 360 exists to catch: **a string that is true at the desk and false in the one scenario the narrow rendering was proved for.**
+
+**One gap found with it and deliberately not fixed here.** This section says *the scope bar collapses to a single control carrying the count of active filters*. At 360 it still renders all three chips. That is a stage 04 implementation gap rather than a text defect, and collapsing three controls into one is layout work, not a class attribute. **It is recorded here so it is not lost when `wireframes/` freezes after stage 05**, and it is carried into `voice/docs/critique.md`.
 
 ---
 
