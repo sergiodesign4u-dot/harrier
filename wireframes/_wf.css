@@ -551,6 +551,15 @@ a.opt:hover{background:var(--fill)}
    --------------------------------------------------------------------------------------- */
 @media (max-width:900px){
   .z4--solo,.z4--entry{overflow:visible}
+
+  /* 4.4 AT 360 HAD NO PRIMARY AT ALL, and its own banner names the exit in as many words:
+     "on a phone the exit is escalate, and only escalate". Accept is `only-desk` there, so the
+     footer lost its primary with it and the one action the screen names rendered as an
+     ordinary outlined button. Found by the final sweep, which counted primaries per page and
+     flags zero as loudly as it flags two. This class is the narrow half of that pair: at the
+     desk the dialog owns the primary, at 360 the pane's exit does. */
+  .btn--primary-narrow{background:var(--ink);color:var(--paper);font-weight:600}
+  .btn--primary-narrow .key{opacity:.85}
 }
 
 

@@ -55,7 +55,7 @@ def page(fname, title, body, footer, sel_state=None):
                    'case known to be benign cannot be closed from there either.</div>\n')
     z5 = C.pane(C.SUB, '', narrow_note + C.VERDICT + C.EVIDENCE + C.PROV + C.tenant_ctx() + C.latitude() + C.stamp(),
                 C.foot([('Accept','a','queue-decided.html',' btn--primary only-desk'),
-                        ('Escalate','e','escalate.html','')]))
+                        ('Escalate','e','escalate.html',' btn--primary-narrow')]))
     Q.page(fname, title, 'live', z4, z5 + dialog(body, footer),
            extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
 
