@@ -301,3 +301,40 @@ table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.5;min-wid
 Both new sections were then measured on the live URL at 1440, 1024 and a genuine 360, with `document.documentElement.clientWidth === 360` asserted rather than assumed. Two more defects were caught only by looking at the render: `overflow-wrap:anywhere` split the ISO timestamp the legend exists to teach, and a 92px label column at 360 broke words mid token, so the legend stacks label over value below 900.
 
 **Measured after the fix, whole site:** 58 wireframe pages, 27 IA pages, 3 research pages and the root, each at three widths, **zero elements outside the viewport and zero horizontal scroll**.
+
+---
+
+## 15. The canon fixed upward, and the defect that only a computed style could see
+
+Four of the step 9 findings were not defects in a drawing. They were places where the drawing was right and **the layer above it did not say so**, which is the class the pipeline rule about fixing upward exists for. All four are closed in `ia/docs/pages/`, and each IA render carries a visible note saying what changed.
+
+| Hole | Where it was | What it is now |
+|---|---|---|
+| 0.8 section 8 listed 5.1 as a reader of the six state chips | `reading-conventions.md` | 5.1 runs a **second vocabulary**. Both sets stand side by side, with the one word that appears in both named as stage 05's work |
+| `C-0441` and `C-4419` were drawn and never declared | `reading-conventions.md` section 7 | Both declared, with why the canon needs each and the rule that `C-4419` must never gain a tenant |
+| Axis A had seven values and the list showed six | `rejection-reason-taxonomy.md` | `Other, and say why` is the seventh, drawn at `reject-other.html` |
+| Node 8.4 was MVP with three notices marked `yes` and nothing drawn | `toast-stack.md` section 6b | Zone Z6 exists, and two queue states draw all three |
+
+### What drawing 8.4 settled that the specification could not
+
+**Zone Z6 hangs off the row that holds both columns, not off the viewport and not inside the list.** Fixed to the viewport, a notice sits over the detail pane at 1440, which section 1 of the node forbids in as many words. Inside the list, it scrolls away with the rows, because the list is a scrollport. Neither is visible from prose; both are obvious the moment the thing is on screen.
+
+**The cap is one notice at 360, not three.** Measured: three notices took 408 of 760 pixels, so the notice layer covered more of the phone than the case did. The node says the cap is a layout decision and the persistence is the compliance one, so the cap may differ per width and the persistence may not. The failure wins the single slot because it is the one that cannot be dismissed. The count line is then a **different number** at that width, so it is a second element rather than one string edited by CSS: a count hidden by a media query is a count that lies.
+
+### 151 links in a stage whose contract says there is no colour
+
+Found while looking at the toast stack, and it is the most instructive finding of the step.
+
+`_wf.css` opens by saying *no colour, no brand, no icons, no shadows, no images*. It never declared a rule for `a`. So every bare link in prose and every evidence source chip rendered in the user agent's default blue, on **27 of 62 screens**, from the first day of the stage.
+
+**Nothing declared it, so nothing could flag it.** The grep instrument reads rules that exist. Codex reads source. The reader reads meaning. A defect whose cause is an **absent** rule is invisible to all three, and it took asking the live browser for a computed `color` and testing it for saturation to see it. The first version of that test asked whether `r === g === b` and reported 832 findings, every one of them the palette's own near greys: **a test whose threshold is wrong is worse than no test**, because 832 findings read as a broken page rather than as a broken test.
+
+The fix is one rule at the lowest specificity in the file, placed above every component so anything with a class still wins:
+
+```css
+a{color:inherit;text-decoration-color:var(--soft);text-underline-offset:2px}
+```
+
+Re-measured on the live URL: **zero coloured elements on 62 pages.**
+
+**Whole site after the step:** 62 wireframe pages at three widths, zero overflow and zero horizontal scroll; 62 pages at two widths, one clipping finding, which is the known 3px line box rounding on the hub's own `h1` and was dismissed at verification.

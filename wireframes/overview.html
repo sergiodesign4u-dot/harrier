@@ -339,6 +339,7 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
     </ul>
   </div>
 </div>
+<div class="note" style="margin-top:16px"><p><strong>The first of those Never rules was broken on 27 of 62 screens from day one, and no instrument could see it.</strong> <code>_wf.css</code> says no colour and never declared a rule for <code>a</code>, so 151 links rendered in the browser&rsquo;s default blue. The grep instrument reads rules that exist; the source review reads source; the clean context reader reads meaning. <strong>A defect whose cause is an absent rule is invisible to all three.</strong> It took asking the live browser for a computed <code>color</code> and testing it for saturation. Fixed with one rule at the lowest specificity in the file, and re-measured at zero on all 62.</p></div>
 
 <div class="note" style="margin-top:16px"><p><strong>Inline CSS is transport, not a home, and this is where the stage breaks quietly.</strong> At step 8 parallel agents cannot all write to <code>_wf.css</code>, so each puts its screen&rsquo;s rules inline behind the marker <code>/* INLINE: &lt;screen&gt; :: for reconcile into _wf.css */</code>. Reconcile brings them back the same step. Skipping it is not cosmetic: stage 07 derives the kit&rsquo;s component classes from these screens, and structure living in twenty inline blocks makes the extraction honestly collect the disagreements. <strong>The defect becomes visible at the token audit of stage 08, three stages after it was made.</strong></p></div>
 
