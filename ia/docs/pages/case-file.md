@@ -77,7 +77,7 @@ Each appears again on 4.2 and 5.4. Defined once, referenced after. Three edition
 
 ### The provenance strip
 
-Sources queried, how many, and over what window. **Count first, never a bare percentage.** This is the shape 0.3 already fixed for the record: `34 of 36 upheld, 30 days`, not `94%`. The unit is `sources`, and it is not the same number as the row's `signals`: 0.8 owns both and says which is whose.
+Sources queried, how many, and over what window. **Count first, never a bare percentage.** This is the shape 0.3 already fixed for the record: `34 of 36 accepted, 30 days`, not `94%`. The unit is `sources`, and it is not the same number as the row's `signals`: 0.8 owns both and says which is whose.
 
 It exists because `Thought for 20s` is the right instinct badly executed. Time alone says the agent was busy. It does not say what it read.
 

@@ -69,7 +69,7 @@ def prov(long_inner=PROV_INNER, short_inner='<b>6 sources</b>, 24h'):
 
 def offer(why):
     return ('        <div class="sa-offer">\n'
-            '          <a class="btn" href="case.html">Open in the queue</a>\n'
+            '          <a class="btn" href="case.html">Open this case in the queue</a>\n'
             '          <span class="why">%s</span>\n'
             '        </div>\n') % why
 
@@ -85,9 +85,9 @@ def pane(head_html, body, footer):
             ) % (head_html, body, footer)
 
 ANNUN = (", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>',"
-         "'<b>34 of 36</b> upheld, 30 days'] }")
+         "'<b>34 of 36</b> accepted, 30 days'] }")
 ANNUN_DECIDED = (", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>',"
-                 "'<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
+                 "'<b>34 of 36</b> accepted, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
 
 # What 360 cannot do, said on the page rather than left to be discovered at the foot.
 LOST = ('        <div class="banner only-narrow"><b>Escalate is the only exit from a phone.</b> '
@@ -149,7 +149,7 @@ if __name__ == '__main__':
                     'here to fall back to</b>, so this page carries the age itself.</span>'
                     '<span class="only-narrow"><b>Stale, 6m.</b> Escalating is still allowed. Everything '
                     'below is as of the last sync.</span>'
-                    '<span class="act"><a class="btn" href="case-standalone.html">Try to reconnect</a></span>'
+                    '<span class="act"><a class="btn" href="case-standalone.html">Reconnect</a></span>'
                     '</div>\n')
     # the matrix asks for latitude "as of last sync", so the note goes INSIDE 4.1's block rather
     # than floating after it. One tail, one substitution, so the block itself never forks.
@@ -167,7 +167,7 @@ if __name__ == '__main__':
                 + prov(PROV_INNER + ' <b>As of the last sync, 6m ago.</b>',
                        '<b>6 sources</b>, 24h &middot; as of the last sync')
                 + C.tenant_ctx() + STALE_LAT
-                + C.stamp(' &middot; <b>frozen at the last sync</b>') + LOST,
+                + C.stamp(' &middot; <b>as of the last sync</b>') + LOST,
                 C.foot(VERDICT_CONTROLS)),
            extra_script=ANNUN)
 

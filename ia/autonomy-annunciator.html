@@ -100,11 +100,11 @@
 <div class="badpair">
   <div class="no"><h4>Not this</h4><div class="body">94% accuracy &#8599;</div>
   <p>Cannot be checked, hides the sample, and reads the same on a tenant with three cases as on one with three hundred.</p></div>
-  <div class="yes"><h4>This</h4><div class="body">34 of 36 upheld &middot; 30 days</div>
+  <div class="yes"><h4>This</h4><div class="body">34 of 36 accepted &middot; 30 days</div>
   <p>Names the claim, the scope and the window, and carries the count. It is also shorter, which is what makes it survive in a fixed height strip.</p></div>
 </div>
 <p><strong>The honest form and the compact form turn out to be the same form</strong>, which is not usually how this goes and is worth saying out loud.</p>
-<p><strong>A small record is shown as small rather than hidden.</strong> <code>3 of 3 upheld, 30 days</code> is a weak record and must read as one. Suppressing it until the sample is large would leave the newest tenants, which are exactly the risky ones, looking identical to the settled ones.</p>
+<p><strong>A small record is shown as small rather than hidden.</strong> <code>3 of 3 accepted, 30 days</code> is a weak record and must read as one. Suppressing it until the sample is large would leave the newest tenants, which are exactly the risky ones, looking identical to the settled ones.</p>
 </section>
 
 <section id="mock">
@@ -116,7 +116,7 @@
   <div class="cell"><span class="k">TENANT</span><span class="v">Halden Freight</span></div>
   <div class="cell armed"><span class="k">PERMITTED &middot; CONTAIN IDENTITY</span><span class="v">Acts alone</span></div>
   <div class="cell active"><span class="k">DOING NOW</span><span class="v">Proposing</span></div>
-  <div class="cell grow"><span class="k">RECORD</span><span class="v sm">34 of 36 upheld &middot; 30 days</span></div>
+  <div class="cell grow"><span class="k">RECORD</span><span class="v sm">34 of 36 accepted &middot; 30 days</span></div>
 </div></div>
 </div></div>
 
@@ -167,7 +167,7 @@
 <tr><td>Permitted</td><td>Latitude for this action class</td><td>Highest in force, with the count at it</td><td>Unchanged. The permission has not changed</td><td><code>Never</code>, the floor</td><td>Marked</td><td>Hidden</td></tr>
 <tr><td>Doing now</td><td>What Clerk is doing on this case</td><td>Not shown. No single answer across a fleet</td><td><code>OVRD</code> replaces this slot</td><td>Nothing</td><td>Last known, marked</td><td>Hidden</td></tr>
 <tr><td>OVRD</td><td>Present when in force</td><td>Count of tenants under override</td><td>The state itself</td><td>Absent</td><td>Marked</td><td>Hidden</td></tr>
-<tr><td>Record</td><td><code>n of m upheld, 30 days</code></td><td>Distribution across the fleet</td><td>Unchanged</td><td><code>no record yet</code>, in words</td><td>Unchanged</td><td>Hidden</td></tr>
+<tr><td>Record</td><td><code>n of m accepted, 30 days</code></td><td>Distribution across the fleet</td><td>Unchanged</td><td><code>no record yet</code>, in words</td><td>Unchanged</td><td>Hidden</td></tr>
 </tbody></table></div>
 <div class="node"><span class="lbl">Two cells decide whether this element is honest</span><p><strong>Permitted, under new tenant.</strong> A tenant with no record shows <code>Never</code> and the words <code>no record yet</code>, never a blank and never a hopeful default. Latitude that has not been earned is the exact thing this product refuses to assert. <strong>Permission denied hides the whole element</strong> rather than emptying it, because an emptied annunciator would still confirm that the tenant exists.</p></div>
 </section>
@@ -218,7 +218,7 @@
 <div class="tw"><table>
 <thead><tr><th>Was drawn on 0.1</th><th>Why it was wrong</th><th>Now</th></tr></thead>
 <tbody>
-<tr><td><code>30d ACCURACY 94%</code></td><td>A bare percentage, which design principle 2 forbids in its own words</td><td><code>34 of 36 upheld, 30 days</code></td></tr>
+<tr><td><code>30d ACCURACY 94%</code></td><td>A bare percentage, which design principle 2 forbids in its own words</td><td><code>34 of 36 accepted, 30 days</code></td></tr>
 <tr><td>One latitude slot</td><td>The FMA carries armed <em>and</em> active. One slot is the collapse the annunciator exists to prevent</td><td>Permitted and doing now, separated by rule weight</td></tr>
 <tr><td>One level for a whole tenant</td><td>Latitude is per action class. A tenant-wide level is a comforting lie</td><td>Reading A names the action class; reading B names the summary rule</td></tr>
 </tbody></table></div>

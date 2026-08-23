@@ -57,17 +57,17 @@ def page(fname, title, body, footer, sel_state=None):
                 C.foot([('Accept','a','queue-decided.html',' btn--primary only-desk'),
                         ('Escalate','e','escalate.html',' btn--primary-narrow')]))
     Q.page(fname, title, 'live', z4, z5 + dialog(body, footer),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
 FOOT_DISABLED = ('        <span class="hint">A reason is required</span>'
                  '<span class="grow"></span>'
                  '<a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a>'
-                 '<span class="btn" aria-disabled="true">Reject and tune <span class="key">Enter</span></span>')
+                 '<span class="btn" aria-disabled="true">File the rejection <span class="key">Enter</span></span>')
 def foot_live(where='queue-decided.html'):
     return ('        <span class="hint">One selection, one key</span>'
             '<span class="grow"></span>'
             '<a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a>'
-            '<a class="btn btn--primary" href="%s">Reject and tune <span class="key">Enter</span></a>' % where)
+            '<a class="btn btn--primary" href="%s">File the rejection <span class="key">Enter</span></a>' % where)
 
 WHY = ('          <p class="anote">One keystroke picks what Clerk got wrong. '
        'Where it goes is derived from that and only asked when the pairing is genuinely ambiguous, '
@@ -115,7 +115,7 @@ page('reject-axis-b.html', 'Reject, second axis required',
      ('        <span class="hint">Where it goes is required</span>'
       '<span class="grow"></span>'
       '<a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a>'
-      '<span class="btn" aria-disabled="true">Reject and tune <span class="key">Enter</span></span>'))
+      '<span class="btn" aria-disabled="true">File the rejection <span class="key">Enter</span></span>'))
 
 # ------------------------------------------------- 4. normal at this tenant, locked
 page('reject-tenant-normal.html', 'Reject, normal at this tenant',

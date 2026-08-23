@@ -46,7 +46,7 @@ def rail(asof, extra=''):
     # The record runs to three viewports at 360 and its only exits were at the foot of it.
     # The rail is the one element that never leaves, so the way back rides in it.
     return ('      <p class="rail">AS IT STOOD <b>%s</b><span class="soft">%s</span>'
-            '<a class="rail-out" href="log.html">Back to the log</a></p>\n'
+            '<a class="rail-out" href="log.html">Open the log</a></p>\n'
             ) % (asof, extra or 'A record of what was known then. This is not the live case.')
 
 def foot_rail(asof):
@@ -58,7 +58,7 @@ def page(fname, title, asof, body, rail_extra='', current='log'):
           '      <article class="frame">\n%s%s%s      </article>\n    </section>\n\n'
           ) % (rail(asof, rail_extra), body, foot_rail(asof))
     Q.page(fname, title, 'live', z4, '', current=current,
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
 # ---------------------------------------------------------------------------- reusable blocks
 def heading(case, client, when, sub=''):
@@ -73,7 +73,7 @@ VERDICT_ESC = """        <section class="block">
         <section class="block">
           <h3>The handover, as it was written</h3>
           <p class="nar"><b>What I checked.</b> Correlated the token against the corporate range and confirmed the same correlationId on both sign ins.</p>
-          <p class="nar"><b>What I could not do.</b> Could not reach the tenant&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.</p>
+          <p class="nar"><b>What I could not do.</b> Could not reach the client&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.</p>
           <p class="nar"><b>What I need from you.</b> A call to the client, and a decision on whether to disable the account before 08:00.</p>
         </section>
 """
@@ -104,7 +104,7 @@ def evidence(gone=None):
             '        </section>\n')
     return out
 
-def latitude_then(date='2026-08-22', record='<b>34 of 36</b> upheld over the 30 days to 2026-08-22'):
+def latitude_then(date='2026-08-22', record='<b>34 of 36</b> accepted over the 30 days to 2026-08-22'):
     rows = [('Investigate','on',''), ('Contain endpoint','on',''),
             ('Contain identity','off','not reversible without the client, so it asked'),
             ('Contain network','off','not reversible without the client, so it asked'),
@@ -132,7 +132,7 @@ def latitude_then(date='2026-08-22', record='<b>34 of 36</b> upheld over the 30 
 def address(asof, entry=ADDR_ID):
     return ('        <section class="block">\n          <h3>The address of this record</h3>\n'
             '          <div class="addr"><code>/log/%s?as-of=%s</code>'
-            '<a class="btn" href="entry.html">Copy</a></div>\n'
+            '<a class="btn" href="entry.html">Copy the address</a></div>\n'
             '          <p class="anote">The address is the artefact. '
             'Without <code>?as-of</code> it resolves to this entry&rsquo;s own decision time, and the product writes '
             'the parameter into every link it generates so a copied address never depends on a default.</p>\n'
@@ -144,11 +144,11 @@ def retention(until='2026-11-20T04:14:05Z'):
             '<b>You learn the window here rather than from a failure.</b></p>\n') % until
 
 def live(text=None):
-    return ('        <section class="block">\n          <h3>The live case</h3>\n'
+    return ('        <section class="block">\n          <h3>Open the live case</h3>\n'
             '          <p class="nar">%s</p>\n'
             '          <p class="wrapline">'
             '<a class="btn" href="case.html">Open C-4417 as it is now</a>'
-            '<a class="btn btn--quiet" href="log-selected.html">Back to this entry in the log</a></p>\n'
+            '<a class="btn btn--quiet" href="log-selected.html">Open this entry in the log</a></p>\n'
             '        </section>\n'
             ) % (text or 'A different thing, named and linked rather than shown beside this one. '
                          'Current values next to historical ones is the confusion, not the cure.')
@@ -168,7 +168,7 @@ page('entry.html', 'Log entry, the full snapshot', ASOF,
      + VERDICT_ESC + evidence()
      + '        <p class="prov"><b>6 sources</b> queried over <b>24h</b> as it stood: Entra ID, Exchange audit, EDR, '
        'proxy, threat intel, tenant baseline.</p>\n'
-     + '        <section class="block">\n          <h3>Normal at this client, on that date</h3>\n'
+     + '        <section class="block">\n          <h3>Normal at this tenant, on that date</h3>\n'
        '          <p class="nar"><b>2 token replays</b> at Larkfield Logistics in the 90 days to 2026-08-22, both '
        'real. That is the base rate <b>on that date</b>, and it is not the base rate now.</p>\n        </section>\n'
      + latitude_then() + retention() + address(ASOF) + live() + NO_CONTROLS
@@ -186,7 +186,7 @@ page('entry-partial.html', 'Log entry, partly gone', ASOF,
        'retrievable</b>: Exchange audit and proxy aged out of the tenant&rsquo;s own retention on 2026-08-14. '
        'The two counts are kept apart on purpose, because &ldquo;4 sources&rdquo; and &ldquo;4 of 6 sources&rdquo; are '
        'different claims and only one of them is true here.</p>\n'
-     + '        <section class="block">\n          <h3>Normal at this client, on that date</h3>\n'
+     + '        <section class="block">\n          <h3>Normal at this tenant, on that date</h3>\n'
        '          <p class="nar"><b>2 token replays</b> at Larkfield Logistics in the 90 days to 2026-08-22, both '
        'real. Retained.</p>\n        </section>\n'
      + latitude_then() + retention() + address(ASOF) + live() + NO_CONTROLS
@@ -198,7 +198,7 @@ page('entry-gone.html', 'Log entry, nothing survived', ASOF_OLD,
      '      <div class="doc">\n'
      + heading('C-3180', 'Norsk Marine', '2026-06-08T22:41:03Z', ' &middot; the snapshot did not survive')
      + '        <section class="block">\n          <h3>What was decided, and by whom</h3>\n'
-       '          <p class="nar">Clerk concluded <b>real, contain endpoint</b>, and D. Okonkwo upheld it. '
+       '          <p class="nar">Clerk concluded <b>real, contain endpoint</b>, and D. Okonkwo accepted it. '
        '<b>That is recorded and it is not going anywhere.</b> No control on this page could change it if anyone '
        'wanted to.</p>\n        </section>\n'
      + '        <section class="block">\n          <h3>The evidence as it stood, 14 signals</h3>\n'
@@ -218,11 +218,11 @@ page('entry-gone.html', 'Log entry, nothing survived', ASOF_OLD,
        '          </div>\n'
        '          <p class="nar nar--sep"><b>Retained.</b> The grant is stored with the entry '
        'rather than with the evidence, so it outlives the snapshot. On that date the record behind it was '
-       '<b>18 of 20</b> upheld over 30 days.</p>\n        </section>\n'
+       '<b>18 of 20</b> accepted over 30 days.</p>\n        </section>\n'
      + address(ASOF_OLD, entry='e-71903')
-     + '        <section class="block">\n          <h3>The live case</h3>\n'
+     + '        <section class="block">\n          <h3>Open the live case</h3>\n'
        '          <p class="nar">C-3180 closed on 2026-06-09 and its page still resolves.</p>\n'
-       '          <p style="margin:var(--s2) 0 0"><a class="btn" href="log-snapshot-gone.html">Back to the log, June 2026</a></p>\n'
+       '          <p style="margin:var(--s2) 0 0"><a class="btn" href="log-snapshot-gone.html">Open the log, June 2026</a></p>\n'
        '        </section>\n'
      + NO_CONTROLS + '      </div>\n')
 
@@ -232,7 +232,7 @@ page('entry-changed.html', 'Log entry, the live case has changed', ASOF,
      + heading('C-4417', 'Larkfield Logistics', WHEN, ' &middot; the live case has moved on since')
      + VERDICT_ESC + evidence()
      + '        <p class="prov"><b>6 sources</b> queried over <b>24h</b> as it stood.</p>\n'
-     + '        <section class="block">\n          <h3>Normal at this client, on that date</h3>\n'
+     + '        <section class="block">\n          <h3>Normal at this tenant, on that date</h3>\n'
        '          <p class="nar"><b>2 token replays</b> at Larkfield Logistics in the 90 days to 2026-08-22, both '
        'real.</p>\n        </section>\n'
      + latitude_then() + retention() + address(ASOF)
@@ -264,7 +264,7 @@ page('entry-beyond-retention.html', 'Log entry, beyond retention', '2024-11-02T0
        '        </section>\n'
      + '        <section class="block">\n          <h3>The address you asked for</h3>\n'
        '          <div class="addr"><code>/log/e-04417?as-of=2024-11-02T09:20:44Z</code>'
-       '<a class="btn" href="log.html">Back to the log</a></div>\n        </section>\n'
+       '<a class="btn" href="log.html">Open the log</a></div>\n        </section>\n'
      + NO_CONTROLS + '      </div>\n',
      rail_extra='The address resolved. The record behind it is outside the retention window.')
 

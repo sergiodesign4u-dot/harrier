@@ -103,10 +103,10 @@ Two absences that look like oversights and are not.
 |---|---|---|---|---|---|
 | **What is being rejected** | Clerk's verdict, one line | Same | Same | Same | Same |
 | **Axis A** | Six values, none selected | One selected | One selected | One selected | Frozen, selection kept |
-| **Consequence line** | Empty, and the space is held so nothing jumps | The consequence for that value | Empty until axis B is answered | **The tenant context line, and it says it never changes a detection** | Last shown |
+| **Consequence line** | Empty until a reason is picked | The consequence for that value | Empty until axis B is answered | **The tenant context line, and it says it never changes a detection** | Last shown |
 | **Axis B** | Hidden | Hidden, derived silently | **Visible, two options, one required** | **Visible and locked**, shown so the analyst can see what was derived | Frozen |
 | **Note** | Empty, optional | Same | Same | Same | Preserved |
-| **Primary action** | Disabled, and it says a reason is required | `Reject and tune` | Disabled until axis B is answered | `Reject and tune` | `Retry`, and 4.10 holds locally |
+| **Primary action** | Disabled, and it says a reason is required | `File the rejection` | Disabled until axis B is answered | `File the rejection` | `Retry`, and 4.10 holds locally |
 
 **Axis B is shown when it is locked, not hidden.** Deriving it silently would be faster and would teach nothing. The analyst sees what the system concluded on her behalf, which is the same contract Clerk operates under.
 

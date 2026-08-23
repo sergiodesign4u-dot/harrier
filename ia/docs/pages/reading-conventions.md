@@ -194,13 +194,13 @@ Found at stage 04 by two instruments independently, and the fix belongs here rat
 | | 3.1 State | 5.1 State |
 |---|---|---|
 | **What it describes** | a case, right now | an entry, which is a past action and cannot change |
-| **Vocabulary** | the six chips in section 6 | `upheld`, `rejected`, `amended`, `escalated`, `superseded`, `Clerk acted alone` |
+| **Vocabulary** | the six chips in section 6 | `accepted`, `rejected`, `amended`, `escalated`, `superseded`, `Clerk acted alone` |
 | **Who sets it** | whatever is true of the case this second | the write that created the row, and it never changes after |
 | **Stacking** | at most two, highest first | exactly one. An entry is one act |
 
 **Only one word appears in both, and it means different things.** `escalated` on a row says the case
 left her hands and is still open; on an entry it says a handover was written at 04:41 and that fact
-is now permanent. The rest do not overlap at all: a row never says `upheld` or `amended`, because
+is now permanent. The rest do not overlap at all: a row never says `accepted` or `amended`, because
 those describe what a person did rather than where the case stands, and an entry never says
 `investigating` or `taken`, because an entry is finished by definition.
 

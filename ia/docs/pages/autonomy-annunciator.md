@@ -78,13 +78,13 @@ Design principle 2 is explicit: the number names its claim, its scope and its wi
 
 | Not this | This |
 |---|---|
-| `94% accuracy` | `34 of 36 upheld, 30 days` |
+| `94% accuracy` | `34 of 36 accepted, 30 days` |
 | `Accuracy trending up` | `up from 28 of 33, previous 30 days` |
 | `High confidence` | nothing. Confidence in a case belongs to 4.1, not here |
 
 **Count first is also shorter than a qualified percentage**, which is the part that makes it survive in a fixed-height strip. The honest form and the compact form turn out to be the same form, which is not usually how this goes and is worth saying out loud.
 
-**A small record is shown as small rather than hidden.** `3 of 3 upheld, 30 days` is a weak record and must read as one. Suppressing it until the sample is large would leave the newest tenants, which are exactly the risky ones, looking identical to the settled ones.
+**A small record is shown as small rather than hidden.** `3 of 3 accepted, 30 days` is a weak record and must read as one. Suppressing it until the sample is large would leave the newest tenants, which are exactly the risky ones, looking identical to the settled ones.
 
 ---
 
@@ -96,7 +96,7 @@ Design principle 2 is explicit: the number names its claim, its scope and its wi
 | **Permitted** | The class, and one of `Acts alone` / `Asks first` / `Never` | **Acts alone up to** the highest class, and how many tenants stand there | Unchanged. The permission has not changed | `Never`, which is the floor for a tenant with no record | Unchanged, marked | Hidden |
 | **Doing now** | What Clerk is doing on this case | Not shown. There is no single answer across a fleet | `OVRD`, and it replaces this slot rather than sitting beside it | Nothing | Last known, marked | Hidden |
 | **OVRD** | Present when in force | Count of tenants under override | The state itself | Absent | Marked as of last sync | Hidden |
-| **Record** | `n of m upheld, 30 days` for this tenant | Distribution across the fleet | Unchanged | `no record yet`, in words | Unchanged, marked | Hidden |
+| **Record** | `n of m accepted, 30 days` for this tenant | Distribution across the fleet | Unchanged | `no record yet`, in words | Unchanged, marked | Hidden |
 
 **The cell that matters most is Permitted under "new tenant, no record".** A tenant with no record shows `Never` and the words `no record yet`, never a blank and never a hopeful default. Latitude that has not been earned is the exact thing this product refuses to assert.
 

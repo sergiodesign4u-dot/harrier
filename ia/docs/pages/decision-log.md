@@ -68,9 +68,9 @@ From `ia/docs/blocks.md`, type A, plus four rows banked under type B while the P
 | Severity | Severity of the case | **Kept**, unchanged |
 | Client | Tenant, same position always | **Kept**, unchanged. Principle 4 does not stop applying because the decision is old |
 | What it is | The shape of the case | **Kept**, unchanged |
-| What Clerk concluded | The draft verdict, awaiting a ruling | **Redefined: what was decided, and by whom.** A draft becomes a ruling with an actor. This is the slot that changes meaning most |
+| The verdict | The draft verdict, awaiting a ruling | **Redefined: what was decided, and by whom.** A draft becomes a ruling with an actor. This is the slot that changes meaning most |
 | What checking it will cost | Size of the evidence behind the verdict | **Dropped.** There is nothing left to check. **Replaced by the reason**, when the decision carried one from 0.7 |
-| State | `escalated`, `unrecorded`, Clerk acted | **Kept, different values**: `upheld`, `amended`, `rejected`, `escalated`, `superseded`, `Clerk acted alone` |
+| State | `escalated`, `unrecorded`, Clerk acted | **Kept, different values**: `accepted`, `amended`, `rejected`, `escalated`, `superseded`, `Clerk acted alone` |
 | Age | How long it has waited | **Redefined: an absolute timestamp.** Relative time answers "what is going cold"; the log answers "what happened on the ninth of June", and only an absolute time answers that |
 
 **Three changes, one drop, three untouched.** Anything more than that and it would not be the same row, and 3.1 would owe an explanation rather than this node.
@@ -197,7 +197,7 @@ Seven screens were drawn at once against this layer, and drawing is what made th
 
 ### The State vocabulary has no value for an entry Clerk wrote, and that is a hole rather than an omission
 
-Section 4 fixes six values: `upheld`, `amended`, `rejected`, `escalated`, `superseded`, `Clerk acted alone`. Node 5.6 draws the history of a single case, and there the two commonest entries are Clerk **filing a verdict** and Clerk **opening the case**. Neither has a value.
+Section 4 fixes six values: `accepted`, `amended`, `rejected`, `escalated`, `superseded`, `Clerk acted alone`. Node 5.6 draws the history of a single case, and there the two commonest entries are Clerk **filing a verdict** and Clerk **opening the case**. Neither has a value.
 
 **`Clerk acted alone` is the only machine value the list holds, and on the canonical case it is the one thing that did not happen**, because contain identity is above Larkfield's ceiling. So the busiest actor in the product had no vocabulary on the surface that records it.
 

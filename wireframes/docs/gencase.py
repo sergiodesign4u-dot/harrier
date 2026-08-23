@@ -18,7 +18,7 @@ def z4_with_case(selected_href, rows=None, sel_state=None):
             if sel_state is not None: r[6] = sel_state
         items.append(tuple(r))
     return Q.z4(Q.CHIPS_DEFAULT,
-                '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+                '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
                 Q.grid(Q.rows_html(items)),
                 Q.FOOT % '7 of 18 shown, one selected')
 
@@ -31,14 +31,14 @@ EVIDENCE = """        <section class="block">
           <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
           <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>
           <div class="claim claim--against"><span class="txt"><span class="tag">points the other way</span>this user has travelled to this region twice in 90 days</span><a class="src" href="case.html">tenant baseline</a></div>
-          <p class="gnote"><a href="case-expired.html">3 more signals</a></p>
+          <p class="gnote"><a href="case-expired.html">Show 3 more signals</a></p>
         </section>
 """
-PROV = """        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline. Count first, never a bare percentage.</p>
+PROV = """        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
 """
 def tenant_ctx(text='<b>2 token replays</b> at Larkfield Logistics in 90 days, both real'):
     return """        <section class="block">
-          <h3>Normal at this client</h3>
+          <h3>Normal at this tenant</h3>
           <p class="nar">%s</p>
         </section>
 """ % text
@@ -89,7 +89,7 @@ def chiprow(items):
 
 SUB = 'Token replay from a new ASN &middot; High &middot; 9 signals &middot; 6 sources, 24h'
 VERDICT = """        <section class="block">
-          <h3>What Clerk concluded</h3>
+          <h3>What Clerk filed</h3>
           <p class="nar"><b>Real, and it wants to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen, and an inbox rule was created from it.</p>
         </section>
         <section class="block">
@@ -105,7 +105,7 @@ if __name__ == '__main__':
     Q.page('case.html', 'Case file, filed and waiting', 'live',
            z4_with_case('case.html'),
            pane(SUB, '', VERDICT + EVIDENCE + PROV + tenant_ctx() + latitude() + stamp(), foot(ALL_FOUR)),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
     # ---------------------------------------------------------------- 2. Clerk still working, 4.3
     Q.page('case-investigating.html', 'Case file, Clerk still working', 'live',
@@ -123,7 +123,7 @@ if __name__ == '__main__':
                 + '        <p class="prov"><b>4 of 6 sources</b> answered, 24h window. Counting up.</p>\n'
                 + tenant_ctx() + latitude() + stamp(),
                 foot([('Escalate','e','escalate.html',' btn--primary')])),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
     # ---------------------------------------------------------------- 3. Clerk already acted
     Q.page('case-acted.html', 'Case file, Clerk already acted', 'live',
@@ -133,7 +133,7 @@ if __name__ == '__main__':
                 + VERDICT.replace('it wants to contain the identity', 'it contained the endpoint on its own')
                 + EVIDENCE + PROV + tenant_ctx() + latitude() + stamp(),
                 foot(ALL_FOUR)),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">ACTED</span> 24m'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days','<span class=\\\"ovrd\\\">ACTED</span> 24m'] }")
 
     # ---------------------------------------------------------------- 4. amending, 4.5
     AMEND = """        <section class="block">
@@ -152,11 +152,11 @@ if __name__ == '__main__':
            pane(SUB, '', AMEND + EVIDENCE + PROV + tenant_ctx() + latitude() + stamp(),
                 foot([('File the amendment','','queue-decided.html',' btn--primary'),
                       ('Cancel','Esc','case.html',' btn--quiet')])),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
     # ---------------------------------------------------------------- 5. no baseline, 4.8
     NOBASE_VERDICT = """        <section class="block">
-              <h3>What Clerk concluded</h3>
+              <h3>What Clerk filed</h3>
               <p class="nar"><b>Real, and it wants to contain the identity.</b> A first sign in for this account from a device the tenant has never enrolled, followed by a mailbox rule ninety seconds later.</p>
             </section>
             <section class="block">
@@ -190,7 +190,7 @@ if __name__ == '__main__':
                 + '        <p class="prov">6 sources queried, 24h window, <b>as of the last good read</b>.</p>\n'
                 + tenant_ctx() + latitude() + stamp(),
                 foot([('Escalate','e','escalate-from-expired.html',' btn--primary')])),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
     # ---------------------------------------------------------------- 7. verdict did not write, 4.9
     Q.page('case-write-failed.html', 'Case file, the verdict did not write', 'live',
@@ -200,7 +200,7 @@ if __name__ == '__main__':
                 + VERDICT + EVIDENCE + PROV + tenant_ctx() + latitude() + stamp(),
                 foot([('Try again','','queue-decided.html',' btn--primary'),
                       ('Hold it locally','','case-unrecorded.html','')])),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
     # ---------------------------------------------------------------- 8. held locally, 4.10
     Q.page('case-unrecorded.html', 'Case file, held locally', 'live',
@@ -211,6 +211,6 @@ if __name__ == '__main__':
                 + stamp(' &middot; <b>no log entry yet</b>'),
                 foot([('Try again','','queue-decided.html',' btn--primary'),
                       ('Escalate','e','escalate.html','')])),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
 
     print('generated 8 case pages')

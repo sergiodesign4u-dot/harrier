@@ -29,7 +29,7 @@ def row(sev, client, what, concluded, note, cost, states, age, href='case.html',
 
 HEAD = ('        <div class="row row--head" role="row">\n'
         + ''.join('          <span role="columnheader">%s</span>\n' % h for h in
-                  ['Sev','Client','What it is','What Clerk concluded','To check','State','Age'])
+                  ['Sev','Tenant','What it is','The verdict','To check','State','Age'])
         + '        </div>\n')
 
 BASE_ROWS = [
@@ -57,7 +57,7 @@ def fleet(sub='40 tenants, nothing selected. Ordered by where attention is owed'
     out = ('    <aside class="z5" aria-labelledby="fh">\n'
            '      <div class="pane-head">\n        <h2 id="fh">Fleet</h2>\n'
            '        <p class="sub">%s</p>\n      </div>\n'
-           '      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Record</span></div>\n') % sub
+           '      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>\n') % sub
     for t, lat, rec, was in rr:
         out += ('      <a class="frow" href="queue.html"><span>%s</span><span>%s</span>'
                 '<span class="rec">%s<span class="was">%s</span></span></a>\n') % (t, lat, rec, was)
@@ -68,9 +68,9 @@ def fleet(sub='40 tenants, nothing selected. Ordered by where attention is owed'
 
 FOOT = ('      <p class="qfoot">\n'
         '        <span>%s</span>\n'
-        '        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>\n'
-        '        <span><kbd>Enter</kbd> decides, focus moves into the pane</span>\n'
-        '        <span>order: unrecorded, blocked on her, severity, age</span>\n'
+        '        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>\n'
+        '        <span class="only-desk"><kbd>Enter</kbd> decides, focus moves into the pane</span>\n'
+        '        <span>order: unrecorded, waiting on you, severity, age</span>\n'
         '      </p>\n')
 
 def page(fname, title, strip, z4, z5, extra_script='', current='queue'):
@@ -161,7 +161,7 @@ def rows_html(items):
 if __name__ == '__main__':
     # ---------------------------------------------------------------- 1. default
     page('queue.html', 'Case queue', 'live',
-         z4(CHIPS_LIVE, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+         z4(CHIPS_LIVE, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
             grid(rows_html(BASE_ROWS))),
          fleet())
 
@@ -182,19 +182,19 @@ if __name__ == '__main__':
     # ---------------------------------------------------------------- 3. stale, 3.3
     page('queue-stale.html', 'Case queue, stale', 'stale',
          z4(CHIPS_DEFAULT,
-            '<b>18 waiting</b> <span class="dim">as of 6m, across 12 of 40 tenants in scope</span>',
+            '<b>18 waiting</b> <span class="dim">as of 6m, across 12 of 40 tenants in your scope</span>',
             '      <div class="banner qbanner"><b>Marked as of the last sync.</b> The list is readable and it is '
             'not fresh. Filing a verdict is still allowed: a degraded connection does not block a decision, '
             'and the log records the snapshot you actually saw.'
-            '<span class="act"><a class="btn" href="queue-streaming.html">Try to reconnect</a></span></div>\n\n'
+            '<span class="act"><a class="btn" href="queue-streaming.html">Reconnect</a></span></div>\n\n'
             + grid(rows_html(BASE_ROWS)),
-            FOOT % '7 of 18 shown, frozen at the last sync'),
-         fleet(sub='40 tenants, nothing selected. Frozen as of the last sync', stale=True))
+            FOOT % '7 of 18 shown, as of the last sync'),
+         fleet(sub='40 tenants, nothing selected. As of the last sync', stale=True))
 
     # ---------------------------------------------------------------- 4. nothing waiting, 3.4
     page('queue-empty.html', 'Case queue, nothing waiting', 'live',
          z4(CHIPS_DEFAULT,
-            '<b>Nothing waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            '<b>Nothing waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
             '      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">\n'
             '        <p class="empty"><b>Nothing is waiting on a decision.</b>\n'
             '          21 cases were ruled on this shift and Clerk is investigating 3 more.<br>\n'
@@ -219,7 +219,7 @@ if __name__ == '__main__':
             '          18 cases are waiting outside this scope.</p>\n'
             '      </div>\n\n',
             FOOT % 'no rows in this scope'),
-         fleet(sub='12 tenants in scope. The fleet narrows with the queue',
+         fleet(sub='12 tenants in your scope. The fleet narrows with the queue',
                rows=[r for r in FLEET_ROWS if r[0] in ('Meridian Health','Halcyon Care','Larkfield Logistics')]))
 
     # ---------------------------------------------------------------- 6. just filed
@@ -250,14 +250,14 @@ if __name__ == '__main__':
         </aside>
     """
     page('queue-decided.html', 'Case queue, just filed', 'live',
-         z4(CHIPS_DEFAULT, '<b>17 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+         z4(CHIPS_DEFAULT, '<b>17 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
             grid(rows_html(DECIDED)), FOOT % '7 of 17 shown, the decided row holds its place'),
          CASE_PANE,
-         extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
+         extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days','<span class=\\\"ovrd\\\">OVRD</span> human decided'] }")
 
     # ---------------------------------------------------------------- 7. Clerk not investigating
     page('queue-clerk-down.html', 'Case queue, Clerk not investigating', 'clerkdown',
-         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
             '      <div class="banner qbanner"><b>The queue is complete.</b> The connection is fine and Clerk stopped '
             'investigating 11m ago, so nothing is missing and nothing new will arrive until it is back. '
             'Every case in front of you is every case there is.'
@@ -270,7 +270,7 @@ if __name__ == '__main__':
     TAKEN = [BASE_ROWS[0],
              ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity','above latitude here','9 signals',['taken!'],'27m','queue-taken.html','')] + BASE_ROWS[2:]
     page('queue-taken.html', 'Case queue, taken by a colleague', 'live',
-         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
             '      <div class="banner banner--quiet qbanner"><b>D. Okonkwo has had this case open for 2m.</b> '
             'It is still yours to rule on if you need to: nothing is locked, and if you both file, the log records '
             'both and marks the second as arriving after the first.</div>\n\n'
@@ -307,10 +307,10 @@ if __name__ == '__main__':
         </aside>
     """
     page('queue-escalated.html', 'Case queue, just escalated', 'live',
-         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
             grid(rows_html(ESCALATED)), FOOT % '7 of 18 shown, the escalated row holds its place'),
          ESC_PANE,
-         extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+         extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
     # ---------------------------------------------------------------- 10. one notice, 8.4
     NOTE_ONE = ('      <p class="anote">8.4 is the node that decides what does <b>not</b> earn a notice. '
@@ -318,7 +318,7 @@ if __name__ == '__main__':
                 'changes under her hand, so a toast would only add a thing to dismiss. What is left is '
                 'what happened <b>off screen</b>, and a replay carries a count she cannot get any other way.</p>\n')
     page('queue-notice.html', 'Case queue, one notice', 'live',
-         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
             grid(rows_html(BASE_ROWS)) + NOTE_ONE,
             FOOT % '7 of 18 shown, 3 of them replayed'),
          fleet() + z6([toast(T_REPLAY)]))
@@ -331,7 +331,7 @@ if __name__ == '__main__':
                  'is a way of forgetting it, so it clears when 4.10 resolves rather than when she clicks. '
                  '<b>Nothing here takes focus</b>, because focus belongs to the evidence being read.</p>\n')
     page('queue-notices.html', 'Case queue, the stack is full', 'live',
-         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span>',
             grid(rows_html(BASE_ROWS)) + NOTE_MANY,
             FOOT % '7 of 18 shown, 1 unrecorded and held'),
          fleet() + z6([toast(T_TAKEN), toast(T_REPLAY),

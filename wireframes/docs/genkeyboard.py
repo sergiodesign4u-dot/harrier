@@ -103,7 +103,7 @@ RULE = kgroup('Rule on the case', [
     krow(['1', ':to', '6'], 'Pick what Clerk got wrong. One selection, one key.',
          'each reason row, 4.4', 'the reject dialog has focus and no text field does &middot; SC 2.1.4'),
     krow(['Enter'], 'Files the rejection, and only once a reason is chosen.',
-         'the Reject and tune button, 4.4', 'the reject dialog, outside the note field'),
+         'the File the rejection button, 4.4', 'the reject dialog, outside the note field'),
 ], 'Live only while <b>a case</b> is in the pane. With the fleet at rest there is no case, so all of '
    'these are dead. That is the third route through SC 2.1.4 and it is what makes the set legal at all.')
 
@@ -200,6 +200,6 @@ z5 = C.pane(C.SUB, '',
             C.foot(C.ALL_FOUR))
 
 Q.page('keyboard.html', 'Keyboard map', 'live', z4, z5 + DIALOG,
-       extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+       extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
 print('generated 1 keyboard page')

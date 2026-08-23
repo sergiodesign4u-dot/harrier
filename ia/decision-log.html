@@ -121,7 +121,7 @@
       </div>
       <div class="lrow">
         <div>Jun 09, 11:04:51</div><div>&#9646;&#9646;&#9647; MED</div><div>Larkfield Logistics</div>
-        <div>Credential stuffing, edge VPN</div><div>Upheld by R. Idrissi</div><div class="dim">&ndash;</div><div><span class="st">UPHELD</span></div>
+        <div>Credential stuffing, edge VPN</div><div>Accepted by R. Idrissi</div><div class="dim">&ndash;</div><div><span class="st">ACCEPTED</span></div>
       </div>
       <div class="lrow">
         <div>Jun 09, 10:58:12</div><div>&#9646;&#9646;&#9647; MED</div><div>Larkfield Logistics</div>
@@ -133,7 +133,7 @@
       </div>
       <div class="lrow sup">
         <div>Jun 08, 22:39:50</div><div>&#9646;&#9647;&#9647; LOW</div><div>Bramber Retail</div>
-        <div>Mass mailbox rule creation</div><div>Upheld by T. Okafor</div><div>&ndash;</div><div><span class="st soft">SUPERSEDED</span></div>
+        <div>Mass mailbox rule creation</div><div>Accepted by T. Okafor</div><div>&ndash;</div><div><span class="st soft">SUPERSEDED</span></div>
       </div>
       <div class="foot">1,279 more &middot; newest first &middot; <b>no row is editable and no row is removable</b></div>
     </div>
@@ -149,7 +149,7 @@
   </div>
 </div>
 </div></div>
-<p>The last two rows are the same case ten seconds apart: <code>UPHELD</code> at 22:39:50, then <code>REJECTED</code> at 22:41:03. <strong>The first is marked superseded and stays.</strong> That is what append only looks like when someone changes their mind, and it is why there is no undo anywhere in cluster 4.</p>
+<p>The last two rows are the same case ten seconds apart: <code>ACCEPTED</code> at 22:39:50, then <code>REJECTED</code> at 22:41:03. <strong>The first is marked superseded and stays.</strong> That is what append only looks like when someone changes their mind, and it is why there is no undo anywhere in cluster 4.</p>
 <p>The flagged line in the pane is not a placeholder. <strong>The retention window is genuinely unchosen</strong>, recorded in <code>research.md</code> section 10, and this pane is the only place in the product where a person can see how far back the answer reaches. Rendering a plausible number there would be the exact failure the rules of evidence forbid.</p>
 </section>
 
@@ -177,9 +177,9 @@
 <tr><td>Severity</td><td>Severity of the case</td><td><strong>Kept</strong>, unchanged</td></tr>
 <tr><td>Client</td><td>Tenant, same position always</td><td><strong>Kept.</strong> Principle 4 does not stop applying because the decision is old</td></tr>
 <tr><td>What it is</td><td>The shape of the case</td><td><strong>Kept</strong>, unchanged</td></tr>
-<tr><td>What Clerk concluded</td><td>The draft verdict, awaiting a ruling</td><td><strong>Redefined: what was decided, and by whom.</strong> A draft becomes a ruling with an actor. The slot that changes meaning most</td></tr>
+<tr><td>The verdict</td><td>The draft verdict, awaiting a ruling</td><td><strong>Redefined: what was decided, and by whom.</strong> A draft becomes a ruling with an actor. The slot that changes meaning most</td></tr>
 <tr><td>What checking it will cost</td><td>Size of the evidence behind the verdict</td><td><strong>Dropped.</strong> Nothing is left to check. <strong>Replaced by the reason</strong>, when the decision carried one from 0.7</td></tr>
-<tr><td>State</td><td><code>escalated</code>, <code>unrecorded</code>, Clerk acted</td><td><strong>Kept, different values:</strong> <code>upheld</code>, <code>amended</code>, <code>rejected</code>, <code>escalated</code>, <code>superseded</code>, <code>Clerk acted alone</code></td></tr>
+<tr><td>State</td><td><code>escalated</code>, <code>unrecorded</code>, Clerk acted</td><td><strong>Kept, different values:</strong> <code>accepted</code>, <code>amended</code>, <code>rejected</code>, <code>escalated</code>, <code>superseded</code>, <code>Clerk acted alone</code></td></tr>
 <tr><td>Age</td><td>How long it has waited</td><td><strong>Redefined: an absolute timestamp.</strong> Relative time answers "what is going cold"; the log answers "what happened on the ninth of June"</td></tr>
 </tbody></table></div>
 <p><strong>Three changes, one drop, three untouched.</strong> Anything more than that and it would not be the same row, and 3.1 would owe an explanation rather than this node.</p>

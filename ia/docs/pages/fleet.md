@@ -69,7 +69,7 @@ From `ia/docs/blocks.md`, type D.
 | **1** | **Pane header.** `Fleet`, the tenant count, and that nothing is selected. It names itself, because the whole decision rests on it not reading as empty | Ours, from the base layer rule | P2-MAIN | MVP |
 | **2** | **One row per tenant**, ordered by where attention is owed rather than alphabetically | n8n Insights per unit breakdown table | P2-MAIN | MVP |
 | **3** | **Acts alone up to**, the highest action class at which Clerk acts without asking at this tenant. Same two axes as everywhere: the class from 0.6, the level from the three in 0.6 section 5 | 0.3 reading B, plus 0.6 | P2-MAIN, the differentiator | MVP |
-| **4** | **The record, count first**: upheld out of ruled, over a stated window | 0.3, and the `71%` row banked DIFFERENT in type A | design principle 2 | MVP |
+| **4** | **The record, count first**: accepted out of ruled, over a stated window | 0.3, and the `71%` row banked DIFFERENT in type A | design principle 2 | MVP |
 | **5** | **The trend as two counts, not a line.** This window against the one before it | Ours. Section 5 | design principle 2 | MVP |
 | **6** | **Tenant groups** as the unit of narrowing, shared with 3.6 | Defender: *"Organize the tenants you manage into named groups"* | 3.6 | MVP |
 | **7** | Per tenant detail on selection | Defender's *"for all tenants and at a tenant-specific level"* | 7.1 | **LATER**, 7.1 is LATER |
@@ -125,7 +125,7 @@ The fleet orders by **where attention is owed**, in this priority:
 
 | Element | Default | Narrowed by 3.6 | Tenant with no record | Connection stale, 3.3 | Out of scope |
 |---|---|---|---|---|---|
-| **Header** | `Fleet, 40 tenants, nothing selected` | `Fleet, 12 tenants in scope` and the narrowing is named | Unchanged | Unchanged, plus the age of the reading | Counts only what is in scope |
+| **Header** | `Fleet, 40 tenants, nothing selected` | `Fleet, 12 tenants in your scope` and the narrowing is named | Unchanged | Unchanged, plus the age of the reading | Counts only what is in scope |
 | **Rows** | All in scope, ordered by section 6 | Only the narrowed set | Present, with `no rulings yet` | The last good reading, marked | Tenants outside scope are never rendered, not even greyed |
 | **Latitude** | The highest class in force | Same | **Shown, and marked as granted without a record behind it.** This is the state that most deserves the analyst's attention | As of last sync | n/a |
 | **Record** | `34 of 36, 30 days` | Same | `no rulings yet` | As of last sync | n/a |

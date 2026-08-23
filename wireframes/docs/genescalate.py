@@ -94,7 +94,7 @@ def page(fname, title, sub, body, footer, case_href='escalate.html', pane_body=N
                 C.foot([('Accept','a','queue-decided.html',' btn--primary'),
                         ('Escalate','e',fname,'')]))
     Q.page(fname, title, 'live', z4, z5 + dialog(sub, body, footer),
-           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
 # ---------------------------------------------------------------- 1. default
 page('escalate.html', 'Escalate, default', SUB_DEFAULT,
@@ -157,7 +157,7 @@ page('escalate-write-failed.html', 'Escalate, it did not write', SUB_DEFAULT,
      '</div>\n'
      + rcpt(window='frozen at the last good read of the rota')
      + prompts(first='Correlated the token against the corporate range and confirmed the same correlationId on both sign ins.',
-               second='Could not reach the tenant&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.',
+               second='Could not reach the client&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.',
                third='A call to the client, and a decision on whether to disable the account before 08:00.')
      + cons('<b>Last shown, and it did not happen.</b> The case stays open and unescalated. Your three answers '
             'are preserved on this screen and nowhere else, so leaving now loses them.',

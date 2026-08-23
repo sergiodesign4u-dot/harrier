@@ -1033,3 +1033,143 @@ Nothing was fanned out before this table existed. A global is a string on five s
 ### What the global pass deliberately did not touch
 
 **The stage panel and the registry labels in `_nav.js`**, including `Tenant autonomy annunciator`, `Reconnecting, 0.4` and every screen label. `_nav.js` says it in its own comment: *"The panel is the STAGE's chrome, not the product's."* It is the same register as `.anote` and section 2 already puts that out of scope. Reading the registry as product copy would have rewritten the prototype's own navigation into the product's voice, which is the opposite of the separation stage 04 built.
+
+---
+
+## 9. Step 7, the fan-out, and what it closed
+
+### 9a. Coverage, closed with a number
+
+The list came from `wireframes/_nav.js` as a registry, not from a walk of the folder. Both were built and compared, because a list from the filesystem and a list from the registry are not obliged to agree and a gap between them would itself be a finding.
+
+| | |
+|---|---|
+| Screens in the registry | **19** |
+| Of them built | **13** |
+| Pages on disk, excluding `overview.html` | **62** |
+| Pages on disk with no registry entry | **0** |
+| Screens rewritten at step 6 | 1, node 3.1, 12 pages |
+| Screens sent to the fan-out | 12, on 11 agents, 50 pages |
+| Screens returned | **12** |
+| **N = M** | **13 = 13** |
+
+Two pages were deliberately not touched after the global pass: `queue-reconnecting` and `queue-streaming`, both already rewritten at step 6. Every other page in the product changed.
+
+The six unbuilt screens, 6.1, 6.2, 7.1, 7.2, 7.3 and 8.3, have no pages and are out of scope by the stage decision in `CLAUDE.md`.
+
+### 9b. Four globals the global pass missed, and why it missed them
+
+**Section 8 was built from section 3b, and 3b has a floor of five screens and was extracted at block level.** A string that sits in a nested span, or in one family's foot, falls under the floor even when it is on nineteen pages. Every one of the four was found by an agent, and two of them by two agents independently.
+
+| # | String | Files | Became | Why 3b did not hold it |
+|---|---|---|---|---|
+| G18 | `Enter opens the entry at its own address` | 7 | wrapped `only-desk` | The log family's exact counterpart of the hint G13 wrapped on 19 files, and it sat below the floor |
+| G19 | provenance line ends `Count first, never a bare percentage.` | 19 | *cut* | **The rule printed as product copy.** In `voice.md` that sentence is in the *Rule* column and the *Example* column stops at the source list. The product was printing the instruction next to the example |
+| G20 | `3 more signals` | 19 | `Show 3 more signals` | A disclosure control, which the microcopy table had no row for at all |
+| G21 | `Copy` | 5 | `Copy the address` | Legal as a bare verb, and three lines from `This snapshot stays retrievable` it reads as the noun the dictionary bans |
+
+**Two agents found G18 and both refused to fix it**, each naming the same reason: at seven files it is a global by section 3's own definition, and fixing five of seven would leave two diverged. That is the boundary in the brief working rather than being obeyed by luck.
+
+### 9c. The generators, which no agent could see
+
+Stage 04 built these pages from **ten Python generators** in `wireframes/docs/`. They still carried the whole retired vocabulary: 93 occurrences of `Client`, `upheld`, `What Clerk concluded`, `blocked on her`, `Reject and tune`, `Count first, never a bare percentage` and the rest.
+
+`wireframes/` freezes after this stage. **A generator that reproduces the retired vocabulary is a trap rather than a leftover**: one rerun undoes the whole stage, and the rerun looks like a harmless build step. Swept with the same replacement set as the pages, and verified clean.
+
+Nobody in the fan-out could have found this: each agent was given a list of html pages, which is the correct boundary and also the reason the parent has to hold one instrument the agents do not.
+
+### 9d. Divergences, and where each one ended
+
+| # | Meaning | Wordings found at step 1 | Kept | Where it was ruled |
+|---|---|---|---|---|
+| D1 | The client organisation | `tenant` 409, `client` 98 | **tenant** for a scope, boundary or latitude; **client** where there is a person or a contract | Dictionary |
+| D2 | Upholding Clerk | `Accept`, `Accepted by`, `Upheld by` | **accept** | Dictionary. `upheld` is now **0** in the product and **0** in the IA |
+| D3 | Committing a rejection | `Reject r`, `Reject and tune`, `Rejected by` | **`Reject r`** opens, **`File the rejection Enter`** commits | Controls |
+| D4 | The commit verb | six buttons, no shared rule | **Say what will be true after the press** | Controls |
+| D5 | Retrying | `Try again` ×5, `Try to reconnect` ×2, `Retrying`, `Second attempt` | **`Try again`** her action, **`Reconnect`** the connection, **`Retrying`** the transport | Rulings |
+| D6, D7 | Going to the queue, going to the log | seven each | **`Open <the destination>`**; `Back to X` only for a return the product can guarantee | Rulings, **written at step 7** |
+| D8 | Not losing an unwritten decision | `Hold it locally` ×2, `Leave it open and go`, `Leave the case open` | **`Hold it locally`**. `Leave the case open` on the keyboard map is a **different act** and stays | Rulings, **written at step 7** |
+| D9 | Freshness | seven phrasings | **`as of <time>`** and **`frozen at <event>`** | Rulings |
+| D10 | The chip taxonomy | six declared, thirteen rendered | **Two closed sets on two axes** | Fixed upward in `reading-conventions.md` §6b |
+| D11 | The register that belongs in `.anote` | 33 counted in 14 files | **57 removed**, plus 9 WCAG criteria and 3 zone labels | Never §6, widened twice at step 7 |
+| D12 | The reader in the third person | 2 strings, 32 screens | **second person** | Address |
+| D13 | The key inside the label | not a divergence | **kept, deliberately** | Address |
+| D14 | The annunciator saying two things | two readings | **one question per fixed slot**; the 5-screen override retired | Rulings |
+| D15 | `record` in three senses | | **`Accepted`** as the column header | Step 6 |
+
+**D11's count was wrong and the direction is worth keeping.** The inventory said 33 in 14 files. Step 7 removed 57, because the grep that produced 33 was built from one slot shape and the leak was not confined to it. **An instrument tuned to the shape of the first instance under-reports the class.**
+
+### 9e. Rules the fan-out proved missing, and none of them was invented quietly
+
+Eleven agents returned **fourteen `NO RULE` rows**. Every one of them names a string that is wrong and a rule that does not exist to say so. Nine were written into `voice.md` at the reconcile; the rest are carried to `critique.md`. The rulings added:
+
+- **`Open <the destination>`** and the limit on `Back to X`, D6 and D7.
+- **`Hold it locally`**, D8, with the note that the keyboard map's near-identical phrase is a different act.
+- **The collective noun**: `decision` is what a person did to a case, `ruling` is narrower and covers accept, amend and reject, **and an escalation is a decision that is not a ruling.** Found by an `h1` that named a category with no members on the page under it.
+- **`stands`** is reserved for a verdict nobody has ruled on. It had two opposite senses one act apart.
+- **A commit button that is a retry** keeps the bare retry verb, and one that has nothing to name states the bare verb with the ceiling beside it.
+- **Disclosure, in place**: names what is behind it and never takes `Open`.
+- **Prefilled value**: say where the value came from, because a prefilled field has no placeholder left to carry its own condition.
+- **Any count is a numeral**, including at the start of a sentence.
+- **A string that points at something else on screen** must be true in every state and at every width the block renders in. Same shape as the `only-desk` case, one axis over.
+- **Never §6 widened three times**: a zone label is a coordinate from the specification; a bare citation of a principle is an argument for the design; **a count of the product's own parts is a specification fact, and correcting the number preserves the defect.**
+
+### 9f. Two self-contradictions inside `voice.md`, found by two agents independently
+
+**`Clerk concluded`.** Never §5 listed it as an *approved* replacement for `Clerk thinks`. The dictionary retires `conclude`. Two agents flagged it and both said the same thing: the Never row has to change or **every later reader takes it as permission.**
+
+**`the tenant's mail admin`.** The dictionary's **client** row names that exact string as what becomes `the client's mail admin`. Principle 1 quotes the same sentence with `tenant's` as its model example. The two agents that met it **acted differently**, one applying the dictionary on three files and one reporting and holding, so the product genuinely diverged for the length of the fan-out. Both are now fixed, and the rule document no longer disagrees with itself in print.
+
+### 9g. Acceptance, measured
+
+All 62 pages, both viewports, asserted rather than intended.
+
+| | |
+|---|---|
+| Pages | 62, `overview.html` excluded as out of scope |
+| Narrow viewport | `document.documentElement.clientWidth === 360` on **62 of 62** |
+| `scrollWidth === clientWidth` at 360 | **62 of 62** |
+| Elements outside the viewport | **0** |
+| JavaScript errors | **0** |
+| Banned strings in product text, `.anote` and the stage panel stripped | **1**, and it is correct |
+
+The one hit is `conclusion` inside the analyst's typed rejection note on `reject-other`. The agent left it deliberately: it is prose a person typed, an analyst really would write that word, and the fixture rule puts it out of reach. **A grep cannot tell a fixture from product copy**, which is why the exception is written down here rather than fixed.
+
+### 9h. The ownership sync
+
+SEO strings and node specifications went back to `ia/`, **prose and drawing together**, which is the rule `CLAUDE.md` binds container nodes to.
+
+- **9 node files** under `ia/docs/pages/`: `Reject and tune`, `Search the queue`, `What Clerk concluded`, `upheld` in three closed-value lists, the `reject-other` title, the consequence-line specification, and `tenants in scope`.
+- **6 `ia/*.html`** rebuilt for the same strings, plus **18 further occurrences of `upheld` inside the IA layer's own wireframe sketches** on nine pages. A drawing that still says `Upheld` while its own prose says the word is retired is exactly the stale-frame failure `CLAUDE.md` records against node 0.1.
+- `upheld` is now **0** across `wireframes/`, `ia/*.html` and every node specification. It survives in exactly two sentences, both in `reading-conventions.md`, both of which are **about** its retirement.
+- **`Count first, never a bare percentage.` stayed in the nodes** and was cut only from the screens. The rule is right and the node is where it belongs; it had leaked onto 19 pages.
+
+### 9i. Carried to step 8, found and deliberately not fixed
+
+None of these is a text defect that step 7 could have fixed by writing a better string.
+
+**Strings that are true on most screens of a family and false on one.** All three are globals, so no single agent could touch them.
+
+- `Filed by Clerk 26m ago` on `case-investigating`, where the chip says `investigating` and the page says there is nothing to accept yet. The entry taxonomy already holds the right words: `Clerk opened the case`.
+- `above this tenant's latitude, so it waited for you` on `case-acted`, where Clerk did not wait: it isolated the host 24 minutes earlier.
+- The annunciator names **Larkfield Logistics** on `entry-gone` and `entry-beyond-retention`, which are Norsk Marine and Bramber Retail. With G1 applied a screen reader is now told `Clerk's latitude on this tenant` over a reading about a different tenant. **Fixing it means inventing a latitude and a record pair for two tenants**, so it stands.
+
+**Fixture instances that contradict each other.** Canon is `reading-conventions.md` §7, which is not this stage's file.
+
+- `case-no-baseline` carries three evidence claims belonging to C-4417, including an absence claim about device enrolment on a case whose own narrative is an unenrolled device.
+- `case-acted`'s queue row and its pane disagree about the verdict.
+- `case-no-baseline`'s latitude ladder marks `Contain endpoint` as `yes` while its own annunciator caps the tenant at `investigate`.
+- `ia/decision-log.html` renders `T. Okafor`, who is not one of the three people §7 closes the set at.
+- `entry-beyond-retention`'s entry id is `e-04417`, which reads as a mangled case id where every sibling uses an unrelated one.
+
+**Layout, not text.**
+
+- 3.1's scope bar still renders three chips at 360 where §8 of its node says one control with a filter count. Carried from step 6.
+- 4.1 keeps the pane visible at 360 with `Accept a` `Amend m` `Reject r` and keys that do not exist on a phone, while `case-file.md` §8 says the node does not render at 360. 4.2 solves the identical problem with `only-desk` / `only-narrow`.
+- `entry-beyond-retention` now carries two controls with identical words and the same destination.
+
+**Naming debt for stage 07.** `class="client"` on every tenant cell and `class="concluded"` on every verdict cell, across the log and case families, plus `class="ovrd"` after `OVRD` retired. These are the last carriers of D1, D2 and D14, and the kit is built from them at stage 07.
+
+**Rules named and not written.** The trailing status slot on a line-link, where one column mixes destinations, absences, freshness and progress. Whether a footer hint may state an attempt number. Whether `.prov` has a second sense on the door, where there is nothing to count.
+
+**Two exemplars that may be wrong.** `voice.md` quotes two strings as models that contain a clause the widened Never §6 would now cut. Either the exemplars change or the rule is narrower than it reads. An agent found this and would not decide it alone, which is correct: **a rule document that quotes a violation as a model teaches the violation.**

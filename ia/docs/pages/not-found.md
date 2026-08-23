@@ -46,7 +46,7 @@ From `ia/docs/blocks.md`, type G. The source is PagerDuty's live 404, opened thi
 | **2** | **Two named exits in the sentence**, not a lone button | PagerDuty: *"You can view or search all articles, or contact our Support Team"* |
 | **3** | The address that failed, shown | Ours. She may have been sent it, and she may need to send it back |
 
-**Ours are `Search the queue` and `Open the log`**, because those are the two places a case id that did not resolve could still be found: it may be closed and in the log rather than open and in the queue.
+**Ours are `Open the queue` and `Open the log`**, because those are the two places a case id that did not resolve could still be found: it may be closed and in the log rather than open and in the queue.
 
 **Left:** the `More options` list of six further destinations (a sitemap in a dead end), an illustration, any humour, and a lone `Go home`.
 

@@ -74,14 +74,14 @@ def render(arrival):
 
         # Block 2: two named exits, in the sentence.
         '        <p class="nf-exits">A case id that did not resolve here is still worth two '
-        'looks. <a href="queue.html">Search the queue</a> if it is open, or '
+        'looks. <a href="queue.html">Open the queue</a> if it is open, or '
         '<a href="log.html">Open the log</a> if it was ruled on and closed.</p>\n'
 
         # Block 3: the address that failed, shown. Settled verdict 2 of the node.
         '        <section class="block">\n'
         '          <h3>The address you asked for</h3>\n'
         '          <div class="nf-addr"><code>%s</code>'
-        '<a class="btn" href="not-found.html">Copy</a></div>\n'
+        '<a class="btn" href="not-found.html">Copy the address</a></div>\n'
         '          <p class="nf-note">Shown so you can send it back to whoever sent it. '
         '<b>A case id carries no tenant and no date</b>, which is what makes it safe to print '
         'on a page that can be reached without signing in.</p>\n'

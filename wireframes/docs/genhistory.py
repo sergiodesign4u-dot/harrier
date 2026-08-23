@@ -66,7 +66,7 @@ FILED = ('2026-08-22T04:14:05Z', SEV, TENANT, WHAT,
 ESCALATED = ('2026-08-22T04:41:12Z', SEV, TENANT, WHAT,
              'Escalated to S. Varga by R. Idrissi', None, ['escalated'], '')
 RULED = ('2026-08-22T05:58:20Z', SEV, TENANT, WHAT,
-         'Upheld by S. Varga', None, ['superseded!'],
+         'Accepted by S. Varga', None, ['superseded!'],
          'Corrected 13m later by the entry above. Nothing was edited and nothing was removed.')
 CORRECTION = ('2026-08-22T06:11:47Z', SEV, TENANT, WHAT,
               'Amended by S. Varga', None, ['amended'],
@@ -124,8 +124,8 @@ def covers(narrowing, count, span, cannot, whose=BOTH_ACTORS, foot=''):
 FOOT = ('      <div class="pane-foot">\n'
         '        <a class="btn btn--primary" href="entry.html">Open the newest entry '
         '<span class="key">Enter</span></a>\n'
-        '        <a class="btn btn--quiet" href="case.html">The live case</a>\n'
-        '        <a class="btn btn--quiet" href="log.html">The whole log</a>\n'
+        '        <a class="btn btn--quiet" href="case.html">Open the live case</a>\n'
+        '        <a class="btn btn--quiet" href="log.html">Open the whole log</a>\n'
         '      </div>\n')
 
 # ---------------------------------------------------------------------------- the page
@@ -133,7 +133,7 @@ FOOT = ('      <div class="pane-foot">\n'
 # 0.3 reads the tenant rather than the fleet: the view is narrowed to one case at one tenant,
 # and 0.3 redraws on tenant change. Same two parts entry.html and queue-escalated.html carry.
 ANNUN = (", annun:{ lead:'LARKFIELD LOGISTICS', parts:["
-         "'acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
+         "'acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] }")
 
 def page(fname, title, h1, rows, foot_count, pane):
     Q.page(fname, title, 'live',

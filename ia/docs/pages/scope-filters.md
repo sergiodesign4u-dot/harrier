@@ -36,7 +36,7 @@ The node is called scope **and** filters because the bar holds two kinds of narr
 | Persists across sessions | **Yes** | No |
 | Why | forty tenants is a working set, not a query. An analyst covering a region works that region all shift | a filter is a question asked once |
 
-**Persistent scope is dangerous and it is made safe by one rule:** the scope is **always visible and always counted**, on every surface, whether or not it is narrowed. 3.1 already carries `18 waiting, across 12 of 40 tenants in scope`, and 3.5 and 5.1 carry the same shape.
+**Persistent scope is dangerous and it is made safe by one rule:** the scope is **always visible and always counted**, on every surface, whether or not it is narrowed. 3.1 already carries `18 waiting, across 12 of 40 tenants in your scope`, and 3.5 and 5.1 carry the same shape.
 
 A scope that persists silently is how an analyst misses a client for a whole shift. A scope that persists **out loud** is how she stops re-typing it forty times.
 
@@ -48,7 +48,7 @@ A scope that persists silently is how an analyst misses a client for a whole shi
 |---|---|---|---|
 | **Tenant or group** | yes | yes | yes |
 | Severity | yes | no | yes |
-| What Clerk concluded | yes | no | yes |
+| The verdict | yes | no | yes |
 | State: `escalated`, `unrecorded`, Clerk acted | yes | no | yes, plus `superseded` |
 | Latitude in force | no | **yes** | no |
 | Record moved | no | **yes** | no |

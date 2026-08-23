@@ -81,11 +81,11 @@ a.bline:hover{background:var(--fill)}
 
       <div class="banner only-narrow"><span><b>The shift brief is a desk surface.</b> Coming on shift happens at a desk with two monitors. The phone has one scenario here, a paged case read and escalated, and reading a twelve hour handover is not it.<br><br>One thing here does reach the phone: the escalate dialog names <b>S. Varga</b>, who takes escalations until 07:00. That comes from the rota, not from this screen.</span><span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>
       <div class="brief">
-        <div class="banner"><span><b>The brief did not seal, 40s ago.</b> It stays open and it stays readable, and <b>both of you have been told</b>: you, and D. Okonkwo, who is about to read it. Telling only the person leaving would put the handover back on one person remembering.</span></div>
+        <div class="banner"><span><b>The brief did not seal, 40s ago.</b> It stays open and it stays readable, and <b>both of you have been told</b>: you, and D. Okonkwo, who is about to read it.</span></div>
         <section class="block">
           <h2>What waits on a decision</h2>
           <div class="bline"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope<span class="ex">One of the eighteen has been waiting since before this shift: <b>Halden Freight</b>, impossible travel across two offices, still open on the client&rsquo;s VPN rollout.</span></span><span class="go">frozen at the attempt</span></div>
-          <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside that tenant&rsquo;s latitude<span class="ex"><b>There is nowhere to review these.</b> The count is here because a shift where Clerk closed nothing alone and a shift where it closed a dozen are different shifts. No screen in this product lists them, and this line does not invent one.</span></span><span class="go">nowhere to review</span></div>
+          <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude<span class="ex"><b>There is nowhere to review these.</b> A shift where Clerk closed nothing alone and a shift where it closed a dozen are different shifts, and no screen in this product lists them.</span></span><span class="go">nowhere to review</span></div>
         </section>
         <section class="block">
           <h2>What moved this shift</h2>
@@ -116,7 +116,7 @@ a.bline:hover{background:var(--fill)}
         </div>
         <div class="row" role="row">
           <span class="client" role="gridcell">Bramber Retail</span>
-          <span role="gridcell">Mass mailbox rule creation. Upheld: benign, new admin onboarding</span>
+          <span role="gridcell">Mass mailbox rule creation. Accepted: benign, new admin onboarding</span>
           <span class="states" role="gridcell"><i class="chip chip--state">decided</i></span>
           <span class="when" role="gridcell">3h</span>
         </div>
@@ -128,7 +128,7 @@ a.bline:hover{background:var(--fill)}
         </div>
         <div class="row" role="row">
           <span class="client" role="gridcell">Aubrey Dental Group</span>
-          <span role="gridcell">Sign in from an unseen device. Upheld, and this tenant still has no baseline to compare against</span>
+          <span role="gridcell">Sign in from an unseen device. Accepted, and this tenant still has no baseline to compare against</span>
           <span class="states" role="gridcell"><i class="chip chip--state">decided</i></span>
           <span class="when" role="gridcell">8h</span>
         </div>
@@ -137,7 +137,7 @@ a.bline:hover{background:var(--fill)}
         </section>
         <section class="block">
           <h2>Notes you left on cases</h2>
-          <div class="field"><label for="n1">On Larkfield Logistics, C-4417</label><textarea id="n1" rows="3">Could not reach the tenant&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned. S. Varga has it now and wanted a call to the client before 08:00.</textarea></div>
+          <div class="field"><label for="n1">On Larkfield Logistics, C-4417</label><textarea id="n1" rows="3">Could not reach the client&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned. S. Varga has it now and wanted a call to the client before 08:00.</textarea></div>
           <div class="field"><label for="n2">On Meridian Health</label><textarea id="n2" rows="3">The write has failed twice. Do not rule it again: the decision is made and it is the log entry that is missing, not the verdict.</textarea></div>
           <div class="field"><label for="n3">On Halden Freight</label><textarea id="n3" rows="3">Nobody at the client answers before 08:00, so the VPN rollout schedule is still unconfirmed. Sanctioned is the likely answer and it is not the recorded one.</textarea></div>
           <p class="gnote">What you type here is written <b>on the case</b>. The brief is not a document you author: the structured half above is assembled from what actually happened, and this is the half only a person can write.</p>
@@ -146,8 +146,8 @@ a.bline:hover{background:var(--fill)}
 
       <p class="qfoot">
         <span>6 pointers, frozen at the attempt. The brief is still open</span>
-        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read the pointers</span>
-        <span><kbd>Enter</kbd> opens the case a line points at</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read the pointers</span>
+        <span class="only-desk"><kbd>Enter</kbd> opens the case a line points at</span>
         <span>order: what waits, then what moved, newest first</span>
       </p>
     </section>
@@ -176,7 +176,7 @@ a.bline:hover{background:var(--fill)}
       </div>
       <div class="pane-foot">
         <a class="btn btn--primary" href="shift-sealed.html">Try again <span class="key">Enter</span></a>
-        <a class="btn btn--quiet" href="shift-outgoing.html">Leave it open and go</a>
+        <a class="btn btn--quiet" href="shift-outgoing.html">Hold it locally</a>
       </div>
     </aside>
   </main>

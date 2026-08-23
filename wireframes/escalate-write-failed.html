@@ -39,7 +39,7 @@
         <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
       </div>
 
-      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></h1>
 
       <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
         <div class="row row--head" role="row">
@@ -149,9 +149,9 @@
           <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
           <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>
           <div class="claim claim--against"><span class="txt"><span class="tag">points the other way</span>this user has travelled to this region twice in 90 days</span><a class="src" href="case.html">tenant baseline</a></div>
-          <p class="gnote"><a href="case-expired.html">3 more signals</a></p>
+          <p class="gnote"><a href="case-expired.html">Show 3 more signals</a></p>
         </section>
-        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline. Count first, never a bare percentage.</p>
+        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
         <section class="block">
           <h3>Normal at this tenant</h3>
           <p class="nar"><b>2 token replays</b> at Larkfield Logistics in 90 days, both real</p>
@@ -187,7 +187,7 @@
           <h3>Who this goes to</h3>
           <div class="rcpt">
             <span class="who">S. Varga</span>
-            <span class="meta">SOC lead &middot; frozen at the last good read of the rota</span>
+            <span class="meta">SOC lead &middot; as of the last good read of the rota</span>
             <span class="how">Paged through the provider&rsquo;s on call tool. <b>Harrier reads the rota, it does not own it</b>, and it records that this was sent rather than delivering it.</span>
           </div>
         </section>
@@ -195,7 +195,7 @@
           <h3>The handover</h3>
           <div class="prompts">
             <div class="field only-desk"><label for="p1">What I checked</label><textarea id="p1" rows="2" placeholder="Optional, and prompted anyway">Correlated the token against the corporate range and confirmed the same correlationId on both sign ins.</textarea></div>
-            <div class="field only-desk"><label for="p2">What I could not do</label><textarea id="p2" rows="2" placeholder="Optional, and prompted anyway">Could not reach the tenant&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.</textarea></div>
+            <div class="field only-desk"><label for="p2">What I could not do</label><textarea id="p2" rows="2" placeholder="Optional, and prompted anyway">Could not reach the client&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.</textarea></div>
             <div class="field"><label for="p3">What I need from you</label><textarea id="p3" rows="2" placeholder="Optional, and prompted anyway">A call to the client, and a decision on whether to disable the account before 08:00.</textarea></div>
           </div>
           <p class="anote only-desk">Three prompts, all optional. <b>No taxonomy and no severity picker:</b> a rejection routes to a machine so it must be machine readable, and this routes to a person who will read it. Structure here serves comprehension, and it is what stops the quality of a handover depending on how tired its author was.</p>
@@ -203,7 +203,7 @@
         </section>
         <section class="block">
           <h3>What happens when you send it</h3>
-          <div class="cons"><span class="only-desk-i"><b>Last shown, and it did not happen.</b> The case stays open and unescalated. Your three answers are preserved on this screen and nowhere else, so leaving now loses them.</span><span class="only-narrow"><b>It did not happen.</b> The case stays open and unescalated. Your answer is preserved here and nowhere else.</span></div>
+          <div class="cons"><span class="only-desk-i"><b>Shown before you sent it, and it did not happen.</b> The case stays open and unescalated. Your three answers are preserved on this screen and nowhere else, so leaving now loses them.</span><span class="only-narrow"><b>It did not happen.</b> The case stays open and unescalated. Your answer is preserved here and nowhere else.</span></div>
         </section>
       </div>
       <footer>        <span class="hint only-desk-i"><b>Enter</b> makes a line here, it does not file. The button retries.</span><span class="grow"></span><a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a><a class="btn btn--primary" href="queue-escalated.html">Try again</a></footer>

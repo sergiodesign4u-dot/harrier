@@ -85,7 +85,7 @@
 <tr><td>Persists across sessions</td><td><strong>Yes</strong></td><td>No</td></tr>
 <tr><td>Why</td><td>forty tenants is a working set, not a query. An analyst covering a region works that region all shift</td><td>a filter is a question asked once</td></tr>
 </tbody></table></div>
-<div class="node"><span class="lbl">Persistent scope is dangerous, and one rule makes it safe</span><p>The scope is <strong>always visible and always counted</strong>, on every surface, whether or not it is narrowed. 3.1 already carries <code>18 waiting, across 12 of 40 tenants in scope</code>, and 3.5 and 5.1 carry the same shape.</p><p>A scope that persists <em>silently</em> is how an analyst misses a client for a whole shift. A scope that persists <strong>out loud</strong> is how she stops re-typing it forty times.</p></div>
+<div class="node"><span class="lbl">Persistent scope is dangerous, and one rule makes it safe</span><p>The scope is <strong>always visible and always counted</strong>, on every surface, whether or not it is narrowed. 3.1 already carries <code>18 waiting, across 12 of 40 tenants in your scope</code>, and 3.5 and 5.1 carry the same shape.</p><p>A scope that persists <em>silently</em> is how an analyst misses a client for a whole shift. A scope that persists <strong>out loud</strong> is how she stops re-typing it forty times.</p></div>
 </section>
 
 <section id="mock">
@@ -129,7 +129,7 @@
 <tbody>
 <tr><td><strong>Tenant or group</strong></td><td>yes</td><td>yes</td><td>yes</td></tr>
 <tr><td>Severity</td><td>yes</td><td>no</td><td>yes</td></tr>
-<tr><td>What Clerk concluded</td><td>yes</td><td>no</td><td>yes</td></tr>
+<tr><td>The verdict</td><td>yes</td><td>no</td><td>yes</td></tr>
 <tr><td>State: <code>escalated</code>, <code>unrecorded</code>, Clerk acted</td><td>yes</td><td>no</td><td>yes, plus <code>superseded</code></td></tr>
 <tr><td>Latitude in force</td><td>no</td><td><strong>yes</strong></td><td>no</td></tr>
 <tr><td>Record moved</td><td>no</td><td><strong>yes</strong></td><td>no</td></tr>

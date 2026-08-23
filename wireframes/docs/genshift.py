@@ -144,7 +144,7 @@ CLERK_ALONE = bline('6', 'closed by Clerk alone, inside that tenant&rsquo;s lati
 # ---------------------------------------------------------------------------- block 4
 MOVED_HEAD = ('        <div class="row row--head" role="row">\n'
               + ''.join('          <span role="columnheader">%s</span>\n' % h for h in
-                        ['Client', 'What changed', 'State', 'When'])
+                        ['Tenant', 'What changed', 'State', 'When'])
               + '        </div>\n')
 
 # Client, what changed, chips, the case it points at. The actor is NOT named: the brief is per
@@ -161,13 +161,13 @@ MOVED = [
      'Beaconing to a new domain. <b>Contained by Clerk</b>, inside this tenant&rsquo;s latitude, and still open on a person',
      ['acted'], 'case.html'),
     ('Bramber Retail',
-     'Mass mailbox rule creation. Upheld: benign, new admin onboarding',
+     'Mass mailbox rule creation. Accepted: benign, new admin onboarding',
      ['decided'], 'case.html'),
     ('Meridian Health',
      'Credential stuffing on the VPN. Rejected, then amended 34m later. <b>Both entries stand</b>, and the second says what it corrected',
      ['decided'], 'case.html'),
     ('Aubrey Dental Group',
-     'Sign in from an unseen device. Upheld, and this tenant still has no baseline to compare against',
+     'Sign in from an unseen device. Accepted, and this tenant still has no baseline to compare against',
      ['decided'], 'case-no-baseline.html'),
 ]
 
@@ -204,7 +204,7 @@ MOVED_TAIL = ('          <p class="gnote">Six moved, and '
 # ---------------------------------------------------------------------------- block 6
 NOTES = [
     ('Larkfield Logistics, C-4417', 'case.html',
-     'Could not reach the tenant&rsquo;s mail admin to confirm whether the forwarding rule is '
+     'Could not reach the client&rsquo;s mail admin to confirm whether the forwarding rule is '
      'sanctioned. S. Varga has it now and wanted a call to the client before 08:00.'),
     ('Meridian Health', 'case-unrecorded.html',
      'The write has failed twice. <b>Do not rule it again:</b> the decision is made and it is the '
@@ -249,7 +249,7 @@ def latitude_block(rows=None, tail=None):
     inner = ''
     if rows:
         inner = ('          <div class="frow frow--head"><span>Tenant</span>'
-                 '<span>Acts alone up to</span><span class="rec">Record</span></div>\n')
+                 '<span>Acts alone up to</span><span class="rec">Accepted</span></div>\n')
     for t, lat, rec, was in rows:
         inner += ('          <a class="frow" href="queue.html"><span>%s</span><span>%s</span>'
                   '<span class="rec">%s<span class="was">%s</span></span></a>\n') % (t, lat, rec, was)
@@ -310,7 +310,7 @@ page('shift.html', 'Shift brief', 'live',
      '6 pointers, and every one of them opens a case',
      'Handed from D. Okonkwo. Twelve hours, and what is left of them',
      PANE_REST,
-     pfoot([('Start on the queue', 'Enter', 'queue.html', ' btn--primary'),
+     pfoot([('Open the queue', 'Enter', 'queue.html', ' btn--primary'),
             ('Open the case S. Varga has', '', 'case.html', ' btn--quiet')]))
 
 # ============================================================================ 2. outgoing, role
@@ -328,7 +328,7 @@ page('shift-outgoing.html', 'Shift brief, handing over', 'live',
      'Yours, open, and it seals when you say so',
      PANE_REST,
      pfoot([('Seal the brief', 'Enter', 'shift-sealed.html', ' btn--primary'),
-            ('Back to the queue', '', 'queue.html', ' btn--quiet')]))
+            ('Open the queue', '', 'queue.html', ' btn--quiet')]))
 
 # ============================================================================ 3. assembling, 2.2
 GATHER = (bline('7', 'entries read from the decision log for this window', 'done', quiet=True)
@@ -363,7 +363,7 @@ page('shift-assembling.html', 'Shift brief, assembling', 'arriving',
 # ============================================================================ 4. nothing carried, 2.3
 # A quiet shift is the good outcome. The empty state says WHAT WAS QUIET, which is information,
 # rather than "nothing to show", which is an apology.
-QUIET = (bline('0', 'waiting on a decision, across 40 tenants in scope', 'nothing to open', quiet=True)
+QUIET = (bline('0', 'waiting on a decision, across 40 tenants in your scope', 'nothing to open', quiet=True)
          + bline('0', 'cases moved', 'nothing to open', quiet=True)
          + bline('3', 'closed by Clerk alone, inside each tenant&rsquo;s latitude', 'nowhere to review',
                  quiet=True,
@@ -395,7 +395,7 @@ page('shift-nothing-carried.html', 'Shift brief, nothing carried over', 'live',
                                   'hours, which is what a quiet shift looks like in the fleet.')
      + rota_block(),
      pfoot([('Seal the brief', 'Enter', 'shift-sealed.html', ' btn--primary'),
-            ('Back to the queue', '', 'queue.html', ' btn--quiet')]))
+            ('Open the queue', '', 'queue.html', ' btn--quiet')]))
 
 # ============================================================================ 5. sealed, 2.4
 page('shift-sealed.html', 'Shift brief, sealed', 'live',
@@ -413,7 +413,7 @@ page('shift-sealed.html', 'Shift brief, sealed', 'live',
      'Sealed by R. Idrissi, 2m ago',
      PANE_REST,
      pfoot([('Sign out', '', 'index.html', ' btn--primary'),
-            ('Back to the queue', '', 'queue.html', ' btn--quiet')]))
+            ('Open the queue', '', 'queue.html', ' btn--quiet')]))
 
 # ============================================================================ 6. close failed, 2.5
 # The ONLY failure in the product addressed to two people. An unsealed brief is a problem for
@@ -462,7 +462,7 @@ page('shift-unsealed.html', 'Shift brief, nobody sealed it', 'live',
      '6 pointers from the record, and no notes',
      'Never sealed. Assembled by Clerk, unsigned by anyone',
      PANE_REST,
-     pfoot([('Start on the queue', 'Enter', 'queue.html', ' btn--primary'),
+     pfoot([('Open the queue', 'Enter', 'queue.html', ' btn--primary'),
             ('Open the case S. Varga has', '', 'case.html', ' btn--quiet')]))
 
 print('generated 7 shift pages')

@@ -28,7 +28,7 @@ def lrow(when, sev, client, what, decided, why, states, href='log.html', cls='',
 
 LHEAD = ('        <div class="row row--head" role="row">\n'
          + ''.join('          <span role="columnheader">%s</span>\n' % h for h in
-                   ['Sev', 'Client', 'What it was', 'What was decided, and by whom',
+                   ['Sev', 'Tenant', 'What it was', 'What was decided, and by whom',
                     'Reason', 'State', 'When, UTC'])
          + '        </div>\n')
 
@@ -38,7 +38,7 @@ SHIFT_ROWS = [
   ('2026-08-22T04:02:55Z','Low','Halcyon Care','Beaconing to a new domain',
    'Contained by Clerk, inside this tenant&rsquo;s latitude', None, ['Clerk acted alone'], ''),
   ('2026-08-22T02:17:30Z','Low','Bramber Retail','Mass mailbox rule creation',
-   'Upheld by R. Idrissi: benign, new admin onboarding', None, ['upheld'], ''),
+   'Accepted by R. Idrissi: benign, new admin onboarding', None, ['accepted'], ''),
   ('2026-08-22T01:44:09Z','Medium','Bramber Retail','Impossible travel, two offices',
    'Rejected by R. Idrissi', 'Tenant context missing', ['rejected'], ''),
   ('2026-08-21T23:12:41Z','High','Meridian Health','Credential stuffing on the VPN',
@@ -47,7 +47,7 @@ SHIFT_ROWS = [
    'Rejected by D. Okonkwo', 'Detection is too broad', ['superseded!'],
    'Corrected 34m later by the entry above. Nothing was edited and nothing was removed.'),
   ('2026-08-21T21:05:33Z','Medium','Aubrey Dental Group','Sign in from an unseen device',
-   'Upheld by D. Okonkwo', None, ['upheld'], ''),
+   'Accepted by D. Okonkwo', None, ['accepted'], ''),
 ]
 
 def rows(items, selected=None, href=None):
@@ -69,8 +69,8 @@ def grid(rows_html, extra=''):
 
 LFOOT = ('      <p class="qfoot">\n'
          '        <span>%s</span>\n'
-         '        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>\n'
-         '        <span><kbd>Enter</kbd> opens the entry at its own address</span>\n'
+         '        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>\n'
+         '        <span class="only-desk"><kbd>Enter</kbd> opens the entry at its own address</span>\n'
          '        <span>order: newest first, always. Nothing here is sorted by urgency</span>\n'
          '      </p>\n')
 
@@ -85,7 +85,7 @@ NARROW_NOTE = ('      <div class="banner only-narrow"><b>The decision log is a d
                'be a second console pretending to be this one.<br><br>'
                'The one thing here that does open on a phone is <b>a single entry at its own address</b>, '
                'because a permalink can arrive anywhere.'
-               '<span class="act"><a class="btn" href="queue.html">Back to the queue</a></span></div>\n')
+               '<span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>\n')
 
 def z4(chips, h1, body, foot):
     return ('    <section class="z4 z4--log" aria-labelledby="lh">\n'
@@ -122,7 +122,7 @@ def covers(narrowing, count, span, earliest='2026-02-03T08:14:20Z'):
 
 def page(fname, title, chips, h1, body, foot, pane, current='log'):
     Q.page(fname, title, 'live', z4(chips, h1, body, foot), pane, current=current,
-           extra_script=", annun:{ lead:'40 TENANTS', parts:['<b>7 of 40</b> act alone above investigate','<b>219 of 231</b> upheld, 30 days'] }")
+           extra_script=", annun:{ lead:'40 TENANTS', parts:['<b>7 of 40</b> act alone above investigate','<b>219 of 231</b> accepted, 30 days'] }")
 
 # ---------------------------------------------------------------------------- 1. default
 page('log.html', 'Decision log', CHIPS,
@@ -211,7 +211,7 @@ ENTRY = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
         <section class="block">
           <h3>The handover, as it was written</h3>
           <p class="nar"><b>What I checked.</b> Correlated the token against the corporate range and confirmed the same correlationId on both sign ins.</p>
-          <p class="nar"><b>What I could not do.</b> Could not reach the tenant&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.</p>
+          <p class="nar"><b>What I could not do.</b> Could not reach the client&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned.</p>
           <p class="nar"><b>What I need from you.</b> A call to the client, and a decision on whether to disable the account before 08:00.</p>
         </section>
         <section class="block">
@@ -225,7 +225,7 @@ ENTRY = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
       </div>
       <div class="pane-foot">
         <a class="btn btn--primary" href="entry.html">Open at its own address <span class="key">Enter</span></a>
-        <a class="btn btn--quiet" href="case.html">The live case</a>
+        <a class="btn btn--quiet" href="case.html">Open the live case</a>
       </div>
     </aside>
 """)
@@ -240,7 +240,7 @@ JUNE_ROWS = [
   ('2026-06-19T11:26:40Z','Medium','Norsk Marine','Beaconing from a bridge workstation',
    'Rejected by D. Okonkwo', 'Detection is too broad', ['rejected'], ''),
   ('2026-06-08T22:41:03Z','High','Norsk Marine','Ransomware precursor on FS-02',
-   'Upheld by D. Okonkwo', None, ['upheld'], ''),
+   'Accepted by D. Okonkwo', None, ['accepted'], ''),
   ('2026-06-02T05:09:57Z','Low','Norsk Marine','Sign in from an unseen device',
    'Contained by Clerk, inside this tenant&rsquo;s latitude', None, ['Clerk acted alone'], ''),
 ]
@@ -251,13 +251,13 @@ CHIPS_JUNE = ('        <button class="chip chip--solid" type="button">Norsk Mari
 GONE = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
       <div class="pane-head">
         <h2 id="ph">C-3180 &middot; Norsk Marine</h2>
-        <p class="sub">Upheld by D. Okonkwo &middot; <b>2026-06-08T22:41:03Z</b></p>
-        <p class="chips-hd"><i class="chip chip--state">upheld</i></p>
+        <p class="sub">Accepted by D. Okonkwo &middot; <b>2026-06-08T22:41:03Z</b></p>
+        <p class="chips-hd"><i class="chip chip--state">accepted</i></p>
       </div>
       <div class="pane-body">
         <section class="block">
           <h3>What was decided</h3>
-          <p class="nar">Clerk concluded <b>real, contain endpoint</b>, and D. Okonkwo upheld it. That is recorded, it is not going anywhere, and no control on this screen can change it.</p>
+          <p class="nar">Clerk concluded <b>real, contain endpoint</b>, and D. Okonkwo accepted it. That is recorded, it is not going anywhere, and no control on this screen can change it.</p>
         </section>
         <section class="block">
           <h3>The evidence as it stood</h3>
@@ -268,7 +268,7 @@ GONE = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
       </div>
       <div class="pane-foot">
         <a class="btn btn--primary" href="entry-gone.html">Open at its own address <span class="key">Enter</span></a>
-        <a class="btn btn--quiet" href="log.html">Back to the list</a>
+        <a class="btn btn--quiet" href="log.html">Open the whole log</a>
       </div>
     </aside>
 """)

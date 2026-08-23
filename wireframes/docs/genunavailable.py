@@ -256,7 +256,7 @@ Q.page(
         + line('Estimate', 'No estimate',
                'Your provider&rsquo;s service delivery owns this line, and nothing is published yet.')
         + retry('Try again', 'log.html',
-                second=('Work the queue anyway', 'queue.html'),
+                second=('Open the queue', 'queue.html'),
                 note='The queue is a real exit here rather than a consolation: it is up, and the cases on it are '
                      'the same cases.')
         + contact('<b>Shown because the part that is down blocks a decision.</b> If what were unavailable did not '

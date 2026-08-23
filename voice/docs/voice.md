@@ -23,12 +23,12 @@ Stage 05. The rules by which every string in this product is written, by a perso
 **Example.**
 > You accepted 6m ago, the write has failed twice, and the case stays open. This console is the only place the decision exists.
 
-> Could not reach the tenant's mail admin to confirm whether the forwarding rule is sanctioned. S. Varga has it now and wanted a call to the client before 08:00.
+> Could not reach the client's mail admin to confirm whether the forwarding rule is sanctioned. S. Varga has it now and wanted a call to the client before 08:00.
 
 **Counterexample.**
 > order: unrecorded, blocked on her, severity, age
 
-> The analyst was unable to establish contact with the tenant's mail administration function for the purposes of verification.
+> The analyst was unable to establish contact with the client's mail administration function for the purposes of verification.
 
 **Grounds.** Two rows, and they point the same way.
 
@@ -199,10 +199,10 @@ One thing, one word. Fourteen divergences were marked in `microcopy.md` §6 and 
 | **analyst** | *operator*, *reviewer*, *agent* | Her job title. `agent` is Clerk | Nothing |
 | **brief** and **handover** | not synonyms | The **brief** is the whole screen and the whole document. The **handover** is the half only a person writes. 2.1 already depends on the distinction | Nothing. Recorded so a later stage does not collapse them |
 | **fleet** | *portfolio*, *estate*, *overview* | The forty tenants read as one surface. Common English, not a coinage | Nothing |
-| **snapshot** | *copy*, *archive* | The evidence as it stood at decision time, which is the compliance requirement in `CLAUDE.md` | Nothing |
+| **snapshot** | *copy*, *archive* | The evidence as it stood at decision time, which is the compliance requirement in `CLAUDE.md` | The **noun** is banned and the **verb** is not, but a bare `Copy` three lines from `This snapshot stays retrievable` reads as the noun. So a copy control names its object: `Copy the address`, on five screens |
 | **rota** | *schedule*, *on-call list* | The provider owns it and Harrier reads it | Nothing |
 
-### The other five rulings
+### The other eight rulings
 
 **On the two grammars of freshness.** 0.8 §4 declares two grammars of time. Freshness needs two as well, and step 1 found seven phrasings for them.
 
@@ -217,6 +217,17 @@ So `frozen at the last sync` becomes `as of the last sync`, `Frozen 40s ago` bec
 - **`Back to <X>`** only for a return the product can actually guarantee, which means a dialog or a sub-view opened from X in this session. Every top-level screen in this product is reachable from a pager link, so `Back to the queue` on the log is a claim about where she came from that the product does not hold.
 
 So `Back to the queue` becomes `Open the queue` on ten screens. It is also the cheaper rule: one destination, one name, and the divergence that made D6 a row cannot come back.
+
+**On the collective noun for what a person did to a case, and it was found by an `h1` that named a category with no members.** 5.6's heading read `every action and every override` above three entries containing no override. The same half of the stream was called four things on one screen: `override` in the `h1`, `every human ruling` in an `h3`, `What was decided` in a column header, `ruled` in prose.
+
+- **decision** is what a person did to a case. It is already the product's word: `Decision log`, `waiting on a decision`, `a degraded connection does not block a decision`.
+- **ruling** is narrower and it is reserved for the three that answer Clerk's verdict: accept, amend, reject.
+- **An escalation is a decision and not a ruling**, which is exactly why `Clerk's verdict stands unruled` is true of an escalated case and why that sentence was correct before this ruling existed.
+- **override** stays what the dictionary already made it: the class of act, never one act.
+
+**On `stands`, which had two opposite senses one act apart.** `Clerk's verdict stands unruled` means nobody has answered it. `The verdict stands; the argument behind it does not` meant the answer is correct, printed on the screen that is about to reject it. `stands` is reserved for the first: a verdict nobody has ruled on. Where the answer survives a rejection of its reasoning, say so plainly: `The answer was right and the reasoning was not`. This is D15's shape on a verb rather than a noun.
+
+**On not losing an unwritten decision, D8, which step 3 marked and never ruled.** Three live wordings across three screens for one act: `Hold it locally` on 4.1 and 4.4, `Leave it open and go` on 2.1. **`Hold it locally`** wins, because it is the only one that names the state after the press, which is what the commit-button rule already asks for. `Leave the case open` on the keyboard map is **not** this act and does not move: it is the escalate group, where the case stays open because it was handed on. Two near-identical phrases, two acts, and the map keeps its own.
 
 **On retrying.** `Try again` when **her own last action** failed. `Reconnect` when the **connection** is what is being retried. `Retrying` only as a description of the transport doing it by itself, where there is no button. So `Try to reconnect` becomes `Reconnect`, on 3.3 and 4.2.
 
@@ -305,7 +316,7 @@ Each line with the shape it takes when it slips in. The first four blocks are wh
 | 92% confidence | `9 signals correlated from 6 sources, queried over 24h` |
 | High confidence | The count and its scope |
 | No issues found | `not found: no password change, and no new device enrolment`, naming what was looked for |
-| Clerk thinks, Clerk believes, Clerk feels | `Clerk filed`, `Clerk concluded`, `Clerk looked for and did not find` |
+| Clerk thinks, Clerk believes, Clerk feels | `Clerk filed`, `Clerk looked for and did not find`. **Not `Clerk concluded`:** the dictionary retires `conclude`, and this row blessed it for two steps, which is how a retired word survives a sweep |
 | This is probably benign | Either the verdict or the absence of one. `No verdict yet` is a real state |
 | An estimate the product does not have | `No estimate. Your provider's service delivery owns this line. Harrier will not fill it with a plausible one while waiting` |
 
@@ -315,10 +326,12 @@ Each line with the shape it takes when it slips in. The first four blocks are wh
 
 | Never in a product string | Where it goes |
 |---|---|
-| An IA node number: `4.6`, `0.4`, `5.1` | `.anote`, or nowhere. **33 occurrences live in 14 files**, D11 |
+| An IA node number, **a zone label, or any other coordinate from the specification**: `4.6`, `0.4`, `5.1`, `Z1`, `Z4` | `.anote`, or nowhere. D11 counted 33 in 14 files and step 7 removed **57**, because the count was built from one slot shape and the leak was not confined to it |
 | A WCAG criterion: `SC 2.1.4` | `.anote`. It is addressed to whoever builds this, not to whoever uses it |
-| An argument for the design: `because a number that settles later without saying it was provisional is a number she acted on` | `.anote`, or cut. Stage 04 settled the register and this is the prose it did not sweep |
+| An argument for the design, **or a bare citation of one**: `because a number that settles later without saying it was provisional is a number she acted on`, `Principle 3 says the control teaches`, `and that is deliberate` | `.anote`, or cut. Stage 04 settled the register and this is the prose it did not sweep. **This was the single largest class in the fan-out**, on every screen family independently |
 | A sentence in the third person about the reader | Rewrite in the second person. D12 |
+| **A count of the product's own parts**: `Forty two nodes of surface` | Cut. It is a fact about the specification, not about her work, so **correcting the number preserves the defect**. This one was also stale, against forty six in the sitemap |
+| **The page describing its own render condition**: `Shown because the part that is down blocks a decision`, `this block would not be on the page`, `Three different situations render this exact page` | The node, which already holds the rule. Four `.why` spans on 8.2 were printing `service-unavailable.md` section 2 at the reader |
 
 ---
 
@@ -336,7 +349,10 @@ Rules by element type. Every rule carries one real string from this product, so 
 | **Any button** | A verb phrase, never a bare noun. A noun is a place, and a button is a change | `Open the whole log`, not `The whole log`. `Open the live case`, not `The live case` |
 | **Where the routing is printed** | **On the option that determines it, at the moment of choosing.** Never in the button, because the button cannot know which option was picked | The reason rows print `agent tuning`, `detection engineering`, `the tenant baseline, locked`, `nowhere yet, and counted` |
 | **The key** | Rides inside the label, after the words, in its own element | `Cancel Esc` &middot; `Next case ]` |
-| **A control the product cannot honour** | Shown disabled with the ceiling stated, never hidden | `Disabled until a recipient exists.` |
+| **A control the product cannot honour** | Shown disabled with the ceiling stated, never hidden, **and the ceiling is stated where the control is, at every width**. On 4.6 the ceiling lived in a desk-only footer, so at 360 the button was dead with nothing on screen saying why | `Disabled until a recipient exists.` |
+| **Disclosure, in place** | Names what is behind it, **and never takes `Open`**, because nothing is opened elsewhere. A count of hidden items takes the verb that reveals them | `Show 3 more signals` &middot; `Cannot get in?` |
+| **A commit button that is a retry** | **The retry ruling wins and the bare retry verb stands.** A commit button normally says what will be true after the press, but after a failed write the true statement is that the same act is being attempted again, and naming the outcome twice would claim the second attempt knows something the first did not | `Try again Enter` on a failed write, not `Escalate to S. Varga again` |
+| **A commit button with nothing to name** | The bare verb, with the ceiling beside it | `Escalate`, disabled, above `Disabled until a recipient exists.` |
 
 **One correction this rule forces.** `Reject and tune Enter` names a route in the button, and **the route is `agent tuning` for two of the seven reasons.** For the other five it is detection engineering, the tenant baseline, or nowhere. The button is wrong five times out of seven, and the option row already prints the true route. It becomes **`File the rejection Enter`**.
 
@@ -350,6 +366,8 @@ Rules by element type. Every rule carries one real string from this product, so 
 | **Column header** | The shortest noun phrase that says what the cell holds. **A header may not attribute what the cell attributes**, because the cell is right for every row and the header is right only for some | `Sev` &middot; `Tenant` &middot; `What it is` &middot; `The verdict` &middot; `To check` &middot; `State` &middot; `Age` |
 | **Sub-heading, `p.sub`** | Says what is true of this pane that the heading could not carry | `Nothing is selected, and this is not an empty pane. It is the answer to the question you are about to be asked` |
 
+**Where there is no readout, the `h1` states the plainest true thing and does not invent one.** The door has no count and no scope; 8.1 is forbidden a count or a scope by its own node, because either one is a fact about the address and that is the enumeration leak the node exists to prevent. `Sign in` and `Not found` are readouts of a sort, and an invented one would be worse than a short one. This clause is narrow on purpose: it is not a licence to label a screen that does have something to report.
+
 **A heading never states the obvious identity of the screen.** `Case queue` as an `h1` would spend the most valuable line on the page telling her which screen she opened, which she knows. The `h1` is the readout.
 
 ### The fields
@@ -361,6 +379,7 @@ Rules by element type. Every rule carries one real string from this product, so 
 | **Placeholder** | A real example of the value, or the field's own condition. Never the label again | `C-4417` &middot; `you@yourprovider` &middot; `Nothing downstream depends on this` |
 | **Validation** | Name the specific thing to fix, in the same sentence as what is blocked | `A reason is required` &middot; `Where it goes is required` |
 | **Optional, and asked anyway** | Say both, because the product is asking for something it will not enforce | `Optional, and prompted anyway` &middot; `Anything else, optional` |
+| **Prefilled value** | Say where the value came from and whether to touch it. A field she did not fill reads as a field the product filled wrongly, and a prefilled field has no placeholder left to carry its own condition | `Your email is the one you came back with. No password here.` |
 
 ### The states
 
@@ -386,6 +405,8 @@ Rules by element type. Every rule carries one real string from this product, so 
 | **Filter chip, unapplied** | The field name and the current breadth, with the caret | `All tenants ▾` &middot; `Any actor ▾` |
 | **State chip** | One word, lower case, from the closed set in 0.8 §6 | `unrecorded` &middot; `taken` &middot; `escalated` |
 | **List foot** | Three things in one line: how much is shown of how much, the keys, and the sort order. The order is stated because a list she cannot explain is a list she cannot trust | `7 of 18 shown, virtualised · ↑ ↓ read, the pane follows · Enter decides, focus moves into the pane · order: unrecorded, waiting on you, severity, age` |
+| **Any count** | A numeral, always, including at the start of a sentence. Words are for quantities nobody counted | `14 signals stood behind this verdict`, not `Fourteen` |
+| **A string that points at something else on screen** | `above`, `below`, `on the right`, `the pane` and `the bar above` must be true in **every state and at every width the block renders in.** Where they are not, the pointer is cut and the fact is stated on its own. Same shape as the `only-desk` case, one axis over: state instead of viewport | `A mistake becomes a second entry rather than a correction of the first`, which holds while the grid is still counting and nothing is drawn |
 | **Provenance line** | The absolute count, the window, and the named sources. Count first, never a bare percentage | `6 sources queried over 24h: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.` |
 | **Consequence line** | What this choice causes, in the present tense, before it is made | `The case stays open and gains escalated. No verdict is filed.` |
 | **Notice** | The role, the fact, then what she can do. A notice that must not be dismissed says why | `ALERT · The verdict on C-4417 did not write. This console is the only place that decision exists. Open the case · stays until the write lands` |
