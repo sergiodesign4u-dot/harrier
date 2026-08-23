@@ -133,19 +133,23 @@ def toast(body, role='status', dismiss=True, hold=None):
             '        <p><span class="role">%s</span>%s</p>\n'
             '%s      </div>\n') % (cls, role, role.upper(), body, tail)
 
-def z6(items, more=None):
+def z6(items, more=None, more_narrow=None):
     out = '    <div class="z6" aria-label="Notices">\n'
     if more:
-        out += '      <p class="z6-more">%s</p>\n' % more
+        out += '      <p class="z6-more only-desk">%s</p>\n' % more
+    # The cap is one at 360, so the count is a different number there and has to be a different
+    # element. One string with a CSS rule hiding half of it is how a count comes to lie.
+    if more_narrow:
+        out += '      <p class="z6-more only-narrow">%s</p>\n' % more_narrow
     out += ''.join(items)
     return out + '    </div>\n'
 
-T_REPLAY = ('<b>Reconnected. 3 cases replayed.</b> They arrived while the strip was up and '
-            'are in the list now, in their place by severity and age.')
-T_TAKEN  = ('<b>D. Okonkwo took C-4417.</b> You had it open. Nothing is locked, and if you both '
-            'file, the log records both and marks the second as arriving after the first.')
-T_FAILED = ('<b>The verdict on C-4417 did not write.</b> You accepted it 6m ago and this console '
-            'is the only place that decision exists. <a href="case-unrecorded.html">Open the case</a>')
+T_REPLAY = ('<b>Reconnected. 3 cases replayed.</b> They arrived while the strip was up '
+            'and are in the list now, in their place.')
+T_TAKEN  = ('<b>D. Okonkwo took C-4417.</b> You had it open. Nothing is locked, and the log '
+            'records both if you both file.')
+T_FAILED = ('<b>The verdict on C-4417 did not write.</b> This console is the only place that '
+            'decision exists. <a href="case-unrecorded.html">Open the case</a>')
 
 def grid(rows_html, extra=''):
     return ('      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">\n%s%s%s      </div>\n\n'
@@ -332,6 +336,6 @@ if __name__ == '__main__':
             FOOT % '7 of 18 shown, 1 unrecorded and held'),
          fleet() + z6([toast(T_TAKEN), toast(T_REPLAY),
                        toast(T_FAILED, role='alert', hold='stays until the write lands')],
-                      more='2 earlier notices'))
+                      more='2 earlier notices', more_narrow='4 earlier notices'))
 
     print('generated 11 pages')

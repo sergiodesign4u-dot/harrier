@@ -57,6 +57,15 @@ body{
 }
 :focus-visible{outline:var(--focus);outline-offset:1px}
 
+/* A link takes the ink of whatever it sits in. Written here, at the lowest specificity in the
+   file and above every component, so any class that wants its own colour still wins.
+   Without it this stage shipped 151 browser blue links across 27 screens, in the one stage
+   whose contract at the top of this file says there is no colour. Nothing declared them,
+   so nothing flagged them: the defect was an ABSENT rule, and the grep instrument can only
+   see rules that exist. It took asking the browser for a computed colour to find it. */
+a{color:inherit;text-decoration-color:var(--soft);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--ink)}
+
 /* ============================================================
    SHELL. The five zones of node 0.1, and the stage panel beside them
    ============================================================ */
@@ -496,6 +505,7 @@ a.opt:hover{background:var(--fill)}
   --dialog-w:520px;     /* 4.4, 4.6 */
   --dialog-w-wide:720px;/* 0.5, which is a reference table rather than a decision */
   --toast:400px;        /* 8.4, the notice stack. Narrow enough that it never reaches --pane */
+  --z6-clear:150px;     /* what the page ends above at 360 so one notice hides no content */
 }
 
 
@@ -578,4 +588,17 @@ a.opt:hover{background:var(--fill)}
   .z6{position:fixed;left:0;right:0;bottom:0;width:auto;
       padding:var(--s2) var(--s3) calc(var(--s3) + env(safe-area-inset-bottom));
       background:var(--bg);border-top:var(--line-ink)}
+
+  /* THE CAP IS ONE HERE, NOT THREE, AND DRAWING IT IS WHAT SETTLED THAT. Measured at 360:
+     three notices took 408 of 760 pixels, so the notice layer covered more of the phone than
+     the case did. 8.4 says the cap is a layout decision and the persistence is the compliance
+     one, so the cap may differ per width and the persistence may not. The one that stays is
+     the failure, because it is the one that cannot be dismissed; with no failure present the
+     newest stays. The rest join the count, which is why every stack carries a second count
+     line for this width. */
+  .z6:has(.toast--alert) .toast:not(.toast--alert){display:none}
+  .z6:not(:has(.toast--alert)) .toast:not(:last-of-type){display:none}
+
+  /* And the page has to end above it, or the last row is unreachable at the bottom of a scroll. */
+  .z45:has(> .z6){padding-bottom:var(--z6-clear)}
 }
