@@ -401,3 +401,95 @@ We never decided a retention window for Harrier. What we hold is one competitor 
 |---|---|---|---|
 | How long does the evidence under a case have to remain retrievable | Me as product owner, informed by what MDR contracts actually promise | Sets the ceiling on the 90% target, and decides whether two dead ends are rare or routine | Open |
 | Is the evidence snapshot a copy or a reference | Me as product owner, at stage 03b | A copy makes the log self-sufficient and expensive. A reference makes the source's retention the product's memory | Open, and stage 03a assumed a copy without examining it |
+
+---
+
+## 11 The language of the category, read at stage 05
+
+Added by stage 05, Voice, step 2. It was not collected at stage 01 because stage 01 asked what competitors **do**; this asks how they **say** it, which is a different reading of the same pages.
+
+**Nine pages opened live on 2026-08-23**, all public and pre-login, nothing logged into. Three screenshots in `research/screens/`: `prophet-autonomy-language-2026-08-23.png`, `simbian-mssp-language-2026-08-23.png`, `dropzone-conclusion-language-2026-08-23.png`.
+
+**The source did not fall away, and it did not fully arrive either.** Working consoles are behind login across all five HARD competitors, so the only **interface** language readable without an account is Expel's, published in its own documentation. Everything else on this page is marketing language, and it is labelled as such. What that means for the principles below: marketing language tells us who the category speaks **to**, and Expel's documentation is the one place it tells us how the category speaks **inside the product**.
+
+### 11.1 Who the category addresses, and it is not the operator
+
+| Vendor | Line, verbatim | Addressed to |
+|---|---|---|
+| Simbian | "Scale Your MSSP Practice. Not Your Payroll." | The owner of the P&L |
+| Simbian | "The last analyst you'll hire." | The owner of the P&L |
+| Simbian | "AI SOC Automation That Wins Deals Without Hiring More Analysts." | Sales |
+| Simbian | "You start billing while they're still scheduling kickoff." | Sales |
+| Prophet | "Free your SOC Analysts to focus on real threats" | The manager of the analyst, about the analyst |
+| Dropzone | "Your team can't investigate every alert. Dropzone AI can." | The manager of the team |
+| Dropzone | "REINFORCEMENTS HAVE ARRIVED" | Nobody in particular. A military metaphor above the fold |
+| Intezer | "human SOC teams review outcomes, not tickets" | The buyer, about the team |
+
+**Not one of the eight speaks to the person who will sit in front of the screen.** The category's second person is the buyer. This is the sharpest finding of the pass and the cheapest one to act on: the product's own voice can address the operator, in her own second person, and be different from the whole category by doing nothing clever.
+
+### 11.2 The nouns the category has already settled, and Harrier should not reinvent
+
+Taking a word the category already uses is not a lack of imagination; inventing a synonym for it is a tax on the reader.
+
+| Word | Who uses it, verbatim | Harrier |
+|---|---|---|
+| **verdict** | Simbian: the agent "applies the verdict, and closes it with the audit trail attached" | Uses it. Not a coinage |
+| **determination** | Prophet: "Determinations in minutes", "reasoning to a determination" | Does not use it. `verdict` and `determination` are the same word and the product needs one |
+| **finding** | Expel: "A Finding is where our SOC analysts document answers to questions like" | Does not use it. Harrier says `signal` and `claim` |
+| **contain** | Expel auto remediations: **Contain Hosts**. Prophet: "quarantining a machine" | Uses it, in three action classes |
+| **escalate** | Universal | Uses it |
+| **evidence** | Prophet: "Evidence you can audit". Dropzone: "Glass Box, Not Black Box" | Uses it |
+| **latitude** | Nobody. Prophet says "scope", Simbian says "authority", Expel says "access" | **Harrier's own word**, and the only invented term in the product. It is the differentiator's word, so it is earning its keep rather than decorating |
+
+### 11.3 How the category names an action, and Expel is the model
+
+Expel's nine auto remediations, read from its documentation index on 2026-08-23:
+
+> Block Bad Hashes · Contain Hosts · Deactivate Access Keys · Delete Malicious Files · Delete Registry Key · Disable Accounts · Kill Processes · Remove Malicious Email · Reset Credentials
+
+**Verb plus object, imperative, no hedging, no abstraction.** Not "endpoint containment", not "credential remediation workflow". Harrier's action class taxonomy in 0.6 already reads this way, `Contain endpoint`, `Contain identity`, `Contain network`, `Remove content`, `Change policy`, `Investigate`, which means the taxonomy needs no defence and the naming rule is confirmed rather than invented.
+
+### 11.4 How the category structures a record, and the question heading is not a novelty
+
+Expel, verbatim from `Understanding Incidents`:
+
+> "A **Finding** is where our SOC analysts document answers to questions like: What is it? Where is it? When did it get here? How did it get here?"
+
+The incumbent already writes its record as **answers to questions**, in the analyst's own words. Harrier's block headings, `What happened`, `What Clerk concluded`, `What Clerk may do here, on this tenant`, `What was decided, and by whom`, are the same move. **This is a pattern with a precedent, and stage 05 must not present it as an invention** any more than stage 03b was allowed to present split-pane review as one.
+
+### 11.5 Where the category is thin, and it is the whole space Harrier occupies
+
+**The human's disagreement is a free-text comment.** Expel, verbatim from `Close an Investigation or Incident`:
+
+> "You can close an Investigation or Incident at any time. You should be sure to leave a comment with information about why you performed this action."
+
+Five numbered steps, and the reason is step 5, optional in the interface and requested in prose. There is no reason taxonomy. Compare Harrier's 4.4, where the reason is required, drawn from a closed list of six, and each option prints where it routes.
+
+**The nearest thing the category has to a reason taxonomy is on the wrong side.** Expel's Verify Action gives the customer three responses:
+
+> `Not Authorized: Incident` · `Not Malicious: Close` · `Authorized: Close`
+
+Two axes, authorised or not and malicious or not, compressed into one colon-joined label. Harrier's 4.4 splits the same two axes into what Clerk got wrong and where it goes, and prints the second only when the first requires it. The category has the problem; nobody has separated the axes.
+
+**And the routing is stated once, in a hint, and never again.** Expel: "We continuously learn from your responses to Verify Actions. If you mark an activity as authorized, and the same authorized activity continues to happen, we may eventually create a Suppression for it." That is the whole promise that a human correction changes the machine, and it lives in a documentation aside. Harrier prints `agent tuning`, `detection engineering`, `the tenant baseline, locked` and `nowhere yet, and counted` on the option itself, at the moment of choosing.
+
+### 11.6 Where the category names its own machinery at the customer
+
+Expel's terminology page, read 2026-08-23, teaches the customer: **Assembler**, **DUET** (did you expect this), **Detection Strategy**, **Event**, **Expel Alert**, **Lead Alert**, **Finding**, **Remediation Action**, **Suppression**, **Auto Remediation**. Ten proper nouns, several of them internal architecture.
+
+Harrier names exactly one thing: **Clerk**. Every other noun in the product is a word an analyst already owns. That is a rule this pass turns from a preference into a position, because the contrast is measurable: one invented noun against ten.
+
+### 11.7 The status vocabulary of the incumbent list, and why it is a queue of records
+
+PagerDuty Operations Console, read 2026-08-23: the status filters are **Assigned to me**, **Open**, **Acknowledged**, **Triggered**, and the console is sold as "Gain live insight into incidents". Expel's investigation list sorts by "the most recent" and filters "by status, assignment, etc."
+
+Every one of those names a **state of the record**. None names a state of the **decision**. This is the same finding stage 01 recorded from the Expel screenshot, now confirmed in the vendors' own words rather than read off a picture, and it is design principle 1 of this project stated from the other side: if a row does not say what to do next, it has not earned its height.
+
+### 11.8 What this pass gives the voice
+
+Four things, each of which becomes a rule at step 2 rather than an observation:
+
+1. **Speak to the operator in the second person.** The category speaks to her manager about her. Nobody else is doing this, and it costs nothing.
+2. **Take the category's nouns, invent one.** `verdict`, `contain`, `evidence`, `escalate` are settled. `latitude` is ours and carries the differentiator. `determination` and `finding` are synonyms we do not need.
+3. **Name an action verb plus object, imperative.** Confirmed against nine of Expel's, and it is what 0.6 already does.
+4. **Print the consequence at the moment of choosing, not in the documentation.** The category states routing once, in prose, off-screen. This product states it on the control.

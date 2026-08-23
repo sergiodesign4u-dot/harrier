@@ -2,6 +2,44 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-23 - `Upheld` retired, `Accept` is the word in both the control and the record
+
+Stage 05, step 3. One act carried three words: the control said `Accept`, the banner said `Accepted by R. Idrissi`, the log entry said `Upheld by R. Idrissi`, and the fleet record said `34 of 36 upheld`.
+
+**`Uphold` had the better case on register.** The whole product runs on an adjudication metaphor named in `CLAUDE.md`: a clerk prepares the file, the judge rules. `Upheld / Rejected / Amended` is the judicial set and it reads as a record of standing rather than of receipt.
+
+**It lost on a rule that outranks register.** Design principle 3 of this project is that the control teaches. The control says `Accept`, so a record that says `Upheld` prints a word no control ever taught, and the reader has to learn that two words are one act. And `accept, amend or reject` is already the canonical triple in `CLAUDE.md`, written in the file that binds every session.
+
+**What it costs:** `Upheld by <name>` on 5.1 and 5.6, the chip `upheld`, `upheld over 30 days`, and both annunciator records. **What it also costs:** an upward fix in `ia/docs/pages/reading-conventions.md`, which had to declare its second chip taxonomy before the value could be removed from it.
+
+## 2026-08-23 - The annunciator answered two different questions in one fixed slot
+
+Stage 05, step 1 found it by reading the call sites rather than the pages: 0.3 is passed an object from an inline `<script>` on 36 of 55 screens, so a text extractor skips it and a reader sees only the rendered result.
+
+Two fleet readings existed and neither was wrong. The default in `wireframes/_nav.js` said `40 tenants · acts alone up to contain network at 3 · 1 moved down`, the ceiling and what moved. The override on 5.1, 5.6 and 2.1 said `40 TENANTS · 7 of 40 act alone above investigate · 219 of 231 upheld, 30 days`, how many sit above a floor and how accurate the agent has been.
+
+**The default wins because a fixed slot answers one question.** 0.3 is the element `CLAUDE.md` binds stage 04 and stage 07 to carry, and its question is how much rope Clerk has here and what has moved. The second version is a report: correct, useful, and not the thing a glance is for. It retires on five screens. `OVRD` retires with it, the only invented abbreviation in a product that otherwise uses six acronyms the analyst already owns.
+
+## 2026-08-23 - `tenant` and `client` are two words for two things, not one thing
+
+Stage 05, step 3. The drawings carried `tenant` 409 times and `client` 98, including `Client` as the queue column header and `Normal at this client` as a pane heading three rows from a reject option reading `Normal at this tenant`.
+
+**`tenant` is the word wherever the sentence is about a scope, a row, a boundary or a latitude.** It is what the differentiator is built on, and it is what the category uses for the isolation boundary: Simbian gives each tenant its own Context Lake, Microsoft ships multitenant management.
+
+**`client` survives only where there is a person or a contract on the other end.** `A call to the client before 08:00` is not a call to a boundary, and cluster 6 of the IA is called tell the client for the same reason. Rejected: collapsing to one word, which would have made either the commercial relationship or the isolation boundary unsayable.
+
+## 2026-08-23 - The competitor language source did not fall away, and what it settled
+
+Stage 05, step 2. Nine pages opened live on 2026-08-23. The pack allows for a category with no readable public language, and this is not that category: marketing pages are public and Expel publishes its **interface** language in its own documentation.
+
+**What it settled, and it is mostly restraint.** `verdict` is Simbian's word verbatim, so it is not a coinage. `contain` is Expel's, in `Contain Hosts`. Expel writes its record as answers to questions, `What is it? Where is it? When did it get here?`, so this product's question headings are **a pattern with a precedent and must not be presented as an invention**, the same discipline stage 03b applied to split-pane review.
+
+**What it settled in the other direction.** Nobody in the category has a word for a per-tenant ceiling: Prophet says *scope*, Simbian says *authority*, Expel says *access*. `latitude` is this product's one coinage and it carries the differentiator, which is what makes it worth its cost. And of eight lines read live, **not one addresses the person who will sit in front of the screen**, which is why Principle 1 is speak to the analyst.
+
+## 2026-08-23 - No brand platform, so the voice is derived rather than reconciled
+
+Stage 05, step 2 asks whether a brand platform, tone-of-voice guide or editorial policy exists, because without the fork the stage silently produces a second voice beside an existing one. There is none, and this is a record rather than an assumption: `CLAUDE.md` states `brand or existing design system none` in the project boundary. If one ever arrives it becomes a fourth source, and conflicts get written out as "the brand says X, the data say Y" rather than smoothed.
+
 ## 2026-08-23 - Stage 04 closed, and what left CLAUDE.md
 
 Sixty two grey pages across thirteen screens plus the hub. What goes into `CLAUDE.md` is a rule and a **path**, never a copy: the reference screen and the first flow live in `wireframes/docs/screens.md`, the fixtures in `ia/docs/pages/reading-conventions.md`, the contract in `wireframes/docs/conventions.md`, and the root file carries only the one rule whose forgetting costs the whole artefact.

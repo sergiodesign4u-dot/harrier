@@ -122,6 +122,29 @@ Six values, and the order below is the order they render in, because it is the o
 
 **If stage 04 finds a fifth pair, this rule is wrong and the taxonomy is what gets fixed, not the row.** A row that silently drops a state would break the rule from `CLAUDE.md` that a case which left the analyst's hands must not look identical to one that did not.
 
+### 6b. There are two chip taxonomies, not one, and stage 05 found that out by inventorying every string
+
+**Added at stage 05, step 3, as an upward fix.** The set above was closed at six and it reads as the only set in the product. It is not. The decision log and the history of one case render seven further values in the same component: `upheld`, `rejected`, `amended`, `superseded`, `Clerk opened the case`, `Clerk filed a verdict`, `Clerk acted alone`. Stage 04 drew them, nothing declared them, and read against §6 they look like a closed set that leaked.
+
+**They are a second axis rather than a leak.** A **case chip** says what is true of the case **now**. An **entry chip** says what an **entry is**. A case has a state; an entry is a fact that already happened and cannot change. Both are closed lists, and both are declared here, because one undeclared taxonomy inside a shared component is exactly the thing a later stage will read as a defect and correct in the wrong direction.
+
+| Entry chip | Means | Written by |
+|---|---|---|
+| **`accepted`** | A person let Clerk's verdict stand | 4.1 |
+| **`rejected`** | A person overturned it and named a reason from 0.7 | 4.4 |
+| **`amended`** | A person kept the verdict and rewrote its narrative. The original stays beside it | 4.5 |
+| **`escalated`** | A person handed it on without filing a verdict | 4.6 |
+| **`superseded`** | A later entry corrects this one. **Both stay.** The only entry chip set by something other than the act it records | 5.1, from a later entry |
+| **`Clerk opened the case`** | Clerk correlated signals into a case | 0.6 |
+| **`Clerk filed a verdict`** | Clerk finished investigating and filed | 4.3 |
+| **`Clerk acted alone`** | Clerk took an action inside the tenant's latitude | 0.6 |
+
+**`upheld` was the ninth value and it is retired**, not renamed for tidiness. The control that teaches the word says `Accept`, so a record that says `Upheld` prints a word no control ever taught, and `accept, amend or reject` is the canonical triple in `CLAUDE.md`. Grounds in `voice/docs/voice.md`, Dictionary, and in `docs/decisions.md`.
+
+**The stacking rule of §6 does not apply here.** An entry carries exactly one entry chip, plus `superseded` where a later entry corrects it. That is the only pair, and it is a pair by construction rather than by taxonomy.
+
+**Where each is read:** 5.1 rows, 5.4 the framed record, 5.6 the history of one case, and 2.1's brief lines, which point at entries rather than at cases.
+
 ---
 
 ## 7. Fixtures, and the standing of every number in a mockup

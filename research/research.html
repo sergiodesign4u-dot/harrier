@@ -325,6 +325,53 @@
 <div class="note"><p><strong>Still open.</strong> Who moves a tenant&rsquo;s autonomy level, whether an analyst will accept liability for a summary Clerk wrote, and what tenant switching costs in seconds or errors. Forty tenants per analyst stays <code>PREMISE</code>: no public source found gives an analyst-to-client ratio at an MDR provider.</p></div>
 </section>
 
+<section id="language">
+<h2>11 &middot; The language of the category</h2>
+<p class="h2sub">Added at stage 05. Nine pages opened live on 2026-08-23</p>
+<div class="note"><p><strong>Updated after publication.</strong> Stage 01 asked what competitors <em>do</em>. Stage 05 re-read the same pages asking how they <em>say</em> it, which is a different reading and it produced a different answer. Full section in <code>research/docs/research.md</code> &sect;11.</p></div>
+
+<p><strong>The source did not fall away, and it did not fully arrive either.</strong> Working consoles sit behind login across all five direct competitors, so the only <em>interface</em> language readable without an account is Expel&rsquo;s, published in its own documentation. Everything else here is marketing language and is labelled as such.</p>
+
+<h3>Who the category addresses, and it is not the operator</h3>
+<div class="tw"><table>
+<tr><th>Vendor</th><th>Line, verbatim</th><th>Addressed to</th></tr>
+<tr><td>Simbian</td><td>&ldquo;Scale Your MSSP Practice. Not Your Payroll.&rdquo;</td><td>The owner of the P&amp;L</td></tr>
+<tr><td>Simbian</td><td>&ldquo;The last analyst you&rsquo;ll hire.&rdquo;</td><td>The owner of the P&amp;L</td></tr>
+<tr><td>Prophet</td><td>&ldquo;Free your SOC Analysts to focus on real threats&rdquo;</td><td>The manager, about the analyst</td></tr>
+<tr><td>Dropzone</td><td>&ldquo;Your team can&rsquo;t investigate every alert. Dropzone AI can.&rdquo;</td><td>The manager of the team</td></tr>
+<tr><td>Dropzone</td><td>&ldquo;REINFORCEMENTS HAVE ARRIVED&rdquo;</td><td>Nobody in particular</td></tr>
+<tr><td>Intezer</td><td>&ldquo;human SOC teams review outcomes, not tickets&rdquo;</td><td>The buyer, about the team</td></tr>
+</table></div>
+<p><strong>Not one of them speaks to the person who will sit in front of the screen.</strong> The category&rsquo;s second person is the buyer. This is the sharpest finding of the pass and the cheapest to act on.</p>
+
+<h3>Evidence</h3>
+<div class="gal">
+  <figure><img src="screens/prophet-autonomy-language-2026-08-23.png" alt="Prophet Security AI SOC analyst page, read 2026-08-23"><figcaption><b>Prophet</b>&ldquo;Autonomy on your terms.&rdquo; &ldquo;Nothing is learned silently.&rdquo; Their word for a verdict is <em>determination</em>.</figcaption></figure>
+  <figure><img src="screens/simbian-mssp-language-2026-08-23.png" alt="Simbian MSSP and MDR page, read 2026-08-23"><figcaption><b>Simbian</b>Every line addressed to the P&amp;L. And the one noun we share: the agent &ldquo;applies the verdict.&rdquo;</figcaption></figure>
+  <figure><img src="screens/dropzone-conclusion-language-2026-08-23.png" alt="Dropzone AI SOC analyst page, read 2026-08-23"><figcaption><b>Dropzone</b>A worked case with four numbered findings and one conclusion sentence: &ldquo;Accepted behavior due to scheduled backup and requires no further action.&rdquo;</figcaption></figure>
+</div>
+
+<h3>What the incumbent&rsquo;s own documentation gives</h3>
+<div class="cards">
+  <div class="card"><span class="n">TAKE</span><p><strong>Verb plus object, imperative.</strong> Expel&rsquo;s nine auto remediations: Block Bad Hashes, Contain Hosts, Deactivate Access Keys, Delete Malicious Files, Disable Accounts, Kill Processes, Remove Malicious Email, Reset Credentials. Harrier&rsquo;s action classes already read this way, so the rule is confirmed rather than invented.</p></div>
+  <div class="card"><span class="n">TAKE</span><p><strong>The record is answers to questions.</strong> Expel: &ldquo;A Finding is where our SOC analysts document answers to questions like: What is it? Where is it? When did it get here? How did it get here?&rdquo; Harrier&rsquo;s block headings are the same move, and <strong>it is a pattern with a precedent, not an invention.</strong></p></div>
+  <div class="card"><span class="n">GAP</span><p><strong>Disagreement is a free-text comment.</strong> Expel closes an investigation in five steps and the reason is step five: &ldquo;You should be sure to leave a comment.&rdquo; No reason taxonomy. Harrier&rsquo;s 4.4 requires one of six and prints where each routes.</p></div>
+  <div class="card"><span class="n">GAP</span><p><strong>Two axes compressed into one label.</strong> Expel&rsquo;s Verify Action: <code>Not Authorized: Incident</code>, <code>Not Malicious: Close</code>, <code>Authorized: Close</code>. The category has the problem; nobody has separated the axes.</p></div>
+  <div class="card"><span class="n">GAP</span><p><strong>Routing is stated once, off screen.</strong> &ldquo;We may eventually create a Suppression for it&rdquo; lives in a documentation aside. This product prints <em>agent tuning</em>, <em>detection engineering</em>, <em>the tenant baseline, locked</em> on the control itself.</p></div>
+  <div class="card"><span class="n">POSITION</span><p><strong>Ten invented nouns against one.</strong> Expel teaches its customer Assembler, DUET, Detection Strategy, Event, Expel Alert, Lead Alert, Finding, Remediation Action, Suppression, Auto Remediation. Harrier names exactly one thing: <strong>Clerk</strong>.</p></div>
+</div>
+
+<h3>The vocabulary decision this settles</h3>
+<div class="tw"><table>
+<tr><th>Word</th><th>Who has settled it</th><th>Harrier</th></tr>
+<tr><td><b>verdict</b></td><td>Simbian, verbatim</td><td>Uses it. Not a coinage</td></tr>
+<tr><td><b>determination</b></td><td>Prophet, verbatim</td><td>Does not use it. Same word, and the product needs one</td></tr>
+<tr><td><b>finding</b></td><td>Expel, verbatim</td><td>Does not use it. Harrier says <em>signal</em> and <em>claim</em></td></tr>
+<tr><td><b>contain</b>, <b>escalate</b>, <b>evidence</b></td><td>Universal</td><td>Uses all three</td></tr>
+<tr><td><b>latitude</b></td><td>Nobody. Prophet says <em>scope</em>, Simbian says <em>authority</em>, Expel says <em>access</em></td><td><strong>Harrier&rsquo;s own word</strong>, and the only invented term in the product. It carries the differentiator, so it earns its keep</td></tr>
+</table></div>
+</section>
+
 </main>
 </div>
 <script>
@@ -340,6 +387,7 @@
     { id:'conclusions', label:'Conclusions' },
     { id:'critique',    label:'Before and after' },
     { id:'followup',    label:'Follow-up research' },
+    { id:'language',    label:'Language of the category' },
   ];
 </script>
 <script src="../_nav.js"></script>
