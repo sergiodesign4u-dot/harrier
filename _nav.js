@@ -27,7 +27,7 @@
 // design/overview.html, design/kit/overview.html) підключають два реєстри одночасно:
 // якщо локальний оголосить window.NAV, роадмеп мовчки відмалює чужий масив.
 
-// Групи (children) власного page НЕ мають: топ-лінк рахується з дітей — веде на
+// Групи (children) власного page НЕ мають: топ-лінк рахується з дітей , веде на
 // першу ГОТОВУ сторінку групи, тому він ніколи не вказує на ще неіснуючий файл.
 window.NAV = [
   { label:'Foundation Research', page:'research/research.html', done:true },
@@ -153,7 +153,7 @@ window.NAV = [
       li.appendChild(sub);
     }
     // етап БЕЗ дітей (Wireframes, Voice, UI + Visual, Tokens + Components, ...). Гілка вище сюди не
-    // дістає, бо там item.children, тож сторінку поза реєстром треба показати саме тут — інакше
+    // дістає, бо там item.children, тож сторінку поза реєстром треба показати саме тут , інакше
     // NAV_ACTIVE працював би лише під групами, і design/kit/kit.html не зʼявився б у панелі ніколи
     if (isActive && !item.children) {
       if (item === hinted) {                                     // ми на сторінці ПОЗА реєстром

@@ -92,9 +92,9 @@ United States and EU, SOC 2 Type II, tenant data isolation, EU residency option,
 2. Clerk shows its work, up to a ceiling. An evidence trail alone is table stakes; the difference is that the number names its claim, its scope and its window, and comes with an absolute count. But more explanation is not more trust: past a point it reduces it. Cheapest correct thing first, depth one key away.
 3. Override is one key, and it teaches. Rejecting Clerk is a first-class action, not a fallback path, and the reason goes straight into tuning. **Measured at 03b, drawn at 04, and it still does not hold:** reject costs four taps against accept's two. What 04 bought is that five of six reasons derive the second axis, so four never became five, and the fourth tap is `Enter` rather than a confirmation step. **The fifth tap is what 07 may not add.**
 4. Tenant context is never more than a glance away. The same signal is a Tuesday at one client and an incident at another.
-**`wireframes/` is grey and stays grey.** Colour, type family, icons, shadows and motion arrive at 06 to 08 on **copies** under `design/`, never by painting `_wf.css`. The same sentence stands in `wireframes/CLAUDE.md` on purpose: a nested file loads only when Claude reads that folder and does not survive a compaction, and forgetting this one costs the whole artefact of the stage.
-
 5. Density is the feature. Six hours a day means no decorative whitespace, keyboard before mouse, and no overlay that hides the evidence the analyst is deciding on.
+
+**`wireframes/` is grey and stays grey.** Colour, type family, icons, shadows and motion arrive at 06 to 08 on **copies** under `design/`, never by painting `_wf.css`. The same sentence stands in `wireframes/CLAUDE.md` on purpose: a nested file loads only when Claude reads that folder and does not survive a compaction, and forgetting this one costs the whole artefact of the stage.
 
 ## Tech stack hypothesis
 
