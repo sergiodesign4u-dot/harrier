@@ -1,31 +1,31 @@
-# Harrier brandbook plates
+# Harrier brandbook plates, round two
 
-## Plate A, Signal Ledger
+All three plates describe the same dark product and the same fixture set. None uses pure black or pure white. Body text is 400 or heavier. Small monospace is tracked open. The product samples use `C-4417`, Larkfield Logistics, `9 signals`, `6 sources, 24h`, the six case chips, and the seven canonical tenants from `ia/docs/pages/reading-conventions.md`.
 
-**Bet:** the right first impression is an unapologetic working instrument. The ruling line, tabular counts, hard grid and black field answer **A1 Precise, not soft**, **A3 Authority by restraint, not by emphasis** and **A5 Counted, not estimated**. The restrained neutral field, tone-separated surfaces and single vermilion exception answer **A2 Saturation is scarce, not decorative** and **A4 Depth by tone, not by blur**.
+## Plate A, Night Ledger
 
-**Persona emotion:** Rasha clears a case fast and feels thorough rather than lucky. The plate puts the cost of checking, `9 signals`, beside the decision and keeps the source trail one layer deeper.
+**Bet:** A1 Precise, not soft and A5 Counted, not estimated. Harrier should first read as a compact working instrument whose hierarchy is made by rules, columns and counted evidence. The largest area is the key visual, a continuous ruling line that joins case, evidence and decision.
 
-**Deliberately not:** the generic security command centre with a dark canvas and electric blue or violet accent. It also rejects Bloomberg's many-colour code while keeping Bloomberg's instrument stance.
+**Gives up:** A3 is not the leading attribute. The plate gives up institutional ceremony and any editorial distance in exchange for speed, mechanical comparability and keyboard-first bluntness. The ochre accent identifies provenance only; coral is reserved for the one exception.
 
-**Decision ledger:** IBM Plex Mono carries load-bearing values for A5; IBM Plex Sans carries compact reading for A1. The 2px radius and 1px rules stand on A1. Neutral tonal layers stand on A4. Vermilion is reserved for the one exception and yellow for provenance, both standing on A2. Medium display weights stand on A3. The angular bird and ruling line translate precision and forward decision into shape, A1 and A3.
+**Composition lock:** a tall identity rail on the left; a large central ruling field; typography and palette stacked at the top; dense applications, components and social material packed into the bottom. It must not align with either plate B or C.
 
-## Plate B, Filed Evidence
+## Plate B, Case Registry
 
-**Bet:** Harrier earns authority by making every decision feel filed, witnessed and retrievable. The docket composition, cold paper, hairline rules and restrained serif answer **A3 Authority by restraint, not by emphasis** and **A4 Depth by tone, not by blur**. Monospaced evidence and explicit stamps answer **A5 Counted, not estimated**. Square files and a single objection red answer **A1 Precise, not soft** and **A2 Saturation is scarce, not decorative**.
+**Bet:** A3 Authority by restraint, not by emphasis and A4 Depth by tone, not by blur. Harrier should feel like a durable record whose evidence and human decision can still be read months later. The largest area is the case-file application, not a poster or fleet map.
 
-**Persona emotion:** Rasha wants the next shift or a client to see work that does not need to be redone. The visual centre is the record as it stood, not a model score.
+**Gives up:** A5 remains present in the evidence column but does not own the whole face. The plate gives up the all-monospace instrument stance in exchange for a restrained serif voice for filed verdicts. Rust is confined to objections and rejected states; parchment is a text colour and rule colour, never a light product surface.
 
-**Deliberately not:** the dashboard of generic metric cards and confidence gauges used by security vendors. It also avoids warm cream and terracotta editorial calm: this paper is cold grey, procedural and built for a long shift.
-
-**Decision ledger:** Newsreader gives the written verdict quiet institutional weight for A3; Roboto Mono separates counts and entries for A5. The 2px control radius and double-rule seal stand on A1. Cold grey tonal surfaces stand on A4. Objection red is confined to exceptions and rejection, A2. The filed stamp is not decoration: it names the snapshot state and therefore stands on A5.
+**Composition lock:** a low identity header at the upper right; one large registry application crossing the left and centre; palette as a narrow vertical index; key visual as stamped record fragments; a dense two-row footer assembly. It must not share A's rail or C's map-led structure.
 
 ## Plate C, Fleet Semaphore
 
-**Bet:** the differentiator should be visible from across the room: forty tenant routes with explicit ceilings. The route grid, stops and angular forward mark answer **A1 Precise, not soft** and **A5 Counted, not estimated**. Near-black, steel and deep teal create depth by adjacency for **A4 Depth by tone, not by blur**. Acid chartreuse marks latitude routes and brick red marks the one hold, answering **A2 Saturation is scarce, not decorative**. Flat weight and blunt copy answer **A3 Authority by restraint, not by emphasis**.
+**Bet:** A2 Saturation is scarce, not decorative and A5 Counted, not estimated. The differentiator must be visible across a room: forty tenant routes, each with a readable ceiling and record. Chartreuse appears only on active latitude routes and route markers. It is absent from identity, headings, buttons, tiles and broad fields.
 
-**Persona emotion:** Rasha wants to know how hard she must look without holding forty tenant policies in memory. The fleet route makes Clerk's ceiling visible before a case is opened.
+**Gives up:** A3 is deliberately secondary. The plate gives up quiet institutional neutrality so the fleet can read before any case is opened. The cost is a more diagrammatic, public-facing visual language, controlled by strict accent scarcity.
 
-**Deliberately not:** the isolated single-tenant console and the global auto-resolve percentage sold by the competitor set. It is a fleet map, not a configuration dashboard, and its chartreuse route colour is not the predictable blue or violet security accent.
+**Composition lock:** the fleet map is the broad upper-left field; identity is a compact upper-right block on the neutral ground; typography is a vertical specimen; product surfaces form a dense lower band around the map legend. It must not align with A's central ledger or B's registry sheet.
 
-**Decision ledger:** Space Mono makes ceilings and counts mechanically comparable for A5; Archivo keeps dense explanations direct for A1. Heavy 2px junctions and 2px radii stand on A1. Flat adjacent fields stand on A4. Chartreuse is limited to active latitude routes, while red is limited to an exception, A2. The asymmetric semaphore mark carries forward motion without visual celebration, A3.
+## Contrast and halation checks
+
+Ratios were calculated from the literal hex pairs used in the files. Core pairs exceed WCAG AA: A `#E8E2D7` on `#171816` is 13.82:1; B `#E5E0D6` on `#141817` is 13.61:1; C `#DEE5DA` on `#111614` is 14.21:1. Secondary text remains above 4.5:1. Dark text is used on ochre, rust-light and chartreuse fills. No blue or violet appears in any palette.
