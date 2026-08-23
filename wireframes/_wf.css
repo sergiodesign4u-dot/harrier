@@ -181,9 +181,13 @@ a:hover{text-decoration-color:var(--ink)}
    other way` are interface strings, and stage 05 owns every interface string in this product.
    A string that lives in a stylesheet is one that cannot be found by reading the screens,
    cannot be rewritten without touching the shared file, and is read by no screen reader that
-   the analyst might use. Two strings, both on the one surface the whole product exists for. */
-.claim .tag{flex:0 0 auto;font-family:var(--mono);font-size:var(--t-xs);
+   the analyst might use. Two strings, both on the one surface the whole product exists for.
+   It sits INSIDE `.txt`, not beside it. As a sibling it became a flex item of `.claim` and
+   took a line of its own at 360, one line per claim on the densest surface in the product.
+   A move is supposed to change where a thing is declared and nothing about how it looks. */
+.claim .tag{font-family:var(--mono);font-size:var(--t-xs);
             letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.claim .tag::after{content:"\00a0\00a0"}
 .expand{margin:var(--s2) 0 var(--s3) var(--s4);border-left:2px solid var(--hair);
         padding:var(--s2) var(--s3);font-size:var(--t-sm);background:var(--fill)}
 

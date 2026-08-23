@@ -94,9 +94,9 @@ def evidence(gone=None):
                 '04:08 to 04:12 UTC.</div>\n'
                 '          <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, '
                 'forwarding to an external address</span><span class="src">Exchange audit</span></div>\n')
-    out += ('          <div class="claim claim--absence"><span class="tag">not found</span><span class="txt">no password change, and no new device '
+    out += ('          <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device '
             'enrolment</span><span class="src">Entra, EDR</span></div>\n'
-            '          <div class="claim claim--against"><span class="tag">points the other way</span><span class="txt">this user has travelled to this region '
+            '          <div class="claim claim--against"><span class="txt"><span class="tag">points the other way</span>this user has travelled to this region '
             'twice in 90 days</span><span class="src">tenant baseline</span></div>\n'
             '          <p class="anote"><b>What Clerk looked for '
             'and did not find is part of the record</b>, and so is the one signal that argued the other way. '
