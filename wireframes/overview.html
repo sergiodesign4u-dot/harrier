@@ -106,6 +106,13 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
 .fx .gnote strong,.fx td strong{color:var(--fg)}
 
 @media (max-width:900px){
+  .ba{grid-template-columns:1fr}
+  .ba-t,.ba-t thead,.ba-t tbody,.ba-t tr,.ba-t th,.ba-t td{display:block;width:auto}
+  .ba-t thead{display:none}
+  .ba-t tr{border-top:1px solid var(--rule);padding:10px 0}
+  .ba-t td{border:0;padding:2px 0}
+  .ba-t td:first-child{font-weight:700}
+
   .hubwrap{flex-direction:column;gap:24px;padding:24px 18px 64px}
   .do{grid-template-columns:1fr}
   .rf > div{grid-template-columns:1fr;gap:1px}
@@ -121,6 +128,17 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
   .flowline .arrow{display:none}
   .do > div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
 }
+.ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px;margin:18px 0 0}
+.ba figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.ba img{width:100%;height:auto;display:block;border:1px solid var(--rule);border-radius:6px;background:var(--panel)}
+.ba figcaption{font-size:12.5px;line-height:1.55;color:var(--faint)}
+.ba figcaption b{color:var(--fg)}
+/* research/_page.css puts min-width:560px on the bare table element. A page-local table has
+   to unset it, not just set a width. Same collision as the fixture legend in section 02. */
+.ba-t{width:100%;min-width:0;border-collapse:collapse;font-size:12.5px;margin:12px 0 0}
+.ba-t th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);
+         border-bottom:1px solid var(--rule);padding:0 12px 6px 0;vertical-align:bottom}
+.ba-t td{border-top:1px solid var(--rule);padding:8px 12px 8px 0;vertical-align:top;line-height:1.55}
 </style>
 </head>
 <body>
@@ -348,6 +366,50 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
 <div class="note" style="margin-top:12px;border-left-color:#8a5a08"><p><strong>One declared substitution.</strong> The stage pack says mobile-first and reasons block priority from the phone. <code>CLAUDE.md</code> says the opposite in its own words, and forty nodes were specified under it: the stance is desktop first, priority is reasoned from the desk at 1440, and 360 is then <em>proved</em> for one scenario. The project rule wins. What survives from the pack unchanged is the part that matters: one live responsive screen, never a second file.</p></div>
 </section>
 
+<section id="changed">
+<h2>07 &middot; Was &rarr; became</h2>
+<p class="h2sub">The step 9 critique, by class. Five instruments, one second pass. Full record in <code>wireframes/docs/critique.md</code></p>
+
+<div class="ba">
+  <figure>
+    <img src="screens/s9-before-panefoot-360.png" alt="Case file at 360 before the fix, with no decision controls in view">
+    <figcaption><b>Was.</b> A measured 360. <code>Accept</code> sits at <b>y2013</b> in a 760 viewport, so the one thing this screen exists for is three screens below the fold. The footer was sticky and never stuck: the pane kept its own scrollport, so <code>bottom:0</code> resolved against a box that does not scroll.</figcaption>
+  </figure>
+  <figure>
+    <img src="screens/s9-after-panefoot-360.png" alt="Case file at 360 after the fix, with the decision controls pinned to the bottom">
+    <figcaption><b>Became.</b> <code>Accept</code> at <b>y680</b>, pinned, and it stays there through the whole scroll. One screen had found this at step 8 and fixed it privately; every other pane in the product kept the defect.</figcaption>
+  </figure>
+  <figure>
+    <img src="screens/s9-before-onlynarrow-1440.png" alt="Keyboard map at 1440 before the fix, showing the 360 only banner">
+    <figcaption><b>Was.</b> 1440, and the page announces <i>there is no keyboard here</i> directly above a full keyboard map. <code>.banner{display:flow-root}</code> was appended below <code>.only-narrow{display:none}</code> with the same specificity and won on order. <b>22 pages</b>.</figcaption>
+  </figure>
+  <figure>
+    <img src="screens/s9-after-onlynarrow-1440.png" alt="Keyboard map at 1440 after the fix, with the 360 only banner hidden">
+    <figcaption><b>Became.</b> <code>.banner:not(.only-narrow)</code>. This one is mine: it is a regression from step 8's own fixes, and the 174 checks that closed step 8 missed it because they looked for overflow and this does not overflow.</figcaption>
+  </figure>
+</div>
+
+<h3>Every class, and who found it</h3>
+<div class="tw">
+<table class="ba-t">
+<thead><tr><th>Class</th><th>Was</th><th>Became</th><th>Found by</th></tr></thead>
+<tbody>
+<tr><td><b>Regressions from step 8</b></td><td>The <code>.only-narrow</code> cascade on 22 pages; five tokens declared and unused, one of them a second name for <code>--s5</code></td><td>Fixed. 37 tokens declared, 37 used</td><td>browser, grep</td></tr>
+<tr><td><b>Broken at 360</b></td><td>Five: the pane foot, the fused fleet reading, the outage action a viewport and a half down, records three screens tall with no exit, the notice stack eating 408 of 760 pixels</td><td>All five fixed and re measured at a true 360</td><td>browser</td></tr>
+<tr><td><b>Colour, in a stage with none</b></td><td><b>151 links</b> in browser default blue on 27 of 62 screens, because <code>_wf.css</code> never declared a rule for <code>a</code></td><td>One rule at the lowest specificity. Zero coloured elements on 63 pages</td><td>browser only. A defect whose cause is an <b>absent</b> rule is invisible to grep, to source review and to a reader</td></tr>
+<tr><td><b>Canon behind the drawing</b></td><td>The log's <code>State</code> was a second vocabulary and 0.8 denied it; two fixtures drawn and never declared; axis A had seven values and showed six; node 8.4 was MVP with three notices marked yes and none drawn</td><td>All four fixed <b>upward</b> in <code>ia/docs/pages/</code>, then rendered. Four new pages</td><td>Codex and the reader, converging independently on the first</td></tr>
+<tr><td><b>Declared twice</b></td><td>Ten rules in both <code>_wf.css</code> and a generator, inline winning; section 2 declared <code>.only-desk</code> the survivor of three names and migrated neither of the other two; eleven inline declarations repeated across screens; two interface strings living in <code>content:</code></td><td>All moved. Four inline declarations remain, each used exactly once</td><td>grep, after the instrument itself was repaired</td></tr>
+<tr><td><b>Two primary actions</b></td><td>Five pages with two black buttons, twice with the same label</td><td>Exactly one visible primary per page across all 63</td><td>browser</td></tr>
+<tr><td><b>The author in the analyst's voice</b></td><td>The prototype argued for its own decisions in the same slot as product hints, in the second person. A clean context reader could not tell which sentences stage 05 is meant to rewrite</td><td>Two registers. <code>.anote</code> on 35 pages is the argument, <code>.gnote</code> on 27 is product copy, and stage 05 owns everything that is not <code>.anote</code></td><td>browser and the reader, independently. Settled by the author of the case, not by the instrument</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note" style="margin-top:16px"><p><strong>The fifth instrument had a hole, and the second pass is what found it.</strong> The grep for a rule declared twice compared inline against inline and never inline against <code>_wf.css</code>. Ten rules were declared in both with the inline copy winning, and one of them is why a sticky rail stayed unstuck through two attempted fixes. <strong>An instrument that has never failed has not been tested</strong>, and this one had been reporting clean for two steps.</p></div>
+
+<div class="note" style="margin-top:12px"><p><strong>Three findings were struck at verification rather than fixed.</strong> Eleven fields reported as unlabelled all carry visible labels, which is a category error. A 3px spill on this page's own <code>h1</code> is line box rounding, real in the arithmetic and invisible on screen. And one entry in the exemptions list had been written from memory: there is no print stylesheet in this stage and there never was. <strong>A finding that does not survive verification stays in the log with its reason</strong>, because a critique that only ever confirms itself is not a critique.</p></div>
+</section>
+
 </main>
 </div>
 <script>
@@ -358,6 +420,7 @@ kbd{font:600 11px/1.6 var(--mono);border:1px solid var(--rule);border-bottom-wid
     { id:'coverage',    label:'Coverage' },
     { id:'matrix',      label:'State matrix' },
     { id:'conventions', label:'Conventions' },
+    { id:'changed',     label:'Was \u2192 became' },
   ];
 </script>
 <script src="_nav.js"></script>
