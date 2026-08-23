@@ -94,9 +94,9 @@ def evidence(gone=None):
                 '04:08 to 04:12 UTC.</div>\n'
                 '          <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, '
                 'forwarding to an external address</span><span class="src">Exchange audit</span></div>\n')
-    out += ('          <div class="claim claim--absence"><span class="txt">no password change, and no new device '
+    out += ('          <div class="claim claim--absence"><span class="tag">not found</span><span class="txt">no password change, and no new device '
             'enrolment</span><span class="src">Entra, EDR</span></div>\n'
-            '          <div class="claim claim--against"><span class="txt">this user has travelled to this region '
+            '          <div class="claim claim--against"><span class="tag">points the other way</span><span class="txt">this user has travelled to this region '
             'twice in 90 days</span><span class="src">tenant baseline</span></div>\n'
             '          <p class="anote"><b>What Clerk looked for '
             'and did not find is part of the record</b>, and so is the one signal that argued the other way. '
@@ -120,7 +120,7 @@ def latitude_then(date='2026-08-22', record='<b>34 of 36</b> upheld over the 30 
             out += ('            <div class="off"><span class="mark">no</span><span>%s</span>'
                     '<span class="why">%s</span></div>\n') % (label, why)
     out += ('          </div>\n'
-            '          <p class="nar" style="margin-top:var(--s3)">The record that stood behind the grant on that '
+            '          <p class="nar nar--sep">The record that stood behind the grant on that '
             'date: %s.</p>\n'
             '          <p class="anote">An auditor rarely asks '
             'whether this was the right call. They ask <b>why the machine was allowed to do that</b>, and a settings '
@@ -146,14 +146,14 @@ def retention(until='2026-11-20T04:14:05Z'):
 def live(text=None):
     return ('        <section class="block">\n          <h3>The live case</h3>\n'
             '          <p class="nar">%s</p>\n'
-            '          <p style="margin:var(--s2) 0 0;display:flex;gap:var(--s2);flex-wrap:wrap">'
+            '          <p class="wrapline">'
             '<a class="btn" href="case.html">Open C-4417 as it is now</a>'
             '<a class="btn btn--quiet" href="log-selected.html">Back to this entry in the log</a></p>\n'
             '        </section>\n'
             ) % (text or 'A different thing, named and linked rather than shown beside this one. '
                          'Current values next to historical ones is the confusion, not the cure.')
 
-NO_CONTROLS = ('        <p class="dim" style="font-size:var(--t-xs);border-top:var(--line);padding-top:var(--s3)">'
+NO_CONTROLS = ('        <p class="anote">'
                '<b>There are no verdict controls on this page, at any width.</b> You cannot rule on the past, and an '
                '<code>Accept</code> here would be a second decision wearing the first one&rsquo;s date.</p>\n')
 
@@ -216,7 +216,7 @@ page('entry-gone.html', 'Log entry, nothing survived', ASOF_OLD,
        '            <div class="off"><span class="mark">no</span><span>Contain identity</span>'
        '<span class="why">not reversible without the client, so it asked</span></div>\n'
        '          </div>\n'
-       '          <p class="nar" style="margin-top:var(--s3)"><b>Retained.</b> The grant is stored with the entry '
+       '          <p class="nar nar--sep"><b>Retained.</b> The grant is stored with the entry '
        'rather than with the evidence, so it outlives the snapshot. On that date the record behind it was '
        '<b>18 of 20</b> upheld over 30 days.</p>\n        </section>\n'
      + address(ASOF_OLD, entry='e-71903')
@@ -254,7 +254,7 @@ page('entry-beyond-retention.html', 'Log entry, beyond retention', '2024-11-02T0
      + '        <div class="gone-all"><b>The log does not reach back this far.</b>\n'
        '          Entries before <b>2026-02-03T08:14:20Z</b> are outside the window your provider set, so there is '
        'no verdict record, no evidence and no grant to show you.<br><br>\n'
-       '          <b style="display:inline;font-size:inherit">This is not a 404.</b> A 404 says the address is wrong. '
+       '          <b class="run">This is not a 404.</b> A 404 says the address is wrong. '
        'The address is right and the answer no longer exists, which is a different sentence and a different thing '
        'for an auditor to write down.</div>\n'
      + '        <section class="block">\n          <h3>What you can still be told</h3>\n'

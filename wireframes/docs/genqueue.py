@@ -173,7 +173,7 @@ if __name__ == '__main__':
                  ('High','Larkfield Logistics','Token replay from a new ASN',None,None,'counting',
                   ['investigating?'],'27m','case-investigating.html','')] + BASE_ROWS[2:4]) +
                  '        <p class="empty" style="padding:var(--s4)">Rows arrive as Clerk correlates them. '
-                 '<b style="display:inline;font-size:inherit">The count above is provisional and says so</b>, '
+                 '<b class="run">The count above is provisional and says so</b>, '
                  'because a number that settles later without saying it was provisional is a number she acted on.</p>\n',
                  extra='        <div class="arriving" aria-label="Cases arriving"></div>\n'),
             FOOT % '4 of 14 so far, more arriving'),
@@ -235,11 +235,11 @@ if __name__ == '__main__':
             <div class="banner"><b>Accepted by R. Idrissi, 4s ago.</b> Written to the log against the snapshot as it stood.</div>
             <section class="block">
               <h3>What was decided</h3>
-              <p style="margin:0">Clerk concluded <b>real, contain identity</b>. The action was above this tenant&rsquo;s latitude, so it waited for a person, and it has now run.</p>
+              <p class="nar">Clerk concluded <b>real, contain identity</b>. The action was above this tenant&rsquo;s latitude, so it waited for a person, and it has now run.</p>
             </section>
             <section class="block">
               <h3>Where it is now</h3>
-              <p style="margin:0"><a href="entry.html">The log entry, with the evidence as it stood</a></p>
+              <p class="nar"><a href="entry.html">The log entry, with the evidence as it stood</a></p>
             </section>
             <p class="prov">The row stays in place and reads <b>decided</b>. It leaves the list when the selection moves off it, not when the verdict is filed. <b>No toast:</b> the row changed under your hand, which says more.</p>
           </div>
@@ -292,11 +292,11 @@ if __name__ == '__main__':
             <div class="banner"><b>Handed to S. Varga, 4s ago.</b> Sent through the provider&rsquo;s on call tool. Harrier recorded that it was sent; it is not the thing that delivered it.</div>
             <section class="block">
               <h3>What changed, and what did not</h3>
-              <p style="margin:0"><b>No verdict was filed.</b> Clerk&rsquo;s conclusion stands unruled, the case is still open, and the count above is still 18. What changed is that the row no longer looks like a case nobody has touched.</p>
+              <p class="nar"><b>No verdict was filed.</b> Clerk&rsquo;s conclusion stands unruled, the case is still open, and the count above is still 18. What changed is that the row no longer looks like a case nobody has touched.</p>
             </section>
             <section class="block">
               <h3>Where it is now</h3>
-              <p style="margin:0"><a href="entry.html">The log entry, with the handover as it was written</a></p>
+              <p class="nar"><a href="entry.html">The log entry, with the handover as it was written</a></p>
             </section>
             <p class="prov">It cannot be taken back. If S. Varga hands it back, that is a second entry rather than an erased one. <b>No toast:</b> the row wears <b>escalated</b>, which is the feedback.</p>
           </div>
@@ -338,4 +338,30 @@ if __name__ == '__main__':
                        toast(T_FAILED, role='alert', hold='stays until the write lands')],
                       more='2 earlier notices', more_narrow='4 earlier notices'))
 
-    print('generated 11 pages')
+    # ---------------------------------------------------------------- 12. reconnecting, 0.4
+    # CONNECTING(0) was a declared readyState of 0.4 with a strip variant written for it in
+    # _nav.js and NOT ONE PAGE USING IT. An idle control: a declared variant that renders
+    # nowhere is indistinguishable from one nobody needed. It is drawn rather than deleted,
+    # because the transport really does have three states and this is the middle one.
+    RECON_NOTE = ('      <p class="anote">This is <b>not</b> the stale screen and it must not read like one. '
+                  'Stale is CLOSED: the transport has given up, so the page offers a retry. This is '
+                  'CONNECTING: the transport is already retrying under exponential backoff, so a retry '
+                  'control would be a button that does what is happening anyway. <b>What is honest here '
+                  'is the count.</b> Stale knows what it has and says as of when; reconnecting does not '
+                  'know what it is missing, and the one thing it must never do is show 18 as though it '
+                  'were 18.</p>\n')
+    page('queue-reconnecting.html', 'Case queue, reconnecting', 'reconnecting',
+         z4(CHIPS_DEFAULT,
+            '<b>18 waiting, and that number is 40s old</b> '
+            '<span class="dim">how many arrived since is not known</span>',
+            '      <div class="banner qbanner"><b>The connection dropped and is being re established.</b> '
+            'Nothing here is wrong and something may be missing. <b>Filing a verdict is still allowed</b>: '
+            'a degraded connection does not block a decision, and the log records the snapshot you '
+            'actually saw.<span class="act"><span class="btn" aria-disabled="true">Retrying</span>'
+            '<span class="why">the transport backs off and retries on its own, so there is nothing '
+            'for a button to do that is not already happening</span></span></div>\n\n'
+            + grid(rows_html(BASE_ROWS)) + RECON_NOTE,
+            FOOT % '7 of 18 as of 40s ago'),
+         fleet(sub='40 tenants, nothing selected. Frozen 40s ago', stale=True))
+
+    print('generated 12 pages')

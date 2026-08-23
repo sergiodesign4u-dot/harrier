@@ -11,15 +11,6 @@
 /* INLINE: queue :: for reconcile into _wf.css
    Only what is genuinely one-off for this screen family, every value through var().
    The shell, the row, the chips and the fleet already live in _wf.css. */
-/* 5.1 section 8: the log is NOT rendered at 360. `CLAUDE.md` gives the phone one scenario,
-   a paged case read and escalated, and answering an auditor is not it. So the narrowed
-   rendering says that instead of squeezing seven columns into a phone. 5.4 is the boundary
-   case and it is different: a permalink can arrive anywhere. */
-@media (max-width:900px){
-  .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,
-  .z4--log .banner:not(.only-narrow){display:none}
-  .z4--log .only-narrow{margin:var(--s4)}
-}
 </style>
 </head>
 <body>

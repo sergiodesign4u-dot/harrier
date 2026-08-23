@@ -195,7 +195,7 @@ def moved_grid(whens, frozen=False):
             % (MOVED_HEAD, moved_rows(whens, frozen)))
 
 
-MOVED_TAIL = ('          <p class="dim" style="margin:0;font-size:var(--t-xs)">Six moved, and '
+MOVED_TAIL = ('          <p class="gnote">Six moved, and '
               '<b>the Meridian rejection has no log entry</b> because its write never landed. That is '
               'exactly why it is a line here: the log cannot tell the next analyst about a decision '
               'the log never received.</p>\n')
@@ -214,7 +214,7 @@ NOTES = [
      'Sanctioned is the likely answer and it is not the recorded one.'),
 ]
 
-NOTES_TAIL = ('          <p class="dim" style="margin:0;font-size:var(--t-xs)">A note lives on the '
+NOTES_TAIL = ('          <p class="gnote">A note lives on the '
               '<b>case</b>, not on this page. This is where they can be seen at once, and opening one '
               'opens the case it is attached to.</p>\n')
 
@@ -235,7 +235,7 @@ def notes_edit():
         plain = text.replace('<b>', '').replace('</b>', '')
         out += ('          <div class="field"><label for="n%d">On %s</label>'
                 '<textarea id="n%d" rows="3">%s</textarea></div>\n') % (i, label, i, plain)
-    out += ('          <p class="dim" style="margin:0;font-size:var(--t-xs)">What you type here is '
+    out += ('          <p class="gnote">What you type here is '
             'written <b>on the case</b>. The brief is not a document you author: the structured half '
             'above is assembled from what actually happened, and this is the half only a person can '
             'write.</p>\n')
@@ -342,11 +342,11 @@ page('shift-assembling.html', 'Shift brief, assembling', 'arriving',
      h1('assembling &middot; R. Idrissi coming on &middot; D. Okonkwo going off'),
      '        <div class="arriving" aria-label="Assembling the brief"></div>\n'
      + sect('What is being gathered', GATHER
-            + '          <p class="dim" style="margin:0;font-size:var(--t-xs)">'
+            + '          <p class="gnote">'
               '<b>Named, not a spinner.</b> A brief is a claim about coverage, so what it is still '
               'reading is the one thing worth showing while it reads. Two lines are outstanding and '
               'both say which.</p>\n')
-     + sect('What this resolves into', '          <p class="empty" style="padding:var(--s5)">'
+     + sect('What this resolves into', '          <p class="empty empty--tight">'
             '<b>It resolves two ways, and both are drawn.</b>\n'
             '          Either <a href="shift.html">six cases moved and eighteen are waiting</a>, '
             'or <a href="shift-nothing-carried.html">nothing carried over</a>, which is the good '
@@ -382,7 +382,7 @@ page('shift-nothing-carried.html', 'Shift brief, nothing carried over', 'live',
             '          <p class="nar"><b>Norsk Marine is silent for a different reason.</b> Its '
             'assets were offline for <b>6h</b>, which is normal at that tenant and is not the same '
             'as quiet. Nothing was reported, so nothing can be said about it.</p>\n'
-            '          <p class="dim" style="margin:0;font-size:var(--t-xs)">Two kinds of nothing, '
+            '          <p class="gnote">Two kinds of nothing, '
             'and they are not interchangeable. A brief that showed one blank for both would be '
             'telling the incoming analyst something untrue.</p>\n')
      + sect('Notes left on cases',
@@ -405,7 +405,7 @@ page('shift-sealed.html', 'Shift brief, sealed', 'live',
      'press, because the busiest minute of the day does not need one.</span></div>\n'
      + sect('What waits on a decision', WAITS_FROZEN + CLERK_ALONE)
      + sect('What moved this shift', moved_grid(OUTGOING_WHEN, frozen=True)
-            + '          <p class="dim" style="margin:0;font-size:var(--t-xs)"><b>Frozen.</b> '
+            + '          <p class="gnote"><b>Frozen.</b> '
               'Nothing on this page changes now. D. Okonkwo reads it as it stands, and his own '
               'pointers are live because the brief he opens is his.</p>\n')
      + sect('Notes left on cases', notes_read(author='R. Idrissi')),
@@ -427,7 +427,7 @@ page('shift-close-failed.html', 'Shift brief, the close did not write', 'live',
      '</div>\n'
      + sect('What waits on a decision', waits_frozen('frozen at the attempt') + CLERK_ALONE)
      + sect('What moved this shift', moved_grid(OUTGOING_WHEN, frozen=True)
-            + '          <p class="dim" style="margin:0;font-size:var(--t-xs)"><b>Frozen at the '
+            + '          <p class="gnote"><b>Frozen at the '
               'attempt.</b> The counts stopped when the seal was tried, so what is on screen is what '
               'would have been sealed. Nothing was lost.</p>\n')
      + sect('Notes you left on cases', notes_edit()),
@@ -449,7 +449,7 @@ page('shift-unsealed.html', 'Shift brief, nobody sealed it', 'live',
      'than reading like a brief somebody wrote.</span></div>\n'
      + sect('What waits on a decision, from the record', WAITS + CLERK_ALONE)
      + sect('What moved this shift, from the record', moved_grid(INCOMING_WHEN)
-            + '          <p class="dim" style="margin:0;font-size:var(--t-xs)"><b>This half did not '
+            + '          <p class="gnote"><b>This half did not '
               'depend on anyone.</b> Clerk builds it from what happened, which is the whole reason '
               'the brief is structured rather than written.</p>\n')
      + sect('Notes left on cases',

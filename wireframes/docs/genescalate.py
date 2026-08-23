@@ -14,7 +14,6 @@ INLINE = C.INLINE + """
 .prompts{display:flex;flex-direction:column;gap:var(--s3)}
 .dialog > .body > .block--rcpt{order:-1}
 @media (max-width:900px){
-  .esc-desk{display:none}
   .dialog > .body > .esc-first{order:-2}
 }"""
 Q.INLINE = INLINE
@@ -38,11 +37,11 @@ def prompts(first='', second='', third='', first_label='What I checked'):
                 '<textarea id="%s" rows="2" placeholder="%s">%s</textarea></div>\n'
                 ) % (cls, fid, label, fid, ph, value)
     out = '        <section class="block">\n          <h3>The handover</h3>\n          <div class="prompts">\n'
-    out += fld('p1', first_label, first, 'Optional, and prompted anyway', ' esc-desk')
-    out += fld('p2', 'What I could not do', second, 'Optional, and prompted anyway', ' esc-desk')
+    out += fld('p1', first_label, first, 'Optional, and prompted anyway', ' only-desk')
+    out += fld('p2', 'What I could not do', second, 'Optional, and prompted anyway', ' only-desk')
     out += fld('p3', 'What I need from you', third, 'Optional, and prompted anyway')
     out += '          </div>\n'
-    out += ('          <p class="anote esc-desk">'
+    out += ('          <p class="anote only-desk">'
             'Three prompts, all optional. <b>No taxonomy and no severity picker:</b> a rejection routes to a machine '
             'so it must be machine readable, and this routes to a person who will read it. Structure here serves '
             'comprehension, and it is what stops the quality of a handover depending on how tired its author was.</p>\n')
@@ -60,12 +59,12 @@ CONS_NARROW = 'The case <b>stays open</b> and gains <b>escalated</b>. No verdict
 
 def cons(text_desk=CONS_DESK, text_narrow=CONS_NARROW, extra_class=''):
     return ('        <section class="block">\n          <h3>What happens when you send it</h3>\n'
-            '          <div class="cons%s"><span class="esc-desk">%s</span>'
+            '          <div class="cons%s"><span class="only-desk-i">%s</span>'
             '<span class="only-narrow">%s</span></div>\n        </section>\n'
             ) % (extra_class, text_desk, text_narrow)
 
 def foot(primary, cancel='case.html', note='<b>Enter</b> makes a line here, it does not file. The button files.'):
-    return ('        <span class="dim esc-desk" style="font-size:var(--t-xs)">%s</span>'
+    return ('        <span class="hint only-desk-i">%s</span>'
             '<span class="grow"></span>'
             '<a class="btn btn--quiet" href="%s">Cancel <span class="key">Esc</span></a>'
             '%s') % (note, cancel, primary)
@@ -75,7 +74,7 @@ def dialog(sub, body, footer, title='Escalate C-4417'):
     <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh">
       <header>
         <h2 id="dh">%s</h2>
-        <p class="dim" style="margin:var(--s1) 0 0;font-size:var(--t-sm)">%s</p>
+        <p class="sub">%s</p>
       </header>
       <div class="body">
 %s      </div>

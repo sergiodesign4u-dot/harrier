@@ -16,7 +16,7 @@ INLINE = C.INLINE + """
    The list itself reuses .optlist and .opt from 4.4: same component, a key chip with a label
    and a right hand meta cell. Only the two-line label, the wider dialog and the remap foot
    are new. Every value through var(). */
-.dialog--map{width:min(720px,100%)}
+.dialog--map{width:min(var(--dialog-w-wide),100%)}
 .keys{flex:0 0 118px;display:flex;flex-wrap:wrap;gap:var(--s1)}
 .keys .key{font-family:var(--mono);font-size:var(--t-xs);border:var(--line-ink);
            border-radius:var(--radius);padding:0 var(--s1);flex:0 0 auto;white-space:nowrap}
@@ -171,7 +171,7 @@ REMAP = ('        <section class="block">\n'
 
 BODY = (LEDE + MOVE + OPENCLOSE + RULE + LEAVE + INCONSISTENCY + SECTIONS + THISMAP + LEGEND + REMAP)
 
-FOOTER = ('        <span class="dim" style="font-size:var(--t-xs)">Nothing here rules on a case. '
+FOOTER = ('        <span class="hint">Nothing here rules on a case. '
           'The control that turns these keys off, or makes them need a modifier, is at the foot of the list.</span>'
           '<span class="grow"></span>'
           '<a class="btn btn--primary" href="case.html">Close <span class="key">Esc</span></a>')
@@ -180,7 +180,7 @@ DIALOG = ("""  <div class="scrim scrim--desk-only">
     <section class="dialog dialog--map" role="dialog" aria-modal="true" aria-labelledby="dh">
       <header>
         <h2 id="dh">Keyboard map</h2>
-        <p class="dim" style="margin:var(--s1) 0 0;font-size:var(--t-sm)">Grouped by what the key does, not by which key it is. <b>Every row says when the key is live</b>, because a key that fires while you are typing a rejection reason is a trap rather than a shortcut.</p>
+        <p class="sub">Grouped by what the key does, not by which key it is. <b>Every row says when the key is live</b>, because a key that fires while you are typing a rejection reason is a trap rather than a shortcut.</p>
       </header>
       <div class="body">
 %s      </div>

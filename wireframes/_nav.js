@@ -74,6 +74,7 @@ window.WF_NAV = {
       states:[
         {slug:'',            label:'Default',              kind:'base'},
         {slug:'streaming',   label:'Streaming in, 3.2',    kind:'loading'},
+        {slug:'reconnecting',label:'Reconnecting, 0.4',   kind:'error'},
         {slug:'stale',       label:'Stale, 3.3',           kind:'error'},
         {slug:'empty',       label:'Nothing waiting, 3.4', kind:'empty'},
         {slug:'no-match',    label:'Filtered to nothing',  kind:'empty'},

@@ -161,7 +161,9 @@ a:hover{text-decoration-color:var(--ink)}
    ============================================================ */
 .pane-head{position:sticky;top:0;background:inherit;padding:var(--s4);border-bottom:var(--line-ink)}
 .pane-head h2{margin:0;font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
-.pane-head .sub{margin:var(--s1) 0 0;color:var(--soft);font-size:var(--t-sm)}
+/* The same subline under a pane title and under a dialog title. It was one rule in _wf.css
+   and an identical inline copy on three dialog generators. */
+.pane-head .sub,.dialog > header .sub{margin:var(--s1) 0 0;color:var(--soft);font-size:var(--t-sm)}
 .pane-body{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s5)}
 .pane-foot{margin-top:auto;position:sticky;bottom:0;background:inherit;
            padding:var(--s3) var(--s4);border-top:var(--line-ink);display:flex;gap:var(--s2);flex-wrap:wrap}
@@ -175,10 +177,13 @@ a:hover{text-decoration-color:var(--ink)}
 .claim .txt{flex:1 1 auto;min-width:0}
 .claim .src{flex:0 0 auto;font-family:var(--mono);font-size:var(--t-xs)}
 .claim--absence{color:var(--soft)}
-.claim--absence .txt::before{content:"not found  ";font-family:var(--mono);font-size:var(--t-xs);
-                             letter-spacing:.06em;text-transform:uppercase}
-.claim--against .txt::before{content:"points the other way  ";font-family:var(--mono);
-                             font-size:var(--t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+/* THE TAG USED TO BE A `content:` STRING AND IT IS NOW MARKUP. `not found` and `points the
+   other way` are interface strings, and stage 05 owns every interface string in this product.
+   A string that lives in a stylesheet is one that cannot be found by reading the screens,
+   cannot be rewritten without touching the shared file, and is read by no screen reader that
+   the analyst might use. Two strings, both on the one surface the whole product exists for. */
+.claim .tag{flex:0 0 auto;font-family:var(--mono);font-size:var(--t-xs);
+            letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
 .expand{margin:var(--s2) 0 var(--s3) var(--s4);border-left:2px solid var(--hair);
         padding:var(--s2) var(--s3);font-size:var(--t-sm);background:var(--fill)}
 
@@ -601,4 +606,41 @@ a.opt:hover{background:var(--fill)}
 
   /* And the page has to end above it, or the last row is unreachable at the bottom of a scroll. */
   .z45:has(> .z6){padding-bottom:var(--z6-clear)}
+}
+
+
+/* ---------------------------------------------------------------------------------------
+   17. WHAT WAS STILL INLINE, AND THE THREE NAMES FOR ONE UTILITY THAT SECTION 2 ONLY
+   HALF FIXED.
+
+   Section 2 above says `.esc-desk`, `.out-desk` and `.only-desk` were three names for one
+   job and declares `.only-desk` as the survivor. It declared the survivor and never migrated
+   the other two: both generators still shipped their own private copy, and `genunavailable`
+   still carried the comment "the complement of _wf.css's .only-narrow, which has no
+   complement", which had stopped being true the moment section 2 was written.
+   **A comment that describes a fix is not the fix**, and a file that asserts something false
+   about itself is worse than one that says nothing. Both callers now use `.only-desk` and
+   `.only-desk-i`, and the two private definitions are gone.
+
+   The rest below is the same criterion applied honestly: a rule on two or more screens lives
+   here. Everything that stayed inline after this is genuinely used once.
+   --------------------------------------------------------------------------------------- */
+.dialog > footer .hint{font-size:var(--t-xs);color:var(--soft)}
+.nar--sep{margin-top:var(--s3)}
+.cons--gap{margin-top:var(--s2)}
+.empty--tight{padding:var(--s5)}
+/* `.empty b` is display:block, because in an empty state the first line is a heading.
+   Two screens needed a bold that stays inside the sentence instead. */
+.empty b.run{display:inline;font-size:inherit}
+.wrapline{margin:var(--s2) 0 0;display:flex;gap:var(--s2);flex-wrap:wrap}
+
+/* 5.1 section 8: the log is NOT rendered at 360. `CLAUDE.md` gives the phone one scenario,
+   a paged case read and escalated, and answering an auditor is not it. So the narrowed
+   rendering says that instead of squeezing seven columns into a phone. 5.4 is the boundary
+   case and it is different: a permalink can arrive anywhere. Five pages carried these three
+   rules inline. */
+@media (max-width:900px){
+  .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,
+  .z4--log .banner:not(.only-narrow){display:none}
+  .z4--log .only-narrow{margin:var(--s4)}
 }

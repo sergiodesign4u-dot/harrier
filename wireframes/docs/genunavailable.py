@@ -42,8 +42,6 @@ INLINE = Q.INLINE + """
 .contact p{margin:0;font-size:var(--t-sm)}
 .contact .meta{color:var(--soft)}
 .out-act{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
-/* the complement of _wf.css's .only-narrow, which has no complement. See the report. */
-.out-desk{display:block}
 /* the reduced top bar. The console is what is down, so this is not the console's top bar */
 .z1--out .note{margin:0;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
 /* Section 6 of the node, in one property. On a desk she wants to understand; on a phone at
@@ -58,7 +56,6 @@ INLINE = Q.INLINE + """
   .out-line .k{flex:none}
   /* the contact goes first, so it has to be SHORT first. What is trimmed is the reasoning
      about who owns the disclosure decision, which is a desk reading and not a 03:00 one. */
-  .out-desk{display:none}
   /* The contact reads first here by choice, which put the only action a viewport and a half
      down. So the action pins to the bottom edge, the same device the pane foot uses at 360.
      Both things are then true at once: the number is what she reads, and the retry is always
@@ -149,7 +146,7 @@ def contact(meta, tail=''):
             'generating signal while this page is up.</p>\n'
             '%s'
             '          </div>\n'
-            '          <p class="anote out-desk"><b>Shown here because you '
+            '          <p class="anote only-desk"><b>Shown here because you '
             'are signed in.</b> Whether it is shown to somebody who is not is a disclosure call for the provider '
             'rather than for us, and nobody has made it. The page is reachable either way, so the block either '
             'appears twice or it appears once, and that is the decision still outstanding.</p>\n'

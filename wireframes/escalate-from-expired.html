@@ -21,7 +21,6 @@
 .prompts{display:flex;flex-direction:column;gap:var(--s3)}
 .dialog > .body > .block--rcpt{order:-1}
 @media (max-width:900px){
-  .esc-desk{display:none}
   .dialog > .body > .esc-first{order:-2}
 }
 </style>
@@ -173,7 +172,7 @@
     <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh">
       <header>
         <h2 id="dh">Escalate C-4417</h2>
-        <p class="dim" style="margin:var(--s1) 0 0;font-size:var(--t-sm)">C-4417 &middot; Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b> against a snapshot that is gone</p>
+        <p class="sub">C-4417 &middot; Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b> against a snapshot that is gone</p>
       </header>
       <div class="body">
         <section class="block block--rcpt">
@@ -187,19 +186,19 @@
         <section class="block">
           <h3>The handover</h3>
           <div class="prompts">
-            <div class="field esc-desk"><label for="p1">What I checked</label><textarea id="p1" rows="2" placeholder="Optional, and prompted anyway">The evidence snapshot aged out of retention on 2026-08-14, so the nine signals behind Clerk&rsquo;s verdict are no longer retrievable.</textarea></div>
-            <div class="field esc-desk"><label for="p2">What I could not do</label><textarea id="p2" rows="2" placeholder="Optional, and prompted anyway"></textarea></div>
+            <div class="field only-desk"><label for="p1">What I checked</label><textarea id="p1" rows="2" placeholder="Optional, and prompted anyway">The evidence snapshot aged out of retention on 2026-08-14, so the nine signals behind Clerk&rsquo;s verdict are no longer retrievable.</textarea></div>
+            <div class="field only-desk"><label for="p2">What I could not do</label><textarea id="p2" rows="2" placeholder="Optional, and prompted anyway"></textarea></div>
             <div class="field"><label for="p3">What I need from you</label><textarea id="p3" rows="2" placeholder="Optional, and prompted anyway"></textarea></div>
           </div>
-          <p class="anote esc-desk">Three prompts, all optional. <b>No taxonomy and no severity picker:</b> a rejection routes to a machine so it must be machine readable, and this routes to a person who will read it. Structure here serves comprehension, and it is what stops the quality of a handover depending on how tired its author was.</p>
+          <p class="anote only-desk">Three prompts, all optional. <b>No taxonomy and no severity picker:</b> a rejection routes to a machine so it must be machine readable, and this routes to a person who will read it. Structure here serves comprehension, and it is what stops the quality of a handover depending on how tired its author was.</p>
           <p class="anote only-narrow"><b>One prompt here, not three.</b> Three empty fields at 03:00 produce a handover that looks complete and is not. The handover is thinner from a phone, and that is honest rather than ideal.</p>
         </section>
         <section class="block">
           <h3>What happens when you send it</h3>
-          <div class="cons"><span class="esc-desk">The case <b>stays open</b> and gains <b>escalated</b>, so it keeps its place in the queue and stops looking like a case nobody has touched. <b>No verdict is filed and nothing is tuned.</b> The escalation is written to the log either way, and it cannot be taken back: if it comes back to you, that is a new entry rather than an erased one. <b>4.7 left no other exit:</b> a verdict filed now would rest on evidence nobody can produce in April, which is the one thing this product exists to prevent.</span><span class="only-narrow">The case <b>stays open</b> and gains <b>escalated</b>. No verdict is filed. It is written to the log. There is no other exit from an expired case.</span></div>
+          <div class="cons"><span class="only-desk-i">The case <b>stays open</b> and gains <b>escalated</b>, so it keeps its place in the queue and stops looking like a case nobody has touched. <b>No verdict is filed and nothing is tuned.</b> The escalation is written to the log either way, and it cannot be taken back: if it comes back to you, that is a new entry rather than an erased one. <b>4.7 left no other exit:</b> a verdict filed now would rest on evidence nobody can produce in April, which is the one thing this product exists to prevent.</span><span class="only-narrow">The case <b>stays open</b> and gains <b>escalated</b>. No verdict is filed. It is written to the log. There is no other exit from an expired case.</span></div>
         </section>
       </div>
-      <footer>        <span class="dim esc-desk" style="font-size:var(--t-xs)"><b>Enter</b> makes a line here, it does not file. The button files.</span><span class="grow"></span><a class="btn btn--quiet" href="case-expired.html">Cancel <span class="key">Esc</span></a><a class="btn btn--primary" href="queue-escalated.html">Escalate to S. Varga</a></footer>
+      <footer>        <span class="hint only-desk-i"><b>Enter</b> makes a line here, it does not file. The button files.</span><span class="grow"></span><a class="btn btn--quiet" href="case-expired.html">Cancel <span class="key">Esc</span></a><a class="btn btn--primary" href="queue-escalated.html">Escalate to S. Varga</a></footer>
     </section>
   </div>
   </main>

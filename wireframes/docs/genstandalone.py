@@ -155,7 +155,7 @@ if __name__ == '__main__':
     # than floating after it. One tail, one substitution, so the block itself never forks.
     STALE_LAT = C.latitude().replace(
         '        </section>\n',
-        '          <p class="dim" style="margin:0;font-size:var(--t-xs)">Read <b>as of the last sync, '
+        '          <p class="gnote">Read <b>as of the last sync, '
         '6m ago</b>. A grant changed since then would not show here yet.</p>\n        </section>\n')
     Q.page('case-standalone-stale.html', 'Case file, connection stale on the standalone route', 'stale', '',
            pane(head(offer('The queue is stale too, and it is still the better surface: it has the '

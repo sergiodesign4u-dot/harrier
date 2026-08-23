@@ -19,7 +19,7 @@ INLINE = Q.INLINE + """
 /* INLINE: not-found :: for reconcile into _wf.css
    One column, no pane, no fixtures. Every value through var() except the measure, which has
    no token in the sheet yet: see point 4 of the report. */
-.nf{width:min(66ch,100%);margin:0 auto;padding:var(--s7) var(--s4);
+.nf{width:min(var(--measure),100%);margin:0 auto;padding:var(--s7) var(--s4);
     display:flex;flex-direction:column;gap:var(--s5)}
 .nf h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
 .nf-say{margin:0;font-size:var(--t-lg);line-height:var(--lh)}

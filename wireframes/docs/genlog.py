@@ -3,16 +3,9 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import genqueue as Q, gencase as C
 
-INLINE = C.INLINE + """
-/* 5.1 section 8: the log is NOT rendered at 360. `CLAUDE.md` gives the phone one scenario,
-   a paged case read and escalated, and answering an auditor is not it. So the narrowed
-   rendering says that instead of squeezing seven columns into a phone. 5.4 is the boundary
-   case and it is different: a permalink can arrive anywhere. */
-@media (max-width:900px){
-  .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,
-  .z4--log .banner:not(.only-narrow){display:none}
-  .z4--log .only-narrow{margin:var(--s4)}
-}"""
+# The log's own narrow behaviour lived here on five pages and now lives in _wf.css section 17,
+# which is where a rule on more than one page belongs. Nothing is left that is one off.
+INLINE = C.INLINE
 Q.INLINE = INLINE
 
 # ---------------------------------------------------------------------------- the row
@@ -148,7 +141,7 @@ page('log-narrowing.html', 'Decision log, narrowing', CHIPS_RUN,
      '<b>Narrowing</b> <span class="dim">Meridian Health &middot; rejected &middot; June 2026</span>',
      '      <div class="rows rows--log" role="grid" aria-labelledby="lh" tabindex="0">\n'
      '        <div class="arriving" aria-label="Narrowing"></div>\n'
-     '        <p class="empty" style="padding:var(--s5)"><b>It narrows before it draws.</b>\n'
+     '        <p class="empty empty--tight"><b>It narrows before it draws.</b>\n'
      '          The log holds every decision on forty tenants, so a list that fills in while you read '
      'invites answering from a partial one.<br>\n'
      '          The query is on screen while it runs, because a wait you can read is a wait you can '

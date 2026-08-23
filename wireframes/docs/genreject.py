@@ -38,7 +38,7 @@ def dialog(body, footer, title='Reject Clerk&rsquo;s verdict'):
     <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh">
       <header>
         <h2 id="dh">%s</h2>
-        <p class="dim" style="margin:var(--s1) 0 0;font-size:var(--t-sm)">C-4417 &middot; Larkfield Logistics &middot; Clerk said <b>real, contain identity</b></p>
+        <p class="sub">C-4417 &middot; Larkfield Logistics &middot; Clerk said <b>real, contain identity</b></p>
       </header>
       <div class="body">
 %s      </div>
@@ -59,17 +59,17 @@ def page(fname, title, body, footer, sel_state=None):
     Q.page(fname, title, 'live', z4, z5 + dialog(body, footer),
            extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
 
-FOOT_DISABLED = ('        <span class="dim" style="font-size:var(--t-xs)">A reason is required</span>'
+FOOT_DISABLED = ('        <span class="hint">A reason is required</span>'
                  '<span class="grow"></span>'
                  '<a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a>'
                  '<span class="btn" aria-disabled="true">Reject and tune <span class="key">Enter</span></span>')
 def foot_live(where='queue-decided.html'):
-    return ('        <span class="dim" style="font-size:var(--t-xs)">One selection, one key</span>'
+    return ('        <span class="hint">One selection, one key</span>'
             '<span class="grow"></span>'
             '<a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a>'
             '<a class="btn btn--primary" href="%s">Reject and tune <span class="key">Enter</span></a>' % where)
 
-WHY = ('          <p class="dim" style="margin:0;font-size:var(--t-xs)">One keystroke picks what Clerk got wrong. '
+WHY = ('          <p class="anote">One keystroke picks what Clerk got wrong. '
        'Where it goes is derived from that and only asked when the pairing is genuinely ambiguous, '
        'which is five of six. <b>No <code>Next</code>, and no confirmation step:</b> if rejecting costs more '
        'than accepting, the analyst accepts.</p>\n')
@@ -112,7 +112,7 @@ page('reject-axis-b.html', 'Reject, second axis required',
      '          <p class="anote">Two choices, not five. '
      'The other five reasons derive their answer, so this is the only place a second keystroke is asked for.</p>\n'
      '        </section>\n',
-     ('        <span class="dim" style="font-size:var(--t-xs)">Where it goes is required</span>'
+     ('        <span class="hint">Where it goes is required</span>'
       '<span class="grow"></span>'
       '<a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a>'
       '<span class="btn" aria-disabled="true">Reject and tune <span class="key">Enter</span></span>'))
@@ -125,11 +125,11 @@ page('reject-tenant-normal.html', 'Reject, normal at this tenant',
      '        <section class="block">\n          <h3>Where it goes</h3>\n'
      '          <div class="axisb"><div class="locked"><b>Tenant context missing</b>'
      '<span class="routes">the tenant baseline, and it is locked</span></div></div>\n'
-     '          <div class="cons" style="margin-top:var(--s2)"><b>Nothing outside Larkfield Logistics changes.</b> '
+     '          <div class="cons cons--gap"><b>Nothing outside Larkfield Logistics changes.</b> '
      'Sending one client&rsquo;s normality to detection engineering is how a rule gets weakened for the '
      'thirty nine other tenants who did need it.</div>\n'
      '        </section>\n'
-     '          <p class="dim" style="margin:0;font-size:var(--t-xs)">The most consequential rule in the taxonomy, '
+     '          <p class="anote">The most consequential rule in the taxonomy, '
      'and it is enforced by the pairing rather than by a warning nobody reads. Straight from design principle 4: '
      'the same signal is a Tuesday at one client and an incident at another.</p>\n',
      foot_live())
@@ -144,7 +144,7 @@ page('reject-write-failed.html', 'Reject, the write failed',
      '        <section class="block">\n          <h3>What changes because of it</h3>\n'
      '          <div class="cons">Goes to <b>agent tuning</b> as <b>Clerk weighted the wrong signal</b>. '
      '<b>Not sent.</b></div>\n        </section>\n',
-     ('        <span class="dim" style="font-size:var(--t-xs)">Second attempt</span>'
+     ('        <span class="hint">Second attempt</span>'
       '<span class="grow"></span>'
       '<a class="btn btn--quiet" href="case-unrecorded.html">Hold it locally</a>'
       '<a class="btn btn--primary" href="queue-decided.html">Try again <span class="key">Enter</span></a>'),
@@ -158,7 +158,7 @@ page('reject-other.html', 'Reject, none of the six fits',
      '        <section class="block">\n          <h3>Where it goes</h3>\n'
      '          <div class="axisb"><div class="locked"><b>Held, not routed</b>'
      '<span class="routes">nowhere yet, and counted</span></div></div>\n'
-     '          <div class="cons" style="margin-top:var(--s2)"><b>Nothing is sent to detection or to tuning.</b> '
+     '          <div class="cons cons--gap"><b>Nothing is sent to detection or to tuning.</b> '
      'A reason the taxonomy cannot name is a reason nobody downstream can act on, so it is recorded, '
      'counted, and read by a person.</div>\n'
      '        </section>\n'
