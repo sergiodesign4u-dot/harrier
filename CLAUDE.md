@@ -94,6 +94,8 @@ United States and EU, SOC 2 Type II, tenant data isolation, EU residency option,
 4. Tenant context is never more than a glance away. The same signal is a Tuesday at one client and an incident at another.
 5. Density is the feature. Six hours a day means no decorative whitespace, keyboard before mouse, and no overlay that hides the evidence the analyst is deciding on.
 
+**The console ground is dark, and a light theme is a named debt rather than a nicety.** Decided against the reading research, which favours light and favours it more as the type gets smaller [Piepenbrock 2013 via NN/g], and against halation, which hits a large minority. What carries it is the rota: 79% of SOCs run 24/7 [SANS] and a case is opened from a phone at 03:00. **The reflex measured at 06 was the palette, not the ground:** dark plus an electric blue or violet accent is still rejected on sight. Halation then forces three things, and without them dark is done badly: never pure white on pure black, body text at weight 400 or above, and slightly open tracking on small monospace. Grounds in `docs/decisions.md`.
+
 **`wireframes/` is grey and stays grey.** Colour, type family, icons, shadows and motion arrive at 06 to 08 on **copies** under `design/`, never by painting `_wf.css`. The same sentence stands in `wireframes/CLAUDE.md` on purpose: a nested file loads only when Claude reads that folder and does not survive a compaction, and forgetting this one costs the whole artefact of the stage.
 
 ## Voice

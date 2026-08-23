@@ -90,7 +90,32 @@ Five pairs of visual opposites. Each carries the **line of data** it stands on a
 
 ---
 
-## 4. One conflict between the data and the taste, and it is not smoothed
+## 4. The ground, decided rather than assumed
+
+**The console is dark. Light is a named debt.** Decided by the user on 2026-08-23, after the evidence was put on the table, and written here rather than left to the plate, because **the reading research points the other way** and a later reader would otherwise take this for a style choice.
+
+**Against dark, and it is the stronger literature.** Piepenbrock et al., 2013, cited by NN/g: light mode won on visual acuity and on proofreading, irrespective of age, and *"the positive-polarity advantage increased linearly as the font size was decreased"*. A1 makes this product small type on purpose, so the advantage of the ground we did not choose **grows with our own density**. Add halation: a dark ground opens the iris, and for astigmatism, which sources put between one in three and 47%, light text bleeds.
+
+**For dark, and none of it is taste.**
+
+| What carries it | Where it comes from |
+|---|---|
+| Night work is half the rota, and a case is opened from a phone at 03:00 | 79% of SOCs run 24/7 [SANS SOC Survey 2025]; the on-call scenario is in `CLAUDE.md`, Platform |
+| The only long-term measure in the set runs the other way: choroid thinning in light mode, thickening in dark, thinning being the myopia direction | Aleman et al., 2018, cited by NN/g. She sits here six hours a day for years |
+| **A2.** One accent reads at less area and less saturation on near black. A light ground needs more colour, which is what A2 forbids | This file, section 3 |
+| **A4.** Axiom separates three near-black surfaces by tone alone. That a light ground gives fewer usable steps before grey on grey is **our reasoning, not a measurement** | This file, section 3, and `references.md` |
+
+**The counter is answered, not dismissed.** Piepenbrock measures reading. This screen is mostly scanning counts and chips and then deciding, and voice Principle 2 already made prose the exception. **If that reading of the task is wrong, the ground is wrong.**
+
+**Dark does not lift the ban.** Eight of ten results at step 1 were dark plus electric blue or violet. **The reflex was the palette, not the ground.**
+
+**Three constraints halation forces, without which dark is done badly:** never pure white on pure black, both ends pull in; body text at weight 400 or above, never 300 on dark; monospace at small sizes gets slightly open tracking.
+
+**Full grounds and the sources in `docs/decisions.md`, entry of 2026-08-23.**
+
+---
+
+## 5. One conflict between the data and the taste, and it is not smoothed
 
 **Bloomberg Terminal is in section 2a. A2 says saturation is scarce. Bloomberg's colour economy is the opposite:** colour there is a **code**, carried by many elements at once, amber and cyan and red across a wall of cells.
 
@@ -103,7 +128,7 @@ They cannot both be the language, so the split is named rather than averaged:
 
 ---
 
-## 5. What this file deliberately does not commit
+## 6. What this file deliberately does not commit
 
 No hex, no radius value, no font name, no spacing scale. Step 3 generates the plates, and the palette is read off **pixels**, with each value carrying its origin. The five pairs above are what a plate will be judged against, and the two lists in section 2 are what its prompt will be written from.
 

@@ -391,3 +391,28 @@ Stage 04 built the pages from ten Python generators in `wireframes/docs/`, and t
 ## 2026-08-23 &middot; The `h1` on 19 screens is wrong and stage 05 did not fix it
 
 `console-shell.md` says the `h1` belongs to whatever fills Z4 plus Z5, so a case open in the pane makes the case the heading of the page, and `case-file.md` §7 requires one `h1` carrying the case and its client. On all 19 case, reject and escalate pages the `h1` is the queue readout and the case identity is an `h2`. **Carried rather than fixed, because the defect is which element carries the heading and this stage changes text.** Step 6 accepted the reference screen with it live, because it checked the words in the `h1` and not which element was the `h1`. Recorded in `voice/docs/critique.md` §5a.
+
+## 2026-08-23 &middot; The console ground is dark, and the reading research says the opposite
+
+**Decision: dark is the default ground of the console. Light is a named debt, not a nicety.** Taken by the user at stage 06 after the evidence was put on the table, and recorded here because the evidence points the other way and a later reader will otherwise assume this was a style choice.
+
+**What the research actually says, from pages opened on 2026-08-23.** Piepenbrock et al., 2013, cited by NN/g: light mode won across all dimensions, on visual acuity and on proofreading, irrespective of age. And the finding that lands on us specifically: *"the positive-polarity advantage increased linearly as the font size was decreased: namely, the smaller the font, the better it is for users to see the text in light mode."* Design principle 5 makes this product small type on purpose, so the advantage of the ground we did **not** choose grows with our own density. NN/g does not recommend dark mode for normal-vision users.
+
+**The second argument against.** A dark ground opens the iris, and for astigmatism that produces halation, where light text bleeds. Prevalence figures differ by source, from one in three to 47%, but the order of magnitude is the same: a large minority, not an edge case.
+
+**What carried it anyway, and it is not taste.**
+
+- **The shift, which is sourced.** 79% of SOCs are operational 24/7 [SANS SOC Survey 2025], so night work is half the rota rather than an exception, and `CLAUDE.md` already carries the on-call scenario of a case opened from a phone at 03:00. A bright field at night is a glare source and destroys dark adaptation.
+- **Aleman et al., 2018**, cited by NN/g: significant thinning of the choroid when reading in light mode and significant thickening in dark mode, the thinning being the direction associated with myopia. This is the only long-term measure in the set, and this operator sits here six hours a day for years.
+- **Attribute A2, saturation is scarce.** On a near-black ground one accent reads at less area and less saturation. A light ground needs more of it, which is the thing A2 forbids.
+- **Attribute A4, depth by tone.** Axiom demonstrates three near-black surfaces separated by tone alone. **That a light ground offers fewer usable tonal steps before it reads as grey on grey is our reasoning, not a measurement**, and it is marked as reasoning.
+
+**The counter-argument is answered rather than dismissed.** Piepenbrock measures reading and proofreading of text. This screen is mostly scanning counts and chips and then deciding, and voice Principle 2 already made prose the exception rather than the substance. The one thing she genuinely reads is a short verdict line, whose size is not under pressure. **If that reading of the task is wrong, the ground is wrong**, and this paragraph is where a later stage should come back to.
+
+**Dark does not lift the ban.** Eight of ten style results at step 1 were dark plus an electric blue or violet accent. **The reflex was the palette, not the ground.** Dark plus electric blue is still rejected on sight.
+
+**Three constraints the halation evidence forces on the dark theme**, without which dark is done badly: never pure white on pure black, both ends are pulled in; body text at weight 400 or above, never 300 on dark; monospace at small sizes gets slightly open tracking.
+
+**What it settles immediately.** Plates A and B propose light product surfaces and fall on the ground. Plate C is the only dark one of the three.
+
+**Sources, opened in session:** `https://www.nngroup.com/articles/dark-mode/`, `https://www.boia.org/blog/dark-mode-can-improve-text-readability-but-not-for-everyone`.
