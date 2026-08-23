@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Harrier &middot; Reject, normal at this tenant</title>
+<title>Harrier &middot; Reject, none of the six fits</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="_wf.css">
 <style>
@@ -183,16 +183,18 @@
             <a class="opt" href="reject-chosen.html"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
             <a class="opt" href="reject-chosen.html"><span class="key">4</span><span class="lbl">Right answer, wrong scope</span><span class="routes">agent tuning</span></a>
             <a class="opt" href="reject-chosen.html"><span class="key">5</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
-            <a class="opt is-chosen" href="reject-tenant-normal.html"><span class="key">6</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
-            <a class="opt" href="reject-other.html"><span class="key">7</span><span class="lbl">Other, and say why</span><span class="routes">nowhere yet, and counted</span></a>
+            <a class="opt" href="reject-tenant-normal.html"><span class="key">6</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
+            <a class="opt is-chosen" href="reject-other.html"><span class="key">7</span><span class="lbl">Other, and say why</span><span class="routes">nowhere yet, and counted</span></a>
           </div>
         </section>
         <section class="block">
           <h3>Where it goes</h3>
-          <div class="axisb"><div class="locked"><b>Tenant context missing</b><span class="routes">the tenant baseline, and it is locked</span></div></div>
-          <div class="cons" style="margin-top:var(--s2)"><b>Nothing outside Larkfield Logistics changes.</b> Sending one client&rsquo;s normality to detection engineering is how a rule gets weakened for the thirty nine other tenants who did need it.</div>
+          <div class="axisb"><div class="locked"><b>Held, not routed</b><span class="routes">nowhere yet, and counted</span></div></div>
+          <div class="cons" style="margin-top:var(--s2)"><b>Nothing is sent to detection or to tuning.</b> A reason the taxonomy cannot name is a reason nobody downstream can act on, so it is recorded, counted, and read by a person.</div>
         </section>
-          <p class="dim" style="margin:0;font-size:var(--t-xs)">The most consequential rule in the taxonomy, and it is enforced by the pairing rather than by a warning nobody reads. Straight from design principle 4: the same signal is a Tuesday at one client and an incident at another.</p>
+        <div class="field"><label for="note">What Clerk got wrong, in your words</label><textarea id="note" rows="2">Clerk read the maintenance window as the reason and it was the wrong window, so the conclusion is right by accident</textarea></div>
+          <p class="gnote">Required here, and only here.</p>
+          <p class="anote">This is the <b>idle control on the taxonomy</b>. Five per cent of rejections landing here means the six values are working; thirty per cent means they describe the wrong product, and the only way to know is to count. That is why <code>other</code> is a recorded value rather than a blank box, and why it is the one place free text is required instead of optional.</p>
       </div>
       <footer>        <span class="dim" style="font-size:var(--t-xs)">One selection, one key</span><span class="grow"></span><a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a><a class="btn btn--primary" href="queue-decided.html">Reject and tune <span class="key">Enter</span></a></footer>
     </section>

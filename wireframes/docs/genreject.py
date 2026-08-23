@@ -17,6 +17,10 @@ AXIS_A = [
   ('4','Right answer, wrong scope',      'Clerk weighted the wrong signal','agent tuning',          'reject-chosen.html'),
   ('5','Not enough evidence either way', 'Nothing to change',              'nowhere',               'reject-chosen.html'),
   ('6','Normal at this tenant',          'Tenant context missing',         'the tenant baseline, locked', 'reject-tenant-normal.html'),
+  # The seventh value is the escape hatch, and 0.7 puts it in the state matrix rather than in
+  # the list of six, which is how it went undrawn until step 9. It is last on purpose: a taxonomy
+  # whose easiest answer is `other` stops describing anything.
+  ('7','Other, and say why',              'Held, not routed',               'nowhere yet, and counted', 'reject-other.html'),
 ]
 
 def optlist(chosen=None):
@@ -146,4 +150,26 @@ page('reject-write-failed.html', 'Reject, the write failed',
       '<a class="btn btn--primary" href="queue-decided.html">Try again <span class="key">Enter</span></a>'),
      sel_state=['unrecorded!'])
 
-print('generated 5 reject pages')
+# ------------------------------------------------- 6. the seventh value, the escape hatch
+page('reject-other.html', 'Reject, none of the six fits',
+     '        <section class="block">\n          <h3>What Clerk got wrong</h3>\n'
+     + optlist('Other, and say why') +
+     '        </section>\n'
+     '        <section class="block">\n          <h3>Where it goes</h3>\n'
+     '          <div class="axisb"><div class="locked"><b>Held, not routed</b>'
+     '<span class="routes">nowhere yet, and counted</span></div></div>\n'
+     '          <div class="cons" style="margin-top:var(--s2)"><b>Nothing is sent to detection or to tuning.</b> '
+     'A reason the taxonomy cannot name is a reason nobody downstream can act on, so it is recorded, '
+     'counted, and read by a person.</div>\n'
+     '        </section>\n'
+     '        <div class="field"><label for="note">What Clerk got wrong, in your words</label>'
+     '<textarea id="note" rows="2">Clerk read the maintenance window as the reason and it was the '
+     'wrong window, so the conclusion is right by accident</textarea></div>\n'
+     '          <p class="gnote">Required here, and only here.</p>\n'
+     '          <p class="anote">This is the <b>idle control on the taxonomy</b>. Five per cent of rejections '
+     'landing here means the six values are working; thirty per cent means they describe the wrong product, '
+     'and the only way to know is to count. That is why <code>other</code> is a recorded value rather than '
+     'a blank box, and why it is the one place free text is required instead of optional.</p>\n',
+     foot_live())
+
+print('generated 6 reject pages')

@@ -98,6 +98,23 @@ And the extend route is absurd here: warning the analyst that a toast is about t
 
 ---
 
+## 6b. Where it is anchored, settled by drawing it at stage 04
+
+This node was specified as MVP with three notices marked **yes** and stage 04 drew none of them, which is how a whole node came to live only in prose. Drawing it settled one thing the specification had stated as a location rather than as a rule.
+
+**Zone Z6 is anchored to the list column, not to the viewport.** Section 1 says bottom left, above the list and never over the detail pane. Anchored to the viewport, a notice at 1440 sits over the pane, which is where the evidence being decided on is. Anchored inside the list, it scrolls away with the rows, because the list is a scrollport. It hangs off the row that contains both columns, and its width is capped below the point where it could reach the pane.
+
+**At 360 it is anchored to the viewport, and that is not an exception.** At that width there is no pane to cover: 4.2 settles that a case takes the whole screen there.
+
+| Drawn | Where |
+|---|---|
+| One notice, dismissible | 3.1, connection recovered with a replay count |
+| Three visible, two collapsed, failure pinned | 3.1, the cap and the pinning rule together |
+
+The full stack is drawn on purpose rather than as an edge case. **The cap and the pinning rule are only decidable when the stack is full**, and a notice layer specified but never drawn at capacity is how three visible turns into six in the build.
+
+---
+
 ## 7. Not this node
 
 | Not here | Lives at |

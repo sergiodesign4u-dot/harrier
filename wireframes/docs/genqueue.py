@@ -118,6 +118,35 @@ CHIPS_LIVE = ('        <a class="chip" href="queue-no-match.html">All tenants &#
               '        <button class="chip" type="button">Waiting on a decision &times;</button>\n'
               '        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>\n')
 
+# ---------------------------------------------------------------- zone Z6, 8.4
+# The stack is a third child of .z45, not of .z4: 8.4 anchors it bottom left, above the list
+# and never over the detail pane, and .z4 is a scrollport, so a notice inside it would scroll
+# away with the rows. Passed to page() as part of the z5 string, which is what puts it last.
+def toast(body, role='status', dismiss=True, hold=None):
+    tail = ''
+    if hold:
+        tail = '        <span class="t-hold">%s</span>\n' % hold
+    elif dismiss:
+        tail = '        <a class="t-x" href="queue.html" aria-label="Dismiss this notice">&times;</a>\n'
+    cls = ' toast--alert' if role == 'alert' else ''
+    return ('      <div class="toast%s" role="%s">\n'
+            '        <p><span class="role">%s</span>%s</p>\n'
+            '%s      </div>\n') % (cls, role, role.upper(), body, tail)
+
+def z6(items, more=None):
+    out = '    <div class="z6" aria-label="Notices">\n'
+    if more:
+        out += '      <p class="z6-more">%s</p>\n' % more
+    out += ''.join(items)
+    return out + '    </div>\n'
+
+T_REPLAY = ('<b>Reconnected. 3 cases replayed.</b> They arrived while the strip was up and '
+            'are in the list now, in their place by severity and age.')
+T_TAKEN  = ('<b>D. Okonkwo took C-4417.</b> You had it open. Nothing is locked, and if you both '
+            'file, the log records both and marks the second as arriving after the first.')
+T_FAILED = ('<b>The verdict on C-4417 did not write.</b> You accepted it 6m ago and this console '
+            'is the only place that decision exists. <a href="case-unrecorded.html">Open the case</a>')
+
 def grid(rows_html, extra=''):
     return ('      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">\n%s%s%s      </div>\n\n'
             % (extra, HEAD, rows_html))
@@ -279,4 +308,30 @@ if __name__ == '__main__':
          ESC_PANE,
          extra_script=", annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> upheld, 30 days'] }")
 
-    print('generated 9 pages')
+    # ---------------------------------------------------------------- 10. one notice, 8.4
+    NOTE_ONE = ('      <p class="anote">8.4 is the node that decides what does <b>not</b> earn a notice. '
+                'Three of its six events are <b>no</b>, and filing a verdict is one of them: the row '
+                'changes under her hand, so a toast would only add a thing to dismiss. What is left is '
+                'what happened <b>off screen</b>, and a replay carries a count she cannot get any other way.</p>\n')
+    page('queue-notice.html', 'Case queue, one notice', 'live',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            grid(rows_html(BASE_ROWS)) + NOTE_ONE,
+            FOOT % '7 of 18 shown, 3 of them replayed'),
+         fleet() + z6([toast(T_REPLAY)]))
+
+    # ---------------------------------------------------------------- 11. the stack is full, 8.4
+    NOTE_MANY = ('      <p class="anote">The worst case is drawn on purpose: the cap and the pinning rule '
+                 'are only decidable when the stack is full. <b>Three visible, older ones collapse to a count</b>, '
+                 'and the failure is held at the bottom, nearest the eye, where it does not collapse and '
+                 'carries no close control. A dismissible warning about a verdict that was never recorded '
+                 'is a way of forgetting it, so it clears when 4.10 resolves rather than when she clicks. '
+                 '<b>Nothing here takes focus</b>, because focus belongs to the evidence being read.</p>\n')
+    page('queue-notices.html', 'Case queue, the stack is full', 'live',
+         z4(CHIPS_DEFAULT, '<b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span>',
+            grid(rows_html(BASE_ROWS)) + NOTE_MANY,
+            FOOT % '7 of 18 shown, 1 unrecorded and held'),
+         fleet() + z6([toast(T_TAKEN), toast(T_REPLAY),
+                       toast(T_FAILED, role='alert', hold='stays until the write lands')],
+                      more='2 earlier notices'))
+
+    print('generated 11 pages')

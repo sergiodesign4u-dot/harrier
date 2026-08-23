@@ -51,6 +51,9 @@ Alongside it sits a free text resolution note, and comments where "Each comment 
 | **Right answer, wrong scope** | Correct about the event, wrong about how many assets or accounts it touched |
 | **Not enough evidence either way** | Clerk should have escalated rather than concluded. A verdict is being rejected for existing, not for being wrong |
 | **Normal at this tenant** | Correct in general, wrong here. The base rate answer, and it is the one that must not be routed to the detection engineer |
+| **Other, and say why** | None of the six fits. Free text becomes required, nothing is routed, and the value is counted |
+
+**The seventh value was written in the state matrix below and left out of this list, and stage 04 found it by trying to draw the list.** It is last on purpose and it is named rather than blank: a taxonomy whose easiest answer is `other` stops describing anything, and a count is the only thing that can tell you it has happened.
 
 ### Axis B, where it goes
 
@@ -80,10 +83,11 @@ Design principle 3 says override is one key. A rejection that asks for two dropd
 | Right answer, wrong scope | Clerk weighted the wrong signal | No |
 | Not enough evidence either way | Nothing to change | No |
 | Normal at this tenant | Tenant context missing | No, and it is locked |
+| Other, and say why | Held, not routed | No, and the free text becomes required |
 
 **Five of six need no second question.** That count is what makes the structure affordable, and it is why the taxonomy was designed as a pairing rather than as two independent lists.
 
-**Free text stays, and it is never the carrier.** Optional, additive, and read by humans only. Stage 02 found that handover quality varies widely between individuals and that no organisation trains it; structure is what removes the variation, so nothing downstream may depend on the prose.
+**Free text stays, and it is never the carrier.** Optional everywhere except under `Other`, additive, and read by humans only. Stage 02 found that handover quality varies widely between individuals and that no organisation trains it; structure is what removes the variation, so nothing downstream may depend on the prose.
 
 ---
 

@@ -162,8 +162,29 @@ This is the same rule the project already runs on written claims, applied to the
 | Time, wall clock | 2.1 |
 | Effort, signals | 3.1 |
 | Effort, sources | 4.1, 4.2, 5.4 |
-| State chips | 3.1, 5.1, 4.1, 3.6 as a facet |
+| State chips | 3.1, 4.1, 3.6 as a facet. **Not 5.1**, see below |
 | Fixtures | every mockup, and every stage after this one |
+
+**5.1 has a column headed `State` and it is a different vocabulary, which this table used to deny.**
+Found at stage 04 by two instruments independently, and the fix belongs here rather than on the screen.
+
+| | 3.1 State | 5.1 State |
+|---|---|---|
+| **What it describes** | a case, right now | an entry, which is a past action and cannot change |
+| **Vocabulary** | the six chips in section 6 | `upheld`, `rejected`, `amended`, `escalated`, `superseded`, `Clerk acted alone` |
+| **Who sets it** | whatever is true of the case this second | the write that created the row, and it never changes after |
+| **Stacking** | at most two, highest first | exactly one. An entry is one act |
+
+**Only one word appears in both, and it means different things.** `escalated` on a row says the case
+left her hands and is still open; on an entry it says a handover was written at 04:41 and that fact
+is now permanent. The rest do not overlap at all: a row never says `upheld` or `amended`, because
+those describe what a person did rather than where the case stands, and an entry never says
+`investigating` or `taken`, because an entry is finished by definition.
+
+**Neither set may borrow from the other**, and the reason is the compliance requirement rather than
+tidiness: a log row whose value could still change is not an append only record. Reconciling the two
+uses of the word `escalated` is stage 05's, and it is the wording that gets reconciled, not the
+taxonomies.
 
 ---
 
@@ -250,6 +271,17 @@ The argument is the one that already settled UTC for the log: one analyst covers
 | **C-3180** at Norsk Marine, June 2026 | 5.5 needs an entry old enough for its snapshot to have failed, and the canonical case is four hours old |
 
 **The canonical case is still one**, `C-4417`, and it is still what 3.1, 4.1, 4.2 and 5.4 draw. These three exist because a state needed a case the canonical one cannot be, which is the same reason 4.8 was allowed a different tenant in the first place.
+
+### Two more, found at step 9 already drawn and never declared
+
+Both were on live pages before this section named them. That is the failure mode this section exists to prevent, and it is worth saying which one it was: not an invented number, but a **necessary** fixture that nobody wrote down, so nothing downstream could check it for consistency.
+
+| Fixture | Why the canon could not do without it |
+|---|---|
+| **C-0441** at Bramber Retail, 2024 | 5.4 needs an entry **beyond the retention window**, not merely one whose snapshot failed. `C-3180` is June 2026 and inside it. The year is the whole content of this fixture: the reader has to be able to see, without reading a sentence, that this record is older than what the product keeps |
+| **C-4419**, no tenant, no case | 8.1 requires that **not found** and **not yours** be indistinguishable, so it needs an address that resolves to nothing. It is one digit off `C-4417` on purpose: the realistic way to arrive here is a mistyped id read aloud on a phone at 03:00, and that is the only journey into 8.1 that the product can do anything about |
+
+**`C-4419` is the one fixture in the set that must never gain a tenant, a severity or a verdict.** Giving it any of them would make the page able to say which of the two things went wrong, which is exactly what 8.1 forbids: a not found page that distinguishes a bad id from another provider's case is a tenant enumeration oracle.
 
 ### Two timestamps in the drawings contradicted the events they carried
 

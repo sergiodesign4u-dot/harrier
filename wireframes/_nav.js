@@ -64,7 +64,7 @@ window.WF_NAV = {
     { node:'0.8', label:'Reading conventions',        host:'A canonical list. Read by every screen' },
     { node:'3.5', label:'Fleet',                      host:'The resting state of the pane on 3.1' },
     { node:'3.6', label:'Scope and filters',          host:'A band inside 3.1 and 5.1' },
-    { node:'8.4', label:'Toast stack',                host:'A layer over any screen that raises a condition' },
+    { node:'8.4', label:'Toast stack',                host:'Zone Z6 of the shell. Drawn on 3.1, one notice and the stack full' },
   ],
 
   screens: [
@@ -81,6 +81,8 @@ window.WF_NAV = {
         {slug:'clerk-down',  label:'Clerk not investigating', kind:'domain'},
         {slug:'taken',       label:'Taken by a colleague', kind:'domain'},
         {slug:'escalated',   label:'Just escalated, 4.6', kind:'success'},
+        {slug:'notice',      label:'One notice, 8.4',      kind:'domain'},
+        {slug:'notices',     label:'Stack full, 8.4',      kind:'domain'},
       ],
       noState:[{label:'Out of scope', why:'Not a state of the page. Tenants outside her provider scope are never rendered, not even greyed, so there is nothing to draw. It is an absence in the data'}] },
 
@@ -104,6 +106,7 @@ window.WF_NAV = {
         {slug:'chosen',        label:'Reason chosen',          kind:'success'},
         {slug:'axis-b',        label:'Second axis required',   kind:'domain'},
         {slug:'tenant-normal', label:'Normal at this tenant',  kind:'domain'},
+        {slug:'other',         label:'None of the six fits',   kind:'domain'},
         {slug:'write-failed',  label:'Did not write, 4.9',     kind:'error'},
       ],
       noState:[{label:'Loading', why:'Nothing is fetched. The taxonomy is a canonical list already in the client, from 0.7'}] },

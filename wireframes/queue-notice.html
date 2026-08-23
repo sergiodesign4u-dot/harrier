@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Case queue, one notice</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="_wf.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="qh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip" type="button">All tenants &#9662;</button>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+
+      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in scope</span></h1>
+
+      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Client</span>
+          <span role="columnheader">What it is</span>
+          <span role="columnheader">What Clerk concluded</span>
+          <span role="columnheader">To check</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">Age</span>
+        </div>
+        <a class="row" role="row" href="case-unrecorded.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Mass file rename on one host</span>
+          <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
+          <span role="gridcell" class="cost">4 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="age" role="gridcell">1h</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">27m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">14 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">52m</span>
+        </a>
+        <a class="row" role="row" href="case-no-baseline.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span role="gridcell">Sign in from an unseen device</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">6m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Halden Freight</span>
+          <span role="gridcell">Impossible travel, two offices</span>
+          <span class="concluded" role="gridcell"><b>Benign, sanctioned VPN rollout</b></span>
+          <span role="gridcell" class="cost">6 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">4m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Halcyon Care</span>
+          <span role="gridcell">Beaconing to a new domain</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">5 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">2h</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Bramber Retail</span>
+          <span role="gridcell">Mass mailbox rule creation</span>
+          <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
+          <span role="gridcell" class="cost">3 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">41m</span>
+        </a>
+      </div>
+
+      <p class="anote">8.4 is the node that decides what does <b>not</b> earn a notice. Three of its six events are <b>no</b>, and filing a verdict is one of them: the row changes under her hand, so a toast would only add a thing to dismiss. What is left is what happened <b>off screen</b>, and a replay carries a count she cannot get any other way.</p>
+      <p class="qfoot">
+        <span>7 of 18 shown, 3 of them replayed</span>
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, blocked on her, severity, age</span>
+      </p>
+    </section>
+
+    <aside class="z5" aria-labelledby="fh">
+      <div class="pane-head">
+        <h2 id="fh">Fleet</h2>
+        <p class="sub">40 tenants, nothing selected. Ordered by where attention is owed</p>
+      </div>
+      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Record</span></div>
+      <a class="frow" href="queue.html"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+      <a class="frow" href="queue.html"><span>Halcyon Care</span><span>Contain endpoint</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+      <a class="frow" href="queue.html"><span>Aubrey Dental Group</span><span>Investigate</span><span class="rec">&ndash;<span class="was">no rulings yet</span></span></a>
+      <a class="frow" href="queue.html"><span>Bramber Retail</span><span>Contain network</span><span class="rec">51 of 52<span class="was">was 49 of 51</span></span></a>
+      <a class="frow" href="queue.html"><span>Halden Freight</span><span>Contain endpoint</span><span class="rec">27 of 29<span class="was">was 26 of 29</span></span></a>
+      <a class="frow" href="queue.html"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
+      <a class="frow" href="queue.html"><span>Norsk Marine</span><span>Investigate</span><span class="rec">18 of 20<span class="was">was 18 of 20</span></span></a>
+      <p class="fleet-more">33 more, 30 day window &middot; a row narrows the queue to that tenant</p>
+    </aside>
+    <div class="z6" aria-label="Notices">
+      <div class="toast" role="status">
+        <p><span class="role">STATUS</span><b>Reconnected. 3 cases replayed.</b> They arrived while the strip was up and are in the list now, in their place by severity and age.</p>
+        <a class="t-x" href="queue.html" aria-label="Dismiss this notice">&times;</a>
+      </div>
+    </div>
+  </main>
+</div>
+</div>
+<script src="_nav.js"></script>
+<script>WF_SHELL({ current:'queue', strip:'live' });</script>
+</body>
+</html>

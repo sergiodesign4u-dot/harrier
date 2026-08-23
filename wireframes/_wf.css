@@ -99,7 +99,7 @@ body{
 .z2.is-degraded b{text-decoration:underline;text-underline-offset:2px}
 
 /* Z4 + Z5, the split */
-.z45{flex:1 1 auto;display:flex;min-height:0;align-items:stretch}
+.z45{position:relative;flex:1 1 auto;display:flex;min-height:0;align-items:stretch}
 .z4{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;border-right:var(--line-ink);background:var(--paper)}
 .z5{flex:0 0 var(--pane);min-width:0;display:flex;flex-direction:column;background:var(--fill);overflow-y:auto}
 .z5.is-paper{background:var(--paper)}
@@ -495,7 +495,7 @@ a.opt:hover{background:var(--fill)}
   --frame:820px;        /* the framed record. 5.4 */
   --dialog-w:520px;     /* 4.4, 4.6 */
   --dialog-w-wide:720px;/* 0.5, which is a reference table rather than a decision */
-           /* WCAG SC 2.5.8 floor. It was --s5, a space token doing a size job */
+  --toast:400px;        /* 8.4, the notice stack. Narrow enough that it never reaches --pane */
 }
 
 
@@ -532,4 +532,50 @@ a.opt:hover{background:var(--fill)}
    --------------------------------------------------------------------------------------- */
 @media (max-width:900px){
   .z4--solo,.z4--entry{overflow:visible}
+}
+
+
+/* ---------------------------------------------------------------------------------------
+   16. ZONE Z6, THE TOAST STACK. 8.4 was specified as MVP with three notices marked `yes`
+   and not one of them was drawn: step 9 found a whole node living only in prose.
+
+   It is anchored to `.z45`, not to the viewport, and that is the node's rule rather than a
+   preference: 8.4 says bottom left, above the list and NEVER over the detail pane. A fixed
+   element would sit over the pane at 1440, which is where the evidence being decided on is.
+   `--toast` is 400px, and the list is never narrower than that plus the pane, so the two
+   cannot meet.
+
+   No drop shadow. The grey contract at the top of this file says no shadows, so the lift
+   comes from an ink border against the hairlines of the list, and the assertive notice is
+   separated by border weight rather than by colour, which is the only lever a B/W stage has.
+   --------------------------------------------------------------------------------------- */
+.z6{position:absolute;left:var(--s4);bottom:var(--s4);z-index:5;
+    width:min(var(--toast),calc(100% - var(--s6)));display:flex;flex-direction:column;gap:var(--s2)}
+.z6-more{margin:0;align-self:flex-start;border:var(--line);border-radius:var(--radius);
+         background:var(--fill);padding:var(--s1) var(--s2);
+         font:var(--t-xs)/1.4 var(--ui);color:var(--soft)}
+.toast{display:flex;gap:var(--s3);align-items:flex-start;background:var(--paper);
+       border:var(--line-ink);border-radius:var(--radius);padding:var(--s3);
+       font-size:var(--t-sm);line-height:1.45}
+.toast p{margin:0;flex:1 1 auto;min-width:0}
+.toast .role{display:block;margin-bottom:var(--s1);font:700 9.5px/1 var(--mono);
+             letter-spacing:.14em;color:var(--soft)}
+.toast .t-x{flex:0 0 auto;width:var(--s5);height:var(--s5);display:flex;align-items:center;
+            justify-content:center;border:var(--line);border-radius:var(--radius);
+            color:var(--soft);text-decoration:none;font-size:var(--t-md);line-height:1}
+.toast .t-x:hover{border-color:var(--ink);color:var(--ink)}
+/* The failure notice is not dismissible while the verdict is unrecorded, so it carries no
+   close control at all. A disabled X would be a control that argues with itself. */
+.toast--alert{border-width:2px}
+.toast--alert .t-hold{flex:0 0 auto;align-self:center;font-size:var(--t-xs);color:var(--soft);
+                      text-align:right;max-width:9em}
+
+@media (max-width:900px){
+  /* 8.4 state matrix, the 360 column: bottom, full width, above the safe area. There is no
+     `.z45` box to hang off at this width because the layout is `display:block`, so this is
+     the one place the stack is fixed to the viewport. It still never covers the pane,
+     because at 360 there is no pane: the case takes the whole screen. */
+  .z6{position:fixed;left:0;right:0;bottom:0;width:auto;
+      padding:var(--s2) var(--s3) calc(var(--s3) + env(safe-area-inset-bottom));
+      background:var(--bg);border-top:var(--line-ink)}
 }
