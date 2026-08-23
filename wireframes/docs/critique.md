@@ -76,7 +76,13 @@ And the first version of that test asked whether `r === g === b`, which reported
 
 Five pages carried two black buttons, twice with the **same label**. One disabled control explained itself only in a `title` attribute and in node numbers. `Retry` and `Try again` were two words for one action. `ACTED 24m ago` put `ago` in a slot the canon says is bare.
 
-All fixed. Verified: exactly one visible `.btn--primary` per page across all 63.
+All fixed.
+
+**And the final sweep found the same rule broken the other way.** A probe that counts primaries per page and flags **zero** as loudly as two found that `reject.html` at 360 had none at all, while its own banner says *"on a phone the exit is escalate, and only escalate"*. `Accept` carries `only-desk` on that family, so the footer lost its primary along with it and the one action the screen names rendered as an ordinary outlined button. Fixed with `.btn--primary-narrow`, the other half of that pair.
+
+**Verified across all 62 screens at both widths: zero pages with more than one reachable primary.** Twenty three at the desk and thirty two at 360 have none, and that is correct rather than a gap: a queue's action is selecting a row, a log and a record are read only, and a reject dialog with no reason picked has nothing to submit yet.
+
+Two findings in the same sweep were struck. `index*.html` was reported as having no way out, and the door is a `<form action="queue.html">` that the probe could not see because it counted only `<a href>`: clicked live, all four doors open onto the right screen. And eight pages reported two primaries, which is a modal over a pane: the second sits under a 28 per cent scrim and is not reachable.
 
 ### Class G: the author was talking to the reviewer in the analyst's voice
 
