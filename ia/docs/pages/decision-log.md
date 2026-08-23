@@ -197,16 +197,16 @@ Seven screens were drawn at once against this layer, and drawing is what made th
 
 ### The State vocabulary has no value for an entry Clerk wrote, and that is a hole rather than an omission
 
-Section 4 fixes six values: `accepted`, `amended`, `rejected`, `escalated`, `superseded`, `Clerk acted alone`. Node 5.6 draws the history of a single case, and there the two commonest entries are Clerk **filing a verdict** and Clerk **opening the case**. Neither has a value.
+Section 4 fixes six values: `accepted`, `amended`, `rejected`, `escalated`, `superseded`, `acted alone`. Node 5.6 draws the history of a single case, and there the two commonest entries are Clerk **filing a verdict** and Clerk **opening the case**. Neither has a value.
 
-**`Clerk acted alone` is the only machine value the list holds, and on the canonical case it is the one thing that did not happen**, because contain identity is above Larkfield's ceiling. So the busiest actor in the product had no vocabulary on the surface that records it.
+**`acted alone` is the only machine value the list holds, and on the canonical case it is the one thing that did not happen**, because contain identity is above Larkfield's ceiling. So the busiest actor in the product had no vocabulary on the surface that records it.
 
 **Two values are added here**, in the register of the existing one, and both name an action rather than a decision because that is what they are:
 
 | Value | Means |
 |---|---|
-| **`Clerk filed a verdict`** | The agent finished and put a ruling in front of a person. The commonest entry in the log by a distance |
-| **`Clerk opened the case`** | The agent correlated signals into a case. The first entry any case has |
+| **`filed`** | The agent finished and put a ruling in front of a person. The commonest entry in the log by a distance |
+| **`opened`** | The agent correlated signals into a case. The first entry any case has |
 
 **Eight values now, and the closed set in 0.8 is unaffected**, because that set is the chips a *queue row* wears and this is the State column of a *log row*. They were already different lists with different jobs; this makes the difference say so.
 

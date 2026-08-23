@@ -96,6 +96,10 @@ United States and EU, SOC 2 Type II, tenant data isolation, EU residency option,
 
 **`wireframes/` is grey and stays grey.** Colour, type family, icons, shadows and motion arrive at 06 to 08 on **copies** under `design/`, never by painting `_wf.css`. The same sentence stands in `wireframes/CLAUDE.md` on purpose: a nested file loads only when Claude reads that folder and does not survive a compaction, and forgetting this one costs the whole artefact of the stage.
 
+## Voice
+
+Rules, not mood, and the whole set is in `voice/docs/voice.md`. Five that must hold every session: **speak to the analyst and to the person who reads the record months later**, second person, never `the user`, never the third person about her; **the cheapest correct thing first, depth one key away**, because length is a cost she pays forty times a shift; **a number names its claim, its scope and its window, count first and never a bare percentage**; **say what is true about the machine, including what it did not find**, and Clerk files and proposes rather than thinks, believes or wants; **one invented noun, `latitude`, and one invented name, `Clerk`**, no article, and no abbreviation this product coined. Two rules about the register carry more weight than they look: an IA node number, a zone label, a WCAG criterion, an argument for the design or a count of the product's own parts belongs in `.anote` or nowhere, and **correcting such a count preserves the defect rather than fixing it**; and a string that is true at 1440 and false at 360, or true in one state and false in another, is the class only a browser finds. The dictionary and the banned list stay in `voice/docs/voice.md`; the inventory of every string, with what changed and why, is `voice/docs/microcopy.md`.
+
 ## Tech stack hypothesis
 
 React with TypeScript. Virtualised tables for lists in the hundreds. Server-sent events for live queue updates. ClickHouse for telemetry, Postgres for cases, verdicts and the audit log. Claude for case narrative, verdict drafting and client summaries.
@@ -108,4 +112,6 @@ React with TypeScript. Virtualised tables for lists in the hundreds. Server-sent
 - Everything known about the market and the people: `research/`.
 - Structure, flows and coverage: `ia/`.
 - Screens, the reference screen, the first flow and the estimate: `wireframes/docs/screens.md`. The stage contract: `wireframes/docs/conventions.md`. What the critique found: `wireframes/docs/critique.md`.
+- Every interface string, and what changed at stage 05 with the rule behind it: `voice/docs/microcopy.md`. What that critique found: `voice/docs/critique.md`.
+- **A global find-and-replace is the wrong instrument for a state-dependent string.** It looks global because it stands on twenty pages, and it is not, because its truth is decided by the state. Twice at stage 05 it hit a page where the string was correct.
 - Page-local CSS takes a page-local prefix. `.note`, `.q`, `.node`, `.lede` and `.tw` belong to `research/_page.css` and silently restyle anything that reuses the name. Six collisions were found this way, each one visible only in a computed style. **The sixth was on an element selector rather than a class name**, `min-width:560px` on a bare `table`, so a local prefix does not protect against it: a page-local component has to unset the property, not merely set its own.

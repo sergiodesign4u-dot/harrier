@@ -371,3 +371,23 @@ Chosen deliberately adjacent to Flamingo's market rather than inside it. Flaming
 ## 2026-08-20 - Shortened pipeline track, 01 to 07
 
 The deliverable is two screens plus a written response, so the track runs Research, User Research, IA base, Wireframes, Voice, Concept, UI + Visual and stops. Stages 08 to 13 would produce a token architecture and a design system that the deliverable has no reader for.
+
+## 2026-08-23 &middot; `Open <the destination>`, and the limit on `Back to`
+
+Step 1 found seven wordings for going to the queue and seven for going to the log, and step 3 ruled neither: **the dictionary rules words, and where a link goes is a shape.** The ruling: `Open <the destination>` for any control that moves to another screen; `Back to X` only for a return the product can guarantee, meaning a sub-view or dialog opened from X in this session. Every top-level screen in this product is reachable from a pager link at 03:00, so `Back to the queue` on the log is a claim about where she came from that the product does not hold. Ten screens changed. Grounds: `voice/docs/voice.md`, the rulings.
+
+## 2026-08-23 &middot; `decision`, `ruling`, and why an escalation is one and not the other
+
+Node 5.6's `h1` read `every action and every override` above three entries containing no override, and the human half of the stream was called four things on one screen. **`decision`** is what a person did to a case, and it is already the product's word: `Decision log`, `waiting on a decision`. **`ruling`** is narrower and covers the three that answer Clerk's verdict: accept, amend, reject. **An escalation is a decision and not a ruling**, which is why `Clerk's verdict stands unruled` was true of an escalated case before this ruling existed. `override` stays the class of act rather than one act.
+
+## 2026-08-23 &middot; The three machine entry chips lost the word `Clerk`
+
+`Clerk opened the case`, `Clerk filed a verdict` and `Clerk acted alone` became `opened`, `filed`, `acted alone`. **A taxonomy stage 05 declared at step 3 broke a rule stage 05 wrote at step 4**, and neither step could see it, because the collision is between a closed list and a column width: in a browser those three were the only chips in the column that wrapped to two lines, 40px against every sibling at 25px. The cell to the chip's left names the actor on every row, so the word bought nothing. §6b's definition survives intact: an entry chip says what the entry is, and the actor is beside it. Fixed upward in `ia/docs/pages/reading-conventions.md` §6b and `decision-log.md`, prose and drawing together.
+
+## 2026-08-23 &middot; The generators were swept, because `wireframes/` freezes after this stage
+
+Stage 04 built the pages from ten Python generators in `wireframes/docs/`, and they still carried 93 occurrences of the retired vocabulary. **A generator that reproduces retired words is a trap rather than a leftover:** one rerun undoes the stage and looks like a harmless build step. No agent in the fan-out could have found it, because each was given a list of pages, which is the correct boundary.
+
+## 2026-08-23 &middot; The `h1` on 19 screens is wrong and stage 05 did not fix it
+
+`console-shell.md` says the `h1` belongs to whatever fills Z4 plus Z5, so a case open in the pane makes the case the heading of the page, and `case-file.md` §7 requires one `h1` carrying the case and its client. On all 19 case, reject and escalate pages the `h1` is the queue readout and the case identity is an `h2`. **Carried rather than fixed, because the defect is which element carries the heading and this stage changes text.** Step 6 accepted the reference screen with it live, because it checked the words in the `h1` and not which element was the `h1`. Recorded in `voice/docs/critique.md` §5a.

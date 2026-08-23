@@ -56,6 +56,12 @@
 .v-strip .w{font-size:13px;color:var(--muted);line-height:1.4}
 
 @media (max-width:760px){ .v-pair{grid-template-columns:1fr} }
+
+.v-pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4,20px);margin:var(--s4,20px) 0}
+.v-pair figure{margin:0;min-width:0}
+.v-pair img{width:100%;height:auto;display:block;border:1px solid var(--rule,#d8d8d8);border-radius:4px}
+.v-pair figcaption{font-size:13px;line-height:1.5;margin-top:8px;color:var(--muted,#555)}
+@media (max-width:760px){.v-pair{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1070,6 +1076,67 @@
 <tr><td><code>keyboard</code></td><td class="v-s">↑ ↓ Move the selection. The pane follows, so reading costs nothing. shown on: the list foot, 3.1 the list has focus</td><td>key row</td><td>&ndash;</td></tr>
 </table></div></details></section>
 
+<section id="became">
+<h2>07 &middot; Was and became</h2>
+<p class="h2sub">Every string in the product rewritten, and the three defects only a browser could produce</p>
+
+<div class="note"><p><strong>The rule this section exists to prove.</strong> A line fixed by hand, around the rules, travels alone: the other sixty one pages keep the old norm. So every row below names the rule it was fixed under, and where no rule existed, the rule was written first and is named here. <b>Nine rulings and six rule corrections were written at steps 7 and 8</b>, each one because a real string was wrong and nothing in this document said so.</p></div>
+
+<h3>The reference screen, and what only the screen could say</h3>
+<p>3.1 Case Queue and its eleven states, taken from the top line of <code>wireframes/docs/screens.md</code> rather than re-derived. Twenty edits. Three of them were invisible in a table:</p>
+<ul>
+<li><b>A string true at the desk and false in the one scenario 360 exists for.</b> <span class="v-s">The pane on the right is the fleet</span> and the two key hints point at a pane and a keyboard that are not there on a phone, by 3.1&rsquo;s own specification. Fixed upward in the node first, because &sect;8 named what the row and the pane do at 360 and said nothing about the list foot.</li>
+<li><b>A string that broke the layout, cured by shortening it.</b> <span class="v-s">OVRD human decided</span> became <span class="v-s">DECIDED by you, 4s ago</span>, four characters longer, and <code>R. Idrissi</code> wrapped onto two lines in the top bar. <code>4s ago</code> is already in the banner two lines below, so Principle 2 removed it.</li>
+<li><b>A header already false before this stage touched it.</b> <span class="v-s">What Clerk concluded</span> stood above a row reading <span class="v-s">Rejected by R. Idrissi</span>. It became <span class="v-s">The verdict</span>, and the rule gained the clause <em>a header may not attribute what the cell attributes</em>.</li>
+</ul>
+
+<h3>The pair that proves the layout class, measured rather than eyeballed</h3>
+<p>Three of the eight entry chips read <span class="v-s">Clerk opened the case</span>, <span class="v-s">Clerk filed a verdict</span>, <span class="v-s">Clerk acted alone</span>. The chip rule, written at step 4, says <b>one word, lower case</b>. The entry taxonomy, declared at step 3 as a fix upward into node 0.8, made three of them three and four words. <b>Neither step could see it: the collision is between a closed list and a column width.</b></p>
+<div class="v-pair">
+  <figure><img src="screens/log-chips-before-1440.png" alt="The decision log at 1440 before the fix. The chip reading CLERK ACTED ALONE wraps onto two lines and sets the height of its grid row."><figcaption><b>Was.</b> <code>CLERK ACTED ALONE</code> renders <b>40px</b> tall against every sibling at <b>25px</b>, and it sets the height of the row.</figcaption></figure>
+  <figure><img src="screens/log-chips-after-1440.png" alt="The same log after the fix. All seven chips are one line and the same height."><figcaption><b>Became.</b> <code>acted alone</code>. All seven chips at <b>25px</b>. The cell to the left already names the actor on every row, so the word <code>Clerk</code> was buying nothing.</figcaption></figure>
+</div>
+
+<h3>The pair at 360, on the one screen the phone scenario exists for</h3>
+<p>Escalate is the only exit from a phone, and <code>escalate-no-recipient</code> is the state where there is nobody to escalate to. Step 7 had already fixed this exact class here, moving the ceiling out of a desk-only footer. <b>The sentence naming the remedy stayed desk-only</b>, so at 360 she was told the control was dead and never told the one move that revives it, while the fallback control itself rendered.</p>
+<div class="v-pair">
+  <figure><img src="screens/escalate-360-before.png" alt="Escalate with nobody on the rota, at 360 before the fix. The consequence line says the control is disabled and does not say what to do about it."><figcaption><b>Was.</b> <span class="v-s">Escalate is disabled until a recipient exists. Nothing is sent yet, and the case does not gain escalated until somebody is attached to it.</span></figcaption></figure>
+  <figure><img src="screens/escalate-360-after.png" alt="The same state at 360 after the fix. The consequence line now names the fallback that revives the control."><figcaption><b>Became.</b> <span class="v-s">&hellip; Nothing is sent yet. <b>Pick the duty line above and this becomes an ordinary escalation.</b></span></figcaption></figure>
+</div>
+
+<h3>The finding no string comparison could make</h3>
+<p><code>case-unrecorded</code> is the state where the verdict failed to write <b>twice</b>, and its banner says <span class="v-s">This console is the only place the decision exists.</span> Its annunciator, the most prominent slot on the screen, said <span class="v-s">DECIDED by you</span> &mdash; <b>byte-identical to the success page.</b> <code>CLAUDE.md</code> binds this layer in those words: <em>a case that left the analyst&rsquo;s hands must not look identical to one that did not.</em></p>
+<p><b>A cross-page comparison cannot reach this by construction.</b> It looks for one meaning under two wordings. This was one wording under two meanings, and the identity is the defect.</p>
+
+<h3>Six rules that were wrong rather than six strings</h3>
+<div class="tw v-inv"><table>
+<tr><th>The rule</th><th>What was wrong</th><th>What it says now</th></tr>
+<tr><td>Block heading <code>h3</code></td><td><em>&ldquo;A question the block answers&rdquo;</em> read as a form requirement, and <b>74 headings on 29 files</b> broke it, including ones that are right</td><td>Interrogative where the block answers a question; the plainest noun phrase where the block is a <b>reading rather than an answer</b></td></tr>
+<tr><td>Never &sect;4, <code>simply, just, easy</code></td><td>A grep returns <span class="v-s">Case queue, just filed</span>, where <code>just</code> is the time adverb</td><td>The ban is on the <b>minimiser, not the spelling</b>. Match the sense, not the substring</td></tr>
+<tr><td>Provenance line</td><td>Requires the named sources, and two renderings legitimately drop them</td><td>Two cases named: at 360, and where the sources are exactly what did not survive</td></tr>
+<tr><td>D8, the unwritten decision</td><td>Named one act. The product had <b>three</b>: nothing is held locally after a failed <b>seal</b></td><td><span class="v-s">Leave it unsealed</span> is the third, with the cost stated before the control</td></tr>
+<tr><td>Prefilled value</td><td>Written at step 7 from the door alone</td><td>Whether to touch it may be carried by a <b>visible control</b> beside the field</td></tr>
+<tr><td>The trailing status slot</td><td>Both instruments read it as an unfixed divergence</td><td>Stays lower case: <b>the whole line is the control</b> and the slot is its tail. The vocabulary obeys the ruling even where the case does not</td></tr>
+</table></div>
+
+<h3>Two mistakes of my own, both worth the record</h3>
+<p>A global find-and-replace was aimed twice at a string that is <b>not global</b>. <span class="v-s">DECIDED by you</span> matched three files and was false on one. <span class="v-s">so it waited for you</span> matched twenty two and was false on two: <code>case-acted</code>, where Clerk did not wait but isolated the host, and <code>case-investigating</code>, where no verdict exists to have waited.</p>
+<p><b>A global replacement is the wrong instrument for a state-dependent string.</b> It looks global because it stands on twenty pages, and it is not, because its truth is decided by the state.</p>
+
+<h3>Measured, not asserted</h3>
+<div class="tw v-inv"><table>
+<tr><th></th><th>Pass 1</th><th>Pass 2</th><th>Pass 3</th></tr>
+<tr><td><code>clientWidth === 360</code></td><td>62 / 62</td><td>62 / 62</td><td><b>62 / 62</b></td></tr>
+<tr><td><code>scrollWidth === clientWidth</code> at 360</td><td>62 / 62</td><td>62 / 62</td><td><b>62 / 62</b></td></tr>
+<tr><td>Elements outside the viewport</td><td>0</td><td>0</td><td><b>0</b></td></tr>
+<tr><td>Script errors</td><td>0</td><td>0</td><td><b>0</b></td></tr>
+<tr><td>Banned strings in product text</td><td>1</td><td>1</td><td><b>1</b></td></tr>
+<tr><td>Controls wrapping to two lines or more</td><td>4 pages</td><td>1</td><td><b>1</b></td></tr>
+</table></div>
+<p>The one banned string is <code>conclusion</code>, inside the rejection note a person typed. <b>A grep cannot tell a fixture from product copy</b>, so it is written down rather than fixed. The one remaining wrap is a flex allocation at 360 that no shortening can cure, and substituting a diagnosis would be worse than carrying the defect. Both are in <code>voice/docs/critique.md</code>.</p>
+<p><b>The measuring script was wrong twice before it was right</b>, and both faults inflated the result: it counted the stage panel&rsquo;s node numbers as product strings, and it set a 360 viewport where the absence of a scrollbar makes <code>clientWidth</code> 375. First run: 124 problems out of 124 checks. <b>An instrument that fails everything is broken, not strict.</b></p>
+</section>
+
 </main>
 </div>
 <script>
@@ -1081,6 +1148,7 @@
     { id:'never',      label:'Never' },
     { id:'microcopy',  label:'Microcopy' },
     { id:'inventory',  label:'The inventory' },
+    { id:'became',     label:'Was and became' },
   ];
 </script>
 <script src="../_nav.js"></script>

@@ -135,11 +135,15 @@ Six values, and the order below is the order they render in, because it is the o
 | **`amended`** | A person kept the verdict and rewrote its narrative. The original stays beside it | 4.5 |
 | **`escalated`** | A person handed it on without filing a verdict | 4.6 |
 | **`superseded`** | A later entry corrects this one. **Both stay.** The only entry chip set by something other than the act it records | 5.1, from a later entry |
-| **`Clerk opened the case`** | Clerk correlated signals into a case | 0.6 |
-| **`Clerk filed a verdict`** | Clerk finished investigating and filed | 4.3 |
-| **`Clerk acted alone`** | Clerk took an action inside the tenant's latitude | 0.6 |
+| **`opened`** | Clerk correlated signals into a case | 0.6 |
+| **`filed`** | Clerk finished investigating and filed | 4.3 |
+| **`acted alone`** | Clerk took an action inside the tenant's latitude | 0.6 |
 
 **`upheld` was the ninth value and it is retired**, not renamed for tidiness. The control that teaches the word says `Accept`, so a record that says `Upheld` prints a word no control ever taught, and `accept, amend or reject` is the canonical triple in `CLAUDE.md`. Grounds in `voice/docs/voice.md`, Dictionary, and in `docs/decisions.md`.
+
+**The three Clerk values lost the word `Clerk`, at stage 05 step 8, and it is a fix upward rather than a tidy.** They were drawn as `Clerk opened the case`, `Clerk filed a verdict` and `Clerk acted alone`, and three things were wrong with that at once. The chip rule in `voice/docs/voice.md` says a state chip is **one word, lower case**; these were three and four words, capitalised. In a browser at 1440 they were the only chips in the column that **wrapped to two lines**, next to `accepted`, `rejected`, `amended` and `escalated` in one. And the cell immediately to their left already says who: `Contained by Clerk, inside this tenant's latitude`. So the chip was spending its width repeating the one fact its neighbour never omits.
+
+**What an entry chip is for survives the change intact.** §6b's own definition is that a case chip says what is true of the case now and an entry chip says **what the entry is**. `opened`, `filed`, `acted alone` say what the entry is; the actor is in the cell beside it on every row, human or machine. The set is still closed and still eight values.
 
 **The stacking rule of §6 does not apply here.** An entry carries exactly one entry chip, plus `superseded` where a later entry corrects it. That is the only pair, and it is a pair by construction rather than by taxonomy.
 
