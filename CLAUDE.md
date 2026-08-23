@@ -34,7 +34,7 @@ Secondary: SOC lead or service delivery manager, who owns SLA and the decision t
 - **A product premise repeated three times starts to read as a market fact.** Harrier is invented, so statements about tenants per analyst, MDR margin, liability and the analyst profile are decisions, not measurements. Every one carries `PREMISE` where it stands. This rule exists because a self-audit cannot see them: they were decisions when written and read as context afterwards.
 - Every fact about a competitor, a market or a benchmark comes from a page opened in the current session. Model memory has a cutoff, so anything from it is `[?]`, not a fact.
 - No invented numbers. No real figure means `[?]`, never a plausible one.
-- Critique runs on four instruments. Claude and Codex read-only, sets taken independently and deduplicated after. A third pass reads the stage contract as a checklist, because neither instrument can see a step that never happened. A fourth is a reader with clean context, given the **next stage's real task** rather than "find defects": it is the only one that catches a specification that is complete and still not enough to draw from, and verification on its lines weighs triple.
+- Critique runs on five instruments. Claude and Codex read-only, sets taken independently and deduplicated after. A third pass reads the stage contract as a checklist, because neither instrument can see a step that never happened. A fourth is a reader with clean context, given the **next stage's real task** rather than "find defects": it is the only one that catches a specification that is complete and still not enough to draw from, and verification on its lines weighs triple. The fifth is a grep for one class only, a rule declared twice, where grep beats any model. **An instrument that has never found anything is not a clean result, it is an untested instrument:** that grep compared inline against inline and never inline against the shared sheet, and reported clean for two steps while ten rules were duplicated.
 - **A search-result summary is not a source.** A search tool paraphrasing a page is a claim about a page, not the page. Quoting it and citing a different source that was opened is how a fabricated attribution reads as sourced. Open the page, or mark it `[?]`. The existing rule above does not cover this: the cited source really had been opened, and that is why it did not catch it.
 - **A number in a drawing is a fixture, not a finding.** Sample content chosen to make a layout decidable, never quotable as evidence about the market or the product, and required to be internally consistent across every surface that shows it. The canon and the fixture set are in `ia/docs/pages/reading-conventions.md`.
 - **A page is accepted on the live URL, not on localhost.** A local static server serves the tree as-is and cannot reproduce host behaviour. GitHub Pages runs Jekyll, which drops underscore-prefixed files, and this project keeps `/_nav.js` and `/_nav.css` at the root; `.nojekyll` holds that open. Grounds in `docs/decisions.md`.
@@ -53,7 +53,7 @@ Jobs in `research/docs/jtbd.md`. The steps of the journey inside the main job ar
 
 ## Structure
 
-Six clusters by intent: take the shift, work the queue, rule on the case, answer for it later, tell the client, grant the rope. Three more are not intents: the shell, the session, the systemic states. **Eight screens at the base layer became forty six nodes, forty of them MVP, twenty three with a written specification.** Map in `ia/docs/sitemap.md`, one md per node under `ia/docs/pages/`, hub at `ia/structure.html`.
+Six clusters by intent: take the shift, work the queue, rule on the case, answer for it later, tell the client, grant the rope. Three more are not intents: the shell, the session, the systemic states. Map in `ia/docs/sitemap.md`, one md per node under `ia/docs/pages/`, hub at `ia/structure.html`.
 
 **Main flow.** Queue to Case File to verdict to log. Activation node `File`, **two taps** from landing.
 
@@ -90,8 +90,10 @@ United States and EU, SOC 2 Type II, tenant data isolation, EU residency option,
 
 1. Every row is a decision, not a record. If a line in the queue does not tell the analyst what to do next, it does not earn its height.
 2. Clerk shows its work, up to a ceiling. An evidence trail alone is table stakes; the difference is that the number names its claim, its scope and its window, and comes with an absolute count. But more explanation is not more trust: past a point it reduces it. Cheapest correct thing first, depth one key away.
-3. Override is one key, and it teaches. Rejecting Clerk is a first-class action, not a fallback path, and the reason goes straight into tuning. **Measured at the close of 03b and it does not yet hold:** reject costs four taps against accept's two, so stage 04 draws 4.4 against that number rather than around it.
+3. Override is one key, and it teaches. Rejecting Clerk is a first-class action, not a fallback path, and the reason goes straight into tuning. **Measured at 03b, drawn at 04, and it still does not hold:** reject costs four taps against accept's two. What 04 bought is that five of six reasons derive the second axis, so four never became five, and the fourth tap is `Enter` rather than a confirmation step. **The fifth tap is what 07 may not add.**
 4. Tenant context is never more than a glance away. The same signal is a Tuesday at one client and an incident at another.
+**`wireframes/` is grey and stays grey.** Colour, type family, icons, shadows and motion arrive at 06 to 08 on **copies** under `design/`, never by painting `_wf.css`. The same sentence stands in `wireframes/CLAUDE.md` on purpose: a nested file loads only when Claude reads that folder and does not survive a compaction, and forgetting this one costs the whole artefact of the stage.
+
 5. Density is the feature. Six hours a day means no decorative whitespace, keyboard before mouse, and no overlay that hides the evidence the analyst is deciding on.
 
 ## Tech stack hypothesis
@@ -105,4 +107,5 @@ React with TypeScript. Virtualised tables for lists in the hundreds. Server-sent
 - Grounds for decisions: `docs/decisions.md`. Never auto-loaded.
 - Everything known about the market and the people: `research/`.
 - Structure, flows and coverage: `ia/`.
-- Page-local CSS takes a page-local prefix. `.note`, `.q`, `.node`, `.lede` and `.tw` belong to `research/_page.css` and silently restyle anything that reuses the name. Four collisions were found this way, each one visible only in a computed style.
+- Screens, the reference screen, the first flow and the estimate: `wireframes/docs/screens.md`. The stage contract: `wireframes/docs/conventions.md`. What the critique found: `wireframes/docs/critique.md`.
+- Page-local CSS takes a page-local prefix. `.note`, `.q`, `.node`, `.lede` and `.tw` belong to `research/_page.css` and silently restyle anything that reuses the name. Six collisions were found this way, each one visible only in a computed style. **The sixth was on an element selector rather than a class name**, `min-width:560px` on a bare `table`, so a local prefix does not protect against it: a page-local component has to unset the property, not merely set its own.
