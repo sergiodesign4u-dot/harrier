@@ -45,7 +45,7 @@ window.NAV = [
       { label:'Sitemap',      page:'ia/sitemap.html',     done:true },
       { label:'Structure',    page:'ia/structure.html',   done:true },
   ]},
-  { label:'Wireframes',  page:'wireframes/overview.html', done:true, wip:true },
+  { label:'Wireframes',  page:'wireframes/overview.html', done:true },
   { label:'Voice',       page:'voice/voice.html',      done:false },
   { label:'Concept', children:[
       { label:'Directions', page:'design/concept/directions.html', done:false },

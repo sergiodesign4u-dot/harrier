@@ -2,6 +2,42 @@
 
 What we did, why it was done this way, what was rejected and on what grounds. Newest entry on top, each one dated. This file is never loaded into a session automatically; it is read when the grounds for a decision need to be recalled. Rules that must hold every session belong in `CLAUDE.md`, not here.
 
+## 2026-08-23 - Stage 04 closed, and what left CLAUDE.md
+
+Sixty two grey pages across thirteen screens plus the hub. What goes into `CLAUDE.md` is a rule and a **path**, never a copy: the reference screen and the first flow live in `wireframes/docs/screens.md`, the fixtures in `ia/docs/pages/reading-conventions.md`, the contract in `wireframes/docs/conventions.md`, and the root file carries only the one rule whose forgetting costs the whole artefact.
+
+**Added, one rule:** `wireframes/` is grey and stays grey, colour arrives on copies under `design/`. It is deliberately the same sentence as `wireframes/CLAUDE.md` rule 1, because a nested `CLAUDE.md` loads only when Claude reads something in that folder and does not survive a compaction.
+
+**Deleted:** the Structure block's line that eight screens became forty six nodes with twenty three specifications. That was stage 03b's status and it is now two stages old; the count that matters is in `screens.md` and in the coverage map, both of which are generated from `_nav.js` and cannot go stale the way a sentence can.
+
+## 2026-08-23 - The estimate was 58 pages and the product is 62, and three of the four are one mistake
+
+The step 8 estimate counted screens and read **inside a host** as **zero pages**. Three of the four extra pages come from that single reading: node 8.4 renders inside zone Z6 and still needed two pages, because a notice layer never drawn at capacity is one whose cap nobody has decided; 0.4 renders as a strip and still needed a third page, because `CONNECTING` is a declared `readyState` and not a mood; 0.7 renders as a list inside 4.4 and its seventh value lived in a state matrix rather than in the list.
+
+**Recorded because it will recur at stage 07.** A node that renders inside a host still has states, and its states still need pages. The count is now in `screens.md` section 5 with the estimate beside it, rather than replaced by it.
+
+## 2026-08-23 - Author rationale gets its own register, settled by the author rather than by an instrument
+
+Two instruments found the same thing independently and neither could fix it: the prototype argued for its own decisions in the same typographic slot as product hints, in the second person, addressed to a reviewer. A clean context reader given stage 05's real job could not tell which sentences stage 05 was supposed to rewrite, which is the question stage 05 opens with.
+
+Three options were on the table: strip the rationale to a document, leave it and mark the file, or **split it visually**. The third was chosen. `.anote` on 35 pages carries a dotted rail and a `WHY` label; `.gnote` on 27 carries product copy; stage 05 owns everything that is not `.anote`.
+
+**The rejected option worth recording is the first.** Moving the argument into `critique.md` would have made the screens cleaner and the case worse: the reason a decision was made is most persuasive next to the thing it decided, and a reviewer reads the screen before they read the folder.
+
+## 2026-08-23 - 151 links were browser blue for the whole stage, and no instrument could have found them
+
+`_wf.css` opens with *no colour, no brand, no icons, no shadows, no images* and never declared a rule for `a`. Twenty seven of sixty two screens rendered their prose links and their evidence source chips in the user agent default blue, from the first day.
+
+**The instrument lesson is the entry.** grep reads rules that exist, Codex reads source, the clean context reader reads meaning, and a defect whose cause is an **absent** rule is invisible to all three. It took asking a live browser for a computed `color`. And the first version of that question, `r === g === b`, returned 832 findings, every one of them the palette's own near greys: a test with the wrong threshold is worse than no test, because it reads as a broken product rather than a broken instrument.
+
+## 2026-08-23 - The grep instrument had never failed, and that was the problem
+
+The duplicate rule grep compared inline against inline and never inline against `_wf.css`. Ten rules were declared in both, with the inline copy winning the cascade, and one of them is why a sticky rail stayed unstuck through two attempted fixes. The instrument had reported clean for two steps.
+
+Worse, section 2 of `_wf.css` **declared** `.only-desk` the survivor of three private names for one utility and migrated neither of the other two, while a generator still carried a comment saying the complement does not exist. A comment that describes a fix is not the fix, and a file that asserts something false about itself is worse than one that says nothing.
+
+**What changes for later stages:** an instrument that has never produced a finding has not been tested, and every declared list gets an idle control. That is how the unused `reconnecting` strip variant was found, and it is why it was drawn rather than deleted.
+
 ## 2026-08-22 - Seventy seven open questions, counted together for the first time and given verdicts
 
 Twenty three node specifications each ended with a list of open questions and nobody had ever added them up. **Seventy seven.** Read as one set rather than one node at a time, most were not open: the answer already followed from something the product had decided, and nobody had written it down.
