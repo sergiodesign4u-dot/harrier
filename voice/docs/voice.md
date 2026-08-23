@@ -202,7 +202,7 @@ One thing, one word. Fourteen divergences were marked in `microcopy.md` §6 and 
 | **snapshot** | *copy*, *archive* | The evidence as it stood at decision time, which is the compliance requirement in `CLAUDE.md` | Nothing |
 | **rota** | *schedule*, *on-call list* | The provider owns it and Harrier reads it | Nothing |
 
-### The other four rulings
+### The other five rulings
 
 **On the two grammars of freshness.** 0.8 §4 declares two grammars of time. Freshness needs two as well, and step 1 found seven phrasings for them.
 
@@ -210,6 +210,13 @@ One thing, one word. Fourteen divergences were marked in `microcopy.md` §6 and 
 - **`frozen at <event>`** when a **named event** stopped the counting, not the passage of time. `frozen at the seal`, `frozen at the attempt`.
 
 So `frozen at the last sync` becomes `as of the last sync`, `Frozen 40s ago` becomes `as of 40s ago`, and `Frozen as of the last sync` becomes `as of the last sync`. The two `frozen at` uses on 2.1 are correct and stay.
+
+**On where a link goes, and it was written at step 7 rather than at step 3.** D6 and D7 found seven wordings for going to the queue and seven for going to the log, and the dictionary ruled neither: it ruled words, and this is a shape. The rule the global pass had to write:
+
+- **`Open <the destination>`** for any control that moves her to another screen. `Open the queue`, `Open the log`, `Open the whole log`, `Open the live case`, `Open this case in the queue`.
+- **`Back to <X>`** only for a return the product can actually guarantee, which means a dialog or a sub-view opened from X in this session. Every top-level screen in this product is reachable from a pager link, so `Back to the queue` on the log is a claim about where she came from that the product does not hold.
+
+So `Back to the queue` becomes `Open the queue` on ten screens. It is also the cheaper rule: one destination, one name, and the divergence that made D6 a row cannot come back.
 
 **On retrying.** `Try again` when **her own last action** failed. `Reconnect` when the **connection** is what is being retried. `Retrying` only as a description of the transport doing it by itself, where there is no button. So `Try to reconnect` becomes `Reconnect`, on 3.3 and 4.2.
 
@@ -382,8 +389,8 @@ Rules by element type. Every rule carries one real string from this product, so 
 | **Provenance line** | The absolute count, the window, and the named sources. Count first, never a bare percentage | `6 sources queried over 24h: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.` |
 | **Consequence line** | What this choice causes, in the present tense, before it is made | `The case stays open and gains escalated. No verdict is filed.` |
 | **Notice** | The role, the fact, then what she can do. A notice that must not be dismissed says why | `ALERT · The verdict on C-4417 did not write. This console is the only place that decision exists. Open the case · stays until the write lands` |
-| **Accessible name** | The same words the screen uses. **Never a second vocabulary** | `Clerk's latitude on this tenant`, not `Tenant autonomy` |
-| **Narrow-only banner** | Say what this surface is for, and where the thing you cannot do here lives | `Reject is a desk action. It needs the six reasons and the evidence in view at the same time, and neither fits here. On a phone the exit is escalate.` |
+| **Accessible name** | The same words the screen uses, **and it follows the state if the element does**. Never a second vocabulary | `Clerk’s latitude on this tenant` with one selected, `Clerk’s latitude across the fleet` with none, never `Tenant autonomy` |
+| **Narrow-only banner** | Say what this surface is for, and where the thing you cannot do here lives | `Reject is a desk action. It needs the reasons and the evidence in view at the same time, and neither fits here. On a phone the exit is escalate.` |
 
 ---
 

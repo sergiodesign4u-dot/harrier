@@ -983,3 +983,53 @@ Every heading and every button on all twelve pages, said out loud. **It caught n
 ### Still on the reference screen, and deferred to step 7 by design
 
 `· 0.4`, appended by `wireframes/_nav.js` to the connection strip on all 55 authenticated screens, and the accessible name `Tenant autonomy`. Both are global strings, both live in `_nav.js`, and step 7 rewrites globals in the parent before any fan-out. They are named here so the acceptance is not read as complete.
+
+---
+
+## 8. Step 7, first move: the globals, rewritten by the parent
+
+Nothing was fanned out before this table existed. A global is a string on five screens or more, which is the definition section 3 is built on, and a wrong one costs fifty-five screens rather than one. Every row below was applied by the parent, in the file the `Lives in` column names.
+
+### 8a. The three that live in `wireframes/_nav.js`
+
+| # | Was | Became | Rule | Screens |
+|---|---|---|---|---|
+| G1 | `aria-label="Tenant autonomy"` | **`Clerk’s latitude on this tenant`** with a tenant selected, **`Clerk’s latitude across the fleet`** with none | Dictionary, **latitude**. A screen reader was getting a word the screen does not use. And see the correction below: the element has two readings, so one fixed name is false in one of them | 55 |
+| G2 | `title="Keyboard map, 0.5"` | `title="Keyboard map"` | Never §6, D11 | 55 |
+| G3 | connection strip ends `· 0.4` | *cut* | Never §6, D11. **This was the single most repeated register leak in the product**: one line of `_nav.js`, printed on every authenticated screen | 55 |
+
+### 8b. The annunciator, passed from inline scripts
+
+| # | Was | Became | Rule | Call sites |
+|---|---|---|---|---|
+| G4 | `34 of 36 upheld, 30 days` and `219 of 231 upheld, 30 days` | `accepted` | Dictionary, **accept**. D2 | 33 |
+| G5 | `40 TENANTS · 7 of 40 act alone above investigate · 219 of 231 accepted, 30 days` | *the override is removed and the shell default renders*: `FLEET · 40 tenants · acts alone up to contain network at 3 · 1 moved down` | D14. A fixed slot answers one question, and the ruling is in `voice.md` | 5 |
+| G6 | `OVRD` human decided | `DECIDED` by you | D14, no invented abbreviation. Plus Principle 1 | 2 |
+
+`ACTED 24m` stays. It is a word rather than a coinage, and the analyst reads it without being taught.
+
+### 8c. The eleven that are inlined on the screens
+
+| # | Was | Became | Rule | Files |
+|---|---|---|---|---|
+| G7 | `Client`, column header | `Tenant` | Dictionary, **tenant**. D1 | 29 |
+| G8 | `Normal at this client` | `Normal at this tenant` | Same, and it sat three rows from `Normal at this tenant` in the reject list | 25 |
+| G9 | `What Clerk concluded`, block `h3` | `What Clerk filed` | Dictionary, **verdict**, and the `h3` rule: a question the block answers | 20 |
+| G10 | `What Clerk concluded`, column header | `The verdict` | The same word, **a different slot and therefore a different answer**. The column header rule forbids a header attributing what the cell attributes | 19 |
+| G11 | order: unrecorded, **blocked on her**, severity, age | order: unrecorded, **waiting on you**, severity, age | Principle 1, D12 | 19 |
+| G12 | `Record`, fleet column header | `Accepted` | D15 | 6 |
+| G13 | `↑ ↓ read, the pane follows` and `Enter decides, focus moves into the pane`, rendered at every width | both `only-desk` | False at 360: no keyboard, no pane. **Applied everywhere the string exists, not only where the foot is visible today**, because a class on the string survives a later stage moving the block and an ancestor that happens to be hidden does not | 26 and 19 |
+| G14 | `Back to the queue` | `Open the queue` | The new ruling below | 10 |
+| G15 | log banner: *"Seven columns of record squeezed onto a phone would be a second console pretending to be this one."* | *cut* | Never §6, an argument for the design in a product slot | 7 |
+| G16 | brief banner: *"which is the premise the whole product is drawn from"* and *"from the rota this node holds, and it reads that value without this page rendering"* | *"Coming on shift happens at a desk with two monitors."* and *"the escalate dialog names S. Varga, who takes escalations until 07:00. That comes from the rota, not from this screen."* | Never §6 twice: the design argument, and `node` / `rendering` addressed to whoever builds this | 7 |
+| G17 | reject banner: *"the six reasons"*, and *"4.2 settles that a case known to be benign cannot be closed from there either"* | *"the reasons"*, and *"a case you know to be benign cannot be closed from here either"* | Principle 3 and Never §6. **The screen has seven numbered rows**, six reasons and `Other`; a bare `six` names neither set. The count is dropped rather than corrected, because the sentence never needed one | 6 |
+
+### Two corrections this pass made to `voice.md` rather than to a line
+
+**1. A ruling that step 3 never wrote.** D6 and D7 found seven wordings for going to the queue and seven for going to the log, and the dictionary ruled neither: **it ruled words, and this is a shape.** The rule now in `voice.md`, under the rulings: `Open <the destination>` for any control that moves her to another screen, and `Back to <X>` only for a return the product can guarantee, which means a sub-view or a dialog opened from X in this session. Every top-level screen here is reachable from a pager link, so `Back to the queue` is a claim about where she came from that the product does not hold.
+
+**2. An accessible name that follows the state, because the element does.** G1 was written from `voice.md`'s own example, applied, and then read back on `log.html`, where the annunciator says `FLEET · 40 tenants`. The name said `on this tenant` over a reading about forty. The microcopy rule gains the clause **and it follows the state if the element does**, and the shell picks the name from the reading it is about to render. **A sighted reader never had this problem**, because the lead word says which reading it is; the fixed name was the only place the two collapsed.
+
+### What the global pass deliberately did not touch
+
+**The stage panel and the registry labels in `_nav.js`**, including `Tenant autonomy annunciator`, `Reconnecting, 0.4` and every screen label. `_nav.js` says it in its own comment: *"The panel is the STAGE's chrome, not the product's."* It is the same register as `.anote` and section 2 already puts that out of scope. Reading the registry as product copy would have rewritten the prototype's own navigation into the product's voice, which is the opposite of the separation stage 04 built.

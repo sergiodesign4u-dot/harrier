@@ -279,8 +279,13 @@ window.WF_SHELL = function(o){
       /* 0.2 section 4 puts the keyboard map in Z1 and the shell never rendered it, so until
          step 8 nothing in the prototype opened 0.5 except the stage panel. Found by the agent
          that drew the map, which is the only place the absence was checkable. */
-      '<a class="kmap" href="keyboard.html" title="Keyboard map, 0.5" aria-label="Keyboard map">?</a>' +
-      '<p class="annun" aria-label="Tenant autonomy"><b>' + a.lead + '</b>' +
+      '<a class="kmap" href="keyboard.html" title="Keyboard map" aria-label="Keyboard map">?</a>' +
+      /* the accessible name follows the STATE, because the element has two readings: with a
+   tenant selected it is that tenant's latitude, with nothing selected it is the fleet's.
+   One fixed name would be false in one of the two, and it is the sighted reading that
+   makes which one obvious. */
+      '<p class="annun" aria-label="Clerk’s latitude ' +
+        (a.kind === 'fleet' ? 'across the fleet' : 'on this tenant') + '"><b>' + a.lead + '</b>' +
         a.parts.map(function(p){
           /* each part is its own element on purpose. As bare text runs, hiding the
              separator at 360 merged the neighbours into one anonymous flex item and
@@ -293,7 +298,7 @@ window.WF_SHELL = function(o){
   var z2 = document.getElementById('wf-z2');
   if (z2) {
     z2.className = 'z2 ' + st.cls;
-    z2.innerHTML = st.html + ' <span class="sep">&middot;</span> 0.4';
+    z2.innerHTML = st.html;
   }
 };
 
