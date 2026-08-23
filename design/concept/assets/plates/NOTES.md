@@ -10,7 +10,7 @@ Harrier supplies the subject and constraints. Every direction describes the same
 
 ## Night Ledger
 
-The sheet is organised around a tall night-city quadrant rather than a left-to-right banner. Archivo Narrow gives it the compressed register of an operations ledger; IBM Plex Mono is limited to data and measurement. Its mark is a ledger path turning through a recorded decision point. Amber carries provenance and ember carries decisions. The upper-right void is filled by the evidence and verdict anatomy.
+The sheet is organised around a tall night-city quadrant rather than a left-to-right banner. Archivo Narrow gives it the compressed register of an operations ledger; IBM Plex Mono is limited to data and measurement. Its primary mark is a ledger path turning through a recorded decision point, while the compact ledger seal gives the secondary lockup a self-contained mark. Amber carries provenance and ember carries decisions. Ten distinct operational silhouettes replace the earlier crosshair variations. The middle band now gives construction, evidence and verdict, applications and poster studies four independent widths.
 
 ## Case Registry
 
