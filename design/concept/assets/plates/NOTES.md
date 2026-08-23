@@ -46,15 +46,21 @@ Each plate now includes:
 
 The product screen is the hero and occupies roughly half the sheet. Its queue, detail pane, annunciator, state chips and verdict controls remain readable as one real Harrier working surface. The six-stage strip borrows the state-carrying composition of the supplied Lexend reference, while ochre and iron replace its blue-led palette. Space Grotesk supplies the large geometric line; DM Mono carries the dense evidence and state data. Identity, construction, palette, type, objects, icons, posters and motion stay supporting apparatus around the console.
 
+The former open band below the state row now carries a compact evidence and verdict anatomy beside a second route-to-record key visual. The added specimens use the same case, counts and window as the hero console, so the density comes from product evidence rather than decoration.
+
 ## Plate E · The White Sheet
 
 The board is paper white with wide margins, hairline divisions and a catalogue rhythm. Bodoni Moda is the deliberately characterful display face, with IBM Plex Sans and IBM Plex Mono handling working copy and data. The product screen remains dark, so the light board presents the instrument without pretending the instrument has a light theme. Fewer statements are given more scale, the retained record becomes the key visual, and physical objects sit at the foot like archive artefacts rather than dashboard cards.
+
+The heading now occupies a protected band above the lowered product screen. The type specimen shares its former open quarter with an evidence and verdict anatomy, while four explicit motion frames complete the retained-record sequence at the foot. Ten authored operational SVG silhouettes replace the surviving template token.
 
 ## Plate F · Counted, Not Estimated
 
 Attribute pair: **A5, Counted, not estimated.** The whole sheet is organised around absolute counts, populations and windows: `34 of 36`, `9 signals`, `6 sources`, `24h`, `30 days`. League Spartan turns the count into the display language and the constructed mark is a tally grid with one retained decision point. Saturation is spent only on a current count or an exception.
 
 What was pushed: numeric scale, tabular rhythm and provenance as identity rather than annotation. What was given up: pictorial atmosphere and the softer documentary register of Plate E. This direction is intentionally harder and more mechanical; it makes Harrier’s rule for trustworthy numbers visible before any product copy is read.
+
+The top-left void now carries the seven canonical tenants as a fleet strip, with each earned ceiling visible beside the large accepted count. A three-size count lockup family fills the open identity band, and ten authored operational SVG silhouettes replace the surviving template token.
 
 ## Round-five technical checks
 

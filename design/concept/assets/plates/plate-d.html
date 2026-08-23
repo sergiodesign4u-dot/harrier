@@ -1,11 +1,397 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>Harrier · The Console Itself</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Harrier · The Console Itself</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap');
 *{box-sizing:border-box}html,body{margin:0;width:2400px;height:1600px;overflow:hidden}body{background:#11110f;color:#e9e4da;font:400 15px/1.32 'Space Grotesk',sans-serif;text-rendering:optimizeLegibility;font-feature-settings:"kern" 1,"liga" 1}.mono,.label,.chip,.tiny{font-family:'DM Mono',monospace;letter-spacing:.055em}.sheet{width:2400px;height:1600px;padding:38px 48px 34px;display:grid;grid-template-columns:1420px 430px 420px;grid-template-rows:915px 350px 225px;gap:18px 17px;background:radial-gradient(circle at 58% 26%,#242019 0,#11110f 37%)}.zone{position:relative;padding-top:27px;min-width:0}.zone:before{content:"";position:absolute;top:13px;left:0;right:0;border-top:1px solid #675f50}.label{position:absolute;top:0;left:0;background:#11110f;padding-right:11px;color:#d29c3f;font-size:11px;text-transform:uppercase}.hero{grid-column:1/3;position:relative}.hero h1{position:absolute;z-index:2;left:37px;top:25px;margin:0;font-size:106px;line-height:.84;letter-spacing:-.055em;font-weight:500;color:#eee8dc}.hero .dek{position:absolute;z-index:2;left:43px;top:218px;margin:0;color:#d29c3f;font-size:19px}.console{position:absolute;inset:0;top:304px;display:grid;grid-template-rows:54px 1fr;background:#171714;border-top:1px solid #847964;box-shadow:18px 22px 0 #090908}.topbar{grid-column:1/-1;display:grid;grid-template-columns:210px 1fr 360px;border-bottom:1px solid #454237;align-items:center;padding:0 17px}.brand{font-weight:600;letter-spacing:.14em}.nav{color:#aaa397}.ann{font-size:10px;color:#e8c069;text-align:right}.work{display:grid;grid-template-columns:47% 53%;min-height:0}.queue{border-right:1px solid #4d493d}.qhead{height:73px;padding:14px 18px;border-bottom:1px solid #454237}.qhead b{display:block;font-size:20px}.qhead small{color:#b5aea1}.qrow{height:80px;padding:12px 16px;display:grid;grid-template-columns:70px 1fr 126px;gap:12px;border-bottom:1px solid #38362f}.qrow.active{background:#252218;box-shadow:inset 3px 0 #d29c3f}.sev{font:500 10px 'DM Mono';color:#d5ac5a}.qrow b{display:block;font-size:14px}.qrow small{color:#a9a397}.chips{display:flex;gap:5px;justify-content:flex-end;align-items:start}.chip{border:1px solid #696253;padding:4px 6px;font-size:8px;color:#cbc4b8}.chip.hot{border-color:#b25d44;color:#efb09c}.detail{padding:19px 21px}.eyebrow{font-size:10px;color:#d29c3f}.detail h2{font-size:31px;line-height:1.05;margin:8px 0 9px;font-weight:500}.meta{color:#aaa397;font-size:11px;border-bottom:1px solid #454237;padding-bottom:13px}.verdict{margin-top:15px;display:grid;grid-template-columns:1fr 195px;gap:18px}.verdict h3{font-size:17px;margin:0 0 7px}.verdict p{margin:0;color:#cbc4b8}.count{border-left:1px solid #514b3f;padding-left:15px;color:#e8c069}.count b{font-size:27px}.evidence{margin-top:14px}.eline{display:grid;grid-template-columns:115px 1fr;padding:9px 0;border-top:1px solid #38362f;font-size:11px}.eline span:first-child{color:#9f988d}.actions{display:flex;gap:7px;margin-top:13px}.btn{border:1px solid #6f6758;padding:8px 12px;font:500 9px 'DM Mono';letter-spacing:.05em}.btn.primary{background:#d29c3f;color:#17130d;border-color:#d29c3f}.stages{grid-column:1/3;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding-top:54px}.stages:before{top:13px}.stage{height:88px;border:1px solid #6a6356;padding:12px;position:relative}.stage strong{font:500 11px 'DM Mono'}.stage small{display:block;margin-top:17px;color:#aaa397}.stage.done{border-color:#8f7c42}.stage.live{border-color:#d29c3f;color:#e8c069}.dot{width:8px;height:8px;border:1px solid currentColor;border-radius:50%;position:absolute;right:11px;top:13px}.stage.done .dot{background:#8f7c42}.side{grid-column:3;grid-row:1/3;display:grid;grid-template-rows:455px 260px 1fr;gap:18px}.identity,.language,.objects{position:relative;padding-top:28px}.identity:before,.language:before,.objects:before{content:"";position:absolute;top:13px;left:0;right:0;border-top:1px solid #675f50}.markrow{display:flex;align-items:center;gap:17px;margin:8px 0 18px}.word{font-size:36px;letter-spacing:.16em}.geometry{height:170px}.geometry svg{height:100%;width:100%}.lockups{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px}.display{font-size:41px;line-height:.94;margin:6px 0 10px}.alphabet{font-size:11px;line-height:1.6}.keywords{margin-top:13px;color:#d29c3f;font-size:18px}.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:15px}.sw i{height:57px;display:block}.sw b,.sw small{display:block;font:500 7px/1.25 'DM Mono';margin-top:4px}.sw small{color:#aaa397}.objects{display:flex;align-items:end;gap:10px}.badge{width:108px;height:142px;background:#d29c3f;color:#18140e;padding:15px;transform:rotate(-2deg)}.manual{width:145px;height:175px;background:#201e19;border-left:8px solid #b25d44;padding:17px;box-shadow:8px 9px 0 #090908}.ticket{width:130px;height:104px;background:#d9d1c2;color:#181714;padding:13px;transform:rotate(2deg)}.objt{font-size:18px;font-weight:600}.objm{font:500 8px/1.5 'DM Mono';margin-top:23px}.lower{grid-column:1/4;display:grid;grid-template-columns:410px 470px 470px 1fr;gap:17px}.gridmap{height:175px;background:repeating-linear-gradient(0deg,transparent 0 19px,#38362f 20px),repeating-linear-gradient(90deg,transparent 0 62px,#4c473c 63px);position:relative}.measure{padding:12px;font-size:9px;color:#b9b1a4}.radius{position:absolute;right:18px;bottom:20px;width:62px;height:62px;border-top:1px solid #d29c3f;border-right:1px solid #d29c3f;border-radius:0 18px 0 0}.icons{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}.ico{text-align:center;font-size:7px;color:#aaa397}.ico svg{width:33px;height:33px;display:block;margin:0 auto 5px;fill:none;stroke:#d29c3f;stroke-width:1.7}.posterrow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.poster{height:173px;padding:9px;background:#1d1b16;position:relative;overflow:hidden}.poster:nth-child(2){background:#d29c3f;color:#17130d}.poster:nth-child(3){background:#b25d44}.poster h3{font-size:13px;line-height:1.05;margin:0}.poster i{position:absolute;width:74px;height:74px;border:10px solid currentColor;right:-20px;bottom:18px;border-radius:50%}.frames{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.frame{height:173px;background:#191815;position:relative;padding:10px}.frame svg{width:100%;height:120px}.frame span{font-size:8px;color:#b6afa3}
-</style></head><body><main class="sheet">
-<section class="hero"><h1>The console<br>is the identity.</h1><p class="dek mono">One calm heading. Every working fact still in view.</p><div class="console"><div class="topbar"><div class="brand">HARRIER</div><div class="nav mono">QUEUE · SHIFT · LOG</div><div class="ann">LARKFIELD LOGISTICS · acts alone up to contain endpoint · 34 of 36 accepted, 30 days</div></div><div class="work"><div class="queue"><div class="qhead"><b>18 waiting across 12 of 40 tenants in scope</b><small>Blocked on you first · oldest 31m</small></div><div class="qrow active"><div class="sev">CRITICAL</div><div><b>Larkfield Logistics · Token replay</b><small>9 signals · filed by Clerk 26m ago</small></div><div class="chips"><span class="chip">taken</span><span class="chip">acted</span></div></div><div class="qrow"><div class="sev">HIGH</div><div><b>Meridian Health · Inbox rule</b><small>7 signals · filed by Clerk 18m ago</small></div><div class="chips"><span class="chip hot">unrecorded</span></div></div><div class="qrow"><div class="sev">HIGH</div><div><b>Northstar Legal · New device</b><small>6 signals · filed by Clerk 14m ago</small></div><div class="chips"><span class="chip">escalated</span></div></div><div class="qrow"><div class="sev">MEDIUM</div><div><b>Morrow Foods · OAuth consent</b><small>5 signals · Clerk is still investigating</small></div><div class="chips"><span class="chip">investigating</span></div></div><div class="qrow"><div class="sev">MEDIUM</div><div><b>Vale Energy · Impossible travel</b><small>4 signals · filed by Clerk 8m ago</small></div><div class="chips"><span class="chip">decided</span></div></div></div><div class="detail"><div class="eyebrow mono">CASE C-4417 · LARKFIELD LOGISTICS</div><h2>Token replay after a new device enrolment</h2><div class="meta mono">Filed by Clerk 26m ago · evidence snapshot 04:38:12 UTC</div><div class="verdict"><div><h3>Clerk’s verdict: compromised identity</h3><p>The token was replayed from a new device after an inbox rule was created.</p></div><div class="count mono"><b>34 of 36</b><br>accepted over 30 days</div></div><div class="evidence"><div class="eline"><span class="mono">FOUND</span><span>9 signals across identity, mail and endpoint records</span></div><div class="eline"><span class="mono">NOT FOUND</span><span>no password change, and no new device enrolment</span></div><div class="eline"><span class="mono">PROVENANCE</span><span>6 sources queried over 24h: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</span></div></div><div class="actions"><span class="btn primary">Accept a</span><span class="btn">Amend m</span><span class="btn">Reject r</span><span class="btn">Escalate e</span></div></div></div></div></section>
-<section class="zone stages"><span class="label">Case state · one row, six stages</span><div class="stage done"><strong>01 · OPENED</strong><span class="dot"></span><small>9 signals</small></div><div class="stage done"><strong>02 · CORRELATED</strong><span class="dot"></span><small>6 sources</small></div><div class="stage done"><strong>03 · FILED</strong><span class="dot"></span><small>26m ago</small></div><div class="stage live"><strong>04 · YOUR RULING</strong><span class="dot"></span><small>in view</small></div><div class="stage"><strong>05 · WRITTEN</strong><span class="dot"></span><small>waiting</small></div><div class="stage"><strong>06 · RETAINED</strong><span class="dot"></span><small>append only</small></div></section>
-<aside class="side"><section class="identity"><span class="label">Identity family and construction</span><div class="markrow"><svg width="66" height="66" viewBox="0 0 66 66"><path d="M9 9h48v48H9zM9 33h48M33 9v48" fill="none" stroke="#d29c3f" stroke-width="2"/><path d="M20 18h26v30H20V18zm0 10h26" fill="none" stroke="#e9e4da" stroke-width="3"/><circle cx="46" cy="48" r="6" fill="#b25d44"/></svg><span class="word">HARRIER</span></div><div class="geometry"><svg viewBox="0 0 400 170"><g fill="none" stroke="#504b40"><circle cx="84" cy="84" r="76"/><circle cx="84" cy="84" r="52"/><path d="M8 84h152M84 8v152M30 30l108 108M138 30L30 138"/></g><path d="M50 35h68v98H50zM50 67h68" fill="none" stroke="#d29c3f" stroke-width="4"/><circle cx="118" cy="133" r="11" fill="#b25d44"/><text x="190" y="65" fill="#e9e4da" font-family="Space Grotesk" font-size="25" letter-spacing="5">HARRIER</text><text x="190" y="91" fill="#d29c3f" font-family="DM Mono" font-size="10" letter-spacing="2">EVIDENCE BEFORE VERDICT</text></svg></div><div class="lockups mono"><span>HARRIER / CASE FILE</span><span>H / RETAINED ENTRY</span><span>CLERK FILES</span><span>YOU RULE</span></div></section><section class="language"><span class="label">Type and six colour roles</span><div class="display">Space Grotesk</div><div class="alphabet mono">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz · 0123456789</div><div class="keywords">Evidence · Verdict · Latitude</div><div class="swatches"><div class="sw"><i style="background:#11110f"></i><b>GROUND<br>#11110F</b><small>board</small></div><div class="sw"><i style="background:#e9e4da"></i><b>PAPER<br>#E9E4DA</b><small>text</small></div><div class="sw"><i style="background:#aaa397"></i><b>ASH<br>#AAA397</b><small>secondary</small></div><div class="sw"><i style="background:#675f50"></i><b>RULE<br>#675F50</b><small>structure</small></div><div class="sw"><i style="background:#d29c3f"></i><b>OCHRE<br>#D29C3F</b><small>active</small></div><div class="sw"><i style="background:#b25d44"></i><b>IRON<br>#B25D44</b><small>failure</small></div></div></section><section class="objects"><span class="label">Applications as instruments</span><div class="badge"><div class="objt">H/03</div><div class="objm">R. IDRISSI<br>40 TENANTS</div></div><div class="manual"><div class="objt">CASE<br>REGISTER</div><div class="objm">APPEND ONLY<br>VOLUME 06</div></div><div class="ticket"><div class="objt">C-4417</div><div class="objm">LARKFIELD<br>04:38 UTC</div></div></section></aside>
-<section class="lower"><section class="zone"><span class="label">Grid and radius</span><div class="gridmap"><div class="measure mono">MARGIN 48 px · 12 COLUMNS<br>GUTTER 17 px · BASELINE 20 px<br>RADIUS 2 px · drawn 1:1</div><div class="radius"></div></div></section><section class="zone"><span class="label">Ten operational silhouettes</span><div class="icons"><div class="ico"><svg viewBox="0 0 40 40"><path d="M6 7h28v26H6zM6 16h28"/></svg>case</div><div class="ico"><svg viewBox="0 0 40 40"><path d="M8 31V9h24v22M13 15h14M13 21h14M13 27h8"/></svg>file</div><div class="ico"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/><path d="M12 20l5 5 11-12"/></svg>accept</div><div class="ico"><svg viewBox="0 0 40 40"><path d="M8 31l6-2 17-17-4-4-17 17-2 6zM23 12l4 4"/></svg>amend</div><div class="ico"><svg viewBox="0 0 40 40"><path d="M10 10l20 20M30 10L10 30"/></svg>reject</div><div class="ico"><svg viewBox="0 0 40 40"><path d="M7 29L29 7M18 7h11v11"/></svg>escalate</div><div class="ico"><svg viewBox="0 0 40 40"><path d="M6 30h28M10 30V18h6v12M18 30V10h6v20M26 30V22h6v8"/></svg>fleet</div><div class="ico"><svg viewBox="0 0 40 40"><path d="M20 5v30M8 15h24M11 15l-4 8h8l-4-8zM29 15l-4 8h8l-4-8z"/></svg>latitude</div><div class="ico"><svg viewBox="0 0 40 40"><path d="M20 6a14 14 0 1 0 14 14M20 11v10l7 4"/></svg>window</div><div class="ico"><svg viewBox="0 0 40 40"><path d="M8 7h24v26H8zM13 13h14M13 19h14M13 25h9"/></svg>log</div></div></section><section class="zone"><span class="label">Poster studies</span><div class="posterrow"><article class="poster"><h3>Evidence before verdict.</h3><i></i></article><article class="poster"><h3>Clerk files. You rule.</h3><i></i></article><article class="poster"><h3>The record holds.</h3><i></i></article><article class="poster"><h3>40 tenants. One horizon.</h3><i></i></article></div></section><section class="zone"><span class="label">Motion frames · filed to retained</span><div class="frames"><div class="frame"><svg viewBox="0 0 120 110"><path d="M10 25h100M10 55h100M10 85h100" stroke="#4f4a3f"/><circle cx="20" cy="25" r="6" fill="#d29c3f"/></svg><span class="mono">01 · correlated</span></div><div class="frame"><svg viewBox="0 0 120 110"><path d="M10 25h100M10 55h100M10 85h100" stroke="#4f4a3f"/><circle cx="52" cy="55" r="6" fill="#d29c3f"/></svg><span class="mono">02 · filed</span></div><div class="frame"><svg viewBox="0 0 120 110"><path d="M10 25h100M10 55h100M10 85h100" stroke="#4f4a3f"/><circle cx="84" cy="85" r="6" fill="#d29c3f"/></svg><span class="mono">03 · ruled</span></div><div class="frame"><svg viewBox="0 0 120 110"><rect x="24" y="16" width="72" height="78" fill="none" stroke="#d29c3f"/><circle cx="96" cy="94" r="6" fill="#b25d44"/></svg><span class="mono">04 · retained</span></div></div></section></section>
-</main></body></html>
+</style>
+<style>.stagefill{grid-column:1/7;display:grid;grid-template-columns:1.15fr .85fr;gap:10px;height:188px}.anatomy,.secondkey{border-top:1px solid #514b3f;padding:12px;overflow:hidden}.anatomy{display:grid;grid-template-columns:110px 1fr 145px;gap:15px}.anatomy b{font:500 28px 'Space Grotesk';color:#e8c069}.anatomy p{margin:2px 0;font-size:11px;color:#cbc4b8}.anatomy small{font:500 8px 'DM Mono';letter-spacing:.055em;color:#aaa397}.secondkey svg{width:100%;height:150px}</style>
+</head>
+<body>
+<main class="sheet">
+<section class="hero">
+<h1>The console<br>is the identity.</h1>
+<p class="dek mono">One calm heading. Every working fact still in view.</p>
+<div class="console">
+<div class="topbar">
+<div class="brand">HARRIER</div>
+<div class="nav mono">QUEUE · SHIFT · LOG</div>
+<div class="ann">LARKFIELD LOGISTICS · acts alone up to contain endpoint · 34 of 36 accepted, 30 days</div>
+</div>
+<div class="work">
+<div class="queue">
+<div class="qhead">
+<b>18 waiting across 12 of 40 tenants in scope</b>
+<small>Blocked on you first · oldest 31m</small>
+</div>
+<div class="qrow active">
+<div class="sev">CRITICAL</div>
+<div>
+<b>Larkfield Logistics · Token replay</b>
+<small>9 signals · filed by Clerk 26m ago</small>
+</div>
+<div class="chips">
+<span class="chip">taken</span>
+<span class="chip">acted</span>
+</div>
+</div>
+<div class="qrow">
+<div class="sev">HIGH</div>
+<div>
+<b>Meridian Health · Inbox rule</b>
+<small>7 signals · filed by Clerk 18m ago</small>
+</div>
+<div class="chips">
+<span class="chip hot">unrecorded</span>
+</div>
+</div>
+<div class="qrow">
+<div class="sev">HIGH</div>
+<div>
+<b>Halcyon Care · New device</b>
+<small>6 signals · filed by Clerk 14m ago</small>
+</div>
+<div class="chips">
+<span class="chip">escalated</span>
+</div>
+</div>
+<div class="qrow">
+<div class="sev">MEDIUM</div>
+<div>
+<b>Bramber Retail · OAuth consent</b>
+<small>5 signals · Clerk is still investigating</small>
+</div>
+<div class="chips">
+<span class="chip">investigating</span>
+</div>
+</div>
+<div class="qrow">
+<div class="sev">MEDIUM</div>
+<div>
+<b>Halden Freight · Impossible travel</b>
+<small>4 signals · filed by Clerk 8m ago</small>
+</div>
+<div class="chips">
+<span class="chip">decided</span>
+</div>
+</div>
+</div>
+<div class="detail">
+<div class="eyebrow mono">CASE C-4417 · LARKFIELD LOGISTICS</div>
+<h2>Token replay after a new device enrolment</h2>
+<div class="meta mono">Filed by Clerk 26m ago · evidence snapshot 04:38:12 UTC</div>
+<div class="verdict">
+<div>
+<h3>Clerk’s verdict: compromised identity</h3>
+<p>The token was replayed from a new device after an inbox rule was created.</p>
+</div>
+<div class="count mono">
+<b>34 of 36</b>
+<br>accepted over 30 days</div>
+</div>
+<div class="evidence">
+<div class="eline">
+<span class="mono">FOUND</span>
+<span>9 signals across identity, mail and endpoint records</span>
+</div>
+<div class="eline">
+<span class="mono">NOT FOUND</span>
+<span>no password change, and no new device enrolment</span>
+</div>
+<div class="eline">
+<span class="mono">PROVENANCE</span>
+<span>6 sources queried over 24h: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</span>
+</div>
+</div>
+<div class="actions">
+<span class="btn primary">Accept a</span>
+<span class="btn">Amend m</span>
+<span class="btn">Reject r</span>
+<span class="btn">Escalate e</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="zone stages">
+<span class="label">Case state · one row, six stages</span>
+<div class="stage done">
+<strong>01 · OPENED</strong>
+<span class="dot">
+</span>
+<small>9 signals</small>
+</div>
+<div class="stage done">
+<strong>02 · CORRELATED</strong>
+<span class="dot">
+</span>
+<small>6 sources</small>
+</div>
+<div class="stage done">
+<strong>03 · FILED</strong>
+<span class="dot">
+</span>
+<small>26m ago</small>
+</div>
+<div class="stage live">
+<strong>04 · YOUR RULING</strong>
+<span class="dot">
+</span>
+<small>in view</small>
+</div>
+<div class="stage">
+<strong>05 · WRITTEN</strong>
+<span class="dot">
+</span>
+<small>waiting</small>
+</div>
+<div class="stage">
+<strong>06 · RETAINED</strong>
+<span class="dot">
+</span>
+<small>append only</small>
+</div>
+<div class="stagefill">
+<div class="anatomy">
+<div>
+<small>EVIDENCE</small>
+<b>9</b>
+<p>signals in view</p>
+</div>
+<div>
+<small>VERDICT ANATOMY</small>
+<p>
+<strong>Found</strong>
+<br>Token replay followed an inbox rule.</p>
+<p>
+<strong>Not found</strong>
+<br>No password change or new enrolment.</p>
+</div>
+<div>
+<small>RECORD</small>
+<b>34 of 36</b>
+<p>accepted over 30 days</p>
+</div>
+</div>
+<div class="secondkey">
+<svg viewBox="0 0 520 150" role="img" aria-label="Evidence route terminating in a retained verdict">
+<g stroke="#4f4a3f">
+<path d="M0 28h520M0 75h520M0 122h520"/>
+</g>
+<path d="M8 122C120 98 160 30 272 75S405 120 512 28" fill="none" stroke="#d29c3f" stroke-width="3"/>
+<circle cx="272" cy="75" r="8" fill="#d29c3f"/>
+<rect x="468" y="10" width="44" height="36" fill="none" stroke="#b25d44" stroke-width="2"/>
+</svg>
+</div>
+</div>
+</section>
+<aside class="side">
+<section class="identity">
+<span class="label">Identity family and construction</span>
+<div class="markrow">
+<svg width="66" height="66" viewBox="0 0 66 66">
+<path d="M9 9h48v48H9zM9 33h48M33 9v48" fill="none" stroke="#d29c3f" stroke-width="2"/>
+<path d="M20 18h26v30H20V18zm0 10h26" fill="none" stroke="#e9e4da" stroke-width="3"/>
+<circle cx="46" cy="48" r="6" fill="#b25d44"/>
+</svg>
+<span class="word">HARRIER</span>
+</div>
+<div class="geometry">
+<svg viewBox="0 0 400 170">
+<g fill="none" stroke="#504b40">
+<circle cx="84" cy="84" r="76"/>
+<circle cx="84" cy="84" r="52"/>
+<path d="M8 84h152M84 8v152M30 30l108 108M138 30L30 138"/>
+</g>
+<path d="M50 35h68v98H50zM50 67h68" fill="none" stroke="#d29c3f" stroke-width="4"/>
+<circle cx="118" cy="133" r="11" fill="#b25d44"/>
+<text x="190" y="65" fill="#e9e4da" font-family="Space Grotesk" font-size="25" letter-spacing="5">HARRIER</text>
+<text x="190" y="91" fill="#d29c3f" font-family="DM Mono" font-size="10" letter-spacing="2">EVIDENCE BEFORE VERDICT</text>
+</svg>
+</div>
+<div class="lockups mono">
+<span>HARRIER / CASE FILE</span>
+<span>H / RETAINED ENTRY</span>
+<span>CLERK FILES</span>
+<span>YOU RULE</span>
+</div>
+</section>
+<section class="language">
+<span class="label">Type and six colour roles</span>
+<div class="display">Space Grotesk</div>
+<div class="alphabet mono">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz · 0123456789</div>
+<div class="keywords">Evidence · Verdict · Latitude</div>
+<div class="swatches">
+<div class="sw">
+<i style="background:#11110f">
+</i>
+<b>GROUND<br>#11110F</b>
+<small>board</small>
+</div>
+<div class="sw">
+<i style="background:#e9e4da">
+</i>
+<b>PAPER<br>#E9E4DA</b>
+<small>text</small>
+</div>
+<div class="sw">
+<i style="background:#aaa397">
+</i>
+<b>ASH<br>#AAA397</b>
+<small>secondary</small>
+</div>
+<div class="sw">
+<i style="background:#675f50">
+</i>
+<b>RULE<br>#675F50</b>
+<small>structure</small>
+</div>
+<div class="sw">
+<i style="background:#d29c3f">
+</i>
+<b>OCHRE<br>#D29C3F</b>
+<small>active</small>
+</div>
+<div class="sw">
+<i style="background:#b25d44">
+</i>
+<b>IRON<br>#B25D44</b>
+<small>failure</small>
+</div>
+</div>
+</section>
+<section class="objects">
+<span class="label">Applications as instruments</span>
+<div class="badge">
+<div class="objt">H/03</div>
+<div class="objm">R. IDRISSI<br>40 TENANTS</div>
+</div>
+<div class="manual">
+<div class="objt">CASE<br>REGISTER</div>
+<div class="objm">APPEND ONLY<br>VOLUME 06</div>
+</div>
+<div class="ticket">
+<div class="objt">C-4417</div>
+<div class="objm">LARKFIELD<br>04:38 UTC</div>
+</div>
+</section>
+</aside>
+<section class="lower">
+<section class="zone">
+<span class="label">Grid and radius</span>
+<div class="gridmap">
+<div class="measure mono">MARGIN 48 px · 12 COLUMNS<br>GUTTER 17 px · BASELINE 20 px<br>RADIUS 2 px · drawn 1:1</div>
+<div class="radius">
+</div>
+</div>
+</section>
+<section class="zone">
+<span class="label">Ten operational silhouettes</span>
+<div class="icons">
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M6 7h28v26H6zM6 16h28"/>
+</svg>case</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M8 31V9h24v22M13 15h14M13 21h14M13 27h8"/>
+</svg>file</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<circle cx="20" cy="20" r="14"/>
+<path d="M12 20l5 5 11-12"/>
+</svg>accept</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M8 31l6-2 17-17-4-4-17 17-2 6zM23 12l4 4"/>
+</svg>amend</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M10 10l20 20M30 10L10 30"/>
+</svg>reject</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M7 29L29 7M18 7h11v11"/>
+</svg>escalate</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M6 30h28M10 30V18h6v12M18 30V10h6v20M26 30V22h6v8"/>
+</svg>fleet</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M20 5v30M8 15h24M11 15l-4 8h8l-4-8zM29 15l-4 8h8l-4-8z"/>
+</svg>latitude</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M20 6a14 14 0 1 0 14 14M20 11v10l7 4"/>
+</svg>window</div>
+<div class="ico">
+<svg viewBox="0 0 40 40">
+<path d="M8 7h24v26H8zM13 13h14M13 19h14M13 25h9"/>
+</svg>log</div>
+</div>
+</section>
+<section class="zone">
+<span class="label">Poster studies</span>
+<div class="posterrow">
+<article class="poster">
+<h3>Evidence before verdict.</h3>
+<i>
+</i>
+</article>
+<article class="poster">
+<h3>Clerk files. You rule.</h3>
+<i>
+</i>
+</article>
+<article class="poster">
+<h3>The record holds.</h3>
+<i>
+</i>
+</article>
+<article class="poster">
+<h3>40 tenants. One horizon.</h3>
+<i>
+</i>
+</article>
+</div>
+</section>
+<section class="zone">
+<span class="label">Motion frames · filed to retained</span>
+<div class="frames">
+<div class="frame">
+<svg viewBox="0 0 120 110">
+<path d="M10 25h100M10 55h100M10 85h100" stroke="#4f4a3f"/>
+<circle cx="20" cy="25" r="6" fill="#d29c3f"/>
+</svg>
+<span class="mono">01 · correlated</span>
+</div>
+<div class="frame">
+<svg viewBox="0 0 120 110">
+<path d="M10 25h100M10 55h100M10 85h100" stroke="#4f4a3f"/>
+<circle cx="52" cy="55" r="6" fill="#d29c3f"/>
+</svg>
+<span class="mono">02 · filed</span>
+</div>
+<div class="frame">
+<svg viewBox="0 0 120 110">
+<path d="M10 25h100M10 55h100M10 85h100" stroke="#4f4a3f"/>
+<circle cx="84" cy="85" r="6" fill="#d29c3f"/>
+</svg>
+<span class="mono">03 · ruled</span>
+</div>
+<div class="frame">
+<svg viewBox="0 0 120 110">
+<rect x="24" y="16" width="72" height="78" fill="none" stroke="#d29c3f"/>
+<circle cx="96" cy="94" r="6" fill="#b25d44"/>
+</svg>
+<span class="mono">04 · retained</span>
+</div>
+</div>
+</section>
+</section>
+</main>
+</body>
+</html>
