@@ -1,43 +1,43 @@
-# Harrier brandbook plates · round three
+# Harrier brandbook plates · round four
 
-These plates are composed as brandbook sheets rather than UI inventories. Hairline rules and editorial labels organise the page. No zone uses a perimeter border or corner number. Every direction carries one large drawn scene, an identity family, construction geometry, physical applications, four poster studies, motion frames and a quiet product sample.
+Round four restores the density of the supplied NEO MIRAI toolkit while preserving the round-three form: hairline section rules with labels above, no framed zone boxes, no corner numbers, constructed identity families, one dominant SVG key visual, physical applications, poster studies, motion frames and product direction at the foot.
 
 ## Reference lock
 
-The NEO MIRAI toolkit controls the sheet architecture: one atmospheric quadrant, rules instead of boxes, lockups shown as a family, objects with presence, vertical posters and small motion and UI studies at the foot. Its ivory palette, conference subject and Japanese motif are not used.
+The supplied NEO MIRAI sheet is the primary reference. Its transferable traits are a packed continuous canvas, unequal editorial zones, construction diagrams at working size, complete specimens, object mockups with physical presence and many small studies gathered around one large image. Its conference content, Japanese styling and exact palette are not copied.
 
-The dark editorial deck contributes only the register: a small monospace category line, a plain-language title, a scarce accent and work shown without sales language.
+Harrier supplies the subject and constraints. Every direction describes the same adjudication console, uses canonical fixtures, keeps Clerk in the filing role and places the analyst in the ruling role. Inline SVG carries all marks, icons, geometry, scenes and motion studies. No external images or JavaScript are used.
 
-Harrier controls the subject. The recurring scene is a fleet of distinct tenant boundaries crossed by evidence routes. The H mark is built as two joined thresholds around a decision point. The console remains dark on all three plates, including the light Case Registry board.
+## Night Ledger
 
-## Plate A · Night Ledger
+The sheet is organised around a tall night-city quadrant rather than a left-to-right banner. Archivo Narrow gives it the compressed register of an operations ledger; IBM Plex Mono is limited to data and measurement. Its mark is a ledger path turning through a recorded decision point. Amber carries provenance and ember carries decisions. The upper-right void is filled by the evidence and verdict anatomy.
 
-Near-black ground with amber and burnt terracotta. The key visual is a night operations section: tenant towers rise through a perspective grid while routes cross above them and terminate at recorded decisions. Applications feel like equipment carried through a shift: pass, authority badge and append-only ledger.
+## Case Registry
 
-The direction makes the audit record tangible without making the interface resemble a compliance product. Terracotta is reserved for decisions and terminal points; amber carries provenance and guidance.
+The light board is composed as an archive table with the wide key visual on the upper right and identity on the upper left. Newsreader gives the direction a documentary, retained-record voice; Source Sans 3 handles the working text. Its mark is a ruled case file interrupted by a retained-entry seal. Product screens remain dark. The middle band changes to four unequal columns rather than following the first plate.
 
-## Plate B · Case Registry
+## Fleet Semaphore
 
-Bone and parchment presentation ground with ink and one oxidised red. This is the closest structural reading of the supplied toolkit reference, but the product sample stays dark by design. The key visual treats the case file as architecture: evidence routes pass across a registry landscape and resolve into retained entries.
+The composition uses a five-column lower field and a radial fleet map rather than either earlier plate’s geometry. Barlow Condensed gives the system a dispatch character; Manrope handles text. Its mark is a two-direction semaphore mast. Signal chartreuse is reserved for latitude, active routes and terminal points. A tenant fleet strip fills the upper identity field and makes different ceilings visible before a case opens.
 
-Oxidised red is used for seals, rulings and route endpoints. It is not a general decoration colour. The folder, authority card and shift registry give the identity physical weight.
+## Complete specimens
 
-## Plate C · Fleet Semaphore
+Each plate now includes:
 
-Near-black ground with acid chartreuse. The differentiator is drawn directly: each tenant tower has a visible ceiling, each route reads against that ceiling, and the operator can see where latitude differs before opening a case. Chartreuse is the semaphore signal and is deliberately scarce outside that role.
+- a different display and body pairing loaded from Google Fonts;
+- a distinct constructed mark and identity family;
+- uppercase, lowercase and numeral specimens plus product keywords;
+- six named swatches with hex values and explicit roles;
+- ten authored inline SVG icons with captions;
+- column fields, baseline, gutter, margin and radius at size;
+- evidence, verdict or fleet content in the former upper-band void;
+- applications, four poster studies, four motion frames and a product sample.
 
-The physical set is operational rather than promotional: shift pass, fleet-access badge and latitude register. Poster and motion studies keep the ceiling and route vocabulary intact.
+## Technical checks
 
-## Shared fixtures and voice
-
-All three plates use the same canonical case and fleet reading: `C-4417` at Larkfield Logistics, `6 sources queried over 24h`, and `34 of 36 accepted, 30 days`. Controls use the canonical verbs: `Accept`, `Amend`, `Reject`, `Escalate`. Clerk files a verdict; the analyst rules. Counts carry a scope and window. No plate uses an em dash.
-
-## Technical construction
-
-- Canvas: fixed `2400 × 1600`, with the sheet itself clipping nothing.
-- Type: DM Sans and IBM Plex Mono from Google Fonts, with monospace limited to labels and data.
-- Media: all key visuals, marks, icons and motion frames are inline SVG drawn for these plates.
-- Product ground: dark in every direction.
-- Dark-board text: off-white on near-black, body weight 400 or above, with open tracking on small monospace.
-- Accessibility: text/background pairs are chosen to meet WCAG AA; accent colours are not used for low-contrast body copy.
-- Runtime: no JavaScript and no external images.
+- Fixed canvas: 2400 × 1600.
+- Nothing relies on runtime JavaScript.
+- No external bitmap images.
+- Dark boards avoid pure black and pure white, keep body text at weight 400 or above and open small data text.
+- Plate B remains a light presentation board with a dark product screen.
+- Product strings use canonical fixtures and verbs. No em dash is used.
