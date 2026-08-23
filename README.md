@@ -18,7 +18,7 @@ Stage 03b: https://sergiodesign4u-dot.github.io/harrier/ia/sitemap.html and http
 | User Research | Done. Two personas from three practitioner studies, 5 verbatim analyst quotes where stage 01 had none, one main job and four related, MVP core narrowed to three, critique on three instruments with 20 findings and one overlap |
 | CJM (As-Is + To-Be) | Out of track. The shortened track runs 01 to 07. The steps of the journey are owned by the stage 03a user flow instead |
 | Information Architecture (IA) | Done. Base layer: eleven entities, eight screens in six intent clusters, three user flows with states and semantic colour, traceability with no orphans. Detail layer: **46 nodes, 40 MVP, 23 with a written specification and a black-and-white mockup at 1440 and 360**, a block bank of nine page types from 19 pages opened in session, critique on **four** instruments including a reader with clean context, and one node orphan named rather than hidden |
-| Wireframes | Not started |
+| Wireframes | Done. 62 grey pages across 13 screens plus the hub, every state of the MVP map with a visible exit, the flow clickable in both directions, all look in one `_wf.css` and four inline declarations left, each used once. Critique on five instruments, second pass run, and 63 pages measured live at 1440, 1024 and a true 360. [Overview](https://sergiodesign4u-dot.github.io/harrier/wireframes/overview.html) &middot; [Case Queue](https://sergiodesign4u-dot.github.io/harrier/wireframes/queue.html) |
 | Voice | Not started |
 | Concept | Not started |
 | UI + Visual | Not started |

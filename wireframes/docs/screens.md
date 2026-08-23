@@ -227,28 +227,38 @@ It is the flow that reuses the reference most, and every screen in it is a varia
 
 ---
 
-## 5. The estimate for the whole product, step 8
+## 5. The estimate for the whole product, and what it missed
 
-| Screen | Node | Scope | States | Pages | Status |
-|---|---|---|---|---|---|
-| Case Queue | 3.1 | MVP | 9 | 9 | **built** |
-| Case File in the pane | 4.1 | MVP | 8 | 8 | **built** |
-| Reject with a reason | 4.4 | MVP | 5 | 5 | **built** |
-| Escalate | 4.6 | MVP | 4 | 4 | **built** |
-| Decision log | 5.1 | MVP | 5 | 5 | **built** |
-| Log entry, `?as-of` | 5.4 | MVP | 5 | 5 | **built** |
-| Shift brief | 2.1 | MVP | 7 | 7 | to roll out |
-| Sign in | 1.1 | MVP | 5 | 5 | to roll out |
-| Case File, standalone route | 4.2 | MVP | 3 | 3 | to roll out |
-| Service unavailable | 8.2 | MVP | 3 | 3 | to roll out |
-| History of one case | 5.6 | MVP | 2 | 2 | to roll out |
-| Not found | 8.1 | MVP | 1 | 1 | to roll out |
-| Keyboard map | 0.5 | MVP | 1 | 1 | to roll out |
-| Client summary, and its sending | 6.1, 6.2 | LATER | 0 | 0 | not this round |
-| Tenant detail, grants, grant change | 7.1, 7.2, 7.3 | LATER | 0 | 0 | not this round |
-| Permission denied | 8.3 | LATER | 0 | 0 | not this round |
+| Screen | Node | Scope | States | Pages | Estimated at step 8 | Status |
+|---|---|---|---|---|---|---|
+| Case Queue | 3.1 | MVP | 12 | 12 | 9 | **built** |
+| Case File in the pane | 4.1 | MVP | 8 | 8 | 8 | **built** |
+| Reject with a reason | 4.4 | MVP | 6 | 6 | 5 | **built** |
+| Escalate | 4.6 | MVP | 4 | 4 | 4 | **built** |
+| Decision log | 5.1 | MVP | 5 | 5 | 5 | **built** |
+| Log entry, `?as-of` | 5.4 | MVP | 5 | 5 | 5 | **built** |
+| Shift brief | 2.1 | MVP | 7 | 7 | 7 | **built** |
+| Sign in | 1.1 | MVP | 5 | 5 | 5 | **built** |
+| Case File, standalone route | 4.2 | MVP | 3 | 3 | 3 | **built** |
+| Service unavailable | 8.2 | MVP | 3 | 3 | 3 | **built** |
+| History of one case | 5.6 | MVP | 2 | 2 | 2 | **built** |
+| Not found | 8.1 | MVP | 1 | 1 | 1 | **built** |
+| Keyboard map | 0.5 | MVP | 1 | 1 | 1 | **built** |
+| Client summary, and its sending | 6.1, 6.2 | LATER | 0 | 0 | 0 | not this round |
+| Tenant detail, grants, grant change | 7.1, 7.2, 7.3 | LATER | 0 | 0 | 0 | not this round |
+| Permission denied | 8.3 | LATER | 0 | 0 | 0 | not this round |
 
-**Together 58 pages, of which 58 are in the MVP scope and 36 are already drawn. 22 remain, across 7 screens.** Plus `overview.html`, the hub. **Eleven cells marked `-`, each with its reason above.**
+**Together 62 pages, all of them in the MVP scope and all of them drawn**, plus `overview.html`, the hub. **Eleven cells marked `-`, each with its reason above.**
+
+**The estimate was 58 and the product is 62.** The four are named rather than absorbed, because a count that quietly grows is a count nobody can use next time:
+
+| Page | Why it was not in the estimate |
+|---|---|
+| `queue-notice`, `queue-notices` | Node 8.4 was counted as **inside a host**, and a node inside a host was assumed to need no page. It needs two: a notice layer that is never drawn at capacity is one whose cap nobody has decided |
+| `queue-reconnecting` | `CONNECTING` was a declared `readyState` of 0.4 with a strip variant written for it and no page using it. The estimate counted 0.4 as a strip rather than as three strips |
+| `reject-other` | Axis A of 0.7 has seven values. The list showed six and the seventh was in the state matrix, so the estimate counted the list |
+
+**Three of the four are the same mistake**, and it is worth naming because it will recur at stage 07: **a node that renders inside a host still has states, and its states still need pages.** The step 8 estimate counted screens and read `inside a host` as `zero pages`.
 
 ### Every MVP node is accounted for, and this is the check that says so
 
@@ -258,7 +268,7 @@ The map holds **46 nodes, 40 of them MVP**. A screen count alone cannot prove co
 |---|---|---|
 | **Its own screen** | 13 | 0.5, 1.1, 2.1, 3.1, 4.1, 4.2, 4.4, 4.6, 5.1, 5.4, 5.6, 8.1, 8.2 |
 | **A state of a screen** | 17 | 1.2, 2.2, 2.3, 2.4, 2.5, 3.2, 3.3, 3.4, 4.3, 4.5, 4.7, 4.8, 4.9, 4.10, 5.2, 5.3, 5.5 |
-| **Inside a host, with no page of its own** | 10 | 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 3.5, 3.6, 8.4 |
+| **Inside a host** | 10 | 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 3.5, 3.6, 8.4. **Three of these turned out to need pages of their own after all**: 0.4's `reconnecting`, 0.7's seventh value and 8.4's two, all drawn as states of their host screen |
 | **Not drawn this round** | 6 | 6.1, 6.2, 7.1, 7.2, 7.3, 8.3, all LATER |
 
 13 + 17 + 10 = **40, which is every MVP node**, and the six LATER ones are named rather than missing.

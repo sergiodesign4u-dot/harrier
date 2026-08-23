@@ -122,7 +122,20 @@ The one exception is named above and it is narrow: interface strings, which the 
 
 Colour, type family, brand, icons, illustration, photography, shadows, motion, finished UI. All of it is stages 06 to 08, and all of it arrives on **copies** of these screens under `design/`.
 
-`_wf.css` stays grey for the rest of the pipeline. The rule is repeated in the root `CLAUDE.md` on purpose: a nested `CLAUDE.md` only loads when Claude reads something in its folder, and forgetting this one costs the whole artefact of the stage.
+`_wf.css` stays grey for the rest of the pipeline. The rule is repeated in the root `CLAUDE.md` and in `wireframes/CLAUDE.md` on purpose: a nested `CLAUDE.md` only loads when Claude reads something in its folder, and forgetting this one costs the whole artefact of the stage.
+
+### The named exemptions, because a rule with unnamed exceptions is a rule nobody can check
+
+Four things in this stage look like violations of the sentence above and are not. They are listed so that the next instrument to sweep this folder finds an answer instead of a finding, and so that anything **not** on this list is a real defect.
+
+| Looks like | Where | Why it stands |
+|---|---|---|
+| **A type family is declared** | `--ui` is the system font stack, `--mono` the system mono | Not a typeface choice. It is the operating system's own, which is the absence of a choice, and 06 replaces it. A wireframe with no font family declared renders in Times, which is a choice and a worse one |
+| **An icon** | the `&#9662;` caret on filter chips, 38 pages | A text character, not an icon set. The chip has to say it opens something, and drawing that with a border alone puts a shape in the file that 07 would then have to unlearn |
+| **A shadow** | `.row.is-selected{box-shadow:inset 3px 0 0 var(--ink)}` | `inset`, zero blur, one palette colour. It is a 3px rule down the left edge of the selected row, drawn with the one property that does not add a box. Nothing about it is a shadow |
+| **Off scale sizes** | `10.5px` on the annunciator below 1400, `9.5px` on the `WHY` and `ALERT` labels, `8.5px` and `5px` on the severity bars | Below `--t-xs`, and deliberately. Two are eyebrow labels that must not compete with the sentence under them, one is a three bar glyph whose bars are a drawing rather than text, and one is the annunciator wrapping at the product's declared minimum width. **Four uses, all named here.** A fifth would mean the scale is short by one step, and the fix would be the scale |
+
+**The idle control on this list is the list itself.** Every entry was verified against the file at step 9, and one that had been written from memory, `#000` and `#fff` under `@media print`, was struck: there is no print stylesheet in this stage and there never was.
 
 ---
 
