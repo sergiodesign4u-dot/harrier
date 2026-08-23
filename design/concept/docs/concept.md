@@ -62,6 +62,19 @@ Supplied on 2026-08-23, and the first real taste input this file has. Both are k
 
 **`ref-impeccable-deck.jpg`, the deck this project's `impeccable` skill publishes.** Taken from it: the dark editorial card, the gold hairline, the small monospace category label above a plain-language title. It is the register of a place that shows work rather than sells it.
 
+**`ref-lexend-console.jpg`, a delivery-pipeline console, added 2026-08-23.** Named by the user as a register worth having. **It has to be recorded with its conflict, because it is the reflex we measured.** Dark navy canvas, electric blue accent, and a status column in green, red and blue: this is the palette that eight of ten style results at step 1 described in nearly the same words, and `references.md` section 4 marks it as the dangerous kind because it looks correct for this category specifically.
+
+**What is taken from it, and none of it is the palette:**
+
+| Technique | Why it is worth having |
+|---|---|
+| **The product screen is the hero, shown at full fidelity and full size** rather than as a row of thumbnails | Our sheets show four postage stamps. This product is a console, and a brand sheet for a console that never shows the console at size is arguing with itself |
+| **A very large geometric display line over dense monospace data** | A3 says authority by restraint, and this shows restraint can still be large. Scale contrast is not the same as emphasis |
+| **A row of stage boxes carrying state**, each with its own outline and its own colour | The queue has a closed set of six chips, and this is what a state row looks like when it is doing work rather than decorating |
+| **Confident, calm sidebar and a single generous heading** | Our sheets have no single place the eye lands first |
+
+**What is not taken, and the user decides if that changes:** the navy ground with an electric blue accent. Taking it would mean adopting the measured category reflex knowingly. That is a decision available to the user, and it is not one that gets made by accident inside a prompt.
+
 **One thing this section does not reopen.** NEO MIRAI's sheet is ivory. **The board's own ground is a presentation choice; the console's ground is decided in section 4 and stays dark.** A light board carrying dark product screens is legitimate, and the two are not the same decision.
 
 ---
