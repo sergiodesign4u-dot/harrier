@@ -41,3 +41,25 @@ Each plate now includes:
 - Dark boards avoid pure black and pure white, keep body text at weight 400 or above and open small data text.
 - Plate B remains a light presentation board with a dark product screen.
 - Product strings use canonical fixtures and verbs. No em dash is used.
+
+## Plate D · The Console Itself
+
+The product screen is the hero and occupies roughly half the sheet. Its queue, detail pane, annunciator, state chips and verdict controls remain readable as one real Harrier working surface. The six-stage strip borrows the state-carrying composition of the supplied Lexend reference, while ochre and iron replace its blue-led palette. Space Grotesk supplies the large geometric line; DM Mono carries the dense evidence and state data. Identity, construction, palette, type, objects, icons, posters and motion stay supporting apparatus around the console.
+
+## Plate E · The White Sheet
+
+The board is paper white with wide margins, hairline divisions and a catalogue rhythm. Bodoni Moda is the deliberately characterful display face, with IBM Plex Sans and IBM Plex Mono handling working copy and data. The product screen remains dark, so the light board presents the instrument without pretending the instrument has a light theme. Fewer statements are given more scale, the retained record becomes the key visual, and physical objects sit at the foot like archive artefacts rather than dashboard cards.
+
+## Plate F · Counted, Not Estimated
+
+Attribute pair: **A5, Counted, not estimated.** The whole sheet is organised around absolute counts, populations and windows: `34 of 36`, `9 signals`, `6 sources`, `24h`, `30 days`. League Spartan turns the count into the display language and the constructed mark is a tally grid with one retained decision point. Saturation is spent only on a current count or an exception.
+
+What was pushed: numeric scale, tabular rhythm and provenance as identity rather than annotation. What was given up: pictorial atmosphere and the softer documentary register of Plate E. This direction is intentionally harder and more mechanical; it makes Harrier’s rule for trustworthy numbers visible before any product copy is read.
+
+## Round-five technical checks
+
+- Plates D, E and F are fixed at 2400 × 1600.
+- Plate D and Plate F use warm near-black grounds, off-white text, body weights of 400 or more and open small monospace tracking.
+- Plate E is a light presentation sheet with a dark product screen.
+- None of the three uses electric blue or violet, JavaScript, external bitmap images, framed zone boxes or corner numbers.
+- The three directions use different display faces, marks and dominant compositions.
