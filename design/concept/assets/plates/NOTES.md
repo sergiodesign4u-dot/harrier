@@ -1,31 +1,43 @@
-# Harrier brandbook plates, round two
+# Harrier brandbook plates · round three
 
-All three plates describe the same dark product and the same fixture set. None uses pure black or pure white. Body text is 400 or heavier. Small monospace is tracked open. The product samples use `C-4417`, Larkfield Logistics, `9 signals`, `6 sources, 24h`, the six case chips, and the seven canonical tenants from `ia/docs/pages/reading-conventions.md`.
+These plates are composed as brandbook sheets rather than UI inventories. Hairline rules and editorial labels organise the page. No zone uses a perimeter border or corner number. Every direction carries one large drawn scene, an identity family, construction geometry, physical applications, four poster studies, motion frames and a quiet product sample.
 
-## Plate A, Night Ledger
+## Reference lock
 
-**Bet:** A1 Precise, not soft and A5 Counted, not estimated. Harrier should first read as a compact working instrument whose hierarchy is made by rules, columns and counted evidence. The largest area is the key visual, a continuous ruling line that joins case, evidence and decision.
+The NEO MIRAI toolkit controls the sheet architecture: one atmospheric quadrant, rules instead of boxes, lockups shown as a family, objects with presence, vertical posters and small motion and UI studies at the foot. Its ivory palette, conference subject and Japanese motif are not used.
 
-**Gives up:** A3 is not the leading attribute. The plate gives up institutional ceremony and any editorial distance in exchange for speed, mechanical comparability and keyboard-first bluntness. The ochre accent identifies provenance only; coral is reserved for the one exception.
+The dark editorial deck contributes only the register: a small monospace category line, a plain-language title, a scarce accent and work shown without sales language.
 
-**Composition lock:** a tall identity rail on the left; a large central ruling field; typography and palette stacked at the top; dense applications, components and social material packed into the bottom. It must not align with either plate B or C.
+Harrier controls the subject. The recurring scene is a fleet of distinct tenant boundaries crossed by evidence routes. The H mark is built as two joined thresholds around a decision point. The console remains dark on all three plates, including the light Case Registry board.
 
-## Plate B, Case Registry
+## Plate A · Night Ledger
 
-**Bet:** A3 Authority by restraint, not by emphasis and A4 Depth by tone, not by blur. Harrier should feel like a durable record whose evidence and human decision can still be read months later. The largest area is the case-file application, not a poster or fleet map.
+Near-black ground with amber and burnt terracotta. The key visual is a night operations section: tenant towers rise through a perspective grid while routes cross above them and terminate at recorded decisions. Applications feel like equipment carried through a shift: pass, authority badge and append-only ledger.
 
-**Gives up:** A5 remains present in the evidence column but does not own the whole face. The plate gives up the all-monospace instrument stance in exchange for a restrained serif voice for filed verdicts. Rust is confined to objections and rejected states; parchment is a text colour and rule colour, never a light product surface.
+The direction makes the audit record tangible without making the interface resemble a compliance product. Terracotta is reserved for decisions and terminal points; amber carries provenance and guidance.
 
-**Composition lock:** a low identity header at the upper right; one large registry application crossing the left and centre; palette as a narrow vertical index; key visual as stamped record fragments; a dense two-row footer assembly. It must not share A's rail or C's map-led structure.
+## Plate B · Case Registry
 
-## Plate C, Fleet Semaphore
+Bone and parchment presentation ground with ink and one oxidised red. This is the closest structural reading of the supplied toolkit reference, but the product sample stays dark by design. The key visual treats the case file as architecture: evidence routes pass across a registry landscape and resolve into retained entries.
 
-**Bet:** A2 Saturation is scarce, not decorative and A5 Counted, not estimated. The differentiator must be visible across a room: forty tenant routes, each with a readable ceiling and record. Chartreuse appears only on active latitude routes and route markers. It is absent from identity, headings, buttons, tiles and broad fields.
+Oxidised red is used for seals, rulings and route endpoints. It is not a general decoration colour. The folder, authority card and shift registry give the identity physical weight.
 
-**Gives up:** A3 is deliberately secondary. The plate gives up quiet institutional neutrality so the fleet can read before any case is opened. The cost is a more diagrammatic, public-facing visual language, controlled by strict accent scarcity.
+## Plate C · Fleet Semaphore
 
-**Composition lock:** the fleet map is the broad upper-left field; identity is a compact upper-right block on the neutral ground; typography is a vertical specimen; product surfaces form a dense lower band around the map legend. It must not align with A's central ledger or B's registry sheet.
+Near-black ground with acid chartreuse. The differentiator is drawn directly: each tenant tower has a visible ceiling, each route reads against that ceiling, and the operator can see where latitude differs before opening a case. Chartreuse is the semaphore signal and is deliberately scarce outside that role.
 
-## Contrast and halation checks
+The physical set is operational rather than promotional: shift pass, fleet-access badge and latitude register. Poster and motion studies keep the ceiling and route vocabulary intact.
 
-Ratios were calculated from the literal hex pairs used in the files. Core pairs exceed WCAG AA: A `#E8E2D7` on `#171816` is 13.82:1; B `#E5E0D6` on `#141817` is 13.61:1; C `#DEE5DA` on `#111614` is 14.21:1. Secondary text remains above 4.5:1. Dark text is used on ochre, rust-light and chartreuse fills. No blue or violet appears in any palette.
+## Shared fixtures and voice
+
+All three plates use the same canonical case and fleet reading: `C-4417` at Larkfield Logistics, `6 sources queried over 24h`, and `34 of 36 accepted, 30 days`. Controls use the canonical verbs: `Accept`, `Amend`, `Reject`, `Escalate`. Clerk files a verdict; the analyst rules. Counts carry a scope and window. No plate uses an em dash.
+
+## Technical construction
+
+- Canvas: fixed `2400 × 1600`, with the sheet itself clipping nothing.
+- Type: DM Sans and IBM Plex Mono from Google Fonts, with monospace limited to labels and data.
+- Media: all key visuals, marks, icons and motion frames are inline SVG drawn for these plates.
+- Product ground: dark in every direction.
+- Dark-board text: off-white on near-black, body weight 400 or above, with open tracking on small monospace.
+- Accessibility: text/background pairs are chosen to meet WCAG AA; accent colours are not used for low-contrast body copy.
+- Runtime: no JavaScript and no external images.
