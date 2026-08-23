@@ -20,7 +20,9 @@ Read for this: `research/docs/personas.md`, `research/docs/jtbd.md`, `voice/docs
 
 ## 2. Designer's taste
 
-**Status: `PROPOSED`.** These two lists were drafted by Claude with reasons attached, at the user's instruction to propose rather than wait. **They are not yet the user's taste**, and the label stays until the user confirms or edits them. A proposed list beats an empty one only because it is correctable; it does not beat a real one.
+**Status: mixed, and the difference is marked per row.** Section 2c is the user's own, supplied on 2026-08-23 as two images rather than as names, which is a better answer than names. Sections 2a and 2b were drafted by Claude with reasons attached and still carry `PROPOSED`: correctable, but not the user's taste.
+
+**2c outranks 2a and 2b where they disagree**, because it is the only part supplied by the person whose taste this is.
 
 Taste is written down here rather than held in a head for one reason: every generation prompt is written from this section, and a prompt without it returns the model's default.
 
@@ -41,6 +43,26 @@ Taste is written down here rather than held in a head for one reason: every gene
 | **Frosted glass, blurred cards, stacked shadows** | The split pane carries a list, a detail pane, a dialog and a notice stack live at once. Depth by blur on four layers is how a dense screen turns to soup |
 | **Icons in circles, gradient heroes, illustrated empty states** | Decoration bought with the vertical space of a queue row. And the empty state of the detail pane has a job already: it must read as "this is the fleet", not as "this is empty" |
 | **Confidence as a large coloured ring or gauge** | A number with no claim, no scope and no window, which is exactly what a verbatim analyst asked for the opposite of: an explanation is more meaningful "if I have some context about how that percentage was generated" [RIT, `personas.md`]. Voice Principle 3 forbids the bare percentage in words; it must not come back as a picture |
+
+### 2c. The form of a brandbook, named by the user with two images
+
+Supplied on 2026-08-23, and the first real taste input this file has. Both are kept in `design/concept/assets/refs/`.
+
+**`ref-neo-mirai-toolkit.jpg`, the NEO MIRAI AI Design Conference brand toolkit.** The stage pack already used this artefact as its verbal benchmark for **density**. The user has now named it for something else: **the form of the sheet itself**. What is taken from it, and none of it is its palette:
+
+| Technique | What it replaces in our plates |
+|---|---|
+| **Zones divided by a hairline rule with a small label above it**, in the manner of an editorial page | Twelve framed boxes with a border and a corner number, which reads as a spreadsheet about a brand rather than a brand |
+| **One large illustrated key visual occupying a full quadrant**, with atmosphere and depth | A key visual zone that is another table |
+| **Applications shown as objects with real presence**: a ticket, a lanyard badge, a tote, a notebook | Four small screenshots in a row |
+| **A row of vertical poster concepts** with their own composition | Nothing. Our sheets had no posters at all |
+| **The mark shown on its construction geometry**, with lockups laid out as a family | A single glyph repeated at three sizes |
+| **A motion frame row, and a UI component direction block** kept small and calm at the foot of the sheet | UI components given the same weight as identity |
+| **Air.** The sheet is dense and still breathes, because the rules do the separating and the boxes are gone | Uniform density with no hierarchy, so nothing leads |
+
+**`ref-impeccable-deck.jpg`, the deck this project's `impeccable` skill publishes.** Taken from it: the dark editorial card, the gold hairline, the small monospace category label above a plain-language title. It is the register of a place that shows work rather than sells it.
+
+**One thing this section does not reopen.** NEO MIRAI's sheet is ivory. **The board's own ground is a presentation choice; the console's ground is decided in section 4 and stays dark.** A light board carrying dark product screens is legitimate, and the two are not the same decision.
 
 ---
 
