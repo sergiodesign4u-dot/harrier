@@ -69,3 +69,19 @@ The top-left void now carries the seven canonical tenants as a fleet strip, with
 - Plate E is a light presentation sheet with a dark product screen.
 - None of the three uses electric blue or violet, JavaScript, external bitmap images, framed zone boxes or corner numbers.
 - The three directions use different display faces, marks and dominant compositions.
+
+## Round six · three new dark-board bets
+
+### Plate G · Night Contact
+
+The bet is that Harrier can own the visual register of a real console at 03:00: low light, long exposure, night-floor geometry and evidence traces, with people reduced to rare anonymous scale. **A1 Precise, not soft** carries the hard horizon and constructed images; **A2 Saturation is scarce, not decorative** reserves gold for evidence traces and rust for the decision point. It gives up literal product demonstration and human warmth. The imagery feels observed and operational, but it will not explain the split-pane workflow by itself.
+
+### Plate H · Evidence Terrain
+
+The bet is that per-tenant latitude becomes the brand when it is drawn as terrain rather than as a gauge or configuration control. **A4 Depth by tone, not by blur** carries the stacked contour field; **A5 Counted, not estimated** requires every contour to terminate in a named tenant, ceiling or counted record. It gives up the speed and bluntness of a ledger. The cartographic field asks for a second look, so it is less immediate in exchange for making the differentiator ownable.
+
+### Plate I · Decisive Interval
+
+The bet is that motion direction can lead the identity before the product is coded: every state change has an origin, a duration, a curve and a still endpoint. **A3 Authority by restraint, not by emphasis** carries the no-overshoot, no-performance motion; **A1 Precise, not soft** carries the 40 ms timing quantum and hard interval geometry. It gives up atmospheric breadth. This is the coolest and most procedural direction, and it depends on disciplined implementation to retain its character.
+
+Across all three plates, imagery is a system rather than a hero picture: four authored SVG registers, explicit allowed and forbidden subjects, and no external bitmap. Motion names what moves, how long it moves and on which curve. The invariant is stated on every sheet: evidence never animates and no overlay may hide it.
