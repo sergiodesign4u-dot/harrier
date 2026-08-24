@@ -7,67 +7,6 @@
 <title>Harrier &middot; Shift brief, nothing carried over, in colour</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="kit/kit.css">
-<style>
-/* INLINE: queue :: for reconcile into _wf.css
-   Only what is genuinely one-off for this screen family, every value through var().
-   The shell, the row, the chips and the fleet already live in _wf.css. */
-/* INLINE: shift :: for reconcile into _wf.css
-   The brief has no list to scroll and no scope bar, so Z4 is a column of sections rather
-   than a grid. Everything a queue or a log already owns is reused, not restated. */
-
-/* Z4 body. One scroller, so a section never gets its own scrollbar inside the page */
-.brief{flex:1 1 auto;overflow-y:auto;min-height:0;padding:var(--s5) var(--s4);
-       display:flex;flex-direction:column;gap:var(--s6)}
-.brief .rows{flex:0 0 auto;overflow:visible;border-top:var(--line)}
-/* `.block > h3` is the pane's heading, and in the pane it sits under the pane title. Here
-   there is no pane title above it, so the section heading is an h2 and takes the same face. */
-.block > h2{margin:0;font:600 var(--t-xs)/1 var(--mono);letter-spacing:.1em;
-            text-transform:uppercase;color:var(--soft)}
-
-/* Blocks 2 and 3, the counted lines. A LINE and not a card: the block table rules out the
-   metric card by name, and a number in a box is one. The count sits in a column so the eye
-   reads down the numbers, and the destination sits at the end of the line or says there is none. */
-.bline{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:var(--s3);
-       align-items:baseline;padding:var(--s3) var(--s2);border-bottom:var(--line);
-       text-decoration:none;color:inherit;font-size:var(--t-sm)}
-.bline:first-of-type{border-top:var(--line)}
-a.bline:hover{background:var(--fill)}
-.bline .n{font:700 var(--t-lg)/1 var(--mono);text-align:right}
-.bline .n.is-quiet{color:var(--soft)}
-.bline .go{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);white-space:nowrap}
-.bline .ex{display:block;color:var(--soft);margin-top:var(--s1)}
-
-/* Block 4, what moved. The canonical row with four slots instead of seven. No severity and
-   no `to check`: a pointer is not a thing to triage, it is a thing that already happened. */
-.rows--moved{--row-tracks:132px minmax(0,1fr) 116px 44px}
-.rows--moved .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);text-align:right}
-.rows--moved .states{display:flex;flex-wrap:wrap;gap:var(--s1);align-content:start}
-.rows--moved .states .chip{white-space:normal;text-align:center}
-
-/* Block 7, the rota. Harrier READS this from the provider's on call tool and never owns it,
-   so there is no control in it, only the name 4.6 needs. */
-.rota{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
-.rota > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
-            border-bottom:var(--line);font-size:var(--t-sm)}
-.rota > div:last-child{border-bottom:none}
-.rota .who{font-weight:600;white-space:nowrap}
-.rota .role{color:var(--soft);font-size:var(--t-xs)}
-.rota .when{margin-left:auto;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-            white-space:nowrap}
-.rota .is-now{background:var(--fill)}
-
-/* The fleet row, block 5, reused inside a padded pane body instead of directly in the aside */
-
-/* 2.1 section 8: NOT rendered at 360. Coming on shift happens at a desk with two monitors,
-   which is the premise in CLAUDE.md, and the phone has one scenario that is not this one.
-   One dependency crosses the boundary and it is DATA, not screen: 4.6 renders at 360 and
-   names a recipient from the rota this node displays. It reads the value; it does not need
-   the page. So the narrowed rendering says that rather than folding eight blocks into a column. */
-@media (max-width:900px){
-  .z4--shift .brief,.z4--shift .qfoot{display:none}
-  .z4--shift .only-narrow{margin:var(--s4)}
-}
-</style>
 </head>
 <body>
 <div class="wf-shell">

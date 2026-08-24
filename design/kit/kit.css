@@ -10,7 +10,10 @@
    roles are only visible after components have stood on real screens, at stage 08. */
 
 :root{
-  /* colour, six roles plus three surfaces, pixels of brand-plate-j.png */
+  /* colour, fourteen values: six named roles and three surfaces taken as pixels of
+     brand-plate-j.png, three derived for severity, and two derived for the two different
+     jobs a rule does. The comment said six plus three until step 6 and had not been
+     recounted when severity and the two rules were added. */
   --color-ground:        #11110f; /* pixel of plate j, palette zone, GROUND */
   --color-surface:       #171714; /* pixel of plate j, console, detail pane */
   --color-surface-sel:   #2a2418; /* pixel of plate j, console, active row */
@@ -19,7 +22,12 @@
   --color-rule:          #675f50; /* pixel of plate j, palette zone, RULE */
   --color-accent:        #d29c3f; /* pixel of plate j, palette zone, ACCENT */
   --color-accent-ink:    #18140e; /* measured on plate j, text on Accept */
-  --color-failure:       #b25d44; /* pixel of plate j, palette zone, FAILURE */
+  --color-failure:       #b25d44; /* pixel of plate j, palette zone, FAILURE. UNUSED: the
+                                     product has no failure-coloured element today. The
+                                     degraded strip underlines, the alert toast thickens its
+                                     border, and neither reaches for a colour. Recorded rather
+                                     than deleted, because the colour is real and the absence
+                                     of a use for it is a product finding for stage 08 */
   --color-hairline:      #232219; /* derived from the ground. The line BETWEEN rows. It is
                                      deliberately below every contrast floor: it separates and
                                      it never carries meaning. It was living in four files and
@@ -42,12 +50,22 @@
 
   /* geometry */
   --radius-ui:           0;       /* measured on plate j, no console element carries a radius */
-  --radius-object:       5px;     /* measured on plate j, physical applications only */
+  --radius-object:       5px;     /* measured on plate j, physical applications only. UNUSED in
+                                     the interface by definition: it is for printed and physical
+                                     objects, which the product does not render */
 
-  /* tracking */
+  /* tracking. THESE FOUR HAVE NO CONSUMER IN THIS FILE, and that is a finding rather than
+     an oversight: they were measured on the brandbook plate and the product's own type was
+     set at stage 04 with its own values, which the kit inherited and did not overwrite.
+     The product's mono tracking is a spread of .04em, .08em, .09em, .1em and .14em, all of
+     them open, so CLAUDE.md's halation constraint is MET by stage 04's values rather than by
+     this token. Forcing .06em onto them would change stage 04 typography to make a token
+     look used, which is the wrong way round. Found by a reader with clean context at step 6.
+     Stage 08 decides: apply them, drop them, or move them to a brand layer that is not the
+     interface. Until then they are declared and unused, and said so here. */
   --track-display:       -.038em; /* rendered test: Archivo collides at the plate's -.055em */
-  --track-mono:          .06em;   /* measured on plate j, halation constraint, CLAUDE.md */
-  --track-wordmark:      .16em;   /* measured on plate j, HARRIER lockup */
+  --track-mono:          .06em;   /* measured on plate j. UNUSED, see above */
+  --track-wordmark:      .16em;   /* measured on plate j, HARRIER lockup. UNUSED, see above */
 
   /* families */
   --font-sans:  'Archivo', system-ui, sans-serif;          /* chosen for character, DESIGN-artifacts 6 */
@@ -646,7 +664,11 @@ a.opt:hover{background:var(--color-surface)}
      ordinary outlined button. Found by the final sweep, which counted primaries per page and
      flags zero as loudly as it flags two. This class is the narrow half of that pair: at the
      desk the dialog owns the primary, at 360 the pane's exit does. */
-  .btn--primary-narrow{background:var(--color-text);color:var(--color-ground);font-weight:600}
+  /* This is a PRIMARY and the brand layer's remap missed it, so the main action was amber at
+     1440 and bone at 360. Caught by a reader with clean context who had never seen the
+     product: the class that exists precisely so 4.4 has a primary at 360 was the one class
+     the accent never reached. */
+  .btn--primary-narrow{background:var(--color-accent);color:var(--color-accent-ink);font-weight:600}
   .btn--primary-narrow .key{opacity:.85}
 }
 
@@ -809,8 +831,11 @@ a.opt:hover{background:var(--color-surface)}
 /* ---- keyboard furniture keeps the structural rule, not the text colour ---- */
 /* ---- a boundary that identifies a control takes the edge, not the rule. 1.4.11 asks for
    3:1 on those and --color-rule does not clear it on any of the three grounds. ---- */
-.chip, .btn, .qfoot kbd{ border-color:var(--color-edge) }
-.chip--ghost{ border-color:var(--color-edge) }
+/* --rule-control is the token that exists for exactly this, and until step 6 it had zero
+   consumers while the same result was reached by overriding a colour. Same computed value,
+   one fewer way to say the same thing. */
+.chip, .btn, .qfoot kbd{ border:var(--rule-control) }
+.chip--ghost{ border:var(--rule-control); border-style:dashed }
 .qfoot kbd{ color:var(--color-text-dim) }
 
 /* the detector's undersized-ui-text floor is 11px for functional text, and the roadmap
@@ -913,7 +938,7 @@ a.opt:hover{background:var(--color-surface)}
    decoration on a surface that exists to be read once and left.
    ============================================================================ */
 
-/* 1. .src, 118 uses on 21 pages. The strongest case in the product: an evidence
+/* 1. .src, 131 uses on 24 pages. The strongest case in the product: an evidence
    line names its source, and nothing said the source OPENS somewhere else. */
 .src::after{content:"";display:inline-block;margin-left:5px;vertical-align:-1px;opacity:.75;
   -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M10%2014L20%204%22%2F%3E%3Cpath%20d%3D%22M14%204h6v6%22%2F%3E%3Cpath%20d%3D%22M20%2013v7H4V4h7%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
@@ -973,3 +998,260 @@ a.opt:hover{background:var(--color-surface)}
 @media (max-width:900px){
   .outage::before{width:84px;height:84px}
 }
+
+
+/* ============================================================================
+   HOISTED OUT OF THE SCREENS at stage 07 step 6, and this is the finding that
+   paid for the whole critique.
+
+   Every screen inherited a small `<style>` block from stage 04, marked
+   `INLINE: <screen> :: for reconcile into _wf.css`. On a grey prototype that was
+   correct: the block was the parent's own to-do list. Carried into the coloured
+   copies it stopped being a to-do list and became a second stylesheet, and the
+   audit counted SEVEN distinct blocks repeated across 29 of the 51 pages, three
+   to seven copies each. This file's own rule says a rule on two pages is a kit
+   component. Seven of them were.
+
+   Nothing about the rules changed. Every value was routed onto the kit's names,
+   the blocks were deleted from the pages, and the result was pixel compared
+   against the pages as they stood before the move.
+   ============================================================================ */
+
+/* ---- shift, was inline on 7 pages: shift-assembling.html, shift-close-failed.html, shift-nothing-carried.html, shift-outgoing.html, shift-sealed.html, shift-unsealed.html, shift.html ---- */
+/* INLINE: shift :: for reconcile into _wf.css
+   The brief has no list to scroll and no scope bar, so Z4 is a column of sections rather
+   than a grid. Everything a queue or a log already owns is reused, not restated. */
+
+/* Z4 body. One scroller, so a section never gets its own scrollbar inside the page */
+.brief{flex:1 1 auto;overflow-y:auto;min-height:0;padding:var(--space-5) var(--space-4);
+       display:flex;flex-direction:column;gap:var(--space-6)}
+.brief .rows{flex:0 0 auto;overflow:visible;border-top:var(--rule-hair)}
+/* `.block > h3` is the pane's heading, and in the pane it sits under the pane title. Here
+   there is no pane title above it, so the section heading is an h2 and takes the same face. */
+.block > h2{margin:0;font:600 var(--size-xs)/1 var(--font-mono);letter-spacing:.1em;
+            text-transform:uppercase;color:var(--color-text-dim)}
+
+/* Blocks 2 and 3, the counted lines. A LINE and not a card: the block table rules out the
+   metric card by name, and a number in a box is one. The count sits in a column so the eye
+   reads down the numbers, and the destination sits at the end of the line or says there is none. */
+.bline{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:var(--space-3);
+       align-items:baseline;padding:var(--space-3) var(--space-2);border-bottom:var(--rule-hair);
+       text-decoration:none;color:inherit;font-size:var(--size-sm)}
+.bline:first-of-type{border-top:var(--rule-hair)}
+a.bline:hover{background:var(--color-surface)}
+.bline .n{font:700 var(--size-lg)/1 var(--font-mono);text-align:right}
+.bline .n.is-quiet{color:var(--color-text-dim)}
+.bline .go{font-family:var(--font-mono);font-size:var(--size-xs);color:var(--color-text-dim);white-space:nowrap}
+.bline .ex{display:block;color:var(--color-text-dim);margin-top:var(--space-1)}
+
+/* Block 4, what moved. The canonical row with four slots instead of seven. No severity and
+   no `to check`: a pointer is not a thing to triage, it is a thing that already happened. */
+.rows--moved{--row-tracks:132px minmax(0,1fr) 116px 44px}
+.rows--moved .when{font-family:var(--font-mono);font-size:var(--size-xs);color:var(--color-text-dim);text-align:right}
+.rows--moved .states{display:flex;flex-wrap:wrap;gap:var(--space-1);align-content:start}
+.rows--moved .states .chip{white-space:normal;text-align:center}
+
+/* Block 7, the rota. Harrier READS this from the provider's on call tool and never owns it,
+   so there is no control in it, only the name 4.6 needs. */
+.rota{display:flex;flex-direction:column;border:var(--rule-hair);border-radius:var(--radius-ui)}
+.rota > div{display:flex;gap:var(--space-2);align-items:baseline;padding:var(--space-2) var(--space-3);
+            border-bottom:var(--rule-hair);font-size:var(--size-sm)}
+.rota > div:last-child{border-bottom:none}
+.rota .who{font-weight:600;white-space:nowrap}
+.rota .role{color:var(--color-text-dim);font-size:var(--size-xs)}
+.rota .when{margin-left:auto;font-family:var(--font-mono);font-size:var(--size-xs);color:var(--color-text-dim);
+            white-space:nowrap}
+.rota .is-now{background:var(--color-surface)}
+
+/* The fleet row, block 5, reused inside a padded pane body instead of directly in the aside */
+
+/* 2.1 section 8: NOT rendered at 360. Coming on shift happens at a desk with two monitors,
+   which is the premise in CLAUDE.md, and the phone has one scenario that is not this one.
+   One dependency crosses the boundary and it is DATA, not screen: 4.6 renders at 360 and
+   names a recipient from the rota this node displays. It reads the value; it does not need
+   the page. So the narrowed rendering says that rather than folding eight blocks into a column. */
+@media (max-width:900px){
+  .z4--shift .brief,.z4--shift .qfoot{display:none}
+  .z4--shift .only-narrow{margin:var(--space-4)}
+}
+
+/* ---- reject, was inline on 6 pages: reject-axis-b.html, reject-chosen.html, reject-other.html, reject-tenant-normal.html, reject-write-failed.html, reject.html ---- */
+.axisb{display:flex;flex-direction:column;gap:var(--space-2)}
+.axisb .locked{display:flex;gap:var(--space-2);align-items:baseline;border:1px dashed var(--color-text-dim);
+               border-radius:var(--radius-ui);padding:var(--space-2) var(--space-3);font-size:var(--size-sm);color:var(--color-text-dim)}
+.axisb .locked b{color:var(--color-text)}
+
+/* ---- entry, was inline on 5 pages: entry-beyond-retention.html, entry-changed.html, entry-gone.html, entry-partial.html, entry.html ---- */
+/* 5.4 has no pane. It is the artefact the lists point at, so it is one column and a frame. */
+.frame{width:min(var(--width-frame),100%);margin:var(--space-5) auto;border:2px solid var(--color-text);
+       border-radius:var(--radius-ui);background:var(--color-ground);display:flex;flex-direction:column}
+/* Mechanism 1 of the node, in one property: the marking is a FRAME, not a banner.
+   A banner scrolls away, and someone who arrives by permalink and reads the middle must
+   still know what they are reading. So the top rail sticks and the border never leaves. */
+.rail{position:sticky;top:0;z-index:2;background:var(--color-text);color:var(--color-ground);
+      font:600 var(--size-xs)/1.3 var(--font-mono);letter-spacing:.09em;text-transform:uppercase;
+      padding:var(--space-2) var(--space-4);display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:baseline}
+.rail .soft{font-weight:400;text-transform:none;letter-spacing:0;opacity:.72}
+.rail .rail-out{margin-left:auto;color:inherit;white-space:nowrap;
+                border:1px solid currentColor;border-radius:var(--radius-ui);padding:0 var(--space-2)}
+.rail--foot .rail-out{display:none}
+.rail--foot{position:static;background:var(--color-surface);color:var(--color-text-dim);border-top:2px solid var(--color-text);
+            text-transform:none;letter-spacing:0;font-weight:400;font-size:var(--size-sm)}
+.doc{padding:var(--space-5) var(--space-4);display:flex;flex-direction:column;gap:var(--space-5)}
+.doc h1{margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)}
+.doc h1 .stampline{display:block;font:400 var(--size-sm)/1.4 var(--font-mono);color:var(--color-text-dim);
+                   margin-top:var(--space-2);overflow-wrap:anywhere}
+.gone-all{border:2px dashed var(--color-text-dim);border-radius:var(--radius-ui);padding:var(--space-5);
+          text-align:center;color:var(--color-text-dim)}
+.gone-all b{color:var(--color-text);display:block;font-size:var(--size-lg);margin-bottom:var(--space-3)}
+/* 7b, settled at the close of 03b: this is the artefact that leaves the building.
+   In print every expansion is open, the address is on the page, and the panel is gone. */
+@media print{
+  #sidebar,.z1,.z2{display:none}
+  /* true black on true white, and not the screen greys: --color-text is #e9e4da, which prints as
+     nothing at all. The comment here said #16181a until step 6, which was stage 04's light
+     theme ink and stopped being true the moment the ground went dark. The one place in the stage where a literal colour is correct, said out loud
+     here because two critique instruments flagged it independently at step 9. */
+  .frame{border:2px solid #000;margin:0}
+  .rail{position:static;background:#fff;color:#000;border-bottom:2px solid #000}
+  .expand{display:block}
+  .doc{padding:16pt}
+}
+
+/* ---- index, was inline on 5 pages: index-deep-link.html, index-expired.html, index-idp-error.html, index-signed-out.html, index.html ---- */
+/* INLINE: signin :: for reconcile into _wf.css
+   The only public URL in the product, and the only page with no shell. One card,
+   centred by auto margins rather than by justify-content, because a card taller than
+   the viewport must scroll rather than lose its top edge. */
+.door{flex:1 1 auto;display:flex;overflow-y:auto;padding:var(--space-7) var(--space-4)}
+.doorcard{margin:auto;width:min(440px,100%);display:flex;flex-direction:column;gap:var(--space-4);
+          border:var(--rule-edge);border-radius:var(--radius-ui);background:var(--color-ground);padding:var(--space-5)}
+.door p{margin:0}
+/* the wordmark is a paragraph, not the heading: the h1 names the screen, and the one
+   public page in a security product does not put a brand where the page title belongs */
+.doormark{font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:-.01em}
+/* .banner makes a flex item of every element child, so a second <b> starts its own line and
+   the punctuation after it orphans. Seen at 1440 and fixed by giving the banner ONE child. */
+.door .banner > p{font-size:inherit}
+.door h1{margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)}
+.door code{font-family:var(--font-mono);font-size:var(--size-sm);background:var(--color-surface);
+           padding:0 var(--space-1);overflow-wrap:anywhere}
+.doorform{display:flex;flex-direction:column;gap:var(--space-3)}
+.doorbtn{width:100%;justify-content:center}
+.doordest{gap:var(--space-2)}
+/* recovery, in reach of the field. Depth one key away rather than a link to a page the
+   product does not own: identity belongs to the provider, and so does getting back in.
+   var(--space-5) is 24px, the WCAG SC 2.5.8 floor the node names for a phone at 03:00. */
+.doorhelp{border-top:var(--rule-hair);padding-top:var(--space-3);font-size:var(--size-sm)}
+.doorhelp summary{cursor:pointer;min-height:var(--space-5);display:flex;align-items:center;
+                  text-decoration:underline;text-underline-offset:2px}
+.doorhelp p{margin:var(--space-2) 0 0;color:var(--color-text-dim)}
+
+/* ---- case, was inline on 3 pages: case-standalone-filed.html, case-standalone-stale.html, case-standalone.html ---- */
+/* INLINE: case-standalone :: for reconcile into _wf.css */
+/* The pane IS the page. At the desk it is one centred sheet standing in the space the split
+   used to hold; at 360 it is the same sheet, full bleed. _wf.css already reserves
+   .z5.is-standalone for the narrow half of that, so this only adds the desk half. */
+/* --width-sheet is a case standing alone with no list beside it, declared as a token
+   so nothing reads a raw px. The opening of this comment was missing in the stage 04
+   block, so the browser discarded the rule that follows it and the standalone pane was
+   never centred on any of the three pages. Found by reading the parsed stylesheet, not
+   the file. */
+.z45:has(> .z5.is-standalone){justify-content:center}
+.z5.is-standalone{flex:1 1 auto;max-width:var(--width-sheet);
+                  border-left:var(--rule-edge);border-right:var(--rule-edge)}
+.z5.is-standalone .pane-head h1{margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans);
+                                letter-spacing:-.01em}
+.z5.is-standalone .nar{max-width:68ch}
+/* The first control at 1440, above the identity, because the queue is the better surface
+   for this job and the page says so rather than redirecting. */
+.sa-offer{display:flex;gap:var(--space-3);align-items:baseline;flex-wrap:wrap;
+          margin:0 0 var(--space-3);padding:0 0 var(--space-3);border-bottom:var(--rule-hair)}
+.sa-offer .why{flex:1 1 var(--space-7);min-width:0;font-size:var(--size-xs);color:var(--color-text-dim)}
+.sa-route{margin:var(--space-2) 0 0;font-family:var(--font-mono);font-size:var(--size-xs);color:var(--color-text-dim);
+          overflow-wrap:anywhere}
+/* 0.4 carries freshness in the shell strip at 1440. At 360 this node carries it, which is the
+   one inheritance break its own state matrix records. */
+.sa-fresh{margin:var(--space-2) 0 0;font-family:var(--font-mono);font-size:var(--size-xs);color:var(--color-text-dim);
+          border:var(--rule-hair);border-radius:var(--radius-ui);padding:var(--space-1) var(--space-2)}
+.sa-fresh b{color:var(--color-text)}
+/* The complement of .only-narrow. SCOPED at step 6: inline on a page these four rules were
+   page-local by accident of where they lived, and hoisting made them global. The pixel
+   comparison caught it at once, 18px off the verdict bar on case and on reject at 360,
+   which is the copy diverging from its grey original in LAYOUT rather than in look. The
+   scope puts them back exactly where they were. */
+.z45:has(> .z5.is-standalone) .pane-foot .btn.only-desk{display:inline-flex}
+@media (max-width:900px){
+  /* overflow:visible hands the sticky foot back to the viewport, which is what pins escalate
+     to the bottom edge. Inside a scrolling pane it would only stick to the pane. */
+  .z5.is-standalone{max-width:none;border-left:none;border-right:none;overflow:visible}
+  .z5.is-standalone .pane-head{position:static}
+  .z5.is-standalone .pane-head h1{font-size:var(--size-lg)}
+  .z5.is-standalone .pane-foot{padding:var(--space-2) var(--space-3)}
+  /* the address is what she arrived BY, so at 03:00 it is three mono lines above the case
+     identity that tell her nothing she does not already have. Kept at the desk, where the
+     permalink is the thing being copied into a ticket. */
+  .sa-route{display:none}
+  .sa-offer{display:none}
+  .z45:has(> .z5.is-standalone) .pane-foot .btn.only-desk{display:none}
+  .z45:has(> .z5.is-standalone) .pane-foot .btn.only-narrow{display:flex;width:100%;justify-content:space-between}
+  /* latitude compressed to the classes in force plus the ones it had to ask about,
+     without the reasons. Section 4 of the node. */
+  .z45:has(> .z5.is-standalone) .lat .off .why{display:none}
+}
+
+/* ---- unavailable, was inline on 3 pages: unavailable-partial.html, unavailable-planned.html, unavailable.html ---- */
+/* INLINE: unavailable :: for reconcile into _wf.css */
+/* 8.2 has no pane and no list. One column, centred, and the same block furniture as everywhere. */
+.z4--sys{border-right:none;overflow-y:auto;align-items:center}
+.outage{width:min(660px,100%);margin:var(--space-5) auto var(--space-7);padding:0 var(--space-4);
+        display:flex;flex-direction:column;gap:var(--space-4)}
+.outage h1{margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)}
+.outage h1 .sub{display:block;margin-top:var(--space-2);font:400 var(--size-sm)/1.4 var(--font-mono);
+                color:var(--color-text-dim);overflow-wrap:anywhere}
+/* a fact and its label. Not a table: there are three of them and they read as sentences */
+.out-line{display:flex;gap:var(--space-3);align-items:baseline;border-top:var(--rule-hair);padding-top:var(--space-3)}
+.out-line .k{flex:0 0 128px;font:600 var(--size-xs)/1.4 var(--font-mono);letter-spacing:.08em;
+             text-transform:uppercase;color:var(--color-text-dim)}
+.out-line .v{flex:1 1 auto;min-width:0;font-size:var(--size-sm)}
+.out-line .v b{font-weight:700;font-size:var(--size-md)}
+.out-line .v .why{display:block;margin-top:var(--space-1);color:var(--color-text-dim)}
+/* block 4, the one that makes the page useful. It is the only bordered thing here */
+.contact{border:var(--rule-edge);border-radius:var(--radius-ui);padding:var(--space-3);
+         display:flex;flex-direction:column;gap:var(--space-2)}
+.contact .who{font:600 var(--size-lg)/var(--leading-tight) var(--font-sans)}
+.contact p{margin:0;font-size:var(--size-sm)}
+.contact .meta{color:var(--color-text-dim)}
+.out-act{display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center}
+/* the reduced top bar. The console is what is down, so this is not the console's top bar */
+.z1--out .note{margin:0;font-family:var(--font-mono);font-size:var(--size-xs);color:var(--color-text-dim)}
+/* Section 6 of the node, in one property. On a desk she wants to understand; on a phone at
+   03:00 she wants a number, so the contact leaves its place in the reading order and goes
+   first. One live page narrowed, not a second file. DOM order is untouched, so the heading
+   structure and the tab order both stay as written. */
+@media (max-width:900px){
+  .outage{margin:var(--space-4) auto var(--space-6);gap:var(--space-4)}
+  .out-contact{order:-1}
+  /* a 128px label column costs a third of a phone. The label goes above its value instead */
+  .out-line{flex-direction:column;gap:var(--space-1)}
+  .out-line .k{flex:none}
+  /* the contact goes first, so it has to be SHORT first. What is trimmed is the reasoning
+     about who owns the disclosure decision, which is a desk reading and not a 03:00 one. */
+  /* The contact reads first here by choice, which put the only action a viewport and a half
+     down. So the action pins to the bottom edge, the same device the pane foot uses at 360.
+     Both things are then true at once: the number is what she reads, and the retry is always
+     under her thumb. Found by the browser pass at step 9. */
+  /* hand the scrollport back to the document, or the sticky below pins to this column
+     instead of to the viewport. Same defect the pane foot had, same cause. */
+  .z4--sys{overflow:visible}
+  .out-act{position:sticky;bottom:0;z-index:2;order:99;
+           margin:0 calc(var(--space-4) * -1) calc(var(--space-6) * -1);
+           padding:var(--space-3) var(--space-4);background:var(--color-ground);border-top:var(--rule-edge)}
+  .out-act .btn{flex:1 1 auto;justify-content:center}
+}
+
+/* ---- case, was inline on 2 pages: case-history-superseded.html, case-history.html ---- */
+/* INLINE: case-history :: for reconcile into _wf.css
+   This screen adds no rules of its own. 5.6 is 5.1 with one chip applied, so it is drawn
+   with 5.1's classes; if it had needed a rule, that would have been the first evidence that
+   it is not actually a narrowing of 5.1. */

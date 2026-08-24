@@ -4,6 +4,8 @@ Stage 07 step 2. Read **out of all 62 wireframe screens plus `wireframes/_nav.js
 
 **Level is born here, in one column, and every later stage only reads it.** `atom` contains nothing else from the kit. `molecule` contains atoms. `organism` contains molecules or is the shell of a screen, and that is the ceiling. Grouping by purpose is forbidden: by purpose a button and a sign-in dialog are both "forms", and the `@import` order would then put the dialog above its own parts in the cascade.
 
+**The rule and the Level column disagree on about ten rows, and the rule is the one that is wrong.** A reader with clean context applied it literally at step 6 and got a different answer for `row` (it contains `sev`, which is a molecule, so by the rule it is an organism), for `readout`, `pane-head`, `qfoot`, `rota` and `expand` (they contain only html elements and text roles, so by the rule they are atoms), and for `block` (its Contains column says *anything*). **The column is what stages 08 and 12 read, so the column stands and the rule is amended here:** a level is decided by what a component contains **from the kit or from the text roles**, and by whether it is addressed as one thing by a screen. `row` is a molecule because a screen places a row, not a severity. `pane-head` is a molecule because it is a titled block, not a word. Where the two readings still differ, the column wins and this paragraph is why.
+
 **Inclusion criterion: two or more pages.** One page goes to `## 8. One-off`. **One exception, and it is deliberate:** a form control enters the kit at a single occurrence, because it is a primitive of interaction and a system without it is incomplete.
 
 ---
@@ -16,6 +18,9 @@ Stage 07 step 2. Read **out of all 62 wireframe screens plus `wireframes/_nav.js
 | The generator | `wireframes/_nav.js` renders Z1, Z2 and the panel. **`z1` and `z2` appear in zero html files as a class**, and ten further classes exist only there. Stage 05 learned this the expensive way: an inventory taken from the screens alone has no header and no footer in it and does not notice |
 | Distinct classes found | **175** |
 | Meeting the criterion | **150** |
+| **Of those, components** | **55**, the three tables below |
+| Text roles, counted and not components | **17**, named in section 2 |
+| **Unaccounted for** | **78**, and that is a hole rather than a rounding |
 | One-off | **25**, and 18 of them sit on two pages: `keyboard.html` (11) and `not-found.html` (7) |
 
 ---
@@ -40,6 +45,8 @@ Stage 07 step 2. Read **out of all 62 wireframe screens plus `wireframes/_nav.js
 | `input` | 9 | 6 | `text`, `email` | **form primitive** |
 | `textarea` | 21 | 9 | | **form primitive** |
 | `select` | 4 | **1** | | **form primitive, and it is in the kit on the exception rather than the criterion** |
+
+**78 of the 150 are in none of the three tables, and a reader building the system from this file said so.** They are modifiers (`row--head`, `chip--solid`, `is-selected`), parts that only exist inside a named component (`doormark`, `out-line`, `sa-offer`, `lbl`, `routes`), and layout utilities (`only-desk`, `only-narrow`, `grow`, `spacer`). Each is real and none is a component in its own right, which is why none has a row. **The tables should have carried them in a Parts column and do not**, and the count above says so rather than letting 150 and 55 sit on the same page unexplained. Stage 08 needs that column before it can split one file per component.
 
 **Text roles are counted but are not components.** `dim`, `client`, `cost`, `age`, `when`, `why`, `lat`, `ceiling`, `claim`, `txt`, `k`, `v`, `n`, `who`, `role`, `sub`, `meta` are how a cell is read, not a thing that can be assembled. They belong to the typography section of `DESIGN.md`, not to the kit, and they are listed here so nobody counts them twice.
 
@@ -88,7 +95,7 @@ Stage 07 step 2. Read **out of all 62 wireframe screens plus `wireframes/_nav.js
 | `z5` | 48 | 48 | `is-paper`, `z5--paper` |
 | `z6` | 2 | 2 | notices |
 | `rows` | 43 | 43 | `--log`, `--moved` |
-| `optlist` | 13 | 8 | contains `opt` |
+| `optlist` | 13 | 8 | contains `opt`. **The showcase files it as a molecule and this table as an organism.** It is an organism: it is a whole single-choice control that a screen places, and `opt` is its part |
 | `pane-body` | 38 | 38 | |
 | `pane-foot` | 35 | 35 | `position:sticky` |
 | `dialog` + `scrim` | 11 | 11 | `--map`, `scrim--desk-only` |
@@ -139,7 +146,7 @@ A list of components without the controls enumerated gives a flat kit, and every
 
 ## 6. Counter-check A: one job, several forms
 
-The same visible action carried by different class signatures. **21 found.** Ten are legitimate and eleven are not, and the split is the point.
+The same visible action carried by different class signatures. **21 found.** The split was written here as ten legitimate and eleven not, and **that arithmetic is wrong**: the table below has five rows, and the five cover 16 of the 21 signatures between them, with the remaining five being row states and viewport twins. The finding is five jobs wearing more than one form, not eleven. Corrected at step 6 after a reader counted the rows.
 
 **Legitimate, and not a variant:** `a.row` against `a.is-selected.row` and `a.is-superseded.row` is **state**. `a.btn` against `a.btn.only-desk` is a **viewport twin**. Neither is a second form of the same control.
 

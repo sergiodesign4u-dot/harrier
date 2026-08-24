@@ -7,54 +7,6 @@
 <title>Harrier &middot; Case file, filed from the standalone route, in colour</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="kit/kit.css">
-<style>
-/* INLINE: queue :: for reconcile into _wf.css
-   Only what is genuinely one-off for this screen family, every value through var().
-   The shell, the row, the chips and the fleet already live in _wf.css. */
-/* INLINE: case-standalone :: for reconcile into _wf.css */
-/* The pane IS the page. At the desk it is one centred sheet standing in the space the split
-   used to hold; at 360 it is the same sheet, full bleed. _wf.css already reserves
-   .z5.is-standalone for the narrow half of that, so this only adds the desk half. */
-                          it has no list beside it. Declared as a token so nothing reads a raw px */
-.z45:has(> .z5.is-standalone){justify-content:center}
-.z5.is-standalone{flex:1 1 auto;max-width:var(--sheet);
-                  border-left:var(--line-ink);border-right:var(--line-ink)}
-.z5.is-standalone .pane-head h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui);
-                                letter-spacing:-.01em}
-.z5.is-standalone .nar{max-width:68ch}
-/* The first control at 1440, above the identity, because the queue is the better surface
-   for this job and the page says so rather than redirecting. */
-.sa-offer{display:flex;gap:var(--s3);align-items:baseline;flex-wrap:wrap;
-          margin:0 0 var(--s3);padding:0 0 var(--s3);border-bottom:var(--line)}
-.sa-offer .why{flex:1 1 var(--s7);min-width:0;font-size:var(--t-xs);color:var(--soft)}
-.sa-route{margin:var(--s2) 0 0;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-          overflow-wrap:anywhere}
-/* 0.4 carries freshness in the shell strip at 1440. At 360 this node carries it, which is the
-   one inheritance break its own state matrix records. */
-.sa-fresh{margin:var(--s2) 0 0;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-          border:var(--line);border-radius:var(--radius);padding:var(--s1) var(--s2)}
-.sa-fresh b{color:var(--ink)}
-/* The complement of .only-narrow, which _wf.css already carries on its own. */
-.pane-foot .btn.only-desk{display:inline-flex}
-@media (max-width:900px){
-  /* overflow:visible hands the sticky foot back to the viewport, which is what pins escalate
-     to the bottom edge. Inside a scrolling pane it would only stick to the pane. */
-  .z5.is-standalone{max-width:none;border-left:none;border-right:none;overflow:visible}
-  .z5.is-standalone .pane-head{position:static}
-  .z5.is-standalone .pane-head h1{font-size:var(--t-lg)}
-  .z5.is-standalone .pane-foot{padding:var(--s2) var(--s3)}
-  /* the address is what she arrived BY, so at 03:00 it is three mono lines above the case
-     identity that tell her nothing she does not already have. Kept at the desk, where the
-     permalink is the thing being copied into a ticket. */
-  .sa-route{display:none}
-  .sa-offer{display:none}
-  .only-desk,.only-desk-i,.pane-foot .btn.only-desk{display:none}
-  .pane-foot .btn.only-narrow{display:flex;width:100%;justify-content:space-between}
-  /* latitude compressed to the classes in force plus the ones it had to ask about,
-     without the reasons. Section 4 of the node. */
-  .lat .off .why{display:none}
-}
-</style>
 </head>
 <body>
 <div class="wf-shell">

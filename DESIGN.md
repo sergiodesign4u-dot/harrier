@@ -20,7 +20,11 @@ The product is not running on one stylesheet. It is running on three, and saying
 
 Three files became one. `design/_theme.css` arrived by `git mv`, its `:root` byte for byte identical and verified as such. `wireframes/_wf.css` was absorbed: its component rules were lifted and every value routed through the kit's variables, not one value changed. `design/_screen.css` was folded in and deleted from the tree.
 
-**All 32 coloured pages now link `kit/kit.css` and nothing else.** The CSS dependency on a folder stage 05 froze is gone, and it was proved rather than declared: the three seed screens were rendered on the old chain and on the kit alone and the screenshots are **byte for byte identical at 1440 and at 360**.
+**All 51 coloured pages now link `kit/kit.css` for every product value.** The CSS dependency on a folder stage 05 froze is gone, and it was proved rather than declared: the seed screens were rendered on the old chain and on the kit alone and the screenshots are **byte for byte identical at 1440 and at 360**.
+
+**Two corrections to what this paragraph used to say, both found by the stage 07 audit.** It said 32 pages, which was true when it was written and stopped being true at step 5; it now says 51 and the number is in one place. And it said *and nothing else*, which was never true: every page also links `../_nav.css`, the panel's stylesheet, which is documentation chrome rather than product and is the reason the kit does not own `--nav-w`. **A claim that is true on the day it is written is not a fact, it is a snapshot**, and this one was wrong for two different reasons at once.
+
+**Until step 6 there was a second stylesheet and it was on 29 pages.** Every screen carried a small `<style>` block inherited from stage 04. Seven distinct blocks, repeated three to seven times each, were hoisted into the kit and deleted from the pages, and the result was pixel compared: 17 of 18 renderings byte identical, and the eighteenth is a rule that had been dead since stage 04 and now works.
 
 **One tie is left and it is JavaScript, not CSS.** Every page still carries `<script src="../wireframes/_nav.js">`, because that is what injects Z1 and Z2. The markup it produces is now written once in `design/kit/shell.html`, and the tie is cut at step 5 when the sample screens are assembled from it.
 
@@ -28,7 +32,7 @@ Three files became one. `design/_theme.css` arrived by `git mv`, its `:root` byt
 
 ## 2. Colour
 
-Twelve values. Nine were taken as **pixels** out of `design/concept/assets/brand-plate-j.png` and checked against that plate's own stylesheet, which agreed at every role. Three were derived, and each says so.
+**Fourteen values.** Nine come from `design/concept/assets/brand-plate-j.png`, eight as **pixels** and one measured, checked against that plate's own stylesheet, which agreed at every role. Five are derived: three for severity and two for the two different jobs a rule does. **This paragraph said twelve, nine and three until stage 07 step 6**, which was true before severity and the two rules were added and was never recounted; the table below always had fourteen rows.
 
 | Token | Value | Role | Origin |
 |---|---|---|---|

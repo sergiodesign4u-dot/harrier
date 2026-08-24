@@ -7,59 +7,6 @@
 <title>Harrier &middot; Service unavailable, part of it is down, in colour</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="kit/kit.css">
-<style>
-/* INLINE: queue :: for reconcile into _wf.css
-   Only what is genuinely one-off for this screen family, every value through var().
-   The shell, the row, the chips and the fleet already live in _wf.css. */
-/* INLINE: unavailable :: for reconcile into _wf.css */
-/* 8.2 has no pane and no list. One column, centred, and the same block furniture as everywhere. */
-.z4--sys{border-right:none;overflow-y:auto;align-items:center}
-.outage{width:min(660px,100%);margin:var(--s5) auto var(--s7);padding:0 var(--s4);
-        display:flex;flex-direction:column;gap:var(--s4)}
-.outage h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
-.outage h1 .sub{display:block;margin-top:var(--s2);font:400 var(--t-sm)/1.4 var(--mono);
-                color:var(--soft);overflow-wrap:anywhere}
-/* a fact and its label. Not a table: there are three of them and they read as sentences */
-.out-line{display:flex;gap:var(--s3);align-items:baseline;border-top:var(--line);padding-top:var(--s3)}
-.out-line .k{flex:0 0 128px;font:600 var(--t-xs)/1.4 var(--mono);letter-spacing:.08em;
-             text-transform:uppercase;color:var(--soft)}
-.out-line .v{flex:1 1 auto;min-width:0;font-size:var(--t-sm)}
-.out-line .v b{font-weight:700;font-size:var(--t-md)}
-.out-line .v .why{display:block;margin-top:var(--s1);color:var(--soft)}
-/* block 4, the one that makes the page useful. It is the only bordered thing here */
-.contact{border:var(--line-ink);border-radius:var(--radius);padding:var(--s3);
-         display:flex;flex-direction:column;gap:var(--s2)}
-.contact .who{font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
-.contact p{margin:0;font-size:var(--t-sm)}
-.contact .meta{color:var(--soft)}
-.out-act{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
-/* the reduced top bar. The console is what is down, so this is not the console's top bar */
-.z1--out .note{margin:0;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
-/* Section 6 of the node, in one property. On a desk she wants to understand; on a phone at
-   03:00 she wants a number, so the contact leaves its place in the reading order and goes
-   first. One live page narrowed, not a second file. DOM order is untouched, so the heading
-   structure and the tab order both stay as written. */
-@media (max-width:900px){
-  .outage{margin:var(--s4) auto var(--s6);gap:var(--s4)}
-  .out-contact{order:-1}
-  /* a 128px label column costs a third of a phone. The label goes above its value instead */
-  .out-line{flex-direction:column;gap:var(--s1)}
-  .out-line .k{flex:none}
-  /* the contact goes first, so it has to be SHORT first. What is trimmed is the reasoning
-     about who owns the disclosure decision, which is a desk reading and not a 03:00 one. */
-  /* The contact reads first here by choice, which put the only action a viewport and a half
-     down. So the action pins to the bottom edge, the same device the pane foot uses at 360.
-     Both things are then true at once: the number is what she reads, and the retry is always
-     under her thumb. Found by the browser pass at step 9. */
-  /* hand the scrollport back to the document, or the sticky below pins to this column
-     instead of to the viewport. Same defect the pane foot had, same cause. */
-  .z4--sys{overflow:visible}
-  .out-act{position:sticky;bottom:0;z-index:2;order:99;
-           margin:0 calc(var(--s4) * -1) calc(var(--s6) * -1);
-           padding:var(--s3) var(--s4);background:var(--paper);border-top:var(--line-ink)}
-  .out-act .btn{flex:1 1 auto;justify-content:center}
-}
-</style>
 </head>
 <body>
 <div class="wf-shell">

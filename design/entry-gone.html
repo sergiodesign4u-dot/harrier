@@ -7,45 +7,6 @@
 <title>Harrier &middot; Log entry, nothing survived, in colour</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="kit/kit.css">
-<style>
-/* INLINE: queue :: for reconcile into _wf.css
-   Only what is genuinely one-off for this screen family, every value through var().
-   The shell, the row, the chips and the fleet already live in _wf.css. */
-/* 5.4 has no pane. It is the artefact the lists point at, so it is one column and a frame. */
-.frame{width:min(var(--frame),100%);margin:var(--s5) auto;border:2px solid var(--ink);
-       border-radius:var(--radius);background:var(--paper);display:flex;flex-direction:column}
-/* Mechanism 1 of the node, in one property: the marking is a FRAME, not a banner.
-   A banner scrolls away, and someone who arrives by permalink and reads the middle must
-   still know what they are reading. So the top rail sticks and the border never leaves. */
-.rail{position:sticky;top:0;z-index:2;background:var(--ink);color:var(--paper);
-      font:600 var(--t-xs)/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;
-      padding:var(--s2) var(--s4);display:flex;gap:var(--s3);flex-wrap:wrap;align-items:baseline}
-.rail .soft{font-weight:400;text-transform:none;letter-spacing:0;opacity:.72}
-.rail .rail-out{margin-left:auto;color:inherit;white-space:nowrap;
-                border:1px solid currentColor;border-radius:var(--radius);padding:0 var(--s2)}
-.rail--foot .rail-out{display:none}
-.rail--foot{position:static;background:var(--fill);color:var(--soft);border-top:2px solid var(--ink);
-            text-transform:none;letter-spacing:0;font-weight:400;font-size:var(--t-sm)}
-.doc{padding:var(--s5) var(--s4);display:flex;flex-direction:column;gap:var(--s5)}
-.doc h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
-.doc h1 .stampline{display:block;font:400 var(--t-sm)/1.4 var(--mono);color:var(--soft);
-                   margin-top:var(--s2);overflow-wrap:anywhere}
-.gone-all{border:2px dashed var(--soft);border-radius:var(--radius);padding:var(--s5);
-          text-align:center;color:var(--soft)}
-.gone-all b{color:var(--ink);display:block;font-size:var(--t-lg);margin-bottom:var(--s3)}
-/* 7b, settled at the close of 03b: this is the artefact that leaves the building.
-   In print every expansion is open, the address is on the page, and the panel is gone. */
-@media print{
-  #sidebar,.z1,.z2{display:none}
-  /* true black on true white, and not the screen greys: --ink is #16181a, which prints as
-     a wash. The one place in the stage where a literal colour is correct, said out loud
-     here because two critique instruments flagged it independently at step 9. */
-  .frame{border:2px solid #000;margin:0}
-  .rail{position:static;background:#fff;color:#000;border-bottom:2px solid #000}
-  .expand{display:block}
-  .doc{padding:16pt}
-}
-</style>
 </head>
 <body>
 <div class="wf-shell">

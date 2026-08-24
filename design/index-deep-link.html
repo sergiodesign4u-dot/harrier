@@ -7,38 +7,6 @@
 <title>Harrier &middot; Sign in, arrived by a link, in colour</title>
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="kit/kit.css">
-<style>
-/* INLINE: queue :: for reconcile into _wf.css
-   Only what is genuinely one-off for this screen family, every value through var().
-   The shell, the row, the chips and the fleet already live in _wf.css. */
-/* INLINE: signin :: for reconcile into _wf.css
-   The only public URL in the product, and the only page with no shell. One card,
-   centred by auto margins rather than by justify-content, because a card taller than
-   the viewport must scroll rather than lose its top edge. */
-.door{flex:1 1 auto;display:flex;overflow-y:auto;padding:var(--s7) var(--s4)}
-.doorcard{margin:auto;width:min(440px,100%);display:flex;flex-direction:column;gap:var(--s4);
-          border:var(--line-ink);border-radius:var(--radius);background:var(--paper);padding:var(--s5)}
-.door p{margin:0}
-/* the wordmark is a paragraph, not the heading: the h1 names the screen, and the one
-   public page in a security product does not put a brand where the page title belongs */
-.doormark{font:600 var(--t-lg)/1 var(--ui);letter-spacing:-.01em}
-/* .banner makes a flex item of every element child, so a second <b> starts its own line and
-   the punctuation after it orphans. Seen at 1440 and fixed by giving the banner ONE child. */
-.door .banner > p{font-size:inherit}
-.door h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
-.door code{font-family:var(--mono);font-size:var(--t-sm);background:var(--fill);
-           padding:0 var(--s1);overflow-wrap:anywhere}
-.doorform{display:flex;flex-direction:column;gap:var(--s3)}
-.doorbtn{width:100%;justify-content:center}
-.doordest{gap:var(--s2)}
-/* recovery, in reach of the field. Depth one key away rather than a link to a page the
-   product does not own: identity belongs to the provider, and so does getting back in.
-   var(--s5) is 24px, the WCAG SC 2.5.8 floor the node names for a phone at 03:00. */
-.doorhelp{border-top:var(--line);padding-top:var(--s3);font-size:var(--t-sm)}
-.doorhelp summary{cursor:pointer;min-height:var(--s5);display:flex;align-items:center;
-                  text-decoration:underline;text-underline-offset:2px}
-.doorhelp p{margin:var(--s2) 0 0;color:var(--soft)}
-</style>
 </head>
 <body>
 <div class="wf-shell">
