@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; Three layout directions</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../../research/_page.css">
+<link rel="stylesheet" href="../_theme.css">
+<style>
+/* PAGE-LOCAL, prefix dr-. The shared documentation sheet owns .note .q .node .lede .tw and a
+   bare `table { min-width:560px }`, which is an ELEMENT selector, so a prefix does not protect
+   against it and a local table has to UNSET it rather than merely set its own.
+   Every product value below goes through a var() from ../_theme.css. Nothing is invented here. */
+.dr-cmp table{min-width:0}
+
+/* the frame: each direction is drawn at a real 1440 and scaled to the column, so the
+   proportions on this page are the proportions on the desk, not an impression of them */
+.dr-hold{width:100%;height:616px;overflow:hidden;border:1px solid #d3d5d8;
+         background:var(--color-ground);margin:0 0 14px}
+.dr-scale{width:1440px;height:900px;transform:scale(.6847);transform-origin:0 0}
+/* below the documentation shell's own breakpoint the column is narrower than 986, so the
+   sheet is scrolled rather than silently cropped: a cropped direction reads as a design
+   decision that was never made */
+@media (max-width:1080px){.dr-hold{overflow-x:auto;overflow-y:hidden}}
+
+/* ---- the product, one brand, three compositions. Shared components first. ---- */
+.dr-s{width:1440px;height:900px;display:flex;flex-direction:column;
+      background:var(--color-ground);color:var(--color-text);
+      font:400 14px/1.4 var(--font-sans);letter-spacing:0}
+.dr-s .m{font-family:var(--font-mono);letter-spacing:var(--track-mono)}
+/* The documentation sheet owns bare ELEMENT selectors: `p{max-width:74ch}` and an h2 colour.
+   A prefix does not protect against an element selector, so the product sheet has to UNSET
+   the property rather than merely set its own. Found in a browser: the queue footer was
+   clamped to 444px, which is exactly 74ch of the mono at 10px, and the pane heading rendered
+   in the documentation accent instead of a colour from _theme.css. */
+.dr-s p{max-width:none;margin:0}
+.dr-s h1,.dr-s h2,.dr-s h3{color:var(--color-text);font-family:var(--font-sans);margin:0}
+
+.dr-z1{height:46px;flex:0 0 46px;display:flex;align-items:center;gap:26px;padding:0 20px;
+       border-bottom:1px solid var(--color-rule)}
+.dr-z1 .wm{font:600 14px var(--font-sans);letter-spacing:var(--track-wordmark)}
+.dr-z1 nav{display:flex;gap:20px;font-family:var(--font-mono);font-size:11px;
+           letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.dr-z1 nav .on{color:var(--color-text);border-bottom:2px solid var(--color-accent);padding-bottom:3px}
+.dr-z1 .sp{margin-left:auto;font-family:var(--font-mono);font-size:10px;
+           letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.dr-z2{height:26px;flex:0 0 26px;display:flex;align-items:center;padding:0 20px;
+       font-family:var(--font-mono);font-size:10px;letter-spacing:var(--track-mono);
+       color:var(--color-accent);border-bottom:1px solid var(--color-rule)}
+
+.dr-scope{display:flex;gap:7px;align-items:center}
+.dr-scope i,.dr-chip{font-style:normal;display:inline-block;border:1px solid var(--color-rule);
+       border-radius:var(--radius-ui);padding:4px 8px;font-family:var(--font-mono);font-size:10px;
+       letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.dr-chip.sol{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.dr-chip.esc{border-color:var(--color-failure);color:var(--color-failure)}
+
+.dr-read{font-size:21px;font-weight:500;letter-spacing:var(--track-display);margin:0}
+.dr-read span{color:var(--color-text-dim);font-weight:400;letter-spacing:0;font-size:15px}
+
+.dr-bars{display:inline-flex;gap:2px;vertical-align:middle;margin-right:6px}
+.dr-bars i{width:3px;height:9px;background:var(--color-rule);display:block}
+.dr-bars i.on{background:var(--color-accent)}
+
+.dr-foot{margin:0;padding:9px 20px;border-top:1px solid var(--color-rule);display:flex;gap:22px;
+     font-family:var(--font-mono);font-size:10px;letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.dr-foot kbd{border:1px solid var(--color-rule);padding:1px 4px;font:inherit}
+
+.dr-pane{background:var(--color-surface);border-left:1px solid var(--color-rule);
+         display:flex;flex-direction:column;min-width:0}
+.dr-ph{padding:14px 18px 12px;border-bottom:1px solid var(--color-rule)}
+.dr-ph h2{margin:0 0 4px;font-size:17px;font-weight:500;letter-spacing:var(--track-display)}
+.dr-ph p{margin:0;font-size:12px;color:var(--color-text-dim);max-width:none}
+.dr-fr{display:grid;grid-template-columns:1fr 108px 96px;gap:10px;padding:9px 18px;
+       border-bottom:1px solid #232219;font-size:12px;align-items:baseline}
+.dr-fr.h{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
+         color:var(--color-text-dim);text-transform:uppercase}
+.dr-fr .l{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--track-mono);
+          color:var(--color-accent)}
+.dr-fr .r{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono);text-align:right}
+.dr-fr .r em{display:block;font-style:normal;font-size:9px;color:var(--color-text-dim)}
+.dr-fmore{padding:11px 18px;font-family:var(--font-mono);font-size:9px;
+          letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+
+/* ---------- A, the ledger. 62 / 38, scope on its own band, one line per row ---------- */
+.a-body{flex:1;display:grid;grid-template-columns:62% 38%;min-height:0}
+.a-q{display:flex;flex-direction:column;min-width:0}
+.a-band{padding:12px 20px 11px;border-bottom:1px solid var(--color-rule)}
+.a-head{padding:14px 20px 10px}
+.a-rows{flex:1;min-height:0}
+.a-row{display:grid;grid-template-columns:88px 150px 1fr 190px 68px 118px 40px;gap:12px;
+       padding:11px 20px;border-bottom:1px solid #232219;align-items:center;font-size:13px}
+.a-row.h{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
+         color:var(--color-text-dim);text-transform:uppercase;padding:7px 20px;border-bottom-color:var(--color-rule)}
+.a-row.sel{background:var(--color-surface-sel);box-shadow:inset 3px 0 var(--color-accent)}
+.a-row .v{font-weight:500}
+.a-row .v em{font-style:normal;display:block;font-size:11px;color:var(--color-accent)}
+.a-row .c,.a-row .g{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono);
+       color:var(--color-text-dim)}
+.a-row .g{text-align:right}
+.a-row .st{display:flex;gap:4px;justify-content:flex-end}
+.a-row .st .dr-chip{padding:3px 5px;font-size:8px}
+
+/* ---------- B, case led. 42 / 58, scope folded into the header, two line rows ---------- */
+.b-body{flex:1;display:grid;grid-template-columns:42% 58%;min-height:0}
+.b-q{display:flex;flex-direction:column;min-width:0}
+.b-head{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--color-rule)}
+.b-head .dr-read{font-size:17px}
+.b-head .dr-scope{margin-left:auto}
+.b-rows{flex:1;min-height:0}
+.b-row{padding:11px 18px;border-bottom:1px solid #232219}
+.b-row.sel{background:var(--color-surface-sel);box-shadow:inset 3px 0 var(--color-accent)}
+.b-v{font-size:15px;font-weight:500;letter-spacing:-.008em;margin:0 0 3px;display:flex;
+     align-items:baseline;gap:8px}
+.b-v em{font-style:normal;font-size:11px;color:var(--color-accent);font-weight:400;
+        font-family:var(--font-mono);letter-spacing:var(--track-mono)}
+.b-m{display:flex;gap:12px;align-items:center;font-family:var(--font-mono);font-size:10px;
+     letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.b-m .who{color:var(--color-text)}
+.b-m .st{margin-left:auto;display:flex;gap:4px}
+.b-m .st .dr-chip{padding:3px 5px;font-size:8px}
+
+/* ---------- C, the wide bench. Horizontal split, pane a band across the foot ---------- */
+.c-body{flex:1;display:flex;flex-direction:column;min-height:0}
+.c-q{flex:1;display:flex;flex-direction:column;min-height:0}
+.c-head{display:flex;align-items:center;gap:16px;padding:13px 20px 11px}
+.c-head .dr-scope{margin-left:auto}
+.c-row{display:grid;grid-template-columns:96px 176px 1fr 240px 78px 132px 46px;gap:14px;
+       padding:11px 20px;border-bottom:1px solid #232219;align-items:center;font-size:13px}
+.c-row.h{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
+       color:var(--color-text-dim);text-transform:uppercase;padding:7px 20px;border-bottom-color:var(--color-rule)}
+.c-row.sel{background:var(--color-surface-sel);box-shadow:inset 3px 0 var(--color-accent)}
+.c-row .v{font-weight:500}
+.c-row .v em{font-style:normal;display:block;font-size:11px;color:var(--color-accent)}
+.c-row .c,.c-row .g{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono);
+       color:var(--color-text-dim)}
+.c-row .g{text-align:right}
+.c-row .st{display:flex;gap:4px;justify-content:flex-end}
+.c-row .st .dr-chip{padding:3px 5px;font-size:8px}
+.c-pane{flex:0 0 232px;background:var(--color-surface);border-top:1px solid var(--color-rule);
+        display:flex;flex-direction:column}
+.c-ph{display:flex;align-items:baseline;gap:14px;padding:11px 20px 9px;border-bottom:1px solid var(--color-rule)}
+.c-ph h2{margin:0;font-size:16px;font-weight:500;letter-spacing:var(--track-display)}
+.c-ph p{margin:0;font-size:11px;color:var(--color-text-dim);max-width:none}
+.c-ph .more{margin-left:auto;font-family:var(--font-mono);font-size:9px;
+            letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.c-strip{flex:1;display:grid;grid-template-columns:repeat(7,1fr);min-height:0}
+.c-t{padding:12px 14px;border-right:1px solid #232219;min-width:0}
+.c-t:last-child{border-right:0}
+.c-t b{display:block;font-size:12px;font-weight:500;margin-bottom:6px;white-space:nowrap;
+       overflow:hidden;text-overflow:ellipsis}
+.c-t .lat{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
+          color:var(--color-accent);display:block;margin-bottom:8px}
+.c-t .rec{font-family:var(--font-mono);font-size:12px;letter-spacing:var(--track-mono)}
+.c-t .was{display:block;font-family:var(--font-mono);font-size:9px;
+          letter-spacing:var(--track-mono);color:var(--color-text-dim);margin-top:2px}
+
+/* ---------- the page's own furniture ---------- */
+.dr-bet{border-left:3px solid #0d5a66;padding:2px 0 2px 18px;margin:0 0 18px}
+.dr-bet .k{font:600 10px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+           color:#0d5a66;display:block;margin-bottom:8px}
+.dr-bet p{margin:0;font-size:16.5px;line-height:1.55;max-width:70ch}
+.dr-cost{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px}
+.dr-cost div{border:1px solid var(--rule);padding:14px 17px}
+.dr-cost .k{font:600 9.5px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+            display:block;margin-bottom:9px}
+.dr-cost .buys .k{color:#1c7a58}
+.dr-cost .costs .k{color:#9c3535}
+.dr-cost p{margin:0;font-size:14px;line-height:1.55;max-width:none}
+.dr-num{font-family:var(--mono);font-size:13px;color:var(--faint)}
+@media (max-width:760px){.dr-cost{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 06 &middot; Concept, step 4</p>
+<h1>Three layout directions</h1>
+<p class="lede">One brand, three compositions. The palette, the type and the square corner were settled on plate J at step 3 and are not reopened here: every value on this page comes through a variable from <code>design/_theme.css</code>, so the three directions differ in <b>where things sit and how much room each is given</b>, and in nothing else. Each is drawn at a real 1440 and scaled to this column, so the proportions you are reading are the proportions on the desk.</p>
+
+<p>The screen is <b>3.1 Case Queue</b>, the reference screen, taken from the top row of <code>wireframes/docs/screens.md</code> and not re-derived. The content is the wireframe's own: the same seven rows, the same fixtures, the same fleet at rest in the pane.</p>
+
+<p><b>The empty space under the last row is the wireframe's, not a composition defect.</b> The queue shows the same seven cases the wireframe shows and says <b>7 of 18 shown</b> beneath them, so rows eight to eighteen would fill it. It is left rather than padded out with invented cases, because a fixture that exists only to make a drawing look finished is the thing <code>ia/docs/pages/reading-conventions.md</code> forbids.</p>
+
+<p><b>One thing all three obey, and it is not a preference.</b> <code>CLAUDE.md</code> settles that the main dashboard is the queue with the fleet in the pane, and that the fleet has no navigation item of its own because it is the pane at rest. A fourth direction that moved the fleet out of the pane would be reopening that decision rather than composing a screen, so it is not on this page.</p>
+
+<h2 id="a">A &middot; Ledger</h2>
+<div class="dr-bet"><span class="k">The bet</span>
+<p>Scanning is the primary act, so the screen is optimised for <b>how many decisions are visible at once</b>. The split is 62 to 38, the scope band gets its own row, the readout gets its own line, and every case is one line of seven columns.</p></div>
+
+<div class="dr-hold"><div class="dr-scale"><div class="dr-s">
+  <div class="dr-z1"><span class="wm">HARRIER</span>
+    <nav><span class="on">QUEUE</span><span>SHIFT</span><span>LOG</span></nav>
+    <span class="sp">R. IDRISSI &middot; 40 TENANTS &middot; 03:00 UTC</span></div>
+  <div class="dr-z2">LIVE &middot; CLERK IS FILING &middot; LAST CASE 4M AGO</div>
+  <div class="a-body">
+    <div class="a-q">
+      <div class="a-band"><div class="dr-scope"><i>All tenants &#9662;</i><i>Waiting on a decision &times;</i><i>Sort: default &#9662;</i></div></div>
+      <div class="a-head"><p class="dr-read">18 waiting <span>across 12 of 40 tenants in your scope</span></p></div>
+      <div class="a-rows">
+        <div class="a-row h"><span>Sev</span><span>Tenant</span><span>What it is</span><span>The verdict</span><span>To check</span><span>State</span><span>Age</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Meridian Health</span><span>Mass file rename on one host</span><span class="v">Rejected by R. Idrissi</span><span class="c">4 signals</span><span class="st"><i class="dr-chip">decided</i><i class="dr-chip sol">unrecorded</i></span><span class="g">1h</span></div>
+        <div class="a-row sel"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">27m</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Norsk Marine</span><span>Ransomware precursor on FS-02</span><span class="v">Real, contained</span><span class="c">14 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">52m</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Aubrey Dental Group</span><span>Sign in from an unseen device</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">6m</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Halden Freight</span><span>Impossible travel, two offices</span><span class="v">Benign, sanctioned VPN rollout</span><span class="c">6 signals</span><span class="st"></span><span class="g">4m</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Halcyon Care</span><span>Beaconing to a new domain</span><span class="v">Real, contained</span><span class="c">5 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">2h</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Bramber Retail</span><span>Mass mailbox rule creation</span><span class="v">Benign, new admin onboarding</span><span class="c">3 signals</span><span class="st"></span><span class="g">41m</span></div>
+      </div>
+      <p class="dr-foot"><span>7 of 18 shown</span><span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span><span><kbd>Enter</kbd> decides</span><span>order: unrecorded, waiting on you, severity, age</span></p>
+    </div>
+    <aside class="dr-pane">
+      <div class="dr-ph"><h2>Fleet</h2><p>40 tenants, nothing selected. Ordered by where attention is owed</p></div>
+      <div class="dr-fr h"><span>Tenant</span><span>Acts alone up to</span><span class="r">Accepted</span></div>
+      <div class="dr-fr"><span>Meridian Health</span><span class="l">INVESTIGATE</span><span class="r">31 of 36<em>was 34 of 36</em></span></div>
+      <div class="dr-fr"><span>Halcyon Care</span><span class="l">CONTAIN ENDPOINT</span><span class="r">4 of 4<em>too few to compare</em></span></div>
+      <div class="dr-fr"><span>Aubrey Dental Group</span><span class="l">INVESTIGATE</span><span class="r">&ndash;<em>no rulings yet</em></span></div>
+      <div class="dr-fr"><span>Bramber Retail</span><span class="l">CONTAIN NETWORK</span><span class="r">51 of 52<em>was 49 of 51</em></span></div>
+      <div class="dr-fr"><span>Halden Freight</span><span class="l">CONTAIN ENDPOINT</span><span class="r">27 of 29<em>was 26 of 29</em></span></div>
+      <div class="dr-fr"><span>Larkfield Logistics</span><span class="l">CONTAIN ENDPOINT</span><span class="r">34 of 36<em>was 33 of 36</em></span></div>
+      <div class="dr-fr"><span>Norsk Marine</span><span class="l">INVESTIGATE</span><span class="r">18 of 20<em>was 18 of 20</em></span></div>
+      <p class="dr-fmore">33 MORE, 30 DAY WINDOW &middot; A ROW NARROWS THE QUEUE TO THAT TENANT</p>
+    </aside>
+  </div>
+</div></div></div>
+
+<div class="dr-cost">
+<div class="buys"><span class="k">What it buys</span><p>Seven cases and the whole fleet in one view with nothing truncated. The verdict column is wide enough for <b>above latitude here</b> to sit under its own verdict rather than wrap. Closest to the wireframe, so the structural diff at step 6 is nearly nothing.</p></div>
+<div class="costs"><span class="k">What it costs</span><p>The scope band and the readout spend 72px of vertical before the first row, which is roughly one more case that could have been visible. The verdict is set at the same size as the tenant and the description, so nothing in the row wins on typography alone.</p></div>
+</div>
+
+<h2 id="b">B &middot; Case led</h2>
+<div class="dr-bet"><span class="k">The bet</span>
+<p>The analyst rules on <b>verdicts</b>, not on alerts, so the verdict is what a row should be. The split inverts to 42 to 58, the scope folds into the header line, and each row becomes two lines with Clerk's conclusion set largest and everything else demoted to mono beneath it.</p></div>
+
+<div class="dr-hold"><div class="dr-scale"><div class="dr-s">
+  <div class="dr-z1"><span class="wm">HARRIER</span>
+    <nav><span class="on">QUEUE</span><span>SHIFT</span><span>LOG</span></nav>
+    <span class="sp">R. IDRISSI &middot; 40 TENANTS &middot; 03:00 UTC</span></div>
+  <div class="dr-z2">LIVE &middot; CLERK IS FILING &middot; LAST CASE 4M AGO</div>
+  <div class="b-body">
+    <div class="b-q">
+      <div class="b-head"><p class="dr-read">18 waiting <span>12 of 40 tenants</span></p>
+        <div class="dr-scope"><i>All tenants &#9662;</i><i>Waiting &times;</i></div></div>
+      <div class="b-rows">
+        <div class="b-row"><p class="b-v">Rejected by R. Idrissi</p><div class="b-m"><span class="who">Meridian Health</span><span>Mass file rename on one host</span><span>4 signals</span><span>1h</span><span class="st"><i class="dr-chip">decided</i><i class="dr-chip sol">unrecorded</i></span></div></div>
+        <div class="b-row sel"><p class="b-v">Real, contain identity <em>ABOVE LATITUDE HERE</em></p><div class="b-m"><span class="who">Larkfield Logistics</span><span>Token replay from a new ASN</span><span>9 signals</span><span>27m</span><span class="st"></span></div></div>
+        <div class="b-row"><p class="b-v">Real, contained</p><div class="b-m"><span class="who">Norsk Marine</span><span>Ransomware precursor on FS-02</span><span>14 signals</span><span>52m</span><span class="st"><i class="dr-chip">acted</i></span></div></div>
+        <div class="b-row"><p class="b-v">Real, contain identity <em>ABOVE LATITUDE HERE</em></p><div class="b-m"><span class="who">Aubrey Dental Group</span><span>Sign in from an unseen device</span><span>9 signals</span><span>6m</span><span class="st"></span></div></div>
+        <div class="b-row"><p class="b-v">Benign, sanctioned VPN rollout</p><div class="b-m"><span class="who">Halden Freight</span><span>Impossible travel, two offices</span><span>6 signals</span><span>4m</span><span class="st"></span></div></div>
+        <div class="b-row"><p class="b-v">Real, contained</p><div class="b-m"><span class="who">Halcyon Care</span><span>Beaconing to a new domain</span><span>5 signals</span><span>2h</span><span class="st"><i class="dr-chip">acted</i></span></div></div>
+        <div class="b-row"><p class="b-v">Benign, new admin onboarding</p><div class="b-m"><span class="who">Bramber Retail</span><span>Mass mailbox rule creation</span><span>3 signals</span><span>41m</span><span class="st"></span></div></div>
+      </div>
+      <p class="dr-foot"><span>7 of 18 shown</span><span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read</span><span><kbd>Enter</kbd> decides</span></p>
+    </div>
+    <aside class="dr-pane">
+      <div class="dr-ph"><h2>Fleet</h2><p>40 tenants, nothing selected. Ordered by where attention is owed. A row narrows the queue to that tenant</p></div>
+      <div class="dr-fr h"><span>Tenant</span><span>Acts alone up to</span><span class="r">Accepted</span></div>
+      <div class="dr-fr"><span>Meridian Health</span><span class="l">INVESTIGATE</span><span class="r">31 of 36<em>was 34 of 36</em></span></div>
+      <div class="dr-fr"><span>Halcyon Care</span><span class="l">CONTAIN ENDPOINT</span><span class="r">4 of 4<em>too few to compare</em></span></div>
+      <div class="dr-fr"><span>Aubrey Dental Group</span><span class="l">INVESTIGATE</span><span class="r">&ndash;<em>no rulings yet</em></span></div>
+      <div class="dr-fr"><span>Bramber Retail</span><span class="l">CONTAIN NETWORK</span><span class="r">51 of 52<em>was 49 of 51</em></span></div>
+      <div class="dr-fr"><span>Halden Freight</span><span class="l">CONTAIN ENDPOINT</span><span class="r">27 of 29<em>was 26 of 29</em></span></div>
+      <div class="dr-fr"><span>Larkfield Logistics</span><span class="l">CONTAIN ENDPOINT</span><span class="r">34 of 36<em>was 33 of 36</em></span></div>
+      <div class="dr-fr"><span>Norsk Marine</span><span class="l">INVESTIGATE</span><span class="r">18 of 20<em>was 18 of 20</em></span></div>
+      <p class="dr-fmore">33 MORE, 30 DAY WINDOW</p>
+    </aside>
+  </div>
+</div></div></div>
+
+<div class="dr-cost">
+<div class="buys"><span class="k">What it buys</span><p>The verdict wins its row on typography, which is design principle 1 made visible rather than asserted. <b>above latitude here</b> becomes a mono flag beside the verdict instead of a second line of prose. The pane is 58 per cent wide, which is where the case file will actually be read.</p></div>
+<div class="costs"><span class="k">What it costs</span><p>The same seven cases now need two lines each, so a taller row buys the emphasis. The tenant drops to mono at 10px beside four other mono facts, and <b>tenant context is never more than a glance away</b> is principle 4, so this is the direction most at risk of failing it.</p></div>
+</div>
+
+<h2 id="c">C &middot; Wide bench</h2>
+<div class="dr-bet"><span class="k">The bet</span>
+<p>The split does not have to be vertical. The queue takes the <b>full 1440</b> so no column is ever squeezed, and the pane becomes a band across the foot. The fleet at rest is then seven tenants side by side rather than a list, which is closer to reading a fleet than scrolling one.</p></div>
+
+<div class="dr-hold"><div class="dr-scale"><div class="dr-s">
+  <div class="dr-z1"><span class="wm">HARRIER</span>
+    <nav><span class="on">QUEUE</span><span>SHIFT</span><span>LOG</span></nav>
+    <span class="sp">R. IDRISSI &middot; 40 TENANTS &middot; 03:00 UTC</span></div>
+  <div class="dr-z2">LIVE &middot; CLERK IS FILING &middot; LAST CASE 4M AGO</div>
+  <div class="c-body">
+    <div class="c-q">
+      <div class="c-head"><p class="dr-read">18 waiting <span>across 12 of 40 tenants in your scope</span></p>
+        <div class="dr-scope"><i>All tenants &#9662;</i><i>Waiting on a decision &times;</i><i>Sort: default &#9662;</i></div></div>
+      <div class="c-row h"><span>Sev</span><span>Tenant</span><span>What it is</span><span>The verdict</span><span>To check</span><span>State</span><span>Age</span></div>
+      <div class="c-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Meridian Health</span><span>Mass file rename on one host</span><span class="v">Rejected by R. Idrissi</span><span class="c">4 signals</span><span class="st"><i class="dr-chip">decided</i><i class="dr-chip sol">unrecorded</i></span><span class="g">1h</span></div>
+      <div class="c-row sel"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">27m</span></div>
+      <div class="c-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Norsk Marine</span><span>Ransomware precursor on FS-02</span><span class="v">Real, contained</span><span class="c">14 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">52m</span></div>
+      <div class="c-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Aubrey Dental Group</span><span>Sign in from an unseen device</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">6m</span></div>
+      <div class="c-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Halden Freight</span><span>Impossible travel, two offices</span><span class="v">Benign, sanctioned VPN rollout</span><span class="c">6 signals</span><span class="st"></span><span class="g">4m</span></div>
+      <div class="c-row"><span class="c"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Halcyon Care</span><span>Beaconing to a new domain</span><span class="v">Real, contained</span><span class="c">5 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">2h</span></div>
+      <div class="c-row"><span class="c"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Bramber Retail</span><span>Mass mailbox rule creation</span><span class="v">Benign, new admin onboarding</span><span class="c">3 signals</span><span class="st"></span><span class="g">41m</span></div>
+      <p class="dr-foot"><span>7 of 18 shown</span><span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span><span><kbd>Enter</kbd> decides, focus moves into the pane</span><span>order: unrecorded, waiting on you, severity, age</span></p>
+    </div>
+    <aside class="c-pane">
+      <div class="c-ph"><h2>Fleet</h2><p>40 tenants, nothing selected. Ordered by where attention is owed</p>
+        <span class="more">33 MORE, 30 DAY WINDOW &middot; A TENANT NARROWS THE QUEUE</span></div>
+      <div class="c-strip">
+        <div class="c-t"><b>Meridian Health</b><span class="lat">INVESTIGATE</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></div>
+        <div class="c-t"><b>Halcyon Care</b><span class="lat">CONTAIN ENDPOINT</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></div>
+        <div class="c-t"><b>Aubrey Dental Group</b><span class="lat">INVESTIGATE</span><span class="rec">&ndash;<span class="was">no rulings yet</span></span></div>
+        <div class="c-t"><b>Bramber Retail</b><span class="lat">CONTAIN NETWORK</span><span class="rec">51 of 52<span class="was">was 49 of 51</span></span></div>
+        <div class="c-t"><b>Halden Freight</b><span class="lat">CONTAIN ENDPOINT</span><span class="rec">27 of 29<span class="was">was 26 of 29</span></span></div>
+        <div class="c-t"><b>Larkfield Logistics</b><span class="lat">CONTAIN ENDPOINT</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></div>
+        <div class="c-t"><b>Norsk Marine</b><span class="lat">INVESTIGATE</span><span class="rec">18 of 20<span class="was">was 18 of 20</span></span></div>
+      </div>
+    </aside>
+  </div>
+</div></div></div>
+
+<div class="dr-cost">
+<div class="buys"><span class="k">What it buys</span><p>Every column gets its full comfortable width and the verdict column gains 50px over direction A. The fleet reads as a <b>fleet</b>: seven ceilings side by side, differences visible without moving the eye down a list. This is the composition plate J itself uses.</p></div>
+<div class="costs"><span class="k">What it costs</span><p>The case file, when one is open, gets 232px of height and the full width, which is a wide short document rather than a tall one. Evidence lines, the verdict, the provenance and four actions have to fit that band or the analyst scrolls, and <b>no overlay may hide the evidence</b> forbids solving it with a sheet.</p></div>
+</div>
+
+<h2 id="cmp">The three against what binds them</h2>
+<div class="dr-cmp">
+<table>
+<thead><tr><th>&nbsp;</th><th>A &middot; Ledger</th><th>B &middot; Case led</th><th>C &middot; Wide bench</th></tr></thead>
+<tbody>
+<tr><td><b>Principle 1</b><br>every row is a decision</td><td>row carries the verdict, at the same size as everything else</td><td><b>strongest.</b> the verdict is the row</td><td>row carries the verdict with the most width it has had</td></tr>
+<tr><td><b>Principle 4</b><br>tenant context a glance away</td><td>tenant is a column, always in the same place</td><td><b>weakest.</b> tenant drops to 10px mono among four other mono facts</td><td>tenant is a column, and the fleet band puts seven of them under the queue at once</td></tr>
+<tr><td><b>Principle 5</b><br>density is the feature</td><td>7 rows, one line each</td><td>7 rows, two lines each, taller</td><td>7 rows, one line each, full width</td></tr>
+<tr><td><b>The differentiator</b><br>latitude legible at a glance</td><td>a list in a 38 per cent pane</td><td>a list in a 58 per cent pane</td><td><b>strongest.</b> seven ceilings side by side, read across not down</td></tr>
+<tr><td><b>The case file when open</b></td><td>547px wide, full height</td><td>835px wide, full height</td><td>1440px wide, 232px tall</td></tr>
+<tr><td><b>Structural diff at step 6</b></td><td><b>near zero.</b> this is the wireframe's own composition</td><td>row anatomy changes, so the diff is real and has to be carried up into <code>wireframes/</code> first</td><td>the split axis changes, the largest diff of the three</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="stop">What this step is waiting on</h2>
+<p><b>The recommendation is C, and the reason is that it is the only one of the three that makes the differentiator legible without a second action.</b> Seven ceilings side by side, read across rather than down, is what <b>the fleet of earned trust, made readable where the analyst works</b> was supposed to mean. A and B both leave latitude as a list that has to be traversed.</p>
+<p><b>The honest objection to C is in its own cost column and it is not small.</b> A case file 1440 wide and 232 tall is a shape nobody has drawn yet, and the whole of stage 04 was drawn against a tall pane. If the verdict, the evidence lines, the provenance and four actions do not fit that band, C fails, and it fails at step 6 rather than here. <b>A is the direction that cannot fail</b>, because it is what the wireframe already proved, and its cost is only that nothing in the row wins on typography.</p>
+<p class="dr-num">Step 5 builds the stand <code>concept.html</code> from whichever of these is chosen. Step 6 colours the reference screen for real and proves it in a browser at 1440 and at 360.</p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../../';
+  window.NAV_SECTIONS = [
+    { id:'a',   label:'A &middot; Ledger' },
+    { id:'b',   label:'B &middot; Case led' },
+    { id:'c',   label:'C &middot; Wide bench' },
+    { id:'cmp', label:'The three compared' },
+    { id:'stop',label:'Waiting on' },
+  ];
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

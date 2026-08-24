@@ -1,0 +1,45 @@
+/* Harrier :: the single source of every visual value.
+   Written at stage 06 step 4. Moves to design/kit/kit.css at stage 07 by git mv,
+   this :root block byte for byte, so the names are not renamed and the origin
+   line never breaks. Stage 08 audits these names.
+
+   Every value carries its ORIGIN. A value without one is not entered here.
+   Grounds and the full derivation: /DESIGN-artifacts.md
+   Prefix by KIND of value: --color-* --radius-* --track-* --font-* --space-* --size-*
+   Nothing is declared in a class. Semantic role names are NOT invented here:
+   roles are only visible after components have stood on real screens, at stage 08. */
+
+:root{
+  /* colour, six roles plus three surfaces, pixels of brand-plate-j.png */
+  --color-ground:        #11110f; /* pixel of plate j, palette zone, GROUND */
+  --color-surface:       #171714; /* pixel of plate j, console, detail pane */
+  --color-surface-sel:   #2a2418; /* pixel of plate j, console, active row */
+  --color-text:          #e9e4da; /* pixel of plate j, palette zone, TEXT */
+  --color-text-dim:      #aaa397; /* pixel of plate j, palette zone, SECONDARY */
+  --color-rule:          #675f50; /* pixel of plate j, palette zone, RULE */
+  --color-accent:        #d29c3f; /* pixel of plate j, palette zone, ACCENT */
+  --color-accent-ink:    #18140e; /* measured on plate j, text on Accept */
+  --color-failure:       #b25d44; /* pixel of plate j, palette zone, FAILURE */
+
+  /* geometry */
+  --radius-ui:           0;       /* measured on plate j, no console element carries a radius */
+  --radius-object:       5px;     /* measured on plate j, physical applications only */
+
+  /* tracking */
+  --track-display:       -.038em; /* rendered test: Archivo collides at the plate's -.055em */
+  --track-mono:          .06em;   /* measured on plate j, halation constraint, CLAUDE.md */
+  --track-wordmark:      .16em;   /* measured on plate j, HARRIER lockup */
+
+  /* families */
+  --font-sans:  'Archivo', system-ui, sans-serif;          /* chosen for character, DESIGN-artifacts 6 */
+  --font-mono:  'IBM Plex Mono', ui-monospace, monospace;  /* chosen for character, DESIGN-artifacts 6 */
+}
+
+/* Two constraints computed at stage 06 step 3b and binding on stage 07.
+   They are comments rather than values because they forbid a use, not name one.
+
+   --color-failure is 4.09 against the ground. It clears 3:1 for borders, icons
+   and chip edges and it does NOT clear 4.5:1. It may not carry small body text.
+
+   --color-rule is exactly 3.00 against the ground, the WCAG 1.4.11 limit for
+   non-text contrast. It may be raised. It may not be lowered. */
