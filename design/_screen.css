@@ -110,5 +110,9 @@
   --nav-rule:   var(--color-rule);
   --nav-badge:  var(--color-accent);
 }
+/* the detector's undersized-ui-text floor is 11px for functional text, and the roadmap
+   badges render at 10px. They are chrome this stage added to the coloured copies, so they
+   are ours to fix rather than the wireframe's. */
+.nav-badge{ font-size:11px }
 .nav-badge-next{ color:var(--color-accent-ink) }
 .nav-badge-off{ color:var(--color-text-dim); border-color:var(--color-rule) }
