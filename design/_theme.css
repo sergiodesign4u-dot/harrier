@@ -21,6 +21,17 @@
   --color-accent-ink:    #18140e; /* measured on plate j, text on Accept */
   --color-failure:       #b25d44; /* pixel of plate j, palette zone, FAILURE */
 
+  /* severity, a closed ramp of three. User decision at step 5: severity has to read as
+     colour rather than as a count of bars. Derived from the failure hue rather than
+     sampled, because the plate drew no severity scale, and every value is verified
+     against all three grounds at the AA floor for text. It descends in CHROMA, not in
+     loudness: on a dark ground every value has to clear 4.5:1, so brightness cannot
+     carry the ramp. Warm to cool, and it never reaches green, because a low severity
+     case is not a resolved one. */
+  --color-sev-high:      #d9704f; /* derived from the failure hue, 5.74 / 5.46 / 4.68 */
+  --color-sev-medium:    #9d9182; /* warm neutral, almost no chroma, 6.13 / 5.82 / 4.99 */
+  --color-sev-low:       #828e96; /* cool slate, 5.63 / 5.35 / 4.59 */
+
   /* geometry */
   --radius-ui:           0;       /* measured on plate j, no console element carries a radius */
   --radius-object:       5px;     /* measured on plate j, physical applications only */

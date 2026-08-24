@@ -463,3 +463,25 @@ Stage 04 built the pages from ten Python generators in `wireframes/docs/`, and t
 
 - **Nothing in A's row wins on typography.** Design principle 1 says every row is a decision and the verdict is the decision, yet in A the verdict is set at the same size as the tenant and the description. Direction B bought the emphasis with a second line. Step 6 has to buy it inside one line with weight, colour or position. If it cannot, B's argument returns as a finding.
 - **The differentiator is still a list in a 38 per cent pane.** Choosing A does not make the objection to it wrong, it moves it. The fleet has to earn **legible at one glance** some other way, and stage 07 is required to check that it did.
+
+---
+
+## 2026-08-24 &middot; Severity reads as colour, and attribute A2 was amended to allow it
+
+**Decision.** Severity carries a closed ramp of three: high `#d9704f`, medium `#9d9182`, low `#828e96`. The word and the bars take the same value. **Attribute A2 changed for this**, from *saturation is scarce, not decorative* to *saturation is spent on two closed sets, and on nothing else*.
+
+**Why the attribute had to change rather than stretch.** Severity was readable only by counting bars, and the user asked for it to read as colour. Three coloured elements per row, on every row, is exactly the economy the old A2 refused. There is no honest way to grant the request inside the old wording, so the wording moved and the move is written into `concept.md` where A2 lives.
+
+**Section 5 of `concept.md` predicted this before it happened.** It recorded the conflict between Bloomberg's colour-as-code and A2, and said that if the user's real taste put Bloomberg's economy above A2 then A2 is what changes, in writing rather than quietly on a plate. That is what happened, so section 5 is closed. What was taken from Bloomberg is colour as a code **on a scale**; what still was not taken is colour on many elements at once, since the code is three values on one cell of a row rather than a wall of coloured cells.
+
+**Five treatments were rendered on real rows before one was chosen, and the first attempt was wrong.** An early candidate put a bright bone tone on Medium, and the render showed the inversion at once: on a dark ground brightness is the strongest attention cue, so Medium out-shouted High. That is why the shipped ramp **descends in chroma rather than in loudness**. Loudness was never available: every value has to clear 4.5:1 against all three grounds, which compresses the whole ramp into 4.6 to 6.5 and leaves chroma and hue as the only carriers.
+
+**Three constraints the ramp obeys.**
+
+- **It never reaches green.** A low severity case is not a resolved one, and green would say it was. This is the same rule that keeps the six state chips uncoloured: they are positions, not outcomes.
+- **It never touches the accent hue.** The amber is reserved for latitude, the live strip and the primary action, and a severity value in the same family would make the row's most important colour ambiguous.
+- **One cool value enters a warm palette, deliberately.** `#828e96` is the only cool colour in the system. It is what makes low severity recede without dropping below the contrast floor.
+
+**Contrast, computed against all three grounds including the selected row, which is the worst case:** 5.74 / 6.13 / 5.63 on the board, and 4.68 / 4.99 / 4.59 on the selected row. All above the AA floor for text, so the word can carry the colour and not only the bars.
+
+**These three are the only derived values in the palette.** Everything else was sampled as pixels off plate J. The plate drew no severity scale, so there was no pixel to take, and the exception is recorded in `DESIGN-artifacts.md` section 2 rather than hidden by giving them a plausible origin.

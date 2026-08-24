@@ -96,13 +96,13 @@
       <div class="a-head"><p class="dr-read">18 waiting <span>across 12 of 40 tenants in your scope</span></p></div>
       <div class="a-rows">
         <div class="a-row h"><span>Sev</span><span>Tenant</span><span>What it is</span><span>The verdict</span><span>To check</span><span>State</span><span>Age</span></div>
-        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Meridian Health</span><span>Mass file rename on one host</span><span class="v">Rejected by R. Idrissi</span><span class="c">4 signals</span><span class="st"><i class="dr-chip">decided</i><i class="dr-chip sol">unrecorded</i></span><span class="g">1h</span></div>
-        <div class="a-row sel"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">27m</span></div>
-        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Norsk Marine</span><span>Ransomware precursor on FS-02</span><span class="v">Real, contained</span><span class="c">14 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">52m</span></div>
-        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Aubrey Dental Group</span><span>Sign in from an unseen device</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">6m</span></div>
-        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Halden Freight</span><span>Impossible travel, two offices</span><span class="v">Benign, sanctioned VPN rollout</span><span class="c">6 signals</span><span class="st"></span><span class="g">4m</span></div>
-        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Halcyon Care</span><span>Beaconing to a new domain</span><span class="v">Real, contained</span><span class="c">5 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">2h</span></div>
-        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Bramber Retail</span><span>Mass mailbox rule creation</span><span class="v">Benign, new admin onboarding</span><span class="c">3 signals</span><span class="st"></span><span class="g">41m</span></div>
+        <div class="a-row sev-me"><span class="sv"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Meridian Health</span><span>Mass file rename on one host</span><span class="v">Rejected by R. Idrissi</span><span class="c">4 signals</span><span class="st"><i class="dr-chip">decided</i><i class="dr-chip sol">unrecorded</i></span><span class="g">1h</span></div>
+        <div class="a-row sev-hi sel"><span class="sv"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">27m</span></div>
+        <div class="a-row sev-hi"><span class="sv"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Norsk Marine</span><span>Ransomware precursor on FS-02</span><span class="v">Real, contained</span><span class="c">14 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">52m</span></div>
+        <div class="a-row sev-me"><span class="sv"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Aubrey Dental Group</span><span>Sign in from an unseen device</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">6m</span></div>
+        <div class="a-row sev-me"><span class="sv"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Halden Freight</span><span>Impossible travel, two offices</span><span class="v">Benign, sanctioned VPN rollout</span><span class="c">6 signals</span><span class="st"></span><span class="g">4m</span></div>
+        <div class="a-row sev-lo"><span class="sv"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Halcyon Care</span><span>Beaconing to a new domain</span><span class="v">Real, contained</span><span class="c">5 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">2h</span></div>
+        <div class="a-row sev-lo"><span class="sv"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Bramber Retail</span><span>Mass mailbox rule creation</span><span class="v">Benign, new admin onboarding</span><span class="c">3 signals</span><span class="st"></span><span class="g">41m</span></div>
       </div>
       <p class="dr-foot"><span>7 of 18 shown</span><span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span><span><kbd>Enter</kbd> decides</span><span>order: unrecorded, waiting on you, severity, age</span></p>
     </div>
@@ -137,9 +137,14 @@
 <figure><i style="background:var(--color-accent)"></i><figcaption><b>Accent</b><code>#d29c3f</code><span class="o">Latitude, the live stage, the primary action. Three things and no fourth</span></figcaption></figure>
 <figure><i style="background:var(--color-accent-ink)"></i><figcaption><b>Accent ink</b><code>#18140e</code><span class="o">Text on the accent. Measured on plate J, the Accept button</span></figcaption></figure>
 <figure><i style="background:var(--color-failure)"></i><figcaption><b>Failure</b><code>#b25d44</code><span class="o">4.09 on the ground, so borders and icons only. May not carry small text</span></figcaption></figure>
+<figure><i style="background:var(--color-sev-high)"></i><figcaption><b>Severity high</b><code>#d9704f</code><span class="o">Derived from the failure hue. The plate drew no severity scale, so this is the one family that is derived rather than sampled</span></figcaption></figure>
+<figure><i style="background:var(--color-sev-medium)"></i><figcaption><b>Severity medium</b><code>#9d9182</code><span class="o">Warm neutral, almost no chroma</span></figcaption></figure>
+<figure><i style="background:var(--color-sev-low)"></i><figcaption><b>Severity low</b><code>#828e96</code><span class="o">Cool slate. The one cool value in a warm palette, and it is deliberate</span></figcaption></figure>
 </div>
 
-<p><b>The accent is spent, not applied.</b> Attribute A2 says saturation is scarce rather than decorative, and on this screen the accent carries exactly three things: the tenant's earned latitude in the pane, the live strip, and the selected row. Nothing else in the interface is allowed to take it. Count them on the screen above.</p>
+<p><b>The accent is spent, not applied.</b> The accent carries exactly three things: the tenant's earned latitude in the pane, the live strip, and the selected row. Nothing else in the interface may take it. Count them on the screen above.</p>
+
+<p><b>A2 was amended at step 5 and the amendment is written down rather than absorbed.</b> Severity now reads as colour rather than as a count of bars, which means saturation is spent in two places instead of one. A2 changed from <i>saturation is scarce</i> to <i>saturation is spent on two closed sets and nothing else</i>. It is still countable: three things on the accent and three levels of severity, and a fourth use of colour anywhere is a defect. <code>concept.md</code> section 5 named this exact conflict before it happened and left the decision to the user, which is where it was made.</p>
 
 <h2 id="type">3. Type</h2>
 <p>Two families. <b>Archivo</b> carries display and body; <b>IBM Plex Mono</b> is reserved for anything counted, which is counts, chips, stage names, evidence lines and time. Chosen on a rendered comparison of four candidates each, not on the name drawn on the plate. The measurements are in <code>DESIGN-artifacts.md</code>, section 6.</p>
@@ -197,11 +202,12 @@
     <p class="cn-t6" style="margin-top:11px">ACCEPT COSTS TWO TAPS AND REJECT COSTS FOUR. THE FOURTH IS ENTER, NOT A CONFIRMATION STEP</p></div>
 
   <div class="cn-grid">
-    <div><span class="cn-lab">Severity &middot; counted, not coloured</span>
-      <p class="cn-t5"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</p>
-      <p class="cn-t5"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</p>
-      <p class="cn-t5"><span class="dr-bars"><i class="on"></i><i></i><i></i></span> Low</p>
-      <p class="cn-t6" style="margin-top:9px">THREE BARS, ONE ACCENT. NO RED, AMBER, GREEN SCALE ANYWHERE</p></div>
+    <div><span class="cn-lab">Severity &middot; a closed ramp of three, and it descends in chroma</span>
+      <p class="cn-t5 sev-hi"><span class="sv"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span></p>
+      <p class="cn-t5 sev-me"><span class="sv"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span></p>
+      <p class="cn-t5 sev-lo"><span class="sv"><span class="dr-bars"><i class="on"></i><i></i><i></i></span> Low</span></p>
+      <p class="cn-t6" style="margin-top:9px">WARM TO COOL, NEVER TO GREEN. A LOW SEVERITY CASE IS NOT A RESOLVED ONE, AND GREEN WOULD SAY IT WAS</p>
+      <p class="cn-t6" style="margin-top:6px">THE RAMP DESCENDS IN CHROMA, NOT IN BRIGHTNESS: ON A DARK GROUND ALL THREE HAVE TO CLEAR 4.5, SO LOUDNESS CANNOT CARRY IT</p></div>
     <div><span class="cn-lab">Fleet row &middot; where the differentiator lives</span>
       <div class="dr-fr h"><span>Tenant</span><span>Acts alone up to</span><span class="r">Accepted</span></div>
       <div class="dr-fr"><span>Larkfield Logistics</span><span class="l">CONTAIN ENDPOINT</span><span class="r">34 of 36<em>was 33 of 36</em></span></div>
@@ -220,7 +226,7 @@
 <thead><tr><th>Attribute</th><th>What carries it, on the screen above</th></tr></thead>
 <tbody>
 <tr><td><b>A1</b> Precise, not soft</td><td><code>--radius-ui: 0</code> on every interface element, and a 1px rule rather than a shadow at every boundary</td></tr>
-<tr><td><b>A2</b> Saturation is scarce, not decorative</td><td>the accent carries three things: latitude in the pane, the live strip, the selected row. Countable, and counted</td></tr>
+<tr><td><b>A2</b> Saturation is spent on two closed sets, and on nothing else <span class="cn-num">amended</span></td><td>the accent carries three things: latitude in the pane, the live strip, the selected row. The severity ramp carries three levels. Both sets are closed and countable, and nothing outside them may take a saturated value</td></tr>
 <tr><td><b>A3</b> Authority by restraint, not by emphasis</td><td>display at weight 500 rather than 700, and one primary action beside three plain ones</td></tr>
 <tr><td><b>A4</b> Depth by tone, not by blur</td><td>three grounds, <code>#11110f</code>, <code>#171714</code>, <code>#2a2418</code>, and no shadow or blur anywhere in the interface</td></tr>
 <tr><td><b>A5</b> Counted, not estimated</td><td>the mono family exists only for counted things, severity is three bars rather than a colour, and every count names its window</td></tr>
@@ -242,6 +248,9 @@
 <tr><td>text dim on ground</td><td>7.56</td><td>AAA</td></tr>
 <tr><td>accent on the selected row</td><td>6.28</td><td>AA</td></tr>
 <tr><td><b>failure on ground</b></td><td><b>4.09</b></td><td><b>below AA for body text, borders and icons only</b></td></tr>
+<tr><td>severity high on ground</td><td>5.74</td><td>AA, and 4.68 on the selected row, which is the worst case</td></tr>
+<tr><td>severity medium on ground</td><td>6.13</td><td>AA, 4.99 on the selected row</td></tr>
+<tr><td>severity low on ground</td><td>5.63</td><td>AA, 4.59 on the selected row</td></tr>
 <tr><td><b>rule on ground</b></td><td><b>3.00</b></td><td><b>exactly the 1.4.11 limit, may be raised, may not be lowered</b></td></tr>
 </tbody>
 </table>

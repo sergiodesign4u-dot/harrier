@@ -62,10 +62,15 @@ Sampled by drawing `brand-plate-j.png` to a canvas at its native 4800 by 3200 an
 | accent: latitude, live, primary action | `#d29c3f` | 747, 568 · Accept button fill | `pixel of plate j`, palette zone and console agree |
 | accent ink, text on the accent | `#18140e` | plate `:root`, no flat pixel available | `measured on plate j` |
 | failure | `#b25d44` | 2283, 427 · FAILURE swatch | `pixel of plate j`, palette zone |
+| severity high | `#d9704f` | not on the plate | `user decision`, derived from the failure hue |
+| severity medium | `#9d9182` | not on the plate | `user decision`, derived, warm neutral |
+| severity low | `#828e96` | not on the plate | `user decision`, derived, cool slate |
 
 **Not taken, and it is not an omission.** The plate's paper and lanyard materials have no flat pixel anywhere: every paper plane on the sheet sits under a perspective shade, by design. They are application materials rather than console colours, and the console is dark, so nothing needs them yet. They are deferred to the light theme debt.
 
 **The accent is spent, not applied.** `--color-accent` carries exactly three things and no fourth: latitude, the live stage, and the primary action. Origin `attribute A2`.
+
+**Three values here are derived rather than sampled, and that is a real exception to the rule above.** The plate drew no severity scale, so there was no pixel to take. They were added at step 5 by user decision: severity had to read as colour rather than as a count of bars. **Attribute A2 was amended for it**, in `concept.md` where it lives, from *saturation is scarce* to *saturation is spent on two closed sets and nothing else*. The ramp is built from the failure hue, verified against all three grounds at the AA floor for text, and it **descends in chroma rather than in brightness**, because on a dark ground every value has to clear 4.5:1 and loudness cannot carry a ramp. It runs warm to cool and never reaches green: a low severity case is not a resolved one.
 
 ---
 
@@ -121,6 +126,9 @@ WCAG 2.1 relative luminance, computed on the values in section 2.
 | text dim on surface | 7.18 | AAA |
 | accent on selected row | 6.28 | AA |
 | **failure on ground** | **4.09** | **below AA for body text** |
+| severity high on ground | 5.74 | AA, worst case 4.68 on the selected row |
+| severity medium on ground | 6.13 | AA, worst case 4.99 |
+| severity low on ground | 5.63 | AA, worst case 4.59 |
 | **rule on ground** | **3.00** | **exactly at the 1.4.11 limit** |
 
 **Two constraints fall out of this table and they bind stage 07.**

@@ -91,13 +91,21 @@ Five pairs of visual opposites. Each carries the **line of data** it stands on a
 
 **What it rejects.** Linear's 9999px pill buttons, and Axiom's own 32px card padding: that is a marketing page breathing, not a console at 1440 carrying eighteen rows and a pane.
 
-### A2. Saturation is scarce, not decorative
+### A2. Saturation is spent on two closed sets, not decorative
 
-**Source.** `personas.md` section C, the first row of the table: *"The fear of the one true positive closed as noise"*, marked `PREMISE` **and the single most load-bearing anxiety in the product**.
+**Amended at stage 06 step 5 by user decision, and the previous wording is kept below rather than deleted.**
 
-**Technique it licenses.** Rox's rule that the status pill is the only saturated thing in the row, taken **inverted**: the technique is the scarcity of saturation, not the green, because our closed chip set has no success value to colour. Plus Axiom's own prohibition, quoted at step 1: *"Avoid using Highlight Orange for decorative purposes, as it dilutes its impact."*
+Was: *saturation is scarce, not decorative.* The accent carried three things and nothing else in the interface was allowed a saturated value.
 
-**What it decides.** Colour spent on chrome cannot also mean **this one**. If severity, tenant, verdict and state all compete in colour, design principle 1 fails: the row stops telling her what to do next.
+Now: **saturation is spent on two closed sets and on nothing else.** The accent carries latitude, the live strip and the primary action. The severity ramp carries High, Medium and Low. Both sets are closed and countable, and a fourth use of colour anywhere is a defect rather than a variation.
+
+**What forced the change.** Severity was readable only by counting bars, and the user asked for it to read as colour. There is no way to grant that inside the old wording: three more coloured elements per row, on every row, is exactly the economy the old A2 refused.
+
+**Section 5 of this file predicted this and left the decision where it belonged.** It said that if the user's real taste put Bloomberg's colour economy above A2, then A2 is what changes, and it changes in writing rather than quietly on a plate. That is what happened, so section 5 is now closed rather than open.
+
+**What did not change, and it is the part that was load bearing.** Colour still has to be countable. The ramp is three values, derived from the failure hue, verified against all three grounds at the AA floor, and it **descends in chroma rather than in brightness**, because on a dark ground every value has to clear 4.5:1 and loudness cannot carry a ramp. It runs warm to cool and never reaches green: a low severity case is not a resolved one, and green would say it was.
+
+**Data source.** User decision, stage 06 step 5. The values and their contrast are in `DESIGN-artifacts.md`, section 2.
 
 ### A3. Authority by restraint, not by emphasis
 
@@ -160,6 +168,8 @@ They cannot both be the language, so the split is named rather than averaged:
 - **not taken: colour as a code across many elements.** A2 stands on the most load-bearing anxiety in the product, and Bloomberg's economy stands on a different task: continuous scanning of a wall where every cell changes. Our queue has a closed set of six state chips and one thing per row that must win
 
 **If the user's real taste puts Bloomberg's colour economy above A2**, then A2 is what changes, and it changes here in writing rather than quietly on a plate. That decision belongs to the user.
+
+**Settled at step 5, and partly the other way.** The user asked for severity to read as colour. A2 was amended above rather than quietly stretched, so this section is closed. What was taken from Bloomberg after all is **colour as a code on a scale**, and what still is not taken is colour on many elements at once: the code is three values on one cell of the row, not a wall of coloured cells. The stance in section 2a and the economy in A2 both survive, and only the count moved from one closed set to two.
 
 ---
 
