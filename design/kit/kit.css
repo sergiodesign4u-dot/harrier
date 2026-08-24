@@ -865,43 +865,33 @@ a.opt:hover{background:var(--color-surface)}
 .nav-badge-off{ color:var(--color-text-dim); border-color:var(--color-rule) }
 
 /* ============================================================================
-   COMPATIBILITY ALIASES, and this block is a BRIDGE rather than a design decision.
+   COMPATIBILITY ALIASES, and step 6 measured exactly how many are still needed.
 
-   Two things outside this file still write the stage 04 variable names and both
-   of them are frozen, so neither can be edited to use the kit's names:
+   The block used to carry all thirty stage 04 names and said stage 08 should check
+   whether it was still required. It was checked here instead, by lifting it out and
+   re-rendering all 51 pages at both viewports: **five renderings changed, on three
+   pages**, and nothing else moved.
 
-     1. wireframes/_nav.js writes one inline style into Z1,
-        style="font-size:var(--t-xs)", on the analyst's name.
-     2. every screen carries a small <style> block of its own, marked
-        `INLINE: <screen> :: for reconcile into _wf.css`, and those blocks use
-        --t-lg, --s5 and the rest. shift.html alone has 66 elements depending on them.
+   The three are inline `style` attributes in the BODY of pages inherited from stage 04:
 
-   Without these aliases the names resolve to nothing, the declaration is dropped
-   and the element falls back to whatever it inherits. That is exactly what the
-   pixel comparison caught: 11px became 14px on one span and 66 elements moved on
-   the shift brief.
+     design/queue-empty.html      margin-top:var(--s4)
+     design/queue-streaming.html  padding:var(--s4)
+     design/entry-gone.html       margin:var(--s2) 0 0
 
-   NOT ONE VALUE IS DEFINED HERE. Every line points at the token above it, so
-   there is still one source. The block is deleted when wireframes/ is unfrozen or
-   when the sample screens stop carrying inline blocks, and stage 08 should check
-   whether it is still needed rather than inheriting it.
+   They cannot be edited here. A `<style>` block lives in the head and moving one changed
+   nothing structural, which is how seven of them were hoisted into this file. An attribute
+   lives in the body, and every coloured page holds a structural diff of exactly zero against
+   its grey original. Rewriting these three would end that for a spacing value.
+
+   So two aliases survive and twenty-eight are gone. They define no value: each points at the
+   token that replaced it. The block disappears when stage 04 is unfrozen, or at the rollout,
+   and the three files are named above so nobody has to search for them again.
    ============================================================================ */
 :root{
-  --ink:var(--color-text); --soft:var(--color-text-dim); --hair:var(--color-hairline);
-  --fill:var(--color-surface); --paper:var(--color-ground); --bg:var(--color-ground);
-  --ui:var(--font-sans); --mono:var(--font-mono); --radius:var(--radius-ui);
-  --t-xs:var(--size-xs); --t-sm:var(--size-sm); --t-md:var(--size-md);
-  --t-lg:var(--size-lg); --t-xl:var(--size-xl);
-  --lh:var(--leading); --lh-tight:var(--leading-tight);
-  --s1:var(--space-1); --s2:var(--space-2); --s3:var(--space-3); --s4:var(--space-4);
-  --s5:var(--space-5); --s6:var(--space-6); --s7:var(--space-7);
-  --z-top:var(--zone-top); --z-strip:var(--zone-strip); --pane:var(--pane-w);
-  --line:var(--rule-hair); --line-ink:var(--rule-edge); --focus:var(--focus-ring);
-  --scrim:var(--color-scrim); --measure:var(--measure);
-  --sheet:var(--width-sheet); --frame:var(--width-frame);
-  --dialog-w:var(--width-dialog); --dialog-w-wide:var(--width-dialog-wide);
-  --toast:var(--width-toast); --z6-clear:var(--zone-notice-clear);
+  --s2:var(--space-2);  /* design/entry-gone.html, one attribute */
+  --s4:var(--space-4);  /* design/queue-empty.html and design/queue-streaming.html */
 }
+
 
 /* ============================================================================
    ICONS. Defined so the set exists and can be judged. NOT APPLIED TO A SINGLE

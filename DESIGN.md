@@ -16,7 +16,8 @@ The product is not running on one stylesheet. It is running on three, and saying
 
 | File | What it provides | Status |
 |---|---|---|
-| `design/kit/kit.css` | **everything**: the values, the absorbed stage 04 scales, every component rule, and what the brand adds | the single source |
+| `design/kit/kit.css` | **everything**: the values, the absorbed stage 04 scales, every component rule, the seven hoisted per-screen blocks, and what the brand adds | the single source |
+| `design/_shell.js` | Z1 and Z2, the two elements the page does not carry in its own markup | stage 07 step 6 |
 
 Three files became one. `design/_theme.css` arrived by `git mv`, its `:root` byte for byte identical and verified as such. `wireframes/_wf.css` was absorbed: its component rules were lifted and every value routed through the kit's variables, not one value changed. `design/_screen.css` was folded in and deleted from the tree.
 
@@ -26,7 +27,11 @@ Three files became one. `design/_theme.css` arrived by `git mv`, its `:root` byt
 
 **Until step 6 there was a second stylesheet and it was on 29 pages.** Every screen carried a small `<style>` block inherited from stage 04. Seven distinct blocks, repeated three to seven times each, were hoisted into the kit and deleted from the pages, and the result was pixel compared: 17 of 18 renderings byte identical, and the eighteenth is a rule that had been dead since stage 04 and now works.
 
-**One tie is left and it is JavaScript, not CSS.** Every page still carries `<script src="../wireframes/_nav.js">`, because that is what injects Z1 and Z2. The markup it produces is now written once in `design/kit/shell.html`, and the tie is cut at step 5 when the sample screens are assembled from it.
+**The tie is cut.** Nothing under `design/` reaches into `wireframes/` any more, in a `<link>` or in a `<script>`, and the mechanical check returns zero on both. `design/_shell.js` renders Z1 and Z2, keeping the name `WF_SHELL` and its exact signature on purpose: the call sits inside each page's own markup, so renaming it would have meant editing 51 pages and the structural diff would have stopped being zero. Only the implementation moved.
+
+**It was proved rather than declared:** all 51 pages were rendered at 1440 and at 360 before and after, and **102 of 102 renderings are byte identical**.
+
+**What the old script was actually costing.** It loaded a registry of 19 screens and rendered the wireframe stage panel into `#sidebar`, both of which this stage overwrote immediately, in order to inject two elements.
 
 ---
 

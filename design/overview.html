@@ -68,7 +68,8 @@
 </div>
 
 <h2 class="o-h" id="known">What this stage has not done yet</h2>
-<p class="o-lede"><b>One tie to a frozen folder is left, and it is JavaScript.</b> Every page still carries <code>wireframes/_nav.js</code>, because that is what injects the top bar and the strip. The CSS tie is already gone: the three stylesheets became one and the proof was a byte-identical screenshot, not a claim. The markup that script produces is written once in <a href="kit/shell.html">the shell</a>, and the tie is cut when the sample screens are assembled from it.</p>
+<p class="o-lede"><b>Nothing here reaches into the frozen folder any more.</b> Not a stylesheet, not a script. <code>design/_shell.js</code> renders the top bar and the strip, and it keeps the old function's name and signature because that call lives inside each page's own markup. All 51 pages were rendered at both viewports before and after: <b>102 of 102 renderings byte identical</b>.</p>
+<p class="o-lede"><b>Two compatibility aliases survive out of thirty, and the three files that need them are named.</b> Three pages carry an inline <code>style</code> attribute in the body using a stage 04 spacing name. A <code>&lt;style&gt;</code> block lives in the head and seven of those were hoisted into the kit; an attribute lives in the body, and rewriting one would end the zero diff for the sake of a spacing value.</p>
 <p class="o-lede"><b>Two images exist and are on no screen.</b> The door and the systemic mark are generated and graded to the palette, and the four screens allowed to carry them are not in colour yet.</p>
 
 </div>
