@@ -659,3 +659,27 @@ Found by Codex, on the diff of the fix rather than on the original. **The same s
 Codex returned six items on the fix diff. **Three were confirmed and fixed** and are above. **Three were withdrawn on measurement**: links were said to keep the light accent and render bone at `rgb(233,228,218)`; `body` and `h1` were said to be uncovered and take their ground, colour and family from `kit.css`; and `kit.css` was said not to carry the four accent jobs, which it does, at line 777 rather than the line quoted.
 
 **An instrument that reads text cannot see what the cascade resolves to**, which is the same division of labour that made it worth running.
+
+## 2026-08-24 &middot; The track continues past 07, and the entry above is superseded
+
+The 2026-08-20 entry stopped the pipeline after UI + Visual on the grounds that stages 08 to 13 would produce a token architecture with no reader. The user reopened it and the track now runs into 08, Tokens + Components. The old entry stays where it is rather than being edited: it was right on the day it was written and the reason it was overturned is a decision in its own right, not a typo.
+
+Two things about this project turned out not to match what the shortened track assumed. The kit is not a sketch: it was read out of all 62 wireframes and it covers 55 components across three levels, so the material for the split exists whether or not the split happens. And the sample is not five to seven screens but **51 in colour**, which is what the pipeline expects a rollout to produce, not a sample. The cost is named where it lands: the browser census at step 1, the reconciliation at step 6 and the pixel comparison at step 8 walk 51 pages in two viewports rather than a handful, which is 102 renderings per measurement.
+
+`CLAUDE.md` carries the old sentence and it is corrected at the closing ritual of the stage, not before: the file is a set of rules that must hold next session, and rewriting it mid stage would state a boundary the stage has not yet reached.
+
+## 2026-08-24 &middot; One roadmap item for the design system, and it costs the declared thirteen
+
+`Tokens + Components` and `Design System` stood as two top-level items and a reader asked the obvious question: why are there two design systems. There are not. Both stages write into one folder, `design/kit/`, onto one stand, and the roadmap was the only place claiming otherwise.
+
+They are now one item, `Design System`, with two children: `Tokens + Components` and `Patterns + Guide`. This is the same gesture already applied to the two layers of IA and to the two halves of User Research, and for the same reason: one thing built in two passes is one item with two children, not two items.
+
+**What separates the two passes, so the grouping does not hide it.** The first builds bricks: the unit is a component, and the output is `design/system/` with two token levels, a file per component, four states in both themes and a documentation page for each. The second turns that into a product for people who were not in the session: the unit is a **pattern**, a composition that repeated on three or more screens, and a **prohibition**, which cannot be written as an antirule on any single component page because the component is right and its count or its neighbour is wrong. Nothing the second pass produces is producible by the first.
+
+**The cost, named rather than absorbed.** The pipeline declares thirteen top-level roadmap items and this project now renders **twelve**. The two stages keep their own status rows in `README.md`, exactly as CJM does while living under the User Research divider: the sidebar tracks whether a page **exists**, the README tracks whether a stage is **finished**. The `wip` flag sits on the group and is cleared by the last of the two passes, which is the rule already written for a group stage.
+
+## 2026-08-24 &middot; A stage in progress with no page yet rendered as a dead link
+
+Setting `wip:true` at step 1 of stage 08 made the roadmap paint the item in the ordinary link colour, because the rule `.nav-item.is-wip > .nav-top` was written assuming a stage in progress already has a page. It does not: the page arrives at step 4, three steps later. The renderer was right and emitted a `<span>` so nothing could point at a missing file; the stylesheet then coloured that span as though it were clickable, and it was clicked.
+
+Fixed in `/_nav.css` by splitting the rule on the element rather than adding a flag: `a.nav-top` under `is-wip` keeps the link colour, `span.nav-top` under `is-wip` takes the muted colour and `cursor:default`. The badge still separates it from SOON, in the accent rather than in grey. The defect was live for exactly the window the two flags were designed to describe, and it is the first time anything has occupied that window: every previous stage built its registry page in the same step that raised the flag.

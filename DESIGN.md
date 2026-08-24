@@ -184,7 +184,7 @@ The mockup is the living truth, so the reasoning is fitted to it. But a mockup t
 
 No semantic role names and no two-level token split. Roles are only visible after components have stood on real screens, and naming them before the kit is built means renaming them twice and breaking the origin line on the first rename. That is stage 08.
 
-No component anatomy: that is `design/kit/inventory.md` and `design/kit/kit.css`.
+No component anatomy: that is `design/kit/docs/inventory.md` and `design/kit/kit.css`.
 
 **Two values moved after this file was first written and both are recorded here rather than only in the kit.** `--color-scrim` was `rgba(22,24,26,.28)`, stage 04's light-theme ink at 28 per cent and the one value in the product the remap could never see, because it was a literal `rgba()` rather than a variable. It is now `color-mix(in srgb, var(--color-ground) 78%, transparent)`, the product's own ground. And an icon set of sixteen glyphs entered the system at step 4, applied in three places by CSS mask so that no screen gains an element and the structural diff stays at zero.
 

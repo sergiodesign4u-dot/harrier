@@ -6,6 +6,8 @@ Stage 07 step 2. Read **out of all 62 wireframe screens plus `wireframes/_nav.js
 
 **The rule and the Level column disagree on about ten rows, and the rule is the one that is wrong.** A reader with clean context applied it literally at step 6 and got a different answer for `row` (it contains `sev`, which is a molecule, so by the rule it is an organism), for `readout`, `pane-head`, `qfoot`, `rota` and `expand` (they contain only html elements and text roles, so by the rule they are atoms), and for `block` (its Contains column says *anything*). **The column is what stages 08 and 12 read, so the column stands and the rule is amended here:** a level is decided by what a component contains **from the kit or from the text roles**, and by whether it is addressed as one thing by a screen. `row` is a molecule because a screen places a row, not a severity. `pane-head` is a molecule because it is a titled block, not a word. Where the two readings still differ, the column wins and this paragraph is why.
 
+**Sections 1 to 8 are the stage 07 census and they stand as written. Sections 9 to 11 are the stage 08 consolidation, and where the two disagree, 9 wins.** The counts did not change; what changed is what counts as a component and what counts as a variant. The register of 62 is section 9, the rename map that step 6 executes is section 10, and section 11 says what was left and where each left thing is addressed.
+
 **Inclusion criterion: two or more pages.** One page goes to `## 8. One-off`. **One exception, and it is deliberate:** a form control enters the kit at a single occurrence, because it is a primitive of interaction and a system without it is incomplete.
 
 ---
@@ -183,3 +185,151 @@ This inventory reads **jobs** off the grey wireframes: what is clickable at all,
 Not in the kit. 18 of the 25 sit on two pages: `keyboard.html` carries 11 (`keys`, `kwhere`, `kscope`, `kgap`, `kk`, `ksep`, `legend`, `pal`, `d`, `t`, `do`) and `not-found.html` carries 7 (`nf`, `nf-note`, `nf-say`, `nf-exits`, `nf-addr`, `nf-note--sep`, `seek`). The rest are single state helpers: `gone-all`, `is-gone`, `esc-first`, `dialog--map`, `is-none`, `rmp`, `rmp-row`.
 
 **`keyboard.html` is worth naming.** Eleven one-off classes on one page means the keyboard map is effectively its own small design system, and design principle 5 puts keyboard before mouse. If it ever gets a second page, all eleven become kit candidates at once.
+
+---
+
+## 9. The register after consolidation, stage 08 step 2
+
+**55 rows became 62, and the number went up on purpose.** Consolidation did not shorten the list. It gave names to things already standing on the screens without one, and it took names away from things that were never components. Both movements are below, and the second is the larger of the two.
+
+**What was measured, and with what.** Every count in this section was taken in a browser, from the rendered DOM, on both corpora: the 62 grey screens for the product count and the 52 coloured ones for the sample. The anatomy column is the set of child zones and their order, read off the rendering rather than off the markup, which is why a zone injected by a generator appears here at all. Fourteen of the counts reproduce section 1 exactly, which is the check that the two instruments agree.
+
+**The split criterion is anatomy and nothing else.** A zone that disappeared means a different component. A zone whose content class changed means a variant. "It looks different" is the definition of a variant, not a reason to split.
+
+### 9a. Atoms, 19
+
+| Component | Product | Pages | Variants, by axis | Where it stands |
+|---|---|---|---|---|
+| `btn` | 157 | 57 | **emphasis:** outline 65, filled `--primary` 53, soft `--quiet` 33, out of reach `[aria-disabled]` 5. **content:** label 74, label + key 83 | `pane-foot` 86, `act` 23, dialog `footer` 21, `wrapline` 6, `doorform` 6, `addr` 5, `out-act` 4 |
+| `navitem` | **132** | 44 | **state:** current 44, not current 88 | Z1 only, injected by `design/_shell.js` |
+| `link` | **24** | 24 | **size, set by the container:** 11px in `gnote` 15, 12.5px in `expand` 6, `nar` 2, `empty` 2, Z6 1 | inline, inside whatever encloses it |
+| `key` | 152 | 34 | none. **The border follows the host**, which is the whole point of the component | `btn` 85, `opt` 45, `keys` 22 on the keyboard map |
+| `chip` | **122** | 44 | **emphasis:** outline, filled `--solid`, dashed `--ghost`. **content:** label, label + `▾` 77, label + `×` 45 | `scopebar` 122 |
+| `state` | **194** | 44 | **emphasis:** outline, filled `--solid` 46 | `states` inside a row 185, `chips-hd` 9 |
+| `bars` | 225 | 34 | **severity:** high 56, medium 71, low 46, read by `:has()` off the count of lit bars | `sev` 225, and `sev` is only ever inside `row` |
+| `src` | 131 | 24 | **element:** link 118, plain 13. **Colour is not a variant:** the 18 dim ones inherit `claim--absence` | `claim` 131 |
+| `mark` | 153 | 26 | **three readings from the parent:** `off` 101, plain 26, `ceiling` 26 | `lat` 153 |
+| `tag` | 44 | 22 | none | `txt` inside `claim` 44 |
+| `stamp` | 24 | 24 | none | `pane-body` 24 |
+| `anote` | 75 | 40 | none. Not product copy, and it carries its own register | `block` 55, `outage` 8, `doc` 5, `body` 4, `z4` 3 |
+| `was` | 72 | 16 | none | `rec` 72 |
+| `rec` | 88 | 16 | **head:** body 72, `frow--head` 16 | `frow` 88 |
+| `hint` | 18 | 18 | **element:** `p` 7, `span` 11, one computed form | `field` 7, dialog `footer` 11 |
+| `label` | 31 | 15 | none | `field` 30, `optlist` 1 |
+| `input` | 9 | 6 | **type:** text, email | `field` 9 |
+| `textarea` | 21 | 9 | none | `field` 21 |
+| `select` | 4 | **1** | none. **No coloured rendering anywhere**, form taken from `input` | `rmp-row`, a one-off class |
+
+**Three atoms are new and none of them is new work.** `navitem` and `link` were already standing on the screens with no class at all, 132 and 24 times, painted by descendant selectors. `state` is the half of `chip` that is not a control. Naming them is the whole of the change.
+
+**Nine atoms had no declaration of their own** and existed only as a descendant of their parent: `src`, `tag`, `rec`, `was`, `hint`, `mark`, `key`, `label`, `input`, `textarea`. Each now gets its own, and the parent keeps only what is genuinely contextual, meaning grid placement and flex behaviour.
+
+### 9b. Molecules, 24
+
+| Component | Product | Pages | Variants, by axis | Where it stands |
+|---|---|---|---|---|
+| `row` | **259** | 39 | **state:** base, `is-selected` 23, `is-superseded` 3. **head:** `row--head` 39. **list:** queue 200, log 25, which keeps the seven zones and changes their widths | `rows` in Z4 |
+| `row-moved` | **35** | 7 | **head:** body 30, head 5 | `rows-moved` inside `brief` |
+| `sev` | 225 | 34 | severity, three levels | `row` 225, and nowhere else |
+| `frow` | 88 | 16 | **head:** body 72, `frow--head` 16 | `z5` 76, `block` 12 |
+| `banner` | 54 | 44 | **emphasis:** base, `--quiet` 4. Nothing else on this axis | `z4` 20, `pane-body` 16, `brief` 5, `body` 4 |
+| `block` | 227 | 50 | **none. This is a slot**, 43 distinct zone sets and one computed form | `pane-body` 141, `body` 31, `doc` 28, `brief` 20 |
+| `nar` | 151 | 37 | **separator:** base 147, `--sep` 4. Otherwise a slot, 7 zone sets | `block` 151 |
+| `field` | 30 | 15 | **control:** textarea 21, input 9. **hint:** present 7, absent 23 | `prompts` 12, `block` 7, `doorform` 5, `seek` 4 |
+| `opt` | 62 | 8 | **state:** base 57, `is-chosen` 5 | `optlist` 60, `axisb` 2 |
+| `scopebar` | 38 | 38 | none. Three or four chips is a count, not a variant | `z4` 38 |
+| `readout` | 45 | 45 | none | `z4` 45 |
+| `pane-head` | 48 | 48 | **route:** in the pane 45, **standalone 3**, which swaps `h2` for `h1` and adds three zones | `z5` 48 |
+| `qfoot` | 45 | 45 | none | `z4` 45 |
+| `prov` | 36 | 33 | **none. A slot**, 5 zone sets, one form | `pane-body` 26, `doc` 7, `block` 3 |
+| `empty` | 6 | 6 | **density:** base 4, `--tight` 2. **A slot**, 5 zone sets on 6 instances | `rows` 5, `block` 1 |
+| `tomb` | 7 | 7 | **none. A slot**, 5 zone sets on 7 instances | `block` 7 |
+| `gnote` | 48 | 27 | **none. A slot**, 8 zone sets, one form | `block` 46, and four others |
+| `expand` | 32 | 28 | **none.** Moves to a native `<details>`, absorbing the five `summary` on the door | `block` 27, `doorhelp` 5 |
+| `rota` | 7 | 7 | **state:** `is-now` on one row | `block` 7 |
+| `toast` | 4 | 2 | **kind:** base 3, `--alert` 1, which swaps the dismiss control for a hold | `z6` 4 |
+| `doorcard` | 5 | 5 | banner and block are optional zones | `door` 5 |
+| `outage` | 3 | 3 | none | `z4` 3 |
+| `chips-hd` | 7 | 7 | none | `pane-head` 7 |
+| `fleet-more` | 10 | 10 | none | `z5` 10 |
+
+**Six molecules stopped pretending to be compositions.** `block`, `nar`, `prov`, `gnote`, `empty` and `tomb` between them show 71 distinct zone sets and **one computed form each**. They are slots: a heading and a free space. Their pages say so in as many words, so nobody looks for a variant matrix that does not exist.
+
+### 9c. Organisms, 19
+
+| Component | Product | Pages | Variants, by axis | Where it stands |
+|---|---|---|---|---|
+| `shell` | 62 | 62 | none | `body` |
+| `screen` | 62 | 62 | **route:** authenticated 55, door 5, no strip 2 | `shell` |
+| `z1` | 57 | 57 | **session:** signed in 55, `z1--out` 2, which drops the nav, the map and the annunciator | `screen`. **The class is in no html file:** `design/_shell.js` injects it |
+| `z2` | 55 | 55 | **health:** live 51, `is-degraded` 4 | `screen`. Injected the same way |
+| `z45` | 57 | 57 | none. This is layout: both panes 32, with a scrim 11, list only 9, pane only 3 | `screen` |
+| `z4` | 54 | 54 | **none. Context, not variants:** `--log` 7, `--shift` 7, `--entry` 5, `--sys` 3, `--solo` 1 switch how the children paint, not how `z4` paints. One computed form across all nine zone sets | `z45` 54 |
+| `z5` | 48 | 48 | **surface:** `is-paper` 21, `is-standalone` 3. **What fills it is a pattern, not a variant:** the case pane 38 and the fleet 10 | `z45` 48 |
+| `z6` | 2 | 2 | none | `z45` 2 |
+| `rows` | 43 | 43 | **list:** queue 31, `--log` 7 | `z4` 38, `block` 5 |
+| `rows-moved` | 5 | 5 | none. **The container the row split also created**, and it is the reason organisms went from 16 to 19 rather than 18 | `block` inside `brief` |
+| `optlist` | 13 | 8 | none. The count of options is a count | `block` 13 |
+| `pane-body` | 38 | 38 | **none. A slot**, 13 zone sets, one form | `z5` 38 |
+| `pane-foot` | 35 | 35 | none. One to four buttons is a count | `z5` 35 |
+| `dialog` | 11 | 11 | **width:** base 10, `--map` 1, which reads `--width-dialog-wide` | `scrim` 11, always |
+| `scrim` | 11 | 11 | **viewport:** `--desk-only` 7, base 4 | `z45` 11 |
+| `rail` | 5 | 5 | none | `frame` 5 |
+| `rail-foot` | 5 | 5 | none. **Zero zones**, which is why it is not a variant of `rail` | `frame` 5 |
+| `brief` | 7 | 7 | none | `z4` 7 |
+| `door` | 5 | 5 | none | `screen` 5 |
+
+**The fleet is not here, and that is the decision rather than an omission.** `z5` holds two compositions with no zone in common past the head: the case pane, 38 uses, and the fleet, 10. Both are **patterns**, produced by stage 09, not components. Making the fleet a variant of the case pane would have written it as a pane with no body, which is to say as an empty case, and `CLAUDE.md` requires the resting state of that pane to read as the fleet rather than as empty. The requirement would have failed in the architecture rather than in the pixels.
+
+### 9d. What stopped counting as a variant
+
+Named so the count of 62 is legible, and so nobody reinstates them.
+
+| What | Uses | Why it is not a variant |
+|---|---|---|
+| `only-desk`, `only-desk-i`, `only-narrow` | many | viewport twins. Width is layout, and layout is not an axis |
+| `btn--primary-narrow` | 6 | the same twin with the emphasis folded into its name. Becomes `btn--primary` plus `only-narrow` |
+| `z4--log`, `--shift`, `--entry`, `--sys`, `--solo` | 23 | context. They change the children, not `z4` |
+| `qbanner` | 6 | a margin. Placement belongs to the parent |
+| `esc-first` | 5 | an `order`. Declared in the `<style>` block of three grey escalate screens, which is why the stage 07 reconcile never lifted it |
+| `z5--paper` | 3 | a second name for `is-paper`. One state, one name |
+| `chip--state` | 194 | promoted to a component of its own, `state` |
+
+---
+
+## 10. The rename map
+
+**Decided here at step 2 and executed by step 6.** Four steps separate the two, and without this table the reconcile would have to guess a second time what `.cart-foot .btn` collapsed into. The last column is the one that matters after this stage: `wireframes/` is frozen and stage 12 builds the rest of the product from it, so a row that does not travel to 12 renames half a product.
+
+| Old class or selector | New class and variant | Coloured screens `design/` | Grey screens `wireframes/`, for stage 12 |
+|---|---|---|---|
+| `.wf-shell` | `.shell` | 52 | 62 |
+| `.wf-screen` | `.screen` | 52 | 62 |
+| `.chip.chip--state` | `.state` | 155 | 194 |
+| `.chip--state.chip--solid` | `.state.state--solid` | 41 | 46 |
+| `.btn.btn--primary-narrow` | `.btn.btn--primary.only-narrow` | 6 | 6 |
+| `.z1 nav a` | `.navitem` | 132 | 132 at runtime, injected by the generator |
+| `.z1 nav a[aria-current="page"]` | `.navitem.is-current` | 44 | 44 at runtime |
+| `.gnote a`, `.expand a`, `.nar a`, `.empty a`, Z6 `a` | `.link` | 24 | 26 |
+| `.rows--moved` | `.rows-moved` | 5 | 5 |
+| `.rows--moved .row` | `.row-moved` | 5 | 30 |
+| `.rows--log` | `.rows--log`, unchanged, a variant of `rows` | 2 | 7 |
+| `.z5--paper` | `.is-paper` | 0 | 3 |
+| `div.expand` | `details.expand` | 23 | 27 |
+| `.doorhelp summary` | `details.expand` | 5 | 5 |
+| `.opt .key` | `.key`, one declaration, border on `currentColor` | 39 | 45 |
+| `.pane-body .frow` | `.frow.frow--flush` | 12 | 12 |
+| `.dialog > footer .hint` | `.hint`, one declaration | 6 | 11 |
+| `.claim .src`, `.claim .tag`, `.frow .rec`, `.frow .was`, `.lat .mark`, `.field > label`, `.field .hint` | the same class, declared on its own rather than through the parent | all | all |
+
+**Two rows change markup and not one pixel**, so the comparison at step 8 will not see them and they are recorded here instead: the move to `details.expand` and the naming of `navitem` and `link`. **One row changes appearance and is entered as consolidated drift** in `tokens-audit.md`: `.opt .key` moves from a rule-coloured border to the host's colour, 39 places.
+
+---
+
+## 11. What stage 08 took, and what it left
+
+Section 7 above said the difference between the two lists is the brief for the rollout. It is now measured rather than predicted.
+
+**Taken.** Every one of the 55 rows has a level, a variant matrix built from axes rather than from occurrences, and a place where it stands. Six components stopped claiming variants they never had. Three components were added that had been standing unnamed on 156 nodes between them.
+
+**Left, and each with an address.** `select`, `block--rcpt`, `z4--solo`, `z5--paper` and `dialog--map` have no coloured rendering; each takes its form from its nearest relative rather than from an invention, and the four that wait belong to screens that are still grey. The keyboard map keeps its eleven one-off classes and stays out of the system. Checkbox, radio and toggle are absent from the product and are not introduced: `optlist` is the radio pattern, and it is named as one rather than replaced.

@@ -66,7 +66,7 @@ Generator: **Google Nano Banana 2 via Magnific**, 4k, aspect 3:2 for the door, 1
 
 ## 5. Icons, and the decision is deliberately not made here
 
-**The product contains zero SVG across all 62 screens**, confirmed by grep and recorded in `design/kit/inventory.md` section 5. Two thirds of the content axis is therefore empty, and every icon added will be a decision with no wireframe behind it.
+**The product contains zero SVG across all 62 screens**, confirmed by grep and recorded in `design/kit/docs/inventory.md` section 5. Two thirds of the content axis is therefore empty, and every icon added will be a decision with no wireframe behind it.
 
 **Adopted at step 4, and applied in exactly three places.** Sixteen glyphs are in `design/kit/kit.html`. Each application had to earn its space: `.src`, because an evidence line named its source and nothing said the source **opens** somewhere else; `.expand`, because design principle 2 is depth one key away and depth had no mark at all; and the keyboard affordance in Z1, which rendered a literal question mark. Everything else was argued down and the reasons are in row 2 of `design/kit/proposed-variables.md`.
 
