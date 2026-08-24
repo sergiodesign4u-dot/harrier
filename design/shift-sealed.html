@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Shift brief, sealed, in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../wireframes/_wf.css">
+<link rel="stylesheet" href="_theme.css">
+<link rel="stylesheet" href="_screen.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+/* INLINE: shift :: for reconcile into _wf.css
+   The brief has no list to scroll and no scope bar, so Z4 is a column of sections rather
+   than a grid. Everything a queue or a log already owns is reused, not restated. */
+
+/* Z4 body. One scroller, so a section never gets its own scrollbar inside the page */
+.brief{flex:1 1 auto;overflow-y:auto;min-height:0;padding:var(--s5) var(--s4);
+       display:flex;flex-direction:column;gap:var(--s6)}
+.brief .rows{flex:0 0 auto;overflow:visible;border-top:var(--line)}
+/* `.block > h3` is the pane's heading, and in the pane it sits under the pane title. Here
+   there is no pane title above it, so the section heading is an h2 and takes the same face. */
+.block > h2{margin:0;font:600 var(--t-xs)/1 var(--mono);letter-spacing:.1em;
+            text-transform:uppercase;color:var(--soft)}
+
+/* Blocks 2 and 3, the counted lines. A LINE and not a card: the block table rules out the
+   metric card by name, and a number in a box is one. The count sits in a column so the eye
+   reads down the numbers, and the destination sits at the end of the line or says there is none. */
+.bline{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:var(--s3);
+       align-items:baseline;padding:var(--s3) var(--s2);border-bottom:var(--line);
+       text-decoration:none;color:inherit;font-size:var(--t-sm)}
+.bline:first-of-type{border-top:var(--line)}
+a.bline:hover{background:var(--fill)}
+.bline .n{font:700 var(--t-lg)/1 var(--mono);text-align:right}
+.bline .n.is-quiet{color:var(--soft)}
+.bline .go{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);white-space:nowrap}
+.bline .ex{display:block;color:var(--soft);margin-top:var(--s1)}
+
+/* Block 4, what moved. The canonical row with four slots instead of seven. No severity and
+   no `to check`: a pointer is not a thing to triage, it is a thing that already happened. */
+.rows--moved{--row-tracks:132px minmax(0,1fr) 116px 44px}
+.rows--moved .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);text-align:right}
+.rows--moved .states{display:flex;flex-wrap:wrap;gap:var(--s1);align-content:start}
+.rows--moved .states .chip{white-space:normal;text-align:center}
+
+/* Block 7, the rota. Harrier READS this from the provider's on call tool and never owns it,
+   so there is no control in it, only the name 4.6 needs. */
+.rota{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.rota > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+            border-bottom:var(--line);font-size:var(--t-sm)}
+.rota > div:last-child{border-bottom:none}
+.rota .who{font-weight:600;white-space:nowrap}
+.rota .role{color:var(--soft);font-size:var(--t-xs)}
+.rota .when{margin-left:auto;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
+            white-space:nowrap}
+.rota .is-now{background:var(--fill)}
+
+/* The fleet row, block 5, reused inside a padded pane body instead of directly in the aside */
+
+/* 2.1 section 8: NOT rendered at 360. Coming on shift happens at a desk with two monitors,
+   which is the premise in CLAUDE.md, and the phone has one scenario that is not this one.
+   One dependency crosses the boundary and it is DATA, not screen: 4.6 renders at 360 and
+   names a recipient from the rota this node displays. It reads the value; it does not need
+   the page. So the narrowed rendering says that rather than folding eight blocks into a column. */
+@media (max-width:900px){
+  .z4--shift .brief,.z4--shift .qfoot{display:none}
+  .z4--shift .only-narrow{margin:var(--s4)}
+}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4 z4--shift" aria-labelledby="sh">
+      <h1 id="sh" class="readout"><b>19:00 to 07:00 UTC</b> <span class="dim">sealed by R. Idrissi, 2m ago &middot; D. Okonkwo takes it at 07:00</span></h1>
+
+      <div class="banner only-narrow"><span><b>The shift brief is a desk surface.</b> Coming on shift happens at a desk with two monitors. The phone has one scenario here, a paged case read and escalated, and reading a twelve hour handover is not it.<br><br>One thing here does reach the phone: the escalate dialog names <b>S. Varga</b>, who takes escalations until 07:00. That comes from the rota, not from this screen.</span><span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>
+      <div class="brief">
+        <div class="banner"><span><b>Sealed. D. Okonkwo reads it as it stands.</b> Nothing here changes now, and taking the shift is how he acknowledges it. There is no second control to press.</span></div>
+        <section class="block">
+          <h2>What waits on a decision</h2>
+          <div class="bline"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope<span class="ex">One of the eighteen has been waiting since before this shift: <b>Halden Freight</b>, impossible travel across two offices, still open on the client&rsquo;s VPN rollout.</span></span><span class="go">frozen at the seal</span></div>
+          <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude<span class="ex"><b>There is nowhere to review these.</b> A shift where Clerk closed nothing alone and a shift where it closed a dozen are different shifts.</span></span><span class="go">nowhere to review</span></div>
+        </section>
+        <section class="block">
+          <h2>What moved this shift</h2>
+          <div class="rows rows--moved" role="grid" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Tenant</span>
+          <span role="columnheader">What changed</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">When</span>
+        </div>
+        <div class="row" role="row">
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN. <b>Escalated to S. Varga</b>, and no verdict was filed, so it is still open</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">escalated</i></span>
+          <span class="when" role="gridcell">31m</span>
+        </div>
+        <div class="row" role="row">
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Mass file rename on one host. Rejected, and <b>the write did not land</b>. The decision exists in this console and nowhere else</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="when" role="gridcell">1h</span>
+        </div>
+        <div class="row" role="row">
+          <span class="client" role="gridcell">Halcyon Care</span>
+          <span role="gridcell">Beaconing to a new domain. <b>Contained by Clerk</b>, inside this tenant&rsquo;s latitude, and still open on a person</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="when" role="gridcell">1h</span>
+        </div>
+        <div class="row" role="row">
+          <span class="client" role="gridcell">Bramber Retail</span>
+          <span role="gridcell">Mass mailbox rule creation. Accepted: benign, new admin onboarding</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i></span>
+          <span class="when" role="gridcell">3h</span>
+        </div>
+        <div class="row" role="row">
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Credential stuffing on the VPN. Rejected, then amended 34m later. <b>Both entries stand</b>, and the second says what it corrected</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i></span>
+          <span class="when" role="gridcell">6h</span>
+        </div>
+        <div class="row" role="row">
+          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span role="gridcell">Sign in from an unseen device. Accepted, and this tenant still has no baseline to compare against</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i></span>
+          <span class="when" role="gridcell">8h</span>
+        </div>
+          </div>
+          <p class="gnote"><b>Frozen at the seal.</b> The brief D. Okonkwo opens is his own, and its pointers are live.</p>
+        </section>
+        <section class="block">
+          <h2>Notes left on cases</h2>
+          <div class="expand"><a href="case.html">Larkfield Logistics, C-4417</a> <span class="dim">&middot; R. Idrissi</span><br>Could not reach the client&rsquo;s mail admin to confirm whether the forwarding rule is sanctioned. S. Varga has it now and wanted a call to the client before 08:00.</div>
+          <div class="expand"><a href="case-unrecorded.html">Meridian Health</a> <span class="dim">&middot; R. Idrissi</span><br>The write has failed twice. <b>Do not rule it again:</b> the decision is made and it is the log entry that is missing, not the verdict.</div>
+          <div class="expand"><a href="case.html">Halden Freight</a> <span class="dim">&middot; R. Idrissi</span><br>Nobody at the client answers before 08:00, so the VPN rollout schedule is still unconfirmed. Sanctioned is the likely answer and it is not the recorded one.</div>
+          <p class="gnote">A note lives on the <b>case</b>, not on this page. This is where they can be seen at once, and opening one opens the case it is attached to.</p>
+        </section>
+      </div>
+
+      <p class="qfoot">
+        <span>6 pointers, frozen at the seal</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read the pointers</span>
+        <span class="only-desk"><kbd>Enter</kbd> opens the case a line points at</span>
+        <span>order: what waits, then what moved, newest first</span>
+      </p>
+    </section>
+
+    <aside class="z5" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">The shift</h2>
+        <p class="sub">Sealed by R. Idrissi, 2m ago</p>
+      </div>
+      <div class="pane-body">
+        <section class="block">
+          <h2>Latitude that changed</h2>
+          <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
+          <a class="frow" href="queue.html"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+          <p class="gnote"><b>Meridian Health moved down</b>, from contain endpoint to investigate, after two rulings went against Clerk here. 1 of 40 tenants moved this shift and the other 39 held. A row opens the fleet at that tenant.</p>
+        </section>
+        <section class="block">
+          <h2>Who is on</h2>
+          <div class="rota">
+            <div class="is-now"><span class="who">R. Idrissi</span><span class="role">analyst, on the console</span><span class="when">19:00 to 07:00 UTC</span></div>
+            <div><span class="who">D. Okonkwo</span><span class="role">analyst, next on</span><span class="when">from 07:00</span></div>
+            <div><span class="who">S. Varga</span><span class="role">SOC lead, takes escalations</span><span class="when">until 07:00</span></div>
+          </div>
+          <p class="anote"><b>Read from the provider&rsquo;s on call tool, never owned here.</b> There is no control in this block because Harrier cannot change who is on. This is the value the escalate dialog names when it says who a case goes to.</p>
+        </section>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary" href="index.html">Sign out</a>
+        <a class="btn btn--quiet" href="queue.html">Open the queue</a>
+      </div>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="../wireframes/_nav.js"></script>
+<script>WF_SHELL({ current:'shift', strip:'live' });</script>
+<script>
+  /* the roadmap panel, not the stage panel: this page belongs to design/, which sits one
+     level down from the root. The wireframe registry above renders its own panel into
+     #sidebar first and the root registry overwrites it, which is the intended order. */
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'design/concept/concept.html';
+  window.NAV_ACTIVE_LABEL = 'Shift brief, sealed, in colour';
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

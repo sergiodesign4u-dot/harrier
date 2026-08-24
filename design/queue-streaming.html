@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Case queue, streaming in, in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../wireframes/_wf.css">
+<link rel="stylesheet" href="_theme.css">
+<link rel="stylesheet" href="_screen.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="qh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip" type="button">All tenants &#9662;</button>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+
+      <h1 id="qh" class="readout"><b>14 waiting so far</b> <span class="dim">provisional, Clerk is still correlating</span></h1>
+
+      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <div class="arriving" aria-label="Cases arriving"></div>
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Tenant</span>
+          <span role="columnheader">What it is</span>
+          <span role="columnheader">The verdict</span>
+          <span role="columnheader">To check</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">Age</span>
+        </div>
+        <a class="row" role="row" href="case-unrecorded.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Mass file rename on one host</span>
+          <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
+          <span role="gridcell" class="cost">4 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="age" role="gridcell">1h</span>
+        </a>
+        <a class="row" role="row" href="case-investigating.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><span class="dim">no verdict yet</span></span>
+          <span role="gridcell" class="cost dim">counting</span>
+          <span class="states" role="gridcell"><i class="chip chip--state chip--ghost">investigating</i></span>
+          <span class="age" role="gridcell">27m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">14 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">52m</span>
+        </a>
+        <a class="row" role="row" href="case-no-baseline.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span role="gridcell">Sign in from an unseen device</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">6m</span>
+        </a>
+        <p class="empty" style="padding:var(--s4)">Rows arrive as Clerk correlates them. <b class="run">The order settles when the count does</b>.</p>
+      </div>
+
+      <p class="qfoot">
+        <span>4 of 14 so far, more arriving</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span class="only-desk"><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, waiting on you, severity, age</span>
+      </p>
+    </section>
+
+    <aside class="z5" aria-labelledby="fh">
+      <div class="pane-head">
+        <h2 id="fh">Fleet</h2>
+        <p class="sub">40 tenants, nothing selected. Ordered by where attention is owed</p>
+      </div>
+      <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
+      <a class="frow" href="queue.html"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+      <a class="frow" href="queue.html"><span>Halcyon Care</span><span>Contain endpoint</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+      <a class="frow" href="queue.html"><span>Aubrey Dental Group</span><span>Investigate</span><span class="rec">&ndash;<span class="was">no rulings yet</span></span></a>
+      <a class="frow" href="queue.html"><span>Bramber Retail</span><span>Contain network</span><span class="rec">51 of 52<span class="was">was 49 of 51</span></span></a>
+      <a class="frow" href="queue.html"><span>Halden Freight</span><span>Contain endpoint</span><span class="rec">27 of 29<span class="was">was 26 of 29</span></span></a>
+      <a class="frow" href="queue.html"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
+      <a class="frow" href="queue.html"><span>Norsk Marine</span><span>Investigate</span><span class="rec">18 of 20<span class="was">was 18 of 20</span></span></a>
+      <p class="fleet-more">33 more, 30 day window &middot; a row narrows the queue to that tenant</p>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="../wireframes/_nav.js"></script>
+<script>WF_SHELL({ current:'queue', strip:'arriving' });</script>
+<script>
+  /* the roadmap panel, not the stage panel: this page belongs to design/, which sits one
+     level down from the root. The wireframe registry above renders its own panel into
+     #sidebar first and the root registry overwrites it, which is the intended order. */
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'design/concept/concept.html';
+  window.NAV_ACTIVE_LABEL = 'Case queue, streaming in, in colour';
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

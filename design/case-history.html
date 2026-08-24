@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; History of one case, in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../wireframes/_wf.css">
+<link rel="stylesheet" href="_theme.css">
+<link rel="stylesheet" href="_screen.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+/* INLINE: case-history :: for reconcile into _wf.css
+   This screen adds no rules of its own. 5.6 is 5.1 with one chip applied, so it is drawn
+   with 5.1's classes; if it had needed a rule, that would have been the first evidence that
+   it is not actually a narrowing of 5.1. */
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4 z4--log" aria-labelledby="lh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <a class="chip chip--solid" href="log.html">Case C-4417 &times;</a>
+        <a class="chip chip--ghost" href="log-narrowing.html">Any actor &#9662;</a>
+        <a class="chip chip--ghost" href="log-narrowing.html">Any decision &#9662;</a>
+        <a class="chip chip--ghost" href="log-narrowing.html">Any date &#9662;</a>
+      </div>
+
+      <h1 id="lh" class="readout"><b>3 entries</b> <span class="dim">C-4417 at Larkfield Logistics, every Clerk action and every human decision, in order</span></h1>
+
+      <div class="banner only-narrow"><b>The decision log is a desk surface.</b> The phone has one scenario in this product, a paged case read and escalated, and answering an auditor is not it.<br><br>One thing here does open on a phone: <b>a single entry at its own address</b>, because a permalink can arrive anywhere.<span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>
+      <div class="rows rows--log" role="grid" aria-labelledby="lh" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Tenant</span>
+          <span role="columnheader">What it was</span>
+          <span role="columnheader">What was decided</span>
+          <span role="columnheader">Reason</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">When, UTC</span>
+        </div>
+        <a class="row" role="row" href="entry.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Escalated to S. Varga by R. Idrissi</b></span>
+          <span class="why" role="gridcell"><span class="dim">&ndash;</span></span>
+          <span class="states" role="gridcell"><i class="chip chip--state">escalated</i></span>
+          <span class="when" role="gridcell">2026-08-22T04:41:12Z</span>
+        </a>
+        <a class="row" role="row" href="entry.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Verdict filed by Clerk: real, contain identity</b><span class="sup">Above this tenant&rsquo;s latitude, so it waited for a person rather than running</span></span>
+          <span class="why" role="gridcell"><span class="dim">&ndash;</span></span>
+          <span class="states" role="gridcell"><i class="chip chip--state">filed</i></span>
+          <span class="when" role="gridcell">2026-08-22T04:14:05Z</span>
+        </a>
+        <a class="row" role="row" href="entry.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Case opened by Clerk</b><span class="sup">9 signals correlated from 6 sources. No verdict yet, and no action taken</span></span>
+          <span class="why" role="gridcell"><span class="dim">&ndash;</span></span>
+          <span class="states" role="gridcell"><i class="chip chip--state">opened</i></span>
+          <span class="when" role="gridcell">2026-08-22T04:12:09Z</span>
+        </a>
+      </div>
+
+      <p class="qfoot">
+        <span>3 of 3, the whole life of this case so far</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span class="only-desk"><kbd>Enter</kbd> opens the entry at its own address</span>
+        <span>order: newest first, always. Nothing here is sorted by urgency</span>
+      </p>
+    </section>
+
+    <aside class="z5" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">What this view covers</h2>
+        <p class="sub">Nothing is selected, and this is not an empty pane. It is the answer to the question you are about to be asked</p>
+      </div>
+      <div class="pane-body">
+        <div class="covers">
+          <span class="k">Narrowed to</span><span class="v">Case <b>C-4417</b> at Larkfield Logistics. <b>One chip</b>, and no other filter: a case is a thing with a beginning</span>
+          <span class="k">Entries</span><span class="v"><b>3</b></span>
+          <span class="k">Spanning</span><span class="v"><b>2026-08-22T04:12:09Z</b> to <b>2026-08-22T04:41:12Z</b></span>
+          <span class="k">How far back this can answer</span>
+          <span class="v">The earliest entry held for these tenants is <b>2026-02-03T08:14:20Z</b>. <b>Nothing is ever deleted from the log.</b> How long the evidence snapshot behind an entry stays retrievable is set by your provider, and an entry past that window still tells you what was decided and by whom.</span>
+        </div>
+        <section class="block">
+          <h3>Whose entries are here</h3>
+          <p class="nar">Both of them, in one stream. Clerk&rsquo;s own actions and every human ruling on this case. <b>There is no separate automation log</b>, because two streams could disagree about this case.</p>
+        </section>
+        <section class="block">
+          <h3>What cannot be done here</h3>
+          <p class="nar">Nothing here edits anything, and there is no control that could. A mistake becomes a <b>second entry</b> beside the first. This case has not needed one.</p>
+        </section>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary" href="entry.html">Open the newest entry <span class="key">Enter</span></a>
+        <a class="btn btn--quiet" href="case.html">Open the live case</a>
+        <a class="btn btn--quiet" href="log.html">Open the whole log</a>
+      </div>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="../wireframes/_nav.js"></script>
+<script>WF_SHELL({ current:'log', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] } });</script>
+<script>
+  /* the roadmap panel, not the stage panel: this page belongs to design/, which sits one
+     level down from the root. The wireframe registry above renders its own panel into
+     #sidebar first and the root registry overwrites it, which is the intended order. */
+  window.NAV_BASE = '../';
+  window.NAV_ACTIVE = 'design/concept/concept.html';
+  window.NAV_ACTIVE_LABEL = 'History of one case, in colour';
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
