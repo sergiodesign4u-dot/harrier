@@ -125,7 +125,7 @@
     n12["1.2 Session expired<br/>dialog"] --&gt; n11
     classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
     classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
-    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#6a6f76;
     class n11 pg; class n12 st; class n21,n31 ex;</pre></div>
   <p class="why"><strong>1.1 is the only public URL this product has.</strong> Everything below it is behind authentication, noindex, no schema. That is why this layer settles addressing and permission rather than search.</p>
 </div>
@@ -140,7 +140,7 @@
     n21 --&gt; n41["4.1 Case File, by a pointer"]
     classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
     classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
-    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#6a6f76;
     class n21 pg; class n22,n23,n24,n25 st; class n41 ex;</pre></div>
   <p class="why"><strong>One screen in two roles, not two screens.</strong> The incoming analyst reads it, the outgoing one closes it, and closing is a state. 2.5 warns both analysts rather than one, because a brief that fails to close silently is the failure mode the interviews described.</p>
 </div>
@@ -157,7 +157,7 @@
     n31 --&gt; n41["4.1 Case File in the pane"]
     classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
     classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
-    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#6a6f76;
     class n31 pg; class n32,n33,n34,n35,n36 st; class n41 ex;</pre></div>
   <p class="why"><strong>3.5 has two parents and no route.</strong> It is what the pane shows when nothing is selected, so it is reached from the landing state and from a deselection, never from a menu. The price was named at the base layer: if 3.4 reads as "this is empty" rather than "this is the fleet", the decision to keep the fleet out of the menu has failed.</p>
 </div>
@@ -192,7 +192,7 @@
     n54 --&gt; n42["4.2 the live case"]
     classDef pg fill:#ffffff,stroke:#16181a,stroke-width:2px,color:#16181a;
     classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
-    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#6a6f76;
     class n51,n54 pg; class n52,n53,n55,n56 st; class n42 ex;</pre></div>
   <p class="why"><strong>The addressing decision of this layer sits on 5.4.</strong> An evidence snapshot is reachable by URL as it stood, which turns "show what was known at the time" into an address rather than a feature. It also means the unchosen retention window bounds this cluster arithmetically, which is the gap the base layer found in the research.</p>
 </div>
@@ -203,7 +203,7 @@
     n61["6.1 Client summary draft<br/>page"] --&gt; n62["6.2 Editing and sending<br/>state"]
     n62 --&gt; n51["5.1 Decision log"]
     classDef lt fill:#f4f4f4,stroke:#9aa0a6,stroke-dasharray:4 3,color:#6a6f76;
-    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#6a6f76;
     class n61,n62 lt; class n51 ex;</pre></div>
   <p class="why"><strong>Deferred with a debt attached.</strong> Cluster 6 and cluster 7 have no flows, because drawing a route for a deferred screen implies it is being built. When they come off the backlog they arrive with no empty, error or loading states defined, and whichever stage picks them up owes that work first.</p>
 </div>
@@ -215,7 +215,7 @@
     n72 --&gt; n73["7.3 Grant change<br/>dialog"]
     n73 --&gt; n51["5.1 Decision log"]
     classDef lt fill:#f4f4f4,stroke:#9aa0a6,stroke-dasharray:4 3,color:#6a6f76;
-    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#6a6f76;
     class n71,n72,n73 lt; class n51 ex;</pre></div>
   <p class="why"><strong>The fleet ships as a view before it ships as a control.</strong> 0.3 and 3.5 are in the MVP, 7.2 is not. That is what is left of the differentiator after the competitor pass: per-tenant autonomy as configuration already exists on the market, and ours has to be a view where the analyst works.</p>
 </div>
@@ -228,7 +228,7 @@
     n83["8.3 Permission denied<br/>state &middot; LATER"] --&gt; n31
     n84["8.4 Toast stack<br/>section"]
     classDef st fill:#ffffff,stroke:#c9ccce,color:#16181a;
-    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#9aa0a6;
+    classDef ex fill:#fafafa,stroke:#e3e4e6,color:#6a6f76;
     class n81,n82,n83,n84 st; class n31 ex;</pre></div>
   <p class="why"><strong>8.3 was corrected at the stage 08 audit and is now LATER.</strong> This cluster used to route a tenant that is not this analyst's to 8.3. That is exactly what 8.1 forbids: if out of scope renders differently from not found, the address bar distinguishes "this client is somebody's" from "no such client". <strong>Out of scope now renders 8.1.</strong> What is left for 8.3 is a refusal by role, and the first one arrives with cluster 7. No node in this cluster is a dead end.</p>
 </div>

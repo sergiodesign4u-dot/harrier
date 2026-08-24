@@ -1,6 +1,6 @@
 # DESIGN.md: the product's visual language, read out of the code
 
-Formed at stage 07 step 1 from the **real code of the coloured screens** plus the draft in `DESIGN-artifacts.md`. It is not a plan and not a proposal: every value below is running on 32 pages right now, and where the code and the draft disagreed the code won and the disagreement is written down.
+Formed at stage 07 step 1 from the **real code of the coloured screens** plus the draft in `DESIGN-artifacts.md`. It is not a plan and not a proposal: every value below is running on 51 pages right now, and where the code and the draft disagreed the code won and the disagreement is written down.
 
 **The chain.** `DESIGN-artifacts.md` (draft, 06) to **this file** (product, 07) to the two-level token split (08). **Every token carries its origin**, and the origin travels: at stage 08 it goes into the comment on the semantic role. A token without one is not entered.
 
@@ -23,7 +23,7 @@ Three files became one. `design/_theme.css` arrived by `git mv`, its `:root` byt
 
 **All 51 coloured pages now link `kit/kit.css` for every product value.** The CSS dependency on a folder stage 05 froze is gone, and it was proved rather than declared: the seed screens were rendered on the old chain and on the kit alone and the screenshots are **byte for byte identical at 1440 and at 360**.
 
-**Two corrections to what this paragraph used to say, both found by the stage 07 audit.** It said 32 pages, which was true when it was written and stopped being true at step 5; it now says 51 and the number is in one place. And it said *and nothing else*, which was never true: every page also links `../_nav.css`, the panel's stylesheet, which is documentation chrome rather than product and is the reason the kit does not own `--nav-w`. **A claim that is true on the day it is written is not a fact, it is a snapshot**, and this one was wrong for two different reasons at once.
+**Two corrections to what this paragraph used to say, both found by the stage 07 audit.** It said 32 pages, which was true when it was written and stopped being true at step 5. **It said 32 in two places and was corrected in one**, so the opening line of this file went on claiming 32 for the whole of stage 07 while the paragraph correcting it said 51 twenty lines below. Both now say 51. The correction landed where the claim was argued and not where it was first made, which is where a reader meets it. And it said *and nothing else*, which was never true: every page also links `../_nav.css`, the panel's stylesheet, which is documentation chrome rather than product and is the reason the kit does not own `--nav-w`. **A claim that is true on the day it is written is not a fact, it is a snapshot**, and this one was wrong for two different reasons at once.
 
 **Until step 6 there was a second stylesheet and it was on 29 pages.** Every screen carried a small `<style>` block inherited from stage 04. Seven distinct blocks, repeated three to seven times each, were hoisted into the kit and deleted from the pages, and the result was pixel compared: 17 of 18 renderings byte identical, and the eighteenth is a rule that had been dead since stage 04 and now works.
 

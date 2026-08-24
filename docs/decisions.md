@@ -613,3 +613,49 @@ What was actually run in its place was the pack's fallback, its laws applied by 
 `--track-display`, `--track-mono` and `--track-wordmark` were measured on the brandbook plate. The product's type came whole from stage 04 and its mono tracking is a spread of `.04em`, `.08em`, `.09em`, `.1em` and `.14em`, **all of them open**, so the halation constraint in `CLAUDE.md` is met by stage 04's values rather than by the token. **Forcing `.06em` onto them would have changed stage 04 typography to make a token look used**, which is the wrong way round. `--radius-object` is for printed and physical objects, which the interface does not render. `--color-failure` has no failure-coloured element to sit on: the degraded strip underlines and the alert toast thickens its border, and neither reaches for a colour, which is a product finding rather than a token one.
 
 `--rule-control` was the sixth. It was created at stage 06 for WCAG 1.4.11 control boundaries and the same result was being reached by overriding a colour, so it was given the job it was made for.
+
+---
+
+## The closing sweep, after stage 07
+
+Run on the user's instruction to close every open defect before anything else starts. Not a stage. What follows is what was decided rather than what was found; the numbers are in `docs/audit-07.md`.
+
+### The stale critique was read as a to-do list and was not one
+
+The Codex pass held from stage 07 named 29 pages carrying six repeated families of inline CSS and a `DESIGN.md` that claimed 32 pages. **Both had already been fixed at steps 5 and 6 of that stage.** Measured before acting: exactly **one** page under `design/` still carries a non-empty inline `<style>`, and it is `overview.html`, the hub, which is a document rather than a screen.
+
+**A report is a photograph of a moment, and acting on it without re-measuring repairs a thing that is already whole.** The cost of checking was one command.
+
+### The stand documenting the visual language was the page least covered by it
+
+`design/concept/concept.html` and `directions.html` are **dark** pages that link `research/_page.css`, a **light** documentation theme, for their column, heading scale and paragraph rhythm. That sheet declares eleven variables and owns a dozen bare element selectors. `kit.css` declares none of the eleven.
+
+So the page that presents the palette had a lede at **1.42:1**, file paths at **1.14:1**, its section headings in a teal that appears in no Harrier palette, and its own mono labels rendered in the system mono rather than in IBM Plex Mono. All of it live since stage 06, through a stage 06 critique in two instruments and a stage 07 audit.
+
+**Why none of the three caught it.** Codex reads file text and the pages contain no wrong value, only names that resolve elsewhere. The clean-context reader was given the next stage's task, which is the system and not the stand. The detector was pointed at the 51 product pages, which is what stage 07 produced. **Each instrument was correctly aimed and the page fell between all three.**
+
+The fix is not a patch per symptom: the four variable names were replaced with kit names on both pages, and `_stand.css` grew one block that reassigns what the light sheet still paints. **The block is commented with what each value measured**, so the next reader does not have to rediscover why it exists.
+
+### The freeze on `wireframes/` was opened for exactly one line, and the user decided it
+
+`--soft:#9aa0a6` in `wireframes/_wf.css` was the single cause of every remaining contrast failure in the project: 2.64:1 on the paper, 2.38:1 on the fill, 46 of its 48 uses text, 62 pages.
+
+The rule in `CLAUDE.md` freezes the folder after stage 05. **The question was put to the user rather than resolved by argument**, because a standing rule is not something a sweep gets to reinterpret on its own. The decision was to change the value: grey to grey, no structure, no string, no state, one line, one command to revert.
+
+**The tie stayed cut.** Nothing under `design/` reads `--soft` or links `_wf.css`; the only mentions are prose in comments naming the file. The edit reached 62 wireframe pages and zero coloured ones, which is the detachment of step 6 proving itself on a change nobody made to test it.
+
+### A count of renderings is not a count of causes
+
+1018 contrast failures across 128 pages came from **four values**. Reporting the large number would have been accurate and would have hidden the fact that the whole thing was a morning's work.
+
+### Correcting a claim in one of the two places it stands leaves it wrong
+
+`DESIGN.md` said 32 pages in its opening line and 51 twenty lines below, in the same file, for the whole of stage 07. The correction at step 6 had landed on the paragraph that **argued** the claim and not on the sentence that **made** it, and the correcting paragraph then asserted the number was "in one place".
+
+Found by Codex, on the diff of the fix rather than on the original. **The same shape as `concept.md`**, which went on saying the accent carries three things for two stages after the count became four everywhere else. Both are now right, and in `concept.md` the old sentence is kept standing with the distinction written next to it: three is true of **the sheet** and four is true of **a screen**, and that is the finding rather than a typo.
+
+### Verification before repair caught three of six
+
+Codex returned six items on the fix diff. **Three were confirmed and fixed** and are above. **Three were withdrawn on measurement**: links were said to keep the light accent and render bone at `rgb(233,228,218)`; `body` and `h1` were said to be uncovered and take their ground, colour and family from `kit.css`; and `kit.css` was said not to carry the four accent jobs, which it does, at line 777 rather than the line quoted.
+
+**An instrument that reads text cannot see what the cascade resolves to**, which is the same division of labour that made it worth running.

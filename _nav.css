@@ -51,4 +51,6 @@ a.nav-link:hover{ background:color-mix(in srgb, var(--nav-active) 8%, transparen
   #sidebar{ width:auto; flex:none; }
   .nav-item:not(.is-active) > .nav-top{ padding:6px 10px; }
 }
-.nav-badge-off{color:#9aa0a6;border-color:#e3e4e6}
+/* 2.55:1 on the panel ground, measured in a browser. --nav-muted is the value this panel
+   already uses for a stage nobody has built yet, and it clears 4.5 at 4.77. */
+.nav-badge-off{color:var(--nav-muted);border-color:var(--nav-rule)}

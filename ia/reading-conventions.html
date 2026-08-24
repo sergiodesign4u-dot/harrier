@@ -17,7 +17,7 @@
        padding:12px 18px;border-bottom:1px solid var(--rule);background:#f7f8f8;display:flex;gap:14px;flex-wrap:wrap}
 .wfcap b{color:var(--fg)}
 .wfpad{padding:20px}
-.wf{--ink:#16181a;--soft:#9aa0a6;--hair:#d4d6d8;--fill:#f2f3f3;font-family:var(--mono);font-size:10.5px;color:var(--ink)}
+.wf{--ink:#16181a;--soft:#6a6f76;--hair:#d4d6d8;--fill:#f2f3f3;font-family:var(--mono);font-size:10.5px;color:var(--ink)}
 
 /* node local classes take the rc prefix: .note .q .node .lede .tw belong to research/_page.css */
 .rcgrid{width:100%;min-width:560px;border:1.5px solid var(--ink);background:#fff}
@@ -43,12 +43,12 @@
             font-size:8.5px;letter-spacing:.1em;color:var(--soft)}
 .rcrow .line{display:flex;padding:9px 12px;border-bottom:1px solid var(--hair);align-items:center}
 .rcrow .line:last-child{border-bottom:none}
-.rcrow .s1{flex:0 0 84px;display:flex;align-items:center;gap:6px}
-.rcrow .s2{flex:0 0 132px;font-weight:700}
-.rcrow .s3{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
-.rcrow .s4{flex:0 0 92px}
-.rcrow .s5{flex:0 0 156px;display:flex;gap:4px;flex-wrap:wrap}
-.rcrow .s6{flex:0 0 42px;text-align:right}
+.rcrow .rc1{flex:0 0 84px;display:flex;align-items:center;gap:6px}
+.rcrow .rc2{flex:0 0 132px;font-weight:700}
+.rcrow .rc3{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.rcrow .rc4{flex:0 0 92px}
+.rcrow .rc5{flex:0 0 156px;display:flex;gap:4px;flex-wrap:wrap}
+.rcrow .rc6{flex:0 0 42px;text-align:right}
 .chip{border:1px solid var(--ink);padding:1px 5px;font-size:9px;letter-spacing:.04em;white-space:nowrap}
 .chip.solid{background:var(--ink);color:#fff}
 .chip.ghost{border-style:dashed;color:var(--soft)}
@@ -167,11 +167,11 @@
 <div class="wfwrap"><div class="wfcap"><b>3.1 row</b><span>1440</span><span>the slots that read from this node</span></div>
 <div class="wfpad"><div class="wf">
 <div class="rcrow">
-  <div class="hdr"><div class="s1">SEV</div><div class="s2">CLIENT</div><div class="s3">WHAT IT IS &middot; WHAT CLERK CONCLUDED</div><div class="s4">TO CHECK</div><div class="s5">STATE</div><div class="s6">AGE</div></div>
-  <div class="line"><div class="s1"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</div><div class="s2">Larkfield Logistics</div><div class="s3">Token replay from a new ASN &middot; <b>Real, contain identity</b></div><div class="s4">9 signals</div><div class="s5"><span class="chip solid">acted</span></div><div class="s6">27m</div></div>
-  <div class="line"><div class="s1"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</div><div class="s2">Bramber Retail</div><div class="s3">Mass file rename on one host &middot; <b>Benign, backup agent</b></div><div class="s4">4 signals</div><div class="s5"><span class="chip">decided</span><span class="chip solid">unrecorded</span></div><div class="s6">1h</div></div>
-  <div class="line"><div class="s1"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</div><div class="s2">Meridian Health</div><div class="s3">Impossible travel, two offices &middot; <b>Needs a human</b></div><div class="s4">11 signals</div><div class="s5"><span class="chip">escalated</span><span class="chip solid">acted</span></div><div class="s6">3h</div></div>
-  <div class="line"><div class="s1"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</div><div class="s2">Aubrey Dental Group</div><div class="s3">Sign in from an unseen device &middot; <span style="color:#9aa0a6">no verdict yet</span></div><div class="s4"><span style="color:#9aa0a6">counting</span></div><div class="s5"><span class="chip ghost">investigating</span></div><div class="s6">6m</div></div>
+  <div class="hdr"><div class="rc1">SEV</div><div class="rc2">CLIENT</div><div class="rc3">WHAT IT IS &middot; WHAT CLERK CONCLUDED</div><div class="rc4">TO CHECK</div><div class="rc5">STATE</div><div class="rc6">AGE</div></div>
+  <div class="line"><div class="rc1"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</div><div class="rc2">Larkfield Logistics</div><div class="rc3">Token replay from a new ASN &middot; <b>Real, contain identity</b></div><div class="rc4">9 signals</div><div class="rc5"><span class="chip solid">acted</span></div><div class="rc6">27m</div></div>
+  <div class="line"><div class="rc1"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</div><div class="rc2">Bramber Retail</div><div class="rc3">Mass file rename on one host &middot; <b>Benign, backup agent</b></div><div class="rc4">4 signals</div><div class="rc5"><span class="chip">decided</span><span class="chip solid">unrecorded</span></div><div class="rc6">1h</div></div>
+  <div class="line"><div class="rc1"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</div><div class="rc2">Meridian Health</div><div class="rc3">Impossible travel, two offices &middot; <b>Needs a human</b></div><div class="rc4">11 signals</div><div class="rc5"><span class="chip">escalated</span><span class="chip solid">acted</span></div><div class="rc6">3h</div></div>
+  <div class="line"><div class="rc1"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</div><div class="rc2">Aubrey Dental Group</div><div class="rc3">Sign in from an unseen device &middot; <span style="color:#6a6f76">no verdict yet</span></div><div class="rc4"><span style="color:#6a6f76">counting</span></div><div class="rc5"><span class="chip ghost">investigating</span></div><div class="rc6">6m</div></div>
 </div>
 </div></div></div>
 <div class="tw"><table>

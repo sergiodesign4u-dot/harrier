@@ -15,7 +15,7 @@
 
 /* the frame: each direction is drawn at a real 1440 and scaled to the column, so the
    proportions on this page are the proportions on the desk, not an impression of them */
-.dr-hold{width:100%;height:616px;overflow:hidden;border:1px solid var(--rule);
+.dr-hold{width:100%;height:616px;overflow:hidden;border:1px solid var(--color-rule);
          background:var(--color-ground);margin:0 0 14px}
 .dr-scale{width:1440px;height:900px;transform:scale(.6847);transform-origin:0 0}
 /* below the documentation shell's own breakpoint the column is narrower than 986, so the
@@ -114,3 +114,51 @@
 .a-row .g{text-align:right}
 .a-row .st{display:flex;gap:4px;justify-content:flex-end}
 .a-row .st .dr-chip{padding:3px 5px;font-size:8px}
+
+/* ---- the dark-document layer, and why this block exists ----
+
+   Both pages that load this sheet are DARK documents that link research/_page.css for their
+   document chrome: the .shell/#sidebar/main column, the heading scale, list and paragraph
+   rhythm. That sheet is a LIGHT theme. It owns bare element selectors and eleven variable
+   names, of which these two pages used four, and kit.css declares none of the eleven, so
+   every use of them here resolved to the documentation palette rather than the product one.
+
+   Measured in a browser rather than reasoned about, at 1440 and at 360:
+     .lede            1.42:1   the opening paragraph of both pages, near invisible
+     code             1.14:1   a near white pill with near white text, every file path
+     .eyebrow, h2     2.40:1   #0d5a66, a teal that is in no Harrier palette at all
+     --faint,--muted  3.73:1   below 4.5 on every label that used them
+     --rule           #e3e4e6  six near white frames around the specimens
+     --mono           the system mono, so the stand documenting IBM Plex Mono did not use it
+     table            min-width:560px, which overflowed the document at 360
+
+   The uses of those four names are gone from both pages; what remains here is what the light
+   sheet still paints and these pages do not write themselves. Most of it is bare ELEMENT
+   selectors, against which a page-local prefix is no protection, so the property is set
+   rather than left to cascade; .eyebrow, .lede, .mono and .who are generic CLASS names the
+   light sheet also claims, which is the same collision reaching one step further. This is
+   the same class the block at the top of this file already names, found there inside the
+   product mock and fixed only there: the document around the mock was never looked at. */
+
+.eyebrow{color:var(--color-accent)}
+.lede{color:var(--color-text-dim)}
+main h2{color:var(--color-accent);border-top-color:var(--color-rule)}
+/* square, because A1 is precise rather than soft and a 3px pill contradicts it on the very
+   page that states the attribute */
+code,.mono{background:var(--color-surface);color:var(--color-text);border-radius:var(--radius-ui)}
+table{min-width:0}
+th,td{border-bottom:1px solid var(--color-hairline)}
+/* white-space:nowrap on a header cell is right in a light research document at full width
+   and is the whole of the 360 overflow here: it set the intrinsic width of the table to 376
+   on a 360 board, and neither min-width:0 nor a narrower cell could get under it. */
+th{background:var(--color-surface);color:var(--color-text-dim);border-bottom:1px solid var(--color-rule);
+   white-space:normal}
+/* a four column comparison cannot be made to fit 360 and should not be made to try: below
+   the narrow breakpoint the table scrolls inside itself rather than pushing the document,
+   which is what .tw does for the research sheets and what these two pages never wrapped
+   their tables in. The columns stay aligned because the row groups keep their own box. */
+@media (max-width:600px){
+  th,td{padding:9px 10px}
+  table{display:block;overflow-x:auto}
+}
+.who{font-family:var(--font-mono)}

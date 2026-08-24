@@ -1,0 +1,1580 @@
+[
+ {
+  "p": "design/case-acted.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "SPAN.ovrd rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ],
+  "fails": [
+   "404 http://127.0.0.1:8899/favicon.ico"
+  ]
+ },
+ {
+  "p": "design/case-acted.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "SPAN.ovrd rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-amend.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-amend.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-expired.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-expired.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-history-superseded.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "A.chip chip--solid rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-history-superseded.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "A.chip chip--solid rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-history.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "A.chip chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-history.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "A.chip chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-investigating.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-investigating.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-no-baseline.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-no-baseline.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-standalone-filed.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "SPAN.ovrd rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-standalone-filed.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "SPAN.ovrd rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-standalone-stale.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-standalone-stale.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-standalone.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-standalone.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-unrecorded.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "SPAN.ovrd rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-unrecorded.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "SPAN.ovrd rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-write-failed.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case-write-failed.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/case.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry-beyond-retention.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry-beyond-retention.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry-changed.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry-changed.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry-gone.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry-gone.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry-partial.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry-partial.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/entry.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "P.rail rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index-deep-link.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index-deep-link.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index-expired.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index-expired.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index-idp-error.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index-idp-error.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index-signed-out.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index-signed-out.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/index.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/overview.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/overview.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-clerk-down.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-clerk-down.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-decided.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "SPAN.ovrd rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-decided.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "SPAN.ovrd rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-empty.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-empty.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-escalated.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-escalated.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-no-match.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "BUTTON.chip chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-no-match.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "BUTTON.chip chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-notice.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-notice.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-notices.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-notices.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-reconnecting.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-reconnecting.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-stale.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-stale.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-streaming.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-streaming.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-taken.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue-taken.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/queue.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-axis-b.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-axis-b.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-chosen.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-chosen.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-other.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-other.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-tenant-normal.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-tenant-normal.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-write-failed.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject-write-failed.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "SPAN.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [
+   "SPAN.why right=1452"
+  ],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/reject.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-assembling.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-assembling.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-close-failed.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-close-failed.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-nothing-carried.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-nothing-carried.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-outgoing.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-outgoing.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-sealed.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-sealed.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-unsealed.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift-unsealed.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/shift.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I.chip chip--state chip--solid rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/unavailable-partial.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/unavailable-partial.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/unavailable-planned.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/unavailable-planned.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/unavailable.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/unavailable.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/kit/kit.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "I.on rgb(233, 228, 218)",
+   "KBD.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/kit/kit.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [
+   "I rgb(233, 228, 218)",
+   "I.chip chip--state chip--solid rgb(233, 228, 218)",
+   "I.on rgb(233, 228, 218)",
+   "KBD.key rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/kit/shell.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/kit/shell.html",
+  "vw": 360,
+  "sw": 360,
+  "cw": 360,
+  "over": [],
+  "light": [],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/concept/concept.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I rgb(233, 228, 218)",
+   "I.dr-chip sol rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/concept/concept.html",
+  "vw": 360,
+  "sw": 394,
+  "cw": 360,
+  "over": [
+   "IFRAME. right=1005",
+   "TABLE. right=394",
+   "THEAD. right=394",
+   "TR. right=394",
+   "TH. right=394",
+   "TBODY. right=394"
+  ],
+  "light": [
+   "I rgb(233, 228, 218)",
+   "I.dr-chip sol rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/concept/directions.html",
+  "vw": 1440,
+  "sw": 1440,
+  "cw": 1440,
+  "over": [],
+  "light": [
+   "I.dr-chip sol rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ },
+ {
+  "p": "design/concept/directions.html",
+  "vw": 360,
+  "sw": 497,
+  "cw": 360,
+  "over": [
+   "DIV.dr-scale right=1005",
+   "DIV.dr-s right=1005",
+   "DIV.dr-z1 right=1005",
+   "SPAN.sp right=991",
+   "DIV.dr-z2 right=1005",
+   "DIV.a-body right=1005"
+  ],
+  "light": [
+   "I.dr-chip sol rgb(233, 228, 218)"
+  ],
+  "bodyBg": "rgb(17, 17, 15)",
+  "font": "Archivo, system-ui, sans-serif",
+  "errs": [],
+  "fails": []
+ }
+]

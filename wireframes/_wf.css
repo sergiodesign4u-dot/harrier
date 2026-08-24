@@ -18,7 +18,11 @@
 :root{
   /* ---- palette, inherited from the stage 03b mockups ---- */
   --ink:#16181a;        /* text, borders that carry structure */
-  --soft:#9aa0a6;       /* secondary text, disabled, placeholders */
+  --soft:#6a6f76;       /* secondary text, disabled, placeholders. Was #9aa0a6, which measured
+                           2.64:1 on the paper and 2.38:1 on the fill, and 46 of this value's
+                           48 uses are TEXT. The one line of this folder stage 07 edited after
+                           the freeze, on the user's decision: grey to grey, no structure, no
+                           string and no state touched. Grounds in docs/decisions.md. */
   --hair:#d4d6d8;       /* hairlines inside a component */
   --fill:#f2f3f3;       /* filled band: table head, resting pane, selected row */
   --paper:#ffffff;      /* surface a component sits on */

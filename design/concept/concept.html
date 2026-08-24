@@ -16,16 +16,16 @@
 
 /* palette, drawn as the swatch plus its origin, because a value without an origin is not a value here */
 .cn-sw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 14px}
-.cn-sw figure{margin:0;border:1px solid var(--rule)}
-.cn-sw i{display:block;height:78px;border-bottom:1px solid var(--rule)}
+.cn-sw figure{margin:0;border:1px solid var(--color-rule)}
+.cn-sw i{display:block;height:78px;border-bottom:1px solid var(--color-rule)}
 .cn-sw figcaption{padding:11px 14px;font-size:13px;line-height:1.5}
-.cn-sw b{display:block;font:600 10px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}
+.cn-sw b{display:block;font:600 10px/1 var(--font-mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}
 .cn-sw code{font-size:12.5px}
-.cn-sw .o{display:block;margin-top:7px;font-size:12px;color:var(--muted)}
+.cn-sw .o{display:block;margin-top:7px;font-size:12px;color:var(--color-text-dim)}
 @media (max-width:760px){.cn-sw{grid-template-columns:1fr 1fr}}
 
 /* a dark bench: components are shown on the ground they live on, never on paper */
-.cn-bench{background:var(--color-ground);border:1px solid var(--rule);padding:26px 28px;margin:0 0 14px;
+.cn-bench{background:var(--color-ground);border:1px solid var(--color-rule);padding:26px 28px;margin:0 0 14px;
           color:var(--color-text);font:400 14px/1.4 var(--font-sans)}
 .cn-bench p{max-width:none;margin:0}
 .cn-bench h3{color:var(--color-text);font-family:var(--font-sans);margin:0}
@@ -69,18 +69,21 @@
    with the register this project already uses everywhere else: a small monospace label
    above a hairline rule, which is the NEO MIRAI treatment section 2c of concept.md
    recorded as the form the user chose. */
-.cn-flag{border-top:1px solid #9c3535;padding:16px 0 0;margin:0 0 18px}
-.cn-flag .k{font:600 9.5px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
-            color:#9c3535;display:block;margin-bottom:8px}
+.cn-flag{border-top:1px solid var(--color-failure);padding:16px 0 0;margin:0 0 18px}
+/* the rule carries the flag and the label does not: --color-failure is 4.09 on the ground,
+   which clears 3:1 for a non-text boundary and does not clear 4.5 for a 9.5px label. The
+   literal that stood here, #9c3535, was a fourth saturated set and A2 forbids one by name. */
+.cn-flag .k{font:600 9.5px/1 var(--font-mono);letter-spacing:.13em;text-transform:uppercase;
+            color:var(--color-text-dim);display:block;margin-bottom:8px}
 .cn-flag p{margin:0;font-size:14.5px;line-height:1.55;max-width:none}
-.cn-num{font-family:var(--mono);font-size:13px;color:var(--faint)}
+.cn-num{font-family:var(--font-mono);font-size:13px;color:var(--color-text-dim)}
 .cn-t2dim{color:var(--color-text-dim);font-weight:400;font-size:15px;letter-spacing:0}
 .cn-gap{margin-top:10px}
 .cn-wide{min-width:260px}
 .cn-wrap{flex-wrap:wrap}
 .cn-boxed{border:1px solid var(--color-edge)}
 /* the reference screen is the real page, embedded, so a replica of it cannot drift */
-.cn-live{width:100%;height:616px;overflow:hidden;border:1px solid var(--rule);margin:0 0 14px;
+.cn-live{width:100%;height:616px;overflow:hidden;border:1px solid var(--color-rule);margin:0 0 14px;
          background:var(--color-ground)}
 .cn-live iframe{width:1440px;height:900px;border:0;transform:scale(.6847);transform-origin:0 0}
 @media (max-width:1080px){.cn-live{overflow-x:auto;overflow-y:hidden}}
