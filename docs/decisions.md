@@ -559,3 +559,57 @@ What was actually run in its place was the pack's fallback, its laws applied by 
 **What was checked and came back clean, said explicitly so the instrument is not mistaken for a result.** The structural diff on all three copies, byte for byte including whitespace, 7566, 10441 and 8511 bytes. All twelve hex values, three tracking values, both radii and both font families agreeing across `_theme.css`, `concept.html` and `DESIGN-artifacts.md`. No literal font family anywhere in the product CSS. Every text pair above the AA floor on all three grounds.
 
 **What was judged legitimate rather than fixed.** The literals inside `_theme.css` itself, which is the declaration file. `transparent` and `currentColor`, which are contextual keywords rather than tokens. The documentation chrome, which belongs to `research/_page.css` and not to the product theme. And every literal in the brandbook plates under `design/concept/assets/plates/`, which are self-contained artefacts rather than product CSS.
+
+---
+
+## 2026-08-24 &middot; The sample was picked by what each screen adds, and the kit was already saturated
+
+**Decision.** Nine screens in colour, 51 pages, chosen by a count rather than by judgement: each candidate was scored on how many classes it brings that the already painted screens do not have, and the ones that add nothing were left out **by that rule**.
+
+`reject` adds sixteen and is the only overlay in the product. `entry` adds twelve and is the retained record with its `?as-of` snapshot, which is the one compliance requirement that shapes the design. `index` adds seven and is the whole door. `unavailable` adds twelve including the signed-out shell. **`log` was measured and not taken**: it adds two classes, and the rule says a screen adding no component proves nothing. `escalate` was not taken either: seventeen on paper, but the dialog, the optlist and the field all arrive with `reject`.
+
+**The saturation signal arrived on the first new screen rather than the fourth.** Nothing had to be added to the kit for any of the four. That is the return on taking the inventory from **all 62 wireframes** instead of from the painted sample: the kit already knew about `optlist`, `dialog`, `door` and `outage` before a single screen was coloured.
+
+---
+
+## 2026-08-24 &middot; Three stylesheets became one, and the proof was a screenshot rather than a claim
+
+**Decision.** `design/kit/kit.css` is the single stylesheet of the product. `design/_theme.css` arrived by `git mv` with its `:root` byte for byte identical, `wireframes/_wf.css` was absorbed with every value routed onto the kit's names and **not one value changed**, and `design/_screen.css` was folded in and deleted.
+
+**Why it could be proved instead of argued.** The seed screens were rendered on the old chain and on the kit alone, and the screenshots are byte identical at 1440 and at 360. Getting there took two rounds and both were found by measurement: a computed-style diff showed the panel remap had been stripped, and then two elements still differed because the frozen generator writes one inline `style="font-size:var(--t-xs)"` and every screen carried its own block of stage 04 names.
+
+**That is why a compatibility alias block exists at all**, and at step 6 it was measured rather than assumed: lifted out, everything re-rendered, and five renderings changed on three pages. **Two aliases survive out of thirty**, and the three files that need them are named in the file.
+
+---
+
+## 2026-08-24 &middot; The last tie to the frozen folder is cut
+
+**Decision.** `design/_shell.js` renders Z1 and Z2. Nothing under `design/` reaches into `wireframes/` any more, in a link or in a script.
+
+**The function keeps the name `WF_SHELL` and its exact signature on purpose.** The call sits inside each page's own markup, so renaming it would have meant editing 51 pages and the structural diff would have stopped being zero. Only the implementation moved. The same markup is written a second time in `design/kit/shell.html` where a person can read it, and if the two ever disagree, the html is the specification and the script is the bug.
+
+**Proved rather than declared:** 102 renderings compared before and after, 102 byte identical.
+
+**What the old script was costing.** It loaded a registry of 19 screens and rendered the wireframe stage panel into `#sidebar`, both of which this stage overwrote immediately, in order to inject two elements.
+
+---
+
+## 2026-08-24 &middot; A stranger found the bug that nobody watching could see
+
+**The reader with clean context was given the next stage's real task**, not "find defects": you are about to build the design system, say from these files how many components there are, what level each has, what variants the button has, and which control forms are unresolved. Repository only, no chat.
+
+**It returned sixteen things the documents do not let a person understand, and one live product bug.** `.btn--primary-narrow` is the class that exists so node 4.4 has a primary action at 360, and it was the one class the brand layer's accent never reached: the main action rendered amber at 1440 and bone at 360.
+
+**Nobody who had watched the stage being built could have found it**, because everybody who watched it knew what the class was supposed to be. That is the whole argument for the instrument, and this is the second stage where it was the one that paid.
+
+**Its other fifteen are the brief for stage 08** rather than a defect list: 78 of the 150 qualifying classes have no row in any table; the level rule contradicts its own level column on about ten components and the column is what later stages read; `optlist` was filed at two different levels in two files; and nothing anywhere decides the import order of the cross-cutting layers, which is the first thing a split needs.
+
+---
+
+## 2026-08-24 &middot; Six tokens with no consumer, and forcing them would have been the wrong fix
+
+**Decision.** Five stay declared and unused, marked `UNUSED` in `kit.css` with the reason. One had a real job and was given it.
+
+`--track-display`, `--track-mono` and `--track-wordmark` were measured on the brandbook plate. The product's type came whole from stage 04 and its mono tracking is a spread of `.04em`, `.08em`, `.09em`, `.1em` and `.14em`, **all of them open**, so the halation constraint in `CLAUDE.md` is met by stage 04's values rather than by the token. **Forcing `.06em` onto them would have changed stage 04 typography to make a token look used**, which is the wrong way round. `--radius-object` is for printed and physical objects, which the interface does not render. `--color-failure` has no failure-coloured element to sit on: the degraded strip underlines and the alert toast thickens its border, and neither reaches for a colour, which is a product finding rather than a token one.
+
+`--rule-control` was the sixth. It was created at stage 06 for WCAG 1.4.11 control boundaries and the same result was being reached by overriding a colour, so it was given the job it was made for.
