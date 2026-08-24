@@ -20,6 +20,14 @@
   --color-accent:        #d29c3f; /* pixel of plate j, palette zone, ACCENT */
   --color-accent-ink:    #18140e; /* measured on plate j, text on Accept */
   --color-failure:       #b25d44; /* pixel of plate j, palette zone, FAILURE */
+  --color-hairline:      #232219; /* derived from the ground. The line BETWEEN rows. It is
+                                     deliberately below every contrast floor: it separates and
+                                     it never carries meaning. It was living in four files and
+                                     in no variable until the stage 06 audit found it */
+  --color-edge:          #7b7260; /* the same hue as the rule, raised until it clears 3:1 on
+                                     all three grounds, 3.98 / 3.78 / 3.24. Chip and button
+                                     BOUNDARIES, which WCAG 1.4.11 does cover because they are
+                                     what identifies a control */
 
   /* severity, a closed ramp of three. User decision at step 5: severity has to read as
      colour rather than as a count of bars. Derived from the failure hue rather than
@@ -52,5 +60,9 @@
    --color-failure is 4.09 against the ground. It clears 3:1 for borders, icons
    and chip edges and it does NOT clear 4.5:1. It may not carry small body text.
 
-   --color-rule is exactly 3.00 against the ground, the WCAG 1.4.11 limit for
-   non-text contrast. It may be raised. It may not be lowered. */
+   --color-rule is 2.997 against the ground, 2.848 on the surface and 2.441 on the selected
+   row. The stage 06 audit recomputed this: an earlier note said "exactly 3.00", which was a
+   rounded number reported as a threshold met. It is BELOW 3:1 on all three grounds.
+   That is allowed for what it does and only for that: --color-rule draws separators and
+   panel edges, and WCAG 1.4.11 covers what identifies a CONTROL, not a divider. Anything
+   that is the boundary of a control takes --color-edge instead, which clears 3:1. */

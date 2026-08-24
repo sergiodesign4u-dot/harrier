@@ -58,7 +58,9 @@ Sampled by drawing `brand-plate-j.png` to a canvas at its native 4800 by 3200 an
 | surface selected, the row being ruled on | `#2a2418` | 645, 416 · active queue row | `pixel of plate j`, console |
 | text | `#e9e4da` | 2131, 357 · TEXT swatch | `pixel of plate j`, palette zone |
 | text dim, secondary | `#aaa397` | 2283, 357 · SECONDARY swatch | `pixel of plate j`, palette zone |
-| rule, structure | `#675f50` | 1979, 427 · RULE swatch | `pixel of plate j`, palette zone |
+| rule, separators and panel edges | `#675f50` | 1979, 427 · RULE swatch | `pixel of plate j`, palette zone |
+| edge, the boundary of a control | `#7b7260` | not on the plate | `derived`, the rule's hue raised until it clears 3:1 |
+| hairline, the line between rows | `#232219` | not on the plate | `derived` from the ground |
 | accent: latitude, live, primary action | `#d29c3f` | 747, 568 · Accept button fill | `pixel of plate j`, palette zone and console agree |
 | accent ink, text on the accent | `#18140e` | plate `:root`, no flat pixel available | `measured on plate j` |
 | failure | `#b25d44` | 2283, 427 · FAILURE swatch | `pixel of plate j`, palette zone |
@@ -129,12 +131,15 @@ WCAG 2.1 relative luminance, computed on the values in section 2.
 | severity high on ground | 5.74 | AA, worst case 4.68 on the selected row |
 | severity medium on ground | 6.13 | AA, worst case 4.99 |
 | severity low on ground | 5.63 | AA, worst case 4.59 |
-| **rule on ground** | **3.00** | **exactly at the 1.4.11 limit** |
+| **rule on ground** | **2.997** | **below 3:1. Separators only** |
+| edge on the selected row, worst case | 3.24 | clears 1.4.11 for a control boundary |
+| hairline on ground | 1.18 | below every floor by design, carries no meaning |
 
 **Two constraints fall out of this table and they bind stage 07.**
 
 - **`--color-failure` may not carry small body text.** At 4.09 it clears 3:1 for large text, borders, icons and chip edges, and it does not clear 4.5:1. Every use of it on the plate is a chip border or a rule, and that is now a rule rather than a coincidence.
-- **`--color-rule` sits at exactly 3.00 against the ground.** Hairlines are non-text contrast under 1.4.11, so 3.00 passes and has no headroom. It may be raised. It may not be lowered.
+- **`--color-rule` is 2.997 against the ground, and the earlier note here said "exactly 3.00".** That was a rounded number reported as a threshold met, and the stage 06 audit recomputed it: 2.997 on the board, 2.848 on the surface, 2.441 on the selected row, so it is **below 3:1 on all three**. It is allowed for what it does and only for that. 1.4.11 covers what identifies a **control**, not a divider, and `--color-rule` draws separators and panel edges. Every boundary that identifies a control, which is a chip, a button and a `kbd`, takes **`--color-edge`** at `#7b7260` instead, which clears 3:1 on all three grounds at 3.98, 3.78 and 3.24.
+- **Two values were living in four files and in no variable.** `#232219`, the line between rows, and the control boundary that had been sharing `--color-rule`. Both are variables now. A value in a page and not in `_theme.css` is the exact defect this stage exists to prevent, and it took an audit to see it.
 
 **The halation constraint holds by construction.** `#e9e4da` on `#11110f` is 14.92 rather than the 21 of pure white on pure black. Origin `CLAUDE.md`, the dark ground rule.
 

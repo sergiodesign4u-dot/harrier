@@ -17,9 +17,9 @@
   /* ---- the remap. Left column is what the wireframe called it, right is what it is ---- */
   --ink:    var(--color-text);          /* text and the borders that carry structure */
   --soft:   var(--color-text-dim);      /* secondary text, placeholders */
-  --hair:   #232219;                    /* hairline inside a component, deliberately below
-                                           the 3:1 non-text floor: it separates, it never
-                                           carries meaning. Derived from the ground */
+  --hair:   var(--color-hairline);      /* the line between rows. Below every contrast
+                                           floor on purpose: it separates, it never carries
+                                           meaning, and 1.4.11 covers controls not dividers */
   --fill:   var(--color-surface);       /* the raised band: table head, the resting pane */
   --paper:  var(--color-ground);        /* the surface a component sits on */
   --bg:     var(--color-ground);        /* the page behind everything */
@@ -51,6 +51,11 @@
 .z2 b{ color:var(--color-accent) }
 .row.is-selected{ background:var(--color-surface-sel); box-shadow:inset 3px 0 0 var(--color-accent) }
 .frow .rec{ color:var(--color-text) }
+/* latitude is the accent's first job and the fleet row is where it lives. The wireframe
+   gives that column no class, so it is selected by position. Found by the stage 06 audit:
+   the concept stand accented it and the real screen did not, which made the stand a claim
+   about a screen rather than a picture of one. */
+.frow:not(.frow--head) > span:nth-child(2){ color:var(--color-accent) }
 .btn--primary{ background:var(--color-accent); color:var(--color-accent-ink); border-color:var(--color-accent) }
 .row .concluded .dim{ color:var(--color-accent) }   /* `above latitude here` IS latitude */
 
@@ -87,7 +92,11 @@
 .pane-head h2{ color:var(--color-text) }
 
 /* ---- keyboard furniture keeps the structural rule, not the text colour ---- */
-.qfoot kbd{ border-color:var(--color-rule); color:var(--color-text-dim) }
+/* ---- a boundary that identifies a control takes the edge, not the rule. 1.4.11 asks for
+   3:1 on those and --color-rule does not clear it on any of the three grounds. ---- */
+.chip, .btn, .qfoot kbd{ border-color:var(--color-edge) }
+.chip--ghost{ border-color:var(--color-edge) }
+.qfoot kbd{ color:var(--color-text-dim) }
 
 /* ---- the project panel travels with the page, so it has to be remapped too.
    _nav.css was written for the documentation pages, which are light. Left unmapped the

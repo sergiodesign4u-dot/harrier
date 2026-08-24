@@ -47,7 +47,7 @@ window.NAV = [
   ]},
   { label:'Wireframes',  page:'wireframes/overview.html', done:true },
   { label:'Voice',       page:'voice/voice.html',      done:true },
-  { label:'Concept', wip:true, children:[
+  { label:'Concept', children:[
       { label:'Directions', page:'design/concept/directions.html', done:true  },
       { label:'Concept',    page:'design/concept/concept.html',    done:true  },
   ]},

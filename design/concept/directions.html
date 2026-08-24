@@ -24,7 +24,7 @@
 .b-head .dr-read{font-size:17px}
 .b-head .dr-scope{margin-left:auto}
 .b-rows{flex:1;min-height:0}
-.b-row{padding:11px 18px;border-bottom:1px solid #232219}
+.b-row{padding:11px 18px;border-bottom:1px solid var(--color-hairline)}
 .b-row.sel{background:var(--color-surface-sel);box-shadow:inset 3px 0 var(--color-accent)}
 .b-v{font-size:15px;font-weight:500;letter-spacing:-.008em;margin:0 0 3px;display:flex;
      align-items:baseline;gap:8px}
@@ -42,7 +42,7 @@
 .c-head{display:flex;align-items:center;gap:16px;padding:13px 20px 11px}
 .c-head .dr-scope{margin-left:auto}
 .c-row{display:grid;grid-template-columns:96px 176px 1fr 240px 78px 132px 46px;gap:14px;
-       padding:11px 20px;border-bottom:1px solid #232219;align-items:center;font-size:13px}
+       padding:11px 20px;border-bottom:1px solid var(--color-hairline);align-items:center;font-size:13px}
 .c-row.h{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
        color:var(--color-text-dim);text-transform:uppercase;padding:7px 20px;border-bottom-color:var(--color-rule)}
 .c-row.sel{background:var(--color-surface-sel);box-shadow:inset 3px 0 var(--color-accent)}
@@ -61,7 +61,7 @@
 .c-ph .more{margin-left:auto;font-family:var(--font-mono);font-size:9px;
             letter-spacing:var(--track-mono);color:var(--color-text-dim)}
 .c-strip{flex:1;display:grid;grid-template-columns:repeat(7,1fr);min-height:0}
-.c-t{padding:12px 14px;border-right:1px solid #232219;min-width:0}
+.c-t{padding:12px 14px;border-right:1px solid var(--color-hairline);min-width:0}
 .c-t:last-child{border-right:0}
 .c-t b{display:block;font-size:12px;font-weight:500;margin-bottom:6px;white-space:nowrap;
        overflow:hidden;text-overflow:ellipsis}
@@ -72,9 +72,9 @@
           letter-spacing:var(--track-mono);color:var(--color-text-dim);margin-top:2px}
 
 /* ---------- the page's own furniture ---------- */
-.dr-bet{border-left:3px solid #0d5a66;padding:2px 0 2px 18px;margin:0 0 18px}
+.dr-bet{border-left:3px solid var(--nav-active);padding:2px 0 2px 18px;margin:0 0 18px}
 .dr-bet .k{font:600 10px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
-           color:#0d5a66;display:block;margin-bottom:8px}
+           color:var(--nav-active);display:block;margin-bottom:8px}
 .dr-bet p{margin:0;font-size:16.5px;line-height:1.55;max-width:70ch}
 .dr-cost{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px}
 .dr-cost div{border:1px solid var(--rule);padding:14px 17px}
@@ -97,6 +97,8 @@
 <p class="lede">One brand, three compositions. The palette, the type and the square corner were settled on plate J at step 3 and are not reopened here: every value on this page comes through a variable from <code>design/_theme.css</code>, so the three directions differ in <b>where things sit and how much room each is given</b>, and in nothing else. Each is drawn at a real 1440 and scaled to this column, so the proportions you are reading are the proportions on the desk.</p>
 
 <p>The screen is <b>3.1 Case Queue</b>, the reference screen, taken from the top row of <code>wireframes/docs/screens.md</code> and not re-derived. The content is the wireframe's own: the same seven rows, the same fixtures, the same fleet at rest in the pane.</p>
+
+<p><b>The three screens on this page are drawings, and after step 6 that matters.</b> They were built to compare compositions before any real screen existed, and they are left as the record of a decision rather than updated. The real coloured screen is at <a href="../queue.html">design/queue.html</a> and it is what the stand embeds. Where a drawing here and the product disagree, the product is right.</p>
 
 <p><b>The empty space under the last row is the wireframe's, not a composition defect.</b> The queue shows the same seven cases the wireframe shows and says <b>7 of 18 shown</b> beneath them, so rows eight to eighteen would fill it. It is left rather than padded out with invented cases, because a fixture that exists only to make a drawing look finished is the thing <code>ia/docs/pages/reading-conventions.md</code> forbids.</p>
 
