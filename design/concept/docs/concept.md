@@ -168,3 +168,17 @@ They cannot both be the language, so the split is named rather than averaged:
 No hex, no radius value, no font name, no spacing scale. Step 3 generates the plates, and the palette is read off **pixels**, with each value carrying its origin. The five pairs above are what a plate will be judged against, and the two lists in section 2 are what its prompt will be written from.
 
 **Every technique carried out of `references.md` now lands on a pair:** Axiom's 2px on A1, its one accent on A2, its tone layering on A4, its monospace on A5; Linear's weight 500 on A3 and its 1px separator on A1; Rox's scarcity on A2. Nothing was borrowed that has no reason of ours behind it.
+
+---
+
+## 7. The brand, chosen
+
+**Plate J.** `design/concept/assets/brand-plate-j.png`, built by resolving the two plates the user picked out of nine, `c` and `d`. Grounds, the eight not taken, and every value with its origin are in `DESIGN-artifacts.md` at the root. **They are not repeated here, because a second copy is the one that goes stale.**
+
+Three things this section owes back to the file above it.
+
+**A2 held, and it is now a number rather than a stance.** The accent carries exactly three things on the sheet and no fourth: latitude, the live stage, the primary action. Section 5 above asked whether the user's real taste would put Bloomberg's colour economy over A2. On plate J it did not, so A2 stands unchanged.
+
+**A1 got sharper than `references.md` proposed, and the plate overruled the reference.** Axiom's 2px radius was carried into A1 at step 1. Plate J draws `0` on every interface element and keeps radius for physical objects only. Under the rule that the drawing wins over the caption, `0` stands. A1 is not amended, it is met more strictly than the reference met it.
+
+**One attribute is not yet proved on a screen.** A4, depth by tone rather than by blur, is carried on plate J by three grounds, `#11110f`, `#171714`, `#2a2418`, with no blur and no shadow anywhere in the console. Whether three tones are enough to separate a queue, a detail pane and a selected row **at 1440 in a real browser** is decided at step 6, not on a poster. If they are not, A4 is what changes.
