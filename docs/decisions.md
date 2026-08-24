@@ -416,3 +416,50 @@ Stage 04 built the pages from ten Python generators in `wireframes/docs/`, and t
 **What it settles immediately.** Plates A and B propose light product surfaces and fall on the ground. Plate C is the only dark one of the three.
 
 **Sources, opened in session:** `https://www.nngroup.com/articles/dark-mode/`, `https://www.boia.org/blog/dark-mode-can-improve-text-readability-but-not-for-everyone`.
+
+---
+
+## 2026-08-24 &middot; Plate J, and why the field of nine collapsed into one sheet
+
+**Decision.** The brand is plate J, `design/concept/assets/brand-plate-j.png`. Plate K is the same sheet in the signal colourway and is kept rather than discarded.
+
+**How the choice was reached, because it was not a pick from nine.** Nine plates were built over four rounds. The user named `c` and `d` as the two that landed and said neither was quite it. Read together they are **halves of one sheet**: `c` had a graphic identity and almost no product, `d` had the product at half the sheet and no graphic idea of its own beyond the screenshot. J was built to resolve them rather than to add a tenth idea, and K exists so that the ground and accent can be re-argued in one variable without re-composing anything.
+
+**The defect both shared, and it is the reason neither read as tasteful.** Applications on every plate up to that point were flat skewed rectangles under one hard offset shadow. The NEO MIRAI toolkit the user supplied as the form reference has objects with **material and presence**. On J they are objects: real perspective, two shadow layers, one light direction, brushed metal, uncoated stock, woven lanyard, die cut matte. That single zone is what separates a brand sheet from an infographic.
+
+**What was rejected and survives anyway.** Plate I stated the invariant as a rule of motion: the evidence pane never animates, and no overlay may hide what is being ruled on. In `CLAUDE.md` that had only ever been a rule of layout. It binds stage 07 as written.
+
+**Three rounds of measured correction on top.** Codex cannot start Chromium under the macOS sandbox and verifies geometry arithmetically, so every round was measured in a real browser and the exact pixels handed back. Found and fixed: the dek printing over the console top bar, a 126px band of dead space under the type specimen, the fleet reduced to a sparkline in a corner, and objects cropped by the canvas edge.
+
+---
+
+## 2026-08-24 &middot; Archivo over Space Grotesk, and the plate drew the loser
+
+**Decision.** `Archivo` for display and body, `IBM Plex Mono` for anything counted.
+
+**Why this needed an argument at all.** The usual reason to replace a plate's typography is that a generated plate draws a font name that may not exist. Plate J loads real Google Fonts and Chromium confirmed the computed families, so the face on the sheet was real and the swap had to be justified on evidence instead.
+
+**Measured, in a browser, on the working strings.** The same sentence at 15px: Archivo 737.6px, Instrument Sans 768.6px, Chivo 808.0px, Space Grotesk 819.5px. Default line box at 100px: 109px against 127px. Archivo sets the same prose **11 per cent narrower on a line box 14 per cent shorter**, which in an 829px detail pane is one line instead of two on a sentence read forty times a shift. That is design principle 5 stated as a number.
+
+**And the taste argument runs the same way.** Space Grotesk is the face this category reaches for by reflex right now, and `concept.md` section 2b bans that class of choice. The ban does not stop being true because the plate is handsome.
+
+**The mono was decided by a missing weight.** DM Mono and IBM Plex Mono set the same 9px string to the same 255.4px, so width decided nothing. Chromium was asked for DM Mono at 600 and at 700 and returned the 500 file both times: **it has no bold.** Counts and chips live in the mono and design principle 1 requires one thing in a row to win, so emphasis has to exist in that family. Martian Mono was rejected on the width test at 294.1px, 15 per cent wider.
+
+**One value moved with the face.** Archivo collides at the plate's `-.055em`, the `t`, `i` and `d` of `latitude` touching at 82px. Rendered at three values and settled at `-.038em`. The mono keeps `.06em`, which is a halation constraint rather than a preference.
+
+**The cost, named rather than hidden.** Archivo has none of Space Grotesk's personality in the `a`, the `y` and the `G`. The brand's character is therefore carried entirely by the accent economy, the square corner, the fleet drawing and the object language. Reversing this is one line in `design/_theme.css`.
+
+---
+
+## 2026-08-24 &middot; Direction A, chosen against the recommendation
+
+**Decision.** Layout direction **A, Ledger**, for the reference screen and for the language. Recommended direction was **C, Wide bench**. The user chose A.
+
+**What C was recommended for.** C splits horizontally, so the queue takes the full 1440 and the fleet at rest becomes seven tenants side by side. Per tenant earned latitude is the only surviving differentiator, and C is the only one of the three where it is read **across** in one glance rather than traversed down a list.
+
+**Why A is the safer choice and that is a real argument, not a consolation.** A is the wireframe's own composition, so the structural diff of the coloured copy is near zero and the promise that the copy owns only the visual layer stays cheap to prove. C changes the split axis, the largest diff of the three, and puts the case file in a 1440 by 232 band that nothing in stage 04 was drawn against.
+
+**Two things the choice leaves open, and they are recorded as debts rather than settled.**
+
+- **Nothing in A's row wins on typography.** Design principle 1 says every row is a decision and the verdict is the decision, yet in A the verdict is set at the same size as the tenant and the description. Direction B bought the emphasis with a second line. Step 6 has to buy it inside one line with weight, colour or position. If it cannot, B's argument returns as a finding.
+- **The differentiator is still a list in a 38 per cent pane.** Choosing A does not make the objection to it wrong, it moves it. The fleet has to earn **legible at one glance** some other way, and stage 07 is required to check that it did.

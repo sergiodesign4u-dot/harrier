@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; The visual language</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../../research/_page.css">
+<link rel="stylesheet" href="../_theme.css">
+<link rel="stylesheet" href="_stand.css">
+<style>
+/* PAGE-LOCAL, prefix cn-. The product sheet and its unsets live in _stand.css and are shared
+   with directions.html so the two pages cannot drift. Nothing below invents a product value:
+   every one comes through a var() from ../_theme.css. */
+.cn-cmp table{min-width:0}
+
+/* palette, drawn as the swatch plus its origin, because a value without an origin is not a value here */
+.cn-sw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 14px}
+.cn-sw figure{margin:0;border:1px solid var(--rule)}
+.cn-sw i{display:block;height:78px;border-bottom:1px solid var(--rule)}
+.cn-sw figcaption{padding:11px 14px;font-size:13px;line-height:1.5}
+.cn-sw b{display:block;font:600 10px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}
+.cn-sw code{font-size:12.5px}
+.cn-sw .o{display:block;margin-top:7px;font-size:12px;color:var(--muted)}
+@media (max-width:760px){.cn-sw{grid-template-columns:1fr 1fr}}
+
+/* a dark bench: components are shown on the ground they live on, never on paper */
+.cn-bench{background:var(--color-ground);border:1px solid #d3d5d8;padding:26px 28px;margin:0 0 14px;
+          color:var(--color-text);font:400 14px/1.4 var(--font-sans)}
+.cn-bench p{max-width:none;margin:0}
+.cn-bench h3{color:var(--color-text);font-family:var(--font-sans);margin:0}
+.cn-lab{font:400 9px/1 var(--font-mono);letter-spacing:var(--track-mono);text-transform:uppercase;
+        color:var(--color-text-dim);margin:0 0 12px;display:block}
+.cn-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.cn-grid > div + div{border-left:1px solid var(--color-rule);padding-left:30px}
+.cn-stack > * + *{margin-top:22px}
+@media (max-width:760px){.cn-grid{grid-template-columns:1fr}.cn-grid > div + div{border-left:0;padding-left:0}}
+
+/* the type specimen at the sizes the interface actually uses */
+.cn-t1{font-size:34px;font-weight:500;letter-spacing:var(--track-display);line-height:1.04}
+.cn-t2{font-size:21px;font-weight:500;letter-spacing:var(--track-display)}
+.cn-t3{font-size:14px;font-weight:400;line-height:1.45;color:var(--color-text)}
+.cn-t4{font-size:14px;font-weight:400;line-height:1.45;color:var(--color-text-dim)}
+.cn-t5{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono)}
+.cn-t6{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.cn-alpha{font-family:var(--font-mono);font-size:12px;letter-spacing:var(--track-mono);line-height:1.9;
+          color:var(--color-text-dim)}
+
+/* buttons, exactly the four the verdict bar carries and no fifth */
+.cn-btn{display:inline-block;border:1px solid var(--color-rule);border-radius:var(--radius-ui);
+        padding:8px 13px;font:400 11px var(--font-mono);letter-spacing:var(--track-mono);
+        color:var(--color-text);background:transparent}
+.cn-btn.pri{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.cn-row-btn{display:flex;gap:8px;flex-wrap:wrap}
+
+/* geometry, drawn 1:1 rather than described */
+.cn-geo{display:flex;gap:34px;align-items:flex-end;flex-wrap:wrap}
+.cn-geo figure{margin:0}
+.cn-geo .box{width:104px;height:64px;border:1px solid var(--color-accent);border-radius:var(--radius-ui)}
+.cn-geo .box.o{border-radius:var(--radius-object)}
+.cn-geo figcaption{margin-top:9px;font:400 9px var(--font-mono);letter-spacing:var(--track-mono);
+        color:var(--color-text-dim)}
+.cn-rules div{border-top:1px solid var(--color-rule);padding-top:7px;margin-bottom:14px;
+        font:400 9px var(--font-mono);letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.cn-rules div.soft{border-top-color:#232219}
+
+.cn-flag{border:1px solid var(--rule);border-left:3px solid #9c3535;padding:14px 18px;margin:0 0 18px}
+.cn-flag .k{font:600 9.5px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+            color:#9c3535;display:block;margin-bottom:8px}
+.cn-flag p{margin:0;font-size:14.5px;line-height:1.55;max-width:none}
+.cn-num{font-family:var(--mono);font-size:13px;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 06 &middot; Concept, step 5</p>
+<h1>The visual language, standing up</h1>
+<p class="lede">Everything the brand decided, alive rather than described: the palette on the ground it lives on, the two families at the sizes the interface actually uses, the square corner drawn 1:1, the closed set of state chips, the four verdict actions, and the reference screen in the composition chosen at step 4. <b>Every value on this page comes through a variable from <code>design/_theme.css</code></b>, so if a value is wrong here it is wrong in one place, and one edit moves it everywhere.</p>
+
+<p>Where each value came from, with its origin line, is <code>DESIGN-artifacts.md</code> at the root. Why this brand and not the eight that were not taken is in the same file. Why dark is the ground, decided against the reading research, is in <code>docs/decisions.md</code>.</p>
+
+<h2 id="screen">1. The reference screen</h2>
+<p><b>3.1 Case Queue</b> in direction A, Ledger. The composition is the wireframe's own, chosen at step 4 against a recommendation for direction C. Drawn at a real 1440 and scaled to this column.</p>
+
+<div class="dr-hold"><div class="dr-scale"><div class="dr-s">
+  <div class="dr-z1"><span class="wm">HARRIER</span>
+    <nav><span class="on">QUEUE</span><span>SHIFT</span><span>LOG</span></nav>
+    <span class="sp">R. IDRISSI &middot; 40 TENANTS &middot; 03:00 UTC</span></div>
+  <div class="dr-z2">LIVE &middot; CLERK IS FILING &middot; LAST CASE 4M AGO</div>
+  <div class="a-body">
+    <div class="a-q">
+      <div class="a-band"><div class="dr-scope"><i>All tenants &#9662;</i><i>Waiting on a decision &times;</i><i>Sort: default &#9662;</i></div></div>
+      <div class="a-head"><p class="dr-read">18 waiting <span>across 12 of 40 tenants in your scope</span></p></div>
+      <div class="a-rows">
+        <div class="a-row h"><span>Sev</span><span>Tenant</span><span>What it is</span><span>The verdict</span><span>To check</span><span>State</span><span>Age</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Meridian Health</span><span>Mass file rename on one host</span><span class="v">Rejected by R. Idrissi</span><span class="c">4 signals</span><span class="st"><i class="dr-chip">decided</i><i class="dr-chip sol">unrecorded</i></span><span class="g">1h</span></div>
+        <div class="a-row sel"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">27m</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</span><span>Norsk Marine</span><span>Ransomware precursor on FS-02</span><span class="v">Real, contained</span><span class="c">14 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">52m</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Aubrey Dental Group</span><span>Sign in from an unseen device</span><span class="v">Real, contain identity<em>above latitude here</em></span><span class="c">9 signals</span><span class="st"></span><span class="g">6m</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span>Medium</span><span>Halden Freight</span><span>Impossible travel, two offices</span><span class="v">Benign, sanctioned VPN rollout</span><span class="c">6 signals</span><span class="st"></span><span class="g">4m</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Halcyon Care</span><span>Beaconing to a new domain</span><span class="v">Real, contained</span><span class="c">5 signals</span><span class="st"><i class="dr-chip">acted</i></span><span class="g">2h</span></div>
+        <div class="a-row"><span class="c"><span class="dr-bars"><i class="on"></i><i></i><i></i></span>Low</span><span>Bramber Retail</span><span>Mass mailbox rule creation</span><span class="v">Benign, new admin onboarding</span><span class="c">3 signals</span><span class="st"></span><span class="g">41m</span></div>
+      </div>
+      <p class="dr-foot"><span>7 of 18 shown</span><span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span><span><kbd>Enter</kbd> decides</span><span>order: unrecorded, waiting on you, severity, age</span></p>
+    </div>
+    <aside class="dr-pane">
+      <div class="dr-ph"><h2>Fleet</h2><p>40 tenants, nothing selected. Ordered by where attention is owed</p></div>
+      <div class="dr-fr h"><span>Tenant</span><span>Acts alone up to</span><span class="r">Accepted</span></div>
+      <div class="dr-fr"><span>Meridian Health</span><span class="l">INVESTIGATE</span><span class="r">31 of 36<em>was 34 of 36</em></span></div>
+      <div class="dr-fr"><span>Halcyon Care</span><span class="l">CONTAIN ENDPOINT</span><span class="r">4 of 4<em>too few to compare</em></span></div>
+      <div class="dr-fr"><span>Aubrey Dental Group</span><span class="l">INVESTIGATE</span><span class="r">&ndash;<em>no rulings yet</em></span></div>
+      <div class="dr-fr"><span>Bramber Retail</span><span class="l">CONTAIN NETWORK</span><span class="r">51 of 52<em>was 49 of 51</em></span></div>
+      <div class="dr-fr"><span>Halden Freight</span><span class="l">CONTAIN ENDPOINT</span><span class="r">27 of 29<em>was 26 of 29</em></span></div>
+      <div class="dr-fr"><span>Larkfield Logistics</span><span class="l">CONTAIN ENDPOINT</span><span class="r">34 of 36<em>was 33 of 36</em></span></div>
+      <div class="dr-fr"><span>Norsk Marine</span><span class="l">INVESTIGATE</span><span class="r">18 of 20<em>was 18 of 20</em></span></div>
+      <p class="dr-fmore">33 MORE, 30 DAY WINDOW &middot; A ROW NARROWS THE QUEUE TO THAT TENANT</p>
+    </aside>
+  </div>
+</div></div></div>
+
+<div class="cn-flag"><span class="k">Open against this screen, and step 6 owes an answer</span>
+<p><b>Nothing in the row wins on typography.</b> Design principle 1 says every row is a decision and the verdict is the decision, but in direction A the verdict is set at the same size as the tenant and the description. Direction B spent a second line on solving it. Step 6 has to solve it inside one line, with weight, colour or position, or B's argument comes back as a finding rather than a preference.</p></div>
+
+<h2 id="palette">2. Palette</h2>
+<p>Nine values, six of them named roles on the plate and three of them surfaces measured inside the console it drew. Taken as <b>pixels</b> and then checked against the plate's own stylesheet, which agreed at every role. Full sample points in <code>DESIGN-artifacts.md</code>, section 2.</p>
+
+<div class="cn-sw">
+<figure><i style="background:var(--color-ground)"></i><figcaption><b>Ground</b><code>#11110f</code><span class="o">The board. Pixel of plate J, GROUND swatch</span></figcaption></figure>
+<figure><i style="background:var(--color-surface)"></i><figcaption><b>Surface</b><code>#171714</code><span class="o">Panels inside the console. Pixel of plate J, detail pane</span></figcaption></figure>
+<figure><i style="background:var(--color-surface-sel)"></i><figcaption><b>Surface selected</b><code>#2a2418</code><span class="o">The row being ruled on. Pixel of plate J, active row</span></figcaption></figure>
+<figure><i style="background:var(--color-text)"></i><figcaption><b>Text</b><code>#e9e4da</code><span class="o">Never pure white, which is a halation constraint rather than a taste</span></figcaption></figure>
+<figure><i style="background:var(--color-text-dim)"></i><figcaption><b>Text dim</b><code>#aaa397</code><span class="o">Secondary. Pixel of plate J, SECONDARY swatch</span></figcaption></figure>
+<figure><i style="background:var(--color-rule)"></i><figcaption><b>Rule</b><code>#675f50</code><span class="o">Structure. Sits at exactly 3.00 against the ground and may not be lowered</span></figcaption></figure>
+<figure><i style="background:var(--color-accent)"></i><figcaption><b>Accent</b><code>#d29c3f</code><span class="o">Latitude, the live stage, the primary action. Three things and no fourth</span></figcaption></figure>
+<figure><i style="background:var(--color-accent-ink)"></i><figcaption><b>Accent ink</b><code>#18140e</code><span class="o">Text on the accent. Measured on plate J, the Accept button</span></figcaption></figure>
+<figure><i style="background:var(--color-failure)"></i><figcaption><b>Failure</b><code>#b25d44</code><span class="o">4.09 on the ground, so borders and icons only. May not carry small text</span></figcaption></figure>
+</div>
+
+<p><b>The accent is spent, not applied.</b> Attribute A2 says saturation is scarce rather than decorative, and on this screen the accent carries exactly three things: the tenant's earned latitude in the pane, the live strip, and the selected row. Nothing else in the interface is allowed to take it. Count them on the screen above.</p>
+
+<h2 id="type">3. Type</h2>
+<p>Two families. <b>Archivo</b> carries display and body; <b>IBM Plex Mono</b> is reserved for anything counted, which is counts, chips, stage names, evidence lines and time. Chosen on a rendered comparison of four candidates each, not on the name drawn on the plate. The measurements are in <code>DESIGN-artifacts.md</code>, section 6.</p>
+
+<div class="cn-bench cn-stack">
+  <div><span class="cn-lab">Display &middot; Archivo 500 &middot; tracking -.038em</span><p class="cn-t1">Token replay after a new device enrolment</p></div>
+  <div><span class="cn-lab">Readout &middot; Archivo 500 &middot; 21px</span><p class="cn-t2">18 waiting <span style="color:var(--color-text-dim);font-weight:400;font-size:15px;letter-spacing:0">across 12 of 40 tenants in your scope</span></p></div>
+  <div class="cn-grid">
+    <div><span class="cn-lab">Body &middot; Archivo 400 &middot; 14px</span>
+      <p class="cn-t3">Clerk proposes compromised identity. The token was replayed from a new device after an inbox rule was created. You rule on the case.</p>
+      <p class="cn-t4" style="margin-top:9px">Found 9 signals across identity, mail and endpoint records. Not found: no password change, and no new device enrolment.</p></div>
+    <div><span class="cn-lab">Counted &middot; IBM Plex Mono 400 &middot; 11px and 9px, tracking .06em</span>
+      <p class="cn-t5">34 of 36 accepted, 30 days</p>
+      <p class="cn-t5">6 sources queried over 24h</p>
+      <p class="cn-t5">C-4417 &middot; Larkfield Logistics &middot; 9 signals</p>
+      <p class="cn-t6" style="margin-top:9px">TENANT &middot; ACTS ALONE UP TO &middot; ACCEPTED</p></div>
+  </div>
+  <div><span class="cn-lab">The two alphabets at working size</span>
+    <p class="cn-t3">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</p>
+    <p class="cn-alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</p></div>
+</div>
+<p class="cn-num">The absolute UI scale above is the working scale, not the poster scale from the plate. It is proved at 1440 and at 360 at step 6.</p>
+
+<h2 id="geometry">4. Geometry</h2>
+<p><b>Radius on the interface is zero.</b> Measured on the plate rather than read off a caption: every radius the plate draws is on a physical object, and no chip, button, panel, row or stage box carries one. This overrules the 2px that <code>references.md</code> carried in from Axiom, and it meets attribute A1 more strictly than the reference did.</p>
+
+<div class="cn-bench">
+  <div class="cn-geo">
+    <figure><div class="box"></div><figcaption>--radius-ui &middot; 0 &middot; every interface element</figcaption></figure>
+    <figure><div class="box o"></div><figcaption>--radius-object &middot; 5px &middot; printed and physical only</figcaption></figure>
+    <figure style="min-width:260px"><div class="cn-rules">
+      <div>--color-rule &middot; structure, 3.00 against the ground</div>
+      <div class="soft">#232219 &middot; between rows, below the non-text limit on purpose</div>
+    </div><figcaption>two rule weights, and the softer one never carries meaning</figcaption></figure>
+  </div>
+</div>
+
+<p><b>Depth comes from tone, never from blur.</b> Attribute A4. Three grounds separate the whole console: the board, the panel, and the row being ruled on. There is no shadow and no blur anywhere in the interface, and the only shadows in the whole brand are on the physical objects of the plate.</p>
+
+<h2 id="components">5. Components</h2>
+
+<div class="cn-bench cn-stack">
+  <div><span class="cn-lab">State chips &middot; the closed set &middot; six positions, and not one of them is an outcome</span>
+    <div class="dr-scope" style="flex-wrap:wrap">
+      <i class="dr-chip">unrecorded</i><i class="dr-chip">taken</i><i class="dr-chip">escalated</i>
+      <i class="dr-chip">decided</i><i class="dr-chip">acted</i><i class="dr-chip">investigating</i>
+      <i class="dr-chip sol">unrecorded</i>
+    </div>
+    <p class="cn-t6" style="margin-top:11px">THE SOLID ONE IS THE SAME CHIP DEMANDING ATTENTION, NOT A SEVENTH STATE. NOTHING HERE IS GREEN, BECAUSE NOTHING HERE IS AN OUTCOME</p></div>
+
+  <div><span class="cn-lab">Verdict actions &middot; four, and step 7 may not add a fifth</span>
+    <div class="cn-row-btn">
+      <span class="cn-btn pri">Accept a</span><span class="cn-btn">Amend m</span>
+      <span class="cn-btn">Reject r</span><span class="cn-btn">Escalate e</span></div>
+    <p class="cn-t6" style="margin-top:11px">ACCEPT COSTS TWO TAPS AND REJECT COSTS FOUR. THE FOURTH IS ENTER, NOT A CONFIRMATION STEP</p></div>
+
+  <div class="cn-grid">
+    <div><span class="cn-lab">Severity &middot; counted, not coloured</span>
+      <p class="cn-t5"><span class="dr-bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</p>
+      <p class="cn-t5"><span class="dr-bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</p>
+      <p class="cn-t5"><span class="dr-bars"><i class="on"></i><i></i><i></i></span> Low</p>
+      <p class="cn-t6" style="margin-top:9px">THREE BARS, ONE ACCENT. NO RED, AMBER, GREEN SCALE ANYWHERE</p></div>
+    <div><span class="cn-lab">Fleet row &middot; where the differentiator lives</span>
+      <div class="dr-fr h"><span>Tenant</span><span>Acts alone up to</span><span class="r">Accepted</span></div>
+      <div class="dr-fr"><span>Larkfield Logistics</span><span class="l">CONTAIN ENDPOINT</span><span class="r">34 of 36<em>was 33 of 36</em></span></div>
+      <div class="dr-fr"><span>Aubrey Dental Group</span><span class="l">INVESTIGATE</span><span class="r">&ndash;<em>no rulings yet</em></span></div>
+      <p class="cn-t6" style="margin-top:11px">A COUNT FIRST, THE WINDOW NAMED, AND NO BARE PERCENTAGE ANYWHERE</p></div>
+  </div>
+
+  <div><span class="cn-lab">The annunciator &middot; the only place the strip is allowed to speak</span>
+    <div class="dr-z2" style="border:1px solid var(--color-rule)">LIVE &middot; CLERK IS FILING &middot; LAST CASE 4M AGO</div></div>
+</div>
+
+<h2 id="attrs">6. Every attribute, and the element that carries it</h2>
+<p>An attribute with no element on the screen is a word. This table is what stage 07 checks against, and a row with nothing in its second column is a finding.</p>
+<div class="cn-cmp">
+<table>
+<thead><tr><th>Attribute</th><th>What carries it, on the screen above</th></tr></thead>
+<tbody>
+<tr><td><b>A1</b> Precise, not soft</td><td><code>--radius-ui: 0</code> on every interface element, and a 1px rule rather than a shadow at every boundary</td></tr>
+<tr><td><b>A2</b> Saturation is scarce, not decorative</td><td>the accent carries three things: latitude in the pane, the live strip, the selected row. Countable, and counted</td></tr>
+<tr><td><b>A3</b> Authority by restraint, not by emphasis</td><td>display at weight 500 rather than 700, and one primary action beside three plain ones</td></tr>
+<tr><td><b>A4</b> Depth by tone, not by blur</td><td>three grounds, <code>#11110f</code>, <code>#171714</code>, <code>#2a2418</code>, and no shadow or blur anywhere in the interface</td></tr>
+<tr><td><b>A5</b> Counted, not estimated</td><td>the mono family exists only for counted things, severity is three bars rather than a colour, and every count names its window</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="contrast">7. Contrast</h2>
+<p>Computed on the values above rather than judged. WCAG 2.1 relative luminance.</p>
+<div class="cn-cmp">
+<table>
+<thead><tr><th>Pair</th><th>Ratio</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>text on ground</td><td>14.92</td><td>AAA</td></tr>
+<tr><td>text on surface</td><td>14.18</td><td>AAA</td></tr>
+<tr><td>text on the selected row</td><td>12.15</td><td>AAA</td></tr>
+<tr><td>accent on ground</td><td>7.71</td><td>AAA</td></tr>
+<tr><td>accent ink on accent, the primary action</td><td>7.48</td><td>AAA</td></tr>
+<tr><td>text dim on ground</td><td>7.56</td><td>AAA</td></tr>
+<tr><td>accent on the selected row</td><td>6.28</td><td>AA</td></tr>
+<tr><td><b>failure on ground</b></td><td><b>4.09</b></td><td><b>below AA for body text, borders and icons only</b></td></tr>
+<tr><td><b>rule on ground</b></td><td><b>3.00</b></td><td><b>exactly the 1.4.11 limit, may be raised, may not be lowered</b></td></tr>
+</tbody>
+</table>
+</div>
+<p><b>The halation constraint holds by construction.</b> Text on ground is 14.92, not the 21 of pure white on pure black. <code>CLAUDE.md</code> requires that, along with body text at weight 400 or above and open tracking on small monospace, and all three are visible on this page rather than promised.</p>
+
+<h2 id="not">8. What is deliberately not here</h2>
+<p>No spacing scale, no semantic token names, no component anatomy, no light theme. Roles only become visible after components have stood on real screens, which is stage 08, and inventing them now means renaming them twice and breaking the origin line on the first rename.</p>
+<p><b>And one thing is not proved yet.</b> This page is one screen. A language is proved on a <b>second, contrasting</b> screen, where the same components stand at a different density and still read as the same product. That is step 7, and until it is done this page is a promising screen rather than a language.</p>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../../';
+  window.NAV_SECTIONS = [
+    { id:'screen',   label:'The reference screen' },
+    { id:'palette',  label:'Palette' },
+    { id:'type',     label:'Type' },
+    { id:'geometry', label:'Geometry' },
+    { id:'components',label:'Components' },
+    { id:'attrs',    label:'Attributes' },
+    { id:'contrast', label:'Contrast' },
+    { id:'not',      label:'Not here yet' },
+  ];
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>
