@@ -192,3 +192,17 @@ Three things this section owes back to the file above it.
 **A1 got sharper than `references.md` proposed, and the plate overruled the reference.** Axiom's 2px radius was carried into A1 at step 1. Plate J draws `0` on every interface element and keeps radius for physical objects only. Under the rule that the drawing wins over the caption, `0` stands. A1 is not amended, it is met more strictly than the reference met it.
 
 **One attribute is not yet proved on a screen.** A4, depth by tone rather than by blur, is carried on plate J by three grounds, `#11110f`, `#171714`, `#2a2418`, with no blur and no shadow anywhere in the console. Whether three tones are enough to separate a queue, a detail pane and a selected row **at 1440 in a real browser** is decided at step 6, not on a poster. If they are not, A4 is what changes.
+
+---
+
+## 8. Reconciled against the mockups, stage 07 step 1
+
+**The role of this file inverts here, and the rule does not.** Up to stage 06 the attributes judged the mockup. From here the mockup is the living truth and the reasoning is fitted to it. What does **not** change is that a mockup contradicting an **attribute**, rather than merely a taste or an anti-reference, is never absorbed in silence.
+
+`DESIGN.md` section 7 carries the divergence table in full. One row is open and it is the only one:
+
+**A3 says authority comes at weight 500 rather than bold, and nothing in the product is 500.** The code runs 600 in nineteen places and 700 in eight. The 700s sit on `.readout b`, the count inside the one heading a page is allowed, and on the strongest clauses of the shift brief. Stage 04 set both against the same two sources this attribute stands on.
+
+**Proposed: change the attribute, narrowly.** A3 keeps its rule and gains a ceiling: *600 is the working emphasis, and 700 is allowed on a counted value only.* Linear's technique then stops being quoted as a number and is quoted as what it is, a refusal to buy authority with weight. **The decision is the user's, and until it is made A3 stands as written and the code stands as built.**
+
+**Four attributes needed no row.** A1 is met more strictly than `references.md` proposed, radius `0` against Axiom's 2px. A2 is met and countable, four accent jobs and three severity levels. A4 is met with zero shadows and zero blurs in the interface. A5 is met in the mono family, in the severity ramp and in every count naming its window.

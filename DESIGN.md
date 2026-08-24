@@ -1,0 +1,176 @@
+# DESIGN.md: the product's visual language, read out of the code
+
+Formed at stage 07 step 1 from the **real code of the coloured screens** plus the draft in `DESIGN-artifacts.md`. It is not a plan and not a proposal: every value below is running on 32 pages right now, and where the code and the draft disagreed the code won and the disagreement is written down.
+
+**The chain.** `DESIGN-artifacts.md` (draft, 06) to **this file** (product, 07) to the two-level token split (08). **Every token carries its origin**, and the origin travels: at stage 08 it goes into the comment on the semantic role. A token without one is not entered.
+
+There is one product `DESIGN.md` and it is this file. There is no `design/docs/`.
+
+---
+
+## 1. Where the values actually live, and one of the three files is frozen
+
+The product is not running on one stylesheet. It is running on three, and saying so is the first thing this file owes.
+
+| File | What it provides | Status |
+|---|---|---|
+| `wireframes/_wf.css` | the type scale, the space scale, the structural values, and every component rule | **frozen at stage 05**, and all 32 coloured pages link it |
+| `design/_theme.css` | the twelve colour values, the two families, the radius, the tracking | stage 06, moves to `design/kit/kit.css` at step 3 by `git mv` |
+| `design/_screen.css` | the remap from the wireframe's names to the brand's, plus what the brand adds | stage 06 |
+
+**All 32 pages under `design/` carry `<link href="../wireframes/_wf.css">` and `<script src="../wireframes/_nav.js">`.** That is the coloured product depending on a folder that stage 05 froze. It is deliberate for now, because it is what makes the structural diff of every copy exactly zero, and it is the thing **the kit exists to end**: `design/kit/kit.css` absorbs what `_wf.css` provides, and step 5 re-points the sample screens at the kit. Until that happens this dependency is a fact of the product and not a detail, so it is stated here rather than discovered at step 6.
+
+---
+
+## 2. Colour
+
+Twelve values. Nine were taken as **pixels** out of `design/concept/assets/brand-plate-j.png` and checked against that plate's own stylesheet, which agreed at every role. Three were derived, and each says so.
+
+| Token | Value | Role | Origin |
+|---|---|---|---|
+| `--color-ground` | `#11110f` | the board, and the page behind everything | pixel of plate J, GROUND swatch |
+| `--color-surface` | `#171714` | panels inside the console, the raised band, the table head | pixel of plate J, detail pane |
+| `--color-surface-sel` | `#2a2418` | the row being ruled on | pixel of plate J, active row |
+| `--color-text` | `#e9e4da` | text, and the inverted fill of a chip that demands attention | pixel of plate J, TEXT swatch |
+| `--color-text-dim` | `#aaa397` | secondary text, meta, counts at rest | pixel of plate J, SECONDARY swatch |
+| `--color-rule` | `#675f50` | separators and panel edges. **Never a control boundary** | pixel of plate J, RULE swatch |
+| `--color-accent` | `#d29c3f` | latitude, the live state, where you are, the row being decided with its primary action | pixel of plate J, ACCENT swatch |
+| `--color-accent-ink` | `#18140e` | text on the accent | measured on plate J, the Accept button |
+| `--color-failure` | `#b25d44` | failure. **Borders and icons only** | pixel of plate J, FAILURE swatch |
+| `--color-sev-high` | `#d9704f` | severity, high | derived from the failure hue, user decision at 06 step 5 |
+| `--color-sev-medium` | `#9d9182` | severity, medium | derived, warm neutral |
+| `--color-sev-low` | `#828e96` | severity, low | derived, cool slate |
+| `--color-edge` | `#7b7260` | the boundary of a control: chip, button, `kbd` | derived, the rule's hue raised until it clears 3:1 |
+| `--color-hairline` | `#232219` | the line between rows | derived from the ground |
+
+### 2.1 The remap, which is how the grey wireframe became the product
+
+`_wf.css` is written entirely through variables, so colouring a copy is an assignment table rather than a rewrite. This is the whole return on the grey contract of stage 04.
+
+| The wireframe called it | It is now | Note |
+|---|---|---|
+| `--ink` | `--color-text` | |
+| `--soft` | `--color-text-dim` | |
+| `--hair` | `--color-hairline` | |
+| `--fill` | `--color-surface` | the selected row is overridden separately to `--color-surface-sel` |
+| `--paper` | `--color-ground` | |
+| `--bg` | `--color-ground` | |
+| `--ui` | `--font-sans` | |
+| `--mono` | `--font-mono` | |
+| `--radius` | `--radius-ui`, which is `0` | the wireframe's 2px was overruled by the plate |
+| `--line-ink` | `1px solid var(--color-rule)` | a border in the text colour is right on white and far too loud on the console ground |
+| `--focus` | `2px solid var(--color-accent)` | |
+
+### 2.2 Three rules colour has to obey, and none of them is a preference
+
+- **`--color-accent` does four jobs and no fifth**, counted in the DOM on the finished screen rather than asserted: latitude, the live state, where you are in the navigation, and the row being decided with its primary action.
+- **Severity is a closed ramp of three** and it descends in **chroma**, not in brightness, because on a dark ground every value has to clear 4.5:1 and that compresses the whole ramp into 4.6 to 6.5. Warm to cool, and **never green**: a low severity case is not a resolved one.
+- **Nothing is green anywhere**, including the six state chips, because they are positions and not outcomes.
+
+---
+
+## 3. Type
+
+Two families, chosen on a rendered comparison of four candidates each rather than on the name drawn on the plate.
+
+| Token | Value | Origin |
+|---|---|---|
+| `--font-sans` | `'Archivo', system-ui, sans-serif` | chosen for character. 11 per cent narrower prose than the runner-up on a 14 per cent shorter line box |
+| `--font-mono` | `'IBM Plex Mono', ui-monospace, monospace` | chosen for character. Reserved for anything **counted** |
+
+**The scale is the wireframe's and it is inherited, not re-derived.** It was set at stage 04 against design principle 5, density is the feature, and the coloured screens did not move it.
+
+| Token | Value | Where it is used | Origin |
+|---|---|---|---|
+| `--t-xs` | `11px` | column heads, chips, meta | stage 04, `wireframes/_wf.css` |
+| `--t-sm` | `12.5px` | dense data: rows, tables | stage 04 |
+| `--t-md` | `14px` | body, controls, **and the verdict in a row** | stage 04, and step 6 of stage 06 |
+| `--t-lg` | `17px` | screen title, pane title | stage 04 |
+| `--t-xl` | `21px` | the one heading a page is allowed | stage 04 |
+| `--lh` | `1.45` | | stage 04 |
+| `--lh-tight` | `1.25` | | stage 04 |
+
+**Tracking**, which the brand added:
+
+| Token | Value | Origin |
+|---|---|---|
+| `--track-display` | `-.038em` | rendered test: Archivo collides at the plate's `-.055em` |
+| `--track-mono` | `.06em` | measured on plate J, and a **halation constraint** rather than a preference |
+| `--track-wordmark` | `.16em` | measured on plate J, the HARRIER lockup |
+
+**Weight is where the code and an attribute disagree**, and the disagreement is in section 7 rather than smoothed here. The product runs 600 nineteen times and **700 eight times**; attribute A3 says authority comes at 500 rather than 700.
+
+---
+
+## 4. Space
+
+One scale, inherited from stage 04, used everywhere.
+
+`--s1 4px` · `--s2 8px` · `--s3 12px` · `--s4 16px` · `--s5 24px` · `--s6 32px` · `--s7 48px`
+
+Origin: stage 04, `wireframes/_wf.css`. Nothing at stage 06 or 07 has added a step or used a value off the scale.
+
+---
+
+## 5. Structure
+
+| Token | Value | Origin |
+|---|---|---|
+| `--radius-ui` | `0` | measured on plate J: every radius the plate draws is on a physical object |
+| `--radius-object` | `5px` | measured on plate J, printed and physical applications only |
+| `--z-top` | `56px` | stage 04, the Z1 top bar |
+| `--z-strip` | `26px` | stage 04, the Z2 connection strip |
+| `--pane` | `380px`, and `320px` below the breakpoint | stage 04, the Z5 detail pane |
+| `--row-tracks` | `90px 120px minmax(104px,1fr) minmax(120px,1.2fr) 72px 100px 40px` | stage 04. It collapses to `1fr` at 360 |
+| `--line` | `1px solid var(--color-hairline)` | separators |
+| `--line-ink` | `1px solid var(--color-rule)` | panel edges |
+| control boundary | `1px solid var(--color-edge)` | chip, button, `kbd`. WCAG 1.4.11 |
+| `--focus` | `2px solid var(--color-accent)`, offset 1px | |
+
+**There is no shadow and no blur anywhere in the interface.** Attribute A4, depth by tone rather than by blur. The only two `box-shadow` declarations in the product are `inset 3px 0` edge markers on a selected row, which draw a line rather than a depth. Every real shadow in the brand lives on the physical objects of the brandbook plate.
+
+---
+
+## 6. Contrast, computed rather than judged
+
+WCAG 2.1 relative luminance, against all three grounds: the board `#11110f`, a panel `#171714`, the selected row `#2a2418`.
+
+| Value | ground | surface | selected | Verdict |
+|---|---|---|---|---|
+| text | 14.920 | 14.177 | 12.151 | AAA |
+| text dim | 7.557 | 7.181 | 6.155 | AAA |
+| accent | 7.712 | 7.328 | 6.281 | AAA |
+| accent ink on the accent | | | 7.481 | AAA |
+| severity high | 5.744 | 5.458 | 4.678 | AA |
+| severity medium | 6.127 | 5.822 | 4.990 | AA |
+| severity low | 5.634 | 5.354 | 4.589 | AA |
+| **failure** | 4.089 | 3.885 | 3.330 | **below AA for text. Borders and icons only** |
+| edge | 3.977 | 3.779 | 3.239 | clears 1.4.11 for a control boundary |
+| **rule** | 2.997 | 2.848 | 2.441 | **below 3:1. Separators only, never a control** |
+| hairline | 1.183 | 1.124 | 1.038 | below every floor by design, carries no meaning |
+
+**`--color-rule` was recorded at stage 06 as sitting at "exactly 3.00", which was a rounded number reported as a threshold met.** It is 2.997. The value is a pixel of the plate and is not raised; instead 1.4.11 is read correctly, it covers what identifies a **control** and not a divider, and `--color-edge` was added for every boundary that does identify one.
+
+---
+
+## 7. Where the code and an attribute disagree
+
+The mockup is the living truth, so the reasoning is fitted to it. But a mockup that contradicts an **attribute**, rather than merely a taste or an anti-reference, is not absorbed in silence: it goes in this table with the line of `personas.md` the attribute stands on, and the decision belongs to the user.
+
+| Attribute | The line it stands on | What the code does | Proposal |
+|---|---|---|---|
+| **A3. Authority by restraint, not by emphasis.** Its licensed technique is Linear's headline at weight 500 rather than bold | `jtbd.md`, the social job, verbatim: *"When my verdict is read by the next shift or by a client, I want it to look like the work of someone who knew what they were doing, so that nobody has to redo it to be sure."* Plus `personas.md` P1, RIT: analysts with three or more years want the system to augment their speed rather than reiterate fundamentals | The product runs **600 in nineteen places and 700 in eight**. 700 carries `.readout b`, which is the count in the one heading a page is allowed, and the strongest clauses of the shift brief. Nothing anywhere is 500 | **Change the attribute, not the code, and change it narrowly.** 700 here sits on a **count**, which is A5 speaking rather than A3, and stage 04 set it against the same two sources. Proposal: A3 keeps its rule and names its ceiling, *600 is the working emphasis and 700 is allowed on a counted value only*. The Linear technique then stops being quoted as a weight and starts being quoted as what it actually is, a refusal to buy authority with weight. **User decides** |
+| **A1. Precise, not soft** | same | Met more strictly than the reference proposed: radius `0` everywhere, against the 2px `references.md` carried in from Axiom | none |
+| **A2. Saturation is spent on two closed sets** | same | Met, and counted in the DOM: four accent jobs, three severity levels | none |
+| **A4. Depth by tone, not by blur** | same | Met: three grounds, zero shadows and zero blurs in the interface | none |
+| **A5. Counted, not estimated** | same | Met: the mono family exists only for counted things, severity is a count of bars and a colour, every count names its window | none |
+
+---
+
+## 8. What this file does not contain
+
+No semantic role names and no two-level token split. Roles are only visible after components have stood on real screens, and naming them before the kit is built means renaming them twice and breaking the origin line on the first rename. That is stage 08.
+
+No component anatomy: that is `design/kit/inventory.md` and `design/kit/kit.css`, at step 3 of this stage.
+
+No light theme. It is a named debt, recorded in `CLAUDE.md` and in `docs/decisions.md`.
