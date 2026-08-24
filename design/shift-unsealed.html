@@ -182,13 +182,10 @@ a.bline:hover{background:var(--fill)}
 <script src="../wireframes/_nav.js"></script>
 <script>WF_SHELL({ current:'shift', strip:'live' });</script>
 <script>
-  /* the roadmap panel, not the stage panel: this page belongs to design/, which sits one
-     level down from the root. The wireframe registry above renders its own panel into
-     #sidebar first and the root registry overwrites it, which is the intended order. */
-  window.NAV_BASE = '../';
-  window.NAV_ACTIVE = 'design/concept/concept.html';
-  window.NAV_ACTIVE_LABEL = 'Shift brief, nobody sealed it, in colour';
+  /* the panel of this stage, in its own namespace. Not the roadmap: a screen of the product
+     is not a step of the process, and mixing them is what made the sidebar unreadable. */
+  window.DESIGN_NAV_BASE = '';
 </script>
-<script src="../_nav.js"></script>
+<script src="_nav.js"></script>
 </body>
 </html>

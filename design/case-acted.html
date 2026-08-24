@@ -173,13 +173,10 @@
 <script src="../wireframes/_nav.js"></script>
 <script>WF_SHELL({ current:'queue', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days','<span class=\"ovrd\">ACTED</span> 24m'] } });</script>
 <script>
-  /* the roadmap panel, not the stage panel: this page belongs to design/, which sits one
-     level down from the root. The wireframe registry above renders its own panel into
-     #sidebar first and the root registry overwrites it, which is the intended order. */
-  window.NAV_BASE = '../';
-  window.NAV_ACTIVE = 'design/concept/concept.html';
-  window.NAV_ACTIVE_LABEL = 'Case file, Clerk already acted, in colour';
+  /* the panel of this stage, in its own namespace. Not the roadmap: a screen of the product
+     is not a step of the process, and mixing them is what made the sidebar unreadable. */
+  window.DESIGN_NAV_BASE = '';
 </script>
-<script src="../_nav.js"></script>
+<script src="_nav.js"></script>
 </body>
 </html>

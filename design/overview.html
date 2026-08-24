@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; The product in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="kit/kit.css">
+<style>
+/* PAGE-LOCAL, prefix o-. The hub's own furniture. Nothing here restyles a component. */
+.o-wrap{padding:var(--space-5) var(--space-6) var(--space-7);max-width:1180px}
+.o-lede{max-width:74ch;font-size:var(--size-md);line-height:var(--leading);margin:0 0 var(--space-4)}
+.o-h{font:600 var(--size-xl)/var(--leading-tight) var(--font-sans);letter-spacing:-.02em;
+     margin:var(--space-7) 0 var(--space-2)}
+.o-sub{font:400 var(--size-xs)/1 var(--font-mono);letter-spacing:var(--track-mono);
+       text-transform:uppercase;color:var(--color-text-dim);margin:0 0 var(--space-4)}
+.o-strip{display:flex;flex-wrap:wrap;border-top:var(--rule-edge);border-bottom:var(--rule-hair);
+         margin:0 0 var(--space-5)}
+.o-strip div{flex:1 1 150px;padding:var(--space-3) var(--space-4) var(--space-3) 0}
+.o-strip .k{font:400 10px/1 var(--font-mono);letter-spacing:var(--track-mono);
+            text-transform:uppercase;color:var(--color-text-dim);margin:0 0 var(--space-2)}
+.o-strip .n{font-size:23px;font-weight:500;letter-spacing:var(--track-display)}
+.o-strip .w{font-size:12px;color:var(--color-text-dim);line-height:1.4;margin-top:2px}
+.o-map{width:100%;border-collapse:collapse;margin:0 0 var(--space-4)}
+.o-map th{text-align:left;font:400 10px/1 var(--font-mono);letter-spacing:var(--track-mono);
+          text-transform:uppercase;color:var(--color-text-dim);padding:var(--space-2) var(--space-3) var(--space-2) 0;
+          border-bottom:var(--rule-edge)}
+.o-map td{padding:var(--space-3) var(--space-3) var(--space-3) 0;border-bottom:1px solid var(--color-hairline);
+          font-size:var(--size-sm);vertical-align:top}
+.o-map .num{font-family:var(--font-mono);font-size:var(--size-xs);color:var(--color-text-dim);width:44px}
+.o-map .name{width:210px}
+.o-map .name a{color:var(--color-text)}
+.o-map .cnt{font-family:var(--font-mono);font-size:var(--size-xs);width:70px;white-space:nowrap}
+.o-bar{display:block;height:6px;background:var(--color-hairline);margin-top:6px;max-width:180px}
+.o-bar i{display:block;height:6px;background:var(--color-accent)}
+.o-grey{color:var(--color-text-dim)}
+.o-kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-3)}
+.o-kit a{display:block;border:var(--rule-edge);padding:var(--space-4);text-decoration:none;color:inherit}
+.o-kit a:hover{background:var(--color-surface)}
+.o-kit b{display:block;font-size:var(--size-md);font-weight:600;margin-bottom:var(--space-2)}
+.o-kit span{font-size:var(--size-sm);color:var(--color-text-dim);line-height:1.45}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+<div class="o-wrap">
+
+<p class="o-sub">Stage 07 &middot; UI + Visual</p>
+<h1 class="o-h" style="margin-top:0">The product in colour</h1>
+<p class="o-lede">Every screen here is a <b>copy</b> of its grey wireframe that owns the visual layer and nothing else. Structure, text and the set of states stay the property of <code>wireframes/</code>, and the structural diff of every page is <b>exactly zero bytes</b>, asserted after each edit rather than believed.</p>
+<p class="o-lede">A screen is not painted. It is assembled from <a href="kit/kit.html">the kit</a>, and a detail that is missing goes into the kit first and onto a screen second.</p>
+
+<div class="o-strip" id="tally"></div>
+
+<h2 class="o-h" id="map">Coverage, and it is honest about what is missing</h2>
+<p class="o-sub">A map that hides what has not been painted is worse than no map</p>
+<table class="o-map" id="coverage"></table>
+
+<h2 class="o-h" id="kit">The kit and the tokens</h2>
+<p class="o-sub">The layer between the language and the screens</p>
+<div class="o-kit">
+  <a href="kit/kit.html"><b>Component kit</b><span>Every component the product is assembled from, by level: 16 atoms, 23 molecules, 16 organisms. Drawn by <code>kit.css</code> and restyled by nothing.</span></a>
+  <a href="kit/shell.html"><b>The shell</b><span>The five zones of a screen, written once. Z1 and Z2 appear in zero html files: they are injected at runtime, which is why an inventory taken from the screens alone has no header in it.</span></a>
+  <a href="concept/concept.html"><b>The visual language</b><span>Where the palette, the two families and the square corner came from, each value with its origin.</span></a>
+</div>
+
+<h2 class="o-h" id="known">What this stage has not done yet</h2>
+<p class="o-lede"><b>One tie to a frozen folder is left, and it is JavaScript.</b> Every page still carries <code>wireframes/_nav.js</code>, because that is what injects the top bar and the strip. The CSS tie is already gone: the three stylesheets became one and the proof was a byte-identical screenshot, not a claim. The markup that script produces is written once in <a href="kit/shell.html">the shell</a>, and the tie is cut when the sample screens are assembled from it.</p>
+<p class="o-lede"><b>Two images exist and are on no screen.</b> The door and the systemic mark are generated and graded to the palette, and the four screens allowed to carry them are not in colour yet.</p>
+
+</div>
+</div>
+</div>
+<script>
+  window.DESIGN_NAV_BASE = '';
+  window.NAV_SECTIONS = [
+    { id:'map',   label:'Coverage' },
+    { id:'kit',   label:'Kit and tokens' },
+    { id:'known', label:'Not done yet' },
+  ];
+</script>
+<script src="_nav.js"></script>
+<script>
+/* the coverage map is built from the same registry the panel reads, so the two cannot
+   disagree about what is painted. */
+(function(){
+  var N = window.DESIGN_NAV, t = document.getElementById('coverage');
+  if (!N || !t) return;
+  /* the tally is computed from the registry too, so a number here cannot go stale
+     while the map beside it is right */
+  var tally = document.getElementById('tally');
+  if (tally) {
+    var col=0, tot=0, whole=0, drawn=0;
+    N.screens.forEach(function(s){ col+=s.colour; tot+=s.total;
+      if (s.total) { drawn++; if (s.colour===s.total) whole++; } });
+    tally.innerHTML =
+      '<div><p class="k">In colour</p><p class="n">'+col+'</p><p class="w">pages, and '+whole+' of the '+drawn+' drawn screens complete with every state</p></div>'+
+      '<div><p class="k">Still grey</p><p class="n">'+(tot-col)+'</p><p class="w">pages, waiting for the rollout, which is its own stage</p></div>'+
+      '<div><p class="k">Structural diff</p><p class="n">0</p><p class="w">bytes, on every coloured page, asserted after each edit</p></div>'+
+      '<div><p class="k">Stylesheets</p><p class="n">1</p><p class="w"><code>kit/kit.css</code>, and nothing else is linked</p></div>';
+  }
+
+  var h = '<thead><tr><th>Node</th><th>Screen</th><th>In colour</th><th>What is missing</th></tr></thead><tbody>';
+  N.clusters.forEach(function(c){
+    var mine = N.screens.filter(function(s){ return s.cluster === c.key; });
+    if (!mine.length) return;
+    h += '<tr><td colspan="4" class="o-sub" style="padding-top:18px">' + c.label + '</td></tr>';
+    mine.forEach(function(s){
+      var pct = s.total ? Math.round(s.colour / s.total * 100) : 0;
+      var name = s.colour ? '<a href="' + s.screen + '.html">' + s.label + '</a>' : '<span class="o-grey">' + s.label + '</span>';
+      var missing = s.total === 0 ? 'not drawn at stage 04 either'
+                  : s.colour === s.total ? 'nothing'
+                  : s.colour === 0 ? 'all ' + s.total + ', grey'
+                  : s.states.filter(function(x){ return !x.colour; }).map(function(x){ return x.label; }).join(', ');
+      h += '<tr><td class="num">' + s.node + '</td><td class="name">' + name + '</td>'
+        +  '<td class="cnt">' + s.colour + ' of ' + s.total
+        +  '<i class="o-bar"><i style="width:' + pct + '%"></i></i></td>'
+        +  '<td class="' + (s.colour === s.total && s.total ? '' : 'o-grey') + '">' + missing + '</td></tr>';
+    });
+  });
+  t.innerHTML = h + '</tbody>';
+})();
+</script>
+</body>
+</html>

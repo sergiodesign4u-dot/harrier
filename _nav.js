@@ -51,11 +51,7 @@ window.NAV = [
       { label:'Directions', page:'design/concept/directions.html', done:true  },
       { label:'Concept',    page:'design/concept/concept.html',    done:true  },
   ]},
-  { label:'UI + Visual', wip:true, children:[
-      { label:'Component kit', page:'design/kit/kit.html',   done:true  },
-      { label:'The shell',     page:'design/kit/shell.html', done:true  },
-      { label:'All screens',   page:'design/overview.html',  done:false },
-  ]},
+  { label:'UI + Visual',  page:'design/overview.html', wip:true, done:true },
   { label:'Tokens + Components', page:'design/kit/overview.html',    done:false },
   { label:'Design System',       page:'design/kit/why.html',    done:false },
   { label:'Responsive',          page:null, done:false },
