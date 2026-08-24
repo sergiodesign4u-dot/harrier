@@ -39,6 +39,9 @@
    Counted in the browser on the finished screen rather than asserted: the accent does
    four jobs, latitude on the fleet and on the case, the live state, where you are, and
    the row being decided together with its primary action.
+   The primary action is `Accept`, and it renders for the first time on the case file at
+   step 7. Left unmapped it inverts to the text colour, which made the loudest thing on
+   that screen a button rather than the evidence.
    `.chip--solid` was on this list on the first pass and was taken off it. The wireframe
    inverts that chip to make `unrecorded` the loudest thing on the screen, and inverting
    through the remap already does that with the text colour. Spending the accent on it as
@@ -48,6 +51,7 @@
 .z2 b{ color:var(--color-accent) }
 .row.is-selected{ background:var(--color-surface-sel); box-shadow:inset 3px 0 0 var(--color-accent) }
 .frow .rec{ color:var(--color-text) }
+.btn--primary{ background:var(--color-accent); color:var(--color-accent-ink); border-color:var(--color-accent) }
 .row .concluded .dim{ color:var(--color-accent) }   /* `above latitude here` IS latitude */
 
 /* ---- hover is tone, never accent: the pointer is not a decision ---- */

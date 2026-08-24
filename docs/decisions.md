@@ -507,3 +507,27 @@ Stage 04 built the pages from ten Python generators in `wireframes/docs/`, and t
 **The debt direction A left open at step 4 is paid.** Design principle 1 says every row is a decision and the verdict is the decision, and in direction A the verdict was set at the same size as everything else. It is now one step larger and at full text brightness while the description steps back to dim. **The tenant was deliberately not dimmed**, because that is the rule direction B was at risk of breaking, and buying principle 1 by breaking principle 4 would not be a fix.
 
 **A known limitation of a seed copy, recorded rather than discovered later.** Links inside the screen resolve relative to `design/`, so `case.html`, `shift.html` and the rest point at siblings that are not coloured yet. Fixing it would mean editing text in the copy, which would end the zero diff, or editing `wireframes/_nav.js`, which stage 05 froze. It stays as it is until stage 07 colours the rest.
+
+---
+
+## 2026-08-24 &middot; The language is proved by what the second screen cost
+
+**Decision.** The contrast screen is **4.1 Case File in the detail pane**, and **2.1 Shift brief** was coloured as well, because the cost of the third screen is the actual evidence that a language exists.
+
+**Why the case file and not the log.** The pack asks for the same card at a different density on a screen that contrasts with the reference. `5.1 Decision log` shares the queue's whole row anatomy, so it would have proved density and added nothing new. The case file does both at once: the queue is compressed into a narrower column, so the same row stands at a different density, and next to it is a prose surface the reference screen does not have, with what Clerk filed, what happened, nine evidence lines with their sources, and the four verdict actions.
+
+**Why the shift brief was added anyway.** It is the harder test and it was nearly free. It shares almost nothing with the queue: no severity, no bars, no fleet rows, a different block system, a handover table and a who-is-on panel. `screens.md` records it as the one page type in the whole bank with **no domain reference anywhere**, which makes it the screen most likely to expose a language that only works on a table.
+
+**The measure, and this is the finding rather than the prose around it.**
+
+| Screen | New CSS it needed |
+|---|---|
+| Case queue, the reference | the remap, nine assignments, plus what the brand adds |
+| Case file, the contrast | **one rule** |
+| Shift brief | **zero rules** |
+
+The one rule is `.btn--primary`. `_wf.css` inverts the primary action to the text colour, which is right on white and made the loudest thing on the case file a button rather than the evidence it is a verdict on. It takes the accent instead, which is the fourth of the accent's four jobs and the first time it renders anywhere.
+
+**All three carry a zero structural diff**, asserted byte for byte after every edit: 7566, 10441 and 8511 bytes between `<body>` and the first `<script>`, identical to the grey originals.
+
+**One thing the browser proved was not a regression, and it looked like one.** At 360 the case file's verdict bar wraps to two rows and overlays the text behind it. Measured in both files: `.pane-foot` is `position:sticky` at 89px in the grey wireframe and in the colour copy, with the buttons at the same offsets and within 2px of the same widths. It is the wireframe's own behaviour, so it is a stage 04 question rather than a colour defect, and it is left where it belongs.
