@@ -871,3 +871,17 @@ a.opt:hover{background:var(--color-surface)}
   --dialog-w:var(--width-dialog); --dialog-w-wide:var(--width-dialog-wide);
   --toast:var(--width-toast); --z6-clear:var(--zone-notice-clear);
 }
+
+/* ============================================================================
+   ICONS. Defined so the set exists and can be judged. NOT APPLIED TO A SINGLE
+   SCREEN: the product contains zero SVG today, it reads perfectly with none, and
+   design principle 5 puts density first, so adding them has to be argued rather
+   than assumed. Open row 2 of design/kit/proposed-variables.md.
+
+   24px grid, 1.5px stroke, square terminals to match a radius of zero, and
+   currentColor so an icon inherits the severity or the accent of whatever it
+   sits in rather than carrying a colour of its own.
+   ============================================================================ */
+.icon{width:20px;height:20px;display:inline-block;vertical-align:-4px;
+      fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter}
+.icon--sm{width:16px;height:16px;vertical-align:-3px}
