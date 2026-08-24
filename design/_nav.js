@@ -241,7 +241,39 @@ window.DESIGN_NAV = {
   if (!document.getElementById('d-panel-css')) {
     var st = document.createElement('style'); st.id = 'd-panel-css';
     st.textContent =
-      '#sidebar{padding:20px 14px;overflow-y:auto}' +
+      /* The panel was CUT rather than scrolled, in two different ways, and both are fixed here
+         because this panel is ours.
+         1. On overview and the kit there is no wireframe injector, so #sidebar had
+            `overflow-y:auto` and no height inside a stretched flex row: it took the height of
+            the row and clipped 577 to 628 pixels with no way to reach them.
+         2. On a screen, wireframes/_nav.js injects max-height:calc(100vh - 40px), and this
+            panel is longer than the wireframe's, so 832 pixels sat inside a scroll region
+            with no visible scrollbar. A scroll nobody can see reads as a crop.
+         Sticky to the top with the full viewport height, and a thin visible thumb. */
+      '#sidebar{position:sticky;top:0;max-height:100vh;overflow-y:auto;padding:20px 14px;' +
+        'scrollbar-width:thin;scrollbar-color:var(--color-rule) transparent}' +
+      '#sidebar::-webkit-scrollbar{width:7px}' +
+      '#sidebar::-webkit-scrollbar-thumb{background:var(--color-rule)}' +
+      '#sidebar::-webkit-scrollbar-track{background:transparent}' +
+      /* macOS hides overlay scrollbars until you scroll, so a scroll region with more content
+         below still READS as cropped, which is what was reported. These four layers are the
+         classic local/scroll background pair: the two `local` layers move with the content and
+         cover the hint at each end, the two `scroll` layers stay put, so a soft accent edge
+         appears at the top or the bottom only while there is more to reach. It costs no
+         markup and it is honest: it is present exactly when something is hidden. */
+      '#sidebar{background:' +
+        'linear-gradient(var(--color-ground),var(--color-ground)) 0 0/100% 16px no-repeat local,' +
+        'linear-gradient(var(--color-ground),var(--color-ground)) 0 100%/100% 16px no-repeat local,' +
+        'linear-gradient(color-mix(in srgb,var(--color-accent) 42%,transparent),transparent)' +
+          ' 0 0/100% 16px no-repeat scroll,' +
+        'linear-gradient(transparent,color-mix(in srgb,var(--color-accent) 42%,transparent))' +
+          ' 0 100%/100% 16px no-repeat scroll,' +
+        'var(--color-ground)}' +
+      /* On a phone the wireframe panel clamps itself to 120px, which is a usable strip for a
+         13 item stage list and not for a 62 page product. Here the list is the only way to
+         another screen, so it opens fully and the page scrolls past it. */
+      '@media (max-width:900px){#sidebar{position:static;max-height:none;overflow:visible;' +
+        'padding:14px 16px}}' +
       '.d-out{margin:0 0 14px}.d-out a{color:var(--color-text-dim);text-decoration:none;font-size:12.5px}' +
       '.d-out a:hover{color:var(--color-text)}' +
       '.d-badge{display:inline-block;font:400 10px/1 var(--font-mono);letter-spacing:.14em;' +
