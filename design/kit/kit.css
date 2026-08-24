@@ -106,8 +106,14 @@
   --focus-ring:   2px solid var(--color-accent);   /* was --focus */
 
   /* measures the stage needed and did not have. stage 04, section 12 of _wf.css */
-  --color-scrim:        rgba(22,24,26,.28); /* the dialog ground. See the open question in
-                                               design/kit/proposed-variables.md */
+  --color-scrim: color-mix(in srgb, var(--color-ground) 78%, transparent);
+                        /* the dialog ground. It was rgba(22,24,26,.28), which is stage 04's
+                           LIGHT-theme ink at 28 per cent: the one value in the product the
+                           remap could never see, because it was written as a literal rgba()
+                           rather than through a variable. It is now the product's own ground,
+                           so a dialog separates from the page instead of tinting it with a
+                           colour the interface does not otherwise contain.
+                           User decision at stage 07 step 4. Was row 1 of proposed-variables.md */
   --measure:            66ch;   /* a single column of prose */
   --width-sheet:        760px;  /* a case standing alone with no list beside it */
   --width-frame:        820px;  /* the framed record */
@@ -885,3 +891,47 @@ a.opt:hover{background:var(--color-surface)}
 .icon{width:20px;height:20px;display:inline-block;vertical-align:-4px;
       fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter}
 .icon--sm{width:16px;height:16px;vertical-align:-3px}
+
+
+/* ============================================================================
+   ICONS, APPLIED. User decision at step 4. Three places, and each one had to
+   earn its space rather than assume it, because design principle 5 puts density
+   first and the product read perfectly with none.
+
+   They are attached as CSS masks rather than markup, for a reason that is not
+   convenience: wireframes/ is frozen and every coloured page holds a structural
+   diff of exactly zero against its grey original. An <svg> element on a screen
+   would end that. A mask paints the glyph with `background:currentColor`, so the
+   icon still inherits the severity or the accent of whatever it sits in, which
+   is the whole point of the set.
+
+   Not applied, and the reasons are the argument rather than an omission:
+   the four verdict actions already carry a keyboard letter, so an icon would be
+   a third signal for one action; the six state chips are words that are already
+   the shortest form of themselves; severity is a count of bars and a colour and
+   does not need a third; and an icon on a banner or an empty state would be
+   decoration on a surface that exists to be read once and left.
+   ============================================================================ */
+
+/* 1. .src, 118 uses on 21 pages. The strongest case in the product: an evidence
+   line names its source, and nothing said the source OPENS somewhere else. */
+.src::after{content:"";display:inline-block;margin-left:5px;vertical-align:-1px;opacity:.75;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M10%2014L20%204%22%2F%3E%3Cpath%20d%3D%22M14%204h6v6%22%2F%3E%3Cpath%20d%3D%22M20%2013v7H4V4h7%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M10%2014L20%204%22%2F%3E%3Cpath%20d%3D%22M14%204h6v6%22%2F%3E%3Cpath%20d%3D%22M20%2013v7H4V4h7%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          background:currentColor;width:11px;height:11px}
+
+/* 2. .expand, 27 uses on 23 pages. Design principle 2 is `cheapest correct thing
+   first, depth one key away`, and depth had no mark on it at all. */
+.expand{position:relative}
+.expand::before{content:"";position:absolute;left:-11px;top:2px;color:var(--color-accent);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          background:currentColor;width:12px;height:12px}
+
+/* 3. .kmap in Z1. It rendered a literal question mark, which is the one glyph in
+   the shell that says nothing about what it opens. The accessible name is already
+   `Keyboard map`, so replacing the visible character loses nothing. */
+.z1 .kmap{font-size:0;line-height:0;padding:6px 8px}
+.z1 .kmap::before{content:"";display:block;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Crect%20x%3D%222%22%20y%3D%226%22%20width%3D%2220%22%20height%3D%2212%22%2F%3E%3Cpath%20d%3D%22M6%2010h1M10%2010h1M14%2010h1M18%2010h1M6%2014h12%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Crect%20x%3D%222%22%20y%3D%226%22%20width%3D%2220%22%20height%3D%2212%22%2F%3E%3Cpath%20d%3D%22M6%2010h1M10%2010h1M14%2010h1M18%2010h1M6%2014h12%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          background:currentColor;width:16px;height:16px}

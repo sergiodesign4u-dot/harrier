@@ -68,7 +68,9 @@ Generator: **Google Nano Banana 2 via Magnific**, 4k, aspect 3:2 for the door, 1
 
 **The product contains zero SVG across all 62 screens**, confirmed by grep and recorded in `design/kit/inventory.md` section 5. Two thirds of the content axis is therefore empty, and every icon added will be a decision with no wireframe behind it.
 
-The set is defined so that it exists and can be judged, and it is shown in `design/kit/kit.html`. **It is not applied to a single screen.** Design principle 5 puts density first, and the product reads perfectly today with none, so adding them has to be argued rather than assumed. The open row is 2 of `design/kit/proposed-variables.md`.
+**Adopted at step 4, and applied in exactly three places.** Sixteen glyphs are in `design/kit/kit.html`. Each application had to earn its space: `.src`, because an evidence line named its source and nothing said the source **opens** somewhere else; `.expand`, because design principle 2 is depth one key away and depth had no mark at all; and the keyboard affordance in Z1, which rendered a literal question mark. Everything else was argued down and the reasons are in row 2 of `design/kit/proposed-variables.md`.
+
+**They are attached as CSS masks rather than markup.** `wireframes/` is frozen and all 32 coloured pages hold a structural diff of exactly zero, which an `<svg>` element on a screen would end. `background:currentColor` on the mask keeps the inheritance, so a glyph still takes the severity or the accent of whatever it sits in.
 
 **The spec, if they are adopted:** one set for the whole product, Solar, **inline SVG rather than a CDN script**, 1.5px stroke on a 24px grid, square terminals to match a radius of zero, `currentColor` so an icon inherits the severity or accent of whatever it sits in, and never an icon alone where a word would fit.
 
@@ -80,7 +82,11 @@ Nothing is generated yet. Both prompts are ready and both cost credits, so the d
 
 | File | Prompt | Where it goes | 4k | 2k | Status |
 |---|---|---|---|---|---|
-| `door.jpg` | 4.1 | behind `.doorcard` on two screens | 150 | 75 | not generated |
-| `outage.jpg` | 4.2 | beside the text on two systemic states | 150 | 75 | not generated |
+| `door.png` | 4.1 | behind `.doorcard` on two screens | 150 | 75 | **generated**, 2528 by 1696 |
+| `outage.png` | 4.2 | beside the text on two systemic states | 150 | 75 | **generated**, 2048 square |
+
+**Both came back on brief on the first attempt, which is worth recording because it is the prompt being specific rather than luck.** The door is a night floor with two amber monitors as the only light and one faint amber trace where a person crossed the frame during the exposure: no face, no threat theatre, nothing readable on a screen. The mark is an amber square with one break in its top edge over a rule-coloured grid.
+
+**Neither is wired to a screen yet, and that is not an oversight.** `index.html`, `index-signed-out.html`, `unavailable.html` and `not-found.html` are not in `design/` until the sample is assembled at step 5. They are attached there, as background and as a fixed-size mark, never under text that has to be read.
 
 **2k is enough for both and the reason is not thrift.** The door image is a background behind an opaque card at a low opacity, and the outage mark is drawn at a small fixed size. A 4k plate for either would be paying for resolution that is thrown away on the way to the screen, and this project's own rule is that a fixture exists to make a decision, not to be impressive.
