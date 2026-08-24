@@ -91,9 +91,13 @@ Prefix by **kind** of value. Every value in `:root`, none in a class, an origin 
   --radius-object:       5px;     /* measured on plate j, physical applications only */
 
   /* tracking */
-  --track-display:       -.055em; /* measured on plate j, 82px display line */
+  --track-display:       -.038em; /* rendered test: Archivo collides at the plate's -.055em */
   --track-mono:          .06em;   /* measured on plate j, small data and labels */
   --track-wordmark:      .16em;   /* measured on plate j, HARRIER lockup */
+
+  /* families */
+  --font-sans:  'Archivo', system-ui, sans-serif;   /* chosen for character, see section 6 */
+  --font-mono:  'IBM Plex Mono', ui-monospace, monospace; /* chosen for character, see section 6 */
 }
 ```
 
@@ -136,21 +140,40 @@ WCAG 2.1 relative luminance, computed on the values in section 2.
 
 **Tracking** is in the `:root` block above. The one value worth naming out loud: **small monospace runs at `.06em`**, which is the third of the three halation constraints in `CLAUDE.md` and is therefore not a stylistic choice.
 
-**The type scale on the plate is a poster scale, not a UI scale.** The sheet is 2400 wide and the console drawn inside it is about 1510 wide standing in for 1440 and up. The sizes measured on it, 82 for the display line down through 15 for body and 9 for data, are the right **proportions** and the wrong absolute numbers. The UI scale is set at stage 06 step 6 on the real screen at 1440 and proved at 360, not here.
+**The type scale on the plate is a poster scale, not a UI scale.** The sheet is 2400 wide and the console drawn inside it is about 1510 wide standing in for 1440 and up. The sizes measured on it, 82 for the display line down through 15 for body and 9 for data, are the right **proportions** and the wrong absolute numbers. Section 6 carries this forward.
 
 ---
 
-## 6. Typography
+## 6. Typography, decided on a rendered comparison
 
-**The character is measured rather than inferred, and that is unusual.** On a generated plate a font name is drawn pixels and cannot be trusted, which is why the pack forbids copying it. This plate loads real Google Fonts and Chromium confirmed the computed families, so what the sheet establishes is a real rendering.
+**The character was measured rather than inferred.** On a generated plate a font name is drawn pixels and cannot be trusted, which is why the pack forbids copying it. Plate J loads real Google Fonts and Chromium confirmed the computed families, so the sheet establishes a real rendering. What it establishes:
 
-What the drawing establishes:
+- **display:** a geometric grotesque set at weight 500, tracked negative at large size, so a heading states rather than shouts. Origin `attribute A3`
+- **data:** a low contrast monospace legible at 8 to 9px with open tracking, carrying counts, chips, stage names and evidence lines. Origin `attribute A5`
+- **two families, not three.** The sans carries display and body. Monospace is reserved for anything counted
 
-- **display:** a geometric grotesque that survives `-.055em` at 82px without the counters closing, set at weight 500 so a heading states rather than shouts. Origin `attribute A3`
-- **data and labels:** a low contrast monospace legible down to 8px with open tracking, carrying counts, chips, stage names and evidence lines. Origin `attribute A5`
-- **two families, not three.** The display family also carries body prose. Monospace is reserved for anything counted
+**Adopted: `Archivo` for display and body, `IBM Plex Mono` for data.** Origin `chosen for character`. Four sans and four mono candidates were rendered side by side at the working sizes and measured in Chromium, `design/concept/screens/type-candidates.png` and `design/concept/screens/type-adopted.png`.
 
-**The two families are the open decision of this step.** Recorded as pending rather than assumed, because the face the plate happens to use is reflex-adjacent and that is exactly the thing this stage is supposed to catch.
+**Why Archivo and not Space Grotesk, which is what the plate draws.** Three measured reasons and one about taste.
+
+| Face | Same sentence at 15px | Default line box at 100px |
+|---|---|---|
+| **Archivo** | **737.6px** | **109px** |
+| Instrument Sans | 768.6px | 122px |
+| Chivo | 808.0px | 119px |
+| Space Grotesk | 819.5px | 127px |
+
+- **Archivo sets the same prose 11 per cent narrower and on a line box 14 per cent shorter.** In a detail pane 829px wide that is the difference between one line and two on a sentence the analyst reads forty times a shift. Origin `design principle 5, density is the feature`
+- **Archivo serves 200 to 700 and a variable weight axis with true italics**, confirmed by a live request to the Google Fonts API in this session. It also has a real condensed sibling if the fleet band ever needs one
+- **Space Grotesk is the face this category reaches for by reflex right now.** Section 2b of `concept.md` bans that class of choice, and the ban does not stop being true because the plate happens to be handsome
+
+**The cost is named rather than hidden.** Space Grotesk has personality in the `a`, the `y` and the `G` that Archivo does not. Giving it up means the brand's character is carried entirely by the accent economy, the square corner, the fleet drawing and the object language. **That is what plate J established, so the load is already carried.** Reversing this is one line in `:root`.
+
+**Why IBM Plex Mono and not DM Mono, which is what the plate draws.** Both set the same string at 9px to the same 255.4px, so this is not about width. **DM Mono stops at weight 500:** Chromium was asked for 600 and 700 and returned the 500 file both times. IBM Plex Mono serves 200 through 700. Design principle 1 says every row is a decision and one thing in it must win, and counts and chips live in the mono, so emphasis has to exist in that family. Martian Mono was measured and rejected on the same test: 294.1px against 255.4px, **15 per cent wider for the same string.**
+
+**One value changed because of the swap.** Archivo at the plate's `-.055em` **collides** at 82px, the `t`, `i` and `d` of `latitude` touching. Rendered at three values and settled at `-.038em`, which is tight and clean. The mono keeps `.06em`, which is not a preference: it is the third of the three halation constraints in `CLAUDE.md`.
+
+**What is still not decided here:** the absolute UI type scale. The sizes on the plate are poster sizes on a 2400px sheet. The scale is set at step 6 on the real screen at 1440 and proved at 360.
 
 ---
 
