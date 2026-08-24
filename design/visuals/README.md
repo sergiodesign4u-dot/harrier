@@ -82,11 +82,15 @@ Nothing is generated yet. Both prompts are ready and both cost credits, so the d
 
 | File | Prompt | Where it goes | 4k | 2k | Status |
 |---|---|---|---|---|---|
-| `door.png` | 4.1 | behind `.doorcard` on two screens | 150 | 75 | **generated**, 2528 by 1696 |
-| `outage.png` | 4.2 | beside the text on two systemic states | 150 | 75 | **generated**, 2048 square |
+| `door.jpg` | 4.1 | the ground behind the sign in card, 5 pages | 150 | 75 | **generated and wired**, 2048 wide |
+| `outage.png` | 4.2 | a 120px mark above the heading, 3 pages | 150 | 75 | **generated and wired**, 1024 square |
 
 **Both came back on brief on the first attempt, which is worth recording because it is the prompt being specific rather than luck.** The door is a night floor with two amber monitors as the only light and one faint amber trace where a person crossed the frame during the exposure: no face, no threat theatre, nothing readable on a screen. The mark is an amber square with one break in its top edge over a rule-coloured grid.
 
-**Neither is wired to a screen yet, and that is not an oversight.** `index.html`, `index-signed-out.html`, `unavailable.html` and `not-found.html` are not in `design/` until the sample is assembled at step 5. They are attached there, as background and as a fixed-size mark, never under text that has to be read.
+**Both are wired now, and neither is under text that has to be read.** The door is the ground of the whole screen column with the card fully opaque over it; the mark is a fixed 120px square above the heading, 84px below the breakpoint.
+
+**The rule that the page may not be brighter than the console was measured rather than trusted.** Mean luminance across the working area: the door at **18.67** against the console's **23.53** on a 0 to 255 scale. It is darker, and the first attempt was so dark the room was invisible, so it was lifted and measured again rather than judged by eye.
+
+**One thing the wiring taught.** The ground is attached with `:has()` to the screen column that contains the door, not to `.door` itself. `.door` is only as tall as its own content, and giving it `flex:1` to fill would change the layout of the copy against its grey original, which ends the zero diff. The column already fills the viewport, so nothing about the layout moves.
 
 **2k is enough for both and the reason is not thrift.** The door image is a background behind an opaque card at a low opacity, and the outage mark is drawn at a small fixed size. A 4k plate for either would be paying for resolution that is thrown away on the way to the screen, and this project's own rule is that a fixture exists to make a decision, not to be impressive.

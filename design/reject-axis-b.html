@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Reject, second axis required, in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="kit/kit.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+.axisb{display:flex;flex-direction:column;gap:var(--s2)}
+.axisb .locked{display:flex;gap:var(--s2);align-items:baseline;border:1px dashed var(--soft);
+               border-radius:var(--radius);padding:var(--s2) var(--s3);font-size:var(--t-sm);color:var(--soft)}
+.axisb .locked b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4" aria-labelledby="qh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip" type="button">All tenants &#9662;</button>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+
+      <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></h1>
+
+      <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Tenant</span>
+          <span role="columnheader">What it is</span>
+          <span role="columnheader">The verdict</span>
+          <span role="columnheader">To check</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">Age</span>
+        </div>
+        <a class="row" role="row" href="case-unrecorded.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Meridian Health</span>
+          <span role="gridcell">Mass file rename on one host</span>
+          <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
+          <span role="gridcell" class="cost">4 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="age" role="gridcell">1h</span>
+        </a>
+        <a class="row is-selected" role="row" href="reject.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Larkfield Logistics</span>
+          <span role="gridcell">Token replay from a new ASN</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">27m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">14 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">52m</span>
+        </a>
+        <a class="row" role="row" href="case-no-baseline.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Aubrey Dental Group</span>
+          <span role="gridcell">Sign in from an unseen device</span>
+          <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+          <span role="gridcell" class="cost">9 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">6m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+          <span class="client" role="gridcell">Halden Freight</span>
+          <span role="gridcell">Impossible travel, two offices</span>
+          <span class="concluded" role="gridcell"><b>Benign, sanctioned VPN rollout</b></span>
+          <span role="gridcell" class="cost">6 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">4m</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Halcyon Care</span>
+          <span role="gridcell">Beaconing to a new domain</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">5 signals</span>
+          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="age" role="gridcell">2h</span>
+        </a>
+        <a class="row" role="row" href="case.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+          <span class="client" role="gridcell">Bramber Retail</span>
+          <span role="gridcell">Mass mailbox rule creation</span>
+          <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
+          <span role="gridcell" class="cost">3 signals</span>
+          <span class="states" role="gridcell"></span>
+          <span class="age" role="gridcell">41m</span>
+        </a>
+      </div>
+
+      <p class="qfoot">
+        <span>7 of 18 shown, one selected</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span class="only-desk"><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span>order: unrecorded, waiting on you, severity, age</span>
+      </p>
+    </section>
+
+    <aside class="z5 is-paper" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
+        <p class="sub">Token replay from a new ASN &middot; High &middot; 9 signals &middot; 6 sources, 24h</p>
+      </div>
+      <div class="pane-body">
+        <div class="banner only-narrow"><b>Reject is a desk action.</b> It needs the reasons and the evidence in view at the same time, and neither fits here. <b>On a phone the exit is escalate</b>, and only escalate: a case you know to be benign cannot be closed from here either.</div>
+        <section class="block">
+          <h3>What Clerk filed</h3>
+          <p class="nar"><b>Real, and it proposes to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen, and an inbox rule was created from it.</p>
+        </section>
+        <section class="block">
+          <h3>What happened</h3>
+          <p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p>
+          <p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</p>
+          <p class="nar"><span class="when">04:13</span>Inbox rule created, forwarding to an external address.</p>
+        </section>
+        <section class="block">
+          <h3>Evidence, 9 signals</h3>
+          <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="expand">Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</div>
+          <div class="claim"><span class="txt">No MFA prompt on the second use</span><a class="src" href="case.html">Entra sign in</a></div>
+          <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
+          <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>
+          <div class="claim claim--against"><span class="txt"><span class="tag">points the other way</span>this user has travelled to this region twice in 90 days</span><a class="src" href="case.html">tenant baseline</a></div>
+          <p class="gnote"><a href="case-expired.html">Show 3 more signals</a></p>
+        </section>
+        <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
+        <section class="block">
+          <h3>Normal at this tenant</h3>
+          <p class="nar"><b>2 token replays</b> at Larkfield Logistics in 90 days, both real</p>
+        </section>
+        <section class="block">
+          <h3>What Clerk may do here, on this tenant</h3>
+          <div class="lat">
+            <div><span class="mark">yes</span><span>Investigate</span></div>
+            <div class="ceiling"><span class="mark">yes</span><span>Contain endpoint</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude, so it waited for you</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain network</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Remove content</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Change policy</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+          </div>
+          <p class="anote">Out of reach actions are shown disabled with the ceiling stated, not hidden. A hidden control teaches nothing.</p>
+        </section>
+        <p class="stamp">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary only-desk" href="queue-decided.html">Accept <span class="key">a</span></a>
+        <a class="btn btn--primary-narrow" href="escalate.html">Escalate <span class="key">e</span></a>
+      </div>
+    </aside>
+  <div class="scrim scrim--desk-only">
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh">
+      <header>
+        <h2 id="dh">Reject Clerk&rsquo;s verdict</h2>
+        <p class="sub">C-4417 &middot; Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b></p>
+      </header>
+      <div class="body">
+        <section class="block">
+          <h3>What Clerk got wrong</h3>
+          <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+            <a class="opt" href="reject-chosen.html"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+            <a class="opt is-chosen" href="reject-axis-b.html"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+            <a class="opt" href="reject-chosen.html"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
+            <a class="opt" href="reject-chosen.html"><span class="key">4</span><span class="lbl">Right answer, wrong scope</span><span class="routes">agent tuning</span></a>
+            <a class="opt" href="reject-chosen.html"><span class="key">5</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+            <a class="opt" href="reject-tenant-normal.html"><span class="key">6</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
+            <a class="opt" href="reject-other.html"><span class="key">7</span><span class="lbl">Other, and say why</span><span class="routes">nowhere yet, and counted</span></a>
+          </div>
+        </section>
+        <section class="block">
+          <h3>Where it goes</h3>
+          <div class="axisb">
+            <a class="opt" href="reject-chosen.html"><span class="key">1</span><span class="lbl">Detection is too broad</span><span class="routes">detection engineering</span></a>
+            <a class="opt" href="reject-chosen.html"><span class="key">2</span><span class="lbl">Tenant context missing</span><span class="routes">the tenant baseline</span></a>
+          </div>
+          <p class="anote">Two choices, not five. The other five reasons derive their answer, so this is the only place a second keystroke is asked for.</p>
+        </section>
+      </div>
+      <footer>        <span class="hint">Where it goes is required</span><span class="grow"></span><a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a><span class="btn" aria-disabled="true">File the rejection <span class="key">Enter</span></span></footer>
+    </section>
+  </div>
+  </main>
+</div>
+</div>
+<script src="../wireframes/_nav.js"></script>
+<script>WF_SHELL({ current:'queue', strip:'live', annun:{ lead:'LARKFIELD LOGISTICS', parts:['acts alone up to <b>contain endpoint</b>','<b>34 of 36</b> accepted, 30 days'] } });</script>
+<script>
+  /* the panel of this stage, in its own namespace. Not the roadmap: a screen of the product
+     is not a step of the process, and mixing them is what made the sidebar unreadable. */
+  window.DESIGN_NAV_BASE = '';
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

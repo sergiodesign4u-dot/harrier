@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Service unavailable, planned maintenance, in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="kit/kit.css">
+<style>
+/* INLINE: queue :: for reconcile into _wf.css
+   Only what is genuinely one-off for this screen family, every value through var().
+   The shell, the row, the chips and the fleet already live in _wf.css. */
+/* INLINE: unavailable :: for reconcile into _wf.css */
+/* 8.2 has no pane and no list. One column, centred, and the same block furniture as everywhere. */
+.z4--sys{border-right:none;overflow-y:auto;align-items:center}
+.outage{width:min(660px,100%);margin:var(--s5) auto var(--s7);padding:0 var(--s4);
+        display:flex;flex-direction:column;gap:var(--s4)}
+.outage h1{margin:0;font:600 var(--t-xl)/var(--lh-tight) var(--ui)}
+.outage h1 .sub{display:block;margin-top:var(--s2);font:400 var(--t-sm)/1.4 var(--mono);
+                color:var(--soft);overflow-wrap:anywhere}
+/* a fact and its label. Not a table: there are three of them and they read as sentences */
+.out-line{display:flex;gap:var(--s3);align-items:baseline;border-top:var(--line);padding-top:var(--s3)}
+.out-line .k{flex:0 0 128px;font:600 var(--t-xs)/1.4 var(--mono);letter-spacing:.08em;
+             text-transform:uppercase;color:var(--soft)}
+.out-line .v{flex:1 1 auto;min-width:0;font-size:var(--t-sm)}
+.out-line .v b{font-weight:700;font-size:var(--t-md)}
+.out-line .v .why{display:block;margin-top:var(--s1);color:var(--soft)}
+/* block 4, the one that makes the page useful. It is the only bordered thing here */
+.contact{border:var(--line-ink);border-radius:var(--radius);padding:var(--s3);
+         display:flex;flex-direction:column;gap:var(--s2)}
+.contact .who{font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
+.contact p{margin:0;font-size:var(--t-sm)}
+.contact .meta{color:var(--soft)}
+.out-act{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
+/* the reduced top bar. The console is what is down, so this is not the console's top bar */
+.z1--out .note{margin:0;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
+/* Section 6 of the node, in one property. On a desk she wants to understand; on a phone at
+   03:00 she wants a number, so the contact leaves its place in the reading order and goes
+   first. One live page narrowed, not a second file. DOM order is untouched, so the heading
+   structure and the tab order both stay as written. */
+@media (max-width:900px){
+  .outage{margin:var(--s4) auto var(--s6);gap:var(--s4)}
+  .out-contact{order:-1}
+  /* a 128px label column costs a third of a phone. The label goes above its value instead */
+  .out-line{flex-direction:column;gap:var(--s1)}
+  .out-line .k{flex:none}
+  /* the contact goes first, so it has to be SHORT first. What is trimmed is the reasoning
+     about who owns the disclosure decision, which is a desk reading and not a 03:00 one. */
+  /* The contact reads first here by choice, which put the only action a viewport and a half
+     down. So the action pins to the bottom edge, the same device the pane foot uses at 360.
+     Both things are then true at once: the number is what she reads, and the retry is always
+     under her thumb. Found by the browser pass at step 9. */
+  /* hand the scrollport back to the document, or the sticky below pins to this column
+     instead of to the viewport. Same defect the pane foot had, same cause. */
+  .z4--sys{overflow:visible}
+  .out-act{position:sticky;bottom:0;z-index:2;order:99;
+           margin:0 calc(var(--s4) * -1) calc(var(--s6) * -1);
+           padding:var(--s3) var(--s4);background:var(--paper);border-top:var(--line-ink)}
+  .out-act .btn{flex:1 1 auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+  <header class="z1 z1--out">
+    <span class="wordmark">Harrier</span>
+    <span class="spacer"></span>
+    <p class="note">This page is all that answered. The console is down to plan.</p>
+  </header>
+  <main class="z45">
+    <section class="z4 z4--sys">
+      <div class="outage">
+        <h1>Harrier is down for planned maintenance
+          <span class="sub">Published window 2026-08-22T02:00:00Z to 2026-08-22T04:00:00Z</span>
+        </h1>
+        <div class="banner"><b>No verdict can be filed inside the window.</b><span>Being on a calendar does not change that. Anything you decide before it closes goes to the duty line by voice, or it waits.</span></div>
+        <div class="out-line"><span class="k">What is down</span><span class="v"><b>The whole console, by plan.</b><span class="why">Every screen and every tenant, for the length of the published window. Nothing is broken.</span></span></div>
+        <div class="out-line"><span class="k">Started</span><span class="v"><b>On time.</b><span class="why"><b>How long it has been running does not change what you do.</b> The only number that does is the one below.</span></span></div>
+        <div class="out-line"><span class="k">Window closes</span><span class="v"><b>2026-08-22T04:00:00Z</b><span class="why">The provider&rsquo;s published window, not an estimate Harrier made. UTC, because you carry tenants in the United States and the EU and a local time makes two people disagree about when this ends.</span></span></div>
+        <div class="out-act">
+          <a class="btn btn--primary" href="queue.html">Try again</a>
+        </div>
+        <p class="anote"><b>Retry is a button, not a spinner.</b> A spinner at four minutes looks exactly like a spinner at four seconds, so it never says whether anything is being attempted. You press this, and it tells you what happened. The window can close early, and this is how you find out.</p>
+        <section class="block out-contact">
+          <h3>What to do instead</h3>
+          <div class="contact">
+            <span class="who">The service delivery duty line</span>
+            <p class="meta">The provider&rsquo;s declared fallback, and the same one an escalation reaches for when nobody is on the rota. The clients did not agree to the window.</p>
+            <p><b>The number is a value your provider declares.</b> Harrier does not carry one of its own, and a wrong number at 03:00 costs more than no number.</p>
+            <p>Tell them the console is not answering and for how long. The clients are still generating signal while this page is up.</p>
+          </div>
+          <p class="anote only-desk"><b>Shown here because you are signed in.</b> Whether it is shown to somebody who is not is a disclosure call for the provider rather than for us, and nobody has made it. The page is reachable either way, so the block either appears twice or it appears once, and that is the decision still outstanding.</p>
+        </section>
+        <p class="anote"><b>Whether maintenance is ever scheduled inside a shift is still open.</b> It is the provider&rsquo;s call rather than ours, and nobody has made it. If the answer turns out to be never, this state is furniture: an analyst would only ever meet it between shifts, and the page would be the unplanned one and the partial one and nothing else.</p>
+        <p class="anote"><b>No illustration, no apology paragraph and no status page link.</b> A status page that lives beside the thing which is down can be down with it, and a dead link at 03:00 costs a minute nobody has. What this page owes you is a name, a duration and somebody to call, and at 360 it hands them over in the other order.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+</div>
+<script src="../wireframes/_nav.js"></script>
+<script>
+  /* the panel of this stage, in its own namespace. Not the roadmap: a screen of the product
+     is not a step of the process, and mixing them is what made the sidebar unreadable. */
+  window.DESIGN_NAV_BASE = '';
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

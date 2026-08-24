@@ -40,14 +40,14 @@ window.DESIGN_NAV = {
         {slug:"write-failed", label:"Did not write, 4.9", colour:true},
         {slug:"unrecorded", label:"Held locally, 4.10", colour:true},
       ]},
-    { screen:"reject", node:"4.4", label:"Reject with a reason", cluster:"4", scope:"MVP", grey:true, colour:0, total:6,
+    { screen:"reject", node:"4.4", label:"Reject with a reason", cluster:"4", scope:"MVP", grey:true, colour:6, total:6,
       states:[
-        {slug:"", label:"Opened, nothing chosen", colour:false},
-        {slug:"chosen", label:"Reason chosen", colour:false},
-        {slug:"axis-b", label:"Second axis required", colour:false},
-        {slug:"tenant-normal", label:"Normal at this tenant", colour:false},
-        {slug:"other", label:"None of the six fits", colour:false},
-        {slug:"write-failed", label:"Did not write, 4.9", colour:false},
+        {slug:"", label:"Opened, nothing chosen", colour:true},
+        {slug:"chosen", label:"Reason chosen", colour:true},
+        {slug:"axis-b", label:"Second axis required", colour:true},
+        {slug:"tenant-normal", label:"Normal at this tenant", colour:true},
+        {slug:"other", label:"None of the six fits", colour:true},
+        {slug:"write-failed", label:"Did not write, 4.9", colour:true},
       ]},
     { screen:"escalate", node:"4.6", label:"Escalate", cluster:"4", scope:"MVP", grey:true, colour:0, total:4,
       states:[
@@ -64,13 +64,13 @@ window.DESIGN_NAV = {
         {slug:"selected", label:"Entry selected", colour:false},
         {slug:"snapshot-gone", label:"Snapshot gone, 5.5", colour:false},
       ]},
-    { screen:"entry", node:"5.4", label:"Log entry, ?as-of", cluster:"5", scope:"MVP", grey:true, colour:0, total:5,
+    { screen:"entry", node:"5.4", label:"Log entry, ?as-of", cluster:"5", scope:"MVP", grey:true, colour:5, total:5,
       states:[
-        {slug:"", label:"Full snapshot", colour:false},
-        {slug:"partial", label:"Partly gone", colour:false},
-        {slug:"gone", label:"Nothing survived, 5.5", colour:false},
-        {slug:"changed", label:"Live case changed", colour:false},
-        {slug:"beyond-retention", label:"Beyond retention", colour:false},
+        {slug:"", label:"Full snapshot", colour:true},
+        {slug:"partial", label:"Partly gone", colour:true},
+        {slug:"gone", label:"Nothing survived, 5.5", colour:true},
+        {slug:"changed", label:"Live case changed", colour:true},
+        {slug:"beyond-retention", label:"Beyond retention", colour:true},
       ]},
     { screen:"shift", node:"2.1", label:"Shift brief", cluster:"2", scope:"MVP", grey:true, colour:7, total:7,
       states:[
@@ -93,23 +93,23 @@ window.DESIGN_NAV = {
         {slug:"filed", label:"After filing", colour:true},
         {slug:"stale", label:"Connection stale", colour:true},
       ]},
-    { screen:"index", node:"1.1", label:"Sign in", cluster:"1", scope:"MVP", grey:true, colour:0, total:5,
+    { screen:"index", node:"1.1", label:"Sign in", cluster:"1", scope:"MVP", grey:true, colour:5, total:5,
       states:[
-        {slug:"", label:"Arrived on purpose", colour:false},
-        {slug:"deep-link", label:"Arrived by a deep link", colour:false},
-        {slug:"expired", label:"Session expired, 1.2", colour:false},
-        {slug:"signed-out", label:"Signed out deliberately", colour:false},
-        {slug:"idp-error", label:"Identity provider failed", colour:false},
+        {slug:"", label:"Arrived on purpose", colour:true},
+        {slug:"deep-link", label:"Arrived by a deep link", colour:true},
+        {slug:"expired", label:"Session expired, 1.2", colour:true},
+        {slug:"signed-out", label:"Signed out deliberately", colour:true},
+        {slug:"idp-error", label:"Identity provider failed", colour:true},
       ]},
     { screen:"not-found", node:"8.1", label:"Not found", cluster:"8", scope:"MVP", grey:true, colour:0, total:1,
       states:[
         {slug:"", label:"Default", colour:false},
       ]},
-    { screen:"unavailable", node:"8.2", label:"Service unavailable", cluster:"8", scope:"MVP", grey:true, colour:0, total:3,
+    { screen:"unavailable", node:"8.2", label:"Service unavailable", cluster:"8", scope:"MVP", grey:true, colour:3, total:3,
       states:[
-        {slug:"", label:"Unplanned", colour:false},
-        {slug:"planned", label:"Planned maintenance", colour:false},
-        {slug:"partial", label:"Part of it is down", colour:false},
+        {slug:"", label:"Unplanned", colour:true},
+        {slug:"planned", label:"Planned maintenance", colour:true},
+        {slug:"partial", label:"Part of it is down", colour:true},
       ]},
     { screen:"keyboard", node:"0.5", label:"Keyboard map", cluster:"0", scope:"MVP", grey:true, colour:0, total:1,
       states:[
@@ -251,7 +251,12 @@ window.DESIGN_NAV = {
      layout to protect, so the panel takes its natural height and the page scrolls past it,
      which is what every other documentation page in this project does. It was being
      clipped at 900px there for no reason at all, which is what was reported. */
-  var isScreen = !!document.querySelector('.z45');
+  /* The test was `.z45`, the split working area, and it was wrong: the door and the systemic
+     states are screens and have no split. A screen was then laid out as a document, so its
+     column took its own height instead of the viewport and the ground behind the door stopped
+     390px down. The document pages are the three this stage authored, and they are the ones
+     that declare their own wrapper, so that is what is asked. */
+  var isScreen = !document.querySelector('.k-wrap, .o-wrap');
 
   if (!document.getElementById('d-panel-css')) {
     var st = document.createElement('style'); st.id = 'd-panel-css';
