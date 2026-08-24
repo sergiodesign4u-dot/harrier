@@ -485,3 +485,25 @@ Stage 04 built the pages from ten Python generators in `wireframes/docs/`, and t
 **Contrast, computed against all three grounds including the selected row, which is the worst case:** 5.74 / 6.13 / 5.63 on the board, and 4.68 / 4.99 / 4.59 on the selected row. All above the AA floor for text, so the word can carry the colour and not only the bars.
 
 **These three are the only derived values in the palette.** Everything else was sampled as pixels off plate J. The plate drew no severity scale, so there was no pixel to take, and the exception is recorded in `DESIGN-artifacts.md` section 2 rather than hidden by giving them a plausible origin.
+
+---
+
+## 2026-08-24 &middot; The coloured copy is a remap, not a repaint
+
+**Decision.** `design/queue.html` is the coloured reference screen, and the whole of its colour is `design/_screen.css`, which is mostly a **remap of the wireframe's own variables** rather than a set of new rules.
+
+**Why that was possible, and it is the return on a decision made two stages earlier.** `wireframes/_wf.css` is written entirely through variables: `--ink`, `--soft`, `--hair`, `--fill`, `--paper`, `--bg`, `--radius`, `--ui`, `--mono`, `--line-ink`, `--focus`. Colouring the copy is therefore nine assignments plus a short list of things the brand adds. The grey contract was worth keeping for exactly this.
+
+**The structural diff is zero and it is asserted rather than believed.** Everything between `<body>` and the first `<script>` is byte for byte identical in the two files, 7566 bytes each, checked after every edit. What differs is three stylesheet links, the title, and the panel bootstrap.
+
+**Severity is selected on the drawing, not on a class.** The wireframe's markup has no severity level in it: a row carries three bars and some of them are lit. `:has()` reads the count, so the ramp lands without adding a single attribute to the copy. That is what keeps the diff at zero rather than merely small.
+
+**Three defects the browser found and a read would not have.**
+
+- **The project panel was invisible.** `_nav.css` was written for the documentation pages, which are light, so the panel rendered near-black text on the console ground. Remapped to three steps, all above the AA floor.
+- **The accent was doing five jobs, not three.** Counted in the DOM on the finished screen rather than asserted from the plate. The solid `unrecorded` chip had picked it up; inverting that chip through the remap already makes it the loudest thing on the screen, so the accent came off it. The honest list is four: latitude on the fleet and on the case, the live state, where you are, and the row being decided with its primary action. **The stand said three, which was true of a poster and false of a screen**, and the number was corrected in both files rather than defended.
+- **What the browser also proved was NOT a regression.** The fleet pane wraps `Meridian Health` onto two lines and the first row's chips wrap. Both do exactly the same thing in the grey wireframe, so they are the wireframe's, not the colour layer's, and they are left where they belong.
+
+**The debt direction A left open at step 4 is paid.** Design principle 1 says every row is a decision and the verdict is the decision, and in direction A the verdict was set at the same size as everything else. It is now one step larger and at full text brightness while the description steps back to dim. **The tenant was deliberately not dimmed**, because that is the rule direction B was at risk of breaking, and buying principle 1 by breaking principle 4 would not be a fix.
+
+**A known limitation of a seed copy, recorded rather than discovered later.** Links inside the screen resolve relative to `design/`, so `case.html`, `shift.html` and the rest point at siblings that are not coloured yet. Fixing it would mean editing text in the copy, which would end the zero diff, or editing `wireframes/_nav.js`, which stage 05 froze. It stays as it is until stage 07 colours the rest.
