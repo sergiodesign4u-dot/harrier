@@ -538,7 +538,13 @@ The one rule is `.btn--primary`. `_wf.css` inverts the primary action to the tex
 
 **Critique ran on two instruments.** Codex read-only took the classes an author cannot see, because an author looks at a page as a screen rather than as a difference: structural desync between a copy and its wireframe, `concept.html` against `DESIGN-artifacts.md`, the same component with different values in two places, a literal where a variable belongs, and contrast recomputed rather than trusted. The browser class, what breaks at 360, stayed here.
 
-**`/impeccable audit` did not run.** The plugin is not installed on this machine, checked in `~/.claude/plugins`. The pack's own fallback was used instead: its laws are written out in the step prompts and were applied by hand, which is the anti-slop pass, the colour strategy and the WCAG check. Naming this is the point. A law applied by hand and not said out loud is indistinguishable from a law that was skipped.
+**`/impeccable audit` did not run, and the reason I gave for it was wrong.**
+
+At the time I wrote that the plugin was not installed, having checked `~/.claude/plugins`. **It is installed**, as a user skill at `~/.claude/skills/impeccable`, version 4.0.4, `user-invocable: true`, with `audit`, `critique`, `document` and `extract` in its argument hint. It was verified working at the start of stage 07 by invoking it.
+
+**The check answered a different question from the one being asked.** The pack names it as a marketplace plugin, `pbakaus/impeccable`, so I looked where a plugin lives and reported the answer as though I had looked where the tool lives. One directory returning nothing was read as the tool being absent. **That is this project's own recurring failure, the third time: an instrument that was never pointed at the artefact, reporting clean.** It is the same shape as the grep that compared inline against inline at stage 04 and the formatter that printed 2.997 as 3.00 at stage 06.
+
+What was actually run in its place was the pack's fallback, its laws applied by hand: the anti-slop pass, the colour strategy and the WCAG check. Those findings stand on their own and are not withdrawn. **What is withdrawn is the claim that the tool was unavailable.** The audit is re-run at stage 07 and anything it finds in the stage 06 surfaces is recorded there.
 
 **Sixteen findings across five classes: three, six, three and four, with the structural class clean. Fourteen fixed, two accepted with the reason written down, and five separate literals judged legitimate and said why.** The count here was written before the tally and said seventeen; it is corrected rather than left, which is the same discipline the 2.997 finding is about. Two were worth the pass on their own.
 
