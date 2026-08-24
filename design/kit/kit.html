@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Component kit</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* PAGE-LOCAL, prefix k-. The showcase furniture only. Every component below is drawn by
+   kit.css and nothing on this page restyles one: a page that restyles a component is the
+   drift this file exists to prevent. */
+.k-wrap{padding:var(--space-5) var(--space-6) var(--space-7);max-width:1180px}
+.k-lede{max-width:74ch;font-size:var(--size-md);line-height:var(--leading);margin:0 0 var(--space-5)}
+.k-h{font:600 var(--size-xl)/var(--leading-tight) var(--font-sans);letter-spacing:-.02em;
+     margin:var(--space-7) 0 var(--space-2)}
+.k-h:first-of-type{margin-top:var(--space-4)}
+.k-sub{font:400 var(--size-xs)/1 var(--font-mono);letter-spacing:var(--track-mono);
+       text-transform:uppercase;color:var(--color-text-dim);margin:0 0 var(--space-4)}
+.k-item{border-top:var(--rule-edge);padding:var(--space-4) 0 var(--space-5)}
+.k-name{font:400 var(--size-xs)/1 var(--font-mono);letter-spacing:var(--track-mono);
+        color:var(--color-accent);margin:0 0 var(--space-1)}
+.k-note{font-size:var(--size-sm);color:var(--color-text-dim);margin:0 0 var(--space-3);max-width:74ch}
+.k-demo{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.k-demo--stack{display:block}
+.k-demo--stack > * + *{margin-top:var(--space-3)}
+.k-panel{background:var(--color-surface);border:var(--rule-edge);padding:var(--space-3);min-width:320px}
+.k-sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--space-2)}
+.k-sw div{border:var(--rule-edge)}
+.k-sw i{display:block;height:44px}
+.k-sw b,.k-sw small{display:block;font:400 9px/1.4 var(--font-mono);letter-spacing:var(--track-mono);
+     padding:0 var(--space-2)}
+.k-sw b{padding-top:var(--space-2);color:var(--color-text)}
+.k-sw small{padding-bottom:var(--space-2);color:var(--color-text-dim)}
+.k-scale div{display:flex;align-items:baseline;gap:var(--space-4);padding:var(--space-1) 0}
+.k-scale code{font:400 9px/1 var(--font-mono);letter-spacing:var(--track-mono);
+     color:var(--color-text-dim);min-width:120px}
+</style>
+</head>
+<body>
+<div class="wf-shell">
+<aside id="sidebar"></aside>
+<div class="wf-screen">
+<div class="k-wrap">
+
+<p class="k-sub">Stage 07 &middot; the kit</p>
+<h1 class="k-h" style="margin-top:0">Component kit</h1>
+<p class="k-lede">Everything the product is assembled from, drawn by <code>kit.css</code> and by nothing else. A screen is not painted, it is <b>built out of these classes</b>. A detail that is missing goes into the kit first and onto a screen second, and a fix made on one screen is a desync rather than a fix.</p>
+<p class="k-lede">The census that decided what is here, and the level of each thing, is <code>inventory.md</code>. What the extract wanted and was not allowed to decide is <code>proposed-variables.md</code>.</p>
+
+<!-- ============================ TOKENS ============================ -->
+<h2 class="k-h" id="tokens">Tokens</h2>
+<p class="k-sub">One flat <code>:root</code>. Semantic roles are stage 08, not this stage</p>
+
+<div class="k-item">
+  <p class="k-name">colour</p>
+  <p class="k-note">Nine taken as pixels off plate J, three derived for severity, two derived for the two jobs a rule does. Origin on every one of them in <code>kit.css</code>.</p>
+  <div class="k-sw">
+    <div><i style="background:var(--color-ground)"></i><b>--color-ground</b><small>#11110f</small></div>
+    <div><i style="background:var(--color-surface)"></i><b>--color-surface</b><small>#171714</small></div>
+    <div><i style="background:var(--color-surface-sel)"></i><b>--color-surface-sel</b><small>#2a2418</small></div>
+    <div><i style="background:var(--color-text)"></i><b>--color-text</b><small>#e9e4da</small></div>
+    <div><i style="background:var(--color-text-dim)"></i><b>--color-text-dim</b><small>#aaa397</small></div>
+    <div><i style="background:var(--color-rule)"></i><b>--color-rule</b><small>#675f50 &middot; separators</small></div>
+    <div><i style="background:var(--color-edge)"></i><b>--color-edge</b><small>#7b7260 &middot; controls</small></div>
+    <div><i style="background:var(--color-hairline)"></i><b>--color-hairline</b><small>#232219</small></div>
+    <div><i style="background:var(--color-accent)"></i><b>--color-accent</b><small>#d29c3f</small></div>
+    <div><i style="background:var(--color-failure)"></i><b>--color-failure</b><small>#b25d44 &middot; no small text</small></div>
+    <div><i style="background:var(--color-sev-high)"></i><b>--color-sev-high</b><small>#d9704f</small></div>
+    <div><i style="background:var(--color-sev-medium)"></i><b>--color-sev-medium</b><small>#9d9182</small></div>
+    <div><i style="background:var(--color-sev-low)"></i><b>--color-sev-low</b><small>#828e96</small></div>
+  </div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">type</p>
+  <p class="k-note">Two families. Archivo carries display and body, IBM Plex Mono is reserved for anything <b>counted</b>. The scale is stage 04's and was not re-derived: small and short on purpose, because density is the feature.</p>
+  <div class="k-scale">
+    <div><code>--size-xl 21px</code><span style="font-size:var(--size-xl);font-weight:500;letter-spacing:var(--track-display)">18 waiting across 12 of 40 tenants</span></div>
+    <div><code>--size-lg 17px</code><span style="font-size:var(--size-lg);font-weight:600">Fleet</span></div>
+    <div><code>--size-md 14px</code><span style="font-size:var(--size-md)">Clerk proposes compromised identity</span></div>
+    <div><code>--size-sm 12.5px</code><span style="font-size:var(--size-sm)">Token replay from a new ASN</span></div>
+    <div><code>--size-xs 11px</code><span class="mono" style="font-size:var(--size-xs)">34 OF 36 ACCEPTED, 30 DAYS</span></div>
+  </div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">rules, and which one a component takes is a WCAG decision</p>
+  <p class="k-note"><code>--rule-hair</code> separates rows and carries no meaning, so it sits below every floor deliberately. <code>--rule-edge</code> draws panel edges at 2.997, which is under 3:1 and allowed because 1.4.11 covers controls, not dividers. <code>--rule-control</code> is the boundary that identifies a control and clears 3:1.</p>
+  <div class="k-demo--stack">
+    <div style="border-top:var(--rule-hair);padding-top:6px"><span class="mono dim" style="font-size:9px">--rule-hair &middot; 1.18</span></div>
+    <div style="border-top:var(--rule-edge);padding-top:6px"><span class="mono dim" style="font-size:9px">--rule-edge &middot; 2.997</span></div>
+    <div style="border-top:var(--rule-control);padding-top:6px"><span class="mono dim" style="font-size:9px">--rule-control &middot; 3.24 worst case</span></div>
+  </div>
+</div>
+
+<!-- ============================ ATOMS ============================ -->
+<h2 class="k-h" id="atoms">Atoms</h2>
+<p class="k-sub">Sixteen. They contain nothing else from the kit</p>
+
+<div class="k-item">
+  <p class="k-name">.btn &middot; 157 uses, 57 pages</p>
+  <p class="k-note"><b>Emphasis is the axis, and there is exactly one filled control per zone.</b> Size is not a variant: it comes from the container. Out of reach is shown disabled rather than hidden, because a hidden control teaches nothing.</p>
+  <div class="k-demo">
+    <a class="btn btn--primary" href="#">Accept <kbd class="key">a</kbd></a>
+    <a class="btn" href="#">Amend <kbd class="key">m</kbd></a>
+    <a class="btn" href="#">Reject <kbd class="key">r</kbd></a>
+    <a class="btn btn--quiet" href="#">Hold it locally</a>
+    <span class="btn" aria-disabled="true">Contain network</span>
+  </div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">.chip &middot; 316 uses, 44 pages</p>
+  <p class="k-note">Three interactive forms and one that is not. <code>.chip--state</code> has <code>cursor:default</code>: it is a <b>position</b>, not an action, and the set of six is closed. <b>Nothing in it is green</b>, because none of them is an outcome.</p>
+  <div class="k-demo">
+    <button class="chip" type="button">All tenants &#9662;</button>
+    <button class="chip" type="button">Waiting on a decision &times;</button>
+    <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+    <i class="chip chip--state">unrecorded</i>
+    <i class="chip chip--state">taken</i>
+    <i class="chip chip--state">escalated</i>
+    <i class="chip chip--state">decided</i>
+    <i class="chip chip--state">acted</i>
+    <i class="chip chip--state">investigating</i>
+    <i class="chip chip--state chip--solid">unrecorded</i>
+  </div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">.bars &middot; severity, 225 uses, 34 pages</p>
+  <p class="k-note">A count of lit bars <b>and</b> a colour. The ramp descends in chroma rather than in brightness, because on a dark ground every value has to clear 4.5:1 and loudness cannot carry a ramp. Warm to cool and never to green: a low severity case is not a resolved one.</p>
+  <div class="k-demo">
+    <span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+    <span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+    <span class="sev"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+  </div>
+  <p class="k-note" style="margin-top:12px">The colour is selected on the <b>drawing</b>, not on a class: the markup carries three bars and some are lit, and <code>:has()</code> reads the count. That is what let the whole ramp land on 32 screens without adding one attribute to any of them.</p>
+</div>
+
+<div class="k-item">
+  <p class="k-name">form primitives &middot; in the kit at a single occurrence</p>
+  <p class="k-note">A form control enters at one use rather than two: it is a primitive of interaction and a system without it is incomplete. <b>Checkbox, radio and toggle do not exist in this product at all</b>, and that is an open decision in <code>proposed-variables.md</code>.</p>
+  <div class="k-panel">
+    <div class="field">
+      <label for="k-a">Recipient</label>
+      <input id="k-a" type="email" value="s.varga@harrier.example">
+      <span class="hint">The SOC lead who takes escalations on this rota</span>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label for="k-b">Why you are rejecting</label>
+      <textarea id="k-b" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ MOLECULES ============================ -->
+<h2 class="k-h" id="molecules">Molecules</h2>
+<p class="k-sub">Twenty three. They contain atoms</p>
+
+<div class="k-item">
+  <p class="k-name">.row &middot; 294 uses, 39 pages</p>
+  <p class="k-note">The heaviest thing in the product. <b>Every row is a decision, not a record</b>, so the verdict is one step larger and at full brightness while the description steps back. The tenant is deliberately not dimmed: buying principle 1 by breaking principle 4 is not a fix.</p>
+  <div class="rows" style="border:var(--rule-edge)">
+    <div class="row row--head"><span>Sev</span><span>Tenant</span><span>What it is</span><span>The verdict</span><span>To check</span><span>State</span><span>Age</span></div>
+    <a class="row is-selected" href="#"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span><span class="client">Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="concluded"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span><span class="cost">9 signals</span><span class="states"></span><span class="age">27m</span></a>
+    <a class="row" href="#"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span><span class="client">Meridian Health</span><span>Mass file rename on one host</span><span class="concluded"><b>Rejected by R. Idrissi</b></span><span class="cost">4 signals</span><span class="states"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span><span class="age">1h</span></a>
+    <a class="row" href="#"><span class="sev"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span><span class="client">Bramber Retail</span><span>Mass mailbox rule creation</span><span class="concluded"><b>Benign, new admin onboarding</b></span><span class="cost">3 signals</span><span class="states"></span><span class="age">41m</span></a>
+  </div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">.frow &middot; the fleet row, 88 uses, 16 pages</p>
+  <p class="k-note">Where the only surviving differentiator lives. A count first, the window named, and never a bare percentage. The latitude column is the accent's first job.</p>
+  <div style="border:var(--rule-edge);max-width:420px">
+    <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
+    <a class="frow" href="#"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
+    <a class="frow" href="#"><span>Aubrey Dental Group</span><span>Investigate</span><span class="rec">&ndash;<span class="was">no rulings yet</span></span></a>
+  </div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">.banner &middot; 54 uses, 44 pages</p>
+  <div class="k-demo--stack">
+    <p class="banner"><b>Clerk is not investigating</b> since 11m. The connection is fine, so the queue is complete. <span class="act"><a class="btn btn--quiet" href="#">Open the log</a></span></p>
+    <p class="banner banner--quiet">Nothing has arrived for 6m. Decide on what is here, it is marked as of the last sync.</p>
+  </div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">.optlist / .opt &middot; the radio pattern with no radio in it</p>
+  <p class="k-note">A single choice, built from links with a keyboard letter. It works, and it is not a radio. The kit owes a decision rather than an implementation, and it is row 3 of <code>proposed-variables.md</code>.</p>
+  <div class="optlist" style="max-width:520px">
+    <a class="opt is-chosen" href="#"><kbd class="key">2</kbd><span class="lbl">Benign, called a threat<br><span class="dim">asks one more question of the tenant baseline</span></span><span class="routes">tuning</span></a>
+    <a class="opt" href="#"><kbd class="key">3</kbd><span class="lbl">Right answer, wrong reasoning<br><span class="dim">agrees with the verdict and not with the evidence</span></span><span class="routes">tuning</span></a>
+  </div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">.empty and .tomb &middot; the states that must not read as a blank</p>
+  <div class="k-demo--stack">
+    <div class="empty" style="border:var(--rule-edge)"><b>Nothing is waiting on you</b>Eighteen cases closed this shift, and Clerk is still investigating three.</div>
+    <p class="tomb"><b>The snapshot is gone.</b> It fell out of the 90 day window on 12 August, and the ruling above still stands.</p>
+  </div>
+</div>
+
+<!-- ============================ ORGANISMS ============================ -->
+<h2 class="k-h" id="organisms">Organisms</h2>
+<p class="k-sub">Sixteen. They contain molecules, or they are the shell of a screen. This is the ceiling</p>
+
+<div class="k-item">
+  <p class="k-name">the shell &middot; .wf-shell, .wf-screen, .z1, .z2, .z45, .z4, .z5, .z6</p>
+  <p class="k-note"><b>Z1 and Z2 appear in zero html files.</b> They are injected at runtime, which is why an inventory taken from the screens alone has no header in it and does not notice. The markup they produce is written once in <a href="shell.html">shell.html</a>, and that is the file a screen copy takes.</p>
+  <p class="k-note">The pane at rest holds the <b>fleet</b>, and that is the decision that gives per-tenant latitude zero taps. Its empty state must read as <i>this is the fleet</i>, never as <i>this is empty</i>.</p>
+  <div class="k-demo"><a class="btn" href="shell.html">Open the shell</a><a class="btn btn--quiet" href="../queue.html">Open a real screen</a></div>
+</div>
+
+<div class="k-item">
+  <p class="k-name">.dialog + .scrim &middot; 11 uses, 11 pages</p>
+  <p class="k-note">The one overlay the product has, and it may never cover the evidence a verdict is being made on. <code>--color-scrim</code> is the single value in the whole system that was never remapped for the dark ground, because it was written as a literal <code>rgba()</code> that the remap could not see. It is row 1 of <code>proposed-variables.md</code> and it is still at its old value.</p>
+</div>
+
+</div>
+</div>
+</div>
+<script>
+  window.NAV_BASE = '../../';
+  window.NAV_ACTIVE = 'design/kit/kit.html';
+    window.NAV_SECTIONS = [
+    { id:'tokens', label:'Tokens' },
+    { id:'atoms', label:'Atoms' },
+    { id:'molecules', label:'Molecules' },
+    { id:'organisms', label:'Organisms' },
+  ];
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

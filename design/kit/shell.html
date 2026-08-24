@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; The shell every screen is built on</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="kit.css">
+</head>
+<!--
+  shell.html :: the markup of a screen, and the only place it is written.
+
+  A screen is not drawn. It is ASSEMBLED: this shell, plus classes from kit.css,
+  plus the screen's own content. Nothing on a screen carries a style of its own,
+  and a detail that is missing goes into the kit first, then onto the screen.
+
+  The five zones are node 0.1 of the IA and they are the same on every
+  authenticated screen:
+
+    Z1  the top bar        wordmark, the three sections, the annunciator, the analyst
+    Z2  the strip          live / arriving / reconnecting / stale / clerk down
+    Z4  the working column the queue, the log, the brief, a form
+    Z5  the detail pane    the case file, and the FLEET when nothing is selected
+    Z6  the notices        a stack, and only when there is something to say
+
+  Z1 and Z2 are still rendered by wireframes/_nav.js at the moment, which is the
+  last thing tying design/ to a folder stage 05 froze. The CSS tie is already gone:
+  every page under design/ now links kit.css and nothing else. The JS tie is cut at
+  step 5, when the sample screens are assembled from this file.
+-->
+<body>
+<div class="wf-shell">
+
+  <!-- the project panel. Chrome, not product. It reads --nav-w from _nav.css -->
+  <aside id="sidebar"></aside>
+
+  <div class="wf-screen">
+
+    <!-- Z1. Injected today; the markup it produces is this -->
+    <header class="z1">
+      <span class="wordmark">Harrier</span>
+      <nav aria-label="Sections">
+        <a href="queue.html" aria-current="page">Queue</a>
+        <a href="shift.html">Shift</a>
+        <a href="log.html">Log</a>
+      </nav>
+      <span class="spacer"></span>
+      <a class="kmap" href="keyboard.html" title="Keyboard map" aria-label="Keyboard map">?</a>
+      <p class="annun" aria-label="Clerk&rsquo;s latitude across the fleet">
+        <b>FLEET</b>
+        <span class="sep">|</span><span class="part">40 tenants</span>
+        <span class="sep">|</span><span class="part">acts alone up to <b>contain network</b> at 3</span>
+        <span class="sep">|</span><span class="part"><b>1</b> moved down</span>
+      </p>
+      <span class="mono dim" style="font-size:var(--t-xs)">R. Idrissi</span>
+    </header>
+
+    <!-- Z2. One of five states, never invented on the page -->
+    <p class="z2"><b>Live</b> last case 4s <span class="sep">&middot;</span> Clerk investigating 3</p>
+
+    <main class="z45">
+
+      <!-- Z4. The working column -->
+      <section class="z4" aria-labelledby="qh">
+        <div class="scopebar" role="group" aria-label="Scope and filters">
+          <a class="chip" href="#">All tenants &#9662;</a>
+          <button class="chip" type="button">Waiting on a decision &times;</button>
+          <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+        </div>
+
+        <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></h1>
+
+        <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
+          <div class="row row--head" role="row">
+            <span role="columnheader">Sev</span>
+            <span role="columnheader">Tenant</span>
+            <span role="columnheader">What it is</span>
+            <span role="columnheader">The verdict</span>
+            <span role="columnheader">To check</span>
+            <span role="columnheader">State</span>
+            <span role="columnheader">Age</span>
+          </div>
+          <a class="row is-selected" role="row" href="#">
+            <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+            <span class="client" role="gridcell">Larkfield Logistics</span>
+            <span role="gridcell">Token replay from a new ASN</span>
+            <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
+            <span role="gridcell" class="cost">9 signals</span>
+            <span class="states" role="gridcell"><i class="chip chip--state">taken</i></span>
+            <span class="age" role="gridcell">27m</span>
+          </a>
+        </div>
+
+        <p class="qfoot">
+          <span>7 of 18 shown</span>
+          <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+          <span class="only-desk"><kbd>Enter</kbd> decides, focus moves into the pane</span>
+          <span>order: unrecorded, waiting on you, severity, age</span>
+        </p>
+      </section>
+
+      <!-- Z5. The detail pane. At rest it holds the FLEET, and that is what gives
+           per-tenant latitude zero taps. Its empty state must read as "this is the
+           fleet", never as "this is empty" -->
+      <aside class="z5" aria-labelledby="fh">
+        <div class="pane-head">
+          <h2 id="fh">Fleet</h2>
+          <p class="sub">40 tenants, nothing selected. Ordered by where attention is owed</p>
+        </div>
+        <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
+        <a class="frow" href="#"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
+        <p class="fleet-more">33 more, 30 day window &middot; a row narrows the queue to that tenant</p>
+      </aside>
+
+    </main>
+  </div>
+</div>
+
+<!-- The panel. NAV_BASE is '../../' from design/kit/, '../' from a screen in design/ -->
+<script>
+  window.NAV_BASE = '../../';
+  window.NAV_ACTIVE = 'design/kit/kit.html';
+  window.NAV_ACTIVE_LABEL = 'The shell';
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

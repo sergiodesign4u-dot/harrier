@@ -12,13 +12,17 @@ There is one product `DESIGN.md` and it is this file. There is no `design/docs/`
 
 The product is not running on one stylesheet. It is running on three, and saying so is the first thing this file owes.
 
+**Since step 3 there is one, and this section used to say three.**
+
 | File | What it provides | Status |
 |---|---|---|
-| `wireframes/_wf.css` | the type scale, the space scale, the structural values, and every component rule | **frozen at stage 05**, and all 32 coloured pages link it |
-| `design/_theme.css` | the twelve colour values, the two families, the radius, the tracking | stage 06, moves to `design/kit/kit.css` at step 3 by `git mv` |
-| `design/_screen.css` | the remap from the wireframe's names to the brand's, plus what the brand adds | stage 06 |
+| `design/kit/kit.css` | **everything**: the values, the absorbed stage 04 scales, every component rule, and what the brand adds | the single source |
 
-**All 32 pages under `design/` carry `<link href="../wireframes/_wf.css">` and `<script src="../wireframes/_nav.js">`.** That is the coloured product depending on a folder that stage 05 froze. It is deliberate for now, because it is what makes the structural diff of every copy exactly zero, and it is the thing **the kit exists to end**: `design/kit/kit.css` absorbs what `_wf.css` provides, and step 5 re-points the sample screens at the kit. Until that happens this dependency is a fact of the product and not a detail, so it is stated here rather than discovered at step 6.
+Three files became one. `design/_theme.css` arrived by `git mv`, its `:root` byte for byte identical and verified as such. `wireframes/_wf.css` was absorbed: its component rules were lifted and every value routed through the kit's variables, not one value changed. `design/_screen.css` was folded in and deleted from the tree.
+
+**All 32 coloured pages now link `kit/kit.css` and nothing else.** The CSS dependency on a folder stage 05 froze is gone, and it was proved rather than declared: the three seed screens were rendered on the old chain and on the kit alone and the screenshots are **byte for byte identical at 1440 and at 360**.
+
+**One tie is left and it is JavaScript, not CSS.** Every page still carries `<script src="../wireframes/_nav.js">`, because that is what injects Z1 and Z2. The markup it produces is now written once in `design/kit/shell.html`, and the tie is cut at step 5 when the sample screens are assembled from it.
 
 ---
 

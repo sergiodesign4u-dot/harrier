@@ -3,7 +3,7 @@
    cannot drift: a component copied into a second page is where drift starts, and stages
    07 and 08 would inherit it silently.
 
-   VALUES come from ../_theme.css and nowhere else. Nothing here invents a colour, a radius
+   VALUES come from .../kit/kit.css and nowhere else. Nothing here invents a colour, a radius
    or a tracking value. Direction A is the composition chosen at step 4; directions B and C
    stay local to directions.html because they were not chosen.
 
@@ -32,7 +32,7 @@
    A prefix does not protect against an element selector, so the product sheet has to UNSET
    the property rather than merely set its own. Found in a browser: the queue footer was
    clamped to 444px, which is exactly 74ch of the mono at 10px, and the pane heading rendered
-   in the documentation accent instead of a colour from _theme.css. */
+   in the documentation accent instead of a colour from kit.css. */
 .dr-s p{max-width:none;margin:0}
 .dr-s h1,.dr-s h2,.dr-s h3{color:var(--color-text);font-family:var(--font-sans);margin:0}
 
