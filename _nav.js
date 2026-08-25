@@ -77,7 +77,7 @@ window.NAV = [
      rather than at the hub, because the hub is the UI + Visual item and two roadmap
      items on one page break the active highlight. */
   { label:'Rollout',             page:'design/index.html', done:true },
-  { label:'Handoff',             page:null, done:false },
+  { label:'Handoff',             page:'handoff/handoff.html', done:true, wip:true },
 ];
 
 (function () {

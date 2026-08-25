@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harrier &middot; Handoff</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="../research/_page.css">
+<style>
+/* PAGE-LOCAL, prefix ho-. Nothing here reuses a bare class name of research/_page.css:
+   that sheet owns .note, .q, .node, .lede, .tw and .s1 to .s5, and a page-local rule
+   wearing one of those names silently restyles every page that links the sheet. */
+.ho-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:0 0 30px}
+.ho-links a{display:block;background:var(--panel);border:1px solid var(--accent);border-radius:6px;
+            padding:18px 20px;text-decoration:none;color:var(--fg)}
+.ho-links a:hover{background:var(--accent-soft)}
+.ho-links b{display:block;font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+            color:var(--accent);margin:0 0 9px}
+.ho-links span{display:block;font-size:14px;line-height:1.5;color:var(--muted)}
+.ho-links code{background:none;padding:0;font-size:12.5px;color:var(--faint);word-break:break-all}
+.ho-edge{border:1px solid var(--flag);background:var(--flag-soft);border-radius:6px;padding:18px 22px;margin:0 0 22px}
+.ho-edge .ho-lbl{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+                 color:var(--flag);display:block;margin-bottom:10px}
+.ho-edge p{margin:0 0 10px}
+.ho-edge p:last-child{margin:0}
+.ho-lbl{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
+.ho-said{border-left:2px solid var(--accent);padding:2px 0 2px 18px;margin:0 0 22px}
+.ho-said p{margin:0 0 10px}
+.ho-said p:last-child{margin:0}
+.ho-prompt{background:#16181a;color:#e8e6e1;border-radius:6px;padding:22px 24px;margin:0 0 18px;
+           font:400 13px/1.62 var(--mono);white-space:pre-wrap;overflow-x:auto}
+.ho-prompt b{color:#f0c674;font-weight:600}
+@media (max-width:760px){.ho-prompt{font-size:12px;padding:16px 15px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<main>
+
+<p class="eyebrow">Stage 13 &middot; Handoff</p>
+<h1>Take it from here</h1>
+<p class="lede">One link instead of a conversation. Below is what the product is, where every part of it lives, how it behaves, what it is assembled from, what accessibility it already carries, and the prompt you paste to add the next feature.</p>
+
+<dl class="facts">
+  <div><dt>Screens in colour</dt><dd><b>62</b> pages across 13 screens</dd></div>
+  <div><dt>The system</dt><dd><b>75</b> components, 4 patterns, 2 token levels</dd></div>
+  <div><dt>Flows specified</dt><dd><b>4</b> of 4, every step with a source</dd></div>
+  <div><dt>Questions this page closes</dt><dd><b>24</b> from readers who had never seen it</dd></div>
+</dl>
+
+<section id="product">
+<h2>What this is</h2>
+<p class="h2sub">One sentence, and the rest of the page assumes it</p>
+<div class="ho-said">
+  <p><b>Harrier is an adjudication console for analysts at managed detection and response providers.</b> One analyst carries forty or more client tenants. An AI agent named Clerk collects the signals, correlates them into a case, runs the first pass of the investigation and files a written verdict with its evidence. The human job is to rule on it: accept, amend or reject, in seconds, with the evidence in view and the override always one key away.</p>
+  <p>The one thing that distinguishes it: <b>the fleet of earned trust, made readable where the analyst works.</b> Every client's current latitude and accuracy trend legible at a glance in the operator console, at the resting state of the right hand pane, rather than on a configuration page.</p>
+</div>
+<p>The person it is built for is <b>Rasha Idrissi</b>, a Tier 2 analyst four years into operations, who arrives distrusting AI tooling. Every trust mechanism in the product argues with that rather than assuming it away. She is described in <a href="../research/personas.html">personas</a>, and where two decisions conflict, hers wins.</p>
+</section>
+
+<section id="links">
+<h2>Three links</h2>
+<p class="h2sub">The repository, the product, the system</p>
+<div class="ho-links">
+  <a href="https://github.com/sergiodesign4u-dot/harrier"><b>The repository</b><span>Everything, including the process that produced it.</span><code>github.com/sergiodesign4u-dot/harrier</code></a>
+  <a href="../design/index.html"><b>The product, live</b><span>The console in colour. Every screen, every state, clickable.</span><code>design/index.html</code></a>
+  <a href="../design/kit/overview.html"><b>The design system, live</b><span>Every component and every foundation, painted by the same stylesheet the product links.</span><code>design/kit/overview.html</code></a>
+</div>
+</section>
+
+<section id="edge">
+<h2>The edge of the package</h2>
+<p class="h2sub">Three things to know before you open anything, because the opposite is the natural assumption</p>
+<div class="ho-edge">
+  <span class="ho-lbl">Read this first</span>
+  <p><b>This is a fully assembled clickable product, not an application.</b> There is no data layer, no API, no router and no state. Every screen is a static document showing canonical fixture data: seven tenants and one canonical case, held identical across every surface that draws them.</p>
+  <p><b>States live in separate files, not behind a switch.</b> A screen with eight states is eight files, named <code>&lt;screen&gt;-&lt;state&gt;.html</code>. That is why there are 62 files for 13 screens, and it is deliberate: a state you can link to is a state that can be reviewed.</p>
+  <p><b>What was planned differently is in the backlog</b>, with a reason and an owner on every row. See <a href="#left">what is deliberately not done</a>.</p>
+</div>
+</section>
+
+<section id="route">
+<h2>The route through the repository</h2>
+<p class="h2sub">Which folder, what is in it, who reads it</p>
+<div class="tw"><table>
+<thead><tr><th>Folder</th><th>What is in it</th><th>Who opens it</th></tr></thead>
+<tbody>
+<tr><td><code>design/</code></td><td><b>The product in colour.</b> 62 pages, every state of every screen. Not one of them contains a line of CSS: no <code>style</code> block, no <code>@media</code>, no <code>transition</code>, no colour value, and no class the system does not declare</td><td>Everyone. This is the product</td></tr>
+<tr><td><code>design/system/</code></td><td><b>The code of the design system</b>, and it lifts out whole: two token levels, 75 component files, 4 patterns, one entry point at <code>index.css</code></td><td>Anyone changing how anything looks</td></tr>
+<tr><td><code>design/kit/</code></td><td><b>The stand that shows the system.</b> A page per component with five blocks each, the foundations, the rules of use and the eleven prohibitions</td><td>Anyone assembling a screen</td></tr>
+<tr><td><code>design/kit/responsive.html</code></td><td><b>How it behaves at any width.</b> One breakpoint, in <code>rem</code>, and the ladder that decides when a breakpoint is even allowed</td><td>The first question a developer asks</td></tr>
+<tr><td><code>design/kit/motion.html</code></td><td><b>How it moves</b>, with the actual numbers rather than "about two hundred milliseconds". One duration for response, one period for status, and what happens under reduced motion</td><td>The second question</td></tr>
+<tr><td><code>design/kit/checks/</code></td><td><b>Nineteen instruments.</b> Every prohibition in this project is also a function that measures it in a browser, because a rule that lives only in prose is a rule nobody runs</td><td>Anyone before claiming their work is finished</td></tr>
+<tr><td><code>handoff/docs/</code></td><td><b>The four documents this page leads to:</b> behaviour, the map, accessibility, and the prompt for adding a feature</td><td>You, today</td></tr>
+<tr><td><code>voice/</code></td><td><b>The text of the product</b> and the rules for writing a sentence that does not exist yet</td><td>Anyone adding a screen</td></tr>
+<tr><td><code>ia/</code></td><td><b>The structure.</b> A specification per node with its state matrix, keyboard model, addressing and permissions. This is what a screen has to satisfy</td><td>Before drawing anything new</td></tr>
+<tr><td><code>research/</code>, <code>design/concept/</code></td><td><b>Where it came from.</b> The market, the people, the jobs, and why the visual language is this one</td><td>When a decision looks arbitrary</td></tr>
+<tr><td><code>docs/decisions.md</code></td><td><b>Why, for everything.</b> Half of every "why did they do that" is already answered here</td><td>You in a year</td></tr>
+<tr><td><code>wireframes/</code></td><td><b>History of the process, frozen since stage 05, and not a source of truth.</b> The same 62 pages in grey. They exist so the colour could be proved a remap rather than a repaint, and they are the frozen witness. Do not edit them and do not read a behaviour out of them: the coloured screen is the product</td><td>Nobody, day to day</td></tr>
+</tbody>
+</table></div>
+<p class="note">Two rename maps, and they are in one file under two headings, which is worth knowing before you go looking: <code>design/kit/docs/inventory.md</code> section 10 carries the stage 08 map, and the later renames, <code>nf</code> to <code>miss</code> among them, are in section 8.</p>
+</section>
+
+<section id="theme">
+<h2>Which theme is the real one</h2>
+<p class="h2sub">Dark, and the light one is proof rather than a feature</p>
+<p><b>The console ground is dark and that is what ships.</b> <code>:root</code> carries it. The light theme exists as <code>[data-theme="light"]</code>, it is complete, every role is paired into it, and <b>it is not a feature of the product</b>: the only switch that reaches it is in the panel of the documentation stand.</p>
+<p>It is there for two reasons. It is the proof that the semantic level really can be overridden independently, which is the whole argument for having a semantic level. And it is a named debt: a light theme is wanted and has not been decided on.</p>
+<p class="note">The consequence for you is one line: <b>a colour role is written twice, in the same edit</b>, and the two values are not the same primitive. Contrast is computed against the opposite ground, so the light side takes a different step of the ramp. A role written once loses its focus ring in the other theme, and nothing but reading the two lines side by side finds it.</p>
+</section>
+
+<section id="behaviour">
+<h2>How it behaves</h2>
+<p class="h2sub">The part you cannot see by looking</p>
+<p>The screens show you what things look like. They cannot show you when the error appears, what counts as valid, what stands in the pane when nothing is selected, or where success goes. That is <a href="docs/behaviour.md"><b>handoff/docs/behaviour.md</b></a>, and it covers all four flows: rule on the case, pick up and hand off a shift, answer for a decision months later, and get in and arrive where the link pointed.</p>
+<p><b>Every row in it names its source</b>, and the source is one of three: the file of the screen, the flow diagram, or the specification of the IA node. A behaviour with no source is not written there at all. It goes into a list called NOT SETTLED and waits for a person, because behaviour is exactly where a plausible invention is indistinguishable from a decision.</p>
+<p class="note">Two rows are in that list today and neither blocks anything built. They are named on the page rather than resolved by guess.</p>
+</section>
+
+<section id="map">
+<h2>What every screen is assembled from</h2>
+<p class="h2sub">And what moves if you touch a token</p>
+<p><a href="docs/map.md"><b>handoff/docs/map.md</b></a> goes both ways. Downward: screen, zone, component, the tokens that component reads, where its text is addressed. Upward, and this is the half you will actually open: <b>for every token, every screen it stands on.</b></p>
+<p>The upward list is an inversion of the downward table rather than a second pass over the code, because two editions of the same data drift apart and the one that drifts first is the one nobody opens. It resolves in <b>two knees</b>, component to semantic role to primitive, because a component reads colour only through a role and a direct search would put the entire primitive level in the dead list.</p>
+<p class="note">It was taken by opening all 62 screens in a browser and walking the rendered DOM, not by matching patterns in the files. Two of the components on every screen are rendered by javascript and appear in no markup at all, and the zone of a component is its ancestry rather than its spelling.</p>
+</section>
+
+<section id="a11y">
+<h2>Accessibility</h2>
+<p class="h2sub">Already built, and here is how to check it yourself</p>
+<p><a href="docs/a11y.md"><b>handoff/docs/a11y.md</b></a> lists every point, where it lives in the code, <b>a command or an action that verifies it in under a minute</b>, and a status with exactly two values. A point with no way to test it is not on the list: it would look like finished work and would not be.</p>
+<p><b>Confirmed means run at this stage, not remembered from an earlier one.</b> Contrast, a real keyboard walk in both themes, browser zoom at 200% and the reader's own font size at 200%, and computed style under reduced motion, all across the whole product.</p>
+<p>It ends with one real failure, found by an instrument written for this checklist on its first full run: <b>the focus ring on the record rail measures below the non text threshold in the shipped dark theme.</b> It is not fixed here. The handoff documents the product, and changing a state token after the product was accepted would void every measurement that acceptance stood on. It is a row in the backlog with a named owner.</p>
+</section>
+
+<section id="feature">
+<h2>How to add a feature</h2>
+<p class="h2sub">The prompt, ready to paste</p>
+<p>Section filled by step 7.</p>
+</section>
+
+<section id="decides">
+<h2>Who decides</h2>
+<p class="h2sub">Because two open lists in this package are addressed to a person</p>
+<p>Both open lists in this package, the NOT SETTLED rows in the behaviour specification and the debts in the accessibility checklist, are addressed to <b>the owner of the product</b>, which in this repository is its author. A row on either list is a question, not a defect, and answering it by reasonable inference is exactly the failure both lists exist to prevent.</p>
+<p><b>If there is no owner to ask</b>, the rule is the one this whole project runs on: write the question down where the work is, ship the rest, and say out loud what you assumed. An assumption that is stated can be corrected. An assumption that is implemented cannot be found.</p>
+</section>
+
+<section id="left">
+<h2>What is deliberately not done</h2>
+<p class="h2sub">So that a decision does not read as a hole</p>
+<p><a href="../design/kit/docs/backlog.md"><b>design/kit/docs/backlog.md</b></a> holds every one, with what is missing, where it is visible, why it was deferred and who closes it. An entry with no owner is a wish rather than a backlog item, so there are none.</p>
+<p>What is in it: neither webfont is loaded, which is the one item that costs money and a request; a field has no error state, which is a voice decision before it is a visual one; twenty three collapsible blocks that need twenty three summary sentences nobody has written; and the two debts this stage added.</p>
+<p><b>And six nodes have no screen at all</b>, deliberately: clusters 6 and 7, which are the client summary and the autonomy grants, plus permission denied. They carry a record in the registry with a count of zero, so the coverage map renders them as work not done rather than hiding them. Only one of the six has a written specification, and that is what made it the exam of this stage.</p>
+</section>
+
+<section id="was">
+<h2>Was unclear, became</h2>
+<p class="h2sub">Section filled by step 8</p>
+<p>Section filled by step 8.</p>
+</section>
+
+</main>
+</div>
+<script>
+  window.NAV_BASE = '../';
+  window.NAV_SECTIONS = [
+    { id:'product',   label:'What this is' },
+    { id:'links',     label:'Three links' },
+    { id:'edge',      label:'The edge of the package' },
+    { id:'route',     label:'The route through the repo' },
+    { id:'theme',     label:'Which theme is real' },
+    { id:'behaviour', label:'How it behaves' },
+    { id:'map',       label:'What it is assembled from' },
+    { id:'a11y',      label:'Accessibility' },
+    { id:'feature',   label:'How to add a feature' },
+    { id:'decides',   label:'Who decides' },
+    { id:'left',      label:'Deliberately not done' },
+    { id:'was',       label:'Was unclear, became' },
+  ];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

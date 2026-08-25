@@ -1,29 +1,74 @@
 # Harrier
 
-Adjudication console for analysts at managed detection and response providers. One analyst carries 40 or more client tenants. An AI agent named Clerk assembles cases and files a draft verdict; the human rules on it.
+Adjudication console for analysts at managed detection and response providers. One analyst carries 40 or more client tenants. An AI agent named Clerk collects the signals, correlates them into a case, runs the first pass of the investigation and files a written verdict; the human rules on it, in seconds, with the evidence in view.
 
-Built as a design engineering case study. Rules of the project live in `CLAUDE.md`, the decision log lives in `docs/decisions.md`.
+Built as a design engineering case study: thirteen stages from market research to a handed over product, each one leaving an artefact you can open.
 
-**Live: https://sergiodesign4u-dot.github.io/harrier/**
-Stage 01: https://sergiodesign4u-dot.github.io/harrier/research/research.html
-Stage 02: https://sergiodesign4u-dot.github.io/harrier/research/personas.html and https://sergiodesign4u-dot.github.io/harrier/research/jtbd.html
-Stage 03a: https://sergiodesign4u-dot.github.io/harrier/ia/flows.html and https://sergiodesign4u-dot.github.io/harrier/ia/concept-map.html
-Stage 03b: https://sergiodesign4u-dot.github.io/harrier/ia/sitemap.html and https://sergiodesign4u-dot.github.io/harrier/ia/structure.html
-Stage 06: https://sergiodesign4u-dot.github.io/harrier/design/concept/concept.html
-Stage 07: https://sergiodesign4u-dot.github.io/harrier/design/overview.html and https://sergiodesign4u-dot.github.io/harrier/design/kit/kit.html
-Stage 08: https://sergiodesign4u-dot.github.io/harrier/design/kit/overview.html
-Stage 09: https://sergiodesign4u-dot.github.io/harrier/design/kit/why.html and https://sergiodesign4u-dot.github.io/harrier/design/kit/patterns.html
-Stage 10: https://sergiodesign4u-dot.github.io/harrier/design/kit/responsive.html
-Stage 11: https://sergiodesign4u-dot.github.io/harrier/design/kit/motion.html
+## Three links
 
-## The design system
+| | |
+|---|---|
+| **The repository** | https://github.com/sergiodesign4u-dot/harrier |
+| **The product, live** | https://sergiodesign4u-dot.github.io/harrier/design/index.html |
+| **The design system, live** | https://sergiodesign4u-dot.github.io/harrier/design/kit/overview.html |
 
-The system is a package that can be lifted out whole: `design/system/` is the code and `design/kit/` is the stand that shows it. **Two token levels, 73 components, four patterns**, one entry point, and every page of the stand is painted by the same `index.css` a product screen links, so the documentation cannot drift from the product without breaking itself.
+## Start here
 
-- **[Why it is like this](https://sergiodesign4u-dot.github.io/harrier/design/kit/why.html)** for the five attributes, the chain a value travels to reach a token, the four doors into the system and the rule of growth
-- **[The four patterns](https://sergiodesign4u-dot.github.io/harrier/design/kit/patterns.html)** for when to take a composition whole and when to assemble it
-- **[Everything the system contains](https://sergiodesign4u-dot.github.io/harrier/design/kit/overview.html)** for the components and the foundations
-- **[The rules](https://sergiodesign4u-dot.github.io/harrier/design/kit/architecture.html)** for what may read what, what may not stand beside what, and how to add to it
+**[https://sergiodesign4u-dot.github.io/harrier/handoff/handoff.html](https://sergiodesign4u-dot.github.io/harrier/handoff/handoff.html)** is the page to open first. It is the handoff: what the product is, the route through this repository, which theme is the real one, how the product behaves, what each screen is assembled from, what accessibility it carries, and the prompt you paste to add the next feature.
+
+## How to run it
+
+**There is no build and no install.** Every page is a static document.
+
+- **To read it:** open any URL above. That is the accepted surface, and it is where a page is judged: a local static server cannot reproduce how the host behaves, which is why `.nojekyll` sits in the root and why acceptance never happens on localhost.
+- **To work on it:** clone the repository and open `design/index.html` in a browser. Nothing needs to be started.
+- **To publish a change:** push to `main`. GitHub Pages serves the repository root.
+- **To verify your work:** `npm i` then `npx playwright install`, and run the instruments in `design/kit/checks/`. There are nineteen of them and every prohibition in this project is one of them, because a rule that lives only in prose is a rule nobody runs.
+
+## Where everything is
+
+| What you want | Where it is |
+|---|---|
+| The product, every screen and every state | [`design/`](https://sergiodesign4u-dot.github.io/harrier/design/overview.html), 62 pages across 13 screens |
+| The design system as code, liftable whole | `design/system/`: two token levels, 75 components, 4 patterns, one entry point |
+| Why the system is the way it is | [`design/kit/why.html`](https://sergiodesign4u-dot.github.io/harrier/design/kit/why.html) |
+| What the system contains | [`design/kit/overview.html`](https://sergiodesign4u-dot.github.io/harrier/design/kit/overview.html) |
+| The rules and the eleven prohibitions | [`design/kit/architecture.html`](https://sergiodesign4u-dot.github.io/harrier/design/kit/architecture.html) |
+| How it behaves at any width | [`design/kit/responsive.html`](https://sergiodesign4u-dot.github.io/harrier/design/kit/responsive.html) |
+| How it moves, with the numbers | [`design/kit/motion.html`](https://sergiodesign4u-dot.github.io/harrier/design/kit/motion.html) |
+| **How the product behaves**: states, edge cases, validation, every row with a source | [`handoff/docs/behaviour.md`](handoff/docs/behaviour.md) |
+| **What each screen is assembled from**, and what moves if you change a token | [`handoff/docs/map.md`](handoff/docs/map.md) |
+| **Accessibility**, with a way to check every line yourself | [`handoff/docs/a11y.md`](handoff/docs/a11y.md) |
+| **How to add a feature**: the prompt, ready to paste | [`handoff/docs/one-shot.md`](handoff/docs/one-shot.md) |
+| The text of the product, and how to write a new string | `voice/docs/voice.md` and `voice/docs/microcopy.md` |
+| The structure: a specification per node, with its state matrix | `ia/docs/pages/`, mapped at [`ia/structure.html`](https://sergiodesign4u-dot.github.io/harrier/ia/structure.html) |
+| Who this is for, and what the market already does | [`research/`](https://sergiodesign4u-dot.github.io/harrier/research/research.html) |
+| Why the visual language is this one | [`design/concept/concept.html`](https://sergiodesign4u-dot.github.io/harrier/design/concept/concept.html) |
+| **Why anything at all was decided the way it was** | `docs/decisions.md` |
+| What is deliberately not built, with an owner on every row | `design/kit/docs/backlog.md` |
+| The rules that bind every session | `CLAUDE.md` |
+
+**`wireframes/` is history, not a source of truth.** The same 62 pages in grey, frozen since stage 05. They exist so the colour version could be proved a remap rather than a repaint. Do not edit them, and never read a behaviour out of them: the coloured screen is the product.
+
+## The process, stage by stage
+
+Each stage below has a page you can open. The full detail of every one is in `docs/decisions.md`.
+
+| Stage | Open it |
+|---|---|
+| 01 Foundation research | [research.html](https://sergiodesign4u-dot.github.io/harrier/research/research.html) |
+| 02 User research | [personas.html](https://sergiodesign4u-dot.github.io/harrier/research/personas.html), [jtbd.html](https://sergiodesign4u-dot.github.io/harrier/research/jtbd.html) |
+| 03a Information architecture, base | [flows.html](https://sergiodesign4u-dot.github.io/harrier/ia/flows.html), [concept-map.html](https://sergiodesign4u-dot.github.io/harrier/ia/concept-map.html) |
+| 03b Information architecture, detail | [sitemap.html](https://sergiodesign4u-dot.github.io/harrier/ia/sitemap.html), [structure.html](https://sergiodesign4u-dot.github.io/harrier/ia/structure.html) |
+| 04 to 05 Wireframes and voice | [wireframes/overview.html](https://sergiodesign4u-dot.github.io/harrier/wireframes/overview.html), [voice.html](https://sergiodesign4u-dot.github.io/harrier/voice/voice.html) |
+| 06 Concept | [concept.html](https://sergiodesign4u-dot.github.io/harrier/design/concept/concept.html) |
+| 07 UI and visual | [design/overview.html](https://sergiodesign4u-dot.github.io/harrier/design/overview.html) |
+| 08 Tokens and components | [kit/overview.html](https://sergiodesign4u-dot.github.io/harrier/design/kit/overview.html) |
+| 09 Design system | [why.html](https://sergiodesign4u-dot.github.io/harrier/design/kit/why.html), [patterns.html](https://sergiodesign4u-dot.github.io/harrier/design/kit/patterns.html) |
+| 10 Responsive | [responsive.html](https://sergiodesign4u-dot.github.io/harrier/design/kit/responsive.html) |
+| 11 Animation | [motion.html](https://sergiodesign4u-dot.github.io/harrier/design/kit/motion.html) |
+| 12 Rollout | [design/index.html](https://sergiodesign4u-dot.github.io/harrier/design/index.html) |
+| 13 Handoff | [handoff.html](https://sergiodesign4u-dot.github.io/harrier/handoff/handoff.html) |
 
 ## Status
 
@@ -42,4 +87,4 @@ The system is a package that can be lifted out whole: `design/system/` is the co
 | Responsive | Done. **Three width values came into the stage and one left it**, and none of the three had been a decision: 900, 1560 and 1400, all literals in px, none named, none in a token. The ladder reads fluid, container, point, and two of the three had a fluid answer: the pane's drop became a clamp, and the annunciator's wrap became one declaration whose query, measured from 1280 to 2560, could not be observed at all. **The one that is left moved 380 pixels.** The split has an arithmetic minimum nobody had added up, and between 910 and 1200 the product had been rendering a split whose row did not fit its own column since stage 04. Nobody had seen it because nobody looks at 1040. It is 1280 now, which is the minimum this product's own platform section declares. **The width goes to the surface that is read:** the pane was frozen at 380, so every pixel above 1560 went to two prose columns inside a scannable row and the verdict cell measured 70 characters at 1920, at the width named as primary. The pane is fluid, the row's prose takes a ceiling in `ch`, and `--measure` has a consumer after two stages of having none. The scale is in `rem` and two of its five sizes are fluid, anchored on 1280 and 1920; **both clamps were wrong on the first draft and only a second width could show it.** New behaviour: none, and it is an answer, because this product has been split-view since stage 03b. [Width](https://sergiodesign4u-dot.github.io/harrier/design/kit/responsive.html) |
 | Animation | Done. **The census came back empty**, and that is the finding the stage started from: 122,458 elements over 282 renderings against a search over four corpora, zero transitions, zero keyframes, zero animations, source and output agreeing. So every value is a decision rather than the survivor of a drift. **Three works and no fourth**, and the inventory came out small and honest: response on 13 components plus the global focus ring, status on one, connection on one. **Almost every appearance in this product is a document navigation**, 62 screens each its own file, so the most important movement the analyst makes cannot be a transition: answered once in `base.css` with a cross document transition that degrades to nothing. **There is no `--dur-base`**: it was written for the one connection moment and has no reader, because that moment can only open by changing a height. A token with no reader fails the idle control, so it is not carried for later. The check reads every element twice, normally and with reduced motion emulated, and **found three defects of its own before it found any of the product's**: it could not see the one animation in the project, which lives on a pseudo element; it called a still element a vanished one; and it reported a two property transition as a drift. 1398 elements move, one number per role, nothing expensive, nothing outside the register, and **everything stops when asked**. [Motion](https://sergiodesign4u-dot.github.io/harrier/design/kit/motion.html) |
 | Rollout | Done. **The whole product is in colour: 62 pages across 13 screens, and the sample and the corpus are now the same thing.** Ten pages built by three batches of subagents from a contract held in a file and passed verbatim, and **not one of the 62 files contains a line of CSS**: zero `@media`, `transition`, `animation`, `@keyframes`, `<style>`, `style=`, hex outside an inline icon, and zero classes the system does not declare, measured on every page rather than asserted. The stage decided nothing and what it produced is a list of what the documents could not answer. **The largest thing in the way was R11**: seventeen coloured screens had no `h1` at 360, under it two node specifications disagreed about which element is the heading, and the ruling is measurable rather than editorial. Three declarations changed, no pixel moved, and the one value that did move was **the element deciding a margin nobody had written**, for the fourth time in this project. **The worst defect of the stage was in the instrument**: the canonical fixture table listed six log entries where the screen draws seven and gave the fourth as a verdict that is word for word **the one log entry the product's central claim requires not to exist**, caught by an agent doing what the contract tells every agent to do and the author of the table had not. The last batch **stopped and built nothing**: its two screens carried fifteen classes the system did not declare, and most of the fifteen turned out to be one thing written twice, so they collapsed into two molecules and two variants. `opt` was left alone on purpose, because seventeen inert rows inside a component whose file says it is a link would have flipped a fifth of its population. **The product contradicted itself and the last screen made it visible:** four case screens offered Reject at 360 while the reject screen says in product copy that the only phone exit is escalate, and the correct markup was already in the corpus on the standalone route. Three instruments were written and **each found something on its first run**, including twelve textareas that had been rendering as raw browser controls inside a dark dialog since stage 09, invisible to every other check because a class that is missing is not a forbidden sign. [All 62 screens](https://sergiodesign4u-dot.github.io/harrier/design/overview.html) &middot; [Decision log](https://sergiodesign4u-dot.github.io/harrier/design/log.html) &middot; [Keyboard map](https://sergiodesign4u-dot.github.io/harrier/design/keyboard.html) &middot; [The rollout journal](https://sergiodesign4u-dot.github.io/harrier/design/kit/docs/rollout.md) |
-| Handoff | Not started |
+| Handoff | In progress. The audit was done by a subagent with clean context rather than by imagination, and its two lists are the work order for the stage |
