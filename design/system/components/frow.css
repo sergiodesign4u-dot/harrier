@@ -69,7 +69,7 @@
 /* -- 360. Three zones become two, and the record takes the second --------------
    Latitude is the zone that goes: on a phone the analyst is reading a record,
    not deciding how much rope to give. */
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .frow{ grid-template-columns: minmax(0,1fr) 96px; padding: var(--space-2) var(--space-3) }
   .frow .rec{ grid-column: 2 }
 }

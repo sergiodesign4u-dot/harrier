@@ -104,9 +104,53 @@ a:hover{ text-decoration-color:var(--text-hover) }
   overscroll-behavior:contain;   /* the page does not start moving when the panel ends */
 }
 
+/* -- THE MEASURE, AND STAGE 10 GAVE IT ITS FIRST CONSUMER -------------------------
+   `--measure` has been in tokens.css since stage 08 with the comment "0 uses" beside
+   it, and the backlog carried it as a token waiting for a screen. This is the screen.
+
+   IT ONLY BITES ABOVE THE DECLARED BAND, which is the point. The pane is the widest
+   place prose stands in this product, and until this stage it stopped growing at 380
+   so nothing ever ran long. With the pane fluid it reaches 461 at 1920 and 544 at
+   2560, and the narrative measured 69ch and then 82ch: a line somebody is expected to
+   read as a document rather than scan. Between 1280 and 1600 it measures 46 to 57ch
+   and this rule changes nothing at all.
+
+   IT IS ON THE TEXT AND NOT ON ITS CONTAINER, deliberately. The container holds
+   blocks that should fill the pane, rules, stamps and rows among them; the measure is
+   a property of a line somebody reads ACROSS. They run at different sizes and
+   therefore stop at different pixel widths, which is right: a measure is counted in
+   characters and not in pixels.
+
+   AND THE LONGEST LINE IN THIS PRODUCT IS NOT AT 2560, IT IS AT 520. The sweep found
+   it: below the point the layout is one column, and the SMALLEST text in the product
+   fills it. At 520 the provenance strip, the hint, the empty state and the record's
+   rail all measured 83 characters, because 11px type in a 520px column is 83
+   characters wide. At 360 the same elements measure 65 and are fine, and at 1280 they
+   are inside the pane. Eleven of the fourteen below were added for that band alone, and none
+   of them would ever have been found by looking at 360, at 1440 or at 2560. */
+.nar,
+.gnote,
+.cons,
+.sub,
+.prov,
+.hint,
+.empty,
+.rail,
+.sa-fresh,
+.sa-route,
+.rail-foot,
+.chips-hd,
+.meta,
+.anote,
+/* the two kinds of prose that carry no class of their own: the sentence inside a
+   contact and the one inside a notice. Both are read across, and both measured 87 and
+   82 characters at 600px before this line */
+.contact p,
+.toast p{ max-width: var(--measure) }
+
 /* At 360 the panel stacks above the article on every surface in this project, so sticking
    it would cover a third of the one viewport that has none to spare. */
-@media (max-width:900px){
+@media (max-width:1279.98px){
   #sidebar{
     position:static; max-height:none; overflow:visible;
     /* the panel stacks above the article here, so the divider turns through ninety

@@ -108,6 +108,9 @@
   <li>at 360<span><code>display:block</code>. The row stops being a row, the document takes the scroll back, and the standalone foot swaps its desk button for the narrow one</span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), <b>the split stops being a split</b>: <code>display:block</code>, and three <code>:has()</code> rules decide what is left. With a paper pane the list is not rendered, because the case takes the screen. With a scrim over it that is not <code>--desk-only</code>, the pane is not rendered either: at the desk the dialog is anchored so it never has to cover the evidence, and here a full width dialog would leave the pane behind it unreachable rather than merely covered. With a notice stack present the page ends <code>--zone-notice-clear</code> above the bottom, 11.25rem, or the last row sits under it. <b>All three are narrow only</b>, and hoisting the first out of the query hid the list at 1440 on every case screen for the length of one measurement, which is what the pixel comparison caught on its first run.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <p class="k-note"><b>None, and every cell in this table is empty on purpose.</b> The four numbers below are counts of what is inside the split, which is the clearest instance in the system of the rule that a count is not an axis.</p>
 <div class="k-wrap-x">
@@ -228,7 +231,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

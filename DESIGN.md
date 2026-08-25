@@ -192,7 +192,36 @@ No light theme, when this was written. **It has one now**, and it arrived as a p
 
 ---
 
-## 9. Contributing to the system
+## 9. Width
+
+**There is no mobile version, no tablet version and no desktop version.** There is one layout with one named change in it, and everything else grows or stops growing by itself. That sentence is not a style of speaking: it is what decided the shape of the work, because three separate layouts have to be fixed three times and there is always a width between them where none of them looks intended.
+
+### One point, and it is named for its change
+
+| Token | Value | What happens on it |
+|---|---|---|
+| `--bp-split-panes` | **80rem**, 1280px, written in queries as `max-width:1279.98px` | At and above it the split is a split: the list and the detail pane stand side by side, the queue row keeps its seven tracks, a dialog is anchored beside the pane. Below it: one column, no pane, the row as one track, and a line where the log or the brief would be |
+
+**Three width numbers came into stage 10 and one left it**, and none of the three had been a decision: 900, 1560 and 1400, all literals in px, each written where a defect had been found. The ladder of this work reads top down, fluid then container then a point, and a point is written only where the fluid answer physically cannot work. 1560 was the pane giving up sixty pixels to the list, which is a clamp. 1400 let the annunciator wrap, and measured from 1280 to 2560 the strip is the same height either way, so the query was a decoration on a declaration.
+
+**The one that is left moved 380 pixels.** The split has an arithmetic minimum nobody had added up: the row's seven tracks need 646px, the pane's floor is 320, and this case study's own panel takes 236. Between 910 and 1200 the product rendered a split whose row did not fit its own column, and it had done so since stage 04, because everybody looks at 360, at 1440 and sometimes at 1280, and nobody looks at 1040. It is **1280** rather than 1210 because that is the minimum this document's own Platform section declares.
+
+**The name says the change and not a device.** `--bp-tablet` and `--bp-desktop` are forbidden: a tablet is a different width every year, and the word desktop puts three separate versions back into the reader's head even when the code has none.
+
+### Everything else is fluid, and two things stop growing
+
+- **The pane** is `clamp(20rem, 24vw, 34rem)`: 320px at the declared minimum, 461 at 1920, 544 at 2560. Before this it stopped at 380 and never moved again, so every pixel above 1560 went to two prose columns inside a scannable row, and the verdict cell measured 70 characters at 1920. **The width goes to the surface that is read, not to the one that is scanned.**
+- **The row's two prose tracks** take a ceiling in `ch`, 32 and 36, instead of a fraction. Below the ceiling nothing changed.
+- **`--measure`, 66ch**, caps the four kinds of prose in this product. It had been in `tokens.css` since stage 08 with the words "0 uses" beside it.
+- **The scale is in `rem` and two of its five sizes are fluid.** `--size-lg` runs 17px to 20px and `--size-xl` 21px to 26px, and the two ends of each clamp are this product's own two widths: 1280, the declared minimum, and 1920, the top of the declared primary band. The three small sizes do not grow, because density is the feature and on a wider monitor this analyst wants more rows rather than larger ones. **A `font-size` is never switched at a point**, and the middle term of a clamp always carries a `rem` addend: a pure `vw` term takes the page out of the reader's zoom and fails WCAG 1.4.4.
+
+### Where a width rule may live
+
+A token, a component through `@container`, a pattern, or the shell through `@media`. **In the file of a screen: never.** `@media` cannot read `var()`, so the literal stands in the query and the token is the register, and no other number appears in a query anywhere in the system.
+
+---
+
+## 10. Contributing to the system
 
 **New appears in `design/system/` first and on the screen second. Never the other way round.** That is the rule of growth, and it is what separates a living system from a folder somebody once tidied. It is written in four places because each has a different reader: here, in the root `CLAUDE.md`, in `design/system/CLAUDE.md` which is read on every entry into the package, and in full in section 11 of `design/kit/docs/architecture.md`.
 

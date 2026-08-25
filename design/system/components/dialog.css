@@ -75,7 +75,7 @@
 
 .dialog--map{ width: min(var(--width-dialog-wide), 100%) }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   /* at 360 the dialog IS the screen: there is nothing beside it to stay clear of */
   .dialog{ width: 100%; max-height: 100vh; border: none }
 }

@@ -103,6 +103,8 @@ const EXPECTED = [
     why: 'the readout is an `h1` on all 35 screens, and the UA weight of 700 reached the whole line including the qualifier, which is not a counted value. Attribute A3 allows 700 on a counted value only. It declares 400 now and the `b` carries the 700 it was always meant to be the only thing carrying. tokens-audit.md, step 5' },
   { on: /^state/, keys: ['_h','lineHeight'],
     why: 'state carried the same defect as chip and takes the same cure: it was `chip chip--state` and inherited the body line-height, so it stood at 24.84 instead of padding plus one line. 21.00 now, and it matches chip exactly, which is the point of them being one box. tokens-audit.md, step 5' },
+  { on: /^rec$/, keys: ['_h'],
+    why: 'STAGE 10 MADE THE PANE FLUID, and this component stands inside it. The pane was a fixed 380 dropping to 320; it is clamp(22.5rem, 24vw, 34rem) now, so at 1440 it is 360 rather than 320 and the record cell no longer needs the second line it needed before. The stand shows the component in a fixed width bench, which is right for a bench and means a component inside the pane can legitimately measure differently there. It is the only one of the 42 pairs where that shows. responsive.md, section 8' },
   { on: /^chip/, keys: ['_h','lineHeight','textDecorationLine'],
     why: 'the chip rendered at THREE heights in one scope bar, 25.94 / 23.00 / 22.00, depending on whether it was written as an `a` or a `button` and which glyph it carried, and the `a` was underlined. It declares line-height and text-decoration now and stands at 21.00 everywhere. tokens-audit.md, step 5' }
 ];

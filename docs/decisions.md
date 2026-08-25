@@ -759,3 +759,57 @@ It reached three things and not the fourth. The recipient of an escalation is `.
 **No section of stage 09 on a pixel proof page, because that page does not exist and will not.** At stage 08 the user ruled that nothing in the design system may be a screenshot, and the pixel proof became live instruments. The stage's evidence is `checks/refactor.mjs`, which renders the tree as it stood before the first edit against the tree as it stands now and reports **which element moved** rather than how many pixels changed. 102 renderings, 0 tree shape changes, 0 boxes moved. The deviation from the contract is recorded in `design/kit/docs/critique.md` rather than satisfied by renaming something.
 
 **IA was not touched**, and that is the contract rather than an omission: the screen came from a wireframe that already carries node 4.6, so the three IA surfaces stay as they are. They move only when a screen arrives without a node.
+
+---
+
+## 2026-08-25 &middot; One breakpoint, and it moved 380 pixels because nobody had added the split up
+
+Stage 10 began with a census rather than a plan, and the census is the reason the rest of the stage was possible: **three distinct width values existed in a query anywhere in this project, and not one of them was a decision.** 900px on 29 rules, 1560px on 3, 1400px on 2. All literals, all in `px`, none named, none in a token, each written at the moment a defect had been found and never revisited. A fourth number written on top of those would have given a product with four widths in which none was a decision.
+
+### Two of the three had a fluid answer, and the ladder is what asked the question
+
+The rule of the stage reads top down: **fluid, then container, then a point**, and a point is written only where the fluid answer physically cannot work.
+
+**1560 was the pane giving up sixty pixels to the list.** The pane and the list were competing for a fixed budget and the pane was told to give way once, at a number nobody had named. `clamp(20rem, 24vw, 34rem)` says the same thing continuously.
+
+**1400 let the annunciator wrap**, and it was doing nothing at all. Measured at every width from 1280 to 2560, the strip is the same height with the query and without it, because above 1400 there had never been anything to wrap. **A query whose effect cannot be observed is not a breakpoint, it is a decoration on a declaration.**
+
+### The one that is left moved, and that is the finding of the stage
+
+The split has an arithmetic minimum and nobody had added it up: the queue row's seven tracks need 646px, the pane's floor is 320, and this case study's own documentation panel takes 236. **The split cannot exist below about 1200, and the point stood at 900.** Between 910 and 1200 the product rendered a split whose row did not fit its own column and whose cells ran past the edge. It had been doing that since stage 04.
+
+Nobody had seen it because nobody looks at 1040. The measurement everybody takes is 360, 1440 and sometimes 1280, and this defect is invisible at all three. It was found by a sweep from 320 to 2560 in steps of 40, ten near the point, which is the one instrument that reads the widths between the widths.
+
+**It is 1280 rather than 1210, and that is a decision rather than arithmetic.** `CLAUDE.md` declares the platform as desktop first with a minimum of 1280. The split now begins exactly where the product says it needs to begin, and below it the single column rendering that stage 04 designed takes over. That rendering is correct at 1024 in a way the broken split never was, and **a half screen window on a two monitor desk is 960 wide**: this product's own analyst is the person most likely to open one.
+
+### What that cost, and it was worth naming
+
+Moving the point exposed a second defect it had been hiding. **The top bar was three lines tall from 320 all the way to 1279**, because two of its elements claimed a whole line each with `width:100%` below the point: a phone's bar rendered on a 1200px screen. Both are fluid now, and the bar measures 181px at 360, 116 at 600, 65 at 768 and 55 from 1024 up, unchanged at 360 to the pixel.
+
+### The width now goes to the surface that is read
+
+The audit put 39 of the 62 screens in one category, "wider", with one mechanism behind all of them, and it was decided by a measurement taken before a word of it was written. The pane stopped at 380 and never moved again, so every pixel above 1560 went to two prose columns inside a scannable row: **the verdict cell measured 34 characters at 1440 and 70 at 1920**, in a row 30 pixels tall, at the width `CLAUDE.md` names as the primary target. Design principle 1 says a row is a decision rather than a record.
+
+So the pane is fluid and the row's two prose tracks take a ceiling counted in characters. And `--measure`, which had been in `tokens.css` since stage 08 with the words "0 uses" beside it, finally has a consumer: it caps the four kinds of prose in this product and only bites above about 1700, because until this stage nothing could grow that far.
+
+### What was considered and rejected
+
+**A third column of tenant context.** No job. The annunciator already carries tenant context in the top bar at every width, which is cheaper than a column that is empty most of the time.
+
+**The fleet and a case at once.** It would be the "empty case" reading of the pane that `CLAUDE.md` forbids in as many words.
+
+**The log's reading pane beside the queue.** Two scopes on one screen, and the readout can make only one counted claim.
+
+**Split-view as new behaviour**, which is the usual answer at this stage. Harrier has been split-view since stage 03b: it is the chosen UX pattern of the whole product and it stands on 48 of the 62 screens. **There is nothing a wider screen can reveal that this product does not already show at its declared minimum**, and that is an answer rather than a gap.
+
+### Container queries were expected and are not there
+
+The queue row genuinely does not know whether it stands in a 724px column or a 1223px one, which is the textbook case for `@container`. It turned out not to need one: what the row needed was for its two prose tracks to stop growing, and a track carries its own ceiling in `ch`. `container-type` is declared nowhere in `design/system/`, which is worth knowing, because a `@container` rule with no `container-type` above it never fires, silently, and the component simply always looks as though it stands in a wide place.
+
+### The scale is in rem, and two of five sizes are fluid
+
+Everything adaptive left `px`: the type scale, the space scale, the zone heights and every width. At a 16px root the numbers are identical, so nothing moved; for a reader who set a larger font, a `px` scale ignores the setting, which is how a layout fails WCAG 1.4.4 quietly. The only `px` left in `tokens.css` are the three 1px rules, the 2px focus ring and a print radius: the things that do not scale.
+
+`--size-lg` runs 17px to 20px and `--size-xl` 21px to 26px, and **the two ends of each clamp are this product's own two widths**, 1280 and 1920. The three small sizes do not grow at all, and that is a decision: design principle 5 makes density the feature, so on a wider monitor this analyst wants more rows rather than larger ones, and what makes dense text readable is the measure.
+
+**Both clamps were wrong on the first draft and a measurement said so.** The middle terms were solved for 360 rather than for 1280, so the floor stopped winning at about 414px and the declared minimum rendered at 19.4px instead of 17. The 360 rendering was identical either way, which is exactly why it took a second width to see it.

@@ -106,15 +106,19 @@
    column. */
 .row--log .states .state{ white-space: normal; text-align: center }
 
-@media (max-width:1560px){
-  .row,
-  .row--head{ padding-left: var(--space-3); padding-right: var(--space-3) }
-}
+/* THE SIDE PADDING IS FLUID SINCE STAGE 10, and it was the other half of the 1560px
+   point. The decision it carried is unchanged and worth keeping: on a single 1440
+   monitor the row trades four pixels of side padding for four of content, because
+   the content is what she is reading. Written as a query it made that trade once, at
+   a number nobody had named; written as a clamp it makes it continuously, and the
+   two ends are exactly the two values the query switched between. */
+.row,
+.row--head{ padding-inline: clamp(var(--space-3), 0.31rem + 0.31vw, var(--space-4)) }
 
 /* -- 360. The row becomes ONE COLUMN and drops what a phone cannot use ---------
    --row-tracks collapses to 1fr in tokens.css, which is where the product put it.
    What is left here is the component's own share of the narrow rendering. */
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .row{ gap: var(--space-1); padding: var(--space-3) }
   .row--head{ display: none }   /* column heads mean nothing once the row is five lines */
   .row .cost{ display: none }   /* on a phone she is not choosing what to read next */

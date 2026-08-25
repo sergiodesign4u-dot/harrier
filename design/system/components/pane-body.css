@@ -20,7 +20,7 @@
   padding: var(--space-4);
 }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .pane-body{ padding: var(--space-3) }
 }
 /* NO STATES. */

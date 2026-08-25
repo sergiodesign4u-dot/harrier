@@ -40,6 +40,8 @@ window.KIT_NAV = {
           blurb:'Two families, five sizes, three weights, two line heights, and the eight tracking values the product actually writes.' },
         { file:'geometry.html', label:'Geometry',
           blurb:'The space scale shown as space, a radius of zero and why, three line tokens separated by WCAG, and the measures that stop growing.' },
+        { file:'responsive.html', label:'Width',
+          blurb:'One point, named for its change and placed where the product says its minimum is. The ladder of three ways, the measure, and the type scale that grows without ever switching.' },
         { file:'icons.html', label:'Icons',
           blurb:'Sixteen glyphs from one source file, every box and centre measured in the page, and two audits. Three are applied to the product and thirteen are not.' }
     ]},

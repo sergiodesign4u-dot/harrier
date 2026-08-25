@@ -119,6 +119,9 @@
   <li><code><a href="dialog.html">dialog</a></code><span>the only thing it ever holds, always exactly one</span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), the padding goes to zero and the contents stretch, and a <code>--desk-only</code> scrim is not rendered at all: there is no pane at that width, so there is nothing to anchor against and nothing to stay clear of. Above the point the right padding is <code>--pane-w</code> plus <code>--space-5</code>, and because the pane is fluid the space it keeps clear grows with it, from 320px at 1280 to 544 at 2560. The dialog lands beside the case at every width where there is a case beside it.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <p class="k-note">One axis, two values, and it is about the viewport rather than about anything anybody chooses.</p>
 <div class="k-wrap-x">
@@ -201,7 +204,7 @@
 </table>
 </div>
 <p class="k-note"><b>The scrim row prints a declaration rather than a colour, and the two cells print the same one.</b> <code>--bg-scrim</code> is the one role in the system that resolves through another role, so the browser hands back the <code>color-mix</code> with <code>--bg-page</code> already substituted, from <code>:root</code>, which is the dark theme. <b>The identical pair is the finding rather than a limit of the instrument:</b> the row underneath shows the two grounds it is meant to be 78 per cent of, and only one of them ever reaches it.</p>
-<p class="k-note"><code>--pane-w</code> is structure rather than colour and it has no theme pair: 380px, and 320px below 1560. It is read here through <code>calc()</code> and by <a href="z5.html">Z5</a> itself, which is the only reason the two ever agree.</p>
+<p class="k-note"><code>--pane-w</code> is structure rather than colour and it has no theme pair: a clamp since stage 10: 360px from the declared minimum to about 1500, then growing to 544. It is read here through <code>calc()</code> and by <a href="z5.html">Z5</a> itself, which is the only reason the two ever agree.</p>
 <h3 class="k-h2">Copy this</h3>
 <div class="k-code">&lt;div class="scrim scrim--desk-only"&gt;
   &lt;section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh"&gt;
@@ -242,7 +245,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

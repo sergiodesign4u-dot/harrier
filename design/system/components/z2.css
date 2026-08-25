@@ -41,7 +41,7 @@
 }
 .z2.is-degraded b{ text-decoration: underline; text-underline-offset: 2px }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .z2{ padding: 0 var(--space-3) }
 }
 /* NO STATES. It reports. */

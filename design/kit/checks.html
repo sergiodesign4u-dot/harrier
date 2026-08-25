@@ -40,7 +40,7 @@
 
 <p class="k-eyebrow">Checks</p>
 <h1 class="k-title">The instruments</h1>
-<p class="k-lede">Twelve of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
+<p class="k-lede">Thirteen of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
 <p class="k-note"><b>There are no screenshots in this system, and these are why.</b> A picture of a component is a second copy: it has to be retaken, it goes stale without saying so, and the first one taken on this stand documented a focus ring it did not contain, because a focus set from a script does not match <code>:focus-visible</code>. What the refactors of stage 08 and 09 promise is proved by rendering the tree twice and comparing it element by element, which says <b>which element moved</b> rather than how many pixels changed.</p>
 
 <div class="c-run">node design/kit/checks/contrast.mjs <span>the stand, every text node, both themes, both viewports</span>
@@ -147,9 +147,20 @@ node design/kit/checks/compose.mjs <span>every composition in the grey corpus, c
   <div class="n"><b>83</b> stylesheets<br><span class="c-zero"><b>0</b> unterminated</span><br><span class="c-zero"><b>0</b> unclosed</span></div>
 </div>
 
+<div class="c-inst">
+  <div><code class="f">sweep.mjs</code><span class="stage">stage 10</span></div>
+  <div>
+    <p><b>Every width from 320 to 2560</b>, in steps of 40 and in tens within 80 of the point, on every screen. At each one: horizontal overflow, any element past the page box, how many navigation carriers are visible at once, and the longest run of prose counted in characters.</p>
+    <p><b>The width is measured, not intended.</b> A scrollbar turns a requested 360 into an actual 345 and a whole row of results is then taken at a width nobody asked about, so every reading carries the document's own <code>clientWidth</code> and a disagreement is an error of measurement rather than a result.</p>
+    <p><b>It found the defect the stage exists for on its first run.</b> The split had an arithmetic minimum nobody had added up, so from 910 to 1200 the product rendered a split whose row did not fit its own column, and had done since stage 04. Three screenshots at three widths prove three widths; this reads the ones between them.</p>
+    <p><b>Three of its own findings were not defects</b>, and each was a defect of the finder: it asserted one navigation carrier on screens that carry no shell, then on a console that is out and has nowhere to go, then counted a row of buttons as an 86 character line. An instrument gets the same verification as the product.</p>
+  </div>
+  <div class="n"><b>2548</b> readings<br><b>52</b> screens<br><b>49</b> widths<br><span class="c-zero"><b>0</b> findings from 360 up</span><br>24 below it, declared</div>
+</div>
+
 <h2 class="k-h" id="rule">The rule they were all written under</h2>
 <p class="k-lede"><b>An instrument that has never found anything is not a clean result. It is an untested instrument.</b></p>
-<p class="k-note">That sentence is in <code>CLAUDE.md</code> because it was paid for: a search meant to catch a rule declared twice compared inline against inline and never inline against the shared sheet, and reported clean for two steps while ten rules were duplicated. Every instrument here has a paragraph in its own header naming the defect it failed to catch on its first run, and three of them were corrected during stage 09 alone: one counted a contents page as a screen, one measured a rule other than the one it was named after, and one compared two rectangles at a scroll position instead of across a column. <b>The twelfth exists because a defect got past all eleven.</b></p>
+<p class="k-note">That sentence is in <code>CLAUDE.md</code> because it was paid for: a search meant to catch a rule declared twice compared inline against inline and never inline against the shared sheet, and reported clean for two steps while ten rules were duplicated. Every instrument here has a paragraph in its own header naming the defect it failed to catch on its first run, and three of them were corrected during stage 09 alone: one counted a contents page as a screen, one measured a rule other than the one it was named after, and one compared two rectangles at a scroll position instead of across a column. <b>The twelfth exists because a defect got past all eleven, and the thirteenth because three widths cannot see what happens between them.</b></p>
 <p class="k-note">The full log of what each pass found, what was fixed, and what was withdrawn on verification is <a class="link" href="docs/critique.md">the critique log</a>. What the system knows it does not do yet is <a class="link" href="docs/backlog.md">the backlog</a>, and every row of it names who closes it.</p>
 
 </main>

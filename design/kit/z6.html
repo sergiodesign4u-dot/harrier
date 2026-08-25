@@ -87,6 +87,9 @@
   <li><code>.z6-more</code><span>the count of what is not shown. <b>Declared in <code>kit.css</code> and not in <code>z6.css</code></b>, so it is on the two screens and not yet in the system. It is left out of this bench rather than drawn unpainted</span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), the stack leaves the console and takes the bottom edge of the viewport: <code>position:fixed</code>, full width, a ground and a top rule of its own, and bottom padding that adds <code>env(safe-area-inset-bottom)</code>. There is no <code>z45</code> box to hang off at that width because the layout is a block, and this is the one place in the product a stack is fixed to the viewport. <b>The cap changes with it, from three to one</b>: three notices took 408 of 760 pixels at 360, so the notice layer covered more of the phone than the case did. The one that stays is the failure, because it is the one that cannot be dismissed, and with no failure present the newest stays. Above the point the stack is absolute inside the split, <code>--width-toast</code> wide, and it never covers the pane.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <div class="k-wrap-x">
 <table class="k-table">
@@ -208,7 +211,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

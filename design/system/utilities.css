@@ -30,7 +30,7 @@
 .only-desk  { display: block }
 .only-desk-i{ display: inline }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .only-narrow{ display: block }
   .only-desk,
   .only-desk-i{ display: none }

@@ -113,6 +113,9 @@
   <li>at 360<span><code>display:block</code> and <code>height:auto</code>. The panel stacks over the product, and every zone inside releases the scroll it was holding for the desk</span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), the shell stops being a flex row pinned to one viewport and becomes a block of <code>height:auto</code>. <b>Both halves are load bearing.</b> At <code>height:100vh</code> the columns scroll and the page does not, which is what makes the pane foot sticky and the queue head stay; below the point the document takes the scroll back and every zone releases its own. Stage 07 found this from the outside: <code>min-height:100vh</code> let the shell grow with its content, so <code>bottom:0</code> had no scroll container to resolve against and the decision sat two viewports down.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <p class="k-note">There are none, on any axis, and this is the only component in the system where that is true of every axis at once.</p>
 <div class="k-wrap-x">
@@ -238,7 +241,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

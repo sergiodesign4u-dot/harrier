@@ -35,7 +35,7 @@
 
 .z45:has(> .z5.is-standalone){ justify-content: center }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .z45{ display: block }
   /* BOTH OF THESE ARE NARROW ONLY, and hoisting them out of here was a real defect
      for the length of one measurement: with the paper pane rule at the top level the

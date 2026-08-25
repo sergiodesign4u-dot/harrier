@@ -35,7 +35,7 @@
   border-top: var(--rule-edge);
 }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .pane-foot{ padding: var(--space-2) var(--space-3) }
 }
 /* NO STATES. The buttons carry theirs. */

@@ -31,7 +31,7 @@
   color: var(--text-secondary);
 }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .sa-offer{ display: none }
 }
 /* NO STATES. The button inside it carries its own. */

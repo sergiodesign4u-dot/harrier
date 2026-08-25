@@ -65,6 +65,9 @@
   <li><code>.states</code><span>holds <code>state</code>. In 132px a state can be two words wide, so it wraps and centres rather than clipping</span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), the gap drops to <code>--space-1</code> and the padding to <code>--space-3</code>. The four tracks do not collapse: <code>--row-tracks-moved</code> has no narrow value, because the shift brief is not rendered at that width at all. Above the point the side padding is the same <code>clamp(--space-3, 0.31rem + 0.31vw, --space-4)</code> the queue row carries, written again because this is a different component. It was a query at 1560 until stage 10, and it gives four pixels of padding back to the content continuously now rather than once at a number nobody had named.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <div class="k-wrap-x">
 <table class="k-table">
@@ -170,7 +173,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

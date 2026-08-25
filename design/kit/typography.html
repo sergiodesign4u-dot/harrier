@@ -13,10 +13,18 @@
 .t-fam{ border:var(--rule-edge); padding:var(--space-4); margin:0 0 var(--space-3) }
 .t-fam .s{ font-size:34px; line-height:1.1; margin:0 0 var(--space-3); overflow-wrap:anywhere }
 .t-fam code{ font-family:var(--font-mono); font-size:var(--size-xs); color:var(--text-secondary) }
-.t-warn{ border-left:3px solid var(--text-sev-high); padding:var(--space-3) 0 var(--space-3) var(--space-4);
+/* THE BAR WAS 3px OF THE SEVERITY RAMP'S TOP VALUE, and two things were wrong with
+   it. Attribute A2 spends saturation on two closed sets and calls a fifth use a
+   defect, and a documentation note is not one of the two. And a thick coloured rule
+   down the side of a card is a shape this whole visual language was written against:
+   the stand already had a device for a block that carries a finding, 2px of the
+   control line, and this is it. The red stayed where it means something, on the word. */
+.t-warn{ border-left:2px solid var(--line-control); padding:var(--space-3) 0 var(--space-3) var(--space-4);
          margin:0 0 var(--space-5); max-width:74ch; font-size:var(--size-sm); line-height:var(--leading) }
 .t-warn b{ color:var(--text-primary) }
 .t-track{ font-family:var(--font-mono); font-size:var(--size-xs); text-transform:uppercase }
+.t-fluid{ display:inline-block; margin-top:var(--space-1); font:400 var(--size-xs)/1 var(--font-mono);
+          letter-spacing:.08em; text-transform:uppercase; color:var(--text-accent) }
 </style>
 </head>
 <body>
@@ -42,18 +50,23 @@
 </div>
 
 <div class="t-warn">
-  <b>Neither family is loaded, and that is a finding rather than a decision.</b> Nothing in the product links a webfont: no <code>@font-face</code>, no stylesheet from a font host, on any of the 52 coloured pages. Both names resolve from the reader's own machine. On a machine that has them the product looks as designed; everywhere else it falls back to <code>system-ui</code> and <code>ui-monospace</code>, and the character both families were chosen for is gone. Open at the step 3 gate.
+  <b class="k-fail">Neither family is loaded, and that is a finding rather than a decision.</b> Nothing in the product links a webfont: no <code>@font-face</code>, no stylesheet from a font host, on any of the 52 coloured pages. Both names resolve from the reader's own machine. On a machine that has them the product looks as designed; everywhere else it falls back to <code>system-ui</code> and <code>ui-monospace</code>, and the character both families were chosen for is gone. Open at the step 3 gate.
 </div>
 
 
 <h2 class="k-h" id="scale">The scale</h2>
+<div class="t-warn" style="border-left-color:var(--line-control)">
+  <b>The scale is in <code>rem</code> since stage 10, and two of its five sizes grow with the window.</b> It was in <code>px</code> from stage 04 to stage 09: at a 16px root those are the same numbers, and for a reader who set a larger font a <code>px</code> scale simply ignores the setting, which is how a layout fails WCAG 1.4.4 quietly. The numbers below are what they resolve to <b>at this window's width, measured</b>, and the two fluid ones move if you drag the edge.
+  <p class="r-now" id="t-now" style="font:400 var(--size-xs)/1.8 var(--font-mono);color:var(--text-accent);margin:var(--space-2) 0 0">measuring</p>
+  <p style="margin:var(--space-2) 0 0"><b>The two ends of each clamp are this product's own two widths</b>, 1280 and 1920, so the type grows across exactly the band the analyst sits in and is stage 04's value everywhere below it. <b>The three small sizes do not grow at all</b>: density is the feature, and on a wider monitor this analyst wants more rows rather than larger ones. What makes dense text readable is the measure, and that is capped at 66ch. <b>A <code>font-size</code> is never switched at a point</b>, and the middle term of each clamp carries a <code>rem</code> addend rather than pure <code>vw</code>, because pure <code>vw</code> takes the page out of the reader's zoom. Full reasoning on <a class="link" href="responsive.html">Width</a>.</p>
+</div>
 <p class="k-note">Five sizes, live, in real product strings from <code>voice/docs/microcopy.md</code> and the coloured screens rather than in filler. The token is on the left and the class that carries it, where there is one, beside it.</p>
 
 <div class="k-scale">
-  <code>--size-xl &middot; 21px<br>the one heading a page is allowed</code>
+  <code>--size-xl &middot; 21px to 26px<br>the one heading a page is allowed<br><b class="t-fluid">fluid</b></code>
   <div style="font:600 var(--size-xl)/var(--leading-tight) var(--font-sans);letter-spacing:-.02em">18 waiting across 12 of 40 tenants</div>
 
-  <code>--size-lg &middot; 17px<br>screen title, pane title</code>
+  <code>--size-lg &middot; 17px to 20px<br>screen title, pane title<br><b class="t-fluid">fluid</b></code>
   <div style="font:600 var(--size-lg)/var(--leading-tight) var(--font-sans)">Fleet</div>
 
   <code>--size-md &middot; 14px<br>body, controls, the verdict in a row</code>
@@ -147,6 +160,18 @@ window.NAV_SECTIONS = [
   { id:'weights',  label:'Weights' },
   { id:'tracking', label:'Tracking' }
 ];
+</script>
+<script>
+/* the two fluid sizes, asked of the browser at this width rather than transcribed */
+(function () {
+  var el = document.getElementById('t-now');
+  function px(t){ var d=document.createElement('div');
+    d.style.cssText='position:absolute;left:-9999px;font-size:var('+t+')';
+    document.body.appendChild(d); var v=getComputedStyle(d).fontSize; d.remove(); return v; }
+  function tick(){ el.textContent = 'at ' + document.documentElement.clientWidth +
+    'px: --size-lg is ' + px('--size-lg') + ' and --size-xl is ' + px('--size-xl') + '.'; }
+  tick(); addEventListener('resize', tick);
+})();
 </script>
 <script src="_nav.js"></script>
 </body>

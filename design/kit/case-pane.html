@@ -103,6 +103,9 @@
   <li><b><code>pane-foot</code></b><span>where the analyst rules. One to four buttons, and that is a count rather than a variant <a class="link" href="pane-foot.html">page</a></span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), <b>the case takes the whole page</b>. A case pane that is neither paper nor standalone is not rendered at all, which is the log and the shift screens, where the pane is a desk reading beside a column that is itself not rendered at that width. The paper and standalone routes become <code>flex: 1 1 auto</code>, the standalone sheet drops its <code>--width-sheet</code> cap, its foot tightens to <code>--space-2 --space-3</code>, the reason column of the latitude ladder goes because the answer is the column and the explanation is a line she has no room for, and the foot swaps the desk button for the full width narrow pair. Above the point this is where the extra width goes: <code>--pane-w</code> is 320px at 1280, 461 at 1920 and 544 at 2560.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <div class="k-wrap-x">
 <table class="k-table">
@@ -173,6 +176,7 @@
 <script>
 window.NAV_SECTIONS = [
   { id:'anatomy',  label:'Anatomy' },
+  { id:'width',    label:'Behaviour at width' },
   { id:'variants', label:'Variants' },
   { id:'use',      label:'When to use it' },
   { id:'rules',    label:'Rule and anti-rule' },

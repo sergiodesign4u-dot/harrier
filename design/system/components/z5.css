@@ -42,7 +42,7 @@
   border-left: var(--rule-edge);
   border-right: var(--rule-edge);
 }
-@media (max-width:900px){
+@media (max-width:1279.98px){
   /* the shell stops scrolling here and the document takes over, so the pane must
      release its own scroll or the sticky foot pins to a box that never moves */
   .z5{ overflow: visible }

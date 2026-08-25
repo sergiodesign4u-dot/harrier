@@ -127,12 +127,15 @@
   </div>
 </div>
 <ul class="k-parts">
-  <li><code>.z5</code><span><code>flex:0 0 --pane-w</code>, a flex column on <code>--bg-surface</code> with its own scroll. 380px, and 320px below 1560: the pane is the one zone in the product that does not negotiate its width</span></li>
+  <li><code>.z5</code><span><code>flex:0 0 --pane-w</code>, a flex column on <code>--bg-surface</code> with its own scroll. a clamp since stage 10: 360px from the declared minimum to about 1500, then growing to 544: the pane is the one zone in the product that does not negotiate its width</span></li>
   <li><code><a href="pane-head.html">pane-head</a></code><span>the only zone the two compositions share. Sticky, and it names what the pane is showing</span></li>
   <li><code><a href="pane-body.html">pane-body</a>, <a href="pane-foot.html">pane-foot</a></code><span>the case pane, 38. The argument and the ruling, and the foot is where the analyst decides</span></li>
   <li><code><a href="frow.html">frow</a>, <a href="fleet-more.html">fleet-more</a></code><span>the fleet, 10. Tenant, what Clerk may do alone, and the record behind that grant. No body and no foot, which is why it is a second pattern and not a variant</span></li>
   <li><code>.is-standalone .nar</code><span><b>68ch, and it is the one place in the product with a measure.</b> Prose in a sheet is read as a document rather than scanned, and every other surface here is scanned</span></li>
 </ul>
+
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note"><b>The pane is where the extra width goes.</b> <code>--pane-w</code> is <code>clamp(22.5rem, 24vw, 34rem)</code>: 360px from 1280 to about 1500, then 461 at 1920 and 544 at 2560, where it stops, past which a pane is a second page. It was 380px dropping to 320 below 1560 until stage 10 (<a class="link" href="responsive.html">Width</a>), and the floor is what keeps the declared minimum rendering exactly as it did. Below <b>1280</b> the pane releases its own scroll, or the sticky foot pins to a box that never moves, and the standalone sheet drops its side borders because a border is paint. <b>Whether the pane is rendered at all belongs to its filling</b>, and it is written in <code>patterns/fleet.css</code> and <code>patterns/case-pane.css</code> rather than here.</p>
 
 <h2 class="k-h" id="variants">Variants</h2>
 <p class="k-note">Two axes, both about the route rather than about anything on the screen, and one empty axis that is a prohibition.</p>
@@ -259,7 +262,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

@@ -109,6 +109,9 @@
   <li>what fills it<span><a href="scopebar.html">scopebar</a>, <a href="readout.html">readout</a>, <a href="rows.html">rows</a>, <a href="qfoot.html">qfoot</a> on the queue; <a href="brief.html">brief</a> on the shift; <a href="doc.html">doc</a> on a log entry; <a href="outage.html">outage</a> and <a href="banner.html">banner</a> when the console is degraded</span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), the column drops its right rule and releases its scroll: <code>overflow-y</code> goes to <code>visible</code> on the box and on all three of <code>--entry</code>, <code>--solo</code> and <code>--sys</code>. The scrollport goes back to the document, or the sticky action inside an outage pins to this column instead of to the viewport, which is the same defect the pane foot had and the same cause. Above the point it scrolls itself, and that is what makes the pane foot stick and the scope bar stay.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <p class="k-note"><b>None, and the three modifiers below are shown rather than skipped because they look like variants and are not.</b> They change what the children do. Z4 itself renders one computed form on all fifty four screens.</p>
 <p class="k-note"><b>Two of the original five left at stage 09, and they were the two that named a FILLING rather than a form of this box.</b> <code>.z4--log</code> is a variant of the <a class="link" href="queue-list.html">queue list</a> and is <code>.queue-list--log</code> now; <code>.z4--shift</code> was the <a class="link" href="shift-brief.html">shift brief</a> itself and is <code>.shift-brief</code>. What each of them carried was a selector reaching into four components Z4 does not own, which is the shape a composition has when it is written inside a component. The grey corpus keeps the old names, because it is frozen.</p>
@@ -227,7 +230,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

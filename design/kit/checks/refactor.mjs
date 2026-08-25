@@ -90,7 +90,17 @@ console.log(`  tree shape changes   ${shape.length}`);
 console.log(`  boxes that moved     ${moved.length}`);
 console.log(`  not compared         ${missing.length}`);
 for (const s of shape) console.log('  SHAPE  ' + s);
-for (const m of moved.slice(0, 60)) console.log(`  MOVED  ${m.f} ${m.vw} #${m.i} ${m.t}.${m.c.slice(0,44)}  ${m.was} -> ${m.now}`);
-if (moved.length > 60) console.log(`  ... and ${moved.length - 60} more`);
+/* BY VIEWPORT FIRST, because the promise stopped being symmetric at stage 10. A
+   refactor at 08 and 09 moved nothing anywhere; a width stage moves the wide
+   rendering ON PURPOSE and must move the narrow one not at all. A single total
+   hides exactly the number that matters. */
+const byVw = {};
+for (const m of moved) byVw[m.vw] = (byVw[m.vw] || 0) + 1;
+for (const vw of Object.keys(byVw).sort()) console.log(`  at ${vw}: ${byVw[vw]} boxes`);
+/* a sample PER VIEWPORT, because the narrow ones are the whole promise and sorting
+   by document order buries them under the wide ones */
+const sample = [...new Set(moved.map(m => m.vw))].flatMap(vw => moved.filter(m => m.vw === vw).slice(0, 12));
+for (const m of sample) console.log(`  MOVED  ${m.f} ${m.vw} #${m.i} ${m.t}.${m.c.slice(0,44)}  ${m.was} -> ${m.now}`);
+if (moved.length > 40) console.log(`  ... and ${moved.length - 40} more`);
 for (const m of missing) console.log('  SKIP   ' + m);
 if (!shape.length && !moved.length) console.log('\n  Nothing moved. The refactor is a refactor.\n');

@@ -231,6 +231,22 @@ A pattern that needs a declaration none of its parts has is not a pattern asking
 
 A row in section 10 above, with the **source column filled in**: counted on the screens, decided at an earlier stage, or caught by a critique. A rule with an empty source is an invention wearing the word rule. Then a **Limits** subsection on the page of every component the rule names, linking back here, and a function in `design/kit/checks/rules.mjs`. One author, three visible places, and the last one is what makes it run rather than be read.
 
+### A new rule about WIDTH
+
+Four homes, and the fifth is forbidden:
+
+- a value shared by more than one thing: **`tokens.css`**, at the primitive level, in `rem`
+- how one component behaves in its own place: **its own file**, through `@container`, with a local threshold listed in `docs/responsive.md`
+- how a composition behaves: **its pattern file**, one query that reaches every screen the pattern stands on
+- how the shell behaves: **`z1.css`, `z45.css` and the zone files**, through `@media`, because the shell is the only thing that measures the viewport
+- **in the file of a screen: never.** Not a query, not an inline width, not a media block. This is the rule with the highest price in the whole system and it is not paid here: it is paid at stage 12, where twenty screens are built at once, and twenty authors without this rule grow twenty media queries.
+
+**Read the ladder top down before writing any of them: fluid, then container, then a point.** A point is written only where the fluid answer physically cannot work, and the reason goes in the audit table of `docs/responsive.md`. "It was easier to write" is not a reason. **There is one point in this product**, `--bp-split-panes`, and a second is a decision to be taken deliberately and written down, never a side effect.
+
+**`@media` cannot read `var()`.** The query is resolved before the cascade of custom properties: there is no error and the rule simply never fires. So the literal stands in the query and the token is the register, and no other number may appear in a query anywhere in `design/system/`.
+
+**Never switch a `font-size` at a point.** Type is fluid through `clamp()` with a `rem` addend in the middle term. A pure `vw` middle term takes the page out of the reader's zoom, which is a failure of WCAG 1.4.4.
+
 ### A new PLACE
 
 `design/system/places.css`, and it is the fifth kind of thing rather than a fourth kind of component. **The test is one question: does the rule say something about a THING, or about a GAP between things?** A gap, an order or a width is a place. It gets no page, no registry entry and no inventory row, because it is not a thing anybody can be told to reach for: it is where a thing stands. **A place that carries a colour, a line or a family is not a place**, and stage 09 learned that by trying to move two of them into a pattern.

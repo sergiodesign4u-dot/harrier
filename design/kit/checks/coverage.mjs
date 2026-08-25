@@ -53,9 +53,22 @@ const rules = css => {
    It reads the file out of the last commit that had it, so the comparison survives the
    deletion and can still be run afterwards to prove nothing was lost. */
 import { execSync } from 'child_process';
+/* THE DELETED FILE IS READ OUT OF HISTORY, and the fallback needed a second fallback.
+   While the deletion was uncommitted, HEAD still carried the file. Once stage 09 was
+   committed the deletion went with it, and `git show HEAD:` stopped resolving: the
+   instrument that proves the deletion was safe lost the thing it compares against, on
+   the commit that made the deletion real. It now asks git which commit last touched the
+   path and reads the version from that commit's parent, so it keeps working for as long
+   as the history does. */
 let kitText;
 try { kitText = fs.readFileSync('design/kit/kit.css', 'utf8'); }
-catch { kitText = execSync('git show HEAD:design/kit/kit.css', { maxBuffer: 1 << 24 }).toString(); }
+catch {
+  try { kitText = execSync('git show HEAD:design/kit/kit.css', { maxBuffer: 1 << 24 }).toString(); }
+  catch {
+    const gone = execSync('git log --format=%H -1 -- design/kit/kit.css').toString().trim();
+    kitText = execSync(`git show ${gone}^:design/kit/kit.css`, { maxBuffer: 1 << 24 }).toString();
+  }
+}
 const kit = rules(kitText);
 let sys = '';
 for (const f of ['design/system/base.css', 'design/system/tokens.css', 'design/system/utilities.css',
@@ -72,6 +85,13 @@ const system = rules(sys);
    reports the move as a loss, which is exactly what it should do for a rule that was
    deleted rather than moved. */
 const RENAMED = [
+  /* STAGE 10 MOVED THE ONE BREAKPOINT AND THE KEY CARRIES ITS CONDITION. Every
+     selector here is keyed by its media condition as well as its text, so moving the
+     point from 900 to 1279.98 turned 56 covered selectors into 56 misses overnight
+     without a single rule being lost. The move is a declared change and this is the
+     row that declares it: the check is about whether a rule still EXISTS, not about
+     the width at which it fires, and that width has its own register in tokens.css. */
+  [/@\(max-width:900px\)/g, '@(max-width:1279.98px)'],
   /* the most specific first: kit.css scoped the ladder's reason column on the split,
      stage 08 rescoped it on the pane, and stage 09 moved it to the pattern. Three
      homes for one rule, and the map has to name the first and the last. */
@@ -84,7 +104,6 @@ const RENAMED = [
   [/\.z5\.is-standalone/g, '.case-pane.is-standalone'],
   [/\.z45:has\(> \.z5\.is-standalone\)/g, '.z45:has(> .case-pane.is-standalone)'],
   [/\.z4--log/g, '.queue-list--log'], [/\.z4--shift/g, '.shift-brief'],
-  [/\.sa-fresh/g, '.case-pane .sa-fresh'], [/\.sa-route/g, '.case-pane .sa-route'],
   [/\.wf-shell/g, '.shell'], [/\.wf-screen/g, '.screen'],
   [/\.chip--state\.chip--solid/g, '.state--solid'], [/\.chip--state\.chip--ghost/g, '.state--ghost'],
   [/\.chip\.chip--state/g, '.state'], [/\.chip--state/g, '.state'],
@@ -112,9 +131,23 @@ const RENAMED = [
   [/\.row:has\(\.bars[^)]*\)[^,]*/g, '.sev'],
 ];
 const norm = k => { let s = k; for (const [a, b] of RENAMED) s = s.replace(a, b); return s; };
+/* AND THE SAME KEY WITH ONLY THE POINT MOVED. The rename map also rewrites selector
+   TEXT, and several of its rows exist to give an atom its own declaration: `.row .cost`
+   normalises to `.cost`, which was harmless while the raw key still matched the system
+   verbatim. Moving the point broke the raw match for every one of those at once, and
+   eleven rules that had not changed at all read as missing. This is the raw key with
+   the point moved and nothing else touched. */
+const movedPoint = k => k.replace(/@\(max-width:900px\)/g, '@(max-width:1279.98px)');
 
 /* selectors this stage deliberately does not carry, each with its reason */
 const DROPPED = [
+  /* -- STAGE 10, and every one of these is a rule that became FLUID ------------
+     A rule that stopped being a query has no query to be found under, so it reads
+     as missing to a check keyed by the media condition. Each row names what the
+     rule is now, and `docs/responsive.md` section 8 is the full list. */
+  { on: /@\(max-width:1560px\)$/,  why: 'stage 10: the 1560 point is gone. The row and the handover line trade side padding through a clamp now, continuously instead of once at a number nobody had named' },
+  { on: /@\(max-width:1400px\)$/,  why: 'stage 10: the 1400 point is gone. The annunciator and the bar wrap through one unconditional declaration each, and the strip measures the same height from 1280 to 2560 either way' },
+  { on: /^\.z5\.is-standalone \.nar$/, why: 'stage 10: the measure moved out of the pattern and into base.css as `--measure`, which caps four kinds of prose rather than one. Two answers two characters apart is the duplication this system rules against' },
   { on: /^\.z5\.is-standalone \.pane-head @/, why: 'stage 09: the standalone head was static at 900 in kit.css and static at every width in pane-head.css, and the narrow rule was a duplicate of the wide one. Collapsed to the unconditional rule, and 102 renderings say nothing moved' },
   { on: /^:root/,                        why: 'the token block, which is tokens.css' },
   { on: /^(\*|html|body|a|a:hover|:focus-visible)( |$|,|@)/, why: 'the reset and the document, which are base.css' },
@@ -136,7 +169,7 @@ const DROPPED = [
 const missing = [];
 for (const [k] of kit) {
   const n = norm(k);
-  if (system.has(n) || system.has(k)) continue;
+  if (system.has(n) || system.has(k) || system.has(movedPoint(k))) continue;
   /* the reason DROPPED is tested against BOTH the raw key and its normalised form:
      some rows describe a selector as kit.css wrote it and some as the system wrote
      it, and a row that silently never fires is the defect this whole file is for. */

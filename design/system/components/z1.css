@@ -70,14 +70,21 @@
   color: var(--text-secondary);
 }
 
-@media (max-width:1400px){
-  /* the annunciator overflowed at 1280, the product's declared minimum */
-  .z1{ flex-wrap: wrap; padding-top: var(--space-2); padding-bottom: var(--space-2) }
-}
-@media (max-width:900px){
+/* THE BAR WRAPS WHEN IT HAS TO, AT ANY WIDTH. Half of the 1400px point that stage
+   10 removed: the annunciator overflowed at 1280, the product's declared minimum,
+   and the answer was a query. `flex-wrap` is already the continuous version of the
+   same answer, so the query only decided WHERE the bar was allowed to use it. The
+   vertical padding moves with it, because a bar that has wrapped needs the room and
+   a bar that has not is unchanged by having it: measured at 56px tall from 1280 to
+   2560, which is --zone-top exactly. */
+.z1{ flex-wrap: wrap; padding-top: var(--space-2); padding-bottom: var(--space-2) }
+@media (max-width:1279.98px){
   .z1{ gap: var(--space-3); flex-wrap: wrap; min-height: auto;
        padding: var(--space-2) var(--space-3) }
-  /* the nav takes its own line and scrolls sideways rather than wrapping to two */
-  .z1 nav{ order: 3; width: 100%; gap: var(--space-3); overflow-x: auto }
+  /* THE NAV SCROLLS SIDEWAYS RATHER THAN WRAPPING TO TWO, and it stopped claiming a
+     whole line at stage 10. `width:100%` here did the same thing the annunciator's did
+     and cost the same: a bar three lines deep at every width under the point. Three
+     items are 119px wide, so the line it lands on is decided by what else is on it. */
+  .z1 nav{ order: 3; flex: 1 1 auto; min-width: 0; gap: var(--space-3); overflow-x: auto }
 }
 /* focus-visible is global. The bar itself has no states. */

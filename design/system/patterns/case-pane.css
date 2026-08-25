@@ -59,9 +59,13 @@
    it, this file took only the one declaration the duplicate had that the component
    did not, and it went into pane-head.css rather than here.
 
-   prose in a sheet stops at 68ch. It is the one place in the product with a
-   measure, because it is the one place read as a document rather than scanned. */
-.case-pane.is-standalone .nar{ max-width: 68ch }
+   prose in a sheet stopped at 68ch here, and stage 10 took the rule away rather than
+   leaving two. It was written as the one place in the product with a measure; the
+   measure is now `--measure` in base.css and it reaches all three kinds of prose at
+   every width, so this rule became a second answer two characters away from the
+   first. The sentence it stood on is still true and it is in base.css now: this is
+   the one route read as a document rather than scanned, and that is what made
+   somebody notice the measure here first. */
 
 /* `.sa-fresh` AND `.sa-route` TRIED TO MOVE IN HERE AND WERE SENT BACK, which is
    the second thing this level paid for. They belong to this composition and to no
@@ -82,7 +86,7 @@
 .z45:has(> .case-pane.is-standalone) .pane-foot .btn.only-desk{ display: inline-flex }
 
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   /* THE CASE TAKES THE WHOLE PAGE, and a case pane that is neither paper nor
      standalone does not appear at all. The second half of that is the log and the
      shift screens, where the pane is a desk reading beside a column that is itself

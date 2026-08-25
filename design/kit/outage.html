@@ -51,6 +51,9 @@
   <li><code>::before</code><span><b>the mark, and this is the only component that carries one.</b> A fixed 120px image beside the text, never a background: a page with no product on it may carry a mark and may not carry a scene</span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), four things change and the reading order is one of them. The mark drops from 120px to 84px, so it cannot take the fold from the sentence that says what is happening. Each line stacks its label above its value, because a 128px label column costs a third of a phone. The contact takes <code>order:-1</code> and reads first, since on a phone at 03:00 she wants a number rather than an understanding. And <code>.out-act</code> becomes sticky against the bottom edge with its buttons stretched, so the retry stays under her thumb once the contact has pushed it down the page. <b>DOM order is untouched</b>, so the heading structure and the tab order both stay as written: this is one live page narrowed, not a second file.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <div class="k-wrap-x">
 <table class="k-table">
@@ -159,7 +162,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

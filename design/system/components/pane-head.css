@@ -58,13 +58,13 @@
   letter-spacing: -.01em;
   color: var(--text-primary);
 }
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .pane-head--standalone h1{ font-size: var(--size-lg) }
 }
 
 /* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------- */
 
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .pane-head{ padding: var(--space-3) }
 }

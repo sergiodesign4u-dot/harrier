@@ -107,11 +107,45 @@
                               interface by definition, and 0 uses across the product */
 
   /* type scale. Small and short on purpose: design principle 5, density is the feature */
-  --size-xs:   11px;    /* was --t-xs. column heads, chips, meta. stage 04 */
-  --size-sm:   12.5px;  /* was --t-sm. dense data: rows, tables. stage 04 */
-  --size-md:   14px;    /* was --t-md. body, controls, and the verdict in a row. stage 04 */
-  --size-lg:   17px;    /* was --t-lg. screen title, pane title. stage 04 */
-  --size-xl:   21px;    /* was --t-xl. the one heading a page is allowed. stage 04 */
+  /* -- THE SCALE IS IN rem SINCE STAGE 10, AND TWO OF THE FIVE ARE FLUID -----
+     It was in px from stage 04 to stage 09. At a root of 16px the two are the same
+     number, so nothing moves on any screen; what changes is the reader who set a
+     larger font in the browser, for whom a px scale simply ignores the setting.
+     WCAG 1.4.4 asks that text reach 200% without loss, and px is how a layout
+     quietly refuses.
+
+     THE THREE SMALL SIZES DO NOT GROW WITH THE VIEWPORT, and that is a decision
+     rather than an oversight. Design principle 5 makes density the feature: this is
+     a surface read for six hours where the analyst wants MORE rows on a wider
+     monitor, not larger ones. What makes dense text readable is the MEASURE, and
+     that is capped in ch below rather than by the size. The two headings are the
+     exception, because a 21px page heading on a 1920 monitor reads as a caption.
+
+     font-size IS NEVER SWITCHED AT A BREAKPOINT. Every one of these grows or does
+     not grow continuously: switching a size at a point puts a jump in the middle of
+     someone dragging a window, and leaves widths on either side where the heading
+     is too big or too small. The middle term of each clamp carries a rem addend
+     rather than being pure vw, because pure vw ignores the reader's own font size
+     and takes the page out of zoom entirely. */
+  --size-xs:   0.6875rem;  /* 11px at a 16px root. column heads, chips, meta. stage 04 */
+  --size-sm:   0.78125rem; /* 12.5px. dense data: rows, tables. stage 04 */
+  --size-md:   0.875rem;   /* 14px. body, controls, and the verdict in a row. stage 04 */
+  --size-lg:   clamp(1.0625rem, 0.6875rem + 0.469vw, 1.25rem);
+                           /* 17px up to 1280 and 20px from 1920. The pane's title and the
+                              screen's title. THE TWO ENDS ARE THE PRODUCT'S OWN TWO WIDTHS:
+                              1280 is the declared minimum and 1920 the top of the declared
+                              primary band, so the type grows across exactly the band the
+                              analyst sits in and is stage 04's value everywhere below it. */
+  --size-xl:   clamp(1.3125rem, 0.6875rem + 0.781vw, 1.625rem);
+                           /* 21px up to 1280 and 26px from 1920, on the same two anchors.
+                              The one heading a screen is allowed, which is the readout.
+
+                              THE FIRST DRAFT OF BOTH OF THESE WAS WRONG AND THE MEASUREMENT
+                              SAID SO. The middle terms were solved for 360 rather than for
+                              1280, so the floor stopped winning at about 414px and the
+                              declared minimum rendered at 19.4px instead of 17. The 360
+                              rendering was identical either way, which is exactly why it
+                              took a second width to see it. */
   --leading:       1.45;/* was --lh. stage 04 */
   --leading-tight: 1.25;/* was --lh-tight. stage 04 */
 
@@ -132,19 +166,53 @@
   --track-wordmark: .16em;   /* measured on plate j, HARRIER lockup. 0 uses */
 
   /* space. One scale, 268 uses, and --space-2 and --space-3 carry the density */
-  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;   /* was --s1..--s4. stage 04 */
-  --space-5: 24px; --space-6: 32px; --space-7: 48px;                  /* was --s5..--s7. stage 04 */
+  /* IN rem SINCE STAGE 10, same numbers at a 16px root. A reader who set a larger
+     font on a px spacing scale gets exactly the crowding they were escaping. */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;  /* was --s1..--s4 */
+  --space-5: 1.5rem;  --space-6: 2rem;   --space-7: 3rem;                      /* was --s5..--s7 */
 
   /* structure */
-  --zone-top:   56px;   /* was --z-top. the Z1 top bar. stage 04 */
-  --zone-strip: 26px;   /* was --z-strip. the Z2 annunciator strip. stage 04 */
-  --pane-w:    380px;   /* was --pane. the Z5 detail pane, 320px below 1560. stage 04 */
-  --row-tracks:       90px 120px minmax(104px,1fr) minmax(120px,1.2fr) 72px 100px 40px;
+  --zone-top:   3.5rem;    /* 56px. was --z-top. the Z1 top bar. stage 04 */
+  --zone-strip: 1.625rem;  /* 26px. was --z-strip. the Z2 annunciator strip. stage 04 */
+
+  /* -- THE PANE IS FLUID SINCE STAGE 10, AND THAT IS WHERE A BREAKPOINT WENT ----
+     It was 380px, dropping to 320px below 1560, and 1560 was one of the product's
+     three unnamed width numbers. What that rule was really doing is what a clamp
+     does by itself: the pane and the list were competing for a fixed budget, and
+     the pane was told to give way once.
+
+     THE MEASUREMENT THAT REPLACED IT. Before this stage the pane stopped at 380 and
+     never moved again, so every pixel above 1560 went to two prose columns inside a
+     scannable row: the verdict cell ran about 34 characters at 1440 and 70 at 1920.
+     CLAUDE.md names 1440 to 1920 on two monitors as the PRIMARY layout target, so
+     that is where the analyst sits, and design principle 1 says a row is a decision
+     rather than a record. The width now goes to the surface that is READ.
+
+     THE FLOOR IS THE WIDTH THE PHONE GIVES THE SAME CONTENT, and it took the sweep
+     to find the number. It was 20rem, which is the 320px the pane had always been,
+     and at exactly 1280 that made the pane the NARROWEST the case ever gets:
+     narrower than a phone, where the case takes the whole 360. The latitude ladder's
+     reason column is 224px and does not fit beside its mark at 320, so on thirteen
+     screens it stuck 12 pixels out of the pane between 1280 and about 1300. Every
+     way of making it fit inside 320 also changed the 360 rendering, because 360 is
+     where the same content already has more room than 1280 was giving it.
+
+     22.5rem is 360px. The pane is now never narrower than the phone gives it, the
+     reason column fits at every width, and the list keeps 684px at the declared
+     minimum against the 646 the row needs. The middle term stays 24vw so the clamp
+     is flat until about 1500 and then grows; the ceiling is 34rem, past which a pane
+     is a second page. */
+  --pane-w: clamp(22.5rem, 24vw, 34rem);
+  /* THE TWO PROSE TRACKS TAKE A CEILING IN ch SINCE STAGE 10, and the unit is the
+     point: what makes a line readable at a glance is its MEASURE, and a measure is
+     counted in characters rather than pixels. Below the ceiling they behave exactly
+     as before, so nothing moves at or under 1600. */
+  --row-tracks:       5.625rem 7.5rem minmax(6.5rem,32ch) minmax(7.5rem,36ch) 4.5rem 6.25rem 2.5rem;
                         /* stage 04. The queue row, seven zones */
-  --row-tracks-log:   74px 96px minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr) 106px 138px;
+  --row-tracks-log:   4.625rem 6rem minmax(0,28ch) minmax(0,40ch) minmax(0,28ch) 6.625rem 8.625rem;
                         /* the SAME seven zones at the log's widths. A variant of the row, not
                            another component: nothing appears and nothing disappears */
-  --row-tracks-moved: 132px minmax(0,1fr) 116px 44px;
+  --row-tracks-moved: 8.25rem minmax(0,44ch) 7.25rem 2.75rem;
                         /* FOUR zones, and that is why the shift brief's line is a component of
                            its own. No severity and no `to check`: a pointer is not a thing to
                            triage, it is a thing that already happened.
@@ -156,15 +224,15 @@
 
   /* the four things that stop growing, plus the measure */
   --measure:           66ch;  /* a single column of prose. 0 uses */
-  --width-sheet:       760px; /* a case standing alone with no list beside it */
-  --width-frame:       820px; /* the framed record */
-  --width-dialog:      520px; /* the dialog. NO ORIGIN in kit.css and none in DESIGN.md, and
+  --width-sheet:       47.5rem;  /* a case standing alone with no list beside it */
+  --width-frame:       51.25rem; /* the framed record */
+  --width-dialog:      32.5rem;  /* the dialog. NO ORIGIN in kit.css and none in DESIGN.md, and
                                  its four neighbours all carry one. A value from nowhere,
                                  carried unchanged and raised at the step 3 gate */
-  --width-dialog-wide: 720px; /* the keyboard map, a reference table rather than a decision.
+  --width-dialog-wide: 45rem;    /* the keyboard map, a reference table rather than a decision.
                                  0 uses today; step 2 gave it dialog--map as its consumer */
-  --width-toast:       400px; /* the notice stack, never as wide as the pane */
-  --zone-notice-clear: 180px; /* what the page ends above at 360 so one notice hides nothing */
+  --width-toast:       25rem;    /* the notice stack, never as wide as the pane */
+  --zone-notice-clear: 11.25rem; /* what the page ends above at 360 so one notice hides nothing */
 
   /* -- 1e. THE LIGHT END OF THE SAME RAMP, AND IT IS THE ONLY THING THIS FILE ADDS
      Eight values, and every one is derived by the method the product already used for
@@ -448,25 +516,88 @@
    ============================================================================ */
 
 /* ============================================================================
-   1f. THE ONE RESPONSIVE PRIMITIVE, and it is here rather than in a component
-   because that is where the product put it and because of what it does NOT
-   reach. At 360 the queue row becomes one column, so --row-tracks collapses on
-   :root. A container that declares its own track set, the log list and the shift
-   brief, is CLOSER in the inheritance chain and keeps it: the log holds its seven
-   zones and the brief its four. That is the product's own behaviour, ported
-   rather than reasoned, and it is the reason this override is a token and not a
-   rule in row.css.
-   ============================================================================ */
-@media (max-width:1560px){
-  /* THE PANE NARROWS BEFORE THE LIST DOES. Below 1560 the detail pane drops from 380 to
-     320 and the queue keeps the 60 pixels, because the list is where the analyst chooses
-     what to open and the pane is where she reads one thing. Ported from kit.css, and NOT
-     ported at first: the attribution instrument found the row 60px narrower on every
-     screen at 1440 before this line existed. */
-  :root{ --pane-w: 320px }
-}
+   1f. THE REGISTER OF BREAKPOINTS, AND THERE IS ONE.
 
-@media (max-width:900px){
+   THREE NUMBERS CAME INTO THIS STAGE AND ONE LEFT IT. The census at step 1 found
+   exactly three distinct width values in a query anywhere in this project, none of
+   them named, none in a token, all in px, each written where a defect had been
+   found:
+
+     900px   the split stops being a split
+     1560px  the pane gave up 60 pixels to the list
+     1400px  the annunciator was allowed to wrap
+
+   The ladder of this stage reads top down: fluid, then container, then a point, and
+   a point is written only where the fluid answer physically cannot work. Two of the
+   three had a fluid answer and are gone. 1560 became the pane's own clamp, which is
+   the same statement made continuously instead of once. 1400 became one declaration
+   with no query at all: the annunciator wraps at every width, and it was measured at
+   the same height on every width from 1280 to 2560, so the query was never doing
+   anything a plain rule could not.
+
+   ONE IS LEFT BECAUSE IT IS A CHANGE OF BEHAVIOUR AND NOT OF SIZE. Below it the
+   detail pane is not rendered at all, the log column is not rendered, the queue row
+   collapses from seven tracks to one, a dialog stops being anchored and becomes the
+   whole screen, and the shift brief is replaced by a line saying why it is not
+   there. None of that is a layout stretching. There is no continuous version of it,
+   and that is the test the other two failed.
+
+   ITS NAME SAYS THE CHANGE AND NOT A DEVICE. `--bp-tablet` and `--bp-desktop` are
+   forbidden here: a tablet is a different width every year, and the word desktop
+   puts the idea of three separate versions back into the reader's head even when
+   the code has none. There are no versions. There is one layout with one named
+   change in it.
+
+   @media CANNOT READ var(). A media query is resolved before the cascade of custom
+   properties: `@media (min-width: var(--bp-split-panes))` produces no error and
+   simply never fires. So the literal stands in the query and this token is the
+   REGISTER. No other number may appear in a media query anywhere in this system,
+   and step 6 checks it by search rather than by reading.
+   ============================================================================ */
+  :root{
+    --bp-split-panes: 80rem;   /* 1280px, and it was 900 until the sweep looked between
+                                  the points.
+
+                                  IT MOVED 380 PIXELS, AND THAT IS THE FINDING OF THIS
+                                  STAGE. The split has an arithmetic minimum and nobody
+                                  had ever added it up: the queue row's seven tracks need
+                                  646px, the pane's floor is 320, and this artefact's
+                                  documentation panel takes 236. The split therefore
+                                  cannot exist below about 1200, and the point stood at
+                                  900. Between 900 and 1200 the product rendered a split
+                                  whose row did not fit its own column, and the cells
+                                  spilled past the edge. Measured at every ten pixels: it
+                                  broke at 910 and stayed broken to 1200, and it had been
+                                  doing that since stage 04, because everybody looks at
+                                  360, at 1440 and sometimes at 1280, and nobody looks at
+                                  1040.
+
+                                  1280 RATHER THAN 1210, and the reason is not arithmetic.
+                                  CLAUDE.md declares the platform as desktop first with a
+                                  MINIMUM OF 1280. The split now begins exactly where the
+                                  product says it needs to begin, and below that the
+                                  narrow rendering takes over: one column, no pane, the
+                                  row as one track. That rendering was designed at stage
+                                  04 and it is correct at 1024 in a way the broken split
+                                  never was. A half screen window on a two monitor desk is
+                                  960 wide, and this product's own analyst is the person
+                                  most likely to open one.
+
+                                  IN rem because a breakpoint has to answer to the
+                                  reader's own font size as well as to the window: a
+                                  person reading at 20px sits at a desk width with a
+                                  phone's worth of text in a line, and a px point never
+                                  notices. 80rem is 1280px at the default root.
+
+                                  THE QUERIES SAY 1279.98px rather than 1280. A max-width
+                                  query includes its own value, so max-width:1280px and a
+                                  split that begins at 1280 would both be true at exactly
+                                  1280 and the layout would be decided by source order. */
+  }
+
+@media (max-width:1279.98px){
+  /* the row becomes one track. The literal is --bp-split-panes and there is no
+     other number in any query in this system. */
   :root{ --row-tracks: 1fr }
 }
 

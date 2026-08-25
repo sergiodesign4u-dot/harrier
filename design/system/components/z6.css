@@ -31,7 +31,7 @@
   gap: var(--space-2);
 }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   /* there is no .z45 box to hang off at this width because the layout is block,
      so this is the one place in the product a stack is fixed to the viewport. It
      still never covers the pane, because at 360 there is no pane. */

@@ -54,7 +54,7 @@
 .z4--sys{ border-right: none; overflow-y: auto; align-items: center }
 
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .z4{ border-right: none; overflow-y: visible }
   /* hand the scrollport back to the document, or the sticky action inside an outage pins
      to this column instead of to the viewport. The same defect the pane foot had, and the

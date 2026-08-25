@@ -35,7 +35,7 @@
   background: var(--bg-scrim);
 }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   /* no pane at 360, so nothing to stay clear of */
   .scrim{ padding: 0; align-items: stretch }
   .scrim--desk-only{ display: none }

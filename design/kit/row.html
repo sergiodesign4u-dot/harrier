@@ -68,6 +68,9 @@
   <li><code>.states</code><span>holds <code>state</code>, one to four of them</span></li>
 </ul>
 
+<h3 class="k-h2" id="width">Behaviour at width</h3>
+<p class="k-note">Two things happen to the row, and only one of them is at a point. Below <b>1280</b> (<a class="link" href="responsive.html">Width</a>) <code>--row-tracks</code> collapses to <code>1fr</code> in <code>tokens.css</code> and the row is one column: the head is not rendered, because column names mean nothing once the line is five lines; <code>cost</code> goes, because on a phone she is not choosing what to read next; age and severity align left and the gap drops to <code>--space-1</code>. Above the point <b>nothing switches</b>. The side padding is a <code>clamp(--space-3, 0.31rem + 0.31vw, --space-4)</code>, which was a query at 1560 until stage 10 and now makes the same trade continuously, and the two prose tracks take a ceiling of <b>32ch</b> for what the case is and <b>36ch</b> for the verdict, so they stop growing and the rest of the width goes to the pane.</p>
+
 <h2 class="k-h" id="variants">Variants</h2>
 <p class="k-note">Two axes and no third. Both are settled by where the row stands rather than by anybody choosing.</p>
 <div class="k-wrap-x">
@@ -195,7 +198,7 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'width', label:'Behaviour at width' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

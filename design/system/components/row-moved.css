@@ -46,15 +46,15 @@
   color: var(--text-secondary);
 }
 
-@media (max-width:1560px){
-  /* the same trade the queue row makes, and it has to be written again because this is a
-     different component now: below 1560 the pane narrows and the line gives four pixels of
-     side padding back to its content. Missing until the comparison against the committed
-     original found the head cell eight pixels narrow. */
-  .row-moved{ padding-left: var(--space-3); padding-right: var(--space-3) }
-}
+/* THE SAME TRADE THE QUEUE ROW MAKES, and it is written again because this is a
+   different component. It was a query at 1560 until stage 10, one of the product's
+   three unnamed width numbers, and it is the same clamp the queue row now carries:
+   the line gives four pixels of side padding back to its content as the window
+   narrows, continuously rather than at one number. Missing altogether until the
+   comparison against the committed original found the head cell eight pixels narrow. */
+.row-moved{ padding-inline: clamp(var(--space-3), 0.31rem + 0.31vw, var(--space-4)) }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .row-moved{ gap: var(--space-1); padding: var(--space-3) }
 }
 

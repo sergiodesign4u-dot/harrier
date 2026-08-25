@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Width</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix r-. */
+.r-live{ border:var(--rule-edge); padding:var(--space-4); margin:0 0 var(--space-3);
+         container-type:inline-size }
+.r-live > b{ display:block; font:400 var(--size-xs)/1.8 var(--font-mono); letter-spacing:.08em;
+             text-transform:uppercase; color:var(--text-accent); margin:0 0 var(--space-3) }
+.r-fluid{ display:flex; flex-wrap:wrap; gap:var(--space-2) }
+.r-fluid i{ flex:1 1 8rem; height:2.25rem; background:var(--bg-quiet); border:var(--rule-hair);
+            display:grid; place-items:center; font:400 var(--size-xs)/1 var(--font-mono);
+            color:var(--text-secondary); font-style:normal }
+.r-meas{ max-width:var(--measure); font-size:var(--size-sm); line-height:var(--leading);
+         color:var(--text-secondary) }
+.r-nomeas{ font-size:var(--size-sm); line-height:var(--leading); color:var(--text-secondary) }
+.r-cq{ padding:var(--space-3); border:var(--rule-hair); font-size:var(--size-sm);
+       color:var(--text-secondary); display:grid; gap:var(--space-2) }
+.r-cq b{ color:var(--text-primary) }
+.r-cq .wide{ display:none }
+@container (min-width: 32rem){
+  .r-cq{ grid-template-columns:1fr 1fr }
+  .r-cq .narrow{ display:none }
+  .r-cq .wide{ display:block }
+}
+.r-scale{ display:grid; gap:var(--space-2); margin:0 0 var(--space-4) }
+.r-scale div{ display:flex; align-items:baseline; gap:var(--space-4); flex-wrap:wrap }
+.r-scale code{ flex:0 0 12rem; font-size:var(--size-xs); color:var(--text-secondary) }
+.r-now{ font:400 var(--size-xs)/1.8 var(--font-mono); color:var(--text-accent) }
+.r-band{ border:var(--rule-control); padding:var(--space-4); margin:0 0 var(--space-5);
+         font-size:var(--size-sm); line-height:var(--leading) }
+.r-band b{ color:var(--text-primary) }
+@media (max-width:1279.98px){
+  .r-scale code{ flex:1 1 100% }
+}
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Foundations</p>
+<h1 class="k-title">Width</h1>
+<p class="k-lede">There is no mobile version, no tablet version and no desktop version. There is one layout with one named change in it, and everything else grows or stops growing by itself. This page is what the change is, why it is where it is, and what a component is allowed to do about width at all.</p>
+<p class="k-note"><b>Drag the edge of this window while you read.</b> Every example below is live and none of them is a picture.</p>
+
+<div class="r-band">
+  <b>Read this page at more than one width.</b> The number in the corner of the examples is your own window, measured rather than assumed, and the point of this stage is that the interesting widths are the ones nobody thinks to check. The one that mattered most here was <b>1040</b>.
+  <p class="r-now" id="r-w" style="margin:var(--space-2) 0 0">measuring</p>
+</div>
+
+
+<h2 class="k-h" id="ladder">Three ways, and the point comes last</h2>
+<p class="k-note">Read top down. Take the fluid answer; if it cannot work, take a container; only if that cannot work either, write a point, and put the reason in the audit. <b>Two of this product's three original width numbers did not survive that question.</b></p>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th></th><th>Fluid</th><th>Container</th><th>Point</th></tr></thead>
+  <tbody>
+    <tr><td><b>The question</b></td><td>will it stretch by itself?</td><td>is the line too long?</td><td>is the behaviour different?</td></tr>
+    <tr><td><b>How</b></td><td><code>clamp()</code>, <code>%</code>, <code>minmax</code>, <code>flex-wrap</code></td><td><code>max-width</code> and a measure in <code>ch</code></td><td><code>@media</code> for the shell, <code>@container</code> for a component</td></tr>
+    <tr><td><b>How many here</b></td><td>most of the system</td><td>five, and one of them is the measure</td><td><b>one</b></td></tr>
+    <tr><td><b>What proves it</b></td><td>drag the width and nothing breaks</td><td>the measure, counted in characters</td><td>a line of the audit saying why fluid could not</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="r-live"><b>fluid &middot; nobody says how many fit</b>
+  <div class="r-fluid"><i>one</i><i>two</i><i>three</i><i>four</i><i>five</i><i>six</i></div>
+</div>
+<p class="k-note">Six boxes with a basis and permission to wrap. Nothing here counts columns, and there is no number to update when a width nobody planned for arrives. <b>The number of columns is never a token in this system</b>, which is the one place it deliberately does less than the shape of a design system suggests.</p>
+
+<div class="r-live"><b>container &middot; the same rule, measured against the box rather than the window</b>
+  <div class="r-cq">
+    <span class="narrow"><b>This box is narrow.</b> The rule that decided so asked the BOX, not the window, and the window has not changed.</span>
+    <span class="wide"><b>This box is wide.</b> It asked its own container.</span>
+    <span class="wide">A card does not know whether it stands in one column or in three, and a media query would give it the wrong answer: a desk has narrow columns in it too.</span>
+  </div>
+</div>
+<p class="k-note"><code>container-type</code> is declared by <b>whoever places the component</b>, never by the component itself: where a thing stands is not a property of the thing. In this product that means a pattern file or the page frame in <code>base.css</code>.</p>
+
+
+<h2 class="k-h" id="point">The point, and there is one</h2>
+<p class="k-lede"><code>--bp-split-panes</code> &middot; <b>80rem</b>, which is 1280px at the default root.</p>
+<p class="k-note"><b>At and above it the split is a split:</b> the list and the detail pane stand side by side, the queue row keeps its seven tracks, a dialog is anchored beside the pane rather than covering it, and the shift brief is a brief. Below it none of that is true, and what renders instead is the single column rendering that stage 04 designed: no pane, the row as one track, a line where the log would be.</p>
+<p class="k-note"><b>Three numbers came into this stage and one left it.</b> The census found 900px, 1560px and 1400px, none named, none in a token, all in px, each written where a defect had been found. 1560 was the pane giving up sixty pixels to the list; that is a clamp, and it is one now. 1400 let the annunciator wrap; measured from 1280 to 2560 the strip is the same height either way, so the query was a decoration on a declaration. <b>A query whose effect cannot be observed is not a breakpoint.</b></p>
+
+<div class="r-band">
+  <b>The one that is left moved 380 pixels, and that is the finding of the stage.</b>
+  <p style="margin:var(--space-2) 0 0">The split has an arithmetic minimum and nobody had added it up. The queue row's seven tracks need 646px, the pane's floor was 320, and this case study's own documentation panel takes 236: the split cannot exist below about 1200. The point stood at <b>900</b>. Between 910 and 1200 the product rendered a split whose row did not fit its own column and whose cells ran past the edge, and it had been doing that since stage 04, because everybody looks at 360, at 1440 and sometimes at 1280, and nobody looks at 1040.</p>
+  <p style="margin:var(--space-2) 0 0"><b>It is 1280 rather than 1210, and that is not arithmetic.</b> <code>CLAUDE.md</code> declares the platform as desktop first with a minimum of 1280. The split now begins exactly where the product says it needs to begin. A half screen window on a two monitor desk is 960 wide, and this product's own analyst is the person most likely to open one.</p>
+</div>
+
+<p class="k-note"><b>The name says the change and not a device.</b> <code>--bp-tablet</code> and <code>--bp-desktop</code> are forbidden here: a tablet is a different width every year, and the word desktop puts three separate versions back into the reader's head even when the code has none.</p>
+<p class="k-note"><b>Why the token and the query hold the same number twice.</b> <code>@media</code> cannot read <code>var()</code>: a query is resolved before the cascade of custom properties, so <code>@media (min-width: var(--bp-split-panes))</code> produces no error and simply never fires. The literal stands in the query and the token is the <b>register</b>. That is not two sources of truth, it is one source and its application, and a check counts every query in the system against it.</p>
+<p class="k-note">The queries are written <code>max-width: 1279.98px</code> rather than 1280, because a max-width query includes its own value and both sides would otherwise be true at exactly 1280.</p>
+<p class="k-note"><b>The 236px in that arithmetic is this case study's panel and not the product's.</b> A deployment of Harrier has no documentation column beside it and its split fits from about 1000. The point is set for the artefact as it is published, because that is the thing anybody can open, and the product's own number is named here so the difference is a decision rather than a confusion.</p>
+<p class="k-note"><b>The pane's floor moved too, and the sweep is what found it.</b> It was 20rem, the 320px the pane had always been, which made the pane at exactly 1280 the narrowest the case ever gets: <b>narrower than a phone</b>, where the case takes the whole 360. The latitude ladder's reason column is 224px and does not fit beside its mark at 320, so on thirteen screens it stuck twelve pixels out of the pane between 1280 and about 1300. Every way of making it fit inside 320 also changed the 360 rendering. It is <b>22.5rem</b> now, which is 360px: the pane is never narrower than the phone gives the same content.</p>
+
+
+<h2 class="k-h" id="measure">The container, and the measure</h2>
+<p class="k-note"><code>--measure</code> is <b>66ch</b>. It has been in <code>tokens.css</code> since stage 08 with the words "0 uses" beside it, and it was in the backlog as a token waiting for a screen. This stage is the screen.</p>
+<div class="r-live"><b>with the measure</b>
+  <p class="r-meas">A refresh token issued to this user is in use from an ASN the tenant has never seen, and an inbox rule was created from it four minutes later. Clerk found no second signal on the endpoint, and the identity is what moved.</p>
+</div>
+<div class="r-live"><b>without it, at whatever width this window happens to be</b>
+  <p class="r-nomeas">A refresh token issued to this user is in use from an ASN the tenant has never seen, and an inbox rule was created from it four minutes later. Clerk found no second signal on the endpoint, and the identity is what moved.</p>
+</div>
+<p class="k-note"><b>It only bites above the declared band, and that is the point.</b> The pane is the widest place prose stands in this product, and until this stage it stopped growing at 380 so nothing ever ran long. With the pane fluid it reaches 461 at 1920 and 544 at 2560, and the narrative measured <b>69 characters and then 82</b>. Between 1280 and 1600 it measures 46 to 57 and the rule changes nothing at all.</p>
+<p class="k-note"><b>It is on the text and not on its container.</b> The container holds blocks that should fill the pane: rules, stamps, rows. A measure is a property of a line somebody reads across, and only four things in this product are that.</p>
+
+
+<h2 class="k-h" id="type">Type is fluid, and it never switches</h2>
+<p class="k-note">The scale was in <code>px</code> from stage 04 to stage 09. It is in <code>rem</code> now, which at a 16px root is the same number and for a reader who set a larger font is the difference between a layout that answers and one that ignores them. WCAG 1.4.4 asks that text reach 200% without loss, and <code>px</code> is how a layout quietly refuses.</p>
+
+<div class="r-scale">
+  <div><code>--size-xl &middot; 21px to 26px</code><span style="font:600 var(--size-xl)/1.2 var(--font-sans)">18 waiting across 12 of 40 tenants</span></div>
+  <div><code>--size-lg &middot; 17px to 20px</code><span style="font:600 var(--size-lg)/1.2 var(--font-sans)">C-4417 &middot; Larkfield Logistics</span></div>
+  <div><code>--size-md &middot; 14px, fixed</code><span style="font-size:var(--size-md)">Clerk proposes compromised identity</span></div>
+  <div><code>--size-sm &middot; 12.5px, fixed</code><span style="font-size:var(--size-sm)">Token replay from a new ASN</span></div>
+  <div><code>--size-xs &middot; 11px, fixed</code><span style="font-family:var(--font-mono);font-size:var(--size-xs);letter-spacing:.08em;text-transform:uppercase">34 of 36 accepted, 30 days</span></div>
+</div>
+<p class="r-now" id="r-type">measuring the two fluid sizes at this width</p>
+
+<p class="k-note"><b>The two ends of each clamp are the product's own two widths.</b> 1280 is the declared minimum and 1920 the top of the declared primary band, so the type grows across exactly the band the analyst sits in and is stage 04's value everywhere below it. Above 1920 it stops: a heading that keeps growing becomes a banner.</p>
+<p class="k-note"><b>The three small sizes do not grow, and that is a decision.</b> Design principle 5 makes density the feature: on a wider monitor this analyst wants more rows, not larger ones. What makes dense text readable is the measure, and the measure is capped above.</p>
+<p class="k-note"><b>A font-size is never switched at a point.</b> Switching a size at a number puts a jump in the middle of somebody dragging a window and leaves widths on either side where the heading is wrong. The middle term of each clamp carries a <code>rem</code> addend rather than being pure <code>vw</code>, because pure <code>vw</code> ignores the reader's own font size and takes the page out of zoom entirely.</p>
+<p class="k-note"><b>The first draft of both clamps was wrong and a measurement said so.</b> The middle terms were solved for 360 rather than for 1280, so the floor stopped winning at about 414px and the declared minimum rendered at 19.4px instead of 17. The 360 rendering was identical either way, which is exactly why it took a second width to see it.</p>
+
+
+<h2 class="k-h" id="shell">The shell</h2>
+<p class="k-lede">Three questions to the navigation model of stage 03a, and the answers give the form. <b>The form is not a taste and the navigation model is not reopened.</b></p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>The question</th><th>The answer</th></tr></thead>
+  <tbody>
+    <tr><td>How many items at the top level?</td><td><b>Three.</b> Queue, Shift, Log. Clients arrives with cluster 7, and the fleet never gets one: it is the resting state of the queue's pane, so it costs zero taps</td></tr>
+    <tr><td>Is there a second level that must stay visible?</td><td><b>No.</b> The scope bar is per screen and belongs to the list, not to the navigation</td></tr>
+    <tr><td>Does any screen take side space for new behaviour?</td><td><b>No.</b> There is no new behaviour at this stage, and the split it would have introduced has been the product's shape since stage 03b</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The shell does not change form, and it never had a second form to change from.</b> This product has no tab bar and never had one: three items have lived in the top bar at every width since stage 04. What the stage changed is not the form but the behaviour, and it took a measurement to see it was wrong.</p>
+<p class="k-note"><b>The bar was three lines tall from 320 all the way to 1279.</b> Two elements claimed a whole line each with <code>width:100%</code> the moment the window was narrower than the point, which is a phone's bar rendered on a 1200px screen. Both are fluid now: the annunciator takes a basis of 22rem and wraps when there is not enough, the navigation fills whatever line it lands on. Measured: <b>181px at 360, 116 at 600, 65 at 768, 55 from 1024 up</b>, and unchanged at 360 to the pixel.</p>
+<p class="k-note"><b>Exactly one navigation carrier at every width</b>, verified by computed style at 49 widths rather than by writing it down. There is no hidden second copy in the accessibility tree, which is the usual form of this defect: three items visible, three items in the tree, at 360 and at 1920 alike.</p>
+
+
+<h2 class="k-h" id="components">What the components do</h2>
+<p class="k-note">Seventy three components and four patterns, every one with a verdict in the "behaviour at width" column of <a class="link" href="docs/inventory.md">the inventory</a>. Fifty two stand on at least one screen the audit calls wider; eleven stand only inside a modal layer, a door or a system state and are deliberately unchanged; and the shell zones are the only things in the system that measure the viewport at all.</p>
+<p class="k-note"><b>The row is the one that measures its place rather than the window.</b> A queue row does not know whether it stands in a 724px column at the declared minimum or a 1223px one at 1920, and its two prose tracks now take a ceiling counted in characters instead of a fraction: 32ch for what the case is and 36ch for the verdict. Below the ceiling nothing changed at all, which is why nothing moved at or under 1600.</p>
+
+
+<h2 class="k-h" id="patterns">What the patterns do</h2>
+<p class="k-note">Four of them, and this is where the stage pays for the one before it. A pattern adapts <b>once, in its own file</b>, and the rule reaches every screen it stands on, including the ones that do not exist yet and will be built at stage 12. That is why the compositions were pulled out before the width work rather than after it: what has to adapt is a composition, not twenty copies of one.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Pattern</th><th>What width does to it</th></tr></thead>
+  <tbody>
+    <tr><td><a class="link" href="queue-list.html">queue-list</a></td><td>Below the point the log variant is not rendered at all and says so in one line. Above it, the column takes what the pane does not, and the row's prose stops growing</td></tr>
+    <tr><td><a class="link" href="case-pane.html">case-pane</a></td><td>Below the point the case becomes the whole page and the pane's own chrome goes. Above it, <b>this is where the extra width goes</b>: 360 at the declared minimum, 461 at 1920, 544 at 2560</td></tr>
+    <tr><td><a class="link" href="fleet.html">fleet</a></td><td>Below the point it is not rendered: the pane at rest is a desk instrument, and node 3.1 settles that selecting at a narrow width opens the case rather than a pane</td></tr>
+    <tr><td><a class="link" href="shift-brief.html">shift-brief</a></td><td>Below the point the brief and the keyboard strip are replaced by a line saying the handover is a desk reading</td></tr>
+  </tbody>
+</table>
+</div>
+
+
+<h2 class="k-h" id="new">New behaviour</h2>
+<p class="k-lede"><b>None, and it is an answer rather than a gap.</b></p>
+<p class="k-note">The usual answer at this stage is split-view: a list and a detail side by side instead of one after the other. <b>Harrier has been split-view since stage 03b.</b> It is the chosen UX pattern of the whole product, it is what the two zones of the split are, and it stands on 48 of the 62 screens at every width above the point. There is nothing a wider screen can reveal that this product does not already show at its declared minimum.</p>
+<p class="k-note">Three things were considered and each is a job away from being real. <b>A third column</b> of tenant context has no job: the annunciator already carries it in the top bar at every width, which is cheaper than a column that is empty most of the time. <b>The fleet and a case at once</b> would be the "empty case" reading of the pane that <code>CLAUDE.md</code> forbids in as many words. <b>The log's reading pane beside the queue</b> would put two scopes on one screen, and the readout can make only one counted claim.</p>
+
+
+<h2 class="k-h" id="census">The census and the audit</h2>
+<p class="k-note">Both tables in full, with what moved and what stayed, are in <a class="link" href="docs/responsive.md">docs/responsive.md</a>. The two numbers worth carrying away:</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th></th><th>Coming in</th><th>Going out</th></tr></thead>
+  <tbody>
+    <tr><td>Distinct width values in a query, anywhere in the product</td><td><b>3</b>, none named, none a token, all in px</td><td><b>1</b>, named for its change, in rem, with the reason written beside it</td></tr>
+    <tr><td>Queries in the file of a screen</td><td>0</td><td>0, and now it is a rule rather than a habit</td></tr>
+    <tr><td>Screens the audit calls wider</td><td colspan="2"><b>39 of 62</b>, all by one mechanism: the width goes to the pane and the row's prose stops growing</td></tr>
+    <tr><td>Screens the audit calls unchanged</td><td colspan="2"><b>23 of 62</b>: a modal layer, a door, an outage, a case on its own address</td></tr>
+    <tr><td>Widths where something broke and no point was near</td><td colspan="2"><b>every width from 910 to 1200</b>, on every screen carrying a queue. None now</td></tr>
+  </tbody>
+</table>
+</div>
+
+</main>
+</div>
+<script>
+/* THE WIDTH IS READ FROM THE DOCUMENT, not from the window: a scrollbar is the
+   difference between the two, and this page is about widths being measured. */
+(function () {
+  var w = document.getElementById('r-w'), t = document.getElementById('r-type');
+  function probe(tok) {
+    var d = document.createElement('div');
+    d.style.cssText = 'position:absolute;left:-9999px;font-size:var(' + tok + ')';
+    document.body.appendChild(d);
+    var v = getComputedStyle(d).fontSize; d.remove(); return v;
+  }
+  function tick() {
+    var cw = document.documentElement.clientWidth;
+    w.textContent = 'this document is ' + cw + 'px wide, which is ' +
+      (cw >= 1280 ? 'at or above the point: the split is a split'
+                  : 'below the point: one column, no pane') + '.';
+    t.textContent = '--size-lg resolves to ' + probe('--size-lg') +
+                    ' and --size-xl to ' + probe('--size-xl') + ' at this width.';
+  }
+  tick();
+  addEventListener('resize', tick);
+})();
+window.NAV_SECTIONS = [
+  { id:'ladder',     label:'Three ways' },
+  { id:'point',      label:'The point' },
+  { id:'measure',    label:'The measure' },
+  { id:'type',       label:'Type' },
+  { id:'shell',      label:'The shell' },
+  { id:'components', label:'Components' },
+  { id:'patterns',   label:'Patterns' },
+  { id:'new',        label:'New behaviour' },
+  { id:'census',     label:'Census and audit' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

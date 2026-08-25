@@ -6,6 +6,95 @@ One file, one section per stage. It exists because the alternative is the chat: 
 
 ---
 
+# Stage 10, Responsive
+
+The promise of this stage is **asymmetric**, unlike the two before it. A refactor at 08 and 09 moved nothing anywhere. A width stage moves the wide rendering **on purpose** and must move the narrow one **not at all**, and a single total hides exactly the number that matters. Every measurement below is reported per viewport for that reason.
+
+## 1. What the census found before anything was written
+
+Three distinct width values existed in a query anywhere in this project, and not one of them was a decision: **900px** on 29 rules, **1560px** on 3, **1400px** on 2. All literals, all in `px`, none named, none in a token, each written where a defect had been found. The rule that made the census come first is narrow and load bearing: a fourth number written on top of three unnoticed ones gives a product where none of them is a decision.
+
+**Zero queries in a screen file, before and after.** That is inherited rather than earned, from stage 07 folding three stylesheets into one and stage 08 moving every screen onto `system/index.css`, and it is written down as a rule at this stage because stage 12 builds twenty screens at once.
+
+## 2. Defects
+
+| # | Class | Where | What | Found by | Status |
+|---|---|---|---|---|---|
+| 1 | breaks between the points | every screen carrying a queue, **at every width from 910 to 1200** | **The split had an arithmetic minimum nobody had added up.** The queue row's seven tracks need 646px, the pane's floor is 320 and this case study's panel takes 236, so the split cannot exist below about 1200. The point stood at 900. For 290 pixels of width the product rendered a split whose row did not fit its own column and whose cells ran past the edge, **and it had done so since stage 04** | the width sweep, on its first run | fixed: the point moved to 1280, which is the minimum `CLAUDE.md` declares. Below it the single column rendering that stage 04 designed takes over, and it is correct at 1024 in a way the broken split never was |
+| 2 | a phone's layout on a desk width | the top bar, **from 320 to 1279** | Two elements claimed a whole line each with `width:100%` the moment the window was narrower than the point, so the bar was **three lines tall** at 1200 as well as at 360 | measurement, after the point moved and made it visible | fixed, and fluidly: the annunciator takes a basis of 22rem and the navigation fills whatever line it lands on. 181px at 360, 116 at 600, 65 at 768, **55 from 1024 up**, and unchanged at 360 to the pixel |
+| 3 | a clamp solved for the wrong end | `--size-lg` and `--size-xl`, first draft | The middle terms were solved for 360 rather than for 1280, so the floor stopped winning at about 414px and **the declared minimum rendered at 19.4px instead of 17**. The 360 rendering was identical either way | the second width. It is invisible at the only width the promise is measured on | fixed: both clamps are anchored on the product's own two widths, 1280 and 1920 |
+| 4 | a query that cannot be observed | `annun.css` and `z1.css`, `@media (max-width:1400px)` | The annunciator was allowed to wrap below 1400. Measured at every width from 1280 to 2560 the strip is the same height either way, because above 1400 there had never been anything to wrap | the ladder, asked as a question rather than assumed | removed. **A query whose effect cannot be observed is not a breakpoint, it is a decoration on a declaration** |
+| 5 | a size where a clamp belonged | `tokens.css`, `row.css`, `row-moved.css`, `@media (max-width:1560px)` | The pane dropped 380 to 320 and two rows gave back four pixels of padding, at a number nobody had named. The pane and the list were competing for a fixed budget and the pane was told to give way once | the ladder | removed. `clamp(22.5rem, 24vw, 34rem)` and two `padding-inline` clamps say the same thing continuously |
+| 6 | the width went to the wrong surface | the whole product above 1600 | The pane stopped at 380 and never moved again, so **every pixel above 1560 went to two prose columns inside a scannable row**: the verdict cell measured 34 characters at 1440 and **70 at 1920**, in a row 30 pixels tall, at the width `CLAUDE.md` names as primary | the audit, measured before it was written | fixed: the pane is fluid and the row's two prose tracks take a ceiling in `ch`. The width goes to the surface that is read rather than the one that is scanned |
+| 7 | a token with no consumer | `--measure`, since stage 08 | 66ch, carried with the words "0 uses" beside it and a row in the backlog | the audit, looking for a container answer | closed. It caps the four kinds of prose in `base.css`, and it only bites above about 1700 because until this stage nothing could grow that far |
+| 8 | the same rule in two places | `case-pane.css` and `base.css` | `.nar{ max-width: 68ch }` in the pattern against `--measure` at 66ch in base: two answers two characters apart | writing the second one | fixed: the pattern's rule is gone and the sentence it stood on moved with the measure |
+| 9 | px where rem belonged | the whole primitive level | The type scale, the space scale, every zone height and every width were in `px` from stage 04. At a 16px root they are the same numbers; for a reader who set a larger font a px scale simply ignores the setting, which is how a layout fails WCAG 1.4.4 quietly | the stage's own taxonomy | fixed. The only `px` left in `tokens.css` are the three 1px rules, the 2px focus ring and a print radius: the things that do not scale |
+| 10 | an instrument that lost its input | `checks/coverage.mjs` | It reads the deleted `kit.css` out of git as `HEAD:design/kit/kit.css`. Once stage 09 was committed **the deletion went with it** and the path stopped resolving, so the instrument that proves the deletion was safe broke on the commit that made the deletion real | running it | fixed: it asks git which commit last touched the path and reads the version from that commit's parent |
+| 11 | a check keyed on a number that moved | `checks/coverage.mjs` again | Every selector is keyed by its media condition, so moving the point turned **56 covered selectors into 56 misses overnight** without a single rule being lost | the same run | fixed with two declared rows rather than by loosening the check: the point's move is a rename, and the rules that became fluid are named one by one with what they are now |
+| 12 | a bench that is not the product | `checks/geometry.mjs`, `rec` | The record cell measures 34.06 in the product and 36.25 on its stand page, because the pane is fluid now and the bench is a fixed width box | the geometry check | declared rather than fixed. A bench should be a fixed width; what it means is that a component standing inside the pane can legitimately measure differently there, and `rec` is the only one of the 42 pairs where it shows |
+
+## 3. What the promise measured
+
+| | |
+|---|---|
+| **at 360** | **0 boxes moved**, over 52 screens. The narrow rendering is the mobile first base and it was not supposed to change |
+| at 1440 | 2781 boxes moved, every one of them the audit's own mechanism: the pane wider, the row's prose narrower, the two fluid sizes larger |
+| **the width sweep, final** | 2548 readings over 52 screens and 49 widths: **nothing breaks at any width from 360 to 2560.** 24 findings below 360, on 12 screens, all at 320, reported and not counted because the product promises 360 |
+| contrast, both corpora | 212 renderings on 53 coloured screens and 352 on 88 stand pages: **0 failures, 0 page errors, 0 horizontal overflow** |
+| widths where something broke and no point was near | **every width from 910 to 1200 on every screen carrying a queue.** None now |
+| distinct width values in a query | **3 coming in, 1 going out** |
+| queries in a screen file | 0, and now a rule rather than a habit |
+
+## 3b. The reader with clean context
+
+A subagent with no history of the project, given the repository and the two rules files, forbidden every critique log and the backlog, and asked to do stage 12's real job: **build three named screens** and answer four questions about each. `log`, the decision log with nothing selected. `amend`, a dialog over a case. `not-found`, one centred message. Three screens with three different rows of the audit, on purpose.
+
+**It returned twenty things it could not work out, and four of them were defects I had made in the last hour.**
+
+| # | What it could not work out | Fixed |
+|---|---|---|
+| 1 | **`--pane-w` said one thing in the token and another on six pages.** The floor moved from 20rem to 22.5rem when the sweep found the pane was narrower than a phone, and `responsive.md`, `responsive.html`, `z5.html`, `case-pane.html`, `fleet.html` and `scrim.html` all still said 320px. `scrim.html` said a third thing, the pre stage 10 value. **It is the number the log's column width is derived from**, and the reader had to compute it from the token | yes, in all six, and in the geometry check's own comment |
+| 2 | **The audit table put the reject family in two rows and lost the five log screens.** It claimed 62 while covering 57 and double counting 6, and row 5 said eleven and listed twelve | yes. The categories underneath were produced by a browser reading the zones of every grey screen and they were right: what was wrong was the **hand written list of names beside the count** rather than out of it |
+| 3 | **The reader was asked to build the log and could not find its row**, which is how the row above was found | yes, the same fix |
+| 4 | The only blank cell in the audit was `not-found`'s "which job" | yes: none, and that is the point. It is the screen a job takes you to when the job has already failed |
+| 5 | Whether the 236px documentation panel is part of the width budget: the arithmetic counts it, `base.css` calls it not product | yes, named on `responsive.html`. The product's own split fits from about 1000; the point is set for the artefact as published, because that is the thing anybody can open |
+| 6 to 9 | **`amend` is a dialog in one document and a case screen in four others**, and whether its scrim is `--desk-only` decides whether the screen exists below 1280 at all | not fixed, and it should not be here: it is a question about the flow rather than about width. Four rows in `backlog.md`, with the node that owns the answer |
+| 10 to 20 | The log's foot, `--row-tracks-log` with no narrow value, the scope bar going while the readout keeps claiming a scope, `not-found`'s markup being declared out of the system without ever being enumerated | the first three are rows in `backlog.md`. The last is a real inconsistency in two component files, attributing the same "eleven one-off classes" to two different nodes, and it predates this stage |
+
+**Its second list contained no misreading of anything this stage decided.** It worked out the one point and its reason, both widths of all three screens, which of the eleven files the point fires in on each, what every component does, and the whole of what a screen file may not contain, including three things the rules only imply. It also reached a conclusion the artefacts had not: that `not-found` should be built out of `outage` rather than the eleven one-off classes, **and that doing so makes the audit's own "same, nothing" verdict for that screen wrong the moment it is built.** That is a better reading of this system's rules than the row it corrects.
+
+## 4. The contract as a checklist
+
+The third instrument. Both passes above read what **exists**, so neither can see a step that never happened.
+
+| Contract line | Done | Note |
+|---|---|---|
+| Census before audit, and the headline number named | yes | Three distinct width values, listed with their uses and their corpora. The census came first precisely so that a fourth would not be written on top of them |
+| The audit covers the whole product | yes | All 62 grey screens in nine categories, one verdict each, and the mechanism behind the 39 "wider" rows was measured before it was written |
+| Every "new behaviour" row carries a job | not applicable | There are none, and the reason is named: this product has been split-view since stage 03b |
+| Two points at most, in `rem`, each with its reason | **one**, and it is said out loud | The ceiling is two and this is not a quota. Two of the three original numbers had a fluid answer, so writing a second point would have been writing a number the ladder had already refused |
+| No name says a device | yes | `--bp-split-panes`. `--bp-tablet` and `--bp-desktop` are named as forbidden in the token's own comment |
+| The number of columns is not a token | yes, and there is no grid | This product has no card grid at all: the queue and the fleet are rows and the log is a table. `--grid-col-min` and `--grid-gap` were **not** written, because a token with no consumer fails this system's own idle control |
+| Type is fluid through `clamp()`, never switched at a point | yes | Two of five sizes, both anchored on 1280 and 1920, both with a `rem` addend in the middle term. `typography.html` rebuilt |
+| The floor of each clamp equals the stage 08 scale | yes | Verified at 360 and at 1280: 17px and 21px exactly |
+| No adaptive `px` left | yes | The only `px` in `tokens.css` are three 1px rules, the 2px focus ring and a print radius |
+| Every query in the system gives the registered number | yes | 29 queries, all `max-width:1279.98px`, counted by search |
+| No query in a screen file, and the rule written in two places | yes | Zero before and after; the rule is in `architecture.md` and in `design/system/CLAUDE.md` |
+| `container-type` declared by whoever places the component | not applicable, and said out loud | No container query was needed. The row's problem was a measure, and a track carries its own ceiling in `ch`. There is no `@container` in `design/system/`, which also means there is none that silently never fires |
+| The shell resolved by the fork, one carrier at any width | yes, form C | Three items, no permanent second level, no screen taking side space. Verified by computed style at 49 widths, on screens that have a shell and on the seven that do not |
+| The width sweep run, chasm widths named | yes | 2548 readings over 52 screens and 49 widths. The chasm was every width from 910 to 1200 |
+| Zero difference at 360, every difference above explained | yes | **0 boxes at 360** over 52 screens; 2762 at 1440, all of them the audit's own mechanism |
+| The inventory column filled on every row, each "does not adapt" with a reason | yes | 73 rows: 39 fluid, 21 the point, 11 do not adapt, 2 measure their container |
+| "Behaviour at width" only on components that adapt | yes | 24 pages. The other 49 get nothing, because an empty note on 49 pages is noise |
+| `wireframes/` unchanged | yes | Read as the audit corpus and not touched |
+| The roadmap flag and the README row | yes | |
+
+**One line is answered "not applicable" three times and each one is a real answer rather than a skipped step:** there is no new behaviour, there is no grid, and there is no container query. Two of the three were the expected shape of this stage and the product turned out not to have the problem they solve.
+
+**And one thing this stage did that the contract does not ask for.** The sweep was written to fail on anything at any width, and it reported the five sign in states and the two full outage states as defects for having no navigation carrier. They have no shell at all, by usage rule R5. **An instrument that is red about a promise nobody made gets ignored about the promises somebody did make**, so it knows about the shell now, and it reports anything below the declared minimum of 360 separately rather than counting it.
+
+---
+
 # Stage 09, Design System
 
 Two taxonomies, kept apart on purpose. **Defects** are things that are wrong in an artefact. **The contract checklist** is things that never happened, and no instrument that reads what exists can see one: a step that was skipped is absent from every file and every page.

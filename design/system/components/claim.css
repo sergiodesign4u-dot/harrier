@@ -50,7 +50,7 @@
    forbidden to draw is the wrong place to take it. The row is in docs/backlog.md,
    and the markup keeps the class because it carries the meaning either way. */
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   /* the source parked at the top right and the claim wrapped underneath it, so a
      two line claim read as two columns. It takes its own line now. */
   .claim{ flex-wrap: wrap }

@@ -70,6 +70,6 @@
   overflow-wrap: anywhere;
 }
 
-@media (max-width:900px){
+@media (max-width:1279.98px){
   .sa-route{ display: none }
 }
