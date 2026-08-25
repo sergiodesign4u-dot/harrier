@@ -110,6 +110,10 @@
 <p class="k-note"><b><code>.t-x:hover</code> is one of the two rules <code>--line-hover</code> was read off.</b> It and the keyboard map trigger in Z1 both raise a bordered control’s boundary to the reading ink, which is what made hover on a border a role rather than a habit.</p>
 <p class="k-note">The toast itself has no states. Only the dismiss inside it does.</p>
 
+
+<h3 class="k-h2" id="motion">Motion</h3>
+<p class="k-note"><b>Response, 120ms, the browser's own <code>ease</code>.</b> What moves is a boundary and ink, and it is on the CLOSE CONTROL rather than on the notice: the only thing in a notice anybody presses. Named one by one rather than as <code>all</code>, because <code>all</code> animates what nobody ordered and drags the layout properties in behind it. <b>Never a size and never a position:</b> those make the browser recalculate the layout of the page on every frame. Under <code>prefers-reduced-motion</code> it is 1ms, and this component does nothing to make that happen: it reads <code>var(--dur-fast)</code> and the token is redefined once. Full reasoning on <a class="link" href="motion.html">Motion</a>.</p>
+
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <div class="k-wrap-x">
 <table class="k-table">
@@ -159,7 +163,8 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'motion',   label:'Motion' },
+  { id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

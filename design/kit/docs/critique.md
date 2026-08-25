@@ -6,6 +6,58 @@ One file, one section per stage. It exists because the alternative is the chat: 
 
 ---
 
+# Stage 11, Animation
+
+**The census came back empty, and that is the finding the stage started from.** A search over all four corpora and computed style on **122,458 elements over 282 renderings** at two widths: zero transitions, zero keyframes, zero animations, source and output agreeing. Zero durations, zero curves, zero expensive properties, zero `transition: all`, and zero animations obeying `prefers-reduced-motion` because there were none to obey.
+
+That is the opposite of the usual position here, and it happened rather than being lucky: `arriving.css` did not merely omit an animation, it **wrote down that it was omitting one and which stage would owe it**.
+
+## 1. Defects
+
+| # | Class | Where | What | Found by | Status |
+|---|---|---|---|---|---|
+| 1 | an instrument that cannot see the thing the stage is about | `checks/motion.mjs` | **The one animation in this product lives on a pseudo element**, and `querySelectorAll('*')` does not return one. The check reported the queue's filling bar as motionless on the four screens that carry it, and reported it as obeying reduce for the same reason | running it on the screen that has the bar, rather than on the screen that has everything else | fixed: it reads `::before` and `::after` too. **An instrument that cannot see the thing the stage was written for is the most expensive kind of clean result** |
+| 2 | an instrument measuring the wrong thing | `checks/motion.mjs`, the check for a state that vanished under reduce | It compared the two lists of MOVING things, so an element that correctly stopped moving left the list and was reported as having vanished. **The one animation in the product failed that check by obeying it** | the same run | fixed: it compares what RENDERS, which is what the question was about |
+| 3 | an instrument reporting a drift that is not one | `checks/motion.mjs` | A transition over two properties reports one duration per property, so `btn` comes back as "0.12s, 0.12s" and a naive comparison calls that a different value from "0.12s" | the first grouped table | fixed: a list whose entries agree is collapsed, and a list that genuinely disagrees is left alone, because that one IS a drift |
+| 4 | a token with no reader | `--dur-base` | Written at step 2 for the one moment of connection the inventory found, and that moment turned out to have nothing cheap to move: a `details` opens by changing a height | the check that reads every duration in the product against the register | **removed rather than carried.** A token with no reader fails this system's own idle control, and the moment became an order for a state instead |
+| 5 | a literal where a token belonged | `arriving.css`, the cycle's 1.4s period | The one duration in the product not in the register | the same check | fixed: `--dur-cycle`, and the register is what the check reads |
+| 6 | the demonstration broke the mechanism it demonstrates | `motion.html` | The box that slows the components down redefines `--dur-fast` on a class, and the reduced motion block redefines it on the root: **for one measurement the one thing on this stand that exists to show the override reaching everything was the only thing in the project it did not reach.** Eight elements still moving for two seconds with the machine asking for stillness | the reduce half of the check, on the stand | fixed: it carries its own query, and **any surface that redefines a motion token has to** |
+| 7 | a colour transition is a theme transition | `motion.html` | **A response in this product is a colour transition, so a change of theme is a change of colour.** With two seconds in force, every component in the demo spends two seconds crossing from one ground to the other, and the contrast sweep caught three of them mid crossing at **3.64:1 against a floor of 4.5** on a page that had been clean a minute before | the contrast sweep, which is not a motion instrument at all | fixed: the box is slow only while somebody is inside it. At 120ms the same crossing happens and nobody can read anything in 120ms; **this is the argument for 120 rather than 200 that nobody would have thought to make** |
+| 8 | a control with no state | `.doorhelp summary` | `cursor: pointer`, the only control in the product with no hover, and the only in-document connection moment sits on it | trying to animate that moment | **not fixed here, deliberately.** Motion lands on states and never creates them. A row in `backlog.md` |
+
+## 2. What the instruments say
+
+| | |
+|---|---|
+| `motion.mjs` on the product | 52 pages, every element, twice, at two widths: **1398 elements move, one number per role**, 0 outside the register, 0 `transition: all`, 0 expensive properties, **0 above 1ms under reduce, 0 elements that stopped existing** |
+| `motion.mjs` on the stand | 88 pages: the same, with 8 elements declared as a demonstration and exempt from the register but not from reduce |
+| `contrast.mjs` | 356 renderings on 89 stand pages and 212 on 53 screens: **0 failures**, after finding defect 7 |
+| `syntax.mjs` | every comment terminates and every block closes |
+
+## 3. The contract as a checklist
+
+| Contract line | Done | Note |
+|---|---|---|
+| Census before inventory, from source AND output | yes | And it came back empty on every line, which is the one result the stage could not have planned for |
+| Two corpora, and the second is the register of states | yes | B1 gave 2 moments and B2 gave 13. **B2 is the whole of the response work**, and a flow map would have named none of it |
+| Every moment names one of three works | yes | 15 moments, 15 works. Nothing was animated for looking better |
+| Idle control on B2: every component considered | yes | 77 rows, 64 with the verdict "does not move" and a reason |
+| Motion lands on existing states | yes | 13 components, and the one moment that needed a state that does not exist became a backlog row rather than a `.is-hover` |
+| Three durations at most, all tokens | **two**, said out loud | And the second is a cycle period rather than a transition duration. The third was written and removed for having no reader |
+| Reference on at most 3 already-named moments, never a duration | yes | One moment, one source, and **the other source was unavailable and is recorded as such** rather than quietly skipped |
+| Same role, same number, proved by a grouped table | yes | Four response roles, one value each, over 1398 elements |
+| No `transition: all`, nothing expensive | yes | 0 and 0, measured rather than searched |
+| `prefers-reduced-motion` written at the same step as the tokens | yes | Step 2, in the same file, and step 5 proved it rather than introducing it |
+| What the override cannot reach, listed and closed | yes | Three classes, and a fourth shape found on this project's own stand |
+| A cycle is replaced by a still state, not accelerated | yes | `arriving`, and its own file carries the query |
+| No state disappeared under reduce | yes | 0, measured against what renders |
+| The inter-document fork decided explicitly | yes | Answer B, one declaration, degrading to nothing, with its own reduce block |
+| Tone checked against `voice.md` | yes | Ten phases, no row required the text to change, and the one worth naming is the queue: two hundred rows that change a ground and nothing else |
+| No motion in a screen file, rule written in two places | yes | 0, and the rule is in `architecture.md` and `design/system/CLAUDE.md` |
+| The safety net on `*` | **not written, and that is the answer** | The pack allows it last, after an audit passes without it. The audit passed without it, so writing it would only make it impossible to see a component that reads no token |
+
+---
+
 # Stage 10, Responsive
 
 The promise of this stage is **asymmetric**, unlike the two before it. A refactor at 08 and 09 moved nothing anywhere. A width stage moves the wide rendering **on purpose** and must move the narrow one **not at all**, and a single total hides exactly the number that matters. Every measurement below is reported per viewport for that reason.

@@ -24,6 +24,9 @@
   font-size: var(--size-sm);
   text-decoration: none;
   color: inherit;
+  /* RESPONSE, and the properties are named one by one because `all` animates
+     what nobody ordered and drags layout properties in behind it. */
+  transition: background-color var(--dur-fast) var(--ease-standard);
 }
 .bline:first-of-type{ border-top: var(--rule-hair) }
 

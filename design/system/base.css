@@ -61,6 +61,12 @@ a:hover{ text-decoration-color:var(--text-hover) }
    The 1px offset is load bearing rather than decorative: on .btn--primary the
    ring sits on the accent ground at 1.00 without it. */
 :focus-visible{ outline:var(--focus-ring); outline-offset:1px }
+/* AND IT DOES NOT TRANSITION, WHICH IS A DECISION RATHER THAN AN OVERSIGHT. Every
+   other response in this system takes --dur-fast. This one is the response that a
+   person cannot see the result of until it has finished: somebody moving by keyboard
+   does not know where they are until the ring is there, so 120ms of fading in is
+   120ms of not knowing. The rule that a response slower than about 150ms stops being
+   a response is at its strictest here, and the strictest reading of it is zero. */
 
 
 /* ---- the three global text utilities MOVED OUT OF HERE at step 6 -----------
@@ -102,6 +108,39 @@ a:hover{ text-decoration-color:var(--text-hover) }
   max-height:100vh;
   overflow-y:auto;
   overscroll-behavior:contain;   /* the page does not start moving when the panel ends */
+}
+
+/* -- THE ONE MOVEMENT BETWEEN DOCUMENTS, AND IT IS A FORK THAT WAS TAKEN ------
+   Every state of every screen in this product is its own html file: 62 of them. So
+   the single most important movement the analyst makes, a row in the queue becoming
+   a case in the pane, is a NAVIGATION, and a navigation cannot be a transition.
+   That is not a limitation of this prototype, it is what the product is: a case has
+   its own address by decision, because somebody opens one from a pager at 03:00.
+
+   THREE ANSWERS WERE LEGAL AND THE MIDDLE ONE IS TAKEN. Not animating between
+   documents at all was the default and it leaves the product's main move with no
+   connection at all. A flow by flow decision is the third and it buys nothing here,
+   because every flow in this product is the same move. This is the second: one
+   declaration, and the browser cross fades the old document into the new one.
+
+   IT DEGRADES TO NOTHING, LOUDLY ENOUGH TO BE HONEST. A browser without view
+   transitions ignores the at-rule and navigates exactly as it did before: no error,
+   no fallback to write, no half working promise. That is the property that made this
+   answer legal rather than a guess, and it is the reason the fork is recorded in
+   docs/motion.md rather than being decided by whoever writes the next screen.
+
+   AND IT OBEYS reduce EXPLICITLY, because the token override cannot reach it: a
+   view transition has its own default animation, owned by the browser, and no
+   custom property of ours is in it. Section 8 of motion.md lists this as one of the
+   three things the override does not reach, and this is where it is closed. */
+@view-transition{ navigation: auto }
+
+@media (prefers-reduced-motion: reduce){
+  /* the navigation still happens; only the cross fade goes */
+  @view-transition{ navigation: none }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*){ animation: none }
 }
 
 /* -- THE MEASURE, AND STAGE 10 GAVE IT ITS FIRST CONSUMER -------------------------

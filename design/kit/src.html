@@ -128,6 +128,10 @@
 <p class="k-note"><b>The word keeps the claim's ink in every state, and here that matters more than anywhere.</b> 18 of the sources sit inside <code>claim--absence</code>, where Clerk found nothing and the whole line is dimmed. A source that brightened under the pointer would say the absence had stopped being one.</p>
 <p class="k-note"><b>Active and out of reach are absent</b> for the same reasons as on <code>link</code>, and the span form is the product's own answer to the second one: where the evidence cannot be reached, the source is written without a link at all rather than drawn as a disabled one.</p>
 
+
+<h3 class="k-h2" id="motion">Motion</h3>
+<p class="k-note"><b>Response, 120ms, the browser's own <code>ease</code>.</b> What moves is an underline, the source a claim stands on. Named one by one rather than as <code>all</code>, because <code>all</code> animates what nobody ordered and drags the layout properties in behind it. <b>Never a size and never a position:</b> those make the browser recalculate the layout of the page on every frame. Under <code>prefers-reduced-motion</code> it is 1ms, and this component does nothing to make that happen: it reads <code>var(--dur-fast)</code> and the token is redefined once. Full reasoning on <a class="link" href="motion.html">Motion</a>.</p>
+
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <p class="k-note"><b>No colour role of its own.</b> It inherits the ink of the claim, and the icon is painted with <code>currentColor</code>, so it dims when the claim does. Geometry: <code>--font-mono</code> and <code>--size-xs</code>.</p>
 <h3 class="k-h2">Copy this</h3>
@@ -165,7 +169,8 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'motion',   label:'Motion' },
+  { id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

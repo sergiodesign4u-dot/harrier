@@ -31,6 +31,10 @@
   line-height: 1.35;          /* tighter than --leading: a row is scanned, not read */
   text-decoration: none;
   color: inherit;
+  /* RESPONSE, and the properties are named one by one because `all` animates
+     what nobody ordered and drags layout properties in behind it.
+     and the selected row does NOT transition into place. Selection here is a page load: the row that is selected is selected when the document opens, so there is no state to move between */
+  transition: background-color var(--dur-fast) var(--ease-standard);
 }
 
 /* every cell can wrap and none can push the grid wider than the pane */

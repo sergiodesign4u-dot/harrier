@@ -33,6 +33,10 @@
   gap: var(--space-2);
   text-decoration: none;
   cursor: pointer;
+  /* RESPONSE, and the properties are named one by one because `all` animates
+     what nobody ordered and drags layout properties in behind it. */
+  transition: background-color var(--dur-fast) var(--ease-standard),
+              border-color     var(--dur-fast) var(--ease-standard);
 }
 
 /* -- emphasis. One axis, three values, and the rule is one main action per zone -- */

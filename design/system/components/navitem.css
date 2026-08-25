@@ -26,6 +26,9 @@
   font-size: var(--size-md);
   padding: var(--space-2) 0;
   border-bottom: 2px solid transparent;  /* the 2px open row: see geometry.html */
+  /* RESPONSE, and the properties are named one by one because `all` animates
+     what nobody ordered and drags layout properties in behind it. */
+  transition: color var(--dur-fast) var(--ease-standard);
 }
 
 /* WHERE YOU ARE. Two signals and not one: the ink goes to full strength AND the

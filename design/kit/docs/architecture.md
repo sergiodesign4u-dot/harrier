@@ -247,6 +247,26 @@ Four homes, and the fifth is forbidden:
 
 **Never switch a `font-size` at a point.** Type is fluid through `clamp()` with a `rem` addend in the middle term. A pure `vw` middle term takes the page out of the reader's zoom, which is a failure of WCAG 1.4.4.
 
+### A new MOVEMENT
+
+**Name the work first, then take the animation.** There are three and there is no fourth: **connection** (what did that appear out of), **status** (is it still working), **response** (did it hear me). A moment for which none of the three can be named does not get animated, and that is not an impoverishment: it is a band of noise taken off a surface somebody reads for six hours.
+
+Then, and only then, four homes and a fifth that is forbidden:
+
+- a duration, a curve or a distance shared by more than one thing: **`tokens.css`**
+- the response of one component: **its own file**, on a state **stage 08 already declared**
+- a cycle: **the file of the component that owns it**, with its own `prefers-reduced-motion` block, because the token override cannot reach a cycle
+- a movement between documents: **`base.css`**, and there is one
+- **in the file of a screen: never.** Not a `transition`, not an `@keyframes`, not an inline duration
+
+**Motion lands on states, it does not create them.** If the moment you want has no state in the component, that is an order against stage 08's five things and not a class invented here: a `.is-hover` the product will never wear animates nothing and documents a lie. There is one such row in `backlog.md` already.
+
+**Only `transform` and `opacity` are cheap.** `width`, `height`, `top`, `left`, `margin` and `padding` make the browser recalculate the layout of the page on every frame. `box-shadow` and `filter` leave the layout alone and load the painting instead: one element survives it and a list of two hundred rows does not. **`transition: all` is forbidden outright**: it animates what nobody ordered and drags the expensive properties in behind it. Properties are named one by one.
+
+**A response is never slower than `--dur-fast`**, and the focus ring is never animated at all: it is the one response whose result cannot be seen until it has finished.
+
+**Anything that redefines a motion token must carry its own reduced motion query.** Redefining on a class beats the override, which redefines on the root. The one place in this project that happens is a demonstration on `motion.html`, and for one measurement it was the only thing the override did not reach.
+
 ### A new PLACE
 
 `design/system/places.css`, and it is the fifth kind of thing rather than a fourth kind of component. **The test is one question: does the rule say something about a THING, or about a GAP between things?** A gap, an order or a width is a place. It gets no page, no registry entry and no inventory row, because it is not a thing anybody can be told to reach for: it is where a thing stands. **A place that carries a colour, a line or a family is not a place**, and stage 09 learned that by trying to move two of them into a pattern.

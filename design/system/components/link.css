@@ -24,6 +24,9 @@
   text-decoration: underline;
   text-decoration-color: var(--text-secondary);
   text-underline-offset: 2px;             /* the 2px open row: see geometry.html */
+  /* RESPONSE, and the properties are named one by one because `all` animates
+     what nobody ordered and drags layout properties in behind it. */
+  transition: text-decoration-color var(--dur-fast) var(--ease-standard);
 }
 
 /* -- STATES ------------------------------------------------------------------ */

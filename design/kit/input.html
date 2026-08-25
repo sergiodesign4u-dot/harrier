@@ -137,6 +137,10 @@
 <p class="k-lede" style="margin-top:var(--space-4)"><b>The boundary moved, and it is the one appearance change in this file.</b></p>
 <p class="k-note"><code>kit.css</code> drew it with <code>--color-edge</code> at <b>2.997</b> against the page. A text field is identified by <b>nothing but</b> its boundary: the label sits outside it and an empty field has no content to read. That is precisely what <b>WCAG 1.4.11</b> asks 3:1 of, and 2.997 is a number that rounds to the threshold and does not meet it, which is a mistake this project has now made three times. It reads <code>--rule-control</code> at 3.98, the role that exists for exactly this, and the row is in <code>tokens-audit.md</code>. <b>34 fields change, and it is the only difference the pixel comparison at step 8 will find in this component.</b></p>
 
+
+<h3 class="k-h2" id="motion">Motion</h3>
+<p class="k-note"><b>Response, 120ms, the browser's own <code>ease</code>.</b> What moves is a boundary, the field, and the boundary is what identifies it as a control at all. Named one by one rather than as <code>all</code>, because <code>all</code> animates what nobody ordered and drags the layout properties in behind it. <b>Never a size and never a position:</b> those make the browser recalculate the layout of the page on every frame. Under <code>prefers-reduced-motion</code> it is 1ms, and this component does nothing to make that happen: it reads <code>var(--dur-fast)</code> and the token is redefined once. Full reasoning on <a class="link" href="motion.html">Motion</a>.</p>
+
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <p class="k-note">One fill, one ink, two lines: <code>--bg-page</code>, <code>--text-primary</code>, <code>--rule-control</code>, <code>--line-hover</code>, and <code>--color-focus</code> through <code>base.css</code>. Geometry straight from primitive: <code>--size-md</code>, <code>--font-sans</code>, <code>--leading</code>, <code>--radius-ui</code>, <code>--space-2</code> and <code>--space-3</code>.</p>
 <h3 class="k-h2">Copy this</h3>
@@ -178,7 +182,8 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'motion',   label:'Motion' },
+  { id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

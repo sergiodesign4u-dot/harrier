@@ -59,6 +59,13 @@
   font-size: var(--size-md);
   line-height: 1;
 }
+/* RESPONSE, and it goes on the CLOSE CONTROL rather than on the notice. The first
+   draft put it on `.toast`, where it would have moved nothing: the only hover in
+   this file is on `.t-x`, the one thing in a notice anybody presses. */
+.toast .t-x{
+  transition: border-color var(--dur-fast) var(--ease-standard),
+              color        var(--dur-fast) var(--ease-standard);
+}
 .toast .t-x:hover{
   border-color: var(--line-hover);
   color: var(--text-hover);

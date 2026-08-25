@@ -144,6 +144,10 @@
 
 <p class="k-note"><b>The inverted chip takes no hover, and this is a finding rather than an omission.</b> Both of its hover surfaces are already spent: the ground <b>is</b> the invert plate, which is the top of the ramp with no step above it, and the boundary is what identifies it against that plate, so raising it to <code>--line-hover</code> would put bone on bone at 1.00. <b>The cure is not a token for two instances</b>, and the rule that one use is not a role says so. It is a product question: the inverted plate is what this system uses for a thing that <b>reports</b>, and an interactive chip probably should not wear it. It goes to <code>backlog.md</code> at step 6, and until then the pointer and the cross carry it.</p>
 
+
+<h3 class="k-h2" id="motion">Motion</h3>
+<p class="k-note"><b>Response, 120ms, the browser's own <code>ease</code>.</b> What moves is a ground and a boundary, the scope of what you are looking at. Named one by one rather than as <code>all</code>, because <code>all</code> animates what nobody ordered and drags the layout properties in behind it. <b>Never a size and never a position:</b> those make the browser recalculate the layout of the page on every frame. Under <code>prefers-reduced-motion</code> it is 1ms, and this component does nothing to make that happen: it reads <code>var(--dur-fast)</code> and the token is redefined once. Full reasoning on <a class="link" href="motion.html">Motion</a>.</p>
+
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <div class="k-wrap-x">
 <table class="k-table">
@@ -195,7 +199,8 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'motion',   label:'Motion' },
+  { id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

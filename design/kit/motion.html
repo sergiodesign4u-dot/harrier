@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Motion</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix m-. */
+.m-live{ border:var(--rule-edge); padding:var(--space-4); margin:0 0 var(--space-3) }
+.m-live > b{ display:block; font:400 var(--size-xs)/1.8 var(--font-mono); letter-spacing:.08em;
+             text-transform:uppercase; color:var(--text-accent); margin:0 0 var(--space-3) }
+.m-live > p{ margin:var(--space-3) 0 0; font-size:var(--size-sm); line-height:var(--leading);
+             color:var(--text-secondary) }
+.m-row{ display:flex; flex-wrap:wrap; gap:var(--space-3); align-items:center }
+.m-state{ font:400 var(--size-xs)/1.8 var(--font-mono); color:var(--text-accent) }
+.m-works{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-3); margin:0 0 var(--space-5) }
+.m-works > div{ border:var(--rule-edge); padding:var(--space-4) }
+.m-works h3{ margin:0 0 var(--space-2); font:600 var(--size-md)/1.3 var(--font-sans) }
+.m-works p{ margin:0 0 var(--space-2); font-size:var(--size-sm); line-height:var(--leading);
+            color:var(--text-secondary) }
+.m-works b{ color:var(--text-primary) }
+.m-works .n{ font:400 var(--size-xs)/1.8 var(--font-mono); letter-spacing:.08em;
+             text-transform:uppercase; color:var(--text-accent) }
+.m-band{ border:var(--rule-control); padding:var(--space-4); margin:0 0 var(--space-5);
+         font-size:var(--size-sm); line-height:var(--leading) }
+.m-band b{ color:var(--text-primary) }
+/* THE DEMONSTRATION OF THE MECHANISM BROKE THE MECHANISM, and the check found it on
+   this page rather than in the product. Redefining --dur-fast here overrides the
+   reduced motion block, which redefines the same token on :root and therefore loses
+   to a class. So the box that exists to show that one override reaches everything
+   was the one thing in the project not reached by it: eight elements still moving
+   for two seconds with the machine asking for stillness. It carries its own query
+   now, which is what any surface redefining a motion token has to do. */
+/* AND IT IS ONLY SLOW WHILE SOMEBODY IS IN IT, which is the second thing this box
+   taught. A response is a COLOUR transition, so a change of theme is a change of
+   colour, so switching the theme with a two second duration in force makes every
+   component in here spend two seconds crossing from one ground to the other. The
+   contrast sweep measured three of them mid crossing at 3.64:1 against a floor of
+   4.5, on a page that had been clean a minute earlier. At 120ms the same crossing
+   happens and nobody can read anything in 120ms; at two seconds it is a real
+   failure. Scoped to hover and focus-within, the box is 120ms at rest, so it never
+   crosses on load and never crosses on a theme switch. */
+.m-slow:hover,
+.m-slow:focus-within{ --dur-fast: 2s }
+@media (prefers-reduced-motion: reduce){
+  .m-slow:hover,
+  .m-slow:focus-within{ --dur-fast: 1ms }
+}
+@media (max-width:1279.98px){ .m-works{ grid-template-columns:1fr } }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Foundations</p>
+<h1 class="k-title">Motion</h1>
+<p class="k-lede">One duration, one cycle, two curves, and thirteen components that use them. This page is what each of them is for, and every example on it is the real component rather than a description of one: point at things, move through them with a tab key, and read the numbers the browser gives back.</p>
+
+<div class="m-band">
+  <b>Nothing in this product moved before this stage, and that is measured rather than remembered.</b>
+  <p style="margin:var(--space-2) 0 0">The census read <b>122,458 elements over 282 renderings</b>, every page of the product and of this stand, at two widths, and compared it against a search over all four corpora: <b>zero transitions, zero keyframes, zero animations</b>. Source and output agreed, which is the only condition under which agreeing means anything. So nothing here is the survivor of a drift, and every value below is a decision.</p>
+  <p class="m-state" id="m-pref" style="margin:var(--space-3) 0 0">reading your own setting</p>
+</div>
+
+
+<h2 class="k-h" id="works">Three works, and there is no fourth</h2>
+<p class="k-note">A movement earns its place by doing one of exactly three jobs. A moment for which none of the three can be named does not get animated, and that is not an impoverishment: it is a band of noise taken off a surface somebody reads for six hours.</p>
+
+<div class="m-works">
+  <div>
+    <span class="n">connection</span>
+    <h3>Where did that come from?</h3>
+    <p>Something appeared and the movement says what it appeared out of. A panel slides from under the control that opened it, and closes back into it.</p>
+    <p><b>One moment in this product, and it got no motion.</b> Almost every appearance here is a <b>document navigation</b>: 62 screens, each its own file. The one that is not, the help on the sign in page, can only open by changing a height, and a height is the property this stage forbids.</p>
+  </div>
+  <div>
+    <span class="n">status</span>
+    <h3>Is it still working?</h3>
+    <p>A process is running and the movement says so without a sentence. Taken only where the process is longer than about 300ms, because a flicker on a fast answer is worse than stillness.</p>
+    <p><b>One moment, and the product reserved it two stages ago.</b> The queue's filling bar. Its own file wrote down that it was leaving the animation out and which stage would owe it.</p>
+  </div>
+  <div>
+    <span class="n">response</span>
+    <h3>Did it hear me?</h3>
+    <p>The machine noticed. Hover, press, focus. Faster than about 150ms or it has stopped being a response and become a lag.</p>
+    <p><b>Thirteen components, and one global focus ring.</b> This is nearly all the motion in this product, and it is exactly the set of states stage 08 declared: the movement was laid on the states rather than inventing any.</p>
+  </div>
+</div>
+
+
+<h2 class="k-h" id="response">Response, and it is the whole of the everyday</h2>
+<p class="k-note">Point at these. Then move through them with a tab key, which is the way this product is meant to be used at all: design principle 5 puts keyboard before mouse.</p>
+
+<div class="m-live"><b>the real components, at the real duration</b>
+  <div class="m-row">
+    <a class="btn btn--primary" href="#response">Accept <span class="key">a</span></a>
+    <a class="btn" href="#response">Amend <span class="key">m</span></a>
+    <button class="chip" type="button">All tenants &#9662;</button>
+    <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+    <a class="link" href="#response">Okta system log</a>
+    <a class="navitem" href="#response">Shift</a>
+  </div>
+  <p>Every one of them takes <b>120ms</b> and the browser's own <code>ease</code>. What changes is a ground, a boundary, an ink or an underline, and never a size or a position: those make the browser recalculate the layout of the page on every frame, and this surface also holds two hundred rows.</p>
+</div>
+
+<div class="m-live m-slow"><b>the same components, slowed to two seconds so the movement is visible</b>
+  <div class="m-row">
+    <a class="btn btn--primary" href="#response">Accept <span class="key">a</span></a>
+    <a class="btn" href="#response">Amend <span class="key">m</span></a>
+    <button class="chip" type="button">All tenants &#9662;</button>
+    <a class="link" href="#response">Okta system log</a>
+  </div>
+  <p><b>Nothing in these components was changed to do that.</b> One custom property is redefined on the box around them, and every component inside obeys because it reads <code>var(--dur-fast)</code> rather than a number. That is the same mechanism the whole "less motion" answer below is built on, shown here doing something harmless.</p>
+  <p><b>And this box broke two things on its first run, which is worth leaving written down.</b> Redefining the token on a class beats the reduced motion block, which redefines it on the root: for one measurement, the one demonstration on this page that exists to show the override reaching everything was the only thing in the project it did not reach. It carries its own query now, and <b>any surface that redefines a motion token has to.</b></p>
+  <p><b>The second was better.</b> A response in this product is a <b>colour</b> transition, so a change of theme is a change of colour, so switching the theme with two seconds in force makes every component in here spend two seconds crossing from one ground to the other. The contrast sweep caught three of them mid crossing at <b>3.64:1 against a floor of 4.5</b>, on a page that had been clean a minute before. At 120ms the same crossing happens and nobody can read anything in 120ms. This box is slow only while somebody is inside it.</p>
+</div>
+
+<p class="k-note"><b>The focus ring does not transition, and that is a decision rather than an oversight.</b> It is the one response whose result cannot be seen until it has finished: somebody moving by keyboard does not know where they are until the ring is there, so 120ms of fading in is 120ms of not knowing. The rule that a response slower than about 150ms stops being a response is at its strictest here, and the strictest reading of it is zero.</p>
+
+
+<h2 class="k-h" id="status">Status, and there is one</h2>
+<div class="m-live"><b>the queue is still filling</b>
+  <div style="max-width:30rem"><span class="arriving"></span></div>
+  <p>Two pixels of bar. <b>It sweeps rather than pulsing</b>, and the difference is what the bar claims: a pulse in opacity says a thing is present and uncertain, a sweep says work is moving through. The fill stays at the 40 per cent the component committed to two stages ago and only its position changes, because <code>transform</code> is the one property that costs the browser neither layout nor paint.</p>
+  <p><b>Never a spinner and never a skeleton of the queue.</b> A spinner says the product is thinking and tells the analyst nothing; a skeleton draws eighteen rows that do not exist, on a surface where a row is a decision.</p>
+</div>
+<p class="k-note"><b>The nearest living relative of this bar animates nothing</b>, and that is where its character came from. The evaluation gauge on <code>lichess.org</code>, which <code>research.md</code> named at stage 01 as one of four out-of-category benchmarks for calibrated trust in a machine, was measured in session: it carries no CSS motion at all and is simply redrawn. So the character here is derived from the work and from the tone rather than from a source, and the source is recorded as having said nothing.</p>
+
+
+<h2 class="k-h" id="register">The register</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Token</th><th>Value</th><th>Work</th><th>Where it came from</th></tr></thead>
+  <tbody>
+    <tr><td><code>--dur-fast</code></td><td><b>120ms</b></td><td>response</td><td>A response slower than about 150ms is a lag. The live benchmark measured in session writes <b>150ms and <code>ease</code></b> on every one of its controls; this product is denser and read for six hours, so it takes one step quicker rather than copying the number</td></tr>
+    <tr><td><code>--dur-cycle</code></td><td><b>1.4s</b></td><td>status</td><td>The time the filling bar takes to cross once. A period rather than a duration, and a token for the same reason: it was a literal for exactly as long as it took to run the check that reads every duration in the product against this table</td></tr>
+    <tr><td><code>--ease-standard</code></td><td><code>ease</code></td><td>both</td><td>The browser's own, and it is what the benchmark measured. A curve nobody can name is a decision nobody can check</td></tr>
+    <tr><td><code>--ease-enter</code></td><td><code>ease-out</code></td><td>arriving</td><td>Quick to start, long to settle</td></tr>
+    <tr><td><code>--move-sm</code></td><td><b>4px</b></td><td>any</td><td>A movement longer than about one and a half times the height of the thing moving stops reading as a connection and starts reading as a journey</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>There is no <code>--dur-base</code>, and the reason is the finding rather than a gap.</b> It was written first, for the one moment of connection the inventory found. It has no reader, because that moment turned out to have nothing cheap to move: the only property a <code>details</code> can open with is a height. A token with no reader fails this system's own idle control, so it is not carried for later.</p>
+<p class="k-note"><b>No spring and no bounce anywhere.</b> They read as "something went wrong" in exactly the states where the analyst least wants to be asked a question, and the tone table in <code>voice.md</code> has no row a spring would satisfy.</p>
+
+
+<h2 class="k-h" id="reduce">Less motion, and it is not an option</h2>
+<p class="k-lede">For a large minority this is nausea and migraine rather than a preference. <b>The mechanism is one thing: the tokens are redefined.</b></p>
+<div class="k-code">@media (prefers-reduced-motion: reduce){
+  :root{ --dur-fast: 1ms; --move-sm: 0px }
+}</div>
+<p class="k-note"><b>A component that reads <code>var()</code> obeys without knowing this block exists</b>, and so does a component written at stage 12 that nobody has thought of yet. That is the whole argument for an override rather than a list of exceptions, and it is why this block was written at the same step as the tokens rather than at the end.</p>
+<p class="k-note"><b>1ms rather than 0s, and the difference is the check rather than the eye.</b> A transition of exactly zero and a transition that was never declared read identically in computed style, so a suite asking for zero cannot tell an element that obeyed from an element nobody asked. The check fails on anything <b>above</b> 1ms.</p>
+<p class="k-note"><b>Reducing motion removes the movement and never the thing.</b> An element that appears normally and is simply absent under reduce is a worse defect than any amount of extra animation, and the check measures that separately, against what renders rather than against what moves.</p>
+
+<div class="m-band">
+  <b>And three things the override cannot reach.</b>
+  <p style="margin:var(--space-2) 0 0"><b>A cycle.</b> Making a pulse 1ms does not calm it, it turns it into a strobe. The one cycle in this product replaces itself with a still state, in its own file, under its own query: the bar keeps the 40 per cent fill it carried for three stages and says exactly what it said before.</p>
+  <p style="margin:var(--space-2) 0 0"><b>A movement between documents.</b> A view transition has its own default animation, owned by the browser, and no custom property of ours is in it. It is turned off explicitly in <code>base.css</code>, beside the declaration that turned it on.</p>
+  <p style="margin:var(--space-2) 0 0"><b>A literal inside a <code>@keyframes</code> block.</b> There is none, and the check cannot see one if there ever is: it reads computed style, and a keyframe's own values never appear there. It is closed by search instead, and that is why it is written down here.</p>
+</div>
+
+
+<h2 class="k-h" id="between">Between documents, and it is the product's main move</h2>
+<p class="k-note">Every state of every screen here is its own html file. So the single most important movement the analyst makes, <b>a row in the queue becoming a case in the pane</b>, is a navigation, and a navigation cannot be a transition. That is not a limitation of the prototype: a case has its own address by decision, because somebody opens one from a pager at 03:00.</p>
+<p class="k-note"><b>Three answers were legal and the middle one was taken.</b> Not animating between documents at all leaves the product's main move with no connection. A decision per flow buys nothing, because every flow here is the same move. The middle one is a single declaration, <code>@view-transition{ navigation: auto }</code> in <code>base.css</code>, and the browser cross fades the old document into the new.</p>
+<p class="k-note"><b>It degrades to nothing, loudly enough to be honest.</b> A browser without view transitions ignores the at-rule and navigates exactly as it did before: no error, no fallback to write, no half working promise. That property is what made this answer legal rather than a guess. <b>Move between two screens of the product to see it</b>, or not see it, depending on what you are reading this in: <a class="link" href="../queue.html">the queue</a>, then a row.</p>
+
+</main>
+</div>
+<script>
+/* the reader's own setting, read rather than assumed, and the token it resolves to */
+(function () {
+  var el = document.getElementById('m-pref');
+  function tick() {
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;left:-9999px;transition-duration:var(--dur-fast)';
+    document.body.appendChild(probe);
+    var d = getComputedStyle(probe).transitionDuration; probe.remove();
+    el.textContent = 'your machine asks for ' + (reduce ? 'REDUCED motion' : 'no reduction') +
+      ', so --dur-fast resolves to ' + d + ' on this page right now.';
+  }
+  tick();
+  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', tick);
+})();
+window.NAV_SECTIONS = [
+  { id:'works',    label:'Three works' },
+  { id:'response', label:'Response' },
+  { id:'status',   label:'Status' },
+  { id:'register', label:'The register' },
+  { id:'reduce',   label:'Less motion' },
+  { id:'between',  label:'Between documents' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

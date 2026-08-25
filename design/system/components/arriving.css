@@ -16,13 +16,51 @@
   position: relative;
   overflow: hidden;
 }
-/* THE FILL IS A FIXED 40 PER CENT AND IT DOES NOT MOVE. There is no animation in
-   this product at stage 08: motion arrives at stage 10 and this is the one place
-   that will ask for it. Until then the bar is a proportion, not a promise. */
+/* THE FILL MOVES SINCE STAGE 11, AND IT IS THE ONLY KEYFRAME IN THIS PRODUCT.
+   The file said so two stages early: "there is no animation in this product at
+   stage 08, and this is the one place that will ask for it". This is the ask.
+
+   THE WORK IS STATUS, and it is the one process in this product longer than the
+   300ms below which a flicker is worse than stillness: rows arrive as Clerk
+   correlates them, and the annunciator says when the queue is complete. Under
+   that threshold a pulse says "wait" about something that has already finished.
+
+   IT SWEEPS RATHER THAN PULSING, and the difference is what the bar claims. A
+   pulse in opacity says a thing is present and uncertain; a sweep says work is
+   moving through. The fill stays 40 per cent, which is the proportion the file
+   already committed to, and only its POSITION changes: `transform` is the one
+   property that costs the browser neither layout nor paint, which matters on a
+   surface that also holds two hundred rows.
+
+   THE NEAREST LIVING RELATIVE OF THIS BAR ANIMATES NOTHING. Lichess's evaluation
+   gauge, the benchmark research.md named for a machine that is still thinking,
+   was measured in session at stage 11 and carries no CSS motion at all: it is
+   redrawn rather than transitioned. So the character here comes from the work and
+   from voice.md's tone for loading, an even repeat with nothing that reads as
+   urgency, rather than from a source. */
 .arriving::after{
   content: "";
   position: absolute;
-  inset: 0 60% 0 0;
+  inset: 0;
+  width: 40%;
   background: var(--bg-invert);
+  animation: arriving-sweep var(--dur-cycle) var(--ease-standard) infinite;
+}
+@keyframes arriving-sweep{
+  from{ transform: translateX(-100%) }
+  to  { transform: translateX(250%) }
+}
+
+/* A CYCLE IS THE ONE THING THE TOKEN OVERRIDE CANNOT REACH, and making it 1ms
+   would be worse than leaving it: a pulse at 1ms is a strobe. Under reduce the
+   cycle is REPLACED BY A STILL STATE, which is the 40 per cent fill this bar
+   carried from stage 08 to stage 11 and which said what it needed to say. The
+   report does not disappear; only the movement does. */
+@media (prefers-reduced-motion: reduce){
+  .arriving::after{
+    animation: none;
+    inset: 0 60% 0 0;
+    width: auto;
+  }
 }
 /* NO STATES. It is a report, not a control. */

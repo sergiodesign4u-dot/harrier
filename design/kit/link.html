@@ -113,6 +113,10 @@
 <p class="k-note"><b>The word keeps its host's colour in every state.</b> Changing it on hover would make a link inside a severity line change severity for as long as the pointer is on it, which is the one thing this component was named to stop.</p>
 <p class="k-note"><b>Two states are absent and each says why.</b> <b>Active:</b> a link navigates on release, so the pressed moment and the page change are the same event and nothing would be seen. A button is different, and that is exactly why it has one: its press may not complete. <b>Out of reach:</b> a link that cannot be followed is not a link. Where the product has something to name and nowhere to send you it writes the words without a link at all, which is what <code>gnote</code> does on the four screens where the evidence has fallen out of the retention window.</p>
 
+
+<h3 class="k-h2" id="motion">Motion</h3>
+<p class="k-note"><b>Response, 120ms, the browser's own <code>ease</code>.</b> What moves is an underline, and only its own underline: it takes the ink of whatever encloses it. Named one by one rather than as <code>all</code>, because <code>all</code> animates what nobody ordered and drags the layout properties in behind it. <b>Never a size and never a position:</b> those make the browser recalculate the layout of the page on every frame. Under <code>prefers-reduced-motion</code> it is 1ms, and this component does nothing to make that happen: it reads <code>var(--dur-fast)</code> and the token is redefined once. Full reasoning on <a class="link" href="motion.html">Motion</a>.</p>
+
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <p class="k-note">Two roles, both on the underline, and <b>none on the word</b>: <code>--text-secondary</code> and <code>--text-hover</code>. Geometry: nothing but the 2px offset, because the size belongs to the container.</p>
 <h3 class="k-h2">Copy this</h3>
@@ -152,7 +156,8 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'motion',   label:'Motion' },
+  { id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

@@ -59,6 +59,12 @@ This file exists because the alternative is silence. A thing that was found, con
 | **The log at rest has no decision about its foot.** `case-pane` documents the head and the body of the "what the view covers" filling and says nothing about `pane-foot` | `design/kit/case-pane.html`, the variants table | The three case panes with no foot are cases already ruled on, which is a different reason from a view that was never a case. Both readings are defensible and neither is written | stage 12, when the log is built in colour |
 | **The scope bar goes below the point and the readout keeps claiming a scope.** The readout is a counted claim about what you are looking at, and its only control is not rendered | `patterns/queue-list.css` | The claim is still true, because the scope is still applied; what is gone is the ability to change it. Whether a claim you cannot act on should be worded differently is a voice decision | stage 12, with the narrow only line the log already needs |
 
+## Opened by stage 11, and there is one
+
+| What is missing | Where it is visible | Why it was deferred | Who closes it |
+|---|---|---|---|
+| **`.doorhelp summary` is a control with no state.** It carries `cursor: pointer`, it is the only thing on the sign in page anybody clicks besides the button, and its file says "NO STATES". It is the only control in this product with no hover at all | `design/system/components/door.css`, and the five sign in screens | **Motion lands on states and never creates them.** Drawing a hover here would be inventing a state at the motion stage, which is the pattern this project rules against by name: a class the product never wears animates nothing and documents a lie. It is an order against stage 08's five things, and the smallest one in the backlog | whenever the door is next opened, and it is a ten minute job that nobody should do inside a stage that is not allowed to |
+
 ## Closed by the reconciliation itself
 
 | What | What happened |

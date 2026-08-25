@@ -221,7 +221,37 @@ A token, a component through `@container`, a pattern, or the shell through `@med
 
 ---
 
-## 10. Contributing to the system
+## 10. Motion
+
+**Nothing in this product moved until stage 11, and that was measured rather than remembered:** 122,458 elements over 282 renderings, zero transitions, zero keyframes, zero animations, source and output agreeing. So every value here is a decision rather than the survivor of a drift, which is the one thing this stage got for free.
+
+### The work is named before the animation is chosen
+
+Three, and there is no fourth. **Connection**: what did that appear out of. **Status**: is it still working. **Response**: did it hear me. A moment for which none of the three can be named does not get animated.
+
+| Work | Moments here | What it got |
+|---|---|---|
+| **response** | 13 components with a pointer state, plus the focus ring | 120ms, `ease`, on a ground, a boundary, an ink or an underline |
+| **status** | 1, the queue's filling bar | a 1.4s sweep in `transform`, and a still state under reduce |
+| **connection** | 1, the help on the sign in page | **nothing**, because the only property it could move is a height |
+
+**Almost every appearance in this product is a document navigation.** Every state of every screen is its own html file, so the most important movement the analyst makes, a row becoming a case in the pane, cannot be a transition. That is answered once, in `base.css`, by `@view-transition{ navigation: auto }`: one declaration, and a browser without the feature navigates exactly as it did before.
+
+### The register
+
+`--dur-fast` 120ms, `--dur-cycle` 1.4s, `--ease-standard` `ease`, `--ease-enter` `ease-out`, `--move-sm` 4px. **No `--dur-base`**: it was written for the one connection moment and has no reader, and a token with no reader fails this system's idle control. **No spring and no bounce**: they read as "something went wrong" in exactly the states where the analyst least wants to be asked a question.
+
+### What is forbidden
+
+`transition: all`, which animates what nobody ordered. Any property that makes the browser recalculate layout: `width`, `height`, `top`, `left`, `margin`, `padding`. A duration or a curve written as a literal in a component. **Motion in the file of a screen, of any kind.** And animating a state the component does not have: motion lands on the states stage 08 declared and never invents one.
+
+### Less motion is not an option
+
+One mechanism: `@media (prefers-reduced-motion: reduce)` redefines the same tokens the whole system reads, so a component obeys without knowing the block exists, **and so does a component written at stage 12 that nobody has thought of yet**. Three things it cannot reach are closed by name in `design/kit/docs/motion.md`: a cycle, which is replaced by a still state rather than accelerated into a strobe; a movement between documents; and a surface that redefines a motion token on a class, which beats an override written on the root.
+
+---
+
+## 11. Contributing to the system
 
 **New appears in `design/system/` first and on the screen second. Never the other way round.** That is the rule of growth, and it is what separates a living system from a folder somebody once tidied. It is written in four places because each has a different reader: here, in the root `CLAUDE.md`, in `design/system/CLAUDE.md` which is read on every entry into the package, and in full in section 11 of `design/kit/docs/architecture.md`.
 

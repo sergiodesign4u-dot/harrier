@@ -28,6 +28,9 @@
 .src{
   font-family: var(--font-mono);
   font-size: var(--size-xs);
+  /* RESPONSE, and the properties are named one by one because `all` animates
+     what nobody ordered and drags layout properties in behind it. */
+  transition: text-decoration-color var(--dur-fast) var(--ease-standard);
 }
 
 /* the placement inside a claim, flex:0 0 auto and the margin-left:auto it takes

@@ -42,6 +42,8 @@ window.KIT_NAV = {
           blurb:'The space scale shown as space, a radius of zero and why, three line tokens separated by WCAG, and the measures that stop growing.' },
         { file:'responsive.html', label:'Width',
           blurb:'One point, named for its change and placed where the product says its minimum is. The ladder of three ways, the measure, and the type scale that grows without ever switching.' },
+        { file:'motion.html', label:'Motion',
+          blurb:'One duration, one cycle, two curves and thirteen components. Nothing here moved before this stage, measured on 122,458 elements, so every value is a decision rather than the survivor of a drift.' },
         { file:'icons.html', label:'Icons',
           blurb:'Sixteen glyphs from one source file, every box and centre measured in the page, and two audits. Three are applied to the product and thirteen are not.' }
     ]},

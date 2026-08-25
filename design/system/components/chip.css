@@ -49,6 +49,10 @@
   color: var(--text-primary);
   cursor: pointer;
   white-space: nowrap;
+  /* RESPONSE, and the properties are named one by one because `all` animates
+     what nobody ordered and drags layout properties in behind it. */
+  transition: background-color var(--dur-fast) var(--ease-standard),
+              border-color     var(--dur-fast) var(--ease-standard);
 }
 
 /* -- emphasis. Three values, and the axis is how settled the filter is -------- */

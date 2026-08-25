@@ -143,6 +143,10 @@
 <p class="k-note"><b>This component is why <code>--text-hover</code> exists.</b> It has neither a ground nor a boundary it could move: a plate under a nav item makes it read as a button, and a boundary competes with the underline that means you are here. Ink is the only surface left, and the surface rule forbids borrowing <code>--line-hover</code> for it even though the two are the same colour today. The three together say one sentence: <b>hover raises whatever it touches to full strength on its own surface.</b></p>
 <p class="k-note"><b>Active is the same move as hover</b>, declared rather than left out so nobody adds a third step later thinking it was forgotten: the navigation follows immediately and there is nothing a pressed state could say that the arrival does not. <b>Out of reach does not exist</b>, and the rule that drew it is the row above.</p>
 
+
+<h3 class="k-h2" id="motion">Motion</h3>
+<p class="k-note"><b>Response, 120ms, the browser's own <code>ease</code>.</b> What moves is ink, the whole global navigation, three items. Named one by one rather than as <code>all</code>, because <code>all</code> animates what nobody ordered and drags the layout properties in behind it. <b>Never a size and never a position:</b> those make the browser recalculate the layout of the page on every frame. Under <code>prefers-reduced-motion</code> it is 1ms, and this component does nothing to make that happen: it reads <code>var(--dur-fast)</code> and the token is redefined once. Full reasoning on <a class="link" href="motion.html">Motion</a>.</p>
+
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <p class="k-note">Ink and one line, no fill at all. <code>--text-secondary</code>, <code>--text-primary</code>, <code>--text-hover</code>, <code>--line-current</code>. Geometry straight from primitive: <code>--size-md</code> and <code>--space-2</code>.</p>
 <h3 class="k-h2">Copy this</h3>
@@ -184,7 +188,8 @@
     cell.appendChild(wrap);
   });
 })();
-window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'motion',   label:'Motion' },
+  { id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
 </body>

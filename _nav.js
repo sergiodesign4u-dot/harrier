@@ -70,7 +70,7 @@ window.NAV = [
       { label:'Patterns + Guide',    page:'design/kit/why.html',      done:true  },
   ]},
   { label:'Responsive',          page:'design/kit/responsive.html', done:true },
-  { label:'Animation',           page:null, done:false },
+  { label:'Animation',           page:'design/kit/motion.html', done:true },
   { label:'Rollout',             page:null, done:false },
   { label:'Handoff',             page:null, done:false },
 ];

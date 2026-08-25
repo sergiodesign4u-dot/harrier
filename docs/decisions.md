@@ -813,3 +813,53 @@ Everything adaptive left `px`: the type scale, the space scale, the zone heights
 `--size-lg` runs 17px to 20px and `--size-xl` 21px to 26px, and **the two ends of each clamp are this product's own two widths**, 1280 and 1920. The three small sizes do not grow at all, and that is a decision: design principle 5 makes density the feature, so on a wider monitor this analyst wants more rows rather than larger ones, and what makes dense text readable is the measure.
 
 **Both clamps were wrong on the first draft and a measurement said so.** The middle terms were solved for 360 rather than for 1280, so the floor stopped winning at about 414px and the declared minimum rendered at 19.4px instead of 17. The 360 rendering was identical either way, which is exactly why it took a second width to see it.
+
+---
+
+## 2026-08-25 &middot; The census came back empty, so every duration is a decision
+
+Stage 11 opened the way every stage in this track opens, with a measurement rather than a plan, and the measurement came back at zero on every line: a search over all four corpora and computed style on **122,458 elements over 282 renderings** at two widths returned **zero transitions, zero keyframes, zero animations**. Source and output agreed, which is the only condition under which agreeing means anything.
+
+**That is the opposite of the usual position at this stage and it did not happen by luck.** `arriving.css` had not merely omitted an animation, it had written down that it was omitting one and which stage would owe it. The absence was a decision with a date on it, and this is the date.
+
+### Three works, and the inventory came out small
+
+A movement earns its place by doing one of exactly three jobs: **connection** (what did that appear out of), **status** (is it still working), **response** (did it hear me). A moment for which none can be named does not get animated.
+
+**Response: 13 components, plus one global focus ring.** That is nearly all the motion in this product, and it is exactly the set of states stage 08 declared. The corpus that produced it is the register of states rather than the flow map, and the two are not interchangeable: **a flow map never names the hover of a button.** It describes a route between screens, so an inventory built from screens sees connection and status in full and sees response almost not at all. The level it would have hit hardest is the bottom one, where atoms are made of response almost entirely.
+
+**Status: one.** The queue's filling bar. It sweeps rather than pulsing, and the difference is what the bar claims: a pulse in opacity says a thing is present and uncertain, a sweep says work is moving through.
+
+**Connection: one, and it got nothing.** The help on the sign in page opening. The only property a `details` can open with is a height, and a height is the property this stage forbids by name.
+
+### The finding that shaped the stage
+
+**Almost every appearance in this product is a document navigation.** Every state of every screen is its own html file, 62 of them: the queue with a notice and the queue without one, the case before a verdict and after it, the reject dialog open and the same dialog with a reason chosen. So the panel that "slides out from under the button that opened it" cannot exist here, because the button and the panel are on different pages, and **the single most important movement the analyst makes, a row becoming a case in the pane, is a navigation.**
+
+Three answers were legal. Not animating between documents leaves the product's main move with no connection at all; a decision per flow buys nothing, because every flow here is the same move. The middle one was taken: **one declaration in `base.css`**, and the browser cross fades the old document into the new. A browser without the feature ignores the at-rule and navigates exactly as it did before: no error, no fallback to write, **no half working promise**, and that property is what made the answer legal rather than a guess.
+
+### Two durations rather than three, and the third was removed rather than never written
+
+`--dur-base` was written at step 2, for the one moment of connection. It has no reader, because that moment turned out to have nothing cheap to move. **A token with no reader fails this system's own idle control**, so it was removed rather than carried for later, and the moment became an order for a state instead: `.doorhelp summary` carries `cursor: pointer` and its file says "NO STATES", which makes it the only control in this product with no hover at all. **Motion lands on states and never creates them**, so that is a row in the backlog rather than a class this stage may draw.
+
+`--dur-fast` is 120ms, and the number has a measured neighbour. The live benchmark half of the character work went to `lichess.org`, which `research.md` named at stage 01 as one of four out-of-category benchmarks for calibrated trust in a machine, and it was measured in session rather than remembered: **150ms and `ease` on every one of its controls**. This product is denser and read for six hours a day, so it takes one step quicker rather than copying a number that carries somebody else's context. The same page's evaluation gauge, the closest living relative of our filling bar, **carries no CSS motion at all**, which is itself the answer for the character of a status: the nearest product solving the same problem does not animate it.
+
+**The other half of the character work was unavailable and is recorded as unavailable.** The MotionSites integration allows three free prompts to an account with no plan and they were already spent; `get_prompt` returned `free_limit_reached`. The decision was to proceed on the live benchmark alone and write the row, rather than to fall back on what a model remembers about how such things are usually done, which is not a source.
+
+### The check found three defects in itself before it found one in the product
+
+**It could not see the one animation in the project.** It lives on `.arriving::after`, and `querySelectorAll('*')` does not return a pseudo element: the queue's filling bar read as motionless on the four screens that carry it, and read as obeying reduced motion for the same reason. **An instrument that cannot see the thing the stage was written for is the most expensive kind of clean result.**
+
+**It answered the wrong question about disappearance.** Reducing motion must remove the movement and never the thing, and the check asked that by comparing the two lists of moving elements: an element that correctly stopped moving left the list and was reported as vanished. The one animation in the product failed that check by obeying it.
+
+**And it called a two property transition a drift**, because a transition over two properties reports one duration per property.
+
+### And the demonstration broke the mechanism it demonstrates, twice
+
+`motion.html` carries a box that slows the real components down so the movement can be seen at all. It redefines `--dur-fast` on a class, and the reduced motion block redefines it on the root: **for one measurement the one thing on this stand that exists to show the override reaching everything was the only thing in the project it did not reach.** Any surface that redefines a motion token has to carry its own query.
+
+The second was better, and it came from an instrument that is not a motion instrument at all. **A response in this product is a colour transition, so a change of theme is a change of colour**: with two seconds in force, every component in that box spends two seconds crossing from one ground to the other, and the contrast sweep caught three of them mid crossing at **3.64:1 against a floor of 4.5**, on a page that had been clean a minute before. At 120ms the same crossing happens and nobody can read anything in 120ms. **That is the argument for 120 rather than 200 that nobody would have thought to make.**
+
+### The safety net was not written, and that is the answer
+
+The pack allows a blanket rule on `*` as a last resort, after an audit passes without it. The audit passed without it. Writing it then would only make it impossible to see a component that reads no token, which is the defect the net is supposed to insure against: **an instrument must not hide the thing it is looking for.**

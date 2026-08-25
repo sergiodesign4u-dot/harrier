@@ -602,6 +602,108 @@
 }
 
 
+/* ============================================================================
+   1g. MOTION, AND THERE ARE TWO DURATIONS RATHER THAN THREE.
+
+   THE CENSUS CAME BACK EMPTY. 122,458 elements over 282 renderings, every page of
+   the product and of the stand at two viewports: zero transitions, zero keyframes,
+   zero animations. Source and output agreed. So nothing here is the survivor of a
+   drift and every value is a decision, which is the one thing this stage got for
+   free and the reason it is short.
+
+   TWO, BECAUSE THE INVENTORY FOUND TWO KINDS OF MOMENT AND NOT THREE. Three is a
+   ceiling rather than a quota, and the third is missing for a reason that is a
+   fact about this product rather than an omission: ALMOST EVERY APPEARANCE HERE IS
+   A DOCUMENT NAVIGATION. Every state of every screen is its own html file, 62 of
+   them, so the panel that would slide out from under the button that opened it is
+   on a different page from the button. A slow duration exists to carry a large
+   element appearing inside a document, and inside a document nothing large appears.
+   A token with no reader fails this system's own idle control, so it is not written.
+
+   PAIRS OF THEME THESE DO NOT HAVE, and it is the same rule as the width tokens:
+   the pair is a property of the semantic level, which is colour. A duration is not
+   a colour.
+   ============================================================================ */
+  :root{
+    --dur-fast: 120ms;   /* RESPONSE. Hover, active, the focus ring: the moment that
+                            says the machine noticed. A response slower than about
+                            150ms has stopped being a response and become a lag, and
+                            the live benchmark measured at stage 11 sits exactly on
+                            that edge: lichess.org, named by research.md as one of
+                            four out-of-category benchmarks for calibrated trust,
+                            writes 150ms and `ease` on every one of its controls.
+                            This product is denser and read for six hours a day, so
+                            it takes one step quicker rather than copying the number:
+                            a borrowed duration carries a borrowed context. */
+    --dur-cycle: 1.4s;   /* STATUS, and it is a period rather than a duration: the
+                            time the queue's filling bar takes to cross once. It is a
+                            token for the same reason the other one is, and it was a
+                            literal in arriving.css for exactly as long as it took to
+                            run the check that reads every duration in the product
+                            against this register.
+
+                            THERE IS NO --dur-base AND THAT IS THE SECOND HALF OF THE
+                            SAME FINDING. It was written first, for the one moment of
+                            CONNECTION the inventory found: the help on the sign in
+                            page opening. It has no reader, because that moment turned
+                            out to have nothing cheap to move. The only property a
+                            `details` can open with is a height, and a height is the
+                            property this stage forbids by name; the summary's own
+                            marker is the browser's and this product does not draw it.
+                            A token with no reader fails this system's idle control,
+                            so it is not carried "for later": the moment is a row in
+                            backlog.md instead, and it is an order for a state rather
+                            than for a duration. */
+
+    /* CURVES. Two, for the same reason as the durations, and both are the browser's
+       own rather than a hand tuned cubic-bezier: this product's tone is spoken
+       plainly, and a curve nobody can name is a decision nobody can check.
+       NO SPRING AND NO BOUNCE ANYWHERE. They read as "something went wrong" in
+       exactly the states where the analyst least wants to be asked a question, and
+       voice.md's tone table has no row a spring would satisfy. */
+    --ease-standard: ease;         /* response, and it is what the benchmark measured */
+    --ease-enter:    ease-out;     /* something arriving: quick to start, long to settle */
+
+    /* DISTANCE. One, and it is small on purpose: a movement longer than about one
+       and a half times the height of the thing moving stops reading as a connection
+       and starts reading as a journey. */
+    --move-sm: 4px;
+  }
+
+/* ============================================================================
+   1h. LESS MOTION, AND THE MECHANISM IS ONE: THE TOKENS ARE REDEFINED.
+
+   For a large minority this is not a preference, it is nausea and migraine. The
+   block below overrides the same tokens the whole system reads, so a component
+   that reads `var()` obeys without knowing this block exists, AND SO DOES A
+   COMPONENT WRITTEN AT STAGE 12 THAT NOBODY HAS THOUGHT OF YET. That is the whole
+   argument for the mechanism being an override rather than a list of exceptions.
+
+   1ms RATHER THAN 0s, and the difference is the check rather than the eye. A
+   transition of exactly zero and a transition that was never declared are the same
+   reading in computed style, so a suite asking for zero cannot tell an element that
+   obeyed from an element that was never asked. 1ms is invisible and it is
+   distinguishable, and the check is written to fail on anything ABOVE it.
+
+   WHAT THIS BLOCK CANNOT REACH is listed in docs/motion.md section 8 and closed
+   there by name. A cycle is the important one: making a pulse 1ms does not calm it
+   down, it turns it into a strobe, which is worse than what it replaced. A cycle
+   under reduce is replaced by a still state, never accelerated.
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce){
+  :root{
+    --dur-fast: 1ms;
+    /* --dur-cycle is NOT overridden here, and that is the point of section 8 of
+       docs/motion.md. Making a cycle 1ms does not calm it, it turns it into a
+       strobe. The one cycle in this product replaces itself with a still state in
+       its own file, under its own query, and that is the only correct shape for
+       this class. */
+    --move-sm: 0px;    /* the distance goes as well as the time: an instant jump of
+                          four pixels is a flicker rather than a movement */
+  }
+}
+
+
 [data-theme="light"]{
 
   color-scheme: light;
