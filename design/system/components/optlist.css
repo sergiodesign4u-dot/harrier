@@ -1,0 +1,25 @@
+/* optlist :: ORGANISM
+   READS. Line: --rule-edge. Geometry: --radius-ui.
+   CONTAINS. opt.
+   PAGE. design/kit/optlist.html   STANDS ON. 13 instances across 8 screens, in
+   the reject and escalate dialogs.
+
+   IT IS THE RADIO PATTERN, AND IT IS NAMED AS ONE RATHER THAN REPLACED. Checkbox,
+   radio and toggle are absent from this product entirely: there is no form to
+   fill in, there is a decision to take. What a radio group does here is done by a
+   list of options where one is chosen, each answerable with a number key, and
+   that is design principle 3 in a component.
+
+   ONE BORDER AROUND THE WHOLE LIST AND HAIRLINES BETWEEN. The group is the unit:
+   a set of options in separate boxes reads as several questions, and there is one.
+
+   NO VARIANTS. Three options or six is a count, and step 2 said so in as many
+   words. */
+
+.optlist{
+  display: flex;
+  flex-direction: column;
+  border: var(--rule-edge);
+  border-radius: var(--radius-ui);
+}
+/* NO STATES. Every option inside it carries four. */

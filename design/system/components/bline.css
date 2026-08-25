@@ -1,0 +1,43 @@
+/* bline :: MOLECULE
+   READS. Fill: --bg-surface. Ink: --text-primary, --text-secondary. Line:
+   --rule-hair. Geometry: --font-mono, --size-lg, --size-sm, --size-xs, --space-1,
+   --space-2, --space-3.
+   PAGE. design/kit/bline.html   STANDS ON. 19 instances across 7 screens, in the
+   counted blocks of the shift brief.
+
+   A LINE AND NOT A CARD, and the brief's own block table rules out the
+   alternative: four counted facts as four cards is a dashboard, and a handover is
+   read once from the top. Three zones: the number, what it counts, and where it
+   goes.
+
+   THE NUMBER IS THE ONE PLACE IN THE PRODUCT AT --size-lg IN MONO AT 700. Weight
+   700 is allowed on a counted value only, and 17px mono is the largest a figure
+   gets anywhere: the brief is read standing up at the start of a shift. */
+
+.bline{
+  display: grid;
+  grid-template-columns: 52px minmax(0,1fr) auto;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-3) var(--space-2);
+  border-bottom: var(--rule-hair);
+  font-size: var(--size-sm);
+  text-decoration: none;
+  color: inherit;
+}
+.bline:first-of-type{ border-top: var(--rule-hair) }
+
+.bline .n{ font: 700 var(--size-lg)/1 var(--font-mono); text-align: right;
+           color: var(--text-primary) }
+/* A COUNT OF ZERO IS STILL A COUNT and it recedes rather than disappearing:
+   `0 unrecorded` is the line the analyst most needs to see stay at zero. */
+.bline .n.is-quiet{ color: var(--text-secondary) }
+.bline .go{ font-family: var(--font-mono); font-size: var(--size-xs);
+            color: var(--text-secondary); white-space: nowrap }
+.bline .ex{ display: block; color: var(--text-secondary); margin-top: var(--space-1) }
+
+/* -- STATES. It is a link on the lines that lead somewhere ------------------- */
+a.bline:hover{ background: var(--bg-hover) }
+a.bline:active{ background: var(--bg-active) }
+/* focus-visible is global. NO out of reach: a count that cannot be opened is
+   rendered without the `a`, which is the same answer `src` gives. */

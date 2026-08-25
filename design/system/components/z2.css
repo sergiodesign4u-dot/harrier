@@ -1,0 +1,47 @@
+/* z2 :: ORGANISM
+   READS. Fill: --bg-page. Ink: --text-primary, --text-secondary, --text-accent.
+   Line: --rule-hair, --rule-edge. Structure: --zone-strip.
+   PAGE. design/kit/z2.html   STANDS ON. 55 instances across 55 screens, injected
+   by design/_shell.js exactly as Z1 is.
+
+   THE CONNECTION STRIP, NODE 0.4, AND IT IS NEVER SILENT WHEN CONNECTED. 26px of
+   the screen spent saying that the queue she is looking at is the queue that
+   exists. An analyst who distrusts AI tooling is the starting point every trust
+   mechanism in this product argues with, and a live indicator that only appears
+   when something is wrong teaches her that silence means nothing rather than
+   means fine.
+
+   DEGRADED TAKES A BORDER AND AN UNDERLINE, NOT A COLOUR. The severity ramp
+   belongs to cases and the accent has four jobs. What changes is the weight of
+   the boundary and the underline under the state word, which is the one place in
+   the product an underline is used on something that is not a link. */
+
+.z2{
+  flex: 0 0 auto;
+  min-height: var(--zone-strip);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-4);
+  border-bottom: var(--rule-hair);
+  background: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+.z2 b{ color: var(--text-accent); font-weight: 700 }
+/* the divider between the parts of the sentence, the same glyph and the same
+   exemption as the annunciator's */
+.z2 .sep{ color: var(--text-divider) }
+
+/* -- health. One axis, two values, and four screens carry the second --------- */
+.z2.is-degraded{
+  border-bottom: var(--rule-edge);
+  background: var(--bg-page);
+}
+.z2.is-degraded b{ text-decoration: underline; text-underline-offset: 2px }
+
+@media (max-width:900px){
+  .z2{ padding: 0 var(--space-3) }
+}
+/* NO STATES. It reports. */

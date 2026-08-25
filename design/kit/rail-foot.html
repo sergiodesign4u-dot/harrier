@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Rail foot</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bx-. A WIDE COMPONENT GETS THE FULL COLUMN AND THE TWO THEMES STACK.
+   The frame is 820px and half of the article column is 525, and this component is one long
+   sentence that has to be read as one line rather than as four. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+@media (max-width:900px){ .k-bench-half{ padding:var(--space-3) } }
+
+/* THE BENCH IS THE COLUMN THE RECORD STANDS IN, and here it is as tall as the record.
+   This is the one bench on the stand that deliberately does NOT scroll: a closing line put
+   below the fold of its own page is a component the reader has to go looking for. The sticky
+   half of the marking is shown moving on the rail page, which is where that property lives. */
+.bx-scroll{ width:100%; border:var(--rule-edge); background:var(--bg-page);
+            padding:var(--space-4) 0 }
+.bx-scroll .frame{ margin:0 auto }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Rail foot</h1>
+<p class="k-lede">The line that closes a record. <b>5 instances across 5 screens</b>, at the bottom of <code>frame</code>.</p>
+<p class="k-note"><b>Zero zones, and that is why it is not a variant of <code>rail</code>.</b> The head rail has three: the marking, its qualifier and the way out. This has one text node and no way out, because there is nothing below a record to leave to. <b>A zone that disappeared means a different component</b>, which is the splitting criterion the whole register runs on, and this is the clearest instance of it in the system.</p>
+<p class="k-note"><b>It closes the frame rather than opening it.</b> Static, not sticky. Quiet, not inverted. Sentence case at weight 400 in mono, on the raised plane, under a 2px line. It says what the record is and stops.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>What the bench is standing in.</b> A <code>frame</code>, whole, in the column <code>z4</code> gives it on the entry route. <b>This bench does not scroll, and that is deliberate:</b> a closing line put below the fold of its own page is a component the reader has to go looking for. Static is still a decision, and it is drawn where the argument is, on the rail page, where the marking stays put while everything under it moves.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-scroll">
+        <article class="frame">
+          <p class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#anatomy">Open the log</a></p>
+          <div style="padding:var(--space-5) var(--space-5) var(--space-4)">
+            <section class="block">
+              <h3>What was decided, and by whom</h3>
+              <p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi through the provider&rsquo;s on call tool.</p>
+              <p class="nar">The evidence snapshot was read 27 minutes before the ruling, and this page is that snapshot rather than the live case.</p>
+              <p class="nar">Clerk&rsquo;s verdict, <b>real, contain identity</b>, stands unruled, and the case is still open.</p>
+            </section>
+          </div>
+          <p class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-scroll">
+        <article class="frame">
+          <p class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#anatomy">Open the log</a></p>
+          <div style="padding:var(--space-5) var(--space-5) var(--space-4)">
+            <section class="block">
+              <h3>What was decided, and by whom</h3>
+              <p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi through the provider&rsquo;s on call tool.</p>
+              <p class="nar">The evidence snapshot was read 27 minutes before the ruling, and this page is that snapshot rather than the live case.</p>
+              <p class="nar">Clerk&rsquo;s verdict, <b>real, contain identity</b>, stands unruled, and the case is still open.</p>
+            </section>
+          </div>
+          <p class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.rail-foot</code><span>the line, and the whole component. A wrapping flex row aligned on the baseline, three steps of gap between items it does not have</span></li>
+  <li><code>position:static</code><span><b>declared rather than left out.</b> Written down because its neighbour is sticky, and a property that carries an argument is a property that is said out loud</span></li>
+  <li><code>border-top</code><span>2px of <code>--line-record</code>, the same ink as the frame around it, so the record closes on the line it was drawn in</span></li>
+  <li>the sentence<span>mono at <code>--size-sm</code>, weight 400, sentence case, no tracking, secondary ink. <b>Every one of those five is the opposite of the head rail</b>, and together they are the reason a reader never mistakes one for the other</span></li>
+</ul>
+<p class="k-note"><b>The file&rsquo;s own header names <code>--text-primary</code> for that 2px line and the declaration reads <code>--line-record</code>.</b> The readout at the bottom of this page is computed off the declaration by the browser, so what is on this page is what is painted. The header is recorded as a contradiction rather than corrected here.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>none</b></td><td><span class="k-none">no values</span></td><td class="num">5</td><td>All five are the same line with the same sentence, and the timestamp inside it is content</td></tr>
+    <tr><td><b>position</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> A sticky closing line would be a bar that says the record has ended, floating over the part of it you are still reading</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and this is the axis somebody will reach for.</b> An inverted foot would match the head and read as a second opening. The record is marked once, at the top, and closed once, quietly</td></tr>
+    <tr><td><b>content</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>It has no way out and it never gets one.</b> Adding a link here is what would make it a variant of <code>rail</code>, and the whole reason this file exists is that it is not</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>It was <code>.rail.rail--foot</code> on the screens</b>, which is to say one name in the markup standing for two components. Step 2 ruled the split on the zone count and step 6 executed it: the five records carry <code>rail-foot</code> now, and <b>not one pixel moved</b>. The reconciliation table in <code>docs/inventory.md</code> carries the row.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">As the last child of a <code>frame</code>, once, and never anywhere else. If a surface wants a closing line and is not a record, it does not want this: nothing else in the product is marked on all four sides.</p>
+<p class="k-note"><b>Where she meets it.</b> Almost never, and that is the point. This line is for the person who was not in the room: a client reading a summary, an auditor reading an exported entry months later. It answers the one question that reader has at the bottom of a page they did not ask for, which is whether there is more below and whether any of it can be changed. <b>Nothing on this page can be edited</b> is a compliance sentence, and the append only log behind it is the requirement that shaped the whole design.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</div></div>
+    <p>One sentence, quiet, under the record&rsquo;s own line. It says where the record ends and what it is, and offers nothing, because there is nothing below a record to go to.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="rail" style="position:static">END OF THE RECORD <b>2026-08-22T04:14:05Z</b><span class="soft">Nothing below this line can be edited.</span><a class="rail-out" href="#rules">Open the log</a></div></div>
+    <p>Never the inverted form at the bottom. That is <b><code>rail</code></b>, and it opens a record rather than closing one: a second full width inversion reads as a second document starting, and the way out at the end is a control offered after the reader has already left.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>None, and there is nothing on it that could take one.</b> No link, no control, no hover, and no child that has any. The head rail at least has a way out to point at; this has one text node.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:var(--width-frame)">
+        <p class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</p>
+        <p class="rail-foot" style="margin-top:var(--space-4)">End of what survives. Two sources are beyond retention and what is missing is named above.</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:var(--width-frame)">
+        <p class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</p>
+        <p class="rail-foot" style="margin-top:var(--space-4)">End of what survives. Two sources are beyond retention and what is missing is named above.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The two above are the same component with two sentences. Which sentence a record gets is decided by what the record is, and four of the five screens carry a qualified one.</p>
+<p class="k-note"><b>The 2px is the fourth line width in the product with no token</b>, alongside the focus ring, the alert toast and the current navigation item. Whether that is a fourth line token or four component decisions is the open row on the geometry page, and it is answered with the count in front of it rather than by adding a token here.</p>
+<p class="k-note">At 360 nothing changes. The row wraps, which for a component with one item means the sentence simply runs to more lines, and <code>--width-frame</code> gives way to the screen.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the ground of the line, one step off the record&rsquo;s page</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the sentence</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-record</code></td><td>line 3:1</td><td>the 2px above it, the same ink the frame is drawn in</td><td><span data-tok="--line-record" data-theme-read="dark"></span></td><td><span data-tok="--line-record" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--size-sm</code></td><td>geometry</td><td>the type size, mono at weight 400. The head rail runs one step smaller at 600</td><td><span data-tok="--size-sm" data-theme-read="dark"></span></td><td><span data-tok="--size-sm" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;article class="frame"&gt;
+  &lt;p class="rail"&gt;&hellip;&lt;/p&gt;
+  &lt;div class="doc"&gt;&hellip;&lt;/div&gt;
+  &lt;p class="rail-foot"&gt;End of the record as it stood 2026-08-22T04:14:05Z.
+    Nothing below this line, and nothing on this page, can be edited.&lt;/p&gt;
+&lt;/article&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../entry.html">the record</a>
+  <a href="../entry-partial.html">partial</a>
+  <a href="../entry-changed.html">changed since</a>
+  <a href="../entry-beyond-retention.html">beyond retention</a>
+  <a href="../entry-gone.html">gone</a>
+  <a href="rail.html">the marking that opens it</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

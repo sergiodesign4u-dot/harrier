@@ -1,0 +1,39 @@
+/* brief :: ORGANISM, and it contains another
+   READS. Geometry: --space-4, --space-5, --space-6.
+   CONTAINS. rows-moved, block, bline, banner, expand.
+   NOT rota, covers or frow: all three stand in the Z5 pane of the shift screens,
+   and the first reading of this file put them here. Counted rather than assumed.
+   PAGE. design/kit/brief.html   STANDS ON. 7 instances across 7 screens, filling
+   Z4 on the shift screens.
+
+   PICK UP AND HAND OFF A SHIFT, WHICH IS THE SECOND OF THE THREE MVP JOBS. It is
+   the only surface in the product that is neither a list nor a case: a document
+   the analyst reads once at the start and once at the end, and seals.
+
+   SIX STEPS OF GAP RATHER THAN FIVE. The pane body uses five between its blocks
+   and this uses six, because the brief is read standing up in one pass and its
+   sections are unrelated to each other: what moved, what is counted, who is on.
+   The pane's sections are all about one case.
+
+   IT STOPS `rows` FROM SCROLLING. A handover is read from the top in one pass, so
+   a scroll box inside a scrolling document is a second scrollbar nobody asked
+   for. That rule is here, in the container that changes it, rather than in `rows`,
+   which would then have to know where it is standing. */
+
+.brief{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-5) var(--space-4);
+}
+
+/* THE RULE THAT STOPS `rows` SCROLLING IS IN `rows-moved.css`, NOT HERE. It was in
+   three files at once for one round: this one, `rows-moved.css` as its own
+   declaration, and a sentence in `rows.css` saying it lives with the brief. Two
+   copies of one rule is where two surfaces start behaving differently, so the
+   copy is gone and the component that owns the box keeps it. */
+
+/* NO STATES. */

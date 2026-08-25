@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Pane body</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bx-.
+   THE BENCH IS THE PANE, and this component cannot be shown honestly without one. The body
+   does not scroll: z5 does, and the body is what fills it. So the bench is a 340px box with
+   the pane's ground, its overflow and its width, and the reading rhythm this file exists for
+   is only visible when the content runs past the bottom of it. */
+.bx-z5{ width:100%; max-width:var(--pane-w); height:340px; overflow-y:auto;
+        display:flex; flex-direction:column;
+        background:var(--bg-surface); border:var(--rule-edge) }
+/* the anti-rule needs a row of buttons standing where the product would never put them, and
+   `wrapline` is a place in the product rather than a component in the system, so the bench
+   draws the row itself instead of borrowing a class that paints nothing here. */
+.bx-inline{ display:flex; flex-wrap:wrap; gap:var(--space-2); margin:0 }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Pane body</h1>
+<p class="k-lede">The surface the whole product exists for. Everything between the pane&rsquo;s head and its foot: the verdict, the evidence, the latitude ladder and the stamp. <b>38 instances across 38 screens.</b></p>
+<p class="k-note"><b>It is a slot, and that is measured rather than assumed.</b> 38 instances show <b>13 distinct sets of child zones and one computed form</b>. There is nothing to switch here: what changes is what somebody put in it, and everything in it is another component.</p>
+<p class="k-note"><b>Five steps of gap between blocks and two inside them.</b> That ratio is the whole of the reading rhythm on the densest surface in the product: sections are far apart so the eye can find one, and lines inside a section are close so it can read down. Design principle 5 says density is the feature, and <b>this is where the density is spent rather than saved</b>.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>What the bench is standing in.</b> A 340px box at <code>--pane-w</code> carrying the pane&rsquo;s raised ground and its <code>overflow-y</code>, which is <code>z5</code>. The body itself declares no height and no scroll: it is a column that grows, and the pane around it is what runs out of room. Scroll inside the bench and the head stays while the evidence goes past.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-z5">
+        <div class="pane-head"><h2>C-4417 &middot; Larkfield Logistics</h2><p class="sub">Token replay from a new ASN &middot; High &middot; 9 signals</p></div>
+        <div class="pane-body">
+          <section class="block">
+            <h3>What Clerk filed</h3>
+            <p class="nar"><b>Real, and it proposes to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen.</p>
+          </section>
+          <section class="block">
+            <h3>Evidence, 9 signals</h3>
+            <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="#anatomy">Entra sign in</a></div>
+            <div class="claim"><span class="txt">No MFA prompt on the second use</span><a class="src" href="#anatomy">Entra sign in</a></div>
+            <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><a class="src" href="#anatomy">Entra, EDR</a></div>
+          </section>
+          <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
+          <section class="block">
+            <h3>Normal at this tenant</h3>
+            <p class="nar"><b>2 token replays</b> at Larkfield Logistics in 90 days, both real</p>
+          </section>
+          <p class="stamp">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-z5">
+        <div class="pane-head"><h2>C-4417 &middot; Larkfield Logistics</h2><p class="sub">Token replay from a new ASN &middot; High &middot; 9 signals</p></div>
+        <div class="pane-body">
+          <section class="block">
+            <h3>What Clerk filed</h3>
+            <p class="nar"><b>Real, and it proposes to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen.</p>
+          </section>
+          <section class="block">
+            <h3>Evidence, 9 signals</h3>
+            <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="#anatomy">Entra sign in</a></div>
+            <div class="claim"><span class="txt">No MFA prompt on the second use</span><a class="src" href="#anatomy">Entra sign in</a></div>
+            <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><a class="src" href="#anatomy">Entra, EDR</a></div>
+          </section>
+          <p class="prov"><b>6 sources</b> queried over <b>24h</b>: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
+          <section class="block">
+            <h3>Normal at this tenant</h3>
+            <p class="nar"><b>2 token replays</b> at Larkfield Logistics in 90 days, both real</p>
+          </section>
+          <p class="stamp">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.pane-body</code><span>the column. Four declarations: flex, column, <code>gap:var(--space-5)</code>, <code>padding:var(--space-4)</code></span></li>
+  <li><code>gap</code><span><b>five steps between blocks.</b> The rhythm is the component, and it is the one number a reader would be tempted to change</span></li>
+  <li><code>padding</code><span>four steps at the desk and three at 360, which is the only media query in the file</span></li>
+  <li><code>.block</code><span>what fills it, most of the time. <b>141 of the product&rsquo;s 227 blocks sit here</b>, and the two steps inside them are the other half of the ratio</span></li>
+  <li><code>.claim</code>, <code>.lat</code>, <code>.prov</code>, <code>.stamp</code><span>the four things that sit here without a block around them: a line of evidence, the latitude ladder, what was queried, and when it was filed</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>none</b></td><td><span class="k-none">no values</span></td><td class="num">38</td><td><b>A slot has none.</b> 13 sets of child zones and one computed form, counted in the browser rather than read off the markup. A variant matrix here would be a description of the content</td></tr>
+    <tr><td><b>surface</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and it already has an owner.</b> Whether the case sits on the raised plane or the page ground is <code>z5.is-paper</code>, 21 uses. The body inherits whichever it is and needs no opinion</td></tr>
+    <tr><td><b>density</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> Five and two is the ratio the whole surface is read on. A comfortable case pane would be an admission that the dense one cannot be read, and it is read six hours a day</td></tr>
+    <tr><td><b>route</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>The permalink rendering changes the pane, not the body. <code>z5.is-standalone</code> widens the column and gives prose a 68ch measure; this file does not know which route it is on</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Once inside every detail pane that is showing a case, between <code>pane-head</code> and <code>pane-foot</code>. Not for the fleet: the pane&rsquo;s resting state has no zone in common with a case past the head, and making it one would have written the fleet as a case with nothing in it.</p>
+<p class="k-note"><b>Where she meets it.</b> This is the main job. When Clerk hands her a case it has already investigated, she has to decide whether its verdict holds, and everything she needs to decide that is in this box. Dozens of times a shift, and once more months later when somebody asks her to defend the ruling.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-z5" style="height:auto"><div class="pane-body"><section class="block"><h3>What Clerk filed</h3><div class="nar"><b>Real, and it proposes to contain the identity.</b></div></section><section class="block"><h3>Normal at this tenant</h3><div class="nar"><b>2 token replays</b> in 90 days, both real</div></section></div><div class="pane-foot"><a class="btn btn--primary" href="#rules">Accept <span class="key">a</span></a><a class="btn" href="#rules">Reject <span class="key">r</span></a></div></div></div>
+    <p>The evidence in the body, the ruling in the foot. The body scrolls with the pane and the foot does not, so the decision is reachable from the end of the argument.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-z5" style="height:auto"><div class="pane-body"><section class="block"><h3>What Clerk filed</h3><div class="nar"><b>Real, and it proposes to contain the identity.</b></div></section><section class="block"><h3>Normal at this tenant</h3><div class="nar"><b>2 token replays</b> in 90 days, both real</div></section><div class="bx-inline"><a class="btn btn--primary" href="#rules">Accept <span class="key">a</span></a><a class="btn" href="#rules">Reject <span class="key">r</span></a></div></div></div></div>
+    <p>Never the verdict controls inside the body. That is <b><code>pane-foot</code></b>, and the reason is not tidiness: 86 of the product&rsquo;s 157 buttons stand there, sticky, so <code>Accept</code> is one key away at the bottom of nine signals rather than a scroll back up. A ruling that has to be scrolled to is a ruling that gets postponed.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>None.</b> It is a column with a gap. Everything alive in the bench below is a claim&rsquo;s source link, an expansion or a ladder, and each carries its own.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-z5" style="height:300px">
+        <div class="pane-body">
+          <section class="block">
+            <h3>What happened</h3>
+            <p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p>
+            <p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</p>
+          </section>
+          <section class="block">
+            <h3>What Clerk may do here, on this tenant</h3>
+            <div class="lat">
+              <div><span class="mark">yes</span><span>Investigate</span></div>
+              <div class="ceiling"><span class="mark">yes</span><span>Contain endpoint</span></div>
+              <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude, so it waited for you</span></div>
+            </div>
+          </section>
+          <p class="stamp">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-z5" style="height:300px">
+        <div class="pane-body">
+          <section class="block">
+            <h3>What happened</h3>
+            <p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p>
+            <p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</p>
+          </section>
+          <section class="block">
+            <h3>What Clerk may do here, on this tenant</h3>
+            <div class="lat">
+              <div><span class="mark">yes</span><span>Investigate</span></div>
+              <div class="ceiling"><span class="mark">yes</span><span>Contain endpoint</span></div>
+              <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude, so it waited for you</span></div>
+            </div>
+          </section>
+          <p class="stamp">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>At 360 the padding drops one step and nothing else moves.</b> That is the only media query in the file. The pane is not rendered at that width when it is holding the fleet; when it is holding a case it becomes the whole page, and this column simply gets the page&rsquo;s width instead of the pane&rsquo;s.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<p class="k-note"><b>It reads no colour at all.</b> Three geometry steps and nothing else, which is what makes a slot a slot. The rows below are what a reader sees inside it, and each is declared by the component that owns the cell.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--space-5</code></td><td>geometry</td><td>the gap between blocks, and the rhythm of the whole surface</td><td><span data-tok="--space-5" data-theme-read="dark"></span></td><td><span data-tok="--space-5" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--space-4</code></td><td>geometry</td><td>the padding at the desk</td><td><span data-tok="--space-4" data-theme-read="dark"></span></td><td><span data-tok="--space-4" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--space-3</code></td><td>geometry</td><td>the padding at 360</td><td><span data-tok="--space-3" data-theme-read="dark"></span></td><td><span data-tok="--space-3" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the ground it stands on, declared by <code>z5</code></td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the verdict and the evidence, declared by <code>nar</code> and <code>claim</code></td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the block headings and the stamp</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="pane-body"&gt;
+  &lt;section class="block"&gt;&lt;h3&gt;What Clerk filed&lt;/h3&gt;&lt;p class="nar"&gt;&hellip;&lt;/p&gt;&lt;/section&gt;
+  &lt;section class="block"&gt;&lt;h3&gt;Evidence, 9 signals&lt;/h3&gt;&lt;div class="claim"&gt;&hellip;&lt;/div&gt;&lt;/section&gt;
+  &lt;p class="prov"&gt;&hellip;&lt;/p&gt;
+  &lt;p class="stamp"&gt;&hellip;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- between .pane-head and .pane-foot, inside .z5 --&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case.html">the case &middot; the reference</a>
+  <a href="../case-standalone.html">the permalink</a>
+  <a href="../case-no-baseline.html">with an absence in it</a>
+  <a href="pane-head.html">the head above it</a>
+  <a href="pane-foot.html">the foot below it</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

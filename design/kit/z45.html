@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Z45, the split</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix sp-. THE FULL COLUMN AND THE TWO THEMES STACK. The split is the whole
+   width of a console and half of the article column is 525px, which is less than the pane
+   plus a readable list. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE DIAGRAM. A labelled block drawing of the regions, not a picture. Real: --pane-w on the
+   right band, --width-toast and --zone-notice-clear on the notice stack, --rule-edge between
+   the two halves. Drawn rather than measured: the height, and the widths in the two small
+   drawings under Rule and anti-rule, which are proportional and say so. */
+.sp-scroll{ width:100%; overflow-x:auto }
+.sp-diag  { position:relative; display:flex; min-width:760px; height:300px;
+            border:var(--rule-edge); background:var(--bg-page) }
+.sp-half  { padding:var(--space-3); font:400 var(--size-xs)/1.5 var(--font-mono);
+            color:var(--text-secondary) }
+.sp-half b{ font-weight:600; color:var(--text-primary) }
+.sp-l     { flex:1 1 auto; min-width:0; border-right:var(--rule-edge) }
+.sp-r     { flex:0 0 var(--pane-w); background:var(--bg-quiet) }
+.sp-notice{ position:absolute; left:var(--space-4); bottom:var(--space-4);
+            width:var(--width-toast); max-width:calc(100% - var(--space-4) * 2);
+            border:var(--rule-edge); background:var(--bg-page); padding:var(--space-3);
+            font:400 var(--size-xs)/1.5 var(--font-mono); color:var(--text-secondary) }
+.sp-clear { position:absolute; left:0; right:0; bottom:0; height:var(--zone-notice-clear);
+            border-top:var(--rule-hair) }
+.sp-mini  { display:flex; height:120px; border:var(--rule-edge); background:var(--bg-page) }
+.sp-mini > div{ padding:var(--space-2); font:400 var(--size-xs)/1.4 var(--font-mono);
+            color:var(--text-secondary) }
+.sp-cap   { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+            margin:var(--space-2) 0 0 }
+/* A CAPTION THAT IS TRUE AT 1440 AND FALSE AT 360 IS THE CLASS ONLY A BROWSER FINDS. The
+   drawing below is the desk rendering and it does not answer the media query the component
+   answers, because a second copy of a product rule in the stand is where the drift starts.
+   Two captions instead, one per width, and the narrow one says what the drawing is. */
+.sp-cd{ }
+.sp-cn{ display:none }
+@media (max-width:900px){ .sp-cd{ display:none } .sp-cn{ display:block } }
+
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism, and it contains another</p>
+<h1 class="k-title">Z45, the split</h1>
+<p class="k-lede"><b>The UX pattern of the whole product in one declaration:</b> a flex row with the list on the left and the detail on the right. 57 instances across 57 screens, which is every authenticated one.</p>
+<p class="k-note">Two of the three reasons for choosing it stand on evidence, and <b>Microsoft ships it</b> with keyboard traversal of the queue, so it <b>carries no novelty and is not presented as one</b>. <code>CLAUDE.md</code> binds that on this layer in as many words.</p>
+<p class="k-note"><b>It is layout and it has no variants.</b> Both panes 32, with a <a href="scrim.html">scrim</a> 11, list only 9, pane only 3: those are counts of what is inside, not forms of this.</p>
+<p class="k-note"><b><code>position:relative</code> is load bearing.</b> <a href="z6.html">Z6</a> is absolutely positioned against this box, which is how the notice stack sits inside the console rather than on the viewport, and never covers the pane.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A diagram of the zones, not a scaled scene.</b> This component is three declarations and a positioning context; a scene of it would be a picture of whatever screen was chosen, and the reader would learn about that screen. What is real below: the pane band is <code>--pane-w</code>, 320px at 1440 and 380px above 1560, the notice is <code>--width-toast</code> at 400px, the clearance at the foot is <code>--zone-notice-clear</code> at 180px, and the rule between the halves is <code>--rule-edge</code>. The height is drawn, because the split takes whatever the <a href="screen.html">screen</a> leaves it.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="sp-scroll">
+        <div class="sp-diag">
+          <div class="sp-half sp-l"><b>Z4</b><br>the list. flex:1 1 auto, and it keeps its place</div>
+          <div class="sp-half sp-r"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560<br>the detail, and at rest the fleet</div>
+          <div class="sp-clear"></div>
+          <div class="sp-notice"><b>Z6</b><br>--width-toast &middot; 400px, absolute against this box<br>the page ends --zone-notice-clear &middot; 180px above the bottom, or the last row is unreachable underneath it</div>
+        </div>
+      </div>
+    </div>
+    <p class="sp-cap sp-cd">the hairline near the foot is the clearance, not a divider</p>
+    <p class="sp-cap sp-cn">drawn at the desk. At this width the row is a block, and the pane arrives under the list rather than beside it</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="sp-scroll">
+        <div class="sp-diag">
+          <div class="sp-half sp-l"><b>Z4</b><br>the list. flex:1 1 auto, and it keeps its place</div>
+          <div class="sp-half sp-r"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560<br>the detail, and at rest the fleet</div>
+          <div class="sp-clear"></div>
+          <div class="sp-notice"><b>Z6</b><br>--width-toast &middot; 400px, absolute against this box<br>the page ends --zone-notice-clear &middot; 180px above the bottom, or the last row is unreachable underneath it</div>
+        </div>
+      </div>
+    </div>
+    <p class="sp-cap sp-cd">the hairline near the foot is the clearance, not a divider</p>
+    <p class="sp-cap sp-cn">drawn at the desk. At this width the row is a block, and the pane arrives under the list rather than beside it</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.z45</code><span><code>position:relative</code>, <code>flex:1 1 auto</code>, <code>min-height:0</code>, a flex row, <code>align-items:stretch</code>. Five declarations, and one of them is only there so a child can be positioned against it</span></li>
+  <li><code>min-height:0</code><span><b>load bearing, in the same way it is on <a href="z4.html">Z4</a>.</b> A flex item refuses to shrink below its content, and without this the split grows past the viewport and every scroll inside it stops working</span></li>
+  <li><code>:has(&gt; .z5.is-paper) &gt; .z4</code><span><b>the container hiding one of its own children.</b> With a paper pane, Z4 is not rendered: the case takes the screen and the list steps aside. No child could do this alone, which is the whole reason the rule is here</span></li>
+  <li><code>:has(&gt; .z5.is-standalone)</code><span><code>justify-content:center</code>. A sheet with no list beside it belongs in the middle, and the same selector turns on the standalone route&rsquo;s own button pair in the <a href="pane-foot.html">pane foot</a></span></li>
+  <li><code>:has(&gt; .z6)</code><span><code>padding-bottom:--zone-notice-clear</code>. With a notice stack present the page ends 180px above the bottom, or the last row is unreachable underneath it</span></li>
+  <li>at 360<span><code>display:block</code>. The row stops being a row, the document takes the scroll back, and the standalone foot swaps its desk button for the narrow one</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note"><b>None, and every cell in this table is empty on purpose.</b> The four numbers below are counts of what is inside the split, which is the clearest instance in the system of the rule that a count is not an axis.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>form</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>One form on all 57. It is layout, and layout has no emphasis, no size and no tone</td></tr>
+    <tr><td><b>viewport</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited as an axis.</b> Width is layout and layout is not a variant: the 360 rendering is the same component answering a media query, and the register took the viewport twins off the variant list for exactly this reason</td></tr>
+    <tr><td rowspan="4"><b>what is inside, and none of it is an axis</b></td><td>both halves</td><td class="num">32</td><td>the console at work: a list and a case, or a list and the fleet</td></tr>
+    <tr><td>with a scrim</td><td class="num">11</td><td>a question that has to be answered, anchored clear of the pane</td></tr>
+    <tr><td>list only</td><td class="num">9</td><td>a document, a systemic state, or a screen with nothing to detail</td></tr>
+    <tr><td>pane only</td><td class="num">3</td><td>the standalone route, centred, with no list to be beside</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Inside <a href="screen.html">screen</a>, on every authenticated surface. There is no second layout in this product: the door is the only thing that is not this, and the door is not behind authentication.</p>
+<p class="k-note"><b>Where she meets it.</b> All day, and she is not supposed to notice it. Satisficing is supported and the structural argument holds; what is still open is whether she pattern matches before reading. The split is what lets her traverse the queue with the keyboard while the pane follows, which is <b>the mechanism the whole speed claim rests on</b>, and it is a pattern Microsoft Defender already ships.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<p class="k-note">The two drawings below are proportional rather than measured: they are 120px tall and their halves are shares of the cell, because the comparison is about where the case goes and not about how wide anything is.</p>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="sp-mini"><div style="flex:1 1 auto;border-right:var(--rule-edge)"><b>Z4</b><br>the list, still there</div><div style="flex:0 0 40%;background:var(--bg-quiet)"><b>Z5</b><br>the case</div></div></div>
+    <p>Side by side. She reads the evidence and rules on it without losing her place in the queue, and the next case is one arrow key away.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="sp-mini" style="position:relative"><div style="flex:1 1 auto"><b>Z4</b><br>underneath</div><div style="position:absolute;inset:var(--space-3) 0 var(--space-3) 22%;background:var(--bg-quiet);border-left:var(--rule-edge);padding:var(--space-2);font:400 var(--size-xs)/1.4 var(--font-mono);color:var(--text-secondary)"><b>Z5</b><br>laid over the list</div></div></div>
+    <p>Never over the list. If the case has to take the screen, that is <a href="z5.html"><code>z5.is-paper</code></a>, and this container answers by not rendering Z4 at all rather than by covering it. The one overlay in this product is <a href="scrim.html">scrim</a>, and its whole job is staying clear of the evidence.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R3.</b> No overlay covers the detail pane. Design principle 5: no overlay hides the evidence the analyst is deciding on.</li>
+  <li><b>R5.</b> No shell before authentication, and no annunciator on a console that cannot read Clerk.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> Three of its rules read its own children, and each is the container doing a job no child could do alone; none of the three is a state.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="sp-scroll">
+        <div class="sp-diag" style="height:170px">
+          <div class="sp-half sp-l"><b>Z4</b><br>the zone at rest, and it has no other</div>
+          <div class="sp-half sp-r"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="sp-scroll">
+        <div class="sp-diag" style="height:170px">
+          <div class="sp-half sp-l"><b>Z4</b><br>the zone at rest, and it has no other</div>
+          <div class="sp-half sp-r"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">Narrow the window past 900 and the row becomes a block: that is the one behaviour of this component a reader can produce here rather than take on trust, and the diagram above stops being a row when it happens.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>inherited from <a href="screen.html">screen</a>, never set. The split paints nothing at all</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line</td><td>the rule between the halves, and it belongs to <a href="z4.html">Z4</a> rather than to this</td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">It reads one structural token, <code>--zone-notice-clear</code> at 180px, and no colour of its own. That is what a layout component looks like when it has been kept to being one.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;main class="z45"&gt;
+  &lt;section class="z4"&gt;&hellip;&lt;/section&gt;
+  &lt;aside class="z5"&gt;&hellip;&lt;/aside&gt;
+&lt;/main&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">both halves &middot; 32</a>
+  <a href="../reject.html">with a scrim &middot; 11</a>
+  <a href="../entry.html">list only &middot; 9</a>
+  <a href="../case-standalone.html">pane only &middot; 3</a>
+  <a href="../queue-notices.html">with the notice stack</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

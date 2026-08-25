@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Narration</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Narration</h1>
+<p class="k-lede">What Clerk found, in order. 151 instances across 37 screens, inside a block, in the case narrative.</p>
+<p class="k-note">Design principle 2 says Clerk shows its work up to a ceiling, and <b>this is the work</b>. The claims and their sources sit under it and the depth is one key away, because more explanation is not more trust: past a point it reduces it.</p>
+<p class="k-note"><b>A slot has no variant matrix, and that is the finding rather than a thin component.</b> Six molecules turned out to be slots at step 2, measured in a browser: between them they show <b>71 distinct sets of child zones and one computed form each</b>. Their pages say so, so nobody looks for a matrix that does not exist.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <p class="nar"><span class="when">04:14</span><b>Sign in</b> from a new ASN, 3 of 3 sessions in the six hours before the case opened.</p>
+        <p class="nar"><span class="when">04:19</span>Mailbox rule created that forwards externally.</p>
+        <p class="nar nar--sep"><span class="when">04:31</span>Clerk correlated the two and opened the case.</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <p class="nar"><span class="when">04:14</span><b>Sign in</b> from a new ASN, 3 of 3 sessions in the six hours before the case opened.</p>
+        <p class="nar"><span class="when">04:19</span>Mailbox rule created that forwards externally.</p>
+        <p class="nar nar--sep"><span class="when">04:31</span>Clerk correlated the two and opened the case.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.nar</code><span>one line of the account. A <code>p</code>, and consecutive ones get a step of gap</span></li>
+  <li><code>.when</code><span><b>the time, in a 46px column.</b> <code>inline-block</code> with a <code>min-width</code> rather than a grid cell, because the sentence has to wrap under itself and not into a second column</span></li>
+  <li><code>b</code><span>what happened, at weight 600. The rest of the line is why it matters</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>separator</b></td><td>base</td><td>147</td><td>one line after another in one passage</td></tr>
+    <tr><td></td><td><code>.nar--sep</code></td><td>4</td><td><b>a new passage.</b> A modifier rather than a margin on the parent, because which line starts a new passage is a fact about the case rather than about the layout</td></tr>
+    <tr><td><b>kind</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>It is a slot:</b> 7 sets of child zones and one computed form</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In the evidence block of a case, and in a log entry showing what was decided. It is Clerk’s account of an investigation that already happened, in the order it happened.</p>
+<p class="k-note"><b>Where she meets it.</b> Immediately after the verdict. She reads the verdict, then reads down this list until she either believes it or does not, and the time column is what lets her stop early.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><p class="nar" style="margin:0"><span class="when">04:14</span><b>Sign in</b> from a new ASN, 3 of 3 sessions.</p></div>
+    <p>A time, what happened, and the count with its scope. The line reads as a sentence and the column of times reads down.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><p class="nar" style="margin:0"><b>Sign in</b> from a new ASN, most sessions.</p></div>
+    <p>Never without the time and never with a vague quantity. <code>voice.md</code> requires a number to name its claim, its scope and its window, and a narration without a time is not evidence, it is a summary.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <p class="nar"><span class="when">04:14</span><b>Sign in</b> from a new ASN, 3 of 3 sessions in the six hours before the case opened.</p>
+        <p class="nar"><span class="when">04:19</span>Mailbox rule created that forwards externally.</p>
+        <p class="nar nar--sep"><span class="when">04:31</span>Clerk correlated the two and opened the case.</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <p class="nar"><span class="when">04:14</span><b>Sign in</b> from a new ASN, 3 of 3 sessions in the six hours before the case opened.</p>
+        <p class="nar"><span class="when">04:19</span>Mailbox rule created that forwards externally.</p>
+        <p class="nar nar--sep"><span class="when">04:31</span>Clerk correlated the two and opened the case.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">A link inside it is <code>link</code> and takes its own.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the emphasis</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the time</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;p class="nar"&gt;&lt;span class="when"&gt;04:14&lt;/span&gt;&lt;b&gt;Sign in&lt;/b&gt; from a new ASN.&lt;/p&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case.html">the evidence block &middot; 151</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

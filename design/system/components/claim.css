@@ -1,0 +1,59 @@
+/* claim :: MOLECULE
+   READS. Ink: --text-secondary. Line: --rule-hair. Geometry: --space-2.
+   CONTAINS. tag, src, and the sentence between them.
+   PAGE. design/kit/claim.html   STANDS ON. 131 instances across 24 screens.
+
+   IT IS THE LINE OF EVIDENCE, and after the row it is the most repeated thing in
+   the product. Three zones in one order: what kind of claim this is, the claim,
+   and where it came from. Design principle 2 is built out of these: the tag lets
+   her skip, the sentence lets her judge, and the source lets her check.
+
+   IT WAS NOT IN THE REGISTER. Step 2 built the register from a browser census of
+   CONTROLS, and a claim contains one only when its source is a link. `tag` and
+   `src` were both written with "inside claim" in their headers while the claim
+   itself had no file. Found at step 5 by scanning every class that owns a rule
+   block against the register; inventory.md section 13 has all thirteen.
+
+   THE TAG SITS INSIDE `.txt` AND NOT BESIDE IT. As a sibling it became a flex item
+   of the claim and took a line of its own at 360, one line per claim on the
+   densest surface in the product. */
+
+.claim{
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  padding: var(--space-2) 0;
+  border-top: var(--rule-hair);
+}
+.claim:first-of-type{ border-top: none }
+.claim .txt{ flex: 1 1 auto; min-width: 0 }
+.claim .src{ flex: 0 0 auto }
+
+/* -- absence. One axis, two values, and the second is the fourth voice rule -----
+   Say what is true about the machine, INCLUDING what it did not find. 18 of the
+   131 are a claim about nothing being there, and they dim as a whole: the tag,
+   the sentence and the source recede together, because the absence is the claim
+   rather than a weaker version of one. */
+.claim--absence{ color: var(--text-secondary) }
+
+/* `.claim--against` IS WRITTEN ON 41 PAGES AND HAS NEVER BEEN DECLARED ANYWHERE.
+   Not in _wf.css at stage 04, not in kit.css at stage 07, not here. It marks the
+   evidence that points the other way, it stands on nineteen coloured screens and
+   twenty two grey ones, and it has drawn nothing for five stages while the register
+   listed it as a variant beside --absence, which does draw.
+
+   IT IS NOT GIVEN A DECLARATION HERE, and that is the decision rather than the
+   omission. What contradicting evidence should look like is a question about the
+   severity economy: attribute A2 spends saturation on two closed sets and forbids a
+   fifth use, so colouring this would either open the economy or reuse a value that
+   already means something else. That is a stage 06 decision, and a stage that is
+   forbidden to draw is the wrong place to take it. The row is in docs/backlog.md,
+   and the markup keeps the class because it carries the meaning either way. */
+
+@media (max-width:900px){
+  /* the source parked at the top right and the claim wrapped underneath it, so a
+     two line claim read as two columns. It takes its own line now. */
+  .claim{ flex-wrap: wrap }
+  .claim .src{ margin-left: auto }
+}
+/* NO STATES. The source inside it is a link on 118 of the 131 and carries its own. */

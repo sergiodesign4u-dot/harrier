@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Argument note</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Argument note</h1>
+<p class="k-lede">A note about the work, in a register of its own. 75 instances across 40 screens, which makes it <b>the most widely spread component in the product after the block itself</b>.</p>
+<p class="k-note"><b>It is not product copy, and that is the component.</b> Everything else on a screen speaks to the analyst in the second person; this speaks to whoever is reading the case <b>for the argument</b>. <code>voice/docs/voice.md</code> puts an IA node number, a zone label, a WCAG criterion or a count of the product's own parts <b>in here or nowhere</b>, and correcting such a count in product copy preserves the defect rather than fixing it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:52ch">
+        <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading)">Out of reach actions are shown with the ceiling stated.</p>
+        <p class="anote">Node 4.1 section 3. Hiding them would have made the ladder a list of what the agent <b>can</b> do, and the analyst needs the shape of what it <b>cannot</b>.</p>
+        <p class="anote">Measured at 03b and drawn at 04: reject costs four taps against accept's two, and the fourth is <code>Enter</code> rather than a confirmation step.</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:52ch">
+        <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading)">Out of reach actions are shown with the ceiling stated.</p>
+        <p class="anote">Node 4.1 section 3. Hiding them would have made the ladder a list of what the agent <b>can</b> do, and the analyst needs the shape of what it <b>cannot</b>.</p>
+        <p class="anote">Measured at 03b and drawn at 04: reject costs four taps against accept's two, and the fourth is <code>Enter</code> rather than a confirmation step.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.anote</code><span>the whole component. A <code>p</code> on all 75</span></li>
+  <li>the dotted rail<span>1px dotted, in secondary ink. Dotted rather than solid because every other left rail in this product means something structural, and a note about the work is not part of the work</span></li>
+  <li><code>::before</code><span><b>the WHY label, and it is not a string in the markup.</b> So it cannot be translated, edited, or dropped on one screen out of forty. 9.5px, weight 700, .14em of tracking</span></li>
+</ul>
+<p class="k-note"><b>The class is <code>.anote</code> and not <code>.why</code>.</b> <code>.why</code> was the first name written, and it is already owned three times over: by the latitude ladder, the log row and the outage line. The fifth class collision of stage 06 and the first one caught before it shipped.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-lede"><b>None. Two notes in a row are one argument in two paragraphs, not two kinds of note.</b></p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis a reader looks for</th><th>Values</th><th>Why the cell is empty</th></tr></thead>
+  <tbody>
+    <tr><td>kind of note</td><td class="k-none">&ndash;</td><td><b>Prohibited.</b> A warning anote and an informational anote would be two registers inside a register that exists to be one. What varies is the sentence</td></tr>
+    <tr><td>emphasis</td><td class="k-none">&ndash;</td><td><b>Bold, not brighter.</b> <code>b</code> and <code>strong</code> inside it keep secondary ink and take weight 700. A note that could shout would compete with the screen it is annotating</td></tr>
+    <tr><td>placement</td><td class="k-none">&ndash;</td><td>It goes where the thing it argues about is: <code>block</code> 55, <code>outage</code> 8, <code>doc</code> 5, <code>body</code> 4, <code>z4</code> 3. That is the parent's decision and there is no modifier for it</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-lede" style="margin-top:var(--space-5)"><b>Two values in this file have no token, and both are carried unchanged.</b></p>
+<p class="k-note"><b>9.5px on the WHY label is below the 11px floor of the scale</b>, one of only two places in the product that is. <b><code>line-height: 1.55</code> is a fourth value</b> against <code>--leading</code> at 1.45 and <code>--leading-tight</code> at 1.25. Neither was collapsed, and the reason is the same for both: an anote is read <b>once, slowly, by somebody who is not working</b>, and it is the one place in this product where a looser line and a smaller label are the right answer. Both are named on the typography page.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">To say why a screen is the way it is, to a reader who is judging the design rather than using it. It is the mechanism that let stage 05 rewrite every product string without losing the argument behind them: <b>stage 05 owns everything that is not an anote, and an anote belongs to whoever is presenting the case.</b></p>
+<p class="k-note"><b>Where she meets it: she does not.</b> This is the one component on the stand that is not for Rasha. It exists because the product is a portfolio case as well as a product, and pretending otherwise is how the argument ends up written in the second person inside the interface. <b>Two instruments found that independently</b>: the browser pass called it the dominant defect of stage 05, and a reader with clean context could not tell which sentences were supposed to be rewritten.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><p class="anote" style="margin:0">Node 4.4 section 2. Five of six reasons derive the second axis, which is why four taps never became five.</p></div>
+    <p>The argument, with its node number, in the register that says it is an argument. Nobody can mistake it for a string the analyst is meant to act on.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><p class="hint" style="margin:0">Node 4.4 section 2. Five of six reasons derive the second axis.</p></div>
+    <p>Not as a <b><code>hint</code></b>. A hint is product copy addressed to the analyst, and a node number in one is a count of the product's own parts standing in the interface, which <code>voice.md</code> forbids in as many words.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> It is a note about the work and there is nothing in it to press.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:52ch">
+        <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading)">Out of reach actions are shown with the ceiling stated.</p>
+        <p class="anote">Node 4.1 section 3. Hiding them would have made the ladder a list of what the agent <b>can</b> do, and the analyst needs the shape of what it <b>cannot</b>.</p>
+        <p class="anote">Measured at 03b and drawn at 04: reject costs four taps against accept's two, and the fourth is <code>Enter</code> rather than a confirmation step.</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:52ch">
+        <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading)">Out of reach actions are shown with the ceiling stated.</p>
+        <p class="anote">Node 4.1 section 3. Hiding them would have made the ladder a list of what the agent <b>can</b> do, and the analyst needs the shape of what it <b>cannot</b>.</p>
+        <p class="anote">Measured at 03b and drawn at 04: reject costs four taps against accept's two, and the fourth is <code>Enter</code> rather than a confirmation step.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">A link inside one is <code>link</code> and takes its own states, which is the arrangement everywhere in this system: the container never draws the states of what it holds.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1, and the rail</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">One role, doing two jobs on two surfaces, and that is allowed only because the rail is <b>not</b> a control boundary: it is a margin rail on a note, so 1.4.11 does not reach it. The ink is real text and answers to 4.5:1, which it clears at 7.56 in dark and 5.89 in light.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;p class="anote"&gt;Node 4.1 section 3. Hiding them would have made the ladder a list of what the agent &lt;b&gt;can&lt;/b&gt; do.&lt;/p&gt;</div>
+<p class="k-note">No heading and no label in the markup: the WHY comes from the stylesheet, on all 75.</p>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case.html">inside a block &middot; 55</a>
+  <a href="../unavailable.html">inside an outage &middot; 8</a>
+  <a href="../entry.html">inside a doc &middot; 5</a>
+  <a href="../queue.html">in Z4 &middot; 3</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

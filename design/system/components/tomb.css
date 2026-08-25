@@ -1,0 +1,61 @@
+/* tomb :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-primary, --text-secondary. Line: --text-secondary, dashed.
+   Geometry: --radius-ui, --size-sm, --space-3.
+
+   PAGE. design/kit/tomb.html
+   STANDS ON. 7 instances across 7 screens, inside `block`.
+
+   IT IS WHERE SOMETHING USED TO BE. The evidence snapshot that fell out of the
+   90 day retention window, the case that was superseded, the source that no
+   longer resolves. Geo and compliance require an append-only log carrying the
+   evidence as it stood, and this is what the interface does on the day that
+   record can no longer be produced: it says so in the place the record was,
+   rather than rendering nothing.
+   ----------------------------------------------------------------------------
+   A DASHED BOUNDARY AND NOT A COLOUR. Nothing has gone wrong: a snapshot leaving
+   its window is the policy working. Dashed is how this system says not settled
+   or not present, on the ghost chip, on the provisional state and here.
+
+   A SLOT: 5 sets of child zones across 7 instances.
+   ---------------------------------------------------------------------------- */
+
+.tomb{
+  border: 1px dashed var(--text-secondary);
+  border-radius: var(--radius-ui);
+  padding: var(--space-3);
+  font-size: var(--size-sm);
+  color: var(--text-secondary);
+}
+
+/* what is gone, named. The rest of the sentence stays quiet. */
+.tomb b{ color: var(--text-primary) }
+
+/* -- whole record. One instance, and it is on the list of one offs -----------
+   When every snapshot in a log entry has fallen out of the window there is nothing
+   left to annotate, so the tombstone takes the whole block: two pixels of dashed
+   border and the sentence centred. It stands once, on `log-snapshot-gone`, which
+   is one instance short of a variant by this system's own rule. It is carried
+   rather than dropped because the alternative is a screen with a class nothing
+   paints, and step 9 decides whether one use earns a name. */
+.tomb--all{
+  border-width: 2px;
+  padding: var(--space-5);
+  text-align: center;
+  font-size: var(--size-md);   /* it is the whole block rather than a line inside one,
+                                  so it reads at body size rather than at the tomb's 12.5 */
+}
+.tomb--all b{
+  display: block;
+  font-size: var(--size-lg);
+  margin-bottom: var(--space-3);
+}
+
+/* -- NO VARIANTS AND NO STATES -----------------------------------------------
+   THE DASHED BORDER IS DRAWN WITH AN INK ROLE AND NOT A LINE ROLE, and that is
+   a deliberate exception with a reason. --text-secondary is declared ink; used
+   as a border it paints a line. The alternative is --line-control at 3.98, which
+   would make the tomb louder than the evidence beside it, or --line-separator at
+   1.18, which would make a dashed box invisible. It is not a control boundary,
+   so 1.4.11 does not reach it, and the surface rule is bent knowingly rather
+   than by accident. Step 9 rules on whether it earns a line role of its own. */

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Patterns</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix p-. */
+.p-card{ border:var(--rule-edge); padding:var(--space-4); margin:0 0 var(--space-3);
+         display:grid; grid-template-columns:1fr 240px; gap:var(--space-5); align-items:start }
+.p-card h3{ margin:0 0 var(--space-2); font:600 var(--size-lg)/var(--leading-tight) var(--font-sans) }
+.p-card h3 a{ color:inherit; text-decoration:none }
+.p-card h3 a:hover{ color:var(--text-accent) }
+.p-card p{ margin:0 0 var(--space-3); font-size:var(--size-sm); line-height:var(--leading);
+           color:var(--text-secondary) }
+.p-card p b{ color:var(--text-primary) }
+.p-zones{ font:400 var(--size-xs)/1.7 var(--font-mono); color:var(--text-secondary) }
+.p-zones b{ color:var(--text-accent); font-weight:400 }
+.p-count{ border-left:var(--rule-edge); padding-left:var(--space-4) }
+.p-count div{ margin:0 0 var(--space-3) }
+.p-count .n{ font:700 21px/1 var(--font-mono); color:var(--text-primary) }
+.p-count .k{ display:block; font:400 var(--size-xs)/1.6 var(--font-mono); letter-spacing:.08em;
+             text-transform:uppercase; color:var(--text-secondary) }
+.p-pick{ display:grid; grid-template-columns:1fr 1fr; gap:var(--space-4); margin:0 0 var(--space-5) }
+.p-pick > div{ border:var(--rule-edge); padding:var(--space-4) }
+.p-pick h4{ margin:0 0 var(--space-2); font:400 var(--size-xs)/1 var(--font-mono);
+            letter-spacing:.08em; text-transform:uppercase; color:var(--text-accent) }
+.p-pick p{ margin:0 0 var(--space-2); font-size:var(--size-sm); line-height:var(--leading);
+           color:var(--text-secondary) }
+.p-pick p:last-child{ margin:0 }
+.p-pick b{ color:var(--text-primary) }
+@media (max-width:900px){
+  .p-card{ grid-template-columns:1fr; gap:var(--space-4) }
+  .p-count{ border-left:0; border-top:var(--rule-edge); padding:var(--space-3) 0 0 }
+  .p-pick{ grid-template-columns:1fr }
+}
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Patterns</p>
+<h1 class="k-title">The level above the component</h1>
+<p class="k-lede">A pattern is a composition that already stands on three or more screens. It owns no colour and writes no rule of its own: it is the arrangement of components that were already there, taken out of the files where it was hiding and given a name. Four of them, and each one was found by counting rather than by recognising.</p>
+<p class="k-note">The counter runs on <code>wireframes/</code>, where the whole product stands in grey. Colour holds 52 pages of 62 until stage 12, so three occurrences <b>there</b> would be a statement about the sample wearing the name of a rule. Every card below carries two numbers for that reason, and the second one grows.</p>
+
+
+<h2 class="k-h" id="pick">When to take a pattern, and when to take the components</h2>
+<div class="p-pick">
+  <div>
+    <h4>Take the pattern</h4>
+    <p>You are filling <b>the same zone with the same job</b>. A new queue state, a new case state, a fourth handover screen: the composition is not a choice you are making, it is the one this zone already has.</p>
+    <p>Concretely: node 3.4 <b>queue with nothing waiting</b> is <code>queue-list</code> with an <code>empty</code> where the rows go. It is not a new column. Everything about the scope bar, the readout and the keyboard strip is already decided, and deciding it again would produce a fifth answer to a question with four.</p>
+  </div>
+  <div>
+    <h4>Take the components</h4>
+    <p>The composition <b>is not repeating</b>, or it repeats in a different order. The entry screen puts a <code>frame</code> in the list column and the system states put an <code>outage</code> there; each is one wrapper with one job, and a wrapper with one job is a component, not a pattern.</p>
+    <p>The test is mechanical. <b>Can you name three screens where this exact set of zones already stands, in this order?</b> Two is not enough: two occurrences prove the composition is possible, three prove it is settled. A composition on two screens stays markup and waits, and it is on the list at the bottom of this page rather than forgotten.</p>
+  </div>
+</div>
+<p class="k-note"><b>A new stylesheet is never the answer.</b> If the composition you need wants a declaration none of the parts has, that is not a pattern asking to be born, it is a component or a variant missing: build the component first, by the five things on <a class="link" href="architecture.html#adding">Architecture</a>, and then compose it.</p>
+
+
+<h2 class="k-h" id="what">What made these four, and only these four</h2>
+<p class="k-lede">Every composition in this product that cleared three screens turned out to be the same shape, and naming the shape is what stopped this folder from filling with files nobody would open.</p>
+<p class="k-note"><b>A pattern here is a filling.</b> One container component, filled with a set of zones, where the container's other filling drops zones and grows different ones. Stage 08 ruled that a zone which disappears means a different thing rather than a variant of the same thing; applied one level up, that rule produces exactly four compositions in this product. The split has two zones, each zone has two fillings, and that is the whole level.</p>
+<p class="k-note">The two hosts have three other fillings between them and none is a pattern: <code>frame</code> on the five entry screens, <code>outage</code> on the three system states, and <code>door</code> on the five sign in states, which fills the shell rather than either half of the split. <b>A filling with one wrapper is a component, and the wrapper is its name.</b></p>
+
+
+<h2 class="k-h" id="four">The four</h2>
+
+<div class="p-card">
+  <div>
+    <h3><a href="queue-list.html">Queue list</a></h3>
+    <p><b>The main dashboard of the product.</b> Scope at the top, a counted claim under it, an optional banner, the rows, and the keyboard taught at the foot. <code>CLAUDE.md</code> settles that the dashboard is the queue with the fleet in the pane and not the other way round, and this is that sentence as a composition.</p>
+    <p class="p-zones"><b>z4</b> &rsaquo; scopebar &middot; readout &middot; banner &middot; rows &middot; qfoot</p>
+  </div>
+  <div class="p-count">
+    <div><span class="n">38</span><span class="k">grey screens</span></div>
+    <div><span class="n">29</span><span class="k">of them in colour</span></div>
+    <div><span class="n">1</span><span class="k">variant, the log</span></div>
+  </div>
+</div>
+
+<div class="p-card">
+  <div>
+    <h3><a href="case-pane.html">Case pane</a></h3>
+    <p><b>Where the analyst rules.</b> The pane's head names the case, the body carries what Clerk filed and what it stands on, and the foot holds the four verdicts. It is the surface the whole product exists for, and it is a pattern rather than a variant because the pane's other filling shares nothing with it past the head.</p>
+    <p class="p-zones"><b>z5</b> &rsaquo; pane-head &middot; pane-body &middot; pane-foot</p>
+  </div>
+  <div class="p-count">
+    <div><span class="n">38</span><span class="k">grey screens</span></div>
+    <div><span class="n">29</span><span class="k">of them in colour</span></div>
+    <div><span class="n">2</span><span class="k">routes, paired and standalone</span></div>
+  </div>
+</div>
+
+<div class="p-card">
+  <div>
+    <h3><a href="fleet.html">Fleet</a></h3>
+    <p><b>The resting state of the pane, and the only surviving differentiator.</b> Every client's current latitude and accuracy trend, legible at one glance where the analyst works rather than on a configuration page. It has no menu item and no route on purpose: checking it should not be a trip.</p>
+    <p class="p-zones"><b>z5</b> &rsaquo; pane-head &middot; frow &middot; fleet-more</p>
+  </div>
+  <div class="p-count">
+    <div><span class="n">10</span><span class="k">grey screens</span></div>
+    <div><span class="n">10</span><span class="k">of them in colour</span></div>
+    <div><span class="n">1</span><span class="k">rule in its file, and that is the finding</span></div>
+  </div>
+</div>
+
+<div class="p-card">
+  <div>
+    <h3><a href="shift-brief.html">Shift brief</a></h3>
+    <p><b>Picking up and handing off a shift</b>, the second of the three jobs in the MVP core. The same column as the queue, filled with the handover instead of the waiting: a counted claim about the shift, then what waits, what moved and who is on. It keeps the keyboard strip, because the analyst reads it the way she reads the queue.</p>
+    <p class="p-zones"><b>z4</b> &rsaquo; readout &middot; banner &middot; brief &middot; qfoot</p>
+  </div>
+  <div class="p-count">
+    <div><span class="n">7</span><span class="k">grey screens</span></div>
+    <div><span class="n">7</span><span class="k">of them in colour</span></div>
+    <div><span class="n">0</span><span class="k">reference for its page type anywhere</span></div>
+  </div>
+</div>
+
+<p class="k-note"><b>None of the four is waiting on stage 12.</b> Every one of them already stands on coloured screens, so every one was proved by measurement rather than by argument: 102 renderings of 51 screens at 1440 and 360, before the extraction and after it, with zero elements moved. A pattern with three grey occurrences and no coloured one would be legitimate and would be named here as such; there is none.</p>
+
+
+<h2 class="k-h" id="rules">What a pattern may not do</h2>
+<p class="k-note">Three prohibitions, and they are the difference between a level and a second folder of components.</p>
+<ul class="k-limits">
+  <li><b>No paint.</b> Not a colour, not a ground, not a family. If the composition needs one, the component it belongs to needs it, and the component is where it goes. The one thing a pattern may write about a border is <b>removing</b> it, because that is layout under another name.</li>
+  <li><b>No new rule.</b> Every declaration in <code>design/system/patterns/</code> was cut out of a component file and each file names where from. Fourteen rules moved, and what made a rule a candidate was mechanical: a selector, written inside one component, that names another component <b>and</b> is conditioned on which filling the host is carrying.</li>
+  <li><b>No file without three screens.</b> A composition on two <b>stays markup</b>, and that means exactly this: it is written on each screen out of the classes that already exist, and no file anywhere describes the arrangement. If holding it together needs a declaration, the composition is not waiting for a third screen, it is waiting for a component. Nothing about "stays markup" licenses a style on a screen. The threshold is the same one as "one use is not a role" at stage 08 and "two pages or it is not a component" at stage 07, and it is the reason this level has four files rather than fourteen.</li>
+</ul>
+
+
+<h2 class="k-h" id="format">A pattern page is not a component page, and it is one block short</h2>
+<p class="k-note">A component page carries five blocks: anatomy, variants and sizes, when to use it, rule and anti-rule, and <b>states</b>. A pattern page carries five too and the fifth is different: <b>where it stands</b>, three or more screens by name, which is the proof that the pattern exists at all.</p>
+<p class="k-note"><b>There is no states block on any of the four, and there should not be.</b> A pattern arranges components and every component in it carries its own states, in both themes, on its own page. A states block here would either repeat them, which is a second copy, or invent a state for the composition, which is the same thing as a pattern with its own paint. Said out loud rather than left as a page that looks like it is missing something, and the same sentence is in the contribution rules on <a class="link" href="architecture.html#contribute">Architecture</a>.</p>
+
+
+<h2 class="k-h" id="candidates">Candidates, waiting for a third screen</h2>
+<p class="k-lede">Compositions the counter found on <b>two</b> screens. None of them is a pattern today. They are here so the next round finds a list rather than starting the count again.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Composition</th><th>Grey screens</th><th>What it would need</th></tr></thead>
+  <tbody>
+    <tr><td><code>doc</code> &rsaquo; block &middot; prov &middot; block &middot; prov &middot; block &middot; anote</td><td>2</td><td>A third framed record. The entry screens carry five renderings of <code>frame</code> and only two of them fill the document this way</td></tr>
+    <tr><td><code>block</code> &rsaquo; claim &middot; expand &middot; claim &middot; anote</td><td>2</td><td>A third evidence block that closes on an argument note rather than on a ground note. Nineteen close on a ground note, which is the settled form</td></tr>
+    <tr><td><code>pane-body</code> &rsaquo; block &middot; prov &middot; stamp</td><td>2</td><td>Nothing, probably. It is the evidence stack with one block instead of two, which makes it a count rather than a composition</td></tr>
+    <tr><td><code>z45</code> &rsaquo; z4 &middot; z5 &middot; z6</td><td>2</td><td>A third screen that draws the notice layer. There are two, and the cap the layer was measured against is one notice at 360</td></tr>
+    <tr><td><code>act</code> &rsaquo; btn &middot; why</td><td>2</td><td>A third action that carries its reason underneath it. <code>sa-offer</code> does the same thing on three more screens under a different host, and whether those are one composition is the question this row is waiting on</td></tr>
+    <tr><td><code>body</code> &rsaquo; banner &middot; block</td><td>2</td><td>A third screen where the banner sits above the blocks with no column around either. <code>brief</code> does it on five, inside a column</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">The counter that produced this table is <code>design/kit/checks/compose.mjs</code>. It reads the DOM rather than the markup, which is why it sees the compositions written by a script: the whole global navigation and both shell zones live in no html file at all. <b>104 distinct compositions</b> across the 62 grey pages. 68 of them stand on two screens or more and 54 on three or more, three of the 54 being the wireframe stand's own panel rather than the product. Almost all of the rest are a component's own anatomy: <code>claim</code> is a text and a source on 24 screens, and that is what <code>claim</code> IS. What the four patterns are is the residue, the compositions with no single owning class, and the six above are the two screen candidates a person would recognise.</p>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [
+  { id:'pick',       label:'Pattern or components' },
+  { id:'what',       label:'What made these four' },
+  { id:'four',       label:'The four' },
+  { id:'rules',      label:'What a pattern may not do' },
+  { id:'format',     label:'The page format' },
+  { id:'candidates', label:'Candidates' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

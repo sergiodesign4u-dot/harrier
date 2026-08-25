@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Toast</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Toast</h1>
+<p class="k-lede">A notice in Z6. 4 instances across 2 screens, and the whole zone was <b>specified in prose and drawn nowhere</b> until stage 07 step 9 found it.</p>
+<p class="k-note">Node 8.4 named three notices as MVP and not one of them existed. <b>That is the cheapest kind of gap to find and the most expensive to leave</b>, and it is why the stage contract is read as a checklist by an instrument that cannot see a step that never happened.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:400px;display:flex;flex-direction:column;gap:var(--space-3)">
+        <div class="toast"><p><span class="role">Clerk</span>The verdict on C-4417 was filed.</p><a class="t-x" href="#anatomy" aria-label="Dismiss">&times;</a></div>
+        <div class="toast toast--alert"><p><span class="role">Clerk</span>The write failed. The verdict is not recorded.</p><span class="t-hold">held until it is</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:400px;display:flex;flex-direction:column;gap:var(--space-3)">
+        <div class="toast"><p><span class="role">Clerk</span>The verdict on C-4417 was filed.</p><a class="t-x" href="#anatomy" aria-label="Dismiss">&times;</a></div>
+        <div class="toast toast--alert"><p><span class="role">Clerk</span>The write failed. The verdict is not recorded.</p><span class="t-hold">held until it is</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.toast</code><span>the notice. It stacks in Z6 and never covers the pane</span></li>
+  <li><code>.role</code><span><b>who is speaking</b>, in the argument note’s register at 9.5px. This is the machine reporting on itself rather than the product addressing the analyst</span></li>
+  <li><code>.t-x</code><span>the dismiss. A bordered control, and its hover is one of the two rules <code>--line-hover</code> was read off</span></li>
+  <li><code>.t-hold</code><span><b>what replaces the dismiss</b> on the alert form</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>kind</b></td><td>base</td><td>3</td><td>it reports something that finished. Dismissible</td></tr>
+    <tr><td></td><td><code>.toast--alert</code></td><td>1</td><td><b>it carries no close control at all.</b> While a verdict is unrecorded the notice is not dismissible, and <b>a disabled X would be a control arguing with itself</b>. It says what is holding instead, in words, in the place the control would have been</td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td>A 2px border and not a colour. Same reason as everywhere: the accent has four jobs and the severity ramp belongs to cases</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In Z6, for something that happened as a result of what the analyst just did. It is not for the state of the screen: that is <code>banner</code>.</p>
+<p class="k-note"><b>Where she meets it.</b> Right after filing a verdict, which is the moment the product has to be certain. The alert form exists because <b>the one thing worse than a failed write is a failed write she dismissed.</b></p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><div class="toast toast--alert"><p style="margin:0"><span class="role">Clerk</span>The write failed. The verdict is not recorded.</p><span class="t-hold">held until it is</span></div></div>
+    <p>It says what failed, what that means, and why it is still on the screen. No control, because there is nothing safe to do with it yet.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><div class="toast toast--alert"><p style="margin:0"><span class="role">Clerk</span>The write failed.</p><span class="btn" aria-disabled="true">Dismiss</span></div></div>
+    <p>Never a disabled dismiss. A control that is visibly there and cannot be used teaches nothing and reads as broken, and design principle 3 says out of reach is shown with the reason stated rather than hidden.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R3.</b> No overlay covers the detail pane. Design principle 5: no overlay hides the evidence the analyst is deciding on.</li>
+  <li><b>R4.</b> The notice layer shows <b>at most</b> three notices at the desk and <b>at most one</b> at 360, and a failure takes the single slot.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede">Live, in both themes. The first one dismisses; point at its close control.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:400px;display:flex;flex-direction:column;gap:var(--space-3)">
+        <div class="toast"><p><span class="role">Clerk</span>The verdict on C-4417 was filed.</p><a class="t-x" href="#anatomy" aria-label="Dismiss">&times;</a></div>
+        <div class="toast toast--alert"><p><span class="role">Clerk</span>The write failed. The verdict is not recorded.</p><span class="t-hold">held until it is</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:400px;display:flex;flex-direction:column;gap:var(--space-3)">
+        <div class="toast"><p><span class="role">Clerk</span>The verdict on C-4417 was filed.</p><a class="t-x" href="#anatomy" aria-label="Dismiss">&times;</a></div>
+        <div class="toast toast--alert"><p><span class="role">Clerk</span>The write failed. The verdict is not recorded.</p><span class="t-hold">held until it is</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b><code>.t-x:hover</code> is one of the two rules <code>--line-hover</code> was read off.</b> It and the keyboard map trigger in Z1 both raise a bordered control’s boundary to the reading ink, which is what made hover on a border a role rather than a habit.</p>
+<p class="k-note">The toast itself has no states. Only the dismiss inside it does.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the ground</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the sentence</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the role label and the hold</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the boundary</td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-hover</code></td><td>line 3:1</td><td>the dismiss under the pointer</td><td><span data-tok="--line-hover" data-theme-read="dark"></span></td><td><span data-tok="--line-hover" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-hover</code></td><td>ink 4.5:1</td><td>the dismiss glyph under the pointer</td><td><span data-tok="--text-hover" data-theme-read="dark"></span></td><td><span data-tok="--text-hover" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="toast toast--alert"&gt;
+  &lt;p&gt;&lt;span class="role"&gt;Clerk&lt;/span&gt;The write failed.&lt;/p&gt;
+  &lt;span class="t-hold"&gt;held until it is&lt;/span&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue-notice.html">Z6 &middot; 3</a>
+  <a href="../case-write-failed.html">the alert &middot; 1</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

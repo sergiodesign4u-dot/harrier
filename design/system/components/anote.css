@@ -1,0 +1,65 @@
+/* anote :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Line: --text-secondary, dotted, on the rail.
+   Geometry: --font-mono, --size-xs, --space-1, --space-2, --space-3.
+
+   PAGE. design/kit/anote.html
+   STANDS ON. 75 instances across 40 screens: inside `block` 55, `outage` 8,
+   `doc` 5, `body` 4 and `z4` 3. The most widely spread component in the product
+   after the block itself.
+
+   IT IS NOT PRODUCT COPY, AND THAT IS THE COMPONENT. Everything else on a screen
+   speaks to the analyst in the second person; this speaks to whoever is reading
+   the case FOR the argument, in a register of its own. Stage 05 owns every
+   string that is not an anote; an anote belongs to whoever is presenting the
+   work. voice/docs/voice.md puts an IA node number, a zone label, a WCAG
+   criterion or a count of the product's own parts in here or nowhere.
+   ----------------------------------------------------------------------------
+   THE CLASS IS `.anote` AND NOT `.why`. `.why` was the first name written and it
+   is already owned three times over, by the latitude ladder, the log row and the
+   outage line. The fifth class collision of stage 06 and the first one caught
+   before it shipped.
+
+   TWO VALUES IN THIS FILE HAVE NO TOKEN AND BOTH ARE NAMED ON THE TYPOGRAPHY
+   PAGE. 9.5px on the WHY label is BELOW the 11px floor of the scale, one of the
+   two places in the product that is; and line-height 1.55 is a fourth value
+   against --leading at 1.45 and --leading-tight at 1.25. Carried unchanged
+   rather than quietly collapsed: an anote is read once, slowly, by somebody who
+   is not working, and it is the one place in this product where a longer line
+   and a looser leading are the right answer.
+   ---------------------------------------------------------------------------- */
+
+.anote{
+  margin: var(--space-3) 0 0;
+  padding: 0 0 0 var(--space-3);
+  border-left: 1px dotted var(--text-secondary);
+  font-size: var(--size-xs);
+  line-height: 1.55;                /* the fourth line height, and it has no token */
+  color: var(--text-secondary);
+}
+
+/* THE LABEL IS A ::before AND NOT A STRING IN THE MARKUP, so it cannot be
+   translated, edited or dropped on one screen out of forty. It reads as a margin
+   note at a glance and can never be mistaken for something the analyst is meant
+   to act on, which was the whole finding: two instruments independently called
+   the unmarked version the dominant defect of stage 05. */
+.anote::before{
+  content: "WHY";
+  display: block;
+  margin-bottom: var(--space-1);
+  font: 700 9.5px/1 var(--font-mono);
+  letter-spacing: .14em;            /* the loosest of the six mono values, and a literal */
+  color: var(--text-secondary);
+}
+
+/* the emphasis inside it stays inside the register: bold, not brighter */
+.anote b,
+.anote strong{ color: var(--text-secondary); font-weight: 700 }
+.anote code  { font-size: inherit }
+
+/* two notes in a row are one argument in two paragraphs, not two arguments */
+.anote + .anote{ margin-top: var(--space-2) }
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   It is a note about the work, and there is nothing in it to press. A link
+   inside it is `link` and takes its own states. */

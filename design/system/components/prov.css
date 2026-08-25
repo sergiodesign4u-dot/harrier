@@ -1,0 +1,30 @@
+/* prov :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-primary, --text-secondary. Line: --rule-hair. Geometry:
+   --font-mono, --size-xs, --space-2.
+
+   PAGE. design/kit/prov.html
+   STANDS ON. 36 instances across 33 screens: `pane-body` 26, `doc` 7, `block` 3.
+
+   IT IS WHERE THE NUMBERS CAME FROM. Under a block of counted evidence it names
+   the systems, the window and the scope that produced them. voice.md requires a
+   number to name its claim, its scope and its window; the number carries the
+   first, and this carries the other two.
+   ----------------------------------------------------------------------------
+   A SLOT: 5 sets of child zones and one computed form. The hairline above it is
+   the role declared to separate and carry no meaning, which is right: this is
+   the end of a block rather than the start of a section.
+   ---------------------------------------------------------------------------- */
+
+.prov{
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+  border-top: var(--rule-hair);
+  padding-top: var(--space-2);
+}
+
+/* the names of the systems come forward; the words around them do not */
+.prov b{ color: var(--text-primary) }
+
+/* -- NO VARIANTS AND NO STATES ------------------------------------------------ */

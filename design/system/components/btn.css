@@ -1,0 +1,104 @@
+/* btn :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-page, --bg-action, --bg-hover, --bg-active. Ink:
+   --text-primary, --text-secondary, --text-on-action. Line: --rule-control,
+   --line-separator, --line-hover. State: --color-focus (through --focus-ring in
+   base.css) and --opacity-disabled. Geometry straight from primitive:
+   --size-md, --font-sans, --radius-ui, --space-2, --space-3.
+
+   PAGE. design/kit/btn.html
+   STANDS ON. 157 instances across 57 screens, in seven places: .pane-foot 86,
+   .act 23, a dialog footer 21, .wrapline 6, .doorform 6, .addr 5, .out-act 4.
+   Those places own their own layout of the button and none of them is a variant
+   of it; the rules that place them live with the container, not here.
+
+   THE REFERENCE COMPONENT OF STAGE 08. The five state tokens were founded on
+   this file, and every other component takes them ready made.
+   ----------------------------------------------------------------------------
+   TWO DECLARATIONS COLLAPSED INTO ONE. kit.css set the border twice, first
+   --rule-edge at line 329 and then --rule-control at line 837, six hundred lines
+   apart, and the second was the one that rendered. Same computed value here,
+   one place to read it.
+   ---------------------------------------------------------------------------- */
+
+.btn{
+  font: var(--size-md)/1 var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-page);
+  border: var(--rule-control);
+  border-radius: var(--radius-ui);
+  padding: var(--space-2) var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* -- emphasis. One axis, three values, and the rule is one main action per zone -- */
+
+.btn--primary{
+  background: var(--bg-action);
+  color: var(--text-on-action);
+  border-color: var(--bg-action);
+  font-weight: 600;
+}
+
+/* THE QUIET BUTTON'S BOUNDARY IS EXEMPT FROM 1.4.11, AND THE EXEMPTION IS WRITTEN
+   RATHER THAN ASSUMED. --line-separator is the role declared to carry no meaning,
+   1.18 on the dark page, and here it draws the edge of a control, which normally
+   demands --line-control at 3:1. It is allowed because this button is identified
+   by its LABEL, at 7.56, and never by its edge: it is the second action of a pair
+   and it always stands beside a primary. The faint edge is what makes it read as
+   the second one. On hover the boundary appears in full, which is the same rule
+   1.4.11 wants and the moment it is actually needed. */
+.btn--quiet{
+  border-color: var(--line-separator);
+  color: var(--text-secondary);
+}
+
+/* -- content. The key is its own atom; these two lines are the HOST's side ---- */
+.btn .key{ opacity: .75 }          /* stage 04. Not a state token: it is the rest form */
+.btn--primary .key{ opacity: .85 } /* the accent ground needs one step less dimming */
+
+/* -- STATES. Each one overrides a token and writes no value of its own --------
+   :not([aria-disabled="true"]) on both pointer states, because an out of reach
+   control that lights up under the pointer is worse than one that does nothing.
+   focus-visible is global, in base.css: it belongs to every focusable thing and
+   a per component copy is how thirty rings drift apart. */
+
+.btn:hover:not([aria-disabled="true"]){
+  background: var(--bg-hover);
+  border-color: var(--line-hover);
+}
+
+/* The accent button does NOT move its ground on hover. Its ground is its identity,
+   it is the one main action of its zone, and --bg-hover would take it off the
+   accent for the length of a pointer pass. Only the boundary answers. */
+.btn--primary:hover:not([aria-disabled="true"]){
+  background: var(--bg-action);
+  border-color: var(--line-hover);
+}
+
+.btn:active:not([aria-disabled="true"]){
+  background: var(--bg-active);
+  border-color: var(--line-hover);
+}
+
+/* Pressed is the one state where the accent button moves its own fill, because a
+   dark plate under a pressed main action reads as the action leaving. --amber-600
+   is the one primitive stage 08 added and tokens.css says what stopped it. */
+.btn--primary:active:not([aria-disabled="true"]){
+  background: var(--amber-600);
+  border-color: var(--amber-600);
+}
+
+/* OUT OF REACH. It dims as a whole rather than being repainted part by part, and
+   that changed what the product shows: see tokens-audit.md, "State tokens founded".
+   Nine instances, all of them a plain .btn, and one of them is the main action of
+   the reject dialog held until a reason is given. */
+.btn[aria-disabled="true"],
+.btn[disabled]{
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}

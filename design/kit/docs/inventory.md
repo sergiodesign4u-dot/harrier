@@ -63,7 +63,7 @@ Stage 07 step 2. Read **out of all 62 wireframe screens plus `wireframes/_nav.js
 | `frow` | 88 | 16 | `rec`, `was` | `--head` |
 | `banner` | 54 | 44 | text + `act`+`btn` | `--quiet` |
 | `block` | 227 | 50 | anything | `--rcpt` |
-| `nar` | 151 | 37 | `claim`, `txt`, `src` | `--sep`, `claim--absence`, `claim--against` |
+| `nar` | 151 | 37 | `claim`, `txt`, `src` | `--sep`, `claim--absence`. **`claim--against` is not a variant and never was**: it is written on 41 pages across both corpora and has never been declared in any stylesheet at any stage. Stage 09 found it and left it undrawn on purpose, see the backlog |
 | `field` | 30 | 15 | `label` + `input`/`textarea`/`select` + `hint` | |
 | `opt` | 62 | 8 | `key` + `lbl` + `routes` | `is-chosen` |
 | `scopebar` | 38 | 38 | `chip` | |
@@ -261,7 +261,7 @@ Not in the kit. 18 of the 25 sit on two pages: `keyboard.html` carries 11 (`keys
 |---|---|---|---|---|
 | `shell` | 62 | 62 | none | `body` |
 | `screen` | 62 | 62 | **route:** authenticated 55, door 5, no strip 2 | `shell` |
-| `z1` | 57 | 57 | **session:** signed in 55, `z1--out` 2, which drops the nav, the map and the annunciator | `screen`. **The class is in no html file:** `design/_shell.js` injects it |
+| `z1` | 57 | 57 | **session:** signed in 55, `z1--out` 2, which drops the nav, the map and the annunciator. **The two are the outage pages and not the door:** a door screen carries no Z1 at all, which is why 55 plus 2 plus 5 accounts for the 62 | `screen`. **The class is in no html file:** `design/_shell.js` injects it |
 | `z2` | 55 | 55 | **health:** live 51, `is-degraded` 4 | `screen`. Injected the same way |
 | `z45` | 57 | 57 | none. This is layout: both panes 32, with a scrim 11, list only 9, pane only 3 | `screen` |
 | `z4` | 54 | 54 | **none. Context, not variants:** `--log` 7, `--shift` 7, `--entry` 5, `--sys` 3, `--solo` 1 switch how the children paint, not how `z4` paints. One computed form across all nine zone sets | `z45` 54 |
@@ -289,7 +289,7 @@ Named so the count of 62 is legible, and so nobody reinstates them.
 |---|---|---|
 | `only-desk`, `only-desk-i`, `only-narrow` | many | viewport twins. Width is layout, and layout is not an axis |
 | `btn--primary-narrow` | 6 | the same twin with the emphasis folded into its name. Becomes `btn--primary` plus `only-narrow` |
-| `z4--log`, `--shift`, `--entry`, `--sys`, `--solo` | 23 | context. They change the children, not `z4` |
+| `z4--log`, `--shift`, `--entry`, `--sys`, `--solo` | 23 | context. They change the children, not `z4`. **Two of the five left at stage 09**: `--log` and `--shift` named a filling rather than a form of the host, and section 14 says where they went |
 | `qbanner` | 6 | a margin. Placement belongs to the parent |
 | `esc-first` | 5 | an `order`. Declared in the `<style>` block of three grey escalate screens, which is why the stage 07 reconcile never lifted it |
 | `z5--paper` | 3 | a second name for `is-paper`. One state, one name |
@@ -320,7 +320,11 @@ Named so the count of 62 is legible, and so nobody reinstates them.
 | `.opt .key` | `.key`, one declaration, border on `currentColor` | 39 | 45 |
 | `.pane-body .frow` | `.frow.frow--flush` | 12 | 12 |
 | `.dialog > footer .hint` | `.hint`, one declaration | 6 | 11 |
+| `.qbanner` | **nothing. The margin moves to `.z4 > .banner`** | 5 | 6 | *added at step 8: step 2 took it off the variant list as a margin, and the margin then belonged to nobody. Placement belongs to the parent* |
+| `.gone-all` | `.tomb.tomb--all` | 1 | 1 | *added at step 8: a whole record tombstone is the same component at a bigger size, and one instance is one short of a variant. Carried rather than dropped, and step 9 rules on it* |
 | `.claim .src`, `.claim .tag`, `.frow .rec`, `.frow .was`, `.lat .mark`, `.field > label`, `.field .hint` | the same class, declared on its own rather than through the parent | all | all |
+| `.field input`, `.field textarea`, `.field select` | `.input`, one class on the element itself | 34 | 38 | *added round 1: the three are one component, and the class goes on the element so they stay one* |
+| `.z1 nav span` | **nothing. Deleted** | 0 | 0 | *added round 1: a rule for a nav item that cannot be opened, struck through in the hairline colour. The generator emits an `a` every time and has never emitted a span. A class nobody wears, and it goes to list three of the reconciliation* |
 
 **Two rows change markup and not one pixel**, so the comparison at step 8 will not see them and they are recorded here instead: the move to `details.expand` and the naming of `navitem` and `link`. **One row changes appearance and is entered as consolidated drift** in `tokens-audit.md`: `.opt .key` moves from a rule-coloured border to the host's colour, 39 places.
 
@@ -333,3 +337,151 @@ Section 7 above said the difference between the two lists is the brief for the r
 **Taken.** Every one of the 55 rows has a level, a variant matrix built from axes rather than from occurrences, and a place where it stands. Six components stopped claiming variants they never had. Three components were added that had been standing unnamed on 156 nodes between them.
 
 **Left, and each with an address.** `select`, `block--rcpt`, `z4--solo`, `z5--paper` and `dialog--map` have no coloured rendering; each takes its form from its nearest relative rather than from an invention, and the four that wait belong to screens that are still grey. The keyboard map keeps its eleven one-off classes and stays out of the system. Checkbox, radio and toggle are absent from the product and are not introduced: `optlist` is the radio pattern, and it is named as one rather than replaced.
+
+---
+
+## 12. The build register, stage 08 step 5
+
+**Order is the ladder and it is not the alphabet.** Alphabetically `dialog.css` comes before `field.css` and `form.css` before `input.css`, which puts the composed thing above its own parts in the cascade; a contextual fix is then cured with `!important` and the system carries it for years. Bottom up removes that by construction. The same order protects the documentation: a subagent writing a molecule before its atoms gives them a hover of their own and a name of their own, and the system ends up with a second dictionary.
+
+**All three levels exceed eight, so all three carry a second sort by purpose**, agreed before the build. Inside `Organisms` the split is not by purpose but by containment: an organism may contain another organism and the ladder has no fourth rung, so the ones that contain none go first.
+
+**This table is the checklist and it is not shortened.** A component with no file, no page, no registry entry or no `@import` in its own group does not exist, and step 5 ends with all of them closed. **The register is 73**: it was 62 when this line was first written, lost two in round 1 when `input` absorbed `textarea` and `select`, and gained thirteen at step 5 that the browser census had never seen.
+
+**Nineteen rows were here twice and are here once.** The organisms were listed as a plan before round 3 was built, with empty State and Built columns and no link, and then listed again as they were finished. The table read 98 rows against a register of 73, and **a checklist with nineteen empty cells in it is the exact class of defect this file is meant to catch in other people's work**. Found at stage 09 by a mechanical audit counting the rows against the register.
+
+| Level | Group | Component | css file | Page | States | Built |
+|---|---|---|---|---|---|---|
+| Atoms | controls | `btn` | `components/btn.css` | [`btn.html`](../btn.html) | 4 states | **round 0** |
+|  |  | `navitem` | `components/navitem.css` | [`navitem.html`](../navitem.html) | hover, active, focus | **round 1** |
+|  |  | `link` | `components/link.css` | [`link.html`](../link.html) | hover, focus | **round 1** |
+|  |  | `chip` | `components/chip.css` | [`chip.html`](../chip.html) | hover, active, focus | **round 1** |
+|  |  | `input` | `components/input.css` | [`input.html`](../input.html) | hover, focus | **round 1**, and it absorbed `textarea` and `select` |
+| Atoms | marks | `key` | `components/key.css` | [`key.html`](../key.html) | none, not interactive | **round 0** |
+|  |  | `state` | `components/state.css` | [`state.html`](../state.html) | none, not interactive | **round 1** |
+|  |  | `bars` | `components/bars.css` | [`bars.html`](../bars.html) | none, not interactive | **round 1** |
+|  |  | `mark` | `components/mark.css` | [`mark.html`](../mark.html) | none, not interactive | **round 1** |
+|  |  | `tag` | `components/tag.css` | [`tag.html`](../tag.html) | none, not interactive | **round 1** |
+|  |  | `stamp` | `components/stamp.css` | [`stamp.html`](../stamp.html) | none, not interactive | **round 1** |
+| Atoms | the parts of a text | `src` | `components/src.css` | [`src.html`](../src.html) | hover, focus | **round 1** |
+|  |  | `anote` | `components/anote.css` | [`anote.html`](../anote.html) | none, not interactive | **round 1** |
+|  |  | `was` | `components/was.css` | [`was.html`](../was.html) | none, not interactive | **round 1** |
+|  |  | `rec` | `components/rec.css` | [`rec.html`](../rec.html) | none, not interactive | **round 1** |
+|  |  | `hint` | `components/hint.css` | [`hint.html`](../hint.html) | none, not interactive | **round 1** |
+|  |  | `label` | `components/label.css` | [`label.html`](../label.html) | none, not interactive | **round 1** |
+| Molecules | the row family | `row` | `components/row.css` | [`row.html`](../row.html) | hover, selected, superseded | **round 2** |
+|  |  | `row-moved` | `components/row-moved.css` | [`row-moved.html`](../row-moved.html) | hover, active. **Corrected at stage 09**: three documents said none and every instance is a link | **round 2** |
+|  |  | `sev` | `components/sev.css` | [`sev.html`](../sev.html) | none, not interactive | **round 2** |
+|  |  | `frow` | `components/frow.css` | [`frow.html`](../frow.html) | hover | **round 2** |
+|  |  | `opt` | `components/opt.css` | [`opt.html`](../opt.html) | chosen, hover, active, focus | **round 2** |
+|  |  | `rota` | `components/rota.css` | [`rota.html`](../rota.html) | none, not interactive | **round 2** |
+| Molecules | slots | `block` | `components/block.css` | [`block.html`](../block.html) | none, a slot | **round 2** |
+|  |  | `nar` | `components/nar.css` | [`nar.html`](../nar.html) | none, a slot | **round 2** |
+|  |  | `prov` | `components/prov.css` | [`prov.html`](../prov.html) | none, a slot | **round 2** |
+|  |  | `gnote` | `components/gnote.css` | [`gnote.html`](../gnote.html) | none, a slot | **round 2** |
+|  |  | `empty` | `components/empty.css` | [`empty.html`](../empty.html) | none, a slot | **round 2** |
+|  |  | `tomb` | `components/tomb.css` | [`tomb.html`](../tomb.html) | none, a slot | **round 2** |
+| Molecules | the furniture of a zone | `scopebar` | `components/scopebar.css` | [`scopebar.html`](../scopebar.html) | none, not interactive | **round 2** |
+|  |  | `readout` | `components/readout.css` | [`readout.html`](../readout.html) | none, not interactive | **round 2** |
+|  |  | `pane-head` | `components/pane-head.css` | [`pane-head.html`](../pane-head.html) | none, not interactive | **round 2** |
+|  |  | `qfoot` | `components/qfoot.css` | [`qfoot.html`](../qfoot.html) | none, not interactive | **round 2** |
+|  |  | `chips-hd` | `components/chips-hd.css` | [`chips-hd.html`](../chips-hd.html) | none, not interactive | **round 2** |
+|  |  | `fleet-more` | `components/fleet-more.css` | [`fleet-more.html`](../fleet-more.html) | none, not interactive | **round 2** |
+| Molecules | notices and input | `banner` | `components/banner.css` | [`banner.html`](../banner.html) | none, not interactive | **round 2** |
+|  |  | `toast` | `components/toast.css` | [`toast.html`](../toast.html) | the dismiss only | **round 2** |
+|  |  | `outage` | `components/outage.css` | [`outage.html`](../outage.html) | none, not interactive | **round 2** |
+|  |  | `field` | `components/field.css` | [`field.html`](../field.html) | none, not interactive | **round 2** |
+|  |  | `expand` | `components/expand.css` | [`expand.html`](../expand.html) | the element’s own | **round 2** |
+|  |  | `doorcard` | `components/doorcard.css` | [`doorcard.html`](../doorcard.html) | none, not interactive | **round 2** |
+
+| Atoms | the parts of a text | `arriving` | `components/arriving.css` | [`arriving.html`](../arriving.html) | none, not interactive | **step 5, and it was not in the register** |
+| Molecules | the ten the census missed | `claim` | `components/claim.css` | [`claim.html`](../claim.html) | none, a slot | **step 5, and it was not in the register** |
+| Molecules |  | `lat` | `components/lat.css` | [`lat.html`](../lat.html) | none, not interactive | **step 5, and it was not in the register** |
+| Molecules |  | `bline` | `components/bline.css` | [`bline.html`](../bline.html) | hover, active, focus | **step 5, and it was not in the register** |
+| Molecules |  | `cons` | `components/cons.css` | [`cons.html`](../cons.html) | is-empty | **step 5, and it was not in the register** |
+| Molecules |  | `contact` | `components/contact.css` | [`contact.html`](../contact.html) | none, not interactive | **step 5, and it was not in the register** |
+| Molecules |  | `covers` | `components/covers.css` | [`covers.html`](../covers.html) | none, not interactive | **step 5, and it was not in the register** |
+| Molecules |  | `axisb` | `components/axisb.css` | [`axisb.html`](../axisb.html) | none, not interactive | **step 5, and it was not in the register** |
+| Molecules |  | `sa-offer` | `components/sa-offer.css` | [`sa-offer.html`](../sa-offer.html) | none, not interactive | **step 5, and it was not in the register** |
+| Molecules |  | `addr` | `components/addr.css` | [`addr.html`](../addr.html) | none, not interactive | **step 5, and it was not in the register** |
+| Molecules |  | `annun` | `components/annun.css` | [`annun.html`](../annun.html) | none, read only in the MVP | **step 5, and it was not in the register** |
+| Organisms | containing no other organism | `doc` | `components/doc.css` | [`doc.html`](../doc.html) | none, not interactive | **step 5, and it was not in the register** |
+| Organisms | containing another organism | `frame` | `components/frame.css` | [`frame.html`](../frame.html) | none, not interactive | **step 5, and it was not in the register** |
+|  |  | `z1` | `components/z1.css` | [`z1.html`](../z1.html) | none, not interactive | **round 3** |
+|  |  | `z2` | `components/z2.css` | [`z2.html`](../z2.html) | is-degraded | **round 3** |
+|  |  | `z6` | `components/z6.css` | [`z6.html`](../z6.html) | none, not interactive | **round 3** |
+|  |  | `rows` | `components/rows.css` | [`rows.html`](../rows.html) | none, not interactive | **round 3** |
+|  |  | `rows-moved` | `components/rows-moved.css` | [`rows-moved.html`](../rows-moved.html) | none, not interactive | **round 3** |
+|  |  | `optlist` | `components/optlist.css` | [`optlist.html`](../optlist.html) | none, not interactive | **round 3** |
+|  |  | `pane-body` | `components/pane-body.css` | [`pane-body.html`](../pane-body.html) | none, not interactive | **round 3** |
+|  |  | `pane-foot` | `components/pane-foot.css` | [`pane-foot.html`](../pane-foot.html) | none, not interactive | **round 3** |
+|  |  | `dialog` | `components/dialog.css` | [`dialog.html`](../dialog.html) | none, not interactive | **round 3** |
+|  |  | `rail` | `components/rail.css` | [`rail.html`](../rail.html) | none, not interactive | **round 3** |
+|  |  | `rail-foot` | `components/rail-foot.css` | [`rail-foot.html`](../rail-foot.html) | none, not interactive | **round 3** |
+|  |  | `door` | `components/door.css` | [`door.html`](../door.html) | none, not interactive | **round 3** |
+|  |  | `brief` | `components/brief.css` | [`brief.html`](../brief.html) | none, not interactive | **round 3** |
+|  |  | `scrim` | `components/scrim.css` | [`scrim.html`](../scrim.html) | none, not interactive | **round 3** |
+|  |  | `z4` | `components/z4.css` | [`z4.html`](../z4.html) | none, not interactive | **round 3** |
+|  |  | `z5` | `components/z5.css` | [`z5.html`](../z5.html) | none, not interactive | **round 3** |
+|  |  | `z45` | `components/z45.css` | [`z45.html`](../z45.html) | none, not interactive | **round 3** |
+|  |  | `screen` | `components/screen.css` | [`screen.html`](../screen.html) | none, not interactive | **round 3** |
+|  |  | `shell` | `components/shell.css` | [`shell.html`](../shell.html) | none, not interactive | **round 3** |
+
+**73 rows, 73 built. Every component is closed, and `kit.css` is deleted.** The register grew and shrank three times and section 13 says why. Round 0 was two components together rather than one: the button is the reference component, and its dominant content form is label plus key at 83 of 157, so a reference that could not show its own dominant form would not have been one. `key` therefore leaves the marks group with five rather than six.
+
+**The register lost two rows in round 1, and the reason is the splitting criterion rather than a cut.** `input`, `textarea` and `select` were three rows with the same anatomy, which here is none at all: no child zones, no order, and one declaration between them. What differs is which element the browser needs for the kind of answer being collected, and that is a variant axis. The register already treated it as one a level up, where `field` carries "control: textarea 21, input 9". **Atoms go from 19 to 17 and the total from 62 to 60.** Consolidation runs in both directions: step 2 split `chip` in two and took seven things off the variant list, and this is the same criterion reaching a row it had not.
+
+---
+
+## 13. Thirteen components the register did not have, found at step 5
+
+**The register was built at step 2 from a browser census and it missed thirteen.** They were found by a systematic scan rather than by noticing: every class that owns a rule block in `kit.css`, minus the register, minus the declared zones, minus the declared places, minus the viewport twins. Twenty one classes came back and thirteen of them are components by the register's own criterion, which is that a thing has its own set of child zones and stands on a screen.
+
+**Why the census missed them.** It counted CONTROLS, and every one of these is a container or a text composition. Section 9 says the anatomy column was read off the rendering, and it was, but only for the rows the control census had already produced. A component with no control in it never entered the list to be measured.
+
+| Level | Component | Grey | Pages | Its zones | What it is |
+|---|---|---|---|---|---|
+| Molecule | `claim` | 131 | 24 | `.txt`, `.tag`, `.src` | **the line of evidence**, and the second most common thing in the case pane after the block. It is what `tag` and `src` stand inside, and both their pages already name it |
+| Molecule | `lat` | 26 | 26 | `.mark`, the label, `.why`, and the row states `.off` and `.ceiling` | **the latitude ladder.** `CLAUDE.md` names calibrated trust as the only surviving differentiator and this is the element that carries it. `mark` is written and the ladder it lives in was not |
+| Molecule | `bline` | 19 | 7 | `.n`, `.go`, `.ex` | the counted line in the shift brief. A LINE and not a card, and the brief's block table rules out the alternative |
+| Molecule | `cons` | 9 | 9 | `.is-empty`, `b` | the consequence box on reject and escalate: what happens if you file this |
+| Molecule | `contact` | **3** | 3 | `.who`, `.meta`, `p` | who a systemic notice tells you to call. **The first count here said 6 on 3 and named the escalate dialog, and both halves were wrong:** a reader with clean context counted the class and found three, all on the outage pages. The other three were `out-contact`, a zone of `outage`, merged by a word boundary in the count. The escalate dialog carries its recipient under `block--rcpt`, which has no coloured rendering at all |
+| Molecule | `addr` | **5** | 5 | `code` | the address block. `kit.css` calls it **one component** in as many words: it existed twice, on 5.4 and on 8.1, with the same hairline and the same wrapping. The count said six; the sixth is node 8.1's `nf-addr`, which section 11 keeps out of the kit. `kit.css` also says the sign in page **can** adopt it, and no door page has |
+| Molecule | `covers` | 4 | 4 | `.k`, `.v` | a label and its value, stacked. **In the LOG's reading pane, not the shift brief:** `log`, `log-narrowing`, `case-history` and `case-history-superseded`. The first reading put it in the brief and no shift screen carries the class |
+| Molecule | `axisb` | 3 | 3 | `.locked` | the second axis of a rejection, and the reason four taps never became five |
+| Molecule | `sa-offer` | 3 | 3 | `.why` | the standalone route's offer to open the case in the queue |
+| Molecule | `annun` | **0 in any file** | 55 at runtime | `b`, `.sep`, `.ovrd` | the annunciator. Injected by `design/_shell.js`, exactly like `navitem`, `z1` and `z2`, which is why an inventory taken from the screens alone cannot see it |
+| Atom | `arriving` | 4 | 4 | `::after` | **loading, and it is a shape that fills.** Never a spinner and never a skeleton of the whole screen |
+| Organism | `doc` | 5 | 5 | `h1`, `.stampline` | the document body of a log entry: a screen that is a page rather than a console |
+| Organism | `frame` | 5 | 5 | holds `rail` and `rail-foot` | **the framed record.** `--width-frame` is a token in `tokens.css` and its consumer was not in the register. The marking is a frame and not a banner: a banner scrolls away, and somebody who arrives by permalink and reads the middle must still know what they are reading |
+
+**The register is 73: 18 atoms, 34 molecules, 21 organisms.** It was 62 at step 2, went to 60 in round 1 when `input` absorbed `textarea` and `select`, and goes to 73 here. **The scope is not cut:** the pack is explicit that a system without a component that stands on a screen is incomplete by definition, and every one of these stands on at least three.
+
+**Eight of the twenty one were not components and each has a home.** `doorbtn`, `doormark` and `doordest` are zones of `doorcard`; `out-contact` is a zone of `outage`; `sa-fresh` and `sa-route` are zones of the standalone pane head; `z6-more` is a zone of Z6; `gone-all` is one instance and becomes `tomb--all`. **`icon` has zero instances anywhere** and goes to list three of the reconciliation as a class nobody wears: it is the stage 07 icon class, superseded by the CSS masks.
+
+---
+
+## 14. Patterns, stage 09
+
+**A pattern is a level, not a folder of more components.** It is a composition that already stands on three or more screens, it owns no colour, and every declaration in it was CUT out of a component file rather than written for it. The counter runs on `wireframes/`, because colour holds 52 pages of 62 until stage 12 and three occurrences there would be a statement about the sample wearing the name of a rule.
+
+**All four are the same shape, and naming it is what kept this level to four files.** A pattern here is a FILLING: one container component, filled with a set of zones, where the container's other filling drops zones and grows different ones. Stage 08 ruled that a zone which disappears means a different thing rather than a variant; applied one level up, that rule produces exactly these four and no others.
+
+| Pattern | File | Page | Host | Its zones | Grey | Colour | Rules moved in |
+|---|---|---|---|---|---|---|---|
+| `queue-list` | `patterns/queue-list.css` | `queue-list.html` | `z4` | scopebar, readout, banner, rows, qfoot | 38 | 29 | 2, from `z4.css` |
+| `shift-brief` | `patterns/shift-brief.css` | `shift-brief.html` | `z4` | readout, banner, brief, qfoot | 7 | 7 | 2, from `z4.css` |
+| `case-pane` | `patterns/case-pane.css` | `case-pane.html` | `z5` | pane-head, pane-body, pane-foot | 38 | 29 | 9, from `z5.css` and `z45.css` |
+| `fleet` | `patterns/fleet.css` | `fleet.html` | `z5` | pane-head, frow, fleet-more | 10 | 10 | 1, from `z5.css` |
+
+**What made a rule a candidate was mechanical rather than a judgement:** a selector, written inside one component, that names another component AND is conditioned on which filling the host is carrying. Fourteen matched, across three component files. `.z4 > .banner` did not, and the difference is the point: it places the banner whichever filling the column carries, so it belongs to the zone.
+
+**Two classes were renamed with their rules.** `.z4--log` became `.queue-list--log` on two coloured screens and `.z4--shift` became `.shift-brief` on seven: both named the host rather than the thing they were filling it with. `wireframes/` keeps the old names, because it is frozen, and the coverage check carries the map.
+
+**Two things tried to move in and were sent back, and an audit against these files' own headers is what caught both.** `.pane-head--standalone h1` turned out to be a rule stage 08 had written in TWO places, the component's own file and `z5.css`, with the second winning on specificity so the first looked like it worked; the component keeps it and the duplicate is gone. `.sa-fresh` and `.sa-route` carry a line, a family and an ink, so moving them would have broken the one rule that makes this a level rather than a second folder of components; they stayed in `places.css`.
+
+**`fleet.css` has one rule and that is the finding rather than the shortfall.** The composition is carried entirely by its parts. A pattern that needs no arrangement is a pattern whose components were drawn to fit each other, which is the outcome this level is for.
+
+**Six candidates stand on two screens and are listed on `patterns.html`** rather than forgotten: they are not patterns today and the next round finds a list instead of starting the count again.
+
+**Nothing moved.** 102 renderings of 51 screens at 1440 and 360, before the extraction and after it: 0 tree shape changes, 0 boxes moved. `design/kit/checks/refactor.mjs`.

@@ -1,0 +1,28 @@
+/* arriving :: ATOM
+   READS. Fill: --bg-quiet, --bg-invert. Geometry: 2px.
+   PAGE. design/kit/arriving.html   STANDS ON. 4 instances across 4 screens, at the
+   top of a list that is still filling.
+
+   LOADING IS A SHAPE THAT FILLS. Never a spinner and never a skeleton of the whole
+   screen. A spinner says the product is thinking and tells the analyst nothing; a
+   skeleton of the queue draws eighteen rows that do not exist, on a surface where
+   a row is a decision. Two pixels of bar say the same thing and lie about nothing.
+   The order settles when the count does: rows arrive as Clerk correlates them, and
+   the annunciator says when the queue is complete. */
+
+.arriving{
+  height: 2px;
+  background: var(--bg-quiet);
+  position: relative;
+  overflow: hidden;
+}
+/* THE FILL IS A FIXED 40 PER CENT AND IT DOES NOT MOVE. There is no animation in
+   this product at stage 08: motion arrives at stage 10 and this is the one place
+   that will ask for it. Until then the bar is a proportion, not a promise. */
+.arriving::after{
+  content: "";
+  position: absolute;
+  inset: 0 60% 0 0;
+  background: var(--bg-invert);
+}
+/* NO STATES. It is a report, not a control. */

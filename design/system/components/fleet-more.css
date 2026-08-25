@@ -1,0 +1,30 @@
+/* fleet-more :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Geometry: --font-mono, --size-xs, --space-3,
+   --space-4.
+
+   PAGE. design/kit/fleet-more.html
+   STANDS ON. 10 instances across 10 screens, at the foot of the fleet.
+
+   IT SAYS WHAT IS NOT ON THE SCREEN. The pane holds a handful of tenants and the
+   analyst carries 40 or more, so the last line of the fleet names how many are
+   below the fold. voice.md requires a count with its scope and forbids a bare
+   percentage; this is the count that stops the visible rows from reading as the
+   whole fleet.
+   ----------------------------------------------------------------------------
+   IT IS NOT A CONTROL, AND THAT IS THE INTERESTING PART. Everything about the
+   position says "load more" and it is a line of text: the fleet at rest is a
+   glance rather than a place to browse, and a control here would invite the
+   analyst to work the pane instead of the queue. The full list is a screen of
+   its own, in cluster 7, and it arrives with Clients.
+
+   NO VARIANTS AND NO STATES. If it ever becomes pressable it becomes `btn` or
+   `link`, and this component stops existing.
+   ---------------------------------------------------------------------------- */
+
+.fleet-more{
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}

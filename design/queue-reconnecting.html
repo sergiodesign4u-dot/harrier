@@ -6,16 +6,16 @@
 <meta name="robots" content="noindex">
 <title>Harrier &middot; Case queue, reconnecting, in colour</title>
 <link rel="stylesheet" href="../_nav.css">
-<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="system/index.css">
 </head>
 <body>
-<div class="wf-shell">
+<div class="shell">
 <aside id="sidebar"></aside>
-<div class="wf-screen">
+<div class="screen">
   <header id="wf-z1"></header>
   <p id="wf-z2"></p>
   <main class="z45">
-    <section class="z4" aria-labelledby="qh">
+    <section class="z4 queue-list" aria-labelledby="qh">
       <div class="scopebar" role="group" aria-label="Scope and filters">
         <button class="chip" type="button">All tenants &#9662;</button>
         <button class="chip" type="button">Waiting on a decision &times;</button>
@@ -24,7 +24,7 @@
 
       <h1 id="qh" class="readout"><b>18 waiting, and that number is 40s old</b> <span class="dim">how many arrived since is not known</span></h1>
 
-      <div class="banner qbanner"><b>The connection dropped and is being re established.</b> Nothing here is wrong and something may be missing. <b>Filing a verdict is still allowed</b>: a degraded connection does not block a decision, and the log records the snapshot you actually saw.<span class="act"><span class="btn" aria-disabled="true">Retrying</span><span class="why">the transport backs off and retries on its own, so there is nothing for a button to do that is not already happening</span></span></div>
+      <div class="banner"><b>The connection dropped and is being re established.</b> Nothing here is wrong and something may be missing. <b>Filing a verdict is still allowed</b>: a degraded connection does not block a decision, and the log records the snapshot you actually saw.<span class="act"><span class="btn" aria-disabled="true">Retrying</span><span class="why">the transport backs off and retries on its own, so there is nothing for a button to do that is not already happening</span></span></div>
 
       <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
         <div class="row row--head" role="row">
@@ -42,7 +42,7 @@
           <span role="gridcell">Mass file rename on one host</span>
           <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
           <span role="gridcell" class="cost">4 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="states" role="gridcell"><i class="state">decided</i><i class="state state--solid">unrecorded</i></span>
           <span class="age" role="gridcell">1h</span>
         </a>
         <a class="row" role="row" href="case.html">
@@ -60,7 +60,7 @@
           <span role="gridcell">Ransomware precursor on FS-02</span>
           <span class="concluded" role="gridcell"><b>Real, contained</b></span>
           <span role="gridcell" class="cost">14 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="states" role="gridcell"><i class="state">acted</i></span>
           <span class="age" role="gridcell">52m</span>
         </a>
         <a class="row" role="row" href="case-no-baseline.html">
@@ -87,7 +87,7 @@
           <span role="gridcell">Beaconing to a new domain</span>
           <span class="concluded" role="gridcell"><b>Real, contained</b></span>
           <span role="gridcell" class="cost">5 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="states" role="gridcell"><i class="state">acted</i></span>
           <span class="age" role="gridcell">2h</span>
         </a>
         <a class="row" role="row" href="case.html">
@@ -110,7 +110,7 @@
       </p>
     </section>
 
-    <aside class="z5" aria-labelledby="fh">
+    <aside class="z5 fleet" aria-labelledby="fh">
       <div class="pane-head">
         <h2 id="fh">Fleet</h2>
         <p class="sub">40 tenants, nothing selected. As of 40s ago</p>

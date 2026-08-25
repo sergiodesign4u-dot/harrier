@@ -1,0 +1,37 @@
+/* sa-offer :: MOLECULE
+   READS. Ink: --text-secondary. Line: --rule-hair. Geometry: --size-xs,
+   --space-3, --space-7.
+   CONTAINS. btn.
+   PAGE. design/kit/sa-offer.html   STANDS ON. 3 instances across 3 screens, at
+   the top of a case opened by its own address.
+
+   IT OFFERS TO PUT THE CASE BACK IN ITS LIST. A case reached by permalink or from
+   a pager at 03:00 has no queue beside it, and this is the one line that says so
+   and offers the way back. It is the standalone route admitting what it is.
+
+   IT IS HIDDEN AT 360 AND THAT IS THE POINT. On a phone the standalone rendering
+   is not a fallback, it is the design: node 3.1 settles that selecting at 360
+   opens the standalone case rather than a pane covering the list. Offering to
+   open the queue there would offer the analyst the surface she deliberately does
+   not have. */
+
+.sa-offer{
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin: 0 0 var(--space-3);
+  padding: 0 0 var(--space-3);
+  border-bottom: var(--rule-hair);
+}
+.sa-offer .why{
+  flex: 1 1 var(--space-7);
+  min-width: 0;
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+@media (max-width:900px){
+  .sa-offer{ display: none }
+}
+/* NO STATES. The button inside it carries its own. */

@@ -1,0 +1,40 @@
+/* doc :: ORGANISM
+   READS. Ink: --text-primary, --text-secondary. Geometry: --font-mono,
+   --size-xl, --size-sm, --leading-tight, --space-2, --space-4, --space-5.
+   CONTAINS. block, claim, prov, addr, anote, tomb.
+   PAGE. design/kit/doc.html   STANDS ON. 5 instances across 5 screens.
+
+   A SCREEN THAT IS A PAGE RATHER THAN A CONSOLE. The log entry: one column, no
+   pane, no list, read from the top. It is what node 5.4 is, and node 8.1 turned
+   out to be the same situation under a different name, which is why `.z4--solo`
+   and `.z4--entry` were collapsed at stage 07 into one: the screen IS the page.
+
+   IT WAS NOT IN THE REGISTER. Step 2 counted controls, and a document body has
+   none of its own. inventory.md section 13 has all thirteen that were missed.
+
+   THE STAMP LINE IS PART OF THE HEADING. `h1 .stampline` puts the address of the
+   evidence as it stood directly under the entry's title, in mono, wrapping
+   anywhere: this is the surface an auditor arrives at months later, and the first
+   thing they need is the identifier they can quote. */
+
+.doc{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-4);
+}
+
+.doc h1{ margin: 0; font: 600 var(--size-xl)/var(--leading-tight) var(--font-sans) }
+.doc h1 .stampline{
+  display: block;
+  margin-top: var(--space-2);
+  font: 400 var(--size-sm)/1.4 var(--font-mono);
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+
+@media print{
+  /* the printed record. base.css owns the surface; this is the document's share */
+  .doc{ padding: 16pt }
+}
+/* NO STATES. */

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Z2, the strip</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bx-. A ZONE IS AS WIDE AS THE SCREEN AND THIS COLUMN IS NOT.
+   The two themes stack rather than halving a column the strip's longest sentence already
+   fills. Squeezing it would document a rendering the product does not have. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+@media (max-width:900px){ .k-bench-half{ padding:var(--space-3) } }
+/* the strip draws only the line under it, so the bench gives it the three sides a screen
+   would have given it */
+.bx-screen{ width:100%; border:var(--rule-edge); border-bottom:0 }
+.bx-stack > * + *{ margin-top:var(--space-3) }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Z2, the strip</h1>
+<p class="k-lede">Node 0.4, the connection strip, and <b>it is never silent when connected</b>. 26px of <code>--zone-strip</code> spent saying that the queue she is looking at is the queue that exists. <b>55 instances across 55 screens</b>, injected by <code>design/_shell.js</code> exactly as Z1 is.</p>
+<p class="k-note"><b>A live indicator that only appears when something is wrong teaches her that silence means nothing.</b> An analyst who arrives distrusting AI tooling is the starting point every trust mechanism in this product argues with rather than builds on, and a strip that goes quiet on a good day is an invitation to wonder whether it is watching at all. So it reports on all 55 screens, and four of them report a problem.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-screen bx-stack">
+        <p class="z2"><b>Live</b> last case 4s <span class="sep">&middot;</span> Clerk investigating 3</p>
+        <p class="z2 is-degraded"><b>Stale</b> nothing has arrived for 6m <span class="sep">&middot;</span> decide on what is here, it is marked as of the last sync</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-screen bx-stack">
+        <p class="z2"><b>Live</b> last case 4s <span class="sep">&middot;</span> Clerk investigating 3</p>
+        <p class="z2 is-degraded"><b>Stale</b> nothing has arrived for 6m <span class="sep">&middot;</span> decide on what is here, it is marked as of the last sync</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.z2</code><span>the strip. <code>min-height:var(--zone-strip)</code>, one flex row, and a hairline underneath. It draws no ground of its own until it is degraded</span></li>
+  <li><code>b</code><span><b>the state word, and it is the only accented thing in the strip.</b> A bare element selector, weight 700, <code>--text-accent</code>. Everything after it is plain</span></li>
+  <li><code>.sep</code><span>the middle dot between the state and its qualifier. <b>Nothing in the system declares it</b>, here or anywhere outside the annunciator, so in the strip it simply inherits the sentence&rsquo;s own ink. The class is carried by the markup and is doing no work</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><b>health</b></td><td>base</td><td class="num">51</td><td>connected. A hairline underneath, no ground, and the state word carries the accent</td></tr>
+    <tr><td><code>.is-degraded</code></td><td class="num">4</td><td><b>a border and an underline, not a colour.</b> The hairline becomes an edge, the strip takes <code>--bg-page</code> so it separates from what is under it, and the state word is underlined. That underline is <b>the one place in the product something that is not a link wears one</b></td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> The severity ramp belongs to cases and the accent already has four jobs. A red strip would rank a connection problem against a compromised identity, and they are not on the same scale</td></tr>
+    <tr><td><b>density</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> 26px is one line of text and its padding. There is nothing to compress and nothing worth loosening</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">Five sentences fill it and none of them is written on a screen: <code>live</code>, <code>arriving</code>, <code>reconnecting</code>, <code>stale</code> and <code>clerkdown</code> are keys into <code>design/_shell.js</code>, and a screen names one. Four of the five carry <code>is-degraded</code> between them on four screens.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Never by hand, and never anywhere but directly under Z1. Every authenticated screen carries <code>&lt;p id="wf-z2"&gt;&lt;/p&gt;</code> and names one of the five strips in its <code>WF_SHELL</code> call.</p>
+<p class="k-note"><b>Where she meets it.</b> In peripheral vision, all shift, and directly the moment a decision starts to depend on it. Two of the degraded sentences say what she should do rather than only what happened: <b>decide on what is here</b> when the queue is stale, and <b>the queue is complete</b> when it is Clerk that has stopped rather than the connection. That distinction is the whole reason the strip is four states and not two.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-screen"><div class="z2 is-degraded"><b>Clerk is not investigating</b> since 11m <span class="sep">&middot;</span> the connection is fine, so <b>the queue is complete</b></div></div></div>
+    <p>It names what stopped, how long ago, and what still holds. A degraded strip that only said something is wrong would leave her guessing whether the list in front of her can be trusted.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-screen"><div class="banner"><b>The connection dropped.</b> Some cases may be missing from the list below.</div></div></div>
+    <p>Never as a message inside the screen. That is <b><code>banner</code></b>, which belongs to one surface and scrolls with it. The connection is true of the whole console, so it lives in a zone that is on every screen and never moves.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R5.</b> No shell before authentication, and no annunciator on a console that cannot read Clerk.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>None. It reports.</b> Nothing in the strip can be pointed at, pressed or focused, and the four readings below are the connection&rsquo;s states rather than the component&rsquo;s.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-screen bx-stack">
+        <p class="z2"><b>Live</b> last case 4s <span class="sep">&middot;</span> Clerk investigating 3</p>
+        <p class="z2"><b>Live</b> last case 1s <span class="sep">&middot;</span> <b>3 arriving</b></p>
+        <p class="z2 is-degraded"><b>Reconnecting</b> the queue has stood still for 40s <span class="sep">&middot;</span> how many cases were missed is not known</p>
+        <p class="z2 is-degraded"><b>Clerk is not investigating</b> since 11m <span class="sep">&middot;</span> the connection is fine, so <b>the queue is complete</b></p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-screen bx-stack">
+        <p class="z2"><b>Live</b> last case 4s <span class="sep">&middot;</span> Clerk investigating 3</p>
+        <p class="z2"><b>Live</b> last case 1s <span class="sep">&middot;</span> <b>3 arriving</b></p>
+        <p class="z2 is-degraded"><b>Reconnecting</b> the queue has stood still for 40s <span class="sep">&middot;</span> how many cases were missed is not known</p>
+        <p class="z2 is-degraded"><b>Clerk is not investigating</b> since 11m <span class="sep">&middot;</span> the connection is fine, so <b>the queue is complete</b></p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Arriving is not degraded and it is drawn as the live strip.</b> Cases coming in is the system working, so it takes the accent on the count and nothing else. Only the two that mean the list may be wrong, and the one that means Clerk has stopped, take the heavier boundary.</p>
+<p class="k-note">At 360 the strip keeps its height and loses two steps of side padding, and nothing else changes. The sentences were written to survive that, which is why the longest of them is the one about reconnecting rather than the one about being live.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-accent</code></td><td>ink 4.5:1</td><td>the state word, weight 700</td><td><span data-tok="--text-accent" data-theme-read="dark"></span></td><td><span data-tok="--text-accent" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the sentence after it</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the ground, and only when degraded</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the hairline underneath at rest, through <code>--rule-hair</code></td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>that line when degraded, through <code>--rule-edge</code></td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--zone-strip</code></td><td>structure</td><td>the 26px the strip is never shorter than</td><td><span data-tok="--zone-strip" data-theme-read="dark"></span></td><td><span data-tok="--zone-strip" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;!-- on a screen --&gt;
+&lt;p id="wf-z2"&gt;&lt;/p&gt;
+&lt;script&gt;WF_SHELL({ current:'queue', strip:'stale' });&lt;/script&gt;
+
+&lt;!-- and this is what it injects --&gt;
+&lt;p class="z2 is-degraded"&gt;&lt;b&gt;Stale&lt;/b&gt; nothing has arrived for 6m
+  &lt;span class="sep"&gt;&middot;&lt;/span&gt; decide on what is here, it is marked as of the last sync&lt;/p&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">live</a>
+  <a href="../queue-streaming.html">arriving</a>
+  <a href="../queue-reconnecting.html">reconnecting</a>
+  <a href="../queue-stale.html">stale</a>
+  <a href="../queue-clerk-down.html">Clerk is not investigating</a>
+  <a href="shell.html">the markup, written out</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

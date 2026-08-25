@@ -1,0 +1,67 @@
+/* z4 :: ORGANISM, and it contains others
+   READS. Fill: --bg-page. Line: --rule-edge.
+   CONTAINS. scopebar, readout, rows, qfoot, brief, doc, outage, banner.
+   PAGE. design/kit/z4.html   STANDS ON. 54 instances across 54 screens.
+
+   THE LIST HALF OF THE SPLIT, AND THE MAIN DASHBOARD OF THE PRODUCT. CLAUDE.md
+   settles it and does not reopen it: the dashboard is the QUEUE, with the fleet in
+   the pane, and not the other way round.
+
+   THREE MODIFIERS SINCE STAGE 09, AND NONE OF THEM IS A VARIANT. Two of the five
+   named a FILLING rather than a form of this box, and both left: `--log` is a
+   variant of the queue-list pattern and `--shift` is the shift-brief pattern
+   itself. What each of them carried was a selector reaching into four components
+   z4 does not own, which is the shape a composition has when it is written in a
+   component. The three that stayed do the opposite of the two that left: `--entry`,
+   `--solo` and `--sys` each drop the right rule, release the scroll and centre what
+   is inside, which are declarations on THIS box and not on its children.
+
+   THAT IS WHY THE TWO THAT LEFT COULD LEAVE, and the sentence that stood here said
+   it backwards. It read that all five change how the CHILDREN paint and not how Z4
+   paints, which was true of `--log` and `--shift` and false of the three below it,
+   two lines above a rule setting `border-right` on Z4 itself. Step 2 took all five
+   off the VARIANT list for a different reason, and that reason still stands: Z4 has
+   one computed form across all nine of its zone sets, measured in the browser.
+
+   TWO OF THE FIVE WERE ONE SITUATION UNDER TWO NAMES. `--entry` on node 5.4 and
+   `--solo` on node 8.1 both mean a column with no pane beside it: the screen IS
+   the page. Collapsed at stage 07 step 6 and carried here as one rule.
+
+   IT SCROLLS AT THE DESK AND THE DOCUMENT SCROLLS AT 360. `overflow-y:auto` here
+   is what makes the pane foot stick and the scope bar stay; at 360 the shell stops
+   scrolling and the document takes over, so this releases it. */
+
+.z4{
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: var(--rule-edge);
+  background: var(--bg-page);
+  overflow-y: auto;
+}
+
+/* THE PLACEMENT OF A BANNER IN THIS ZONE BELONGS TO THE ZONE. `.qbanner` carried it as
+   a class on the banner, which is a margin wearing a component's name: step 2 took it off
+   the variant list for exactly that reason and the margin then belonged to nobody, so the
+   banner ran the full width of the column at 360 on two screens. The parent owns it now,
+   which is what step 2 ruled, and the class is gone from the markup. */
+.z4 > .banner{ margin: var(--space-3) var(--space-4) 0 }
+
+/* context, not variants: the children paint differently, Z4 does not */
+.z4--entry,
+.z4--solo,
+.z4--sys{ border-right: none; overflow-y: auto; align-items: center }
+
+
+@media (max-width:900px){
+  .z4{ border-right: none; overflow-y: visible }
+  /* hand the scrollport back to the document, or the sticky action inside an outage pins
+     to this column instead of to the viewport. The same defect the pane foot had, and the
+     same cause. */
+  .z4--sys{ overflow: visible }
+  .z4--entry,
+  .z4--solo { overflow: visible }
+
+}
+/* NO STATES. */

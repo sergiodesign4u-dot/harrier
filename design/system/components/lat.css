@@ -1,0 +1,58 @@
+/* lat :: MOLECULE
+   READS. Fill: --bg-surface. Ink: --text-primary, --text-secondary. Line:
+   --rule-hair. Geometry: --radius-ui, --size-sm, --size-xs, --space-2, --space-3.
+   CONTAINS. mark, on every row.
+   PAGE. design/kit/lat.html   STANDS ON. 26 instances across 26 screens.
+
+   THIS IS THE DIFFERENTIATOR, AND IT IS A COMPONENT. CLAUDE.md names calibrated
+   trust as the only surviving differentiator and requires stage 04 to carry it
+   with a concrete element on the reference screen. This ladder is that element:
+   for one tenant, every action Clerk could take, marked yes or no, with the
+   ceiling shown and the reason where the answer is no.
+
+   IT WAS NOT IN THE REGISTER EITHER, which is the finding that matters most out
+   of the thirteen: `mark` was written and the ladder it lives in was not, and
+   `mark`'s own page says the three readings on the screens belong to the ladder
+   row rather than to the mark. Those rows are here.
+
+   OUT OF REACH IS SHOWN, NOT HIDDEN. 101 of the 153 marks are `no`. Hiding them
+   would have made the ladder a list of what the agent CAN do, and the analyst
+   needs the shape of what it cannot: that is what tells her whether the agent
+   should have acted rather than asked. */
+
+.lat{
+  display: flex;
+  flex-direction: column;
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+}
+.lat > div{
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: var(--rule-hair);
+  font-size: var(--size-sm);
+}
+.lat > div:last-child{ border-bottom: none }
+
+/* -- the row states, and both are the ROW's rather than the mark's ------------- */
+
+/* ABOVE LATITUDE HERE. The whole line recedes, so the mark and its label go
+   together: a dimming that lived in `mark` would leave the label at full strength
+   beside a faded `no`. */
+.lat .off{ color: var(--text-secondary) }
+.lat .off .why{
+  margin-left: auto;
+  flex: 0 0 auto;
+  text-align: right;
+  font-size: var(--size-xs);
+}
+
+/* THE CEILING: the highest action the agent may take on this tenant. A surface and
+   weight 600, not a colour: the accent has four jobs and no fifth. */
+.lat .ceiling{ background: var(--bg-surface); font-weight: 600 }
+
+/* NO STATES. It is a reading of the record and there is nothing to press. The
+   reason column is dropped on the standalone route, which is that route's rule and
+   lives with `z5`. */

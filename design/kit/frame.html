@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Frame</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix fm-. THE FULL COLUMN AND THE TWO THEMES STACK. --width-frame is 820px
+   and half of the article column is 525, so a halved bench would document a record narrower
+   than any that exists. The themes go one above the other instead. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE SCENE. A smaller but REAL box, never a transform. At 1440 the frame inside it is at its
+   own --width-frame and nothing here is shrunk; the box scrolls so the sticky marking can be
+   produced by the reader rather than described. */
+.fm-stage{ width:100%; height:440px; overflow-y:auto; background:var(--bg-quiet) }
+.fm-cap  { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+           margin:var(--space-2) 0 0 }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism, and it contains another</p>
+<h1 class="k-title">Frame</h1>
+<p class="k-lede"><b>The record that leaves the building.</b> 5 instances across 5 screens: a client summary, an exported log entry, something that will be read by somebody who was not in the room and does not have the console.</p>
+<p class="k-note"><b>It is marked as a record on all four sides, and the marking is a frame rather than a banner for one measured reason:</b> a banner scrolls away, and somebody arriving by permalink and reading the middle must still know what they are reading. The top edge of that marking is <a href="rail.html">rail</a>, which is sticky; the bottom is <a href="rail-foot.html">rail foot</a>, which is not; the two vertical sides are this component and nothing else.</p>
+<p class="k-note"><b><code>--width-frame</code> had no consumer in the register.</b> The token was in <code>tokens.css</code> from step 3 and the component that reads it was one of the thirteen the step 2 census missed, because that census counted controls and a frame has none. <code>docs/inventory.md</code> section 13.</p>
+<p class="k-note"><b>2px, and it is the fourth line width with no token.</b> The focus ring, the alert toast, the current navigation item and this. Whether that is a fourth line token or four component decisions is the open row on the <a href="geometry.html">geometry</a> page, and step 9 answers it with the count in front of it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A scaled scene, not a diagram.</b> A frame is a boundary, and a block drawing of a boundary is the boundary. At 1440 the frame below is at its real <code>--width-frame</code> of 820px with the real 2px on all four sides; below 852 it takes the width it is given, which is also what it does in the product. The box it stands in scrolls at 440px so the sticky marking can be produced rather than asserted: <b>scroll it and the top edge stays.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="fm-stage">
+        <article class="frame">
+          <p class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#anatomy">Open the log</a></p>
+          <div class="doc">
+            <h1>C-4417 &middot; Larkfield Logistics<span class="stampline">Decided <b>2026-08-22T04:41:12Z</b></span></h1>
+            <section class="block"><h3>What was decided, and by whom</h3><p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi. Clerk&rsquo;s verdict, <b>real, contain identity</b>, stands unruled.</p></section>
+            <section class="block"><h3>The evidence as it stood, 9 signals</h3>
+              <p class="claim"><span class="txt"><span class="tag">identity</span>A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><span class="src">Entra sign in</span></p>
+              <p class="claim"><span class="txt"><span class="tag">mail</span>An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><span class="src">Exchange audit</span></p>
+            </section>
+            <p class="prov"><b>6 sources</b> queried over <b>24h</b> as it stood: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
+          </div>
+          <p class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</p>
+        </article>
+      </div>
+    </div>
+    <p class="fm-cap">820px at 1440, and the ground behind it is the stand&rsquo;s, not the product&rsquo;s</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="fm-stage">
+        <article class="frame">
+          <p class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#anatomy">Open the log</a></p>
+          <div class="doc">
+            <h1>C-4417 &middot; Larkfield Logistics<span class="stampline">Decided <b>2026-08-22T04:41:12Z</b></span></h1>
+            <section class="block"><h3>What was decided, and by whom</h3><p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi. Clerk&rsquo;s verdict, <b>real, contain identity</b>, stands unruled.</p></section>
+            <section class="block"><h3>The evidence as it stood, 9 signals</h3>
+              <p class="claim"><span class="txt"><span class="tag">identity</span>A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><span class="src">Entra sign in</span></p>
+              <p class="claim"><span class="txt"><span class="tag">mail</span>An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><span class="src">Exchange audit</span></p>
+            </section>
+            <p class="prov"><b>6 sources</b> queried over <b>24h</b> as it stood: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
+          </div>
+          <p class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</p>
+        </article>
+      </div>
+    </div>
+    <p class="fm-cap">820px at 1440, and the ground behind it is the stand&rsquo;s, not the product&rsquo;s</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.frame</code><span>the whole record. <code>width:min(--width-frame,100%)</code>, centred by <code>margin:--space-5 auto</code>, on <code>--bg-page</code> so the record keeps the reading ground even when the surface behind it does not</span></li>
+  <li>the border<span><b>2px solid <code>--line-record</code>, and it is the only four sided marking in the product.</b> <code>--line-record</code> is the 3:1 line role, which is what makes the boundary itself perceivable rather than decorative</span></li>
+  <li><code><a href="rail.html">rail</a></code><span>the top edge, sticky at <code>top:0</code>. Inverted, uppercase mono, and it carries the way out</span></li>
+  <li><code><a href="rail-foot.html">rail-foot</a></code><span>the bottom edge, static and quiet. <b>Zero zones</b>, which is why it is a component of its own rather than a variant of the rail</span></li>
+  <li>between them<span>a <a href="doc.html">doc</a> or a <a href="block.html">block</a>. The frame does not care which, and it sets no padding of its own: the thing inside owns its margins</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">There are none. Two of the three axes below are prohibitions with reasons rather than gaps waiting to be filled.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>marking</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and it is the decision the component exists to carry.</b> A record is marked on four sides or it is not marked. A single strip at the top is a <a href="banner.html">banner</a>, and a banner scrolls away</td></tr>
+    <tr><td><b>width</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>One measure, <code>--width-frame</code> at 820px, on all five. A record that is wider at one width and narrower at another is a different artefact each time it is opened</td></tr>
+    <tr><td><b>content</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>A <a href="doc.html">doc</a> or a <a href="block.html">block</a> between the rails. That is a count of what is inside rather than a form of this, which is the same reason <a href="z45.html">Z45</a> has no variants either</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Around anything that will be read outside the console: an entry as it stood, a client summary, an export. If the reader has the console in front of them and can see the top bar, they already know where they are, and the frame is spent.</p>
+<p class="k-note"><b>Where she meets it.</b> Not often, and mostly not her at all. This is the one component in the system whose primary reader is not the analyst: it is the auditor, the client, or the SOC lead reading a permalink months later from a mail. That is why the marking has to survive being scrolled into the middle of, and why the frame is what says <b>this is a record</b> rather than a sentence saying so.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><article class="frame" style="margin:0"><div class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b></div><div class="doc" style="padding:var(--space-3) var(--space-4)"><p class="nar">The record, on all four sides.</p></div><div class="rail-foot">Nothing below this line can be edited.</div></article></div>
+    <p>Marked top, bottom and both sides. Land in the middle of it by permalink and the two vertical edges are still on the screen.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div style="width:100%"><div class="banner"><span><b>This is a record as it stood.</b> It is not the live case.</span></div><div class="doc" style="padding:var(--space-3) 0"><p class="nar">The record, announced once and then unmarked.</p></div></div></div>
+    <p>Never a <a href="banner.html">banner</a> instead. <code>banner</code> is the component for something said once to somebody who is already on the screen and will scroll past it. A record has to keep saying what it is, so the marking is the frame.</p>
+  </div>
+</div>
+
+<p class="k-note">The two rails in the pair above are written as <code>div</code>s rather than the <code>p</code> the product uses. <b>That is the stand&rsquo;s own stylesheet reaching into a product component:</b> <code>.k-vs p</code> is written for the caption under each example and it is one step more specific than <code>.rail</code>, so a rail rendered as a paragraph inside this block came back at 1.97 in dark and 2.85 in light. Found by <code>checks/contrast.mjs</code>, and the markup to copy is the block at the foot of this page.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The rails inside it carry what they have, and the way out is a link that belongs to the rail.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%">
+        <article class="frame" style="margin:0">
+          <p class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then.</span><a class="rail-out" href="#states">Open the log</a></p>
+          <div class="doc" style="padding:var(--space-4)"><p class="nar">Rest, and the only live state on this component is the way out in the rail above.</p></div>
+          <p class="rail-foot">Nothing below this line can be edited.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%">
+        <article class="frame" style="margin:0">
+          <p class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then.</span><a class="rail-out" href="#states">Open the log</a></p>
+          <div class="doc" style="padding:var(--space-4)"><p class="nar">Rest, and the only live state on this component is the way out in the rail above.</p></div>
+          <p class="rail-foot">Nothing below this line can be edited.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">Put the pointer and the keyboard on the way out in the rail: that is the whole of what moves inside a frame, in whichever theme you are reading.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--line-record</code></td><td>line 3:1</td><td>the border, 2px on all four sides</td><td><span data-tok="--line-record" data-theme-read="dark"></span></td><td><span data-tok="--line-record" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the ground inside the border, so the record keeps the reading ground</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-invert</code></td><td>fill</td><td>the top edge, and it is <a href="rail.html">rail</a>&rsquo;s rather than this component&rsquo;s</td><td><span data-tok="--bg-invert" data-theme-read="dark"></span></td><td><span data-tok="--bg-invert" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;article class="frame"&gt;
+  &lt;p class="rail"&gt;AS IT STOOD &lt;b&gt;2026-08-22T04:14:05Z&lt;/b&gt;&hellip;&lt;/p&gt;
+  &lt;div class="doc"&gt;&hellip;&lt;/div&gt;
+  &lt;p class="rail-foot"&gt;Nothing below this line can be edited.&lt;/p&gt;
+&lt;/article&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../entry.html">the log entry</a>
+  <a href="../entry-changed.html">the snapshot changed</a>
+  <a href="../entry-partial.html">part of it is missing</a>
+  <a href="../entry-gone.html">the source is gone</a>
+  <a href="../entry-beyond-retention.html">beyond retention</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

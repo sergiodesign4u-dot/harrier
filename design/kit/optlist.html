@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Option list</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Option list</h1>
+<p class="k-lede">A set of answers where one is chosen, each reachable by a number key. <b>13 instances across 8 screens</b>, in the reject and escalate dialogs, and nowhere else in the product.</p>
+<p class="k-note"><b>It is the radio pattern, and it is named as one rather than replaced.</b> Checkbox, radio and toggle are absent from this product entirely: there is no form to fill in, there is a decision to take. What a radio group does here is done by a list of options where one is chosen, each answerable with a number key, and <b>that is design principle 3 in a component</b>: the override is one key, and it teaches.</p>
+<p class="k-note"><b>One border around the whole list and hairlines between.</b> The group is the unit. A set of options in separate boxes reads as several questions, and there is one. That is the entire file: a flex column, one <code>--rule-edge</code>, and <code>--radius-ui</code>.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+          <a class="opt" href="#anatomy"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+          <a class="opt is-chosen" href="#anatomy"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+          <a class="opt" href="#anatomy"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
+          <a class="opt" href="#anatomy"><span class="key">4</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+          <a class="opt" href="#anatomy"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+          <a class="opt is-chosen" href="#anatomy"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+          <a class="opt" href="#anatomy"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
+          <a class="opt" href="#anatomy"><span class="key">4</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.optlist</code><span>the group. A flex column with one border and one radius, and it carries <code>role="radiogroup"</code> with a label naming the question</span></li>
+  <li><code>.opt</code><span>one option, its own molecule and a real link with a real destination. <b>62 of them across the product</b>, 60 in this container and 2 in the second axis</span></li>
+  <li><code>.key</code><span>the number that answers it. An atom, and it inverts when the option is chosen by reading <code>currentColor</code> rather than by being told</span></li>
+  <li><code>.lbl</code><span>the reason, in the analyst&rsquo;s words. <code>flex:1 1 auto</code>, so it is what gives way when the dialog narrows</span></li>
+  <li><code>.routes</code><span><b>where this answer sends the case.</b> Mono, right aligned so the column reads down, and it is what makes the list teach instead of merely collect</span></li>
+</ul>
+<p class="k-note">The hairline between options is <code>opt</code>&rsquo;s own <code>border-bottom</code>, removed on the last child there rather than here. This file draws exactly one line, and it is the one around the outside.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>none</b></td><td><span class="k-none">no values</span></td><td class="num">13</td><td><b>Three options or six is a count</b>, and step 2 said so in as many words. The reject list runs to seven and the second axis to two, and both are the same component</td></tr>
+    <tr><td><b>selection</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> There is no multiple choice form. A verdict has one reason, and a list that accepted two would be asking the analyst to describe the case rather than rule on it</td></tr>
+    <tr><td><b>density</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> The padding belongs to <code>opt</code>, and seven options at the desk fit inside a dialog that is never taller than the viewport minus the two zones above it</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>It belongs to the option. <code>is-chosen</code> is a <b>state</b> and not a variant: the same option wears it on one screen and not on the next, and which one wears it is the analyst&rsquo;s answer</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">When the analyst has to pick exactly one answer from a set that is known in advance and short enough to read. In this product that is twice: what Clerk got wrong, and who an escalation goes to.</p>
+<p class="k-note"><b>Where she meets it.</b> Every time she disagrees with Clerk, which is the path this product exists to keep cheap. Rejecting costs four taps against accept&rsquo;s two, and this component is taps two and three. What stage 04 bought is that <b>five of six reasons derive the second axis</b>, so four never became five, and the fourth tap is <code>Enter</code> rather than a confirmation step.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="optlist" role="radiogroup" aria-label="What Clerk got wrong"><a class="opt" href="#rules"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a><a class="opt" href="#rules"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a><a class="opt" href="#rules"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a></div></div>
+    <p>One question, one border, one key per answer, and each answer says where it goes. The reason lands in tuning because the analyst pressed a number, not because she filled in a form.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="optlist" role="radiogroup" aria-label="Confirm"><a class="opt" href="#rules"><span class="key">1</span><span class="lbl">Yes, reject it</span><span class="routes">files the rejection</span></a><a class="opt" href="#rules"><span class="key">2</span><span class="lbl">No, go back</span><span class="routes">nowhere</span></a></div></div>
+    <p>Never for a confirmation. That is <b><code>btn</code></b>, in the dialog&rsquo;s footer, where <code>File the rejection</code> already sits with <code>Enter</code> on it. Rejecting Clerk costs four taps against accept&rsquo;s two, and a confirmation makes it five. <b>The fifth tap is the one this stage may not add.</b></p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>The list has none. Every option inside it carries four.</b> Point at one, hold the pointer down, tab into it. The second is chosen.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+          <a class="opt" href="#states"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+          <a class="opt is-chosen" href="#states"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+          <a class="opt" href="#states"><span class="key">3</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+          <a class="opt" href="#states"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+          <a class="opt is-chosen" href="#states"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+          <a class="opt" href="#states"><span class="key">3</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>The focus ring matters more here than almost anywhere else.</b> The whole point of the list is that it is answered with a number key, so the ring has to say which line a number would land on. It is the global ring from <code>base.css</code> and this file declares nothing about it.</p>
+<p class="k-note"><b>Out of reach does not exist.</b> A reason that does not apply is not offered, so there is no disabled option and no explanation of why an answer is unavailable. The list is short because the taxonomy is short.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the one border, around the whole group, through <code>--rule-edge</code></td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--radius-ui</code></td><td>geometry</td><td>the corners of that border</td><td><span data-tok="--radius-ui" data-theme-read="dark"></span></td><td><span data-tok="--radius-ui" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>between options, declared by <code>opt</code> rather than here</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the chosen option, declared by <code>opt</code></td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">Two rows of the four are here for the reader rather than for the file: they are what a person editing this component will see change, and they live one level down. The full readout for the option is on its own page.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="optlist" role="radiogroup" aria-label="What Clerk got wrong"&gt;
+  &lt;a class="opt" href="reject-chosen.html"&gt;
+    &lt;span class="key"&gt;1&lt;/span&gt;
+    &lt;span class="lbl"&gt;Real, called benign&lt;/span&gt;
+    &lt;span class="routes"&gt;detection engineering&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../reject.html">the reason list &middot; seven</a>
+  <a href="../reject-chosen.html">one chosen</a>
+  <a href="../reject-axis-b.html">the second axis &middot; two</a>
+  <a href="opt.html">the option itself</a>
+  <a href="key.html">the number</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

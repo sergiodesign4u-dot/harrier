@@ -1,0 +1,39 @@
+/* tag :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Geometry: --font-mono, --size-xs, --track-mono.
+
+   PAGE. design/kit/tag.html
+   STANDS ON. 44 instances across 22 screens, inside `claim`, which is the line
+   of evidence in the case narrative.
+
+   IT NAMES WHAT KIND OF CLAIM FOLLOWS, in two or three words, and then gets out
+   of the way: `identity`, `not found`, `points the other way`. Design principle
+   2 says the cheapest correct thing first, and the tag is the cheapest thing on
+   the densest surface in the product.
+   ----------------------------------------------------------------------------
+   ONE LITERAL CLOSED. kit.css wrote letter-spacing:.06em here, which is EXACTLY
+   --track-mono, measured on plate J and read by no product rule until now. Same
+   computed value, one fewer way to say it, and the typography page can stop
+   listing this one among the eight. Seven left, and they are still open.
+
+   THE TWO SPACES AFTER IT ARE THE COMPONENT. `::after` emits two non breaking
+   spaces rather than a margin, because the tag sits INSIDE the running text of
+   the claim rather than beside it: a margin would let the browser break the line
+   between the tag and the words it introduces, and at 360 it did.
+   ---------------------------------------------------------------------------- */
+
+.tag{
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.tag::after{ content: "\00a0\00a0" }
+
+/* -- NO VARIANTS, AND NO STATES ----------------------------------------------
+   Not interactive. The claim it introduces can be dim, and when it is the tag
+   dims with it through `claim--absence`, which is the claim's rule and not the
+   tag's: colour here is inherited from the sentence, exactly as in `key` and
+   `mark`, except that this one does set its own ink at rest. */

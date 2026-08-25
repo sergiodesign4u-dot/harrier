@@ -1,0 +1,104 @@
+/* case-pane :: PATTERN
+   ============================================================================
+   BUILT FROM. z5 as its host, and pane-head, pane-body, pane-foot as its zones.
+   Through pane-body: block, claim, nar, prov, lat, stamp, banner, expand.
+   PAGE. design/kit/case-pane.html
+   STANDS ON. 38 grey screens of 62, 29 of them already in colour.
+
+   THE PANE FILLED WITH A CASE. It is a pattern rather than a variant of z5 for
+   the reason z5.css argued before this file existed: the pane's other filling,
+   the fleet, has no zone in common with this one past the head. Writing the
+   fleet as a variant would have written it as a case with no body, which is to
+   say as an empty case, and CLAUDE.md forbids exactly that reading of the pane.
+
+   WHAT MOVED IN HERE, AND FROM WHERE. Nothing below is new. Nine rules came out
+   of two component files, and every one of them had the same shape: a selector
+   that names a component OTHER than the file it was written in, conditioned on
+   WHICH FILLING the pane is carrying. A rule like that is a statement about a
+   composition, and it was living in a component.
+
+     z5.css   .z5.is-standalone .nar                        max-width 68ch
+              .z5{ display:none }                     @900  half of it, see below
+              .z5.is-paper, .z5.is-standalone         @900  display and flex
+              .z5.is-standalone                       @900  max-width only
+              .z5.is-standalone .pane-foot            @900  padding
+              .z5.is-standalone .lat .off .why        @900  display
+     z45.css  .z45:has(> .z5.is-standalone) .pane-foot .btn.only-desk
+              the same selector and .only-narrow      @900  two rules
+
+   TWO THINGS DID NOT COME, and both were caught by an audit reading this header
+   against this file. `.pane-head--standalone h1` was a DUPLICATE that stage 08
+   had written in two places, and the component's own class keeps it. `.sa-fresh`
+   and `.sa-route` PAINT, and a pattern may not.
+
+   ONE RULE WAS DOING TWO JOBS AND NEITHER WAS NAMED, and splitting it is the one
+   place this file changes what the cascade says rather than where it says it.
+   `.z5{ display:none }` at 900 hid the pane at rest AND the desk-only case pane
+   of the log and the shift screens, on one line, for two different reasons. It is
+   two rules now, one here and one in fleet.css, and each says which reason it is.
+   The rendering is identical and the comparison proves it.
+
+   NO COLOUR AND NO LINE IN THIS FILE, and it is checked rather than promised. The
+   pane's ground, its edges and its ink stay in z5.css and in the components: a
+   pattern arranges, it does not paint. Nothing below reads a --bg, --text, --line
+   or --rule token, and nothing below sets a family.
+   ============================================================================ */
+
+/* -- the standalone route ------------------------------------------------------
+   The case reached by its own address: a permalink pasted into a ticket, or a
+   pager at 03:00. Node 4.2 is one screen in two routes, and these are the three
+   zones the route grows rather than a different head. */
+
+/* THE STANDALONE HEAD IS NOT HERE, AND FINDING OUT WHY WAS THE FIRST THING THIS
+   LEVEL PAID FOR. Stage 08 wrote the same rule twice: `.pane-head--standalone h1`
+   in pane-head.css, where the component owns its one variant, and
+   `.z5.is-standalone .pane-head h1` in z5.css, where the pane reached down into it.
+   Both were correct, both were live, and the second won on specificity, so the
+   first looked like it was working. A rule in two places is a defect and not a
+   safety net: the next edit lands on one of them. The component's own class keeps
+   it, this file took only the one declaration the duplicate had that the component
+   did not, and it went into pane-head.css rather than here.
+
+   prose in a sheet stops at 68ch. It is the one place in the product with a
+   measure, because it is the one place read as a document rather than scanned. */
+.case-pane.is-standalone .nar{ max-width: 68ch }
+
+/* `.sa-fresh` AND `.sa-route` TRIED TO MOVE IN HERE AND WERE SENT BACK, which is
+   the second thing this level paid for. They belong to this composition and to no
+   other, so the argument for moving them was that a place used by one pattern is
+   that pattern's. It was the wrong argument: both carry a line, a family and an
+   ink, and the rule that makes this a LEVEL rather than a second folder of
+   components is that a pattern arranges and does not paint. A file whose header
+   says no colour and whose body reads `--text-secondary` is worse than no pattern
+   at all. They stayed in places.css. Found by a read-only audit against this
+   file's own header, which is the only kind of check that catches a rule broken by
+   the person who wrote it.
+
+*/
+
+/* the standalone route's own button pair: at the desk the dialog owns the
+   primary, at 360 the pane's exit does. Written on the split because the split is
+   what knows there is nothing beside the pane. */
+.z45:has(> .case-pane.is-standalone) .pane-foot .btn.only-desk{ display: inline-flex }
+
+
+@media (max-width:900px){
+  /* THE CASE TAKES THE WHOLE PAGE, and a case pane that is neither paper nor
+     standalone does not appear at all. The second half of that is the log and the
+     shift screens, where the pane is a desk reading beside a column that is itself
+     not rendered at 360. It used to be carried by `.z5{display:none}`, which said
+     it about the fleet at the same time and about neither on purpose. */
+  .case-pane{ display: none }
+  .case-pane.is-paper,
+  .case-pane.is-standalone{ display: flex; flex: 1 1 auto }
+  .case-pane.is-standalone{ max-width: none }
+
+  .case-pane.is-standalone .pane-foot{ padding: var(--space-2) var(--space-3) }
+  /* the reason column of the latitude ladder goes: at 360 the answer is the
+     column and the explanation is a line the analyst does not have room for */
+  .case-pane.is-standalone .lat .off .why{ display: none }
+  .z45:has(> .case-pane.is-standalone) .pane-foot .btn.only-desk{ display: none }
+  .z45:has(> .case-pane.is-standalone) .pane-foot .btn.only-narrow{
+    display: flex; width: 100%; justify-content: space-between;
+  }
+}

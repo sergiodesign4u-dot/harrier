@@ -1,0 +1,81 @@
+/* row-moved :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Line: --rule-hair. Structure:
+   --row-tracks-moved.
+
+   PAGE. design/kit/row-moved.html
+   STANDS ON. 35 instances across 7 screens, in the shift brief's "what moved"
+   block and nowhere else.
+
+   IT IS A DIFFERENT COMPONENT AND NOT A VARIANT, and the reason is the anatomy
+   rule rather than the drawing: it has FOUR zones where the queue row has seven.
+   No severity and no `to check`. A pointer in a handover is not a thing to
+   triage, it is a thing that already happened.
+   ----------------------------------------------------------------------------
+   THE PRODUCT STILL CALLS IT `.rows--moved .row`. Step 2 ruled the rename and
+   step 6 executes it, which is why this file exists before anything wears the
+   class. Until then the two are the same drawing under two names, and the
+   reconciliation is where that stops.
+   ---------------------------------------------------------------------------- */
+
+.row-moved{
+  display: grid;
+  grid-template-columns: var(--row-tracks-moved);
+  gap: var(--space-2);
+  align-items: start;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: var(--rule-hair);
+  font-size: var(--size-sm);
+  line-height: 1.35;
+  text-decoration: none;
+  color: inherit;
+}
+.row-moved > *{ min-width: 0; overflow-wrap: anywhere }
+
+.row-moved .when  { font-family: var(--font-mono); font-size: var(--size-xs);
+                    color: var(--text-secondary); text-align: right }
+.row-moved .states{ display: flex; flex-wrap: wrap; gap: var(--space-1); align-content: start }
+/* four zones in 132px means a state can be two words wide and has to centre */
+.row-moved .states .state{ white-space: normal; text-align: center }
+
+.row-moved--head{
+  border-bottom: var(--rule-edge);
+  font: 600 var(--size-xs)/1.2 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+@media (max-width:1560px){
+  /* the same trade the queue row makes, and it has to be written again because this is a
+     different component now: below 1560 the pane narrows and the line gives four pixels of
+     side padding back to its content. Missing until the comparison against the committed
+     original found the head cell eight pixels narrow. */
+  .row-moved{ padding-left: var(--space-3); padding-right: var(--space-3) }
+}
+
+@media (max-width:900px){
+  .row-moved{ gap: var(--space-1); padding: var(--space-3) }
+}
+
+/* -- STATES, AND THE FIRST READING OF THIS COMPONENT HAD THEM WRONG -----------
+   The header said it has no hover and no href, because a line in a handover is
+   read rather than opened. **The markup says otherwise:** every one of the 30 is
+   an `a` with an href to the case it names, and the brief's own keyboard strip
+   says `Enter` opens it. A reader with clean context checked the markup against
+   the prose and found the contradiction.
+
+   IT ALSO LOST ITS HOVER IN THE RENAME, silently. In the product these lines were
+   `.rows--moved .row`, so `.row:hover` reached them; once they became
+   `.row-moved` nothing did. **The migration comparison cannot see that**, because
+   a hover is not in a static rendering, and the contrast sweep cannot either. It
+   is restored here, and it is the one thing in this stage that was lost rather
+   than moved.
+
+   WHAT IS STILL TRUE is the smaller half of the original claim: there is no
+   SELECTED state. A brief is read in one pass and nothing in it is being ruled
+   on. */
+.row-moved:hover{ background: var(--bg-hover) }
+.row-moved:active{ background: var(--bg-active) }
+/* focus-visible is global, in base.css. NO out of reach: a case that cannot be
+   opened is not named in a handover. */

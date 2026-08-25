@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Brief</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bf-. THE FULL COLUMN AND THE TWO THEMES STACK. --row-tracks-moved needs
+   132 + 116 + 44 before the flexible zone and the gaps, and half of the article column would
+   put the handover into a width the shift screen never renders it at. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE SCENE. A smaller but REAL box, never a transform: the six step gap, the type and the
+   tracks are the product's. The fiction is the height, 460px against a twelve hour handover,
+   and the box scrolls exactly where Z4 scrolls in the product. */
+.bf-stage{ display:flex; flex-direction:column; width:100%; height:540px;
+           border:var(--rule-edge); background:var(--bg-page); overflow:hidden }
+.bf-cap  { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+           margin:var(--space-2) 0 0 }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism, and it contains another</p>
+<h1 class="k-title">Brief</h1>
+<p class="k-lede"><b>Pick up and hand off a shift, which is the second of the three MVP jobs.</b> 7 instances across 7 screens, filling <a href="z4.html">Z4</a> on the shift screens. It is the only surface in the product that is neither a list nor a case: a document the analyst reads once at the start and once at the end, and seals.</p>
+<p class="k-note"><b>Six steps of gap rather than five.</b> <a href="pane-body.html">pane body</a> uses <code>--space-5</code> between its blocks and this uses <code>--space-6</code>, because the brief is read standing up in one pass and its sections are unrelated to each other: what moved, what is counted, who is on. The pane&rsquo;s sections are all about one case.</p>
+<p class="k-note"><b>It stops <a href="rows.html">rows</a> from scrolling.</b> A handover is read from the top in one pass, so a scroll box inside a scrolling document is a second scrollbar nobody asked for. That rule is here, in the container that changes it, rather than in <code>rows</code>, which would then have to know where it is standing.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A scaled scene, not a diagram.</b> The thing worth showing here is the gap between the sections and the fact that the list inside does not scroll, and neither survives a block drawing. This is the real markup in a smaller box: real tracks, real type, real <code>--space-6</code>. The height is the fiction, 540px against twelve hours, and the box scrolls where Z4 scrolls.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bf-stage">
+        <div class="brief">
+          <div class="banner banner--quiet"><span><b>This has been accumulating since 19:00.</b> It is not written at the end of the shift, which is where handovers fail.</span></div>
+          <section class="block">
+            <h2>What waits on a decision</h2>
+            <a class="bline" href="#anatomy"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope</span><span class="go">open the queue &rarr;</span></a>
+            <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude</span><span class="go">nowhere to review</span></div>
+          </section>
+          <section class="block">
+            <h2>What moved this shift</h2>
+            <div class="rows-moved">
+              <div class="row-moved row-moved--head"><span>Tenant</span><span>What changed</span><span>State</span><span>When</span></div>
+              <div class="row-moved"><span>Larkfield Logistics</span><span>Token replay from a new ASN. <b>Escalated to S. Varga</b>, and no verdict was filed</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+              <div class="row-moved"><span>Meridian Health</span><span>Mass file rename on one host. Rejected, and <b>the write did not land</b></span><span class="states"><i class="state">decided</i><i class="state state--solid">unrecorded</i></span><span class="when">3h</span></div>
+              <div class="row-moved"><span>Bramber Retail</span><span>Mass mailbox rule creation. Accepted: benign, new admin onboarding</span><span class="states"><i class="state">decided</i></span><span class="when">5h</span></div>
+            </div>
+            <p class="gnote">Three moved, and <b>the Meridian rejection has no log entry</b> because its write never landed.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+    <p class="bf-cap">--space-6 between the sections, and the list inside does not scroll</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bf-stage">
+        <div class="brief">
+          <div class="banner banner--quiet"><span><b>This has been accumulating since 19:00.</b> It is not written at the end of the shift, which is where handovers fail.</span></div>
+          <section class="block">
+            <h2>What waits on a decision</h2>
+            <a class="bline" href="#anatomy"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope</span><span class="go">open the queue &rarr;</span></a>
+            <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude</span><span class="go">nowhere to review</span></div>
+          </section>
+          <section class="block">
+            <h2>What moved this shift</h2>
+            <div class="rows-moved">
+              <div class="row-moved row-moved--head"><span>Tenant</span><span>What changed</span><span>State</span><span>When</span></div>
+              <div class="row-moved"><span>Larkfield Logistics</span><span>Token replay from a new ASN. <b>Escalated to S. Varga</b>, and no verdict was filed</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+              <div class="row-moved"><span>Meridian Health</span><span>Mass file rename on one host. Rejected, and <b>the write did not land</b></span><span class="states"><i class="state">decided</i><i class="state state--solid">unrecorded</i></span><span class="when">3h</span></div>
+              <div class="row-moved"><span>Bramber Retail</span><span>Mass mailbox rule creation. Accepted: benign, new admin onboarding</span><span class="states"><i class="state">decided</i></span><span class="when">5h</span></div>
+            </div>
+            <p class="gnote">Three moved, and <b>the Meridian rejection has no log entry</b> because its write never landed.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+    <p class="bf-cap">--space-6 between the sections, and the list inside does not scroll</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.brief</code><span>the document. A flex column that grows into Z4, scrolls on its own, and pads <code>--space-5</code> over <code>--space-4</code></span></li>
+  <li><code>gap: --space-6</code><span><b>the one declaration that separates it from a pane body.</b> Six steps between sections that are about different things, five between sections that are about one case</span></li>
+  <li><code>.brief .rows</code><span><b>the rule that lives in the container rather than in the child.</b> <code>flex:0 0 auto</code>, <code>overflow:visible</code> and a hairline on top, which turns the queue&rsquo;s scroll box into a run of lines read from the top</span></li>
+  <li><code><a href="rows-moved.html">rows-moved</a></code><span>the list of what changed, holding <a href="row-moved.html">row moved</a> at <code>--row-tracks-moved</code>: four zones where the queue row has seven. No severity and no <b>to check</b>, because a pointer in a handover already happened</span></li>
+  <li><code><a href="bline.html">bline</a>, <a href="block.html">block</a>, <a href="banner.html">banner</a>, <a href="gnote.html">gnote</a></code><span>what fills it. The counted lines, the sections, the one thing said about the whole page, and the note under a list</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">There are none. Seven screens, one form, and the empty axes are shown rather than skipped because the third of them is a live decision rather than an omission.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>shift state</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>Coming on, going off, assembling, sealed, unsealed, nothing carried, close failed. <b>All seven are content and none of them is a form.</b> What changes is what the sections say and which buttons the <a href="pane-foot.html">pane foot</a> carries, and the foot is not this component</td></tr>
+    <tr><td><b>density</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> The brief is the one surface read once at the start of twelve hours rather than forty times a shift, which is why it is allowed six steps of gap and why nothing may take them back</td></tr>
+    <tr><td><b>viewport</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>It is a desk surface, and the decision is carried by a banner rather than by a modifier.</b> At 360 a <code>banner only-narrow</code> says so and points at the queue. The phone has one scenario in this product, a paged case read and escalated, and reading a twelve hour handover is not it</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">On the shift screens, filling Z4, and nowhere else. If the surface is a list of things to decide it is <a href="rows.html">rows</a> in Z4; if it is one case it is <a href="pane-body.html">pane body</a> in Z5; the brief is the third thing, and there is one of it.</p>
+<p class="k-note"><b>Where she meets it.</b> Twice in twelve hours, at both ends, standing up and about to leave or having just sat down. That is the whole design constraint: <b>read in one pass, and never searched.</b> The counted lines are what she takes away, the moved list is what she checks against her memory of the night, and the seal is the only control on the surface.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="brief" style="padding:0;gap:var(--space-4)"><div class="rows-moved"><div class="row-moved row-moved--head"><span>Tenant</span><span>What changed</span><span>State</span><span>When</span></div><div class="row-moved"><span>Larkfield Logistics</span><span>Escalated to S. Varga</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div><div class="row-moved"><span>Bramber Retail</span><span>Accepted: benign</span><span class="states"><i class="state">decided</i></span><span class="when">5h</span></div></div></div></div>
+    <p>The list runs to its end inside the document. Nothing is hidden below a fold that belongs to a box rather than to the page.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="rows" style="max-height:74px"><div class="row-moved row-moved--head"><span>Tenant</span><span>What changed</span><span>State</span><span>When</span></div><div class="row-moved"><span>Larkfield Logistics</span><span>Escalated to S. Varga</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div><div class="row-moved"><span>Bramber Retail</span><span>Accepted: benign</span><span class="states"><i class="state">decided</i></span><span class="when">5h</span></div></div></div>
+    <p>Never a scrolling <a href="rows.html">rows</a> here. <code>rows</code> is the scroll container of the <b>queue</b>, where two hundred lines go past a scope bar that stays. Inside a handover it puts a second scrollbar in a document that already scrolls, and the last thing that moved is the thing it hides.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The counted lines that point at the queue carry theirs, and the seal is a button in the <a href="pane-foot.html">pane foot</a> beside it rather than a control on this surface.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%">
+        <div class="brief" style="padding:var(--space-4)">
+          <a class="bline" href="#states"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope</span><span class="go">open the queue &rarr;</span></a>
+          <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude</span><span class="go">nowhere to review</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%">
+        <div class="brief" style="padding:var(--space-4)">
+          <a class="bline" href="#states"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope</span><span class="go">open the queue &rarr;</span></a>
+          <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude</span><span class="go">nowhere to review</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The first line opens the queue and the second goes nowhere, on purpose: <b>a shift where Clerk closed nothing alone and a shift where it closed a dozen are different shifts</b>, and there is nowhere in the MVP to review them. Put the pointer on both and only one answers.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>inherited from <a href="z4.html">Z4</a>, never set here. The brief paints nothing</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the hairline it puts above a list that has stopped scrolling</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>inherited. Every colour on this surface belongs to something inside it</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="brief"&gt;
+  &lt;section class="block"&gt;&hellip;&lt;/section&gt;
+  &lt;section class="block"&gt;
+    &lt;div class="rows-moved"&gt;&hellip;&lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../shift.html">coming on</a>
+  <a href="../shift-outgoing.html">going off</a>
+  <a href="../shift-assembling.html">still assembling</a>
+  <a href="../shift-sealed.html">sealed</a>
+  <a href="../shift-unsealed.html">unsealed</a>
+  <a href="../shift-nothing-carried.html">nothing carried</a>
+  <a href="../shift-close-failed.html">the close failed</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

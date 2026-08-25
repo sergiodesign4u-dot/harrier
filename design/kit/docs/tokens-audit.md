@@ -275,7 +275,9 @@ Named here rather than assigned, because assigning them is a decision.
 
 ## ORIGINS OF A CHANGE IN APPEARANCE, NAMED
 
-This stage is a refactor and the product does not move by a pixel. There are exactly three legal sources of a visual change and every one of them writes a row here. The pixel comparison at step 8 checks each difference against these three lists; **a difference with no row here is a defect**, and it is fixed in `tokens.css` or in the component file, never on a screen.
+This stage is a refactor and the product does not move by a pixel. Every legal source of a visual change writes a row here, the pixel comparison at step 8 checks each difference against these lists, and **a difference with no row here is a defect**, fixed in `tokens.css` or in the component file and never on a screen.
+
+**The pack names three sources and there are four, and the fourth is said out loud rather than folded into one of the others.** The three are consolidated drift, the review of the foundations, and the move onto system classes. The fourth is the founding of the state tokens at step 5, and it exists because the pack assumes the states are already in the product and this product has almost none: it had no `:active` rule anywhere, one borrowed focus ring, and a disabled form written as a hand repaint. Writing a state that did not exist is a change in appearance, so it takes a list. Folding it into consolidated drift would have been the quiet version of the same thing, and consolidated drift is a step 2 decision that this was not.
 
 ### Consolidated drift (step 3)
 
@@ -289,8 +291,129 @@ Written by the consolidation at step 2, applied when the component file is writt
 
 ### Review of the foundations (step 4)
 
-*Empty. Written after the user has looked at the four foundation pages.*
+**One row before the review, and the page found it rather than a person.** `color.html` computes its contrast table when it renders, by painting each role onto each ground and reading the result back. Four values that had been derived to "4.50" failed it.
+
+| Variable | Was | Became | Why |
+|---|---|---|---|
+| `--amber-700` | `#845f1f` | `#835e1f` | derived to stop at the first value that reached 4.5 and stopped at **4.4996**, which prints as 4.50 and is a rounded number reported as a threshold met. Re-derived to clear 4.5 with margin: 5.47 / 5.02 / 4.56 |
+| `--clay-600` | `#ac4525` | `#aa4525` | the same, severity high. 5.46 / 5.02 / 4.56 |
+| `--warm-600` | `#6f6457` | `#6e6356` | the same, severity medium. 5.47 / 5.03 / 4.57 |
+| `--slate-500` | `#5d676e` | `#5c666d` | the same, severity low. 5.48 / 5.04 / 4.58 |
+
+**This is the third time this project has made that mistake and the first time an instrument caught it the same day.** Stage 06 recorded `--color-rule` as sitting at "exactly 3.00" and needed a recomputation to find it was 2.997. The cure both times is the same and it is not care: it is computing the figure where it is read, so nobody transcribes it.
+
+**The review was held and it changed no value.** The five pages were opened, narrowed and switched, and the foundations were accepted as they stood: **zero rows below this line**, which is the outcome the section was built to be able to record honestly rather than the outcome it assumed.
+
+**Three questions were carried rather than closed, and carrying them is the decision.** Each is visible on the page that raises it, none of them is a token value, and none of them blocks a component from being written. They go to `docs/backlog.md` at step 6 with the addresses below.
+
+| Open question | Where it stands | Why it is not a token edit | Who closes it |
+|---|---|---|---|
+| **Neither family is loaded.** No `@font-face` and no font host on any of the 52 coloured pages, so both names resolve from the reader's own machine | `typography.html`, the block with the red rule | The token is correct: it names the family and its fallbacks. What is missing is a link in the document, which is a build decision and a new external dependency | the user, at handoff. It is the one question on this list whose answer costs money and a request |
+| **`--width-dialog: 520px` has no origin.** Its four neighbours carry one, in the file or in `DESIGN.md` | `geometry.html`, under What stops growing | A value with no origin is not a wrong value. Inventing an origin now would be the defect, because it would read as measured | step 9, on the same list as `--radius-object` and `--measure` |
+| **Eight literal tracking values against three tokens no product rule reads.** Six of the eight are small monospace, .04 to .14em | `typography.html`, the whole last section | Collapsing them would change stage 04's typography to make a token look used, which is the wrong way round. The spread already satisfies what the dark ground needs | the user, and the question is whether six should be six |
+
+### Founded and corrected at step 5, in the component files
+
+Written on the reference component and extended by each round. Three of the five change nothing that a still picture can see, because hover, active and focus do not exist in a screenshot; the fourth changes nine renderings and the row says so.
+
+| Variable or class | Was | Became | Why |
+|---|---|---|---|
+| `.btn[aria-disabled="true"]` | border to `--color-hairline` at 1.18, ink to `--color-text-dim` at 7.56, ground unchanged | `opacity: var(--opacity-disabled)` on the whole control, .54 in dark and .61 in light | **A repaint part by part had made an out of reach control stop looking like a control.** The boundary fell to 1.18, which is the role declared to carry no meaning, while the label stayed at full secondary strength, so the main action of the reject dialog rendered as a sentence beside a real Cancel button. Dimming the whole control keeps the boundary at 1.99 and takes the ink to 5.00, so it reads as a control that is unavailable. **Nine instances, all of them a plain `.btn`**: no primary and no quiet is ever out of reach anywhere in the product |
+| `--bg-hover`, `--line-hover` | nothing on a button. 265 rules elsewhere, all of them a ground | a ground and a boundary, together | The button had no hover at all. A ground alone does not carry it here: `--bg-hover` is 1.05 off the dark page, right for a row the width of a pane and far too quiet for a control 120px wide. The boundary is read off the product rather than invented, from `.z1 .kmap:hover` and `.toast .t-x:hover`, which both raise the border to the reading ink. **Invisible to a still comparison** |
+| `--bg-active`, `--amber-600` | nothing, anywhere, on any control | one further step of the ramp, and the accent presses into its own hue | `:active` existed nowhere in the product, so this is the one state with no precedent to read. `--amber-600` is the only value stage 08 adds beyond the light pair, and `tokens.css` says what stopped it going deeper: `--text-on-action` measures 5.03 on it and 4.21 one step further down. **Invisible to a still comparison** |
+| `--color-focus` | `--focus-ring` borrowed `--line-current` | a role of its own, same computed value in both themes | Where you ARE and what you are POINTING AT can diverge, and one of them follows the pointer. **No value changed**, so nothing moves anywhere |
+| `--text-hover` | nothing. Hover was a ground in 265 rules and an ink in none | an ink role, paired, following `--text-primary` | **Round 1, founded on `navitem` and `link`.** Neither has a surface hover could use: a plate under a nav item in a 56px bar reads as a button, a boundary competes with the underline that means "you are here", and a link lives inside running text and owns nothing but its own underline. It may not borrow `--line-hover` even though the two are the same colour today, because one paints ink at 4.5:1 and the other a line at 3:1. The three together now say one sentence: **hover raises whatever it touches to full strength on its own surface**. **Invisible to a still comparison** |
+| `.input` boundary | `--color-edge`, **2.997** against the page | `--rule-control`, 3.98 | **A text field is identified by nothing but its boundary.** The label sits outside it and an empty field has no content to read, which is exactly what WCAG 1.4.11 asks 3:1 of. 2.997 is a number that rounds to the threshold and does not meet it, and this project has now made that mistake three times: `--color-rule` at "exactly 3.00" at stage 06, four light inks at "4.50" at step 4, and this. **34 fields on 15 screens**, and the only difference the pixel comparison will find in that component |
+| `.chip` boundary | declared twice, `--rule-edge` at kit.css:243 and `--rule-control` at :837 | one declaration, `--rule-control` | **No pixel moves**: the second was already the one that rendered. The same pair the button carried, and both are recorded because a reader of the new file would otherwise wonder which of the two values was chosen and why |
+| `.chip` and `.state` height | **three heights in one scope bar**: 25.94 as an `a`, 22.00 and 23.00 as a `button`. `.state` 24.84 | `line-height: 1` and `text-decoration: none`, declared. **21.00 everywhere** | `kit.css` set only the family and the size, so everything else came from **whichever element the chip happened to be written as**: an `a` inherited `--leading` from the body and was underlined, a `button` took the UA's `line-height: normal`, and the caret glyph is a pixel taller than the cross. On `queue.html` three chips stand side by side at three heights. Both lines are here for the same reason `.btn` has always carried them: a component may not render differently depending on which tag it is written as. **122 chips and 194 states**, and the state now matches the chip exactly, which is the point of them being one box |
+| `.bars` severity selector | `.row:has(...) .bars i.on` | `.bars:has(...) i.on` | **No pixel moves inside a row, and a rendering everywhere else.** The old selector produced the same result in a queue row and **no result at all** anywhere outside one, so a severity drawn on the shift brief or in a log entry would have come out colourless. A component may not depend on the container it happens to stand in today |
+| `.tag` tracking | `letter-spacing: .06em`, a literal | `var(--track-mono)` | Same computed value. `--track-mono` was measured on plate J and read by **no product rule at all**; this is its first consumer, and the typography page is down to seven unresolved tracking values from eight |
+| `.src` icon | on every `.src` | on `a.src` only | **13 of the 131 are a span rather than a link**, and all 13 stand on `entry-changed` and `entry-partial`, the two screens whose entire point is that the evidence as it stood is gone or incomplete. They were carrying an icon that promises the source **opens somewhere else**. Zero pixels move on the other 118 |
+| `.hint` | declared twice with identical values, `.field .hint` at kit.css:345 and `.dialog > footer .hint` at :751 | one declaration, `.hint` | **No pixel moves.** Four hundred lines apart, neither wrong, and both the parent reaching into the child |
+| the applied icon masks | `stroke-width="1.8"` | `1.5`, which is what the set declares | **One drawing at two weights, 20 per cent apart, and the geometry identical on both sides.** Every CSS rule in the project draws the set at 1.5; the three data URIs carried 1.8 with no comment and no row in `DESIGN.md`. Effective rendered weight on the keyboard trigger was **1.20px against 1.00px** for the same 16px box elsewhere, and the heavier stroke also pushed `keyboard` further outside its safe field, 0.90 units against 0.75. Done in the two files this system owns, `src.css` and `expand.css`; the third lives in Z1 and follows with the organism that owns it |
+| `.readout` weight | inherited **700** from the `h1` it is written as, on the whole line | `font-weight: 400`, and the `b` carries the 700 | **The rule was declared and the product was breaking it on 35 screens.** Attribute A3 caps the working emphasis at 600 and allows 700 on a **counted value only**. `.readout` is an `h1` everywhere, which is the right element: the queue's heading names the state of the queue rather than the word Queue. The UA draws an `h1` at 700, the class never said otherwise, and the 700 reached `across 12 of 40 tenants in your scope`. The `.readout b` rule looked like it was doing the work and was overriding nothing. **The third defect this round where the value is correct in every file and the ELEMENT decides it** |
+| `.row` side padding below 1560 | not ported | `--space-3` at `max-width:1560px`, as in `kit.css` | **An omission caught by measurement rather than a decision.** The component file carried the 360 rules and not the 1560 one, so the row would have gained four pixels of padding on every single monitor desk below 1560. Zero pixels move now, which is the point |
+
+**A decision about the documentation came out of this round, and it goes against the pack.** The pack asks for rest alive and the four interactive states as SNAPSHOTS, on the grounds that hover, active and focus exclude each other on one element and cannot stand in a row alive. **The user ruled that nothing in this design system is a picture, and the snapshots are gone.** Fourteen files and the script that made them were deleted.
+
+The argument that decided it was produced by the snapshots themselves. The first run reached focus with `element.focus()`, which does not set the keyboard modality, so `:focus-visible` never matched and the picture came back showing **a rest button with no ring**, documenting a state it did not contain. It looked entirely plausible. A picture of a state is a second copy of the component, and this project already has a rule about second copies.
+
+What replaces it is two things and both are alive: **a bench** of real controls standing in both themes at once, which the reader produces every state on with their own pointer and keyboard; and **a readout** that asks the browser what each state resolves to in each theme when the page renders. A changed token changes both by itself.
+
+**The same question turned out to be a defect on `color.html`, and it had been shipped at step 4.** The left half of every role card was labelled "dark, shipped" and declared no theme of its own: it relied on the page being dark. As soon as the reader chose light, **all twenty one cards rendered light twice** while still claiming to show a pair. Found by asking the browser for `--bg-page` in each half. The cure is one line in `tokens.css`: the shipped block is now `:root, [data-theme="dark"]` rather than `:root` alone, so a subtree can be forced back to dark inside a light page. It is the same declaration under two selectors and not a copy, because a copy of twenty one roles would drift and the drift would be invisible until somebody flipped a switch.
+
+**A SECOND INSTRUMENT WAS BUILT IN ROUND 1, AND IT WAS BUILT BECAUSE I SHIPPED THE DEFECT IT FINDS.** Writing `chip.css` I collapsed the family and the size into a `font` shorthand, which resets `line-height` to 1, and every chip in the product moved 4.94px. **Nothing in either file looks wrong.** A reviewer sees the same family and the same size; a grep for a literal finds nothing, because there is no literal; and the contrast sweep passes, because no colour changed. `design/kit/checks/geometry.mjs` measures the box of each component on a product screen and on the stand and compares nineteen computed properties. It found the shorthand, and then it found the three heights the product had been standing at all along, and then it found the same defect in `state`. **A declared difference is not a failure:** each one names the row above that decided it, exactly as the pixel comparison at step 8 will, and an undeclared one is reported as unexplained.
+
+
+**A THIRD INSTRUMENT ARRIVED IN ROUND 2, AND IT WAS BUILT FOR A SET RATHER THAN FOR A SCREEN.** `design/kit/checks/icons.mjs` decodes every icon mask data URI in the project, parses it back to primitives and compares it against `design/system/icons.js` character for character. It carries **no table of which mask should be which glyph**, so a mask nobody registered is reported rather than passing quietly, and it found the stroke difference above on its first run. Geometry matched exactly on all three, which is what made the finding a weight rather than a redraw.
 
 ### Moved onto system classes (step 6)
 
-*Empty. Written when the reconciliation moves markup off a local override or an old name.*
+The rename map of step 2 executed on **52 coloured screens**, plus the generator. Every row below moved markup and none of them moved a pixel by itself: what moved is in the three lists above, and the comparison that proves it is `design/kit/checks/migrate.mjs`.
+
+| Class | Was | Became | Instances |
+|---|---|---|---|
+| the shell and the screen | `.wf-shell`, `.wf-screen` | `.shell`, `.screen` | 52 and 52 |
+| the state | `.chip.chip--state` and its two modifiers | `.state`, `.state--solid`, `.state--ghost` | 115, 38 and 2 |
+| the handover line | `.rows--moved`, `.rows--moved .row` | `.rows-moved`, `.row-moved`, `.row-moved--head` | 5, 30 and 5 |
+| the log row | `.rows--log .row` | `.row.row--log` | 7 and 2 heads |
+| the fleet row in a padded body | `.pane-body .frow`, a parent reaching into a child | `.frow--flush` | 12 |
+| the second rail | `.rail.rail--foot` | `.rail-foot` | 5 |
+| the narrow primary | `.btn--primary-narrow` | `.btn--primary.only-narrow` | 6 |
+| the form atoms | element selectors under `.field` | `.input` on 14, `.label` on 14 | 28 |
+| the link | a bare `a` inside `gnote`, `expand`, `nar` and Z6 | `.link` | 24 |
+| the standalone head | `.pane-head` under a standalone pane | `.pane-head--standalone` | 3 |
+| the navigation item | `.z1 nav a`, a descendant selector on an element | `.navitem`, `.navitem.is-current`, in `design/_shell.js` | 132 at runtime |
+
+**One row of the map was NOT executed and it is in `backlog.md` with the reason.** `div.expand` to `details.expand` is not a rename: a `details` collapses by default and needs a `summary`, and a summary is a **string**. Executing it here would have meant inventing 23 sentences, and a string belongs to `voice/docs/microcopy.md`.
+
+### Found by the migration, and every one is a cascade defect
+
+**A cascade defect is the class of thing where both files are correct and what is wrong is which of them wins.** No reader sees it, no grep sees it, and the contrast sweep passes because no colour changed. `design/kit/checks/migrate.mjs` renders each screen as it stands in the last commit beside the migrated one and walks the two subtrees element by element. It found six.
+
+| What | What it did | Why |
+|---|---|---|
+| **A utility lost to a component** | a button hidden below 900px appeared at 360 on nine screens | `.btn{display:inline-flex}` and `.only-desk{display:none}` are both one class, and the system loaded after `kit.css`. Utilities now live in `design/system/utilities.css`, imported **last** |
+| **A utility lost to itself** | a 360 only banner appeared on seventeen desk screens | inside `utilities.css` the bare `.only-narrow{display:block}` sat after the media query that hides it. The default is hidden and the query turns it on, exactly as `kit.css` writes it |
+| **A media query written where a class selector belonged** | the narrow banner stood 42px taller at 360 on seventeen screens | `flow-root` depends on whether the banner is the narrow one, not on the width. `:not(.only-narrow)` is load bearing |
+| **Three narrow only rules hoisted to the top level** | the list vanished at 1440 on every case screen; the whole shift brief vanished at every width on seven | `.z45:has(> .z5.is-paper) > .z4`, `.z45:has(> .z6)` and `.z4--shift .brief` are all inside `@media (max-width:900px)` in `kit.css` |
+| **Two breakpoints not ported at all** | the pane stood at 380 instead of 320 at 1440, so every row was 60px narrow; and the handover line's head cell was 8px narrow below 1560 | `--pane-w` and the row's side padding both change at 1560 |
+| **Four values quietly changed while porting** | the door gradient, the scrim padding, the dialog height and the keyboard trigger's display | 78 per cent against 72, `--space-4` against `--space-5`, two zone heights against `--space-7`, and an `inline-block` that was never there |
+
+**102 renderings, 0 unexplained differences, 0 trees whose shape changed.**
+
+---
+
+## THE DARK THEME AS A STRESS TEST (step 7)
+
+The pairs were written at step 3 and the state tokens at step 5. What this step asks is the question no single component can answer: **does the system read as a system in the other theme.** `design/kit/checks/themes.mjs` asks it four ways, and each one is invisible from inside one file.
+
+**Thresholds hold in both themes on every role that has one.** The worst case across the three grounds: `--text-sev-low` at 4.59 in dark and 4.57 in light, `--line-control` at 3.24 and 3.70. Nothing sits at 4.6 in one theme and 3.9 in the other, which is the exact shape of the defect a mirrored pair produces.
+
+**Two roles collapse, and it is one finding seen twice.** In dark `--bg-selected` and `--bg-active` are the same ground; in light `--bg-quiet` and `--bg-active` are. **The warm ramp has four usable steps above the page in each theme and the fill level wants five.** The collision landing on a different pair in each theme is itself the proof that the roles are two rather than one, which is precisely what the check exists to surface. Both are declared with their reason rather than papered over: the pair never paints the same element and one of them lasts as long as a click. A fifth step of the ramp is a measurement and it is in `backlog.md`.
+
+**No fill merges.** The closest step is `--bg-surface` at 1.052 off the page in dark, which is the value 265 hover rules already stand on.
+
+**One value is the same primitive in both themes and the file says why.** `--line-control` measures 3.98 in dark and 4.44 in light: a value in the middle of the ramp clears the non-text floor against either end, and that was measured from both directions rather than assumed.
+
+**The first run of this instrument reported FAIL fifteen times and meant nothing.** It assumed a token resolves to `rgb()` and these resolve to hex, so every ratio was `NaN` and every comparison failed. An instrument that is never wrong out loud is worse than no instrument, and this one was wrong out loud on its first execution, which is how it got fixed. It also compared roles across surfaces and produced eleven more false failures: an ink and a fill sharing a value is the design, and the surface rule is what keeps them two roles.
+
+---
+
+## THE MIGRATION, MEASURED (step 8)
+
+`kit.css` is deleted. Every one of the 52 coloured screens, the product index, the two kit pages and the two concept pages link `design/system/index.css` and nothing else.
+
+**Coverage: 0.** `design/kit/checks/coverage.mjs` walks all 367 selectors the old file declared and finds every one of them answered, by a component, by the rename map, or by a written reason for being dropped. It reported 60 gaps on its first run.
+
+**Attribution: 0 unexplained.** `design/kit/checks/migrate.mjs` renders each screen as it stands in the last commit beside the migrated one and walks the two subtrees element by element, 102 renderings. **862 elements moved and every one of them belongs to a row above.**
+
+| Row | Groups | Elements |
+|---|---|---|
+| chip and state stand at 21.00 rather than 22, 23 or 24.84 | 12 | 503 |
+| downstream of that height, and of the readout weight | 18 | 252 |
+| the readout is an `h1` and the UA weight reached its qualifier | 2 | 56 |
+| the field boundary at 3.98, the key border following its host, the icon masks at 1.5 | 2 | 38 |
+| the source icon on `a.src` only | 1 | 13 |
+
+**The pixel comparison says 9.0 per cent and that is not a contradiction.** A state four pixels shorter moves everything below it, so every pixel under the first one differs on a full page capture even where nothing is wrong. The pixel measure answers HOW MUCH and the element walk answers WHAT, and only the second can be attributed. Both are in `design/kit/checks/`.

@@ -1,0 +1,70 @@
+/* state :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-page, --bg-invert. Ink: --text-primary, --text-secondary,
+   --text-on-invert. Line: --rule-control. Geometry: --size-xs, --font-mono,
+   --radius-ui, --space-1, --space-2.
+
+   PAGE. design/kit/state.html
+   STANDS ON. 194 instances across 44 screens. The largest component in the
+   product by count, and the second largest by pages.
+
+   IT WAS HALF OF `chip` UNTIL STEP 2. `chip--state` had to turn the pointer off
+   with cursor:default, which is the shape of a component pretending to be
+   another one. A word you cannot press is not a chip. Splitting it is why this
+   file declares no states at all and why `chip` no longer has to say `default`.
+   ----------------------------------------------------------------------------
+   THIRTEEN WORDS ON THREE SURFACES, NOT SIX. The kit page said "the set of six
+   is closed" and that is true of one surface only. Counted in the grey corpus:
+   the queue row and the case pane carry six, `decided` `acted` `unrecorded`
+   `escalated` `investigating` `taken`; the log carries five more, `accepted`
+   `amended` `rejected` `superseded` `acted alone`; the case history carries two,
+   `filed` `opened`. Three closed sets, and the page says which is which.
+   ---------------------------------------------------------------------------- */
+
+.state{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  border: var(--rule-control);
+  border-radius: var(--radius-ui);
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  line-height: 1;              /* the same declaration, for the same reason, as chip.css */
+  letter-spacing: .04em;       /* stage 04, the tightest of the six mono values. It is NOT
+                                  --track-mono at .06em, and the typography page carries
+                                  the open question about all eight */
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  white-space: nowrap;
+  cursor: default;             /* it is a word, not a control, and the pointer says so */
+}
+
+/* -- emphasis. Three values, and the axis is how much the word is claiming ---- */
+
+/* THE OUTCOME THAT IS NOT ONE. `unrecorded` and `superseded` are the two words in
+   this product that mean something went wrong with the record itself, and the
+   inverted plate is what makes them the loudest thing on the screen. Stage 06
+   considered spending the accent here and did not: inverting through the reading
+   ink already does it, and a fifth job would make the accent mean less
+   everywhere else. */
+.state--solid{
+  background: var(--bg-invert);
+  color: var(--text-on-invert);
+}
+
+/* STILL HAPPENING. Two instances, both `investigating`: Clerk has not finished,
+   so the word is true and provisional at once, and a dashed boundary is how the
+   rest of this system says not settled yet. */
+.state--ghost{
+  border-style: dashed;
+  color: var(--text-secondary);
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   No hover, no active, no focus, no out of reach. It reports a condition and
+   there is nothing to point at. Giving it a hover would be the same defect as
+   inventing a role: it would say the word can be pressed, and it cannot. What
+   changes underneath it is the ROW, and the row is a different component. */

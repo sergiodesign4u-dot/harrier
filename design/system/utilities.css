@@ -1,0 +1,55 @@
+/* Harrier design system :: utilities
+   ============================================================================
+   THE LAST IMPORT, AND THE ORDER IS THE WHOLE POINT. A utility says one thing
+   about one element and it has to win, so it comes after every component. Put it
+   first, as base.css is, and a component's own declaration beats it at equal
+   specificity by being later in the file.
+
+   THIS WAS NOT A THEORY. The migration at step 6 put design/system/ after kit.css
+   on 52 screens, and `.btn { display: inline-flex }` beat `.only-desk { display:
+   none }` because both are one class and the system came later. A button that is
+   hidden below 900px appeared at 360 on nine screens. Found by comparing the
+   committed original against the migrated screen element by element, which is the
+   only instrument that sees a cascade defect: both files are correct.
+
+   THE LIST IS SHORT ON PURPOSE. Six, and every one of them describes a fact about
+   a place rather than a decision about a component. A seventh should be a
+   component or a variant.
+   ============================================================================ */
+
+/* -- the viewport twins. Width is layout, and layout is not a variant --------
+   Step 2 took these off the variant list for exactly that reason: `only-desk` and
+   `only-narrow` are not two forms of a button, they are one button rendered in
+   one of two places. */
+/* THE ORDER INSIDE THIS FILE MATTERS AS MUCH AS THE FILE'S PLACE IN index.css, and
+   getting it wrong put a 360 only banner on seventeen desk screens for one
+   measurement. The default is HIDDEN and the media query turns it on, exactly as
+   kit.css writes it. Written the other way round, with the bare rule after the
+   query, the bare rule wins at every width. */
+.only-narrow{ display: none }
+.only-desk  { display: block }
+.only-desk-i{ display: inline }
+
+@media (max-width:900px){
+  .only-narrow{ display: block }
+  .only-desk,
+  .only-desk-i{ display: none }
+}
+
+/* `:not(.only-narrow)` on the banner is load bearing for the same reason and the
+   rule lives in banner.css: plain `.banner{display:flow-root}` has the same
+   specificity as `.only-narrow{display:none}` and would win by coming later. */
+
+/* -- three text utilities, and they are the only global ones ------------------
+   Stage 07 counted 17 text roles across the product and these are the three that
+   belong to no component. The other fourteen are declared inside the component
+   that owns the cell they read. */
+.dim { color: var(--text-secondary) }
+.mono{ font-family: var(--font-mono) }
+.vh  { position: absolute; width: 1px; height: 1px; overflow: hidden;
+       clip: rect(0 0 0 0); white-space: nowrap }
+
+/* -- one spacer, and it is a place ------------------------------------------
+   It pushes what follows it to the far end of a flex row. It is in the dialog
+   footer and in Z1, and both are places rather than components. */
+.grow{ flex: 1 1 auto }

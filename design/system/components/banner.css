@@ -1,0 +1,65 @@
+/* banner :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-page. Ink: --text-primary, --text-secondary. Line:
+   --rule-edge, --line-separator. Geometry: --radius-ui, --size-sm, --space-2,
+   --space-3.
+   CONTAINS. btn, on the ones that offer something.
+
+   PAGE. design/kit/banner.html
+   STANDS ON. 54 instances across 44 screens, which makes it the most widely
+   spread thing in the product after `block` and `anote`: `z4` 20, `pane-body`
+   16, `brief` 5, `body` 4.
+
+   IT SAYS SOMETHING ABOUT THE WHOLE SCREEN. The queue is stale, the connection
+   is degraded, this case was already ruled on by somebody else. It is never
+   about one row and never about one claim, and that is the whole of the rule for
+   using it.
+   ----------------------------------------------------------------------------
+   IT IS `display:flow-root` AND NOT FLEX, ABOVE 900px, AND THAT IS A BUG FIX
+   RATHER THAN A PREFERENCE. As a flex row it made a flex item of every element
+   child, so a second `b` started its own line and the punctuation after it
+   orphaned. Seen at 1440 at stage 07. The action floats right instead, which
+   lets the sentence wrap around it. Below 900 it goes back to flex, because
+   there the action takes its own line anyway.
+   ---------------------------------------------------------------------------- */
+
+.banner{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  align-items: baseline;
+  padding: var(--space-3);
+  border: var(--rule-edge);
+  border-radius: var(--radius-ui);
+  background: var(--bg-page);
+  font-size: var(--size-sm);
+}
+.banner > *{ min-width: 0; overflow-wrap: anywhere }
+.banner b  { font-weight: 700; color: var(--text-primary) }
+
+/* AND IT DEPENDS ON THE CLASS RATHER THAN ON THE WIDTH. A banner that is only
+   rendered at 360 stays a flex row at every width, because it is never the wide
+   one; a banner that is rendered at the desk takes flow-root everywhere. Writing
+   this as a media query instead made the narrow banner 42px taller at 360 on
+   seventeen screens, which the comparison against the committed original caught. */
+.banner:not(.only-narrow){ display: flow-root }
+/* ORDER, NOT SPECIFICITY, DECIDES THESE TWO. They are both 0,2,0, so the later one
+   wins, and kit.css puts the float second. Written the other way round, `margin-left:
+   auto` beat the 12px left margin and the action box grew by twelve on two screens.
+   The float is on EVERY banner and the flow-root is not, which reads like a mistake
+   and is not: a floated child of a flex row is simply a flex item that ignores the
+   float, so the one declaration serves both forms. */
+.banner .act{ margin-left: auto; flex: 0 0 auto }
+.banner > .act{ float: right; margin: 0 0 var(--space-2) var(--space-3) }
+
+/* -- emphasis. One axis, two values, and nothing else on it -------------------
+   Quiet is for a banner that reports rather than interrupts. Four instances, and
+   the reason the axis has only two values is that a third would need a colour:
+   the accent has four jobs and no fifth, and the severity ramp belongs to cases. */
+.banner--quiet{
+  border-color: var(--line-separator);
+  color: var(--text-secondary);
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   The button inside it is, and it carries its own. */

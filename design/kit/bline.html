@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Brief line</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Brief line</h1>
+<p class="k-lede">One counted fact from the shift you are picking up. <b>19 instances across 7 screens</b>, in the counted blocks of the shift brief, and it is <b>a line and not a card</b>.</p>
+<p class="k-note">The brief&rsquo;s own block table ruled out the alternative: four counted facts as four cards is a dashboard, and a handover is read once from the top. Three zones in one order: the number, what it counts, and where it goes.</p>
+<p class="k-note"><b>The number is the one place in the product at <code>--size-lg</code> in mono at 700.</b> 17px is the largest a figure gets anywhere, and weight 700 is licensed on a counted value only. The brief is read standing up at the start of a shift, so the count is what carries across the desk and the sentence is what you lean in for.</p>
+<p class="k-note"><b>It was not in the register.</b> Step 2 built the register from a browser census of <b>controls</b>, and this is a text composition with no control in it. Found at step 5 by scanning every class that owns a rule block in <code>kit.css</code> against the register: twenty one came back and thirteen were components. <code>docs/inventory.md</code> section 13 has all of them.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <a class="bline" href="#anatomy"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope<span class="ex">One of the eighteen has been waiting since before this shift: <b>Halden Freight</b>, impossible travel across two offices.</span></span><span class="go">open the queue &rarr;</span></a>
+        <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude</span><span class="go">nowhere to review</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <a class="bline" href="#anatomy"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope<span class="ex">One of the eighteen has been waiting since before this shift: <b>Halden Freight</b>, impossible travel across two offices.</span></span><span class="go">open the queue &rarr;</span></a>
+        <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude</span><span class="go">nowhere to review</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.bline</code><span>the line. A three column grid, <code>52px minmax(0,1fr) auto</code>, aligned on the <b>baseline</b> so a 17px figure and a 12.5px sentence sit on one line rather than on one box</span></li>
+  <li><code>.n</code><span>the count, right aligned in its fixed 52px column. That column is why <code>18</code> and <code>6</code> line up on the unit down a block instead of drifting with the width of the figure</span></li>
+  <li><code>.go</code><span>where it goes, 11px mono, and it never wraps. 19 of the 19 carry one, including the ones that go nowhere</span></li>
+  <li><code>.ex</code><span><b>the one line of detail, and it is a block inside the middle column.</b> 11 of the 19 carry it. It sits under the sentence rather than beside it, because the 52px column belongs to the figure</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>element</b></td><td><code>div.bline</code></td><td>16</td><td>a count with nowhere to open. It is the resting form, and it is the majority</td></tr>
+    <tr><td></td><td><code>a.bline</code></td><td>3</td><td><b>the count opens the list it counts.</b> The only form with a hover and an active ground, and the only one that takes the focus ring. A count that cannot be opened is written without the <code>a</code> rather than drawn as a dead link, which is the same answer <code>src</code> gives</td></tr>
+    <tr><td><b>count</b></td><td>base <code>.n</code></td><td>5</td><td>a figure that is asking for something. The reading ink, full strength</td></tr>
+    <tr><td></td><td><code>.n.is-quiet</code></td><td>14</td><td><b>a count of zero is still a count, and it recedes rather than disappearing.</b> <code>0 unrecorded</code> is the line you most need to see stay at zero, and a line that vanishes when it reads zero cannot be checked</td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> A brief line counts; it does not rank. The severity ramp belongs to the row, and colouring a handover figure would tell you which count to worry about before you have read what it counts</td></tr>
+    <tr><td><b>size</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> 17px mono at 700 is the whole argument for the component. A second size would mean a second claim about which fact is the large one, and the block heading already makes it</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In a counted block of the shift brief, once per fact the incoming analyst has to hold: what waits on a decision, what Clerk closed alone, what is still being gathered. Four of them stack into a block and the block is read down in one pass. Anywhere the fact is not a count, this is the wrong component.</p>
+<p class="k-note"><b>Where she meets it.</b> Twice a day at most, at the two moments the shift changes hands, and each time under time pressure from somebody waiting to leave. That is the whole reason the figure is the largest thing on the surface: the second of the three MVP jobs is pick up and hand off a shift, and the brief has to be readable before she has sat down.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><a class="bline" href="#rules" style="border-top:0"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope</span><span class="go">open the queue &rarr;</span></a></div>
+    <p>A figure, what the figure counts with its scope, and where to go and see it. The count names its claim and its scope, and the destination is on the same line as the number that earned it.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bline" style="border-top:0"><span class="n">some</span><span>cases were closed while you were away</span><span class="go">nowhere</span></div></div>
+    <p>Never a word in the number column. 17px at weight 700 is licensed on a counted value and on nothing else, and a word set there claims a precision it does not have. An uncounted fact under a block is <code>gnote</code>, which is the quiet line built for exactly that.</p>
+  </div>
+</div>
+<p class="k-note">At 360 the three columns hold: 52px for the figure, the rest for the sentence, and <code>.go</code> pinned right at its own width. The sentence wraps because its column is <code>minmax(0,1fr)</code> rather than <code>1fr</code>, which is the difference between a grid that wraps and a grid that pushes the destination off the screen.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>Only the link form has any.</b> Point at the first line below and it takes a ground; press and it takes a second one. Point at the one under it and nothing happens, because there is nowhere for it to go.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <a class="bline" href="#states"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope</span><span class="go">open the queue &rarr;</span></a>
+        <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude</span><span class="go">nowhere to review</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <a class="bline" href="#states"><span class="n">18</span><span>waiting on a decision <b>across 12 of 40 tenants</b> in your scope</span><span class="go">open the queue &rarr;</span></a>
+        <div class="bline"><span class="n is-quiet">6</span><span>closed by Clerk alone, inside each tenant&rsquo;s latitude</span><span class="go">nowhere to review</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="k-gesture">
+  <div><b>Point at the first</b><p>hover, and the whole line takes <code>--bg-hover</code>. The target is the line, not the destination text.</p></div>
+  <div><b>Press and hold</b><p>active, one step further in to <code>--bg-active</code>.</p></div>
+  <div><b>Press Tab</b><p>focus-visible, the one ring in the product, declared in <code>base.css</code>.</p></div>
+  <div><b>Point at the second</b><p>nothing. It is a <code>div</code>, and there is no list behind it.</p></div>
+</div>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>State</th><th>What it overrides</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><b>hover</b></td><td><code>--bg-hover</code>, the ground of the whole line</td>
+        <td><span data-tok="--bg-hover" data-theme-read="dark"></span></td>
+        <td><span data-tok="--bg-hover" data-theme-read="light"></span></td></tr>
+    <tr><td><b>active</b></td><td><code>--bg-active</code>, one step further from the page</td>
+        <td><span data-tok="--bg-active" data-theme-read="dark"></span></td>
+        <td><span data-tok="--bg-active" data-theme-read="light"></span></td></tr>
+    <tr><td><b>focus-visible</b></td><td><code>--color-focus</code>, through <code>base.css</code></td>
+        <td><span data-tok="--color-focus" data-theme-read="dark"></span></td>
+        <td><span data-tok="--color-focus" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Out of reach does not exist here, and that is a decision rather than an omission.</b> Three of the nineteen lead somewhere and sixteen do not, and the sixteen are written without the <code>a</code>. A disabled link would say the destination exists and is closed to you; what is true is that there is nothing to open, and <code>nowhere to review</code> in the third column says so in words.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the count, and the sentence by inheritance</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>a quiet count, the destination, and the line of detail</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the rule under every line, and the one above the first, through <code>--rule-hair</code></td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the hover ground of the link form, through <code>--bg-hover</code></td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;a class="bline" href="queue.html"&gt;
+  &lt;span class="n"&gt;18&lt;/span&gt;
+  &lt;span&gt;waiting on a decision &lt;b&gt;across 12 of 40 tenants&lt;/b&gt; in your scope
+    &lt;span class="ex"&gt;One has been waiting since before this shift.&lt;/span&gt;
+  &lt;/span&gt;
+  &lt;span class="go"&gt;open the queue &amp;rarr;&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;div class="bline"&gt;&lt;span class="n is-quiet"&gt;6&lt;/span&gt;&lt;span&gt;closed by Clerk alone&lt;/span&gt;&lt;span class="go"&gt;nowhere to review&lt;/span&gt;&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../shift.html">the brief on shift &middot; 2</a>
+  <a href="../shift-assembling.html">what is being gathered &middot; 6</a>
+  <a href="../shift-nothing-carried.html">nothing carried &middot; 3</a>
+  <a href="../shift-outgoing.html">handing off &middot; 2</a>
+  <a href="../shift-sealed.html">sealed &middot; 2</a>
+  <a href="../shift-unsealed.html">unsealed &middot; 2</a>
+  <a href="../shift-close-failed.html">the close failed &middot; 2</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

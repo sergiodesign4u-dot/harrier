@@ -6,7 +6,7 @@
 <title>Harrier &middot; Three layout directions</title>
 <link rel="stylesheet" href="../../_nav.css">
 <link rel="stylesheet" href="../../research/_page.css">
-<link rel="stylesheet" href="../kit/kit.css">
+<link rel="stylesheet" href="../system/index.css">
 <link rel="stylesheet" href="_stand.css">
 <style>
 /* PAGE-LOCAL, prefix dr-. The shared documentation sheet owns .note .q .node .lede .tw and a
@@ -20,19 +20,19 @@
 /* ---------- B, case led. 42 / 58, scope folded into the header, two line rows ---------- */
 .b-body{flex:1;display:grid;grid-template-columns:42% 58%;min-height:0}
 .b-q{display:flex;flex-direction:column;min-width:0}
-.b-head{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--color-rule)}
+.b-head{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--line-edge)}
 .b-head .dr-read{font-size:17px}
 .b-head .dr-scope{margin-left:auto}
 .b-rows{flex:1;min-height:0}
-.b-row{padding:11px 18px;border-bottom:1px solid var(--color-hairline)}
-.b-row.sel{background:var(--color-surface-sel);box-shadow:inset 3px 0 var(--color-accent)}
+.b-row{padding:11px 18px;border-bottom:1px solid var(--line-separator)}
+.b-row.sel{background:var(--bg-selected);box-shadow:inset 3px 0 var(--text-accent)}
 .b-v{font-size:15px;font-weight:500;letter-spacing:-.008em;margin:0 0 3px;display:flex;
      align-items:baseline;gap:8px}
-.b-v em{font-style:normal;font-size:11px;color:var(--color-accent);font-weight:400;
+.b-v em{font-style:normal;font-size:11px;color:var(--text-accent);font-weight:400;
         font-family:var(--font-mono);letter-spacing:var(--track-mono)}
 .b-m{display:flex;gap:12px;align-items:center;font-family:var(--font-mono);font-size:10px;
-     letter-spacing:var(--track-mono);color:var(--color-text-dim)}
-.b-m .who{color:var(--color-text)}
+     letter-spacing:var(--track-mono);color:var(--text-secondary)}
+.b-m .who{color:var(--text-primary)}
 .b-m .st{margin-left:auto;display:flex;gap:4px}
 .b-m .st .dr-chip{padding:3px 5px;font-size:8px}
 
@@ -42,34 +42,34 @@
 .c-head{display:flex;align-items:center;gap:16px;padding:13px 20px 11px}
 .c-head .dr-scope{margin-left:auto}
 .c-row{display:grid;grid-template-columns:96px 176px 1fr 240px 78px 132px 46px;gap:14px;
-       padding:11px 20px;border-bottom:1px solid var(--color-hairline);align-items:center;font-size:13px}
+       padding:11px 20px;border-bottom:1px solid var(--line-separator);align-items:center;font-size:13px}
 .c-row.h{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
-       color:var(--color-text-dim);text-transform:uppercase;padding:7px 20px;border-bottom-color:var(--color-rule)}
-.c-row.sel{background:var(--color-surface-sel);box-shadow:inset 3px 0 var(--color-accent)}
+       color:var(--text-secondary);text-transform:uppercase;padding:7px 20px;border-bottom-color:var(--line-edge)}
+.c-row.sel{background:var(--bg-selected);box-shadow:inset 3px 0 var(--text-accent)}
 .c-row .v{font-weight:500}
-.c-row .v em{font-style:normal;display:block;font-size:11px;color:var(--color-accent)}
+.c-row .v em{font-style:normal;display:block;font-size:11px;color:var(--text-accent)}
 .c-row .c,.c-row .g{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono);
-       color:var(--color-text-dim)}
+       color:var(--text-secondary)}
 .c-row .g{text-align:right}
 .c-row .st{display:flex;gap:4px;justify-content:flex-end}
 .c-row .st .dr-chip{padding:3px 5px;font-size:8px}
-.c-pane{flex:0 0 232px;background:var(--color-surface);border-top:1px solid var(--color-rule);
+.c-pane{flex:0 0 232px;background:var(--bg-surface);border-top:1px solid var(--line-edge);
         display:flex;flex-direction:column}
-.c-ph{display:flex;align-items:baseline;gap:14px;padding:11px 20px 9px;border-bottom:1px solid var(--color-rule)}
+.c-ph{display:flex;align-items:baseline;gap:14px;padding:11px 20px 9px;border-bottom:1px solid var(--line-edge)}
 .c-ph h2{margin:0;font-size:16px;font-weight:500;letter-spacing:var(--track-display)}
-.c-ph p{margin:0;font-size:11px;color:var(--color-text-dim);max-width:none}
+.c-ph p{margin:0;font-size:11px;color:var(--text-secondary);max-width:none}
 .c-ph .more{margin-left:auto;font-family:var(--font-mono);font-size:9px;
-            letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+            letter-spacing:var(--track-mono);color:var(--text-secondary)}
 .c-strip{flex:1;display:grid;grid-template-columns:repeat(7,1fr);min-height:0}
-.c-t{padding:12px 14px;border-right:1px solid var(--color-hairline);min-width:0}
+.c-t{padding:12px 14px;border-right:1px solid var(--line-separator);min-width:0}
 .c-t:last-child{border-right:0}
 .c-t b{display:block;font-size:12px;font-weight:500;margin-bottom:6px;white-space:nowrap;
        overflow:hidden;text-overflow:ellipsis}
 .c-t .lat{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
-          color:var(--color-accent);display:block;margin-bottom:8px}
+          color:var(--text-accent);display:block;margin-bottom:8px}
 .c-t .rec{font-family:var(--font-mono);font-size:12px;letter-spacing:var(--track-mono)}
 .c-t .was{display:block;font-family:var(--font-mono);font-size:9px;
-          letter-spacing:var(--track-mono);color:var(--color-text-dim);margin-top:2px}
+          letter-spacing:var(--track-mono);color:var(--text-secondary);margin-top:2px}
 
 /* ---------- the page's own furniture ---------- */
 /* same finding, same fix: a side tab becomes a label over a rule */
@@ -78,13 +78,13 @@
            color:var(--nav-active);display:block;margin-bottom:8px}
 .dr-bet p{margin:0;font-size:16.5px;line-height:1.55;max-width:70ch}
 .dr-cost{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px}
-.dr-cost div{border:1px solid var(--color-rule);padding:14px 17px}
+.dr-cost div{border:1px solid var(--line-edge);padding:14px 17px}
 .dr-cost .k{font:600 9.5px/1 var(--font-mono);letter-spacing:.13em;text-transform:uppercase;
             display:block;margin-bottom:9px}
-.dr-cost .buys .k{color:var(--color-text-dim)}
-.dr-cost .costs .k{color:var(--color-text-dim)}
+.dr-cost .buys .k{color:var(--text-secondary)}
+.dr-cost .costs .k{color:var(--text-secondary)}
 .dr-cost p{margin:0;font-size:14px;line-height:1.55;max-width:none}
-.dr-num{font-family:var(--font-mono);font-size:13px;color:var(--color-text-dim)}
+.dr-num{font-family:var(--font-mono);font-size:13px;color:var(--text-secondary)}
 @media (max-width:760px){.dr-cost{grid-template-columns:1fr}}
 </style>
 </head>

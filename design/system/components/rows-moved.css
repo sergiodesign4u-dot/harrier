@@ -1,0 +1,22 @@
+/* rows-moved :: ORGANISM
+   READS. Line: --rule-hair.
+   CONTAINS. row-moved.
+   PAGE. design/kit/rows-moved.html   STANDS ON. 5 instances across 5 screens,
+   inside a block in the shift brief.
+
+   THE CONTAINER THE ROW SPLIT ALSO CREATED, and it is the reason the organisms
+   went from 16 to 19 at step 2 rather than to 18. When `.rows--moved .row` became
+   its own component, the list around it became one too: it holds a different row,
+   it does not scroll, and it draws a rule above itself because it sits inside a
+   block rather than filling a zone.
+
+   IT DOES NOT SCROLL, AND THAT IS THE WHOLE DIFFERENCE FROM `rows`. A handover is
+   read from the top in one pass. A scroll box here would hide the last thing that
+   moved behind a scrollbar inside a document that already scrolls. */
+
+.rows-moved{
+  flex: 0 0 auto;
+  overflow: visible;
+  border-top: var(--rule-hair);
+}
+/* NO STATES. */

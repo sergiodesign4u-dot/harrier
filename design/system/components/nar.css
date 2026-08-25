@@ -1,0 +1,47 @@
+/* nar :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-primary, --text-secondary. Geometry: --font-mono,
+   --size-sm, --size-xs, --space-2, --space-3.
+
+   PAGE. design/kit/nar.html
+   STANDS ON. 151 instances across 37 screens, inside `block`, in the case
+   narrative.
+
+   IT IS WHAT CLERK FOUND, IN ORDER. A time and a sentence, repeated: the agent's
+   account of the investigation it already ran. Design principle 2 says Clerk
+   shows its work up to a ceiling, and this is the work; the claims and their
+   sources sit under it, and the depth is one key away rather than on the page.
+   ----------------------------------------------------------------------------
+   IT IS A SLOT TOO: 7 sets of child zones and one computed form. What it carries
+   is a `b`, a `when` and a sentence, in whichever combination the case has.
+
+   THE TIME COLUMN IS 46px AND FIXED, so a column of times reads down rather than
+   ragged. It is `display:inline-block` with a `min-width` rather than a grid
+   cell, because the sentence has to wrap under itself and not into a second
+   column.
+   ---------------------------------------------------------------------------- */
+
+.nar{
+  margin: 0;
+  font-size: var(--size-sm);
+}
+.nar + .nar{ margin-top: var(--space-2) }
+
+.nar b{ font-weight: 600; color: var(--text-primary) }
+
+.nar .when{
+  display: inline-block;
+  min-width: 46px;
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* -- separator. One axis, two values ------------------------------------------
+   Four narrations out of 151 open a second passage and take a gap above them.
+   It is a modifier rather than a margin on the parent, because which line starts
+   a new passage is a fact about the case. */
+.nar--sep{ margin-top: var(--space-3) }
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   A link inside it is `link` and takes its own. */

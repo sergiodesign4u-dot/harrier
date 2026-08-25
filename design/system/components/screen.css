@@ -1,0 +1,55 @@
+/* screen :: ORGANISM, and it contains four
+   READS. Fill: --bg-page. Geometry: the door image, which is a visual rather than
+   a token.
+   CONTAINS. z1, z2, z45, door.
+   PAGE. design/kit/screen.html   STANDS ON. 62 instances across 62 screens: every
+   screen in the product is one.
+
+   IT IS THE COLUMN THE WHOLE PRODUCT LIVES IN. Z1 at the top, Z2 under it, and
+   everything else filling what is left. Three declarations, and the reason it is
+   a component at all is that the shell beside it is a ROW and this is a COLUMN:
+   the documentation panel and the product are siblings, and only one of them
+   stacks.
+
+   THE RENAME IS DONE, and a screen written today writes `class="screen"`. Step 2
+   ruled it and step 6 executed it: all 53 coloured screens carry it and none
+   carries `.wf-screen`. The grey corpus still says `.wf-screen` and always will,
+   because wireframes/ has been frozen since stage 05. It was the largest single
+   row in the rename map and it moved not one pixel.
+
+   -- route. One axis, three values, and all three are about what is inside -----
+   Authenticated 55, door 5, no strip 2. The door form paints a photograph behind
+   everything at z-index -1 with a gradient over it, which is why the rule is HERE
+   rather than on `door`: the image belongs to the whole surface, and the card on
+   top of it keeps its own opaque ground so it stays readable. */
+
+.screen{
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-page);
+}
+
+/* THE ONE PHOTOGRAPH IN THE PRODUCT, and it is on the one surface that is not
+   behind authentication. `isolation:isolate` keeps the negative z-index inside
+   this box rather than sending it behind the page. */
+.screen:has(.door){ position: relative; isolation: isolate }
+.screen:has(.door)::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("../../visuals/door.jpg") center/cover no-repeat;
+  opacity: .78;
+}
+.screen:has(.door)::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--bg-page) 30%, transparent),
+    color-mix(in srgb, var(--bg-page) 72%, transparent));
+}
+/* NO STATES. */

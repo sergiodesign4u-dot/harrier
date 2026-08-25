@@ -1,0 +1,31 @@
+/* frame :: ORGANISM, and it contains two others
+   READS. Fill: --bg-page. Line: --line-record, 2px. Structure: --width-frame.
+   CONTAINS. rail, rail-foot, and a doc or a block between them.
+   PAGE. design/kit/frame.html   STANDS ON. 5 instances across 5 screens.
+
+   THE RECORD THAT LEAVES THE BUILDING. A client summary, an exported log entry:
+   something that will be read by somebody who was not in the room and does not
+   have the console. It is marked as a record on all four sides, and the marking
+   is a FRAME rather than a banner for one measured reason: a banner scrolls away,
+   and somebody arriving by permalink and reading the middle must still know what
+   they are reading.
+
+   `--width-frame` HAD NO CONSUMER IN THE REGISTER. The token was in tokens.css
+   from step 3 and the component that reads it was one of the thirteen the step 2
+   census missed. inventory.md section 13.
+
+   2px, AND IT IS THE FOURTH LINE WIDTH WITH NO TOKEN. The focus ring, the alert
+   toast, the current nav item and this. Whether that is a fourth line token or
+   four component decisions is the open row on the geometry page, and step 9
+   answers it with the count in front of it. */
+
+.frame{
+  width: min(var(--width-frame), 100%);
+  margin: var(--space-5) auto;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--line-record);
+  border-radius: var(--radius-ui);
+  background: var(--bg-page);
+}
+/* NO STATES. The rails inside it carry what they have. */

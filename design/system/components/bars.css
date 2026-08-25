@@ -1,0 +1,67 @@
+/* bars :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink, through currentColor: --text-sev-high, --text-sev-medium,
+   --text-sev-low. Line: --line-edge on the unlit slot. Geometry: nothing but
+   its own three heights.
+
+   PAGE. design/kit/bars.html
+   STANDS ON. 225 instances across 34 screens, always inside `sev` and `sev` is
+   always inside a queue row.
+
+   THE SEVERITY IS SELECTED ON THE DRAWING, NOT ON A CLASS. The markup carries
+   three slots and lights n of them, and :has() counts. That is why the whole
+   ramp landed on 32 screens at stage 06 without one attribute being added to
+   one wireframe, and it is why the copies still hold a structural diff of zero
+   against their grey originals.
+   ----------------------------------------------------------------------------
+   THE :has() MOVED FROM .row TO HERE, and nothing rendered differently.
+   kit.css wrote `.row:has(.bars i:nth-child(3).on) .bars i.on`, which is the
+   same result inside a row and NO result anywhere else: a severity drawn on the
+   shift brief or in a log entry would have come out colourless. A component may
+   not depend on the container it happens to stand in today.
+   ---------------------------------------------------------------------------- */
+
+.bars{
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.bars i{
+  display: block;
+  width: 3px;
+  border: 1px solid var(--line-edge);
+  background: transparent;
+}
+
+/* three slots, three heights, and the height is the second signal after the count */
+.bars i:nth-child(1){ height: 5px }
+.bars i:nth-child(2){ height: 8.5px }
+.bars i:nth-child(3){ height: 12px }
+
+/* THE LIT SLOT TAKES THE COLOUR OF THE WHOLE COMPONENT rather than a fill token
+   of its own, which is why the severity ramp is three roles and not six. */
+.bars i.on{
+  background: currentColor;
+  border-color: currentColor;
+}
+
+/* -- severity, read off the count of lit slots -------------------------------
+   The ramp descends in CHROMA and not in loudness: on a dark ground every value
+   has to clear 4.5:1, so brightness cannot carry it. Warm to cool, and never to
+   green, because a low severity case is not a resolved one. */
+.bars:has(i:nth-child(3).on){ color: var(--text-sev-high) }
+.bars:has(i:nth-child(2).on):not(:has(i:nth-child(3).on)){ color: var(--text-sev-medium) }
+.bars:has(i:nth-child(1).on):not(:has(i:nth-child(2).on)){ color: var(--text-sev-low) }
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   THE UNLIT SLOT IS EXEMPT FROM 1.4.11, AND THE EXEMPTION IS WRITTEN RATHER
+   THAN ASSUMED. --line-edge measures 2.997 against the page, which is below the
+   3:1 that a graphical object required to understand the content must clear.
+   It is allowed because the severity is ALSO IN TEXT, immediately beside it:
+   `sev` renders the bars and then the word, High, Medium or Low, on every one of
+   the 225 instances. 1.4.11 exempts a graphic whose information is available in
+   text, and this is that case rather than an oversight. If the word is ever
+   dropped from `sev`, this line stops being true and the slot needs
+   --line-control. */

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Document</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix dc-. A ZONE THAT FILLS A SCREEN GETS THE FULL COLUMN AND THE TWO THEMES
+   STACK. A document read from the top is the widest thing on this page and halving the bench
+   would document a measure the product does not have. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE SCENE. A smaller but REAL box, never a transform: the type is the product's type at the
+   product's sizes, and the only fiction is the height. */
+.dc-stage{ width:100%; max-width:720px; height:560px; overflow-y:auto;
+           border:var(--rule-edge); background:var(--bg-page) }
+.dc-cap  { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+           margin:var(--space-2) 0 0 }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Document</h1>
+<p class="k-lede"><b>A screen that is a page rather than a console.</b> 5 instances across 5 screens: the log entry, one column, no pane, no list, read from the top.</p>
+<p class="k-note">It is what node 5.4 is, and node 8.1 turned out to be the same situation under a different name. That is why <code>.z4--solo</code> and <code>.z4--entry</code> were collapsed at stage 07 into one rule: <b>the screen is the page</b>, and a column with no pane beside it does not need two names for the same absence.</p>
+<p class="k-note"><b>It was not in the register.</b> Step 2 built the register from a browser census of <b>controls</b>, and a document body has none of its own. <code>docs/inventory.md</code> section 13 has all thirteen that were missed.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A scaled scene, not a diagram.</b> The zones of a document are its sections, and a block drawing of them would say less than the sections do. This is the real markup in a smaller box: real type, real spacing, real ink. The only fiction is the height, which is 560px here and as long as the record in the product.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="dc-stage">
+        <div class="doc">
+          <h1>C-4417 &middot; Larkfield Logistics
+            <span class="stampline">Decided <b>2026-08-22T04:41:12Z</b> &middot; snapshot read 27m before the ruling</span>
+          </h1>
+          <section class="block">
+            <h3>What was decided, and by whom</h3>
+            <p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi. Clerk&rsquo;s verdict, <b>real, contain identity</b>, stands unruled.</p>
+          </section>
+          <section class="block">
+            <h3>The evidence as it stood, 9 signals</h3>
+            <p class="claim"><span class="txt"><span class="tag">identity</span>A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><span class="src">Entra sign in</span></p>
+            <p class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><span class="src">Entra, EDR</span></p>
+          </section>
+          <p class="prov"><b>6 sources</b> queried over <b>24h</b> as it stood: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
+          <section class="block">
+            <h3>The address of this record</h3>
+            <div class="addr"><code>/log/e-88214?as-of=2026-08-22T04:14:05Z</code><a class="btn" href="#anatomy">Copy the address</a></div>
+            <p class="anote">The address is the artefact. Without <code>?as-of</code> it resolves to this entry&rsquo;s own decision time.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+    <p class="dc-cap">the frame around it in the product belongs to frame, not to this</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="dc-stage">
+        <div class="doc">
+          <h1>C-4417 &middot; Larkfield Logistics
+            <span class="stampline">Decided <b>2026-08-22T04:41:12Z</b> &middot; snapshot read 27m before the ruling</span>
+          </h1>
+          <section class="block">
+            <h3>What was decided, and by whom</h3>
+            <p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi. Clerk&rsquo;s verdict, <b>real, contain identity</b>, stands unruled.</p>
+          </section>
+          <section class="block">
+            <h3>The evidence as it stood, 9 signals</h3>
+            <p class="claim"><span class="txt"><span class="tag">identity</span>A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><span class="src">Entra sign in</span></p>
+            <p class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><span class="src">Entra, EDR</span></p>
+          </section>
+          <p class="prov"><b>6 sources</b> queried over <b>24h</b> as it stood: Entra ID, Exchange audit, EDR, proxy, threat intel, tenant baseline.</p>
+          <section class="block">
+            <h3>The address of this record</h3>
+            <div class="addr"><code>/log/e-88214?as-of=2026-08-22T04:14:05Z</code><a class="btn" href="#anatomy">Copy the address</a></div>
+            <p class="anote">The address is the artefact. Without <code>?as-of</code> it resolves to this entry&rsquo;s own decision time.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+    <p class="dc-cap">the frame around it in the product belongs to frame, not to this</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.doc</code><span>the body. A flex column at <code>--space-5</code> between its sections, padded <code>--space-5</code> over <code>--space-4</code>. It owns no scroll of its own: <a href="z4.html">Z4</a> scrolls at the desk and the document scrolls at 360</span></li>
+  <li><code>.doc h1</code><span><code>--size-xl</code> at weight 600 on <code>--leading-tight</code>. One heading, and it names the record rather than the product</span></li>
+  <li><code>h1 .stampline</code><span><b>the stamp line is part of the heading.</b> A block inside the <code>h1</code> at <code>--size-sm</code> in mono and <code>--text-secondary</code>, wrapping anywhere. This is the surface an auditor arrives at months later, and the first thing they need is the identifier they can quote</span></li>
+  <li><code>@media print</code><span>16pt of padding, and nothing else. <code>base.css</code> owns the printed surface; this is the document&rsquo;s share of it, because print is a surface and not a component</span></li>
+  <li>what fills it<span><a href="block.html">block</a>, <a href="claim.html">claim</a>, <a href="prov.html">prov</a>, <a href="addr.html">addr</a>, <a href="anote.html">anote</a> and <a href="tomb.html">tomb</a>. All of them are the case pane&rsquo;s own parts, and that is the point: the record is the same argument read as a page</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">There are none. The empty axes are shown rather than skipped, because two of them were live decisions that closed.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>placement</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Closed at stage 07 step 6.</b> <code>.z4--entry</code> on node 5.4 and <code>.z4--solo</code> on node 8.1 were one situation under two names, and neither was ever a form of this. The context lives on <a href="z4.html">Z4</a> and changes how the children paint</td></tr>
+    <tr><td><b>width</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>The measure belongs to <a href="frame.html">frame</a> at <code>--width-frame</code>, 820px. A document that set its own width would fight the frame around it, and the frame is the thing that says what the reader is holding</td></tr>
+    <tr><td><b>state</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>An entry whose snapshot expired, changed or went missing renders the same document with a <a href="tomb.html">tomb</a> where the evidence was. <b>The record does not change shape because part of it is gone</b>, which is the whole reason it is a record</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">On a log entry, and on any surface that is read rather than worked. If the analyst is deciding something, the surface is <a href="z45.html">the split</a> and the body is <a href="pane-body.html">pane body</a>. If somebody is reading what was already decided, it is this.</p>
+<p class="k-note"><b>Where she meets it.</b> Rarely, and never in a hurry. This is the surface of the main job&rsquo;s last clause, <b>and I can still defend it months later</b>: an auditor, a client asking why, or the analyst herself proving what was known at 04:14 rather than what is known now. It is also the one screen in the product that is designed to be printed.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="doc" style="padding:0"><h1>C-4417 &middot; Larkfield Logistics<span class="stampline">Decided <b>2026-08-22T04:41:12Z</b> &middot; snapshot read 27m before the ruling</span></h1></div></div>
+    <p>The identifier inside the heading. One heading, read once, and the string an auditor quotes is the second line of it.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="doc" style="padding:0"><h1>C-4417 &middot; Larkfield Logistics</h1><p class="stamp">Decided 2026-08-22T04:41:12Z &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p></div></div>
+    <p>Never as a <a href="stamp.html">stamp</a> under the title. <code>stamp</code> is the atom for the line at the <b>foot of a case pane body</b>, where the analyst has already read the argument. On a document it detaches the name of the record from the record and leaves the heading saying less than it knows.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> There are no verdict controls on this page at any width: you cannot rule on the past, and an <code>Accept</code> here would be a second decision wearing the first one&rsquo;s date.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="dc-stage" style="height:240px">
+        <div class="doc">
+          <h1>C-4417 &middot; Larkfield Logistics<span class="stampline">Decided <b>2026-08-22T04:41:12Z</b></span></h1>
+          <section class="block"><h3>What was decided, and by whom</h3><p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead.</p></section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="dc-stage" style="height:240px">
+        <div class="doc">
+          <h1>C-4417 &middot; Larkfield Logistics<span class="stampline">Decided <b>2026-08-22T04:41:12Z</b></span></h1>
+          <section class="block"><h3>What was decided, and by whom</h3><p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead.</p></section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The links and the copy button inside it carry their own states, and the printed rendering is the sixth state of this surface rather than a seventh theme.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the heading, and the reading ink of the whole record</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the stamp line under the title, in mono</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>inherited, never set. The document takes the ground of whatever holds it</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="doc"&gt;
+  &lt;h1&gt;C-4417 &middot; Larkfield Logistics
+    &lt;span class="stampline"&gt;Decided &lt;b&gt;2026-08-22T04:41:12Z&lt;/b&gt;&lt;/span&gt;
+  &lt;/h1&gt;
+  &lt;section class="block"&gt;&hellip;&lt;/section&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../entry.html">the log entry</a>
+  <a href="../entry-changed.html">the snapshot changed</a>
+  <a href="../entry-partial.html">part of it is missing</a>
+  <a href="../entry-gone.html">the source is gone</a>
+  <a href="../entry-beyond-retention.html">beyond retention</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

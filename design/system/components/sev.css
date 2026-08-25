@@ -1,0 +1,43 @@
+/* sev :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-sev-high, --text-sev-medium, --text-sev-low. Geometry:
+   --font-mono, --space-2.
+   CONTAINS. bars, and one word.
+
+   PAGE. design/kit/sev.html
+   STANDS ON. 225 instances across 34 screens, in the severity cell of a queue
+   row and nowhere else.
+
+   IT IS THE SMALLEST MOLECULE IN THE SYSTEM AND IT EARNS THE LEVEL. Two things
+   in a fixed arrangement, and the arrangement is the whole point: the glyph is
+   the glance and the word is the answer. Neither is optional and the order never
+   changes.
+   ----------------------------------------------------------------------------
+   IT COLOURS ITSELF BY READING ITS OWN CHILD, which is the one thing a molecule
+   is allowed to do that an atom is not. `bars` colours its lit slots from
+   currentColor; this sets currentColor for both the slots and the word, so the
+   pair can never disagree about the severity.
+
+   AND IT IS WHY THE UNLIT SLOT IS ALLOWED TO SIT BELOW 3:1. WCAG 1.4.11 exempts
+   a graphic whose information is available in text, and the text is here, on
+   every one of the 225. Drop the word from this file and bars.css stops being
+   correct; the line is in both places for that reason.
+   ---------------------------------------------------------------------------- */
+
+.sev{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+
+/* the ramp descends in chroma rather than in loudness: on a dark ground every
+   value has to clear 4.5:1, so brightness cannot carry it */
+.sev:has(.bars i:nth-child(3).on){ color: var(--text-sev-high) }
+.sev:has(.bars i:nth-child(2).on):not(:has(.bars i:nth-child(3).on)){ color: var(--text-sev-medium) }
+.sev:has(.bars i:nth-child(1).on):not(:has(.bars i:nth-child(2).on)){ color: var(--text-sev-low) }
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   The row around it has a hover and a selected ground. Severity does not change
+   because you pointed at it. */

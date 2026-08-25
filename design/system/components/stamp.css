@@ -1,0 +1,36 @@
+/* stamp :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Line: --rule-hair. Geometry: --font-mono,
+   --size-xs, --space-2.
+
+   PAGE. design/kit/stamp.html
+   STANDS ON. 24 instances across 24 screens, one per case pane, at the foot of
+   the body.
+
+   IT IS THE LINE THAT MAKES THE RECORD DEFENSIBLE. "Filed by Clerk 26m ago" and
+   then the address of the evidence AS IT STOOD: `?as-of=2026-08-22T04:14:05Z`.
+   The main job in CLAUDE.md ends with "and I can still defend it months later",
+   and this component is the part of the interface that has to be true then.
+   Geo and compliance require an append-only log carrying the evidence snapshot
+   at decision time; the stamp is where that requirement becomes a string.
+   ----------------------------------------------------------------------------
+   IT WRAPS ANYWHERE ON PURPOSE. overflow-wrap:anywhere, because the `?as-of`
+   parameter is 27 characters with no space in it and at 360 it left the pane.
+   A timestamp that is cut off is worse than one that breaks in the middle: the
+   first is unusable and the second is merely ugly.
+   ---------------------------------------------------------------------------- */
+
+.stamp{
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+  border-top: var(--rule-hair);
+  padding-top: var(--space-2);
+  overflow-wrap: anywhere;
+}
+
+/* -- NO VARIANTS, AND NO STATES ----------------------------------------------
+   Not interactive. What varies is the sentence, not the component: `Filed by
+   Clerk` on 21 and `Opened by Clerk` on 3, which is voice and lives in
+   microcopy.md. The `b` inside it and the `code` around the address take their
+   form from base.css and from the sentence, not from a modifier here. */

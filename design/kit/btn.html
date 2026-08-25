@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Button</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom &middot; the reference component</p>
+<h1 class="k-title">Button</h1>
+<p class="k-lede">157 instances on 57 screens, and the most interactive thing in the product. The five state tokens of this system were founded on it, which is why this page carries more argument than the sixty one that follow it: every one of them takes hover, active, focus and out of reach already decided.</p>
+<p class="k-note">The button is painted by <code>design/system/components/btn.css</code>, and this page links the same <code>index.css</code> a screen does. It cannot drift from the product, because there is nothing here to drift.</p>
+
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-anat">
+  <a class="btn btn--primary" href="#anatomy" id="a-demo">Accept <span class="key">a</span></a>
+</div>
+<ul class="k-parts">
+  <li><code>.btn</code><span>the control itself. An <code>a</code> 113 times, a <code>button</code> 5 and a <code>span</code> 4, and the class carries all three. What varies is whether the action navigates, submits or is out of reach, and none of that changes the drawing</span></li>
+  <li><code>.btn--primary</code><span>the emphasis modifier. It repaints the ground, the ink and the boundary in one, so nothing about a primary button is decided anywhere else</span></li>
+  <li>text node<span>the label. No class, on purpose: the button has one text zone and a class for it would be a name for the only thing there</span></li>
+  <li><code>.key</code><span>the shortcut. Its own atom, on its own page, and its border follows the button's colour rather than carrying one. This is the zone to edit when a shortcut looks wrong, and it is not part of <code>btn.css</code></span></li>
+</ul>
+<p class="k-note"><b>Nothing else.</b> The product contains zero <code>svg</code> elements, so no button anywhere carries an icon: two thirds of the content axis of the control census is empty, and it is empty by decision. Design principle 5 puts density first, and the four verdict actions already carry a letter, so an icon would be a third signal for one action.</p>
+
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">Two axes and no third. Each carries the rule that picks a value, because a matrix without rules is a table of facts from which the next person invents a reason again. The counts are read off the rendered screens, not off the first declaration in the stylesheet.</p>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>Rendered</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr>
+      <td rowspan="3"><b>emphasis</b></td>
+      <td><code>.btn</code></td><td class="num">65</td>
+      <td><span class="k-cell"><a class="btn" href="#variants">Amend <span class="key">m</span></a></span></td>
+      <td>the default, and most buttons are it. An action that is neither the one main move nor the way back</td>
+    </tr>
+    <tr>
+      <td><code>.btn--primary</code></td><td class="num">53</td>
+      <td><span class="k-cell"><a class="btn btn--primary" href="#variants">Accept <span class="key">a</span></a></span></td>
+      <td><b>one per zone, and never two.</b> It marks the main action of the region it stands in, so a second one in the same foot removes the meaning from both</td>
+    </tr>
+    <tr>
+      <td><code>.btn--quiet</code></td><td class="num">33</td>
+      <td><span class="k-cell"><a class="btn btn--quiet" href="#variants">Cancel <span class="key">Esc</span></a></span></td>
+      <td>the way back out. It stands beside a primary and never alone: a quiet button on its own reads as something disabled</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><b>content</b></td>
+      <td>label</td><td class="num">74</td>
+      <td><span class="k-cell"><a class="btn" href="#variants">Open the queue</a></span></td>
+      <td rowspan="2">not a decision about the button. <b>The key is there when the action has a shortcut</b>, which is a fact about the action, and the empty span collapses by itself</td>
+    </tr>
+    <tr>
+      <td>label + <code>.key</code></td><td class="num">83</td>
+      <td><span class="k-cell"><a class="btn" href="#variants">Reject <span class="key">r</span></a></span></td>
+    </tr>
+    <tr>
+      <td><b>size</b></td>
+      <td class="k-none">no second value</td><td class="num">&ndash;</td>
+      <td class="k-none">prohibited</td>
+      <td><b>The button has one size and gets no other.</b> Density is design principle 5 and the scale already bottoms out at 11px; a place that needs something smaller than this needs a different component, and it has two: <code>chip</code> for a filter and <code>key</code> for a shortcut</td>
+    </tr>
+    <tr>
+      <td><b>width</b></td>
+      <td class="k-none">no full width value</td><td class="num">&ndash;</td>
+      <td class="k-none">belongs to the container</td>
+      <td><b>Full width is a one column container, not a decision about a button.</b> Six buttons run full width at 360 in the pane foot and one does in <code>.out-act</code>, and every one of those rules lives with the container. A <code>.btn--block</code> here would let a button go full width inside a row, where nothing wants it</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p class="k-note"><b>One row of the step 2 register was wrong and writing the component found it.</b> The register listed out of reach, <code>[aria-disabled]</code>, as a fourth value of the emphasis axis. It is not an emphasis: it does not say how loud the action is, it says the action cannot be taken right now, and it can fall on any of the three values above. It is a state, it is in the state block below, and the axis has three values rather than four.</p>
+
+<p class="k-note"><b><code>.btn--primary-narrow</code> is not on this page and will not be.</b> It was the same primary with a viewport twin folded into its name, six instances, and step 2 collapsed it to <code>.btn--primary</code> plus <code>.only-narrow</code>. The product still carries the old name until the reconciliation at step 6 renames the markup, which is why <code>btn.css</code> deliberately holds no rule for it.</p>
+
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">A button is where the analyst <b>rules</b>. Four of them carry the whole main job: <b>Accept</b>, <b>Amend</b>, <b>Reject</b> and <b>Escalate</b> stand in the foot of the detail pane, and between them they are the decision that <code>DESIGN.md</code> and the main job in <code>CLAUDE.md</code> are about. Everything else a button does is secondary: opening the queue, copying an address, sealing a brief, trying again after a write failed.</p>
+<p class="k-note"><b>Where she meets it.</b> Rasha is on the case pane, has read Clerk's verdict, and is deciding. Design principle 3 says the override is one key and it teaches, so <b>every verdict button carries its letter</b> and the letter is the real interface: the pointer is the fallback, not the path. That is why the key is 83 of 157 uses and why hover is deliberately quiet while the focus ring is not.</p>
+
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell">
+      <a class="btn btn--quiet" href="#rules">Cancel <span class="key">Esc</span></a>
+      <a class="btn btn--primary" href="#rules">File the rejection <span class="key">Enter</span></a>
+    </div>
+    <p>Two actions in one foot: one primary and one quiet. The main move is named, the way back is available and does not compete, and the pair reads in one glance without either being read twice.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell">
+      <a class="btn" href="#rules">Open this entry in the log</a>
+    </div>
+    <p>Not for something that only navigates and sits inside running text. That is <b><code>link</code></b>, which takes the ink of whatever encloses it and does not claim a control's boundary. A button here says a decision is being taken when nothing is.</p>
+  </div>
+</div>
+<p class="k-note">Two more, and each names the component that should have been used. <b>A word that reports a condition is <code>state</code>, not a button</b>: <code>escalated</code> and <code>unrecorded</code> are things that are true, not things you press. <b>A shortcut shown on its own is <code>key</code></b>: the keyboard map is 22 keys and no buttons, because none of them is pressable there.</p>
+
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R1.</b> Not more than one <code>.btn--primary</code> <b>per layer</b>, and a foot does not compete with it. A second is allowed only as the viewport twin of the first, or in a modal layer over the screen.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>Nothing in this block is a picture of a state.</b> Every button below is a real one on the same <code>index.css</code> a screen links, and every value in the table is read out of a live element when the page renders. A screenshot of a state is a second copy of the component: it has to be re-taken, it goes stale without saying so, and the first one taken here came back showing a button with <b>no focus ring at all</b>, because focus set from a script does not match <code>:focus-visible</code>. It looked entirely plausible.</p>
+
+<h3 class="k-h2">The bench, both themes, both alive</h3>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <a class="btn" href="#states">Amend <span class="key">m</span></a>
+      <a class="btn btn--primary" href="#states">Accept <span class="key">a</span></a>
+      <a class="btn btn--quiet" href="#states">Cancel <span class="key">Esc</span></a>
+      <span class="btn" aria-disabled="true">File the rejection <span class="key">Enter</span></span>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <a class="btn" href="#states">Amend <span class="key">m</span></a>
+      <a class="btn btn--primary" href="#states">Accept <span class="key">a</span></a>
+      <a class="btn btn--quiet" href="#states">Cancel <span class="key">Esc</span></a>
+      <span class="btn" aria-disabled="true">File the rejection <span class="key">Enter</span></span>
+    </div>
+  </div>
+</div>
+<p class="k-note">Both halves declare their own theme, so the switch in the panel changes the page around them and not them. Neither is a rendering of the other.</p>
+
+<div class="k-gesture">
+  <div><b>Point at one</b><p>hover. The ground moves one step and the boundary rises to the reading ink.</p></div>
+  <div><b>Hold the pointer down</b><p>active. One further step of the same ramp, and the accent presses into its own hue.</p></div>
+  <div><b>Press Tab</b><p>focus-visible. The ring appears for the keyboard and stays away from the mouse.</p></div>
+  <div><b>Try the fourth one</b><p>out of reach. It takes no pointer state at all, which is the state.</p></div>
+</div>
+
+<h3 class="k-h2">What each state resolves to, read off the live element</h3>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>State</th><th>How it is produced</th><th>What it overrides</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><b>rest</b></td><td>nothing</td><td><code>--bg-page</code><br><code>--line-control</code></td>
+        <td><span data-tok="--bg-page" data-theme-read="dark"></span><span data-tok="--line-control" data-theme-read="dark"></span></td>
+        <td><span data-tok="--bg-page" data-theme-read="light"></span><span data-tok="--line-control" data-theme-read="light"></span></td></tr>
+    <tr><td><b>hover</b></td><td>the pointer is on it</td><td><code>--bg-hover</code><br><code>--line-hover</code></td>
+        <td><span data-tok="--bg-hover" data-theme-read="dark"></span><span data-tok="--line-hover" data-theme-read="dark"></span></td>
+        <td><span data-tok="--bg-hover" data-theme-read="light"></span><span data-tok="--line-hover" data-theme-read="light"></span></td></tr>
+    <tr><td><b>active</b></td><td>the pointer is down</td><td><code>--bg-active</code></td>
+        <td><span data-tok="--bg-active" data-theme-read="dark"></span></td>
+        <td><span data-tok="--bg-active" data-theme-read="light"></span></td></tr>
+    <tr><td><b>focus-visible</b></td><td>reached by Tab, never by a click</td><td><code>--color-focus</code>, through <code>--focus-ring</code> in <code>base.css</code></td>
+        <td><span data-tok="--color-focus" data-theme-read="dark"></span></td>
+        <td><span data-tok="--color-focus" data-theme-read="light"></span></td></tr>
+    <tr><td><b>out of reach</b></td><td>nothing. It is a rest form, not a reaction</td><td><code>--opacity-disabled</code></td>
+        <td><span data-tok="--opacity-disabled" data-theme-read="dark"></span></td>
+        <td><span data-tok="--opacity-disabled" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">Every figure above is computed here, not transcribed. A changed token changes this table with it, which is the whole reason there is no picture in this block.</p>
+
+<h3 class="k-h2">Four things the states say, and the fourth changed the product</h3>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Where</th><th>The named difference</th></tr></thead>
+  <tbody>
+    <tr><td><b>hover</b>, everywhere</td><td>The ground alone would not carry it. <code>--bg-hover</code> is 1.05 off the dark page, which is right for a row the width of a pane and far too quiet for a control 120px wide, so <b>the boundary is what you actually see</b>. It is read off the product rather than invented: <code>.z1 .kmap:hover</code> and <code>.toast .t-x:hover</code> both raise the border to the reading ink.</td></tr>
+    <tr><td><b>hover</b>, on <code>.btn--primary</code></td><td><b>The ground does not move.</b> The accent ground is what makes this the one main action of its zone, and taking it off the accent for the length of a pointer pass would spend the product's scarcest signal on the cheapest event. Only the boundary answers, from 1.00 against its own fill to 1.93.</td></tr>
+    <tr><td><b>active</b>, on <code>.btn--primary</code></td><td><b>It presses into its own hue</b>, <code>--amber-600</code>, rather than onto <code>--bg-active</code>, which would read as the action leaving. The one primitive stage 08 added, and the label is what stopped it going deeper: <code>--text-on-action</code> measures 5.03 on it and 4.21 one step further down. <b>Elsewhere <code>:active</code> is the one state the product had nowhere at all</b>, on any control.</td></tr>
+    <tr><td><b>hover</b>, on <code>.btn--quiet</code></td><td><b>This is the variant where hover produces an edge that was not there.</b> At rest the quiet boundary is 1.18, the role declared to carry no meaning, and it is exempt from 1.4.11 because the label at 7.56 is what identifies the control. Under the pointer the edge arrives in full, which is the one moment it is needed.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="k-note"><b>Three answers are the same and are written rather than shown twice.</b> <code>.btn--primary</code> and <code>.btn--quiet</code> focus exactly as the default does: one ring, declared once in <code>base.css</code>, and the 1px outline offset is load bearing rather than decorative, because on the accent ground the ring would otherwise measure 1.00 against the button it surrounds. Neither variant has an out of reach rendering anywhere in the product: all nine instances are a plain <code>.btn</code>. And no button has a visited or a selected state, because a button is not a place.</p>
+
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Grows from</th><th>Where on the button</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td><code>--warm-950</code></td><td>the default ground</td></tr>
+    <tr><td><code>--bg-action</code></td><td>fill</td><td><code>--amber-500</code></td><td>the primary's ground</td></tr>
+    <tr><td><code>--bg-hover</code></td><td>fill</td><td><code>--warm-900</code></td><td>under the pointer, default and quiet only</td></tr>
+    <tr><td><code>--bg-active</code></td><td>fill</td><td><code>--warm-800</code></td><td>pressed, default and quiet only</td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td><code>--warm-50</code></td><td>the label, 14.92</td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td><code>--warm-200</code></td><td>the quiet label, 7.56</td></tr>
+    <tr><td><code>--text-on-action</code></td><td>ink 4.5:1</td><td><code>--amber-950</code></td><td>the primary label, 7.48 on its own plate</td></tr>
+    <tr><td><code>--line-control</code></td><td>line 3:1</td><td><code>--warm-400</code></td><td>the default boundary, 3.98</td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td><code>--warm-850</code></td><td>the quiet boundary, 1.18, and the exemption is written in <code>btn.css</code></td></tr>
+    <tr><td><code>--line-hover</code></td><td>line 3:1</td><td><code>--line-record</code></td><td>the boundary under the pointer and while pressed</td></tr>
+    <tr><td><code>--color-focus</code></td><td>line 3:1</td><td><code>--amber-500</code></td><td>the ring, through <code>base.css</code></td></tr>
+    <tr><td><code>--opacity-disabled</code></td><td>neither</td><td>measured, .54 and .61</td><td>the whole control when it is out of reach</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">Geometry comes straight from primitive with no role in between, because a radius and a padding have nothing a theme could override: <code>--size-md</code>, <code>--font-sans</code>, <code>--radius-ui</code> at zero, <code>--space-2</code> and <code>--space-3</code>.</p>
+
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;a class="btn btn--primary" href="..."&gt;Accept &lt;span class="key"&gt;a&lt;/span&gt;&lt;/a&gt;
+&lt;a class="btn" href="..."&gt;Amend &lt;span class="key"&gt;m&lt;/span&gt;&lt;/a&gt;
+&lt;a class="btn btn--quiet" href="..."&gt;Cancel &lt;span class="key"&gt;Esc&lt;/span&gt;&lt;/a&gt;
+&lt;span class="btn" aria-disabled="true"&gt;File the rejection &lt;span class="key"&gt;Enter&lt;/span&gt;&lt;/span&gt;</div>
+<p class="k-note">The file is <code>design/system/components/btn.css</code>. The out of reach form is a <code>span</code> and not a disabled <code>button</code> on purpose: it is never focusable, so nothing sends the keyboard to a control that cannot answer.</p>
+
+<h3 class="k-h2">Seven places it stands</h3>
+<div class="k-where">
+  <a href="../case.html">the pane foot &middot; 86</a>
+  <a href="../queue-clerk-down.html">.act &middot; 23</a>
+  <a href="../reject.html">a dialog footer &middot; 21</a>
+  <a href="../queue-notice.html">.wrapline &middot; 6</a>
+  <a href="../index-signed-out.html">.doorform &middot; 6</a>
+  <a href="../case-standalone.html">.addr &middot; 5</a>
+  <a href="../shift-outgoing.html">.out-act &middot; 4</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme,
+   and every cell asks the browser what the token resolves to in that probe. This is the
+   same instrument colour.html uses for its contrast table, and it is why a changed token
+   changes the documentation by itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) {                    /* a number, and a swatch would be a lie */
+      wrap.innerHTML = '<code>' + val + '</code>';
+    } else {
+      wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    }
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [
+  { id:'anatomy',  label:'Anatomy' },
+  { id:'variants', label:'Variants' },
+  { id:'use',      label:'When to use it' },
+  { id:'rules',    label:'Rule and anti-rule' },
+  { id:'states',   label:'States' },
+  { id:'tech',     label:'What it reads' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

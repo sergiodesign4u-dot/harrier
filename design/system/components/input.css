@@ -1,0 +1,74 @@
+/* input :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-page. Ink: --text-primary. Line: --rule-control,
+   --line-hover, and --color-focus through base.css. Geometry: --size-md,
+   --font-sans, --leading, --radius-ui, --space-2, --space-3.
+
+   PAGE. design/kit/input.html
+   STANDS ON. 34 instances across 15 screens, always inside a `field`: the
+   rejection reason, the escalation recipient, the client summary draft, the
+   sign in form and the queue's search.
+
+   THREE ROWS OF THE STEP 2 REGISTER ARE ONE COMPONENT, and writing the file is
+   what found it. `input`, `textarea` and `select` were listed separately. The
+   splitting criterion is ANATOMY, meaning the set of child zones and their
+   order, and all three have the SAME anatomy: none at all. What differs is which
+   element the browser needs for the kind of answer being typed, which is a
+   variant axis and not a component boundary. The register itself already treated
+   it as an axis one level up, where `field` carries "control: textarea 21,
+   input 9". Atoms go from 19 to 17 and the register from 62 to 60.
+   ----------------------------------------------------------------------------
+   THE BOUNDARY MOVED, AND IT IS THE ONE APPEARANCE CHANGE IN THIS FILE.
+   kit.css drew it with --color-edge at 2.997 against the page. A text field is
+   identified by NOTHING BUT its boundary: the label sits outside it and an empty
+   field has no content to read. That is precisely what WCAG 1.4.11 asks 3:1 of,
+   and 2.997 is a number that rounds to the threshold and does not meet it, which
+   is a mistake this project has now made three times. It reads --rule-control at
+   3.98 and the row is in tokens-audit.md.
+   ---------------------------------------------------------------------------- */
+
+.input{
+  font: var(--size-md)/var(--leading) var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-page);
+  border: var(--rule-control);
+  border-radius: var(--radius-ui);
+  padding: var(--space-2) var(--space-3);
+  width: 100%;
+}
+
+/* -- control. One axis, three values, AND THE AXIS DECLARES NOTHING -----------
+   There is no rule below this comment and that is the point. `input`, `textarea`
+   and `select` take the single declaration above and differ only in the element,
+   which is the strongest possible argument that they are one component: the
+   drawing is identical and what varies is the kind of answer the browser has to
+   collect.
+
+   input, 9 instances. One line, type text or email.
+   textarea, 21 instances. Its height is `rows` in the markup, 2, 3 or 4
+     depending on whether the answer is a note or a rejection reason. It is
+     markup rather than CSS on purpose: how many lines to offer is a fact about
+     the question being asked, not about the component.
+   select, 4 instances, all of them on the keyboard map. It keeps the NATIVE
+     control rather than being drawn, because a drawn select has to reimplement
+     the popup, the keyboard and the screen reader, and gets one of the three
+     right. It is also the one value of this axis with no coloured rendering
+     anywhere, since the keyboard map keeps its eleven one-off classes and is
+     outside the system until step 6 rules otherwise. */
+
+/* -- STATES ------------------------------------------------------------------
+   No ground move. A field's ground is the page and a plate under it while the
+   pointer passes would read as it being filled in. The boundary answers. */
+.input:hover{ border-color: var(--line-hover) }
+
+/* focus-visible is global, in base.css, and here it is the state that matters
+   most: this is the one component whose whole job is to be typed into, so it is
+   reached by keyboard far more often than by pointer. The ring stands OUTSIDE
+   the boundary at 1px offset and does not replace it, so the field never loses
+   the edge that identifies it while it is being used.
+
+   ACTIVE DOES NOT EXIST. There is no pressed moment: the pointer goes down and
+   the field takes focus, which is a state this file already draws.
+   OUT OF REACH DOES NOT EXIST EITHER. A field that cannot be filled is not
+   shown; where the product has nothing to ask it renders the answer as text.
+   Zero disabled fields in either corpus. */

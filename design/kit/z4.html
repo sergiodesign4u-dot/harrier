@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Z4, the list</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix la-. THE FULL COLUMN AND THE TWO THEMES STACK. A zone that is half of a
+   two monitor console cannot be halved again into an article column and still be the thing
+   the product renders. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE DIAGRAM. A labelled block drawing of the zones, not a picture: the rules are
+   --rule-edge and --rule-hair, the grounds are --bg-page and --bg-quiet, and the pane beside
+   it is at the real --pane-w, which is 320 at 1440 and 380 above 1560. Only the band heights
+   are drawn rather than measured, because
+   the children of this zone have no height token: they are as tall as what is in them. */
+.la-scroll{ width:100%; overflow-x:auto }
+.la-diag  { display:flex; min-width:720px; height:280px; border:var(--rule-edge);
+            background:var(--bg-page) }
+.la-col   { flex:1 1 auto; min-width:0; display:flex; flex-direction:column;
+            border-right:var(--rule-edge) }
+.la-band  { flex:0 0 auto; padding:var(--space-3) var(--space-3);
+            border-bottom:var(--rule-hair); display:flex; flex-wrap:wrap; gap:var(--space-2);
+            align-items:baseline; justify-content:space-between;
+            font:400 var(--size-xs)/1.3 var(--font-mono); color:var(--text-secondary) }
+.la-band b{ font-weight:600; color:var(--text-primary) }
+.la-grow  { flex:1 1 auto; align-content:flex-start; background:var(--bg-quiet) }
+.la-ghost { flex:0 0 var(--pane-w); padding:var(--space-3);
+            font:400 var(--size-xs)/1.5 var(--font-mono); color:var(--text-secondary) }
+.la-cap   { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+            margin:var(--space-2) 0 0 }
+/* A CAPTION THAT IS TRUE AT 1440 AND FALSE AT 360 IS THE CLASS ONLY A BROWSER FINDS. The
+   drawing below is the desk rendering and it does not answer the media query the component
+   answers, because a second copy of a product rule in the stand is where the drift starts.
+   Two captions instead, one per width, and the narrow one says what the drawing is. */
+.la-cd{ }
+.la-cn{ display:none }
+@media (max-width:900px){ .la-cd{ display:none } .la-cn{ display:block } }
+
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism, and it contains another</p>
+<h1 class="k-title">Z4, the list</h1>
+<p class="k-lede"><b>The list half of the split, and the main dashboard of the product.</b> 54 instances across 54 screens, more than any other zone.</p>
+<p class="k-note"><code>CLAUDE.md</code> settles it and does not reopen it: <b>the dashboard is the queue, with the fleet in the pane, and not the other way round.</b> It follows from the choice of primary persona, and it is not reopened without reopening that.</p>
+<p class="k-note"><b>Five modifiers and none of them is a variant.</b> <code>--log</code>, <code>--shift</code>, <code>--entry</code>, <code>--sys</code> and <code>--solo</code> change how the <b>children</b> paint, not how Z4 paints: they are context, and step 2 took all five off the variant list. Z4 itself has one computed form across all nine of its zone sets, measured in the browser.</p>
+<p class="k-note"><b>It scrolls at the desk and the document scrolls at 360.</b> <code>overflow-y:auto</code> here is what makes the <a href="pane-foot.html">pane foot</a> stick and the <a href="scopebar.html">scope bar</a> stay; at 360 the <a href="shell.html">shell</a> stops scrolling and the document takes over, so this releases it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A diagram of the zones, not a scaled scene.</b> Z4 has no fixed size of its own: it is <code>flex:1 1 auto</code> and takes whatever the split leaves it, so a scene at any width would be a picture of one screen rather than of the component. What is real below: the rule on the right edge is <code>--rule-edge</code>, the hairlines are <code>--rule-hair</code>, the grounds are <code>--bg-page</code> and <code>--bg-quiet</code>, and the pane beside it is at the real <code>--pane-w</code>, which is <b>320px at 1440 and 380px above 1560</b>: the pane narrows before the list does, and the queue keeps the sixty pixels. The band heights are drawn, because nothing inside this zone has a height token.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="la-scroll">
+        <div class="la-diag">
+          <div class="la-col">
+            <div class="la-band"><b>scopebar</b><span>which tenants, which filter</span></div>
+            <div class="la-band"><b>readout</b><span>one h1, count first</span></div>
+            <div class="la-band la-grow"><b>rows</b><span>the scroll box, and the head row sticks to it</span></div>
+            <div class="la-band" style="border-bottom:0"><b>qfoot</b><span>the keyboard strip, and the order the list is in</span></div>
+          </div>
+          <div class="la-ghost"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560<br>not this component, and the rule between them is Z4&rsquo;s</div>
+        </div>
+      </div>
+    </div>
+    <p class="la-cap la-cd">border-right is the only thing Z4 paints. Everything else is its children</p>
+    <p class="la-cap la-cn">drawn at the desk. At this width the right rule goes with the pane, and the zone hands its scroll back to the document</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="la-scroll">
+        <div class="la-diag">
+          <div class="la-col">
+            <div class="la-band"><b>scopebar</b><span>which tenants, which filter</span></div>
+            <div class="la-band"><b>readout</b><span>one h1, count first</span></div>
+            <div class="la-band la-grow"><b>rows</b><span>the scroll box, and the head row sticks to it</span></div>
+            <div class="la-band" style="border-bottom:0"><b>qfoot</b><span>the keyboard strip, and the order the list is in</span></div>
+          </div>
+          <div class="la-ghost"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560<br>not this component, and the rule between them is Z4&rsquo;s</div>
+        </div>
+      </div>
+    </div>
+    <p class="la-cap la-cd">border-right is the only thing Z4 paints. Everything else is its children</p>
+    <p class="la-cap la-cn">drawn at the desk. At this width the right rule goes with the pane, and the zone hands its scroll back to the document</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.z4</code><span><code>flex:1 1 auto</code> with <code>min-width:0</code>, a flex column, <code>overflow-y:auto</code>, a <code>--rule-edge</code> on the right and <code>--bg-page</code> behind. Six declarations, and four of them are structure</span></li>
+  <li><code>min-width:0</code><span><b>load bearing.</b> Without it a flex item refuses to shrink below its content, and one long tenant name in one row would widen the list until the pane went off the screen</span></li>
+  <li><code>overflow-y:auto</code><span>the scroll of the desk. It is what gives the sticky things something to be sticky against, and it is released at 360 where the document takes the scroll back</span></li>
+  <li>what fills it<span><a href="scopebar.html">scopebar</a>, <a href="readout.html">readout</a>, <a href="rows.html">rows</a>, <a href="qfoot.html">qfoot</a> on the queue; <a href="brief.html">brief</a> on the shift; <a href="doc.html">doc</a> on a log entry; <a href="outage.html">outage</a> and <a href="banner.html">banner</a> when the console is degraded</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note"><b>None, and the three modifiers below are shown rather than skipped because they look like variants and are not.</b> They change what the children do. Z4 itself renders one computed form on all fifty four screens.</p>
+<p class="k-note"><b>Two of the original five left at stage 09, and they were the two that named a FILLING rather than a form of this box.</b> <code>.z4--log</code> is a variant of the <a class="link" href="queue-list.html">queue list</a> and is <code>.queue-list--log</code> now; <code>.z4--shift</code> was the <a class="link" href="shift-brief.html">shift brief</a> itself and is <code>.shift-brief</code>. What each of them carried was a selector reaching into four components Z4 does not own, which is the shape a composition has when it is written inside a component. The grey corpus keeps the old names, because it is frozen.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>form</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>One computed form across all nine of its zone sets</b>, measured in the browser rather than read off the file. That measurement is what took the three below off the variant list</td></tr>
+    <tr><td rowspan="3"><b>context, and not a variant axis</b></td><td><code>.z4--entry</code></td><td class="num">5</td><td rowspan="2"><b>one situation under two names, collapsed at stage 07 step 6.</b> Node 5.4 and node 8.1 both mean a column with no pane beside it: no right rule, centred content, <b>the screen is the page</b></td></tr>
+    <tr><td><code>.z4--solo</code></td><td class="num">1</td></tr>
+    <tr><td><code>.z4--sys</code></td><td class="num">3</td><td>a systemic state. Same three declarations as the two above: this is a surface with nothing beside it</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">As the left half of <a href="z45.html">the split</a>, on every authenticated screen that has a working column. If a screen has a list, a document or a form, it goes here. If it has one case, that is <a href="z5.html">Z5</a>.</p>
+<p class="k-note"><b>Where she meets it.</b> Six hours a day, and it is the surface her eyes rest on between decisions. That is the whole argument for the density rule: no decorative whitespace, keyboard before mouse, and two hundred rows going past a scope bar that does not move. The zone is what makes the scope bar not move.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><section class="z4" style="overflow:visible;border-right:0"><div class="scopebar"><span class="chip">All tenants</span><span class="chip">Waiting on a decision</span></div><h1 class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></h1></section></div>
+    <p>The queue, scoped and counted. Every line under it is a decision rather than a record, which is design principle 1 and the reason this zone is the dashboard.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><section class="z4" style="overflow:visible;border-right:0"><div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div><a class="frow" href="#rules"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a><a class="frow" href="#rules"><span>Halcyon Care</span><span>Contain endpoint</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a></section></div>
+    <p>Never the fleet here. The fleet is the resting state of <a href="z5.html">Z5</a>, and that is what keeps it out of the navigation and costs it zero taps. Putting it in the working column makes it the dashboard, and <code>CLAUDE.md</code> settles the other way.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> A zone is not a control. What looks like a state of Z4 is always a state of what is in it: an empty queue is <a href="empty.html">empty</a>, a stale one is a <a href="banner.html">banner</a>, and a degraded console is <a href="outage.html">outage</a>.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="la-scroll">
+        <div class="la-diag" style="height:190px">
+          <div class="la-col">
+            <div class="la-band"><b>the zone at rest</b><span>and it has no other</span></div>
+            <div class="la-band la-grow"><b>rows</b><span>whatever is in it carries the state</span></div>
+          </div>
+          <div class="la-ghost"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="la-scroll">
+        <div class="la-diag" style="height:190px">
+          <div class="la-col">
+            <div class="la-band"><b>the zone at rest</b><span>and it has no other</span></div>
+            <div class="la-band la-grow"><b>rows</b><span>whatever is in it carries the state</span></div>
+          </div>
+          <div class="la-ghost"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">Narrow the window past 900 and the right rule goes with the pane, and the zone hands its scroll back to the document. That is the one thing about this component a reader can produce rather than take on trust.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the ground of the whole working column</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line</td><td>the right edge, through <code>--rule-edge</code>. It is the split, drawn once</td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">Two roles, and that is the whole palette of the largest zone in the product. Everything else on the screen belongs to something standing inside it.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;section class="z4" aria-labelledby="qh"&gt;
+  &lt;div class="scopebar"&gt;&hellip;&lt;/div&gt;
+  &lt;h1 id="qh" class="readout"&gt;&hellip;&lt;/h1&gt;
+  &lt;div class="rows" role="grid"&gt;&hellip;&lt;/div&gt;
+  &lt;p class="qfoot"&gt;&hellip;&lt;/p&gt;
+&lt;/section&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">the queue &middot; the base</a>
+  <a href="../shift.html">the shift &middot; 7</a>
+  <a href="../entry.html">a log entry &middot; 5</a>
+  <a href="../unavailable.html">a systemic state &middot; 3</a>
+  <a href="../queue-empty.html">nothing waiting</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

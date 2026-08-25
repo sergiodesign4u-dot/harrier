@@ -1,0 +1,47 @@
+/* shift-brief :: PATTERN
+   ============================================================================
+   BUILT FROM. z4 as its host, and readout, banner, brief, qfoot as its zones.
+   Through brief: banner, block, rows-moved, row-moved, rota, empty.
+   PAGE. design/kit/shift-brief.html
+   STANDS ON. 7 grey screens of 62, all 7 of them already in colour.
+
+   PICKING UP AND HANDING OFF A SHIFT, which is the second of the three jobs in
+   the MVP core. The column carries a counted claim about the handover, then the
+   brief itself, and the keyboard strip stays because the analyst reads this the
+   same way she reads the queue.
+
+   IT IS THE OTHER FILLING OF Z4, and that is what makes it a pattern rather than
+   a variant. The queue list has a scope bar and rows; this has neither and has a
+   brief instead. Zones disappear, so by the anatomy rule of stage 08 the two are
+   different things sharing a host. The two zones they DO share, readout and
+   qfoot, are the reason the handover reads as the same instrument as the queue.
+
+   ONE PAGE TYPE IN THE BLOCK BANK HAD NO REFERENCE ANYWHERE, and it is this one.
+   `ia/docs/blocks.md` names it: for every other page type the composition came
+   from product screenshots opened in session, and for the shift digest the
+   comparison column carries the barrier instead. That is worth knowing before
+   anybody copies this composition somewhere it does not belong.
+
+   WHAT MOVED IN HERE. Two rules out of z4.css, both conditioned on the filling
+   and both naming components z4 does not own.
+
+     z4.css   .z4--shift .brief, .z4--shift .qfoot   at 900
+              .z4--shift .only-narrow                at 900
+
+   The class moved with them: the product wrote this filling as a modifier on the
+   host, `.z4--shift`, which named the host and not the thing. It is `.shift-brief`
+   now on all seven coloured screens, and no pixel moves.
+
+   NO COLOUR IN THIS FILE. A pattern arranges, it does not paint.
+   ============================================================================ */
+
+@media (max-width:900px){
+  /* AT 360 THE HANDOVER IS NOT READ. The shift screen drops the brief and the
+     keyboard strip, and says so in a narrow only line, because the handover is a
+     desk reading and the phone is for a paged case. Hoisted out of this query it
+     hid the whole brief at every width on seven screens, which the comparison
+     against the committed original caught at stage 08. */
+  .shift-brief .brief,
+  .shift-brief .qfoot{ display: none }
+  .shift-brief .only-narrow{ margin: var(--space-4) }
+}

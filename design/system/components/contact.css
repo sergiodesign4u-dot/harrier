@@ -1,0 +1,40 @@
+/* contact :: MOLECULE
+   READS. Ink: --text-primary, --text-secondary. Line: --rule-edge. Geometry:
+   --font-sans, --radius-ui, --size-lg, --size-sm, --leading-tight, --space-2,
+   --space-3.
+   PAGE. design/kit/contact.html   STANDS ON. 3 renderings across 3 screens, and
+   they are the OUTAGE pages rather than the escalate dialog. The header said six
+   across three and named the wrong surface; a reader with clean context counted
+   the class and found three. The other three of the six were `out-contact`, which
+   is a zone of `outage`, merged by a word boundary in the count.
+
+   THE ESCALATE DIALOG CARRIES ITS RECIPIENT UNDER `block--rcpt`, which the
+   inventory records as having no coloured rendering at all. So the component that
+   answers node 4.6 exists and the screen that needs it is still grey.
+
+   WHO THE ESCALATION GOES TO. A name, what they are on for, and how to reach them,
+   in a box of their own because an escalation names a RECIPIENT and the analyst
+   has to be able to read that name back to somebody on a call.
+
+   IT IS WHERE AN OPEN QUESTION LANDS. CLAUDE.md says whether the SOC lead uses the
+   console at all is unanswered, and that node 4.6 depends on the answer because an
+   escalation names a recipient. This component is that answer as currently drawn:
+   it addresses a person read from the rota, and the rota is a system Harrier does
+   not own. If the answer changes, this is the file that changes. */
+
+.contact{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: var(--rule-edge);
+  border-radius: var(--radius-ui);
+}
+.contact .who{
+  font: 600 var(--size-lg)/var(--leading-tight) var(--font-sans);
+  color: var(--text-primary);
+}
+.contact p{ margin: 0; font-size: var(--size-sm) }
+.contact .meta{ color: var(--text-secondary) }
+
+/* NO STATES. It is read and quoted, never pressed. */

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Source</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Source</h1>
+<p class="k-lede">The end of a line of evidence: where it came from. 131 instances across 24 screens, and <b>the second most common thing in the case pane after the claim itself</b>.</p>
+<p class="k-note"><b>It carries the only icon this product really needed.</b> Design principle 5 puts density first and the product read perfectly with none, so each of the three applied icons had to be argued. This is the strongest of the three: an evidence line names its source, and nothing said the source <b>opens somewhere else</b>. It is attached as a CSS mask rather than markup, because <code>wireframes/</code> is frozen and every coloured page holds a structural diff of exactly zero against its grey original.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:48ch">
+        <p style="margin:0;padding:var(--space-2) 0;border-top:var(--rule-hair);display:flex;gap:var(--space-2);align-items:baseline;font-size:var(--size-sm);line-height:var(--leading)"><span style="flex:1 1 auto;min-width:0"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#states" style="flex:0 0 auto">Entra sign in</a></p>
+        <p style="margin:0;padding:var(--space-2) 0;border-top:var(--rule-hair);display:flex;gap:var(--space-2);align-items:baseline;font-size:var(--size-sm);line-height:var(--leading);color:var(--text-secondary)"><span style="flex:1 1 auto;min-width:0"><span class="tag">not found</span>No second signal on this tenant in the same window.</span><span class="src" style="flex:0 0 auto">tenant baseline</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:48ch">
+        <p style="margin:0;padding:var(--space-2) 0;border-top:var(--rule-hair);display:flex;gap:var(--space-2);align-items:baseline;font-size:var(--size-sm);line-height:var(--leading)"><span style="flex:1 1 auto;min-width:0"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#states" style="flex:0 0 auto">Entra sign in</a></p>
+        <p style="margin:0;padding:var(--space-2) 0;border-top:var(--rule-hair);display:flex;gap:var(--space-2);align-items:baseline;font-size:var(--size-sm);line-height:var(--leading);color:var(--text-secondary)"><span style="flex:1 1 auto;min-width:0"><span class="tag">not found</span>No second signal on this tenant in the same window.</span><span class="src" style="flex:0 0 auto">tenant baseline</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.src</code><span>the component. An <code>a</code> 118 times and a <code>span</code> 13, and the difference is real: see below</span></li>
+  <li><code>::after</code><span>the icon. 11px, painted with <code>background: currentColor</code> through a mask, so it takes the ink of the claim rather than carrying a colour</span></li>
+  <li>where it sits<span><b>not this component's.</b> <code>flex: 0 0 auto</code> and the <code>margin-left: auto</code> it takes below 900px belong to <code>claim</code>: where the source lands on the line is the claim's composition, and at 360 the claim wraps and pushes it right</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-lede"><b>One axis, and it changed the drawing this round.</b></p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>element</th><th>Uses</th><th>Rendered</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><code>a.src</code></td><td class="num">118</td>
+        <td><span class="k-cell"><a class="src" href="#variants">Entra sign in</a></span></td>
+        <td>the source can be opened as it stood. It gets the icon, and the icon is a promise</td></tr>
+    <tr><td><code>span.src</code></td><td class="num">13</td>
+        <td><span class="k-cell"><span class="src">tenant baseline</span></span></td>
+        <td><b>the source cannot be opened, and now it does not claim to be.</b> All 13 stand on <code>entry-changed</code> and <code>entry-partial</code>, the two screens whose whole point is that the evidence as it stood is gone or incomplete. They were <b>wearing an icon that promises it opens elsewhere</b>. The icon is on <code>a.src</code> now; zero pixels move on the other 118, and the row is in <code>tokens-audit.md</code></td></tr>
+    <tr><td><b>colour</b></td><td class="num">&ndash;</td><td class="k-none">not a variant</td>
+        <td>18 of the 131 render dim, and that is <code>claim--absence</code> dimming the whole line. Withdrawn as a variant at step 1 after the file was opened, which is the rule about verification before repair doing its job</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">At the end of a claim, naming the system the evidence came out of: <code>Entra sign in</code>, <code>Exchange audit</code>, <code>Entra, EDR</code>, <code>tenant baseline</code>. Design principle 2 says Clerk shows its work up to a ceiling, and an evidence trail alone is table stakes: <b>what earns trust is that the claim names its source and the source is reachable.</b></p>
+<p class="k-note"><b>Where she meets it.</b> On the one surface the whole product exists for, dozens of times a shift. She reads the claim; if she believes it she moves on, and if she does not she opens the source. That second path is the reason this component is a link at all, and it is why the 13 that are not links matter enough to have been found.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><a class="src" href="#rules">Entra sign in</a></div>
+    <p>Name the system, not the URL, and let the icon say it opens away from here. Two or three words, mono, at the end of the line.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="link" href="#rules">Entra sign in</a></div>
+    <p>Not as a plain <b><code>link</code></b>. A link stays inside the product and says nothing about leaving it; the icon is the whole difference, and without it the analyst finds out where she is going by arriving there.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede">Live, in both themes. Point at the source in the first claim, then at the one in the second and watch nothing happen, because the second one is not a link.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:48ch">
+        <p style="margin:0;padding:var(--space-2) 0;border-top:var(--rule-hair);display:flex;gap:var(--space-2);align-items:baseline;font-size:var(--size-sm);line-height:var(--leading)"><span style="flex:1 1 auto;min-width:0"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#states" style="flex:0 0 auto">Entra sign in</a></p>
+        <p style="margin:0;padding:var(--space-2) 0;border-top:var(--rule-hair);display:flex;gap:var(--space-2);align-items:baseline;font-size:var(--size-sm);line-height:var(--leading);color:var(--text-secondary)"><span style="flex:1 1 auto;min-width:0"><span class="tag">not found</span>No second signal on this tenant in the same window.</span><span class="src" style="flex:0 0 auto">tenant baseline</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:48ch">
+        <p style="margin:0;padding:var(--space-2) 0;border-top:var(--rule-hair);display:flex;gap:var(--space-2);align-items:baseline;font-size:var(--size-sm);line-height:var(--leading)"><span style="flex:1 1 auto;min-width:0"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#states" style="flex:0 0 auto">Entra sign in</a></p>
+        <p style="margin:0;padding:var(--space-2) 0;border-top:var(--rule-hair);display:flex;gap:var(--space-2);align-items:baseline;font-size:var(--size-sm);line-height:var(--leading);color:var(--text-secondary)"><span style="flex:1 1 auto;min-width:0"><span class="tag">not found</span>No second signal on this tenant in the same window.</span><span class="src" style="flex:0 0 auto">tenant baseline</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="k-gesture">
+  <div><b>Point at the first</b><p>hover. The underline comes up to reading strength, exactly as on <code>link</code>.</p></div>
+  <div><b>Press Tab</b><p>focus-visible, the ring from <code>base.css</code>.</p></div>
+  <div><b>Point at the second</b><p>nothing, and no icon. It is a span, and the evidence is gone.</p></div>
+</div>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>State</th><th>What it overrides</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><b>rest</b></td><td><code>--text-secondary</code>, on the underline only. <b>The word takes the claim's ink</b></td>
+        <td><span data-tok="--text-secondary" data-theme-read="dark"></span></td>
+        <td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><b>hover</b></td><td><code>--text-hover</code>, on the underline only</td>
+        <td><span data-tok="--text-hover" data-theme-read="dark"></span></td>
+        <td><span data-tok="--text-hover" data-theme-read="light"></span></td></tr>
+    <tr><td><b>focus-visible</b></td><td><code>--color-focus</code>, through <code>base.css</code></td>
+        <td><span data-tok="--color-focus" data-theme-read="dark"></span></td>
+        <td><span data-tok="--color-focus" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The word keeps the claim's ink in every state, and here that matters more than anywhere.</b> 18 of the sources sit inside <code>claim--absence</code>, where Clerk found nothing and the whole line is dimmed. A source that brightened under the pointer would say the absence had stopped being one.</p>
+<p class="k-note"><b>Active and out of reach are absent</b> for the same reasons as on <code>link</code>, and the span form is the product's own answer to the second one: where the evidence cannot be reached, the source is written without a link at all rather than drawn as a disabled one.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<p class="k-note"><b>No colour role of its own.</b> It inherits the ink of the claim, and the icon is painted with <code>currentColor</code>, so it dims when the claim does. Geometry: <code>--font-mono</code> and <code>--size-xs</code>.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;a class="src" href="..."&gt;Entra sign in&lt;/a&gt;
+&lt;span class="src"&gt;tenant baseline&lt;/span&gt;   &lt;!-- the evidence as it stood cannot be opened --&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case.html">.claim in the case narrative &middot; 118</a>
+  <a href="../entry-changed.html">.claim where the evidence is gone &middot; 13</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

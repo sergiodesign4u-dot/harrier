@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Icons</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix i-. Nothing here describes a product class, and nothing
+   here is reused by another stand page, which is why none of it went into
+   _page.css. The one stand-wide thing this page uses is .k-icon, and that stays
+   where it is because the applied trio and the size demo are drawn with it. */
+
+/* ---- a cell: one glyph in its 24 unit square, with whatever annotation the
+   section needs. The svg carries the glyph's stroke width as an ATTRIBUTE set
+   from design/system/icons.js, so the page cannot paint the set at a weight the
+   source does not declare. Every annotation stroke is non-scaling, so a grid
+   line is one device pixel whether the cell is 64px or 288px. */
+.i-cell{ display:block; width:100%; height:auto; background:var(--bg-page);
+         fill:none; stroke-linecap:butt; stroke-linejoin:miter; color:var(--text-primary) }
+.i-cell .i-fine line  { stroke:var(--line-separator); stroke-width:1; vector-effect:non-scaling-stroke }
+.i-cell .i-major line { stroke:var(--line-edge);      stroke-width:1; vector-effect:non-scaling-stroke }
+.i-cell .i-field rect { stroke:var(--line-control);   stroke-width:1; vector-effect:non-scaling-stroke;
+                        stroke-dasharray:4 3 }
+.i-cell .i-box rect   { stroke:var(--text-accent);    stroke-width:1; vector-effect:non-scaling-stroke }
+.i-cell .i-oc circle,
+.i-cell .i-oc line    { stroke:var(--text-accent);    stroke-width:1; vector-effect:non-scaling-stroke }
+.i-cell .i-glyph      { stroke:currentColor }
+/* the failure figure, and it is the only thing on the page painted in it */
+.i-bad .i-field rect  { stroke:var(--text-sev-high) }
+
+/* ---- anatomy: the large cell and the rules beside it ---------------------- */
+.i-anat  { display:flex; gap:var(--space-5); flex-wrap:wrap; align-items:flex-start;
+           border:var(--rule-edge); background:var(--bg-surface);
+           padding:var(--space-5); margin:0 0 var(--space-4) }
+.i-anat > figure{ margin:0; flex:0 1 288px; min-width:200px }
+.i-anat figcaption{ font:400 var(--size-xs)/1.6 var(--font-mono); color:var(--text-secondary);
+                    margin-top:var(--space-3) }
+.i-legend{ list-style:none; margin:var(--space-3) 0 0; padding:0;
+           font:400 var(--size-xs)/1.7 var(--font-mono); color:var(--text-secondary) }
+.i-legend li{ display:flex; align-items:center; gap:var(--space-2) }
+.i-legend i{ display:block; width:22px; height:0; flex:0 0 22px;
+             border-top-width:1px; border-top-style:solid }
+.i-rules { flex:1 1 320px; max-width:76ch; min-width:0; margin:0; padding:0 0 0 var(--space-4);
+           font-size:var(--size-sm); line-height:var(--leading); color:var(--text-secondary) }
+.i-rules li{ margin:0 0 var(--space-3) }
+.i-rules li:last-child{ margin-bottom:0 }
+.i-rules b{ color:var(--text-primary); font-weight:600 }
+.i-rules code{ font-family:var(--font-mono); font-size:.94em }
+
+/* ---- the size and inheritance demos, kept from the page this replaces ----- */
+.i-sizes { display:flex; gap:var(--space-5); align-items:baseline; flex-wrap:wrap; margin:0 }
+.i-sizes div{ text-align:center }
+.i-sizes code{ display:block; font:400 var(--size-xs)/1.6 var(--font-mono); color:var(--text-secondary) }
+.i-inherit{ display:flex; gap:var(--space-5); flex-wrap:wrap; margin:0 }
+.i-inherit span{ font-size:var(--size-sm) }
+
+/* ---- strips of cells ------------------------------------------------------ */
+.i-strip { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+           gap:var(--space-3); margin:0 }
+.i-set   { display:grid; grid-template-columns:repeat(auto-fill,minmax(84px,1fr));
+           gap:var(--space-2); margin:0 0 var(--space-4) }
+.i-strip figure, .i-set figure{ margin:0; border:var(--rule-hair); padding:var(--space-2) }
+.i-strip figcaption, .i-set figcaption{
+           font:400 var(--size-xs)/1.5 var(--font-mono); color:var(--text-secondary);
+           margin-top:var(--space-2); text-align:center; overflow-wrap:anywhere }
+.i-strip figcaption b{ color:var(--text-primary); font-weight:400 }
+
+/* ---- the two audits ------------------------------------------------------- */
+.i-audit { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+           gap:var(--space-4); margin:0 }
+.i-audit > div{ display:flex; gap:var(--space-4); align-items:flex-start }
+.i-audit figure{ margin:0; flex:0 0 108px; width:108px }
+.i-audit dl{ margin:0; font:400 var(--size-xs)/1.7 var(--font-mono); color:var(--text-secondary) }
+.i-audit dt{ color:var(--text-primary) }
+.i-audit dd{ margin:0 }
+.i-audit .i-over{ color:var(--text-sev-high) }
+.i-empty { font-size:var(--size-sm); color:var(--text-secondary) }
+
+/* ---- the weight comparison ------------------------------------------------ */
+.i-weigh { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+           gap:var(--space-4); margin:0 }
+.i-weigh figure{ margin:0 }
+.i-weigh figcaption{ font:400 var(--size-xs)/1.6 var(--font-mono); color:var(--text-secondary);
+                     margin-top:var(--space-2) }
+.i-weigh figcaption b{ color:var(--text-primary); font-weight:400 }
+
+.i-narrow{ max-width:860px }   /* a table of five numeric columns spread over 1180px
+                                  puts a hand's width between a figure and its label */
+.i-stat  { font:400 var(--size-sm)/var(--leading) var(--font-mono);
+           color:var(--text-primary); margin:0 0 var(--space-3);
+           overflow-x:auto }  /* two preformatted rows of figures. At 360 they are
+                                 wider than the column and scroll inside themselves
+                                 rather than pushing the document sideways */
+.i-run   { font:400 var(--size-sm)/1.6 var(--font-mono); background:var(--bg-surface);
+           border:var(--rule-hair); padding:var(--space-3) var(--space-4);
+           overflow-x:auto; white-space:pre; color:var(--text-primary); margin:0 0 var(--space-4) }
+
+@media (max-width:900px){
+  .i-anat{ padding:var(--space-4) }
+  .i-rules{ padding-left:var(--space-4) }
+  .i-audit > div{ flex-wrap:wrap }
+}
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Foundations</p>
+<h1 class="k-title">Icons</h1>
+<p class="k-lede">Sixteen glyphs on a 24 unit grid, written once in <code>design/system/icons.js</code>. <b>Every drawing on this page is built from that file at render time</b>, and so is every number: the boxes, the centres and the two audits below are measured off the rasterised paint when the page loads, not transcribed from anywhere.</p>
+<p class="k-note">This is also the honest page of the five foundations, for two reasons that have not changed. <b>Thirteen of the sixteen stand on no screen at all</b>, and the page says which three do. And the set still exists twice, because a CSS mask cannot read JavaScript: the three applied glyphs are carried a second time as data URIs in the files that use them. That copy is named at the foot of this page and it is now checked rather than trusted.</p>
+
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note">One glyph on the grid it is actually drawn on. The faint lines are the 24 unit modules and the stronger ones every fourth, which is also how the centre of the cell is drawn: 12 is a multiple of 4, so the grid already marks it and a second crosshair on top would read as a thicker grid. The dashed rectangle is the safe field of 2 to 22, and the amber mark is the centre of the ink.</p>
+
+<div class="i-anat">
+  <figure>
+    <div id="i-anatomy-cell"></div>
+    <figcaption id="i-anatomy-cap"></figcaption>
+    <ul class="i-legend">
+      <li><i style="border-color:var(--line-separator)"></i> the module grid, 24 units</li>
+      <li><i style="border-color:var(--line-edge)"></i> every fourth module, and the centre of the cell</li>
+      <li><i style="border-color:var(--line-control);border-top-style:dashed"></i> the safe field, 2 to 22</li>
+      <li><i style="border-color:var(--text-accent)"></i> the centre of the ink</li>
+    </ul>
+  </figure>
+  <ol class="i-rules">
+    <li><b>A 24 unit grid, and one square for all sixteen.</b> The <code>viewBox</code> never changes, so the set is resized by the box and never by redrawing. Three sizes are in use: 24 as the grid itself, <code>.icon</code> at 20 beside 14px text, and <code>.icon--sm</code> at 16 beside 12.5px.</li>
+    <li><b>A 1.5px stroke, declared in one place.</b> <code>HARRIER_ICON_GRID.stroke</code> in <code>icons.js</code>, and every <code>svg</code> on this page takes the number from there as an attribute rather than restating it in CSS. The three glyphs applied to the product do not obey this, and that is the finding at the foot of the page.</li>
+    <li><b>Square terminals: butt caps, miter joins.</b> The product's radius is zero, so a rounded cap would be the only curve anywhere in it. The join matters more than it looks: a miter is what puts paint outside the path at a sharp corner, and it is why one of the two safe field breaches below is on a glyph whose path stays comfortably inside.</li>
+    <li><b><code>currentColor</code>, and no colour of its own.</b> An icon inherits the severity or the accent of whatever it sits in, which is the whole point of a set on a product where colour is scarce.</li>
+    <li><b>Paint stays inside the safe field, 2 to 22.</b> Not the path: the paint. A stroke is centred on the contour, so half of it sits outside, and a rectangle drawn at 2 is already 0.75 over the line. The field keeps a gap between two glyphs set beside each other and stops a glyph touching the edge of a control it sits in. <b id="i-rule5">Measured below.</b></li>
+    <li><b>The centre a glyph is balanced on is the centre of its ink.</b> The centre of the box is arithmetic and the eye does not read it: a glyph whose weight sits low reads low even when its box is centred. The offsets are listed below rather than corrected, because several of them are the correction.</li>
+  </ol>
+</div>
+
+<h3 class="k-h2">The three sizes</h3>
+<div class="i-sizes k-scene" id="i-sizes"></div>
+
+<h3 class="k-h2">And the colour it does not carry</h3>
+<div class="i-inherit k-scene" id="i-inherit"></div>
+
+
+<h2 class="k-h" id="balance">Optical balance</h2>
+<p class="k-note"><b>The box is measured by paint, not by path.</b> Each glyph is stroked onto an offscreen canvas at 20 times scale with the set's own stroke width, butt caps and miter joins, and the box is the extent of every pixel at half coverage or more. That catches what <code>getBBox()</code> cannot: half the stroke standing outside the contour, and a miter standing further out again. The quantum is one twentieth of a unit, so every figure here is good to 0.05.</p>
+<p class="k-note">The solid amber rectangle on each cell below is that measured box, and the dashed one is the safe field. Six glyphs are shown, chosen by the page rather than by hand: the widest, the narrowest, the tallest, the shortest and the two nearest the median area. The full sixteen are in the table.</p>
+
+<div class="k-scene">
+  <div class="i-strip" id="i-balance"></div>
+</div>
+<p class="i-stat" id="i-spread"></p>
+<p class="k-note" id="i-spread-note"></p>
+
+<div class="k-wrap-x i-narrow">
+<table class="k-table">
+  <thead><tr><th>Glyph</th><th>x range</th><th>y range</th><th>Width</th><th>Height</th><th>Area</th><th>Applied</th></tr></thead>
+  <tbody id="i-table"></tbody>
+</table>
+</div>
+
+
+<h2 class="k-h" id="field">Audit: paint crossing the safe field</h2>
+<p class="k-note">Computed when the page renders, against the field declared in <code>icons.js</code>. A breach is not a defect on its own: it means the glyph has no gap left, so it will touch its neighbour or the edge of the control it sits in. The offenders are drawn below with the field in the failure colour and their measured ranges printed.</p>
+<div id="i-field-out"></div>
+<p class="k-note" id="i-field-note"></p>
+<h3 class="k-h2">The closest that do not breach</h3>
+<p class="k-note">An audit that reports nothing has to prove it looked, and one that reports two has to say how close the rest came. The margin is the smallest of the four gaps between the measured box and the field.</p>
+<div class="k-wrap-x i-narrow">
+<table class="k-table">
+  <thead><tr><th>Glyph</th><th>Smallest margin</th><th>On which side</th><th>Measured range there</th></tr></thead>
+  <tbody id="i-margins"></tbody>
+</table>
+</div>
+
+
+<h2 class="k-h" id="centre">Audit: the centre of the ink against the centre of the cell</h2>
+<p class="k-note"><b>This is a list to review, not a verdict.</b> The centre of the ink is the coverage weighted centroid of the painted pixels, which is the closest a computation gets to where the eye puts the weight. An offset means the glyph will sit off centre in a box that centres it arithmetically. Several of these are correct: an arrow that points up carries its head at the top and should, and a bar chart standing on a baseline is heavy at the bottom by construction. What the list is for is the ones with no such reason.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Glyph</th><th>dx</th><th>dy</th><th>Distance</th><th>What the drawing is</th></tr></thead>
+  <tbody id="i-centres"></tbody>
+</table>
+</div>
+<p class="k-note" id="i-centre-note"></p>
+
+
+<h2 class="k-h" id="set">The set, all sixteen</h2>
+<p class="k-note">Each on its own grid with the safe field. Thirteen of these stand on no screen. They exist so the set can be judged as a set, and so that the first icon anyone reaches for is taken from here rather than drawn again. <b>Every icon added to the product is a decision with no wireframe behind it</b>, which is exactly the class of thing that drifts if it is not settled once.</p>
+<div class="i-set" id="i-set"></div>
+<p class="k-note"><b>The product contains zero <code>svg</code> elements across all 62 screens</b>, confirmed by grep and recorded in <code>docs/inventory.md</code> section 5. Two thirds of the content axis of the control census is therefore empty: no control anywhere carries an icon before its label, and none carries an icon alone.</p>
+
+
+<h2 class="k-h" id="applied">Three are applied, and each one had to earn its space</h2>
+<p class="k-note">Design principle 5 puts density first and the product read perfectly with none, so adding an icon had to be argued rather than assumed. These three are attached as <b>CSS masks rather than markup</b>, and that is not convenience: <code>wireframes/</code> is frozen and every coloured page holds a structural diff of exactly zero against its grey original. An <code>svg</code> element on a screen would end that. A mask paints the glyph with <code>background:currentColor</code>, so the icon still inherits whatever it sits in.</p>
+
+<div class="k-scene">
+  <div class="i-strip" id="i-applied"></div>
+</div>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Glyph</th><th>On</th><th>Uses</th><th>Why it earned the space</th></tr></thead>
+  <tbody>
+    <tr><td><code>source</code></td><td><code>.src::after</code></td><td>131 on 24 pages</td><td>the strongest case in the product: an evidence line names its source, and nothing said the source <b>opens somewhere else</b></td></tr>
+    <tr><td><code>expand</code></td><td><code>.expand::before</code></td><td>27 on 23 pages</td><td>design principle 2 is cheapest correct thing first, depth one key away, and depth had no mark on it at all</td></tr>
+    <tr><td><code>keyboard</code></td><td><code>.kmap</code> in Z1</td><td>1 per screen</td><td>it rendered a literal question mark, the one glyph in the shell that says nothing about what it opens. The accessible name is already Keyboard map, so replacing the visible character loses nothing</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Not applied, and the reasons are the argument rather than an omission.</b> The four verdict actions already carry a keyboard letter, so an icon would be a third signal for one action. The six state chips are words that are already the shortest form of themselves. Severity is a count of bars and a colour and does not need a third. And an icon on a banner or an empty state would be decoration on a surface that exists to be read once and left.</p>
+
+
+<h2 class="k-h" id="source">One source, and the copy that cannot read it</h2>
+<p class="k-note">The sixteen live in <code>design/system/icons.js</code> as an ordered list of primitives: a path keeps its <code>d</code> string, a rect its four numbers, a circle its three. They are not flattened to path data, because four of the sixteen are drawn with a rect or a circle and so are the masks, and flattening would make every comparison below report a difference in the text where there is none in the drawing.</p>
+<p class="k-note"><b>The second copy is real and it is named here rather than hidden.</b> A CSS mask takes a data URI and cannot read a JavaScript object, so <code>source</code>, <code>expand</code> and <code>keyboard</code> are written again: once in <code>design/kit/kit.css</code>, and once more in the component file that uses each one as that component is written. Nothing renders the two side by side, so a correction made to one would leave the other on the old geometry and no page would look wrong. What replaces trust is a check:</p>
+<div class="i-run">node design/kit/checks/icons.mjs</div>
+<p class="k-note">It decodes every mask data URI it finds in <code>kit.css</code> and in every component file, parses the SVG back into the same primitives, and compares them character for character. It carries no table of which mask ought to be which glyph: each one is matched against the whole set, so a mask that matches nothing is reported as an unregistered glyph rather than passing quietly. <b>The run against the current files matches all three on geometry and finds no unregistered mask.</b> It finds the stroke instead.</p>
+
+<h3 class="k-h2">Finding: the same glyph is two weights</h3>
+<p class="k-note"><b><code>.icon</code> in <code>design/kit/kit.css</code> and <code>.k-icon</code> in <code>design/kit/_page.css</code> both declare <code>stroke-width: 1.5</code>. Every mask data URI declares <code>stroke-width="1.8"</code>.</b> Those two rules are the only stroke widths written as CSS anywhere under <code>design/</code>, and the 1.8 has no comment beside it in any file that carries it and no row in <code>DESIGN.md</code>. The geometry agrees exactly, character for character, so this is not a drawing that drifted: it is one drawing painted 20 per cent heavier in the product than on the stand that documents it.</p>
+
+<div class="k-scene">
+  <div class="i-weigh" id="i-weigh"></div>
+</div>
+<p class="k-note" id="i-weigh-note"></p>
+
+<div class="k-wrap-x i-narrow">
+<table class="k-table">
+  <thead><tr><th>Where</th><th>Box</th><th>Declared stroke</th><th>Painted at</th></tr></thead>
+  <tbody id="i-effective"></tbody>
+</table>
+</div>
+<p class="k-note">The check names the files each mask stands in, so the table above does not: it names the selector, which does not move. The box sizes are read from <code>design/kit/kit.css</code>: the mask sits in a square element with <code>no-repeat center/contain</code>, so a 24 unit stroke lands on the screen scaled by the box. <b>The column on the right is that arithmetic, computed in this page.</b> It is what makes the difference more than a number in a file: the keyboard glyph is a 16px box in the shell, and <code>.icon--sm</code> is also 16px, so the same glyph at the same size is 1.20px in the product and 1.00px on this page.</p>
+
+<h3 class="k-h2">Recommendation</h3>
+<p class="k-note"><b>Bring the masks to 1.5 and check what breaks, rather than raising the set to 1.8.</b> Three reasons, in order. The set is sixteen glyphs and the masks are three, so 1.5 is the majority and the documented value. The 1.8 makes the one safe field breach in the applied trio worse, not better: <span id="i-kb-worse"></span>. And the likely reason for 1.8, which is that a 1.5 stroke in an 11px box lands at <span id="i-src-thin"></span> and goes grey on a 1x display, is a case for a hinted small size in the set rather than for a second weight nobody wrote down. <b>Nothing here changes the product masks.</b> This page reports; the change is a decision with its own line in <code>docs/decisions.md</code>.</p>
+
+</main>
+</div>
+
+<script src="../system/icons.js"></script>
+<script>
+window.NAV_SECTIONS = [
+  { id:'anatomy', label:'Anatomy' },
+  { id:'balance', label:'Optical balance' },
+  { id:'field',   label:'Audit: the safe field' },
+  { id:'centre',  label:'Audit: the centre' },
+  { id:'set',     label:'The set, all sixteen' },
+  { id:'applied', label:'Three applied' },
+  { id:'source',  label:'One source, one copy' }
+];
+
+/* ============================================================================
+   EVERY NUMBER ON THIS PAGE IS MEASURED HERE, AND EVERY DRAWING IS BUILT HERE.
+   Nothing below transcribes a figure and no glyph is written as markup: the
+   source is design/system/icons.js and it is loaded above.
+
+   THE MEASUREMENT. getBBox() returns the box of the PATH, and a stroke is
+   centred on the path, so half of it stands outside and a miter at a sharp
+   corner stands further out again. Both of those are exactly what a safe field
+   audit is about, so the box is taken off the PAINT instead: the glyph is
+   stroked onto an offscreen canvas at 20 times scale with the set's own stroke,
+   caps and joins, and the extent is read out of the pixels. A pixel counts
+   towards the box at half coverage or more, which puts the boundary on the true
+   edge of an antialiased stroke; the centroid weights every pixel by its
+   coverage instead, because there the partial pixels are part of the mass.
+   Quantum: one twentieth of a unit, so every figure is good to 0.05.
+   ============================================================================ */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var ICONS = window.HARRIER_ICONS, ORDER = window.HARRIER_ICON_ORDER, G = window.HARRIER_ICON_GRID;
+  var SAFE = G.safe, N = G.grid, SW = G.stroke;
+
+  /* ---- drawing ----------------------------------------------------------- */
+
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function shapeEl(s) {
+    if (s.d) return el('path', { d: s.d });
+    if (s.rect) return el('rect', { x: s.rect[0], y: s.rect[1], width: s.rect[2], height: s.rect[3] });
+    if (s.circle) return el('circle', { cx: s.circle[0], cy: s.circle[1], r: s.circle[2] });
+    return el('path', { d: '' });
+  }
+  /* opts: grid, field, box, centres, stroke (override, for the weight comparison) */
+  function cell(name, opts) {
+    opts = opts || {};
+    var svg = el('svg', { viewBox: '0 0 ' + N + ' ' + N, 'aria-hidden': 'true', 'class': 'i-cell' });
+    if (opts.grid) {
+      var fine = el('g', { 'class': 'i-fine' }), major = el('g', { 'class': 'i-major' }), i;
+      for (i = 1; i < N; i++) {
+        (i % 4 ? fine : major).appendChild(el('line', { x1: i, y1: 0, x2: i, y2: N }));
+        (i % 4 ? fine : major).appendChild(el('line', { x1: 0, y1: i, x2: N, y2: i }));
+      }
+      svg.appendChild(fine); svg.appendChild(major);
+    }
+    if (opts.field) {
+      var f = el('g', { 'class': 'i-field' });
+      f.appendChild(el('rect', { x: SAFE[0], y: SAFE[0],
+                                 width: SAFE[1] - SAFE[0], height: SAFE[1] - SAFE[0] }));
+      svg.appendChild(f);
+    }
+    if (opts.box) {
+      var m = MEAS[name], b = el('g', { 'class': 'i-box' });
+      b.appendChild(el('rect', { x: m.x0, y: m.y0, width: m.w, height: m.h }));
+      svg.appendChild(b);
+    }
+    var g = el('g', { 'class': 'i-glyph', 'stroke-width': opts.stroke || SW });
+    ICONS[name].shapes.forEach(function (s) { g.appendChild(shapeEl(s)); });
+    svg.appendChild(g);
+    if (opts.centres) {
+      /* no crosshair for the centre of the CELL: 12 is a multiple of 4, so the major
+         grid already draws both of its lines and a second pair on top of them reads
+         as a thicker grid rather than as a mark */
+      var c = MEAS[name], oc = el('g', { 'class': 'i-oc' });
+      oc.appendChild(el('circle', { cx: c.cx, cy: c.cy, r: 1.1 }));
+      oc.appendChild(el('line', { x1: c.cx - 2, y1: c.cy, x2: c.cx + 2, y2: c.cy }));
+      oc.appendChild(el('line', { x1: c.cx, y1: c.cy - 2, x2: c.cx, y2: c.cy + 2 }));
+      svg.appendChild(oc);
+    }
+    return svg;
+  }
+  function figure(name, opts, caption) {
+    var f = document.createElement('figure');
+    f.appendChild(cell(name, opts));
+    var c = document.createElement('figcaption');
+    c.innerHTML = caption;
+    f.appendChild(c);
+    return f;
+  }
+
+  /* ---- measurement -------------------------------------------------------- */
+
+  var S = 20, PX = N * S;
+  var cv = document.createElement('canvas'); cv.width = PX; cv.height = PX;
+  var ctx = cv.getContext('2d', { willReadFrequently: true });
+
+  function measure(name, stroke) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, PX, PX);
+    ctx.setTransform(S, 0, 0, S, 0, 0);
+    ctx.lineWidth = stroke || SW;
+    ctx.lineCap = G.cap; ctx.lineJoin = G.join; ctx.miterLimit = 4;
+    ctx.strokeStyle = '#000';
+    ICONS[name].shapes.forEach(function (s) {
+      var p = new Path2D();
+      if (s.d) p.addPath(new Path2D(s.d));
+      else if (s.rect) p.rect(s.rect[0], s.rect[1], s.rect[2], s.rect[3]);
+      else if (s.circle) p.arc(s.circle[0], s.circle[1], s.circle[2], 0, Math.PI * 2);
+      ctx.stroke(p);
+    });
+    var d = ctx.getImageData(0, 0, PX, PX).data;
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9, wsum = 0, sx = 0, sy = 0, x, y, a;
+    for (y = 0; y < PX; y++) for (x = 0; x < PX; x++) {
+      a = d[(y * PX + x) * 4 + 3];
+      if (!a) continue;
+      wsum += a; sx += a * (x + 0.5); sy += a * (y + 0.5);
+      if (a > 127) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    }
+    var r = {
+      x0: (x0) / S, x1: (x1 + 1) / S, y0: (y0) / S, y1: (y1 + 1) / S,
+      cx: (sx / wsum) / S, cy: (sy / wsum) / S
+    };
+    r.w = r.x1 - r.x0; r.h = r.y1 - r.y0; r.area = r.w * r.h;
+    r.dx = r.cx - N / 2; r.dy = r.cy - N / 2;
+    r.margin = Math.min(r.x0 - SAFE[0], SAFE[1] - r.x1, r.y0 - SAFE[0], SAFE[1] - r.y1);
+    return r;
+  }
+
+  var MEAS = {};
+  ORDER.forEach(function (n) { MEAS[n] = measure(n); });
+
+  /* ---- formatting --------------------------------------------------------- */
+
+  var n2 = function (v) { return (Math.round(v * 100) / 100).toFixed(2); };
+  /* n2 rounds to two places, so a value of -0.002 must not print as -0.00 */
+  var sgn = function (v) { var t = n2(Math.abs(v)); return (t === '0.00' ? ' ' : v >= 0 ? '+' : '−') + t; };
+  function median(a) {
+    var s = a.slice().sort(function (p, q) { return p - q; });
+    return s.length % 2 ? s[(s.length - 1) / 2] : (s[s.length / 2 - 1] + s[s.length / 2]) / 2;
+  }
+  function td(html, cls) { return '<td' + (cls ? ' class="' + cls + '"' : '') + '>' + html + '</td>'; }
+
+  /* ---- anatomy ------------------------------------------------------------ */
+
+  var ANAT = 'accept', am = MEAS[ANAT];
+  document.getElementById('i-anatomy-cell')
+          .appendChild(cell(ANAT, { grid: true, field: true, centres: true }));
+  document.getElementById('i-anatomy-cap').innerHTML =
+    '<b>' + ANAT + '</b>, one path and nothing else. Paint ' + n2(am.x0) + ' to ' + n2(am.x1) +
+    ' across and ' + n2(am.y0) + ' to ' + n2(am.y1) + ' down, so it clears the field by ' +
+    n2(am.margin) + ' at its tightest. The ink sits ' + n2(Math.abs(am.dy)) +
+    ' below the centre of the cell, which is the elbow of the tick carrying the weight.';
+
+  /* the three sizes, drawn with the stand's own .k-icon so the class this page
+     documents is the class this page is showing */
+  var SIZES = [[24, 'the grid'], [20, '.icon, beside 14px text'], [16, '.icon--sm, beside 12.5px']];
+  var sizeBox = document.getElementById('i-sizes');
+  SIZES.forEach(function (s) {
+    var d = document.createElement('div');
+    var svg = el('svg', { viewBox: '0 0 ' + N + ' ' + N, 'aria-hidden': 'true', 'class': 'k-icon' });
+    svg.style.width = s[0] + 'px'; svg.style.height = s[0] + 'px';
+    ICONS[ANAT].shapes.forEach(function (sh) { svg.appendChild(shapeEl(sh)); });
+    d.appendChild(svg);
+    var c = document.createElement('code');
+    c.innerHTML = s[0] + 'px<br>' + s[1] + '<br>stroke lands at ' + n2(SW * s[0] / N) + 'px';
+    d.appendChild(c);
+    sizeBox.appendChild(d);
+  });
+
+  var INHERIT = [['--text-sev-high', 'inherits severity high'],
+                 ['--text-accent', 'inherits the accent'],
+                 ['--text-secondary', 'inherits secondary ink']];
+  var inhBox = document.getElementById('i-inherit');
+  INHERIT.forEach(function (r) {
+    var s = document.createElement('span');
+    s.style.color = 'var(' + r[0] + ')';
+    var svg = el('svg', { viewBox: '0 0 ' + N + ' ' + N, 'aria-hidden': 'true', 'class': 'k-icon' });
+    ICONS.latitude.shapes.forEach(function (sh) { svg.appendChild(shapeEl(sh)); });
+    s.appendChild(svg);
+    s.appendChild(document.createTextNode(' ' + r[1]));
+    inhBox.appendChild(s);
+  });
+
+  /* ---- optical balance ---------------------------------------------------- */
+
+  var byW = ORDER.slice().sort(function (a, b) { return MEAS[a].w - MEAS[b].w; });
+  var byH = ORDER.slice().sort(function (a, b) { return MEAS[a].h - MEAS[b].h; });
+  var byA = ORDER.slice().sort(function (a, b) { return MEAS[a].area - MEAS[b].area; });
+  var mid = byA.length >> 1;
+  var picks = [], seen = {};
+  [byW[byW.length - 1], byW[0], byH[byH.length - 1], byH[0], byA[mid - 1], byA[mid]]
+    .forEach(function (n) { if (!seen[n]) { seen[n] = 1; picks.push(n); } });
+
+  var bal = document.getElementById('i-balance');
+  picks.forEach(function (n) {
+    var m = MEAS[n];
+    bal.appendChild(figure(n, { field: true, box: true },
+      '<b>' + n + '</b><br>' + n2(m.w) + ' × ' + n2(m.h)));
+  });
+
+  var ws = ORDER.map(function (n) { return MEAS[n].w; });
+  var hs = ORDER.map(function (n) { return MEAS[n].h; });
+  document.getElementById('i-spread').textContent =
+    'width   min ' + n2(Math.min.apply(null, ws)) + '   max ' + n2(Math.max.apply(null, ws)) +
+    '   median ' + n2(median(ws)) + '   spread ' + n2(Math.max.apply(null, ws) - Math.min.apply(null, ws)) +
+    '\nheight  min ' + n2(Math.min.apply(null, hs)) + '   max ' + n2(Math.max.apply(null, hs)) +
+    '   median ' + n2(median(hs)) + '   spread ' + n2(Math.max.apply(null, hs) - Math.min.apply(null, hs));
+  document.getElementById('i-spread').style.whiteSpace = 'pre';
+
+  /* the body of the set: how many sit within half a unit of the median on BOTH axes.
+     Counted, because a count asserted in prose is the first thing to go stale. */
+  var mw = median(ws), mh = median(hs);
+  var body = ORDER.filter(function (n) {
+    return Math.abs(MEAS[n].w - mw) <= 0.5 && Math.abs(MEAS[n].h - mh) <= 0.5;
+  });
+  var widest2 = [byW[byW.length - 1], byW[byW.length - 2]];
+  var breach2 = ORDER.filter(function (n) { return MEAS[n].margin < 0; });
+  var sameTwo = breach2.length === 2 && widest2.indexOf(breach2[0]) > -1 && widest2.indexOf(breach2[1]) > -1;
+
+  document.getElementById('i-spread-note').innerHTML =
+    'The set is not one box and it should not be. The widest, <code>' + byW[byW.length - 1] +
+    '</code> at ' + n2(MEAS[byW[byW.length - 1]].w) + ', is ' +
+    n2(MEAS[byW[byW.length - 1]].w - MEAS[byW[0]].w) + ' wider than the narrowest, <code>' + byW[0] +
+    '</code> at ' + n2(MEAS[byW[0]].w) + '. In height the range runs from <code>' + byH[0] +
+    '</code> at ' + n2(MEAS[byH[0]].h) + ' to <code>' + byH[byH.length - 1] + '</code> at ' +
+    n2(MEAS[byH[byH.length - 1]].h) + '. <b>The set has a body and a few deliberate outliers ' +
+    'rather than sixteen sizes.</b> The median is ' + n2(mw) + ' by ' + n2(mh) + ', and ' +
+    body.length + ' of the ' + ORDER.length + ' sit within half a unit of it on both axes: ' +
+    body.map(function (n) { return '<code>' + n + '</code>'; }).join(', ') + '. ' +
+    'The shortest is <code>' + byH[0] + '</code>, a chevron, which is meant to read as a line and ' +
+    'not as a square. ' + (sameTwo
+      ? 'The two widest, <code>' + widest2[0] + '</code> and <code>' + widest2[1] +
+        '</code>, are the same two the next section reports for putting paint outside the safe field, ' +
+        'which is what a set losing its width control looks like before anything looks wrong.'
+      : 'The widest are <code>' + widest2[0] + '</code> and <code>' + widest2[1] + '</code>.');
+
+  var tbody = document.getElementById('i-table');
+  ORDER.forEach(function (n) {
+    var m = MEAS[n], tr = document.createElement('tr');
+    tr.innerHTML =
+      td('<code>' + n + '</code>') +
+      td(n2(m.x0) + ' to ' + n2(m.x1), 'num' + (m.x0 < SAFE[0] || m.x1 > SAFE[1] ? ' k-fail' : '')) +
+      td(n2(m.y0) + ' to ' + n2(m.y1), 'num' + (m.y0 < SAFE[0] || m.y1 > SAFE[1] ? ' k-fail' : '')) +
+      td(n2(m.w), 'num') + td(n2(m.h), 'num') + td(n2(m.area), 'num') +
+      td(ICONS[n].applied ? '<code>' + ICONS[n].applied + '</code>' : '<span class="k-exempt">no</span>');
+    tbody.appendChild(tr);
+  });
+
+  /* ---- audit 1: the safe field -------------------------------------------- */
+
+  var breaches = ORDER.filter(function (n) { return MEAS[n].margin < 0; });
+  var out = document.getElementById('i-field-out');
+  if (!breaches.length) {
+    out.innerHTML = '<p class="i-empty">No glyph in the set puts paint outside the field. ' +
+                    'The closest are listed below with their margins.</p>';
+  } else {
+    var wrap = document.createElement('div');
+    wrap.className = 'i-audit i-bad k-scene';
+    breaches.forEach(function (n) {
+      var m = MEAS[n], d = document.createElement('div');
+      var f = document.createElement('figure');
+      f.appendChild(cell(n, { field: true }));
+      d.appendChild(f);
+      var over = [];
+      if (m.x0 < SAFE[0]) over.push('left by ' + n2(SAFE[0] - m.x0));
+      if (m.x1 > SAFE[1]) over.push('right by ' + n2(m.x1 - SAFE[1]));
+      if (m.y0 < SAFE[0]) over.push('top by ' + n2(SAFE[0] - m.y0));
+      if (m.y1 > SAFE[1]) over.push('bottom by ' + n2(m.y1 - SAFE[1]));
+      var dl = document.createElement('dl');
+      dl.innerHTML = '<dt>' + n + '</dt>' +
+        '<dd>x ' + n2(m.x0) + ' to ' + n2(m.x1) + '</dd>' +
+        '<dd>y ' + n2(m.y0) + ' to ' + n2(m.y1) + '</dd>' +
+        '<dd class="i-over">over: ' + over.join(', ') + '</dd>';
+      d.appendChild(dl);
+      wrap.appendChild(d);
+    });
+    out.appendChild(wrap);
+  }
+
+  var WHY = {
+    keyboard: 'the rect is drawn <b>on</b> the field at x 2, and a 1.5 stroke centred on that line puts 0.75 outside it on each side. The path obeys the rule and the paint does not, which is the whole reason the rule is written about paint.',
+    filter: 'the path stays well inside, x 3 to 21 and y 5 to 21, and the <b>miter</b> puts it out: three corners of the funnel are sharp enough that the join extends past half the stroke, on the left, on the right and at the point. Nothing in the path data suggests it.'
+  };
+  document.getElementById('i-field-note').innerHTML = breaches.length
+    ? '<b>' + breaches.length + ' of ' + ORDER.length + ' breach the field, and the two do it for different reasons.</b> ' +
+      breaches.map(function (n) { return '<code>' + n + '</code>: ' + (WHY[n] || 'measured above.'); }).join(' ') +
+      ' <b>Neither is fixed here.</b> <code>keyboard</code> is applied to the product and changing its geometry means changing the mask data URI as well, which is a decision with its own line; <code>filter</code> stands on no screen, so the cost of leaving it is a note rather than a defect.'
+    : 'Nothing breaches the field.';
+
+  var mtb = document.getElementById('i-margins');
+  ORDER.filter(function (n) { return MEAS[n].margin >= 0; })
+       .sort(function (a, b) { return MEAS[a].margin - MEAS[b].margin; })
+       .slice(0, 6)
+       .forEach(function (n) {
+    var m = MEAS[n];
+    var sides = [['left', m.x0 - SAFE[0], 'x0 at ' + n2(m.x0)],
+                 ['right', SAFE[1] - m.x1, 'x1 at ' + n2(m.x1)],
+                 ['top', m.y0 - SAFE[0], 'y0 at ' + n2(m.y0)],
+                 ['bottom', SAFE[1] - m.y1, 'y1 at ' + n2(m.y1)]];
+    sides.sort(function (a, b) { return a[1] - b[1]; });
+    var tr = document.createElement('tr');
+    tr.innerHTML = td('<code>' + n + '</code>') + td(n2(m.margin), 'num') +
+                   td(sides[0][0]) + td(sides[0][2], 'num');
+    mtb.appendChild(tr);
+  });
+
+  /* ---- audit 2: the centre ------------------------------------------------ */
+
+  var SHAPE = {
+    escalate: 'an arrow pointing up. The head is at the top and the ink follows it',
+    latitude: 'bars standing on a baseline. Heavy at the bottom by construction',
+    fleet: 'three columns standing on a baseline, and the same case as latitude',
+    filter: 'a funnel: wide at the top, a stem at the bottom',
+    accept: 'a tick. The long arm rises to the right and the mass gathers at the elbow',
+    file: 'a sheet with a folded corner, taller than it is wide',
+    'case': 'a card with a head rule. The rule adds ink to the top half',
+    evidence: 'a shield: full at the shoulders, tapering to a point',
+    window: 'a frame with a clock hand inside it',
+    log: 'a square with three rules in the upper half',
+    shift: 'a circle with a hand. Symmetrical apart from the hand',
+    amend: 'a pencil on the diagonal',
+    reject: 'two crossed strokes, symmetrical on both axes',
+    source: 'a box with an arrow leaving the top right corner',
+    expand: 'a chevron pointing down',
+    keyboard: 'a wide frame with two rows of keys'
+  };
+  var ctb = document.getElementById('i-centres');
+  var ranked = ORDER.slice().sort(function (a, b) {
+    return Math.hypot(MEAS[b].dx, MEAS[b].dy) - Math.hypot(MEAS[a].dx, MEAS[a].dy);
+  });
+  ranked.forEach(function (n) {
+    var m = MEAS[n], dist = Math.hypot(m.dx, m.dy), tr = document.createElement('tr');
+    tr.innerHTML = td('<code>' + n + '</code>') +
+      td(sgn(m.dx), 'num') + td(sgn(m.dy), 'num') +
+      td(n2(dist), 'num' + (dist >= 1 ? ' k-fail' : '')) +
+      td(SHAPE[n] || '');
+    ctb.appendChild(tr);
+  });
+  var far = ranked.filter(function (n) { return Math.hypot(MEAS[n].dx, MEAS[n].dy) >= 1; });
+  var near = ORDER.length - far.length;
+  document.getElementById('i-centre-note').innerHTML =
+    '<b>' + far.length + ' of ' + ORDER.length + ' sit a whole unit or more off the centre of the cell, and ' +
+    near + ' sit inside one.</b> Every one of the ' + far.length +
+    ' is a drawing with a direction: ' + far.map(function (n) { return '<code>' + n + '</code>'; }).join(', ') +
+    '. That is the reason the list is a review and not a verdict. <b>The one to watch is the horizontal axis</b>, ' +
+    'where nothing in the set is further than ' +
+    n2(Math.max.apply(null, ORDER.map(function (n) { return Math.abs(MEAS[n].dx); }))) +
+    ' off centre: a glyph that leans sideways has no such excuse, because none of the sixteen means left or right.';
+
+  /* ---- the set ------------------------------------------------------------ */
+
+  var setBox = document.getElementById('i-set');
+  ORDER.forEach(function (n) { setBox.appendChild(figure(n, { field: true }, n)); });
+
+  var appBox = document.getElementById('i-applied');
+  ORDER.filter(function (n) { return ICONS[n].applied; }).forEach(function (n) {
+    appBox.appendChild(figure(n, { field: true }, '<b>' + n + '</b><br>' + ICONS[n].applied));
+  });
+
+  /* ---- the weight finding -------------------------------------------------- */
+
+  var HEAVY = 1.8;   /* read out of the mask data URIs in kit.css and src.css */
+  var wb = document.getElementById('i-weigh');
+  ['keyboard', 'keyboard'].forEach(function (n, i) {
+    var sw = i ? HEAVY : SW, m = i ? measure(n, HEAVY) : MEAS[n];
+    wb.appendChild(figure(n, { field: true, stroke: sw },
+      '<b>' + n + ' at ' + sw + '</b><br>' + (i ? 'the product mask' : 'the set, and this page') +
+      '<br>x ' + n2(m.x0) + ' to ' + n2(m.x1) + '<br>over the field by ' +
+      n2(Math.max(SAFE[0] - m.x0, m.x1 - SAFE[1]))));
+  });
+
+  var k15 = MEAS.keyboard, k18 = measure('keyboard', HEAVY);
+  document.getElementById('i-weigh-note').innerHTML =
+    'Same glyph, same path data, character for character, and the check confirms it. ' +
+    'The heavier stroke pushes the paint further out of the field on both sides: ' +
+    n2(SAFE[0] - k15.x0) + ' over at 1.5 and ' + n2(SAFE[0] - k18.x0) + ' at 1.8, ' +
+    'which is ' + n2((SAFE[0] - k18.x0) / (SAFE[0] - k15.x0)) + ' times as far. ' +
+    'The measured box grows from ' + n2(k15.w) + ' × ' + n2(k15.h) + ' to ' +
+    n2(k18.w) + ' × ' + n2(k18.h) + '.';
+  document.getElementById('i-kb-worse').innerHTML =
+    '<code>keyboard</code> is ' + n2(SAFE[0] - k15.x0) + ' outside the field at 1.5 and ' +
+    n2(SAFE[0] - k18.x0) + ' outside it at 1.8';
+
+  /* the effective weight on screen. The box sizes are the ones declared in
+     design/kit/kit.css; the multiplication is done here. */
+  var SITES = [
+    { where: '<code>.src::after</code>, 131 uses', box: 11, stroke: HEAVY, src: 'mask data URI' },
+    { where: '<code>.expand::before</code>, 27 uses', box: 12, stroke: HEAVY, src: 'mask data URI' },
+    { where: '<code>.z1 .kmap::before</code>, 1 per screen', box: 16, stroke: HEAVY, src: 'mask data URI' },
+    { where: '<code>.icon</code>, the product default', box: 20, stroke: SW, src: 'kit.css' },
+    { where: '<code>.icon--sm</code>', box: 16, stroke: SW, src: 'kit.css' },
+    { where: '<code>.k-icon</code>, this stand', box: 20, stroke: SW, src: '_page.css' }
+  ];
+  var etb = document.getElementById('i-effective');
+  SITES.forEach(function (s) {
+    var tr = document.createElement('tr');
+    var eff = s.stroke * s.box / N;
+    tr.innerHTML = td(s.where + '<br><span class="k-exempt">' + s.src + '</span>') +
+      td(s.box + 'px', 'num') +
+      td(s.stroke, 'num' + (s.stroke !== SW ? ' k-fail' : '')) +
+      td(n2(eff) + 'px', 'num');
+    etb.appendChild(tr);
+  });
+  document.getElementById('i-src-thin').textContent = n2(SW * 11 / N) + 'px against the 1.8 mask at ' + n2(HEAVY * 11 / N) + 'px';
+})();
+
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

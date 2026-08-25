@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Door</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix dr-. A ZONE THAT FILLS A SCREEN GETS THE FULL COLUMN AND THE TWO THEMES
+   STACK. Half of the article column cannot hold a 440px card inside a 16px gutter and still
+   be the thing the product renders, so the themes go one above the other. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE SCENE. A smaller but REAL box: the card inside it is at its own 440px and the type is
+   the type. Nothing here is scaled, because a scaled screenshot lies about the one thing a
+   reader comes to a stand for. What is not real is the height, and the caption says so. */
+.dr-stage{ display:flex; flex-direction:column; width:100%; max-width:600px; height:420px;
+           border:var(--rule-edge); background:var(--bg-page); overflow:hidden }
+.dr-cap  { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+           margin:var(--space-2) 0 0 }
+.dr-mark { margin:0; font:600 var(--size-lg)/1 var(--font-sans); letter-spacing:-.01em }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Door</h1>
+<p class="k-lede"><b>The one surface of this product that is not behind authentication</b>, and the only one that carries a photograph. 5 instances across 5 screens. Everything else in Harrier is a console; this is a page, and it is the single place where the product is allowed to look like something before it looks like a tool.</p>
+<p class="k-note"><b>The image is on the screen and not on this component.</b> <code>.screen:has(.door)</code> paints it behind everything at <code>z-index -1</code> with a gradient over it, so the card keeps its own opaque ground and stays readable. That rule lives with <a href="screen.html">screen</a> because the image belongs to the whole surface rather than to the column, and this page does not reproduce it: a documentation column wearing a photograph would be the stand looking like the product instead of describing it. <a href="../index.html">Open the real door</a> to see it.</p>
+<p class="k-note"><b>No variants.</b> What differs between the five is what the card holds: a banner when the last attempt failed, a block when there is something to explain, an address when a deep link is waiting. All five are <a href="doorcard.html">door card</a>s.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A scaled scene, not a diagram.</b> A screen region cannot be shown at full size inside a documentation column, so this is a smaller box with the real markup in it: the card is at its own 440px, the padding is <code>--space-7</code> over <code>--space-4</code>, and the type is the product&rsquo;s. The only fiction is the height, which is 420px here and a viewport in the product.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="dr-stage">
+        <main class="door">
+          <div class="doorcard">
+            <p class="dr-mark">Harrier</p>
+            <h1>Sign in</h1>
+            <p>You land on <code>/case/C-4417</code></p>
+            <div class="doorform">
+              <div class="field"><label class="label" for="dr-a">Email</label><input class="input" id="dr-a" type="email" value="r.idrissi@example.com"><p class="hint">No password here. Your email decides which provider signs you in.</p></div>
+              <a class="btn btn--primary" href="#anatomy" style="width:100%;justify-content:center">Open your provider&rsquo;s sign in</a>
+            </div>
+            <details class="doorhelp"><summary>Cannot get in?</summary><p>Harrier does not hold your password and it does not create accounts. Your seat comes from your provider.</p></details>
+          </div>
+        </main>
+      </div>
+    </div>
+    <p class="dr-cap">the photograph is omitted here on purpose. It belongs to screen</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="dr-stage">
+        <main class="door">
+          <div class="doorcard">
+            <p class="dr-mark">Harrier</p>
+            <h1>Sign in</h1>
+            <p>You land on <code>/case/C-4417</code></p>
+            <div class="doorform">
+              <div class="field"><label class="label" for="dr-b">Email</label><input class="input" id="dr-b" type="email" value="r.idrissi@example.com"><p class="hint">No password here. Your email decides which provider signs you in.</p></div>
+              <a class="btn btn--primary" href="#anatomy" style="width:100%;justify-content:center">Open your provider&rsquo;s sign in</a>
+            </div>
+            <details class="doorhelp"><summary>Cannot get in?</summary><p>Harrier does not hold your password and it does not create accounts. Your seat comes from your provider.</p></details>
+          </div>
+        </main>
+      </div>
+    </div>
+    <p class="dr-cap">the photograph is omitted here on purpose. It belongs to screen</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.door</code><span>the surface. A flex column that grows into whatever <a href="screen.html">screen</a> leaves it, scrolls on its own, and pads <code>--space-7</code> over <code>--space-4</code> so the card never touches an edge at 360</span></li>
+  <li><code>.door h1</code><span><code>--size-xl</code> at weight 600 on <code>--leading-tight</code>. The heading names the screen, and the wordmark above it is a paragraph</span></li>
+  <li><code>.door code</code><span><b>an address on the door is a run of code inside a sentence</b>, on <code>--bg-surface</code> at <code>--size-sm</code>, wrapping anywhere. Not the <code>addr</code> block: there is nothing to copy yet, only somewhere you were going</span></li>
+  <li><code>.doorform</code><span>the sign in form. A place rather than a component: one <a href="field.html">field</a>, one <a href="btn.html">button</a>, <code>--space-3</code> between them</span></li>
+  <li><code>.doorhelp</code><span>the help below it, over a hairline, at <code>--size-sm</code> with its paragraphs in <code>--text-secondary</code>. Also a place rather than a component</span></li>
+  <li><code>.door .banner &gt; p</code><span><b>one child, and the rule is here to keep it to one.</b> <a href="banner.html">banner</a> makes a flex item of every element child, so a second <code>b</code> starts its own line and the punctuation after it orphans. Seen at 1440</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">There are none, and the empty axes are shown rather than skipped so nobody reinstates them.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>content</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and it is the whole reason this has no modifier.</b> The five doors differ by what the card holds, and that is decided by what happened before the render: a session that expired, a provider that errored, an address that was deep linked. Naming those on the surface would put the state in two places</td></tr>
+    <tr><td><b>route</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>The route lives one level up. <a href="screen.html">screen</a> carries <b>door 5</b> against authenticated 55, because the photograph and the missing strip are properties of the whole surface</td></tr>
+    <tr><td><b>width</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>One rendering at every width. The card stops at 440px by itself and the padding is the only thing that ever moves</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">On the five screens of cluster 1 and nowhere else: sign in, signed out, session expired, provider error, and a deep link that needs authentication first. If a surface is behind authentication it is a console, and a console is <a href="z45.html">the split</a>.</p>
+<p class="k-note"><b>Where she meets it.</b> Once a shift at most, and at 03:00 when a pager link lands her here before the case she was paged about. That second path is why the deep linked door keeps the address it was going to and says so in a sentence: the analyst has to know the link worked before she is asked to sign in.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="door" style="padding:var(--space-4) 0"><p>You land on <code>/case/C-4417</code></p></div></div>
+    <p>An address on the door is a run of <code>code</code> inside a sentence. It says where you were going and it is not yet worth anything: the case behind it is not readable until you are signed in, and the id names no tenant.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="addr"><code>/case/C-4417</code><a class="btn" href="#rules">Copy the address</a></div></div>
+    <p>Never the <a href="addr.html">addr</a> block here. <code>addr</code> is the component for an address that is the artefact, on a log entry an auditor quotes months later. On the door there is nothing to copy yet, and offering a copy control implies there is.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The field, the button and the disclosure inside it carry their own.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="dr-stage" style="height:300px">
+        <main class="door">
+          <div class="doorcard">
+            <p class="dr-mark">Harrier</p>
+            <h1>Sign in</h1>
+            <div class="doorform">
+              <div class="field"><label class="label" for="dr-c">Email</label><input class="input" id="dr-c" type="email" value="r.idrissi@example.com"></div>
+              <a class="btn btn--primary" href="#states" style="width:100%;justify-content:center">Open your provider&rsquo;s sign in</a>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="dr-stage" style="height:300px">
+        <main class="door">
+          <div class="doorcard">
+            <p class="dr-mark">Harrier</p>
+            <h1>Sign in</h1>
+            <div class="doorform">
+              <div class="field"><label class="label" for="dr-d">Email</label><input class="input" id="dr-d" type="email" value="r.idrissi@example.com"></div>
+              <a class="btn btn--primary" href="#states" style="width:100%;justify-content:center">Open your provider&rsquo;s sign in</a>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">Put the pointer on the button and the keyboard in the field above it: both states are produced live here, in whichever theme you are reading.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>behind an inline address, so a path reads as a path inside a sentence</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the heading and the sentence</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the paragraphs of the help below the hairline</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the hairline over the help, through <code>--rule-hair</code></td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;main class="door"&gt;
+  &lt;div class="doorcard"&gt;
+    &lt;p class="doormark"&gt;Harrier&lt;/p&gt;
+    &lt;h1&gt;Sign in&lt;/h1&gt;
+    &lt;form class="doorform" action="queue.html"&gt;&hellip;&lt;/form&gt;
+    &lt;details class="doorhelp"&gt;&hellip;&lt;/details&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../index.html">sign in</a>
+  <a href="../index-signed-out.html">signed out</a>
+  <a href="../index-expired.html">session expired</a>
+  <a href="../index-idp-error.html">provider error</a>
+  <a href="../index-deep-link.html">a deep link waiting</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

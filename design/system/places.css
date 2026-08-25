@@ -1,0 +1,75 @@
+/* Harrier design system :: places
+   ============================================================================
+   A PLACE IS NOT A COMPONENT AND IT STILL NEEDS ITS CSS. Step 2 was explicit
+   about the difference: `.act`, `.doorform`, `.wrapline` and their kind are
+   WHERE a component stands, not a form of it, so they get no register row and no
+   page. `.pane-foot` was in that list until stage 09 and does not belong in it:
+   it has a file, a register row and a page of its own, and naming it here made a
+   registered organism read as a place with no home. What they do get is a declaration, and until step 8 that declaration was
+   still in kit.css. Deleting kit.css meant either promoting nine places to
+   components, which would have been a lie about the register, or writing them
+   here, which is what this file is.
+
+   THE TEST FOR THIS FILE RATHER THAN A COMPONENT FILE is one question: does the
+   rule say something about a THING, or about a GAP between things? Everything
+   below is a gap, an order or a width. Nothing below carries a colour role except
+   where it inherits one.
+
+   It is imported after the components and before the utilities, because a place
+   arranges components and a utility overrides everything.
+   ============================================================================ */
+
+/* -- inside a dialog or a block: a stack of fields --------------------------- */
+.seek    { display: flex; flex-direction: column; gap: var(--space-3) }
+.doorform{ display: flex; flex-direction: column; gap: var(--space-3) }
+.prompts { display: flex; flex-direction: column; gap: var(--space-3) }
+
+/* -- a row of actions under a sentence --------------------------------------
+   `.act` gets NOTHING here and that is the correction: the product declares it
+   only inside a banner, where it is pushed right or floated, and a bare rule
+   giving it a flex row was an invention that widened thirteen of them by 208px.
+   Caught by the comparison against the committed original. */
+.wrapline{ margin: var(--space-2) 0 0; display: flex; gap: var(--space-2); flex-wrap: wrap }
+
+/* -- the door's three, and the wordmark is the interesting one ---------------
+   It is a paragraph and not the heading: the h1 names the screen, and the one
+   public page of a security product does not put a brand where the page title
+   belongs. That is a decision, and it lives on the doorcard's page. */
+.doormark{ font: 600 var(--size-lg)/1 var(--font-sans); letter-spacing: -.01em }
+.doorbtn { width: 100%; justify-content: center }
+.doordest{ gap: var(--space-2) }
+
+/* -- the standalone route's two notes, AND STAGE 09 TRIED TO TAKE THEM ---------
+   How fresh the case is, and the address it was reached by. Both are mono, both
+   are quiet, and the address goes at 360: it is what she arrived BY, so at 03:00
+   it is three lines telling her nothing she does not already have. Kept at the
+   desk, where the permalink is the thing being copied into a ticket.
+
+   THEY BELONG TO ONE COMPOSITION AND THEY STILL DO NOT BELONG TO A PATTERN. Stage
+   09 moved them into patterns/case-pane.css on the argument that a place used by
+   exactly one pattern is that pattern's, and moved them back: both carry a line, a
+   family and an ink, and the rule that makes patterns a LEVEL rather than a second
+   folder of components is that a pattern arranges and does not paint. The test for
+   this file is unchanged and it is the one that decided it: does the rule say
+   something about a THING or about a GAP. These say something about a thing. */
+.sa-fresh{
+  margin: var(--space-2) 0 0;
+  padding: var(--space-1) var(--space-2);
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+.sa-fresh b{ color: var(--text-primary) }
+.sa-route{
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width:900px){
+  .sa-route{ display: none }
+}

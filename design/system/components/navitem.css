@@ -1,0 +1,57 @@
+/* navitem :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary, --text-primary, --text-hover. Line:
+   --line-current. Geometry: --size-md, --space-2.
+
+   PAGE. design/kit/navitem.html
+   STANDS ON. 132 instances across 44 screens, and NOT ONE OF THEM IS IN AN HTML
+   FILE: design/_shell.js writes the whole bar. Three items in the MVP, Queue,
+   Shift and Log, and the fleet has none of its own because it is the resting
+   state of the Queue's right pane.
+
+   IT HAD NO CLASS AT ALL until step 2. It was painted by `.z1 nav a`, which is a
+   descendant selector on an element, so nothing could carry it anywhere else and
+   nothing flagged it as a component. The name is the whole of the change; step 6
+   puts it in the generator.
+   ----------------------------------------------------------------------------
+   THE UNDERLINE IS 2px AND IT IS ALWAYS THERE, transparent when the item is not
+   current. A border that appears on the current item would move every other item
+   by two pixels as you navigate, which is the cheapest kind of jump to avoid and
+   the easiest to ship.
+   ---------------------------------------------------------------------------- */
+
+.navitem{
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--size-md);
+  padding: var(--space-2) 0;
+  border-bottom: 2px solid transparent;  /* the 2px open row: see geometry.html */
+}
+
+/* WHERE YOU ARE. Two signals and not one: the ink goes to full strength AND the
+   underline arrives in the accent. --line-current is the role for exactly this,
+   and it is the same value as --text-accent with a different surface and a
+   different threshold. */
+.navitem.is-current{
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom-color: var(--line-current);
+}
+
+/* -- STATES ------------------------------------------------------------------
+   No ground and no boundary. This item sits in a 56px bar next to two others,
+   and a plate under it would read as a button while a boundary would compete
+   with the underline that means "you are here". Ink is the only surface left,
+   which is why --text-hover exists. */
+.navitem:hover{ color: var(--text-hover) }
+
+/* Pressed is the same move as hover and the navigation follows immediately, so
+   there is nothing a second step could say. Declared rather than left out, so
+   nobody adds one later thinking it was forgotten. */
+.navitem:active{ color: var(--text-hover) }
+
+/* focus-visible is global, in base.css.
+   OUT OF REACH DOES NOT EXIST HERE. A section that cannot be opened is not
+   shown greyed: kit.css carried a rule for it, `.z1 nav span` with a line
+   through it, and the generator has never emitted one. Zero instances in both
+   corpora, and it goes to the reconciliation as a class nobody wears. */

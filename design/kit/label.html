@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Label</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Label</h1>
+<p class="k-lede">The name of an answer. 31 instances across 15 screens: above a field 30, and once in an option list.</p>
+<p class="k-note"><b>It is a name, never a heading.</b> <code>Why you are rejecting</code>, <code>On Larkfield Logistics, C-4417</code>, <code>Email</code>, <code>Your wording</code>. Uppercase mono at 11px because <code>voice/docs/voice.md</code> gives a machine-readable name a different register from the prose around it, exactly as <code>tag</code> and <code>state</code> do, and secondary ink because <b>the answer is the thing being read and this is only its name</b>.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);width:100%;max-width:400px">
+        <label class="label" for="x-why">Why you are rejecting</label>
+        <textarea class="input" id="x-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+        <p class="hint" style="margin:0">A reason is required</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);width:100%;max-width:400px">
+        <label class="label" for="x-why">Why you are rejecting</label>
+        <textarea class="input" id="x-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+        <p class="hint" style="margin:0">A reason is required</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.label</code><span>the whole component. A real <code>label</code> element with a <code>for</code>, on all 31</span></li>
+  <li><code>for</code><span><b>not a style decision, and it cannot be traded.</b> It is what makes the field's name reach a screen reader, and what makes the name a click target that focuses the field. A <code>div</code> drawn to look like this would lose both and <b>nothing on the screen would say so</b></span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-lede"><b>None.</b></p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis a reader looks for</th><th>Values</th><th>Why the cell is empty</th></tr></thead>
+  <tbody>
+    <tr><td>required</td><td class="k-none">&ndash;</td><td><b>The hint says it, not a mark on the label.</b> <code>A reason is required</code> is a sentence anybody can read; an asterisk is a convention the analyst has to already know, and it is the sort of thing that ends up meaning two different things on two screens</td></tr>
+    <tr><td>size</td><td class="k-none">&ndash;</td><td>11px, the floor of the scale, on all 31. A field with a bigger label is a field whose name is competing with its answer</td></tr>
+    <tr><td>emphasis</td><td class="k-none">&ndash;</td><td><b>Prohibited.</b> Weight 600 is already the working emphasis and the label is already at it; there is nothing above it that would not read as a heading</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The tracking is .08em, the most used of the six mono values in the product</b>, and it is a literal rather than <code>--track-mono</code> at .06em. The typography page carries the open question about all of them, and nothing was collapsed here to make a token look used.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Above a field, always, and above nothing else. <b>It is not optional:</b> a box with no name is a box people guess at, and 21 of the 34 fields in this product ask the one question the analyst will be quoted on months later.</p>
+<p class="k-note"><b>Where she meets it.</b> Only when she disagrees with Clerk. Accept touches no field and no label; reject touches both, which is why the label's job is to be read once, quickly, and never again.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><label class="label" for="x-do">Why you are rejecting</label><textarea class="input" id="x-do" rows="2" style="margin-top:var(--space-1)">Benign, called a threat.</textarea></div>
+    <p>Above the field, with a <code>for</code>, in the words the question is actually asked in. Clicking it focuses the field, which the browser does for free once the element is right.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><input class="input" placeholder="Why you are rejecting" aria-label="do not, placeholder as label"></div>
+    <p>Not inside the field as a placeholder. It disappears the moment she starts typing, which is exactly when she needs to check what was asked.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);width:100%;max-width:400px">
+        <label class="label" for="x-why">Why you are rejecting</label>
+        <textarea class="input" id="x-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+        <p class="hint" style="margin:0">A reason is required</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);width:100%;max-width:400px">
+        <label class="label" for="x-why">Why you are rejecting</label>
+        <textarea class="input" id="x-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+        <p class="hint" style="margin:0">A reason is required</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Clicking it focuses the field, and that is not a state of this component:</b> it is the browser doing its job through <code>for</code>, and nothing about the label changes. It takes no hover for the same reason. A label that lit up under the pointer would promise something it is not the one doing.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;label class="label" for="why"&gt;Why you are rejecting&lt;/label&gt;
+&lt;textarea class="input" id="why" rows="3"&gt;&lt;/textarea&gt;</div>
+<p class="k-note">The <code>for</code> and the <code>id</code> are the component as much as the type is. Step 6 replaces <code>.field &gt; label</code> with the class and touches neither.</p>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../reject.html">above a field &middot; 30</a>
+  <a href="../reject-chosen.html">an option list &middot; 1</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

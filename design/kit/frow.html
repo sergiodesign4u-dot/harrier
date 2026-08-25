@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Fleet row</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL. A WIDE COMPONENT GETS THE FULL COLUMN AND THE TWO THEMES STACK.
+   Squeezing the bench would document a rendering the product does not have; the themes go
+   one above the other instead, which costs a scroll and no truth. */
+.k-bench{ grid-template-columns:1fr }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Fleet row</h1>
+<p class="k-lede"><b>This is the fleet, one line of it.</b> 88 instances across 16 screens. Three zones: the tenant, the highest thing Clerk may do there, and the record.</p>
+<p class="k-note"><code>CLAUDE.md</code> names calibrated trust as <b>the only surviving differentiator</b> and requires it to read at a glance in the operator console rather than on a configuration page. This row is that glance, repeated forty times, and it is the reason the fleet is the resting state of the detail pane rather than an item in the menu.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:400px;border:var(--rule-edge)">
+        <div class="frow frow--head"><span>Tenant</span><span>Ceiling</span><span>Record</span></div>
+        <a class="frow" href="#anatomy"><span>Meridian Health</span><span>Contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+        <a class="frow" href="#anatomy"><span>Halden Freight</span><span>Investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:400px;border:var(--rule-edge)">
+        <div class="frow frow--head"><span>Tenant</span><span>Ceiling</span><span>Record</span></div>
+        <a class="frow" href="#anatomy"><span>Meridian Health</span><span>Contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+        <a class="frow" href="#anatomy"><span>Halden Freight</span><span>Investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.frow</code><span>the line. An <code>a</code>, because a tenant has a detail screen in cluster 7</span></li>
+  <li>first zone<span>the tenant. Plain reading ink: it is the label, not the argument</span></li>
+  <li>second zone<span><b>the ceiling, and it takes the accent.</b> Latitude is the accent’s first job. It is selected <b>by position</b> because the wireframe gives that column no class</span></li>
+  <li>third zone<span><code>rec</code> and <code>was</code>: the count and the trend, both their own components</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>head</b></td><td><code>.frow--head</code></td><td>16</td><td>the column names, on the surface ground</td></tr>
+    <tr><td><b>padding</b></td><td><code>.frow--flush</code></td><td>12</td><td><b>a context patch turned into markup.</b> Inside a pane body, which already pads its contents, the row drops its own side padding to avoid doubling. <code>kit.css</code> wrote it as <code>.pane-body .frow</code>, which is the parent reaching into the child; the reason was sound and the expression was not. <b>No pixel moves</b></td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> A tenant does not have a severity. What it has is a record, and a record that was painted good or bad would decide for the analyst what she is being asked to judge</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The accent on the middle column was found by the stage 06 audit</b>, which caught the concept stand accenting it while the real screen did not. That made the stand a claim about a screen rather than a picture of one.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In the detail pane at rest, which is most of a shift, and in a block on the shift brief. It answers the third of the three MVP jobs: <b>know where the agent’s record has earned latitude</b>.</p>
+<p class="k-note"><b>Where she meets it.</b> Whenever she is not reading a case. That is the whole architecture of the product in one sentence: the fleet costs zero taps because it is what the pane shows when it is not showing a case, and <code>CLAUDE.md</code> requires the empty pane to read as the fleet rather than as empty.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div style="border:var(--rule-edge)"><a class="frow" href="#rules"><span>Meridian Health</span><span>Contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a></div></div>
+    <p>Three zones, and the record carries its trend. The ceiling in the accent is what the analyst is scanning for.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div style="border:var(--rule-edge)"><a class="frow" href="#rules"><span>Meridian Health</span><span>Contain endpoint</span><span class="rec">86%</span></a></div></div>
+    <p>Never a bare percentage and never a count without its trend. 86% of four decisions and 86% of four hundred are the same string and not the same evidence, and this is the number the analyst is being asked to give an agent more rope on.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede">Live, in both themes. Point at a row and hold.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:400px;border:var(--rule-edge)">
+        <div class="frow frow--head"><span>Tenant</span><span>Ceiling</span><span>Record</span></div>
+        <a class="frow" href="#anatomy"><span>Meridian Health</span><span>Contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+        <a class="frow" href="#anatomy"><span>Halden Freight</span><span>Investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:400px;border:var(--rule-edge)">
+        <div class="frow frow--head"><span>Tenant</span><span>Ceiling</span><span>Record</span></div>
+        <a class="frow" href="#anatomy"><span>Meridian Health</span><span>Contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+        <a class="frow" href="#anatomy"><span>Halden Freight</span><span>Investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>It hovers one step louder than the queue row, and that is deliberate rather than inconsistent.</b> A queue row is one of two hundred and hover is a pointer passing; a fleet row is one of forty and hover is the analyst comparing two tenants, so the ground has to hold the comparison. <code>--bg-selected</code> at 1.23 off the page against the queue row’s 1.05.</p>
+<p class="k-note"><b>No selected state.</b> Nothing in the fleet is being ruled on: it is the record, and the thing you rule on is a case.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-selected</code></td><td>fill</td><td>under the pointer</td><td><span data-tok="--bg-selected" data-theme-read="dark"></span></td><td><span data-tok="--bg-selected" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the head</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-accent</code></td><td>ink 4.5:1</td><td>the ceiling, selected by position</td><td><span data-tok="--text-accent" data-theme-read="dark"></span></td><td><span data-tok="--text-accent" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the record, through <code>rec</code></td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the head and the trend</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the rule between rows</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;a class="frow" href="clients.html"&gt;
+  &lt;span&gt;Meridian Health&lt;/span&gt;
+  &lt;span&gt;Contain endpoint&lt;/span&gt;
+  &lt;span class="rec"&gt;31 of 36&lt;span class="was"&gt;was 34 of 36&lt;/span&gt;&lt;/span&gt;
+&lt;/a&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">the pane at rest &middot; 76</a>
+  <a href="../shift.html">inside a block &middot; 12</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

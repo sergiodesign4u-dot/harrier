@@ -1,0 +1,34 @@
+/* rec :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-primary. Geometry: --font-mono.
+
+   PAGE. design/kit/rec.html
+   STANDS ON. 88 instances across 16 screens, in the third column of a fleet row.
+
+   IT IS THE RECORD, AND IT IS WHY THE FLEET IS THE DIFFERENTIATOR. Every one of
+   these is a count of what the agent got right on one tenant: `31 of 36`. Design
+   principle 2 says a number names its claim, its scope and its window and comes
+   with an absolute count, and this component is that rule rendered. voice.md
+   forbids a bare percentage, which is why it reads 31 of 36 and never 86%.
+   ----------------------------------------------------------------------------
+   IT IS MONO AND RIGHT ALIGNED, and both are the same decision: a column of
+   counts is compared down rather than read across, so the digits have to line up
+   and the units have to sit on one axis. It takes the reading ink rather than
+   the secondary ink its neighbours use, because the record is the thing the row
+   exists to show.
+   ---------------------------------------------------------------------------- */
+
+.rec{
+  font-family: var(--font-mono);
+  text-align: right;
+  color: var(--text-primary);
+}
+
+/* -- head. One axis, two values, and the head is a row's decision -------------
+   In the head row of the fleet the cell is a column label rather than a count,
+   so it takes the head's own type. That rule lives in `frow--head`, which is a
+   molecule: `rec` does not know whether it is in a head. */
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   The fleet row has a hover; the count sits on the new ground and changes
+   nothing. */

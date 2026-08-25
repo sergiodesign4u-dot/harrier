@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Record</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Record</h1>
+<p class="k-lede">A count of what the agent got right on one tenant. 88 instances across 16 screens, in the third column of a fleet row. <b>It is the reason the fleet is the differentiator rather than a page of logos.</b></p>
+<p class="k-note">Design principle 2 says a number names its claim, its scope and its window and comes with an absolute count. <code>voice/docs/voice.md</code> forbids a bare percentage in as many words, which is why it reads <b>31 of 36</b> and never 86%.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:288px">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--space-2);padding:var(--space-2) 0;border-bottom:var(--rule-hair);font-size:var(--size-sm)"><span>Meridian Health</span><span style="color:var(--text-accent)">contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--space-2);padding:var(--space-2) 0;border-bottom:var(--rule-hair);font-size:var(--size-sm)"><span>Halden Freight</span><span style="color:var(--text-accent)">investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:288px">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--space-2);padding:var(--space-2) 0;border-bottom:var(--rule-hair);font-size:var(--size-sm)"><span>Meridian Health</span><span style="color:var(--text-accent)">contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--space-2);padding:var(--space-2) 0;border-bottom:var(--rule-hair);font-size:var(--size-sm)"><span>Halden Freight</span><span style="color:var(--text-accent)">investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.rec</code><span>the count. A <code>span</code> on all 88, in the third cell of a fleet row</span></li>
+  <li><code>.was</code><span><b>the trend, and its own component.</b> It stands inside <code>rec</code> and never anywhere else, and it has a page of its own</span></li>
+</ul>
+<p class="k-note"><b>Mono and right aligned, and both are the same decision:</b> a column of counts is compared downwards rather than read across, so the digits have to line up and the units have to sit on one axis. It takes the reading ink rather than the secondary ink its neighbours use, because the record is the thing the row exists to show.</p>
+
+<p class="k-note"><b>The bench is 288px wide because the pane is.</b> The detail pane is 320px below 1560 and its content is 288, and at that width the tenant name wraps to two lines and the whole row is two lines tall. A bench wider than the pane would show a component that does not occur: <code>design/kit/checks/geometry.mjs</code> reported the row 2.19px short until the bench was narrowed to the real thing.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Values</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>head</b></td><td>body 72, head 16</td><td><b>The row's decision, not the cell's.</b> In the head row of the fleet the cell is a column label rather than a count and takes the head's type. That rule lives in <code>frow--head</code>, which is a molecule: <code>rec</code> does not know whether it is in a head</td></tr>
+    <tr><td><b>direction</b></td><td class="k-none">&ndash;</td><td><b>Prohibited, and it is the strongest prohibition on this page.</b> A green count rising and a red count falling is the obvious move. The accent already does four jobs and no fifth; the severity ramp is spoken for; and above all <b>a record painted good or bad decides for the analyst what she is being asked to judge</b></td></tr>
+    <tr><td><b>size</b></td><td class="k-none">&ndash;</td><td>It is 12.5px, the row's size, because it is read in a column of rows rather than on its own</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In a fleet row, for the agent's record on one tenant, and nowhere else. <b>This is the concrete element that carries the strategic dimension:</b> <code>CLAUDE.md</code> names calibrated trust as the only surviving differentiator, and says the fleet has to read at a glance rather than on a configuration page. A column of these is that glance.</p>
+<p class="k-note"><b>Where she meets it.</b> Whenever the detail pane is at rest, which is most of the shift. The fleet is the resting state of the right pane rather than a menu item, so this column is in front of her without being opened, and the riskiest assumption in the whole project is that reading it makes her faster rather than giving her forty things to remember.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><span class="rec" style="font-size:var(--size-sm)">31 of 36<span class="was">was 34 of 36</span></span></div>
+    <p>The count with its denominator, and the trend under it. Both are absolute, both name their window, and neither is a percentage.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><span class="rec" style="font-size:var(--size-sm)">86%</span></div>
+    <p>Never a bare percentage. 86% of four decisions and 86% of four hundred are the same string and not the same evidence, and the analyst is being asked to decide how much rope to give an agent on that number.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The fleet row has a hover; the count sits on the new ground and changes nothing.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:288px">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--space-2);padding:var(--space-2) 0;border-bottom:var(--rule-hair);font-size:var(--size-sm)"><span>Meridian Health</span><span style="color:var(--text-accent)">contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--space-2);padding:var(--space-2) 0;border-bottom:var(--rule-hair);font-size:var(--size-sm)"><span>Halden Freight</span><span style="color:var(--text-accent)">investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:288px">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--space-2);padding:var(--space-2) 0;border-bottom:var(--rule-hair);font-size:var(--size-sm)"><span>Meridian Health</span><span style="color:var(--text-accent)">contain endpoint</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px 92px;gap:var(--space-2);padding:var(--space-2) 0;border-bottom:var(--rule-hair);font-size:var(--size-sm)"><span>Halden Freight</span><span style="color:var(--text-accent)">investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;span class="rec"&gt;31 of 36&lt;span class="was"&gt;was 34 of 36&lt;/span&gt;&lt;/span&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where"><a href="../queue.html">the fleet, at rest in the pane &middot; 88</a></div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

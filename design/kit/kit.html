@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Harrier &middot; Component kit</title>
 <link rel="stylesheet" href="../../_nav.css">
-<link rel="stylesheet" href="kit.css">
+<link rel="stylesheet" href="../system/index.css">
 <style>
 /* PAGE-LOCAL, prefix k-. The showcase furniture only. Every component below is drawn by
    kit.css and nothing on this page restyles one: a page that restyles a component is the
@@ -17,29 +17,29 @@
      margin:var(--space-7) 0 var(--space-2)}
 .k-h:first-of-type{margin-top:var(--space-4)}
 .k-sub{font:400 var(--size-xs)/1 var(--font-mono);letter-spacing:var(--track-mono);
-       text-transform:uppercase;color:var(--color-text-dim);margin:0 0 var(--space-4)}
+       text-transform:uppercase;color:var(--text-secondary);margin:0 0 var(--space-4)}
 .k-item{border-top:var(--rule-edge);padding:var(--space-4) 0 var(--space-5)}
 .k-name{font:400 var(--size-xs)/1 var(--font-mono);letter-spacing:var(--track-mono);
-        color:var(--color-accent);margin:0 0 var(--space-1)}
-.k-note{font-size:var(--size-sm);color:var(--color-text-dim);margin:0 0 var(--space-3);max-width:74ch}
+        color:var(--text-accent);margin:0 0 var(--space-1)}
+.k-note{font-size:var(--size-sm);color:var(--text-secondary);margin:0 0 var(--space-3);max-width:74ch}
 .k-demo{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
 .k-demo--stack{display:block}
 .k-demo--stack > * + *{margin-top:var(--space-3)}
-.k-panel{background:var(--color-surface);border:var(--rule-edge);padding:var(--space-3);min-width:320px}
+.k-panel{background:var(--bg-surface);border:var(--rule-edge);padding:var(--space-3);min-width:320px}
 .k-sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--space-2)}
 .k-sw div{border:var(--rule-edge)}
 .k-sw i{display:block;height:44px}
 .k-sw b,.k-sw small{display:block;font:400 9px/1.4 var(--font-mono);letter-spacing:var(--track-mono);
      padding:0 var(--space-2)}
-.k-sw b{padding-top:var(--space-2);color:var(--color-text)}
-.k-sw small{padding-bottom:var(--space-2);color:var(--color-text-dim)}
+.k-sw b{padding-top:var(--space-2);color:var(--text-primary)}
+.k-sw small{padding-bottom:var(--space-2);color:var(--text-secondary)}
 .k-scale div{display:flex;align-items:baseline;gap:var(--space-4);padding:var(--space-1) 0}
 .k-icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:var(--space-3)}
 .k-icons figure{margin:0;text-align:center;border:var(--rule-hair);padding:var(--space-3) var(--space-1)}
 .k-icons figcaption{font:400 9px/1 var(--font-mono);letter-spacing:var(--track-mono);
-     color:var(--color-text-dim);margin-top:var(--space-2)}
+     color:var(--text-secondary);margin-top:var(--space-2)}
 .k-scale code{font:400 9px/1 var(--font-mono);letter-spacing:var(--track-mono);
-     color:var(--color-text-dim);min-width:120px}
+     color:var(--text-secondary);min-width:120px}
 </style>
 </head>
 <body>
@@ -61,19 +61,19 @@
   <p class="k-name">colour</p>
   <p class="k-note">Nine taken as pixels off plate J, three derived for severity, two derived for the two jobs a rule does. Origin on every one of them in <code>kit.css</code>.</p>
   <div class="k-sw">
-    <div><i style="background:var(--color-ground)"></i><b>--color-ground</b><small>#11110f</small></div>
-    <div><i style="background:var(--color-surface)"></i><b>--color-surface</b><small>#171714</small></div>
-    <div><i style="background:var(--color-surface-sel)"></i><b>--color-surface-sel</b><small>#2a2418</small></div>
-    <div><i style="background:var(--color-text)"></i><b>--color-text</b><small>#e9e4da</small></div>
-    <div><i style="background:var(--color-text-dim)"></i><b>--color-text-dim</b><small>#aaa397</small></div>
-    <div><i style="background:var(--color-rule)"></i><b>--color-rule</b><small>#675f50 &middot; separators</small></div>
-    <div><i style="background:var(--color-edge)"></i><b>--color-edge</b><small>#7b7260 &middot; controls</small></div>
-    <div><i style="background:var(--color-hairline)"></i><b>--color-hairline</b><small>#232219</small></div>
-    <div><i style="background:var(--color-accent)"></i><b>--color-accent</b><small>#d29c3f</small></div>
-    <div><i style="background:var(--color-failure)"></i><b>--color-failure</b><small>#b25d44 &middot; no small text</small></div>
-    <div><i style="background:var(--color-sev-high)"></i><b>--color-sev-high</b><small>#d9704f</small></div>
-    <div><i style="background:var(--color-sev-medium)"></i><b>--color-sev-medium</b><small>#9d9182</small></div>
-    <div><i style="background:var(--color-sev-low)"></i><b>--color-sev-low</b><small>#828e96</small></div>
+    <div><i style="background:var(--bg-page)"></i><b>--color-ground</b><small>#11110f</small></div>
+    <div><i style="background:var(--bg-surface)"></i><b>--color-surface</b><small>#171714</small></div>
+    <div><i style="background:var(--bg-selected)"></i><b>--color-surface-sel</b><small>#2a2418</small></div>
+    <div><i style="background:var(--text-primary)"></i><b>--color-text</b><small>#e9e4da</small></div>
+    <div><i style="background:var(--text-secondary)"></i><b>--color-text-dim</b><small>#aaa397</small></div>
+    <div><i style="background:var(--line-edge)"></i><b>--color-rule</b><small>#675f50 &middot; separators</small></div>
+    <div><i style="background:var(--line-control)"></i><b>--color-edge</b><small>#7b7260 &middot; controls</small></div>
+    <div><i style="background:var(--line-separator)"></i><b>--color-hairline</b><small>#232219</small></div>
+    <div><i style="background:var(--text-accent)"></i><b>--color-accent</b><small>#d29c3f</small></div>
+    <div><i style="background:var(--clay-500)"></i><b>--color-failure</b><small>#b25d44 &middot; no small text</small></div>
+    <div><i style="background:var(--text-sev-high)"></i><b>--color-sev-high</b><small>#d9704f</small></div>
+    <div><i style="background:var(--text-sev-medium)"></i><b>--color-sev-medium</b><small>#9d9182</small></div>
+    <div><i style="background:var(--text-sev-low)"></i><b>--color-sev-low</b><small>#828e96</small></div>
   </div>
 </div>
 
@@ -182,7 +182,7 @@
   </div>
   <p class="k-note" style="margin-top:16px">Inheriting <code>currentColor</code> is the whole point of the last rule. The same glyph, in three places:</p>
   <div class="k-demo">
-    <span class="sev" style="color:var(--color-sev-high)"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4"/><path d="M5 11l7-7 7 7"/></svg> escalate</span>
+    <span class="sev" style="color:var(--text-sev-high)"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4"/><path d="M5 11l7-7 7 7"/></svg> escalate</span>
     <a class="btn btn--primary" href="#"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg> Accept <kbd class="key">a</kbd></a>
     <span class="dim"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18"/><path d="M6 18V9M11 18V5M16 18v-7M21 18v-3"/></svg> latitude</span>
   </div>
@@ -251,7 +251,7 @@
 
 <div class="k-item">
   <p class="k-name">.dialog + .scrim &middot; 11 uses, 11 pages</p>
-  <p class="k-note">The one overlay the product has, and it may never cover the evidence a verdict is being made on. <code>--color-scrim</code> is the single value in the whole system that was never remapped for the dark ground, because it was written as a literal <code>rgba()</code> that the remap could not see. It was row 1 of <code>proposed-variables.md</code> and it was decided at step 4: it is now <code>color-mix(in srgb, var(--color-ground) 78%, transparent)</code>, the product's own ground. This sentence said it was still at its old value until step 6, when a reader with clean context found the showcase disagreeing with the stylesheet it is supposed to show.</p>
+  <p class="k-note">The one overlay the product has, and it may never cover the evidence a verdict is being made on. <code>--color-scrim</code> is the single value in the whole system that was never remapped for the dark ground, because it was written as a literal <code>rgba()</code> that the remap could not see. It was row 1 of <code>proposed-variables.md</code> and it was decided at step 4: it is now <code>color-mix(in srgb, var(--bg-page) 78%, transparent)</code>, the product's own ground. This sentence said it was still at its old value until step 6, when a reader with clean context found the showcase disagreeing with the stylesheet it is supposed to show.</p>
 </div>
 
 </div>

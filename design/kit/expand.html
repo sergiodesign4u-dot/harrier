@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Expansion</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Expansion</h1>
+<p class="k-lede">The depth, one key away. 32 instances across 28 screens: inside a block 27 and on the door 5.</p>
+<p class="k-note"><b>Design principle 2 ends here.</b> Cheapest correct thing first, depth one key away: the expansion IS the depth. The claim reads without it, the working is inside it, and <b>the analyst who trusts the verdict never opens one</b>. More explanation is not more trust, and past a point it reduces it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:440px">
+        <p class="nar" style="margin:0"><span class="when">04:14</span>Token replay from a new ASN, 3 of 3 sessions.</p>
+        <details class="expand" open><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened, all from one ASN that this tenant has not used in 90 days. The baseline is 0 of 412.</details>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:440px">
+        <p class="nar" style="margin:0"><span class="when">04:14</span>Token replay from a new ASN, 3 of 3 sessions.</p>
+        <details class="expand" open><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened, all from one ASN that this tenant has not used in 90 days. The baseline is 0 of 412.</details>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>details.expand</code><span>the whole thing. A <b>native</b> <code>details</code>, and that is the component</span></li>
+  <li><code>summary</code><span>the line you press. It stays visible when the expansion is closed and it says what is inside rather than saying more</span></li>
+  <li>the left rail<span>2px in <code>--line-separator</code>, so the open expansion reads as an aside on the claim rather than as a new section</span></li>
+  <li><code>::before</code><span><b>the mark, one of the three icons this product applies.</b> It earned its space because depth had no mark on it at all</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>element</b></td><td><code>details</code></td><td>32</td><td><b>Step 2 ruled it and step 6 executes it.</b> The reason is not tidiness: a <code>div</code> that expands has to reimplement the keyboard, the accessible name and the open state, and <code>details</code> has all three for free. It is also why print works, where the rule in <code>base.css</code> opens every expansion on the page</td></tr>
+    <tr><td><b>kind</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>It is a slot:</b> what is inside is whatever the claim needed to show</td></tr>
+    <tr><td><b>overlay</b></td><td><span class="k-none">forbidden</span></td><td>&ndash;</td><td><b>It expands in place and never over the block.</b> Design principle 5 forbids an overlay that hides the evidence being decided on, and this is the component most likely to have been drawn as one</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Five <code>summary</code> elements on the door are absorbed by this component.</b> They were doing the same job under a different name, which is what the rename map at step 2 is for.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Under a claim, when there is working worth showing and not worth showing first. Twenty seven of the thirty two are exactly that; the other five are the door’s help.</p>
+<p class="k-note"><b>Where she meets it.</b> On the cases she does not believe. That is the measure of the component: opening one is a signal that Clerk has not made its case, and a product where every expansion gets opened has a verdict problem rather than a disclosure problem.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><details class="expand" style="margin:0"><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened.</details></div>
+    <p>A summary that names what is inside, and the working under it. It opens in place, under the claim it belongs to.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="btn btn--quiet" href="#rules">Read more</a></div>
+    <p>Never a button and never a dialog. A button says a decision is being taken; a dialog covers the evidence she is deciding on. Both break the one rule this component exists to keep.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>Open and closed are the element’s own state and need no class.</b> Press the summary.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:440px">
+        <p class="nar" style="margin:0"><span class="when">04:14</span>Token replay from a new ASN, 3 of 3 sessions.</p>
+        <details class="expand" open><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened, all from one ASN that this tenant has not used in 90 days. The baseline is 0 of 412.</details>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:440px">
+        <p class="nar" style="margin:0"><span class="when">04:14</span>Token replay from a new ASN, 3 of 3 sessions.</p>
+        <details class="expand" open><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened, all from one ASN that this tenant has not used in 90 days. The baseline is 0 of 412.</details>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">Focus-visible lands on the summary through <code>base.css</code>. <b>Nothing here declares a hover</b>, because the summary is one line of text rather than a plate, and a ground under it would make the closed expansion look like a control that does something.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the ground of the open expansion</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-accent</code></td><td>ink 4.5:1</td><td>the mark. Pointing at where more is kept is one of the accent’s four jobs</td><td><span data-tok="--text-accent" data-theme-read="dark"></span></td><td><span data-tok="--text-accent" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the 2px left rail</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;details class="expand"&gt;&lt;summary&gt;how Clerk counted this&lt;/summary&gt;Three sessions in six hours.&lt;/details&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case.html">inside a block &middot; 27</a>
+  <a href="../index-signed-out.html">the door&rsquo;s help &middot; 5</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

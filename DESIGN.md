@@ -21,7 +21,7 @@ The product is not running on one stylesheet. It is running on three, and saying
 
 Three files became one. `design/_theme.css` arrived by `git mv`, its `:root` byte for byte identical and verified as such. `wireframes/_wf.css` was absorbed: its component rules were lifted and every value routed through the kit's variables, not one value changed. `design/_screen.css` was folded in and deleted from the tree.
 
-**All 51 coloured pages now link `kit/kit.css` for every product value.** The CSS dependency on a folder stage 05 froze is gone, and it was proved rather than declared: the seed screens were rendered on the old chain and on the kit alone and the screenshots are **byte for byte identical at 1440 and at 360**.
+**All 52 coloured pages now link `design/system/index.css` for every product value**, and nothing else. It was `kit/kit.css` when this was written; stage 08 split that file into two token levels and 73 component files and deleted it, proved safe by a coverage check reporting zero of its 367 selectors declared nowhere. The CSS dependency on a folder stage 05 froze is gone, and it was proved rather than declared: the seed screens were rendered on the old chain and on the kit alone and the screenshots are **byte for byte identical at 1440 and at 360**.
 
 **Two corrections to what this paragraph used to say, both found by the stage 07 audit.** It said 32 pages, which was true when it was written and stopped being true at step 5. **It said 32 in two places and was corrected in one**, so the opening line of this file went on claiming 32 for the whole of stage 07 while the paragraph correcting it said 51 twenty lines below. Both now say 51. The correction landed where the claim was argued and not where it was first made, which is where a reader meets it. And it said *and nothing else*, which was never true: every page also links `../_nav.css`, the panel's stylesheet, which is documentation chrome rather than product and is the reason the kit does not own `--nav-w`. **A claim that is true on the day it is written is not a fact, it is a snapshot**, and this one was wrong for two different reasons at once.
 
@@ -182,10 +182,26 @@ The mockup is the living truth, so the reasoning is fitted to it. But a mockup t
 
 ## 8. What this file does not contain
 
-No semantic role names and no two-level token split. Roles are only visible after components have stood on real screens, and naming them before the kit is built means renaming them twice and breaking the origin line on the first rename. That is stage 08.
+No semantic role names and no two-level token split. Roles are only visible after components have stood on real screens, and naming them before the kit is built means renaming them twice and breaking the origin line on the first rename. **Stage 08 did it: 23 primitives and 27 roles, each with a surface and a pair, in `design/system/tokens.css`, and every one of them is shown at its real value on `design/kit/color.html`.** This section is left as it was written because the reason it gives is still the reason the split waited.
 
-No component anatomy: that is `design/kit/docs/inventory.md` and `design/kit/kit.css`.
+No component anatomy: that is `design/kit/docs/inventory.md` and the 73 component files in `design/system/components/`. **`design/kit/kit.css` was deleted at stage 08 step 8**, proved safe by a coverage check reporting zero of its 367 selectors declared nowhere in the system.
 
 **Two values moved after this file was first written and both are recorded here rather than only in the kit.** `--color-scrim` was `rgba(22,24,26,.28)`, stage 04's light-theme ink at 28 per cent and the one value in the product the remap could never see, because it was a literal `rgba()` rather than a variable. It is now `color-mix(in srgb, var(--color-ground) 78%, transparent)`, the product's own ground. And an icon set of sixteen glyphs entered the system at step 4, applied in three places by CSS mask so that no screen gains an element and the structural diff stays at zero.
 
-No light theme. It is a named debt, recorded in `CLAUDE.md` and in `docs/decisions.md`.
+No light theme, when this was written. **It has one now**, and it arrived as a property of the token level rather than as a feature: every role and every state token was written twice at founding, in `:root` and in `[data-theme="dark"]`, and the pair is not a mirror because contrast is computed against the opposite ground. What remains a named debt is shipping it to the analyst: the switch lives in the stand's panel and not in the product, and `docs/decisions.md` says why.
+
+---
+
+## 9. Contributing to the system
+
+**New appears in `design/system/` first and on the screen second. Never the other way round.** That is the rule of growth, and it is what separates a living system from a folder somebody once tidied. It is written in four places because each has a different reader: here, in the root `CLAUDE.md`, in `design/system/CLAUDE.md` which is read on every entry into the package, and in full in section 11 of `design/kit/docs/architecture.md`.
+
+| The new thing | Where it goes | What makes it finished |
+|---|---|---|
+| a **value** | `design/system/tokens.css`, at its own level. A colour that carries a role goes in the semantic level with an origin comment; a raw value goes in the primitive level | **a token of state is written in both themes at once or it does not exist.** A role declared in one theme looks flawless in that theme and loses its focus ring in the other, and nothing but reading the two declarations side by side finds it |
+| a **component** | `design/system/components/<name>.css` | five things: the css, a page in `design/kit/` with all five blocks, an entry in `_nav.js` in the group of its own level, a row in `inventory.md` with its level, and an `@import` in its own level group and not at the end of `index.css`. **The third and the fifth are the two that get skipped**, because appending to an assembled system looks harmless and it is exactly how the ladder comes apart |
+| a **composition** | `design/system/patterns/<name>.css`, and only from **three screens** counted on `wireframes/` | the same five things one rung higher, with the `@import` after every component. Two screens is not a pattern: it stays markup and goes into the candidates table on `patterns.html`. **A pattern arranges and does not paint**, so a composition that needs a declaration none of its parts has is a missing component rather than a pattern |
+| a **prohibition** | the usage rules, section 10 of `design/kit/docs/architecture.md` | the source column filled in with the count, the earlier decision or the critique it came from. A rule with an empty source is an invention wearing the word rule. Then a **Limits** subsection on the page of every component it names, and a function in `design/kit/checks/rules.mjs`, which is what makes it run rather than be read |
+| anything, **on a screen** | nowhere. It is forbidden | a screen carries no style of its own and no inline declaration either. If a screen needs something the system does not have, the something is an order for the system |
+
+**The state tokens, with their pair, are section 2 above.** They are named here again only for the rule they carry: `:hover` reads `--bg-hover`, `:active` reads `--bg-active`, `:focus-visible` reads `--color-focus`, `:disabled` reads `--opacity-disabled`, and none of them appears as a literal in a component file. The contrast of each against its own ground, in both themes, is computed on `design/kit/color.html` in the page rather than transcribed into this one.

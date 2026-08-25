@@ -1,0 +1,38 @@
+/* mark :: ATOM
+   ----------------------------------------------------------------------------
+   READS. No colour role at all. Geometry only: --font-mono, --size-xs.
+
+   PAGE. design/kit/mark.html
+   STANDS ON. 153 instances across 26 screens, every one of them in the latitude
+   ladder, `lat`, in the case pane and on the fleet.
+
+   THE SECOND COMPONENT IN THIS SYSTEM THAT READS NO COLOUR. `key` is the other,
+   and for the same reason: the mark takes the ink of the ladder row it stands
+   in, so it recedes with a row that is out of the agent's latitude and comes
+   forward with one that is not. Three readings on 153 instances, and the file
+   declares none of them.
+   ----------------------------------------------------------------------------
+   THIS IS THE DIFFERENTIATOR, RENDERED. CLAUDE.md names calibrated trust as the
+   only surviving differentiator and the fleet as where it has to read at a
+   glance. `yes` and `no` down this column ARE the glance: 42 of the 153 are
+   `yes` and 81 are `no`, and the ratio is the sentence the analyst reads before
+   any of the words beside them.
+   ---------------------------------------------------------------------------- */
+
+.mark{
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  flex: 0 0 20px;   /* the column, not the word. 20px is the width of `yes` in the
+                       mono at 11px, so the labels beside it start on one line down
+                       the whole ladder. It lives here rather than in `lat` because
+                       it is the mark's own measure, and a ladder row that carried
+                       it would have to know how wide its first child wants to be */
+}
+
+/* -- NO VARIANTS, AND NO STATES ----------------------------------------------
+   The three readings on the screens belong to the LADDER ROW, not to the mark:
+   `off` takes the whole row to secondary ink and the mark goes with it, and
+   `ceiling` gives the row a surface and weight 600 and the mark goes with that
+   too. Both rules live in `lat`, which is a molecule.
+   Not interactive, so no hover, no active, no focus, no out of reach. It is a
+   reading of the record, and there is nothing to press. */

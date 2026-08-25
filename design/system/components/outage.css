@@ -1,0 +1,118 @@
+/* outage :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-primary, --text-secondary. Line: --rule-hair. Geometry:
+   --size-xl, --size-sm, --leading-tight, --font-mono, --space-3, --space-4,
+   --space-5, --space-7.
+   CONTAINS. anote, on all three.
+
+   PAGE. design/kit/outage.html
+   STANDS ON. 3 instances across 3 screens: service unavailable, planned, and
+   partial.
+
+   THE PRODUCT IS DOWN AND THE PAGE STILL HAS TO BE USEFUL. It says what is out,
+   since when, what still works and what to do meanwhile, in that order. It is
+   the one surface where the analyst is not deciding anything and the interface
+   is answering for itself.
+   ----------------------------------------------------------------------------
+   IT CARRIES A MARK AND IT IS THE ONLY COMPONENT THAT DOES. A fixed 120px image
+   beside the text, never a background: a page with no product on it may carry a
+   mark and may not carry a scene. 84px at 360, because the mark must not take
+   the fold from the sentence that says what is happening.
+
+   THE PATH TO THE IMAGE IS RELATIVE TO THIS FILE, which is two levels down from
+   design/. That is the one thing in this package that is not portable by itself,
+   and it is named rather than left to be discovered: lifting design/system/ into
+   another project takes design/visuals/ with it or this rule resolves to nothing.
+   ---------------------------------------------------------------------------- */
+
+.outage{
+  position: relative;
+  width: min(660px, 100%);
+  margin: var(--space-5) auto var(--space-7);
+  padding: 0 var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.outage::before{
+  content: "";
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 0 0 var(--space-5);
+  background: url("../../visuals/outage.png") center/contain no-repeat;
+  opacity: .9;
+}
+
+.outage h1{
+  margin: 0;
+  font: 600 var(--size-xl)/var(--leading-tight) var(--font-sans);
+  color: var(--text-primary);
+}
+.outage h1 .sub{
+  display: block;
+  margin-top: var(--space-2);
+  font: 400 var(--size-sm)/1.4 var(--font-mono);
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+
+/* the actions under an outage. A place, not a component, and it is declared here because
+   the outage is what decides the phone reading order it takes part in. */
+.out-act{ display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) }
+
+/* a fact and its label. NOT A TABLE: there are three of them and they read as
+   sentences, and a table of three rows is a table nobody reads as one. */
+.outage .out-line{
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  border-top: var(--rule-hair);
+  padding-top: var(--space-3);
+}
+.outage .out-line .k{
+  flex: 0 0 128px;
+  font: 600 var(--size-xs)/1.4 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.outage .out-line .v      { flex: 1 1 auto; min-width: 0; font-size: var(--size-sm) }
+.outage .out-line .v b    { font-weight: 700; font-size: var(--size-md) }
+.outage .out-line .v .why { display: block; margin-top: var(--space-1); color: var(--text-secondary) }
+
+@media (max-width:900px){
+  .outage{ margin: var(--space-4) auto var(--space-6); gap: var(--space-4) }
+  .outage::before{ width: 84px; height: 84px }
+
+  /* THE CONTACT READS FIRST AT 360 AND THE ACTION PINS TO THE BOTTOM. On a desk she wants
+     to understand; on a phone at 03:00 she wants a number, so the contact leaves its place
+     in the reading order and goes first. DOM order is untouched, so the heading structure
+     and the tab order both stay as written: this is one live page narrowed, not a second
+     file. Reading first then put the only action a viewport and a half down, so the action
+     pins to the bottom edge with the same device the pane foot uses. Both things are true
+     at once: the number is what she reads, and the retry is always under her thumb. */
+  .outage .out-contact{ order: -1 }
+
+  /* a 128px label column costs a third of a phone. The label goes above its value instead */
+  .outage .out-line   { flex-direction: column; gap: var(--space-1) }
+  .outage .out-line .k{ flex: none }
+
+  /* the actions are a PLACE rather than a component, and the place lives here because it
+     is the outage that decides the phone reading order */
+  .out-act{
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    order: 99;
+    margin: 0 calc(var(--space-4) * -1) calc(var(--space-6) * -1);
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-page);
+    border-top: var(--rule-edge);
+  }
+  .out-act .btn{ flex: 1 1 auto; justify-content: center }
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   The buttons in `.out-act` are, and they carry their own. */

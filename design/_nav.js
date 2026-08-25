@@ -49,9 +49,14 @@ window.DESIGN_NAV = {
         {slug:"other", label:"None of the six fits", colour:true},
         {slug:"write-failed", label:"Did not write, 4.9", colour:true},
       ]},
-    { screen:"escalate", node:"4.6", label:"Escalate", cluster:"4", scope:"MVP", grey:true, colour:0, total:4,
+    { screen:"escalate", node:"4.6", label:"Escalate", cluster:"4", scope:"MVP", grey:true, colour:1, total:4,
       states:[
-        {slug:"", label:"Default", colour:false},
+        /* THE SELF SUFFICIENCY TEST OF STAGE 09, and the only screen in this registry
+           built after the system rather than before it. It is here rather than in a
+           folder of examples because a screen assembled from the system is a screen
+           of the PRODUCT: stages 10 and 11 adapt and animate it with the rest, and 13
+           hands it over. What it found is four rows in design/kit/docs/backlog.md. */
+        {slug:"", label:"Default", colour:true},
         {slug:"from-expired", label:"Opened from 4.7", colour:false},
         {slug:"no-recipient", label:"Nobody on the rota", colour:false},
         {slug:"write-failed", label:"Did not write, 4.9", colour:false},
@@ -173,7 +178,7 @@ window.DESIGN_NAV = {
 
   /* 3. the hub, and the kit beside it rather than under it */
   var top = el('ul', 'nav-roadmap');
-  [['overview.html', 'All screens'], ['kit/kit.html', 'Component kit'], ['kit/shell.html', 'The shell']]
+  [['overview.html', 'All screens'], ['kit/overview.html', 'Design system'], ['kit/shell.html', 'The shell']]
     .forEach(function (p) {
       var isHere = (here === p[0].split('/').pop() && location.pathname.indexOf(p[0]) > -1);
       var li = el('li', 'nav-item' + (isHere ? ' is-active' : ''));
@@ -260,43 +265,64 @@ window.DESIGN_NAV = {
 
   if (!document.getElementById('d-panel-css')) {
     var st = document.createElement('style'); st.id = 'd-panel-css';
+    /* SEVENTEEN DECLARATIONS HERE READ FIVE TOKENS THAT DO NOT EXIST, until stage 09.
+       `--color-ground`, `--color-text`, `--color-text-dim`, `--color-accent`,
+       `--color-rule` and `--color-edge` are stage 06 DRAFT names: they live in
+       DESIGN-artifacts.md and were never declared in any stylesheet the product links.
+       Every one of them resolved to nothing on all 53 coloured screens, so this panel
+       had a fully transparent ground and every link in it took the inherited primary
+       ink: the current item, the muted items and the rules were one colour.
+
+       IT IS THE EXACT CLASS CLAUDE.md NAMES, and it survived three stages of
+       instruments because none of them looks here. The contrast sweep passes, because
+       what is left is legible; a reader sees a panel that looks like a panel; and a
+       detector aimed at the product never opens the documentation chrome. The bridge
+       tokens `--nav-fg`, `--nav-muted`, `--nav-active` and `--nav-rule` existed in
+       tokens.css the whole time, declared for exactly this and read by nothing. */
     st.textContent =
-      '#sidebar{padding:20px 14px;background:var(--color-ground)}' +
-      (isScreen
-        ? '#sidebar{position:sticky;top:0;max-height:100vh;overflow-y:auto;' +
-            'scrollbar-width:thin;scrollbar-color:var(--color-rule) transparent}' +
-          '#sidebar::-webkit-scrollbar{width:7px}' +
-          '#sidebar::-webkit-scrollbar-thumb{background:var(--color-rule)}' +
-          '#sidebar::-webkit-scrollbar-track{background:transparent}'
-        : /* the shell is a flex ROW with align-items:stretch, which is right for a screen and
-             wrong for a document: it pinned both columns to one viewport and let the article
-             overflow, so the panel ended in mid air at 900px and the page kept going. Top
-             aligned, both columns take their own height and the page scrolls, which is what
-             every other documentation page in this project does. */
-          '.wf-shell{align-items:flex-start}' +
-          '#sidebar{position:static;max-height:none;overflow:visible}') +
+      '#sidebar{padding:20px 14px;background:var(--bg-surface)}' +
+      /* THE PANEL TRAVELS WITH THE SCROLL ON BOTH KINDS OF PAGE, and until stage 08 it did
+         not. The shell is a flex ROW with align-items:stretch, which is right for a screen
+         and wrong for a document: it pinned both columns to one viewport and let the article
+         overflow, so the panel ended in mid air at 900px and the page kept going. The cure
+         written at 07 was two declarations and only the first of them was needed. Top
+         aligning the row lets both columns take their own height; making the panel STATIC as
+         well then scrolled it out of reach, and a document page here is two thousand pixels
+         long. Sticky needs the top alignment and is fine with it, so a document now gets
+         both and a screen gets the sticky it always had. */
+      '#sidebar{position:sticky;top:0;max-height:100vh;overflow-y:auto;' +
+        'scrollbar-width:thin;scrollbar-color:var(--nav-rule) transparent}' +
+      '#sidebar::-webkit-scrollbar{width:7px}' +
+      '#sidebar::-webkit-scrollbar-thumb{background:var(--nav-rule)}' +
+      '#sidebar::-webkit-scrollbar-track{background:transparent}' +
+      /* AND THE ROW HAS TO STOP BEING EXACTLY ONE VIEWPORT TALL. kit.css pins .wf-shell to
+         height:100vh, which is right for a screen that scrolls inside its own zones. A
+         sticky element sticks only INSIDE its containing block, so on a document page the
+         panel travelled for 800px and then left with the row that held it. Measured, not
+         reasoned: position computed to sticky and the panel still scrolled away. */
+      (isScreen ? '' : '.wf-shell{align-items:flex-start;height:auto;min-height:100vh}') +
       '@media (max-width:900px){#sidebar{position:static;max-height:none;overflow:visible;' +
         'padding:14px 16px}}' +
-      '.d-out{margin:0 0 14px}.d-out a{color:var(--color-text-dim);text-decoration:none;font-size:12.5px}' +
-      '.d-out a:hover{color:var(--color-text)}' +
+      '.d-out{margin:0 0 14px}.d-out a{color:var(--nav-muted);text-decoration:none;font-size:12.5px}' +
+      '.d-out a:hover{color:var(--nav-fg)}' +
       '.d-badge{display:inline-block;font:400 10px/1 var(--font-mono);letter-spacing:.14em;' +
-        'border:1px solid var(--color-accent);color:var(--color-accent);padding:4px 7px}' +
-      '.d-sub{margin:8px 0 16px;font-size:11.5px;color:var(--color-text-dim);line-height:1.4}' +
+        'border:1px solid var(--nav-active);color:var(--nav-active);padding:4px 7px}' +
+      '.d-sub{margin:8px 0 16px;font-size:11.5px;color:var(--nav-muted);line-height:1.4}' +
       '.d-clu{padding:14px 4px 5px;font:400 10px/1 var(--font-mono);letter-spacing:.09em;' +
-        'text-transform:uppercase;color:var(--color-text-dim)}' +
-      '.nav-link .d-num{font-family:var(--font-mono);font-size:10.5px;color:var(--color-text-dim);' +
+        'text-transform:uppercase;color:var(--nav-muted)}' +
+      '.nav-link .d-num{font-family:var(--font-mono);font-size:10.5px;color:var(--nav-muted);' +
         'min-width:28px;display:inline-block}' +
-      '.d-count{font:400 9.5px/1 var(--font-mono);letter-spacing:.06em;color:var(--color-accent);' +
-        'border:1px solid var(--color-edge);padding:2px 5px}' +
-      '.d-states{list-style:none;margin:4px 0 8px 30px;padding:0;border-left:1px solid var(--color-rule)}' +
+      '.d-count{font:400 9.5px/1 var(--font-mono);letter-spacing:.06em;color:var(--nav-active);' +
+        'border:1px solid var(--line-edge);padding:2px 5px}' +
+      '.d-states{list-style:none;margin:4px 0 8px 30px;padding:0;border-left:1px solid var(--nav-rule)}' +
       '.d-states li{padding:0}' +
       '.d-states a,.d-states span{display:block;padding:3px 10px;font-size:12px;' +
-        'color:var(--color-text-dim);text-decoration:none}' +
-      '.d-states a:hover{color:var(--color-text)}' +
-      '.d-states .is-current{color:var(--color-accent)}' +
+        'color:var(--nav-muted);text-decoration:none}' +
+      '.d-states a:hover{color:var(--nav-fg)}' +
+      '.d-states .is-current{color:var(--nav-active)}' +
       '.d-states .is-grey{opacity:.45}' +
-      '.d-foot{margin:18px 0 0;font-size:11px;line-height:1.45;color:var(--color-text-dim);' +
-        'border-top:1px solid var(--color-rule);padding-top:10px}';
+      '.d-foot{margin:18px 0 0;font-size:11px;line-height:1.45;color:var(--nav-muted);' +
+        'border-top:1px solid var(--nav-rule);padding-top:10px}';
     document.head.appendChild(st);
   }
 })();

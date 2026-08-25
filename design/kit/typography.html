@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Typography</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix t-. */
+.t-fam{ border:var(--rule-edge); padding:var(--space-4); margin:0 0 var(--space-3) }
+.t-fam .s{ font-size:34px; line-height:1.1; margin:0 0 var(--space-3); overflow-wrap:anywhere }
+.t-fam code{ font-family:var(--font-mono); font-size:var(--size-xs); color:var(--text-secondary) }
+.t-warn{ border-left:3px solid var(--text-sev-high); padding:var(--space-3) 0 var(--space-3) var(--space-4);
+         margin:0 0 var(--space-5); max-width:74ch; font-size:var(--size-sm); line-height:var(--leading) }
+.t-warn b{ color:var(--text-primary) }
+.t-track{ font-family:var(--font-mono); font-size:var(--size-xs); text-transform:uppercase }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Foundations</p>
+<h1 class="k-title">Typography</h1>
+<p class="k-lede">Two families, five sizes, three weights and two line heights, and every one of them is stage 04's, inherited rather than re-derived. Small and short on purpose: design principle 5 says density is the feature, and six hours a day means no decorative whitespace.</p>
+
+
+<h2 class="k-h" id="families">Two families</h2>
+<p class="k-note">Chosen on a rendered comparison of four candidates each rather than on the name drawn on the brandbook plate. Archivo carries display and body; IBM Plex Mono is reserved for <b>anything counted</b>, which is what makes a number legible as a number at a glance rather than as a word.</p>
+
+<div class="t-fam">
+  <p class="s" style="font-family:var(--font-sans);letter-spacing:var(--track-display)">Clerk proposes compromised identity</p>
+  <code>--font-sans &middot; 'Archivo', system-ui, sans-serif</code>
+</div>
+<div class="t-fam">
+  <p class="s" style="font-family:var(--font-mono)">34 of 36 accepted, 30 days</p>
+  <code>--font-mono &middot; 'IBM Plex Mono', ui-monospace, monospace</code>
+</div>
+
+<div class="t-warn">
+  <b>Neither family is loaded, and that is a finding rather than a decision.</b> Nothing in the product links a webfont: no <code>@font-face</code>, no stylesheet from a font host, on any of the 52 coloured pages. Both names resolve from the reader's own machine. On a machine that has them the product looks as designed; everywhere else it falls back to <code>system-ui</code> and <code>ui-monospace</code>, and the character both families were chosen for is gone. Open at the step 3 gate.
+</div>
+
+
+<h2 class="k-h" id="scale">The scale</h2>
+<p class="k-note">Five sizes, live, in real product strings from <code>voice/docs/microcopy.md</code> and the coloured screens rather than in filler. The token is on the left and the class that carries it, where there is one, beside it.</p>
+
+<div class="k-scale">
+  <code>--size-xl &middot; 21px<br>the one heading a page is allowed</code>
+  <div style="font:600 var(--size-xl)/var(--leading-tight) var(--font-sans);letter-spacing:-.02em">18 waiting across 12 of 40 tenants</div>
+
+  <code>--size-lg &middot; 17px<br>screen title, pane title</code>
+  <div style="font:600 var(--size-lg)/var(--leading-tight) var(--font-sans)">Fleet</div>
+
+  <code>--size-md &middot; 14px<br>body, controls, the verdict in a row</code>
+  <div style="font-size:var(--size-md);line-height:var(--leading)">Clerk proposes compromised identity</div>
+
+  <code>--size-sm &middot; 12.5px<br>dense data: rows, tables, the narrative</code>
+  <div style="font-size:var(--size-sm);line-height:var(--leading)">Token replay from a new ASN</div>
+
+  <code>--size-xs &middot; 11px<br>column heads, chips, meta, keys, hints</code>
+  <div style="font-family:var(--font-mono);font-size:var(--size-xs);letter-spacing:.08em;text-transform:uppercase">34 of 36 accepted, 30 days</div>
+</div>
+<p class="k-note">Nothing in the product is smaller than 11px except two places that are, and they are named under Tracking below.</p>
+
+
+<h2 class="k-h" id="weights">Weights and line heights</h2>
+<p class="k-note">Three weights, and the product uses no 500 anywhere. Attribute A3 gained a ceiling at stage 06: <b>600 is the working emphasis, and 700 is allowed on a counted value only.</b> Halation makes this structural rather than stylistic: body text on a dark ground never drops below 400.</p>
+
+<div class="k-scale">
+  <code>400 &middot; regular<br>everything that is read</code>
+  <div style="font-weight:400">Clerk found no second signal on this tenant</div>
+
+  <code>600 &middot; the working emphasis<br>the client, the verdict, a heading</code>
+  <div style="font-weight:600">Meridian Health</div>
+
+  <code>700 &middot; a counted value only<br>and nothing else</code>
+  <div style="font-family:var(--font-mono);font-weight:700">34 of 36</div>
+
+  <code>--leading &middot; 1.45<br>anything read in a paragraph</code>
+  <div style="font-size:var(--size-sm);line-height:var(--leading);max-width:52ch">The order settles when the count does. Rows arrive as Clerk correlates them, and the queue is complete when the annunciator says so.</div>
+
+  <code>--leading-tight &middot; 1.25<br>every heading</code>
+  <div style="font:600 var(--size-lg)/var(--leading-tight) var(--font-sans);max-width:52ch">Case File in the detail pane</div>
+</div>
+
+
+<h2 class="k-h" id="tracking">Tracking, and this is the open row of the whole foundation</h2>
+<p class="k-lede">Three tracking tokens were measured on the brandbook plate. <b>No product rule reads any of them:</b> all ten of their uses are on documentation pages. Meanwhile the product writes eight literal tracking values of its own, and they were never reconciled.</p>
+<p class="k-note">This page shows all of them together because that is the only way the question is answerable, and step 2 did not rule on it. Nothing was collapsed silently: the tokens are carried unchanged and the eight values are below.</p>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Value</th><th>Where it is written</th><th>Sample</th><th>Reading</th></tr></thead>
+  <tbody>
+    <tr><td class="t-track">.04em</td><td><code>chip--state</code>, 194 uses</td>
+        <td><span style="font-family:var(--font-mono);font-size:var(--size-xs);letter-spacing:.04em;text-transform:uppercase">unrecorded</span></td>
+        <td>the tightest of the six</td></tr>
+    <tr><td class="t-track">.06em</td><td><code>claim .tag</code>, written as a literal</td>
+        <td><span style="font-family:var(--font-mono);font-size:var(--size-xs);letter-spacing:.06em;text-transform:uppercase">identity</span></td>
+        <td><b>this is exactly <code>--track-mono</code></b>, written past the token that holds it</td></tr>
+    <tr><td class="t-track">.08em</td><td>column heads, the field label, 5 rules</td>
+        <td><span style="font-family:var(--font-mono);font-size:var(--size-xs);letter-spacing:.08em;text-transform:uppercase">tenant</span></td>
+        <td>the most used of the six</td></tr>
+    <tr><td class="t-track">.09em</td><td><code>rail</code>, 1 rule</td>
+        <td><span style="font-family:var(--font-mono);font-size:var(--size-xs);letter-spacing:.09em;text-transform:uppercase">record</span></td>
+        <td>one rule, and one hundredth off its neighbour</td></tr>
+    <tr><td class="t-track">.1em</td><td>the block headings, 3 rules</td>
+        <td><span style="font-family:var(--font-mono);font-size:var(--size-xs);letter-spacing:.1em;text-transform:uppercase">evidence</span></td>
+        <td></td></tr>
+    <tr><td class="t-track">.14em</td><td><code>anote::before</code>, <code>toast .role</code></td>
+        <td><span style="font-family:var(--font-mono);font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase">why</span></td>
+        <td><b>and both are 9.5px</b>, which is below the 11px floor of the scale</td></tr>
+    <tr><td class="t-track">-.01em</td><td><code>wordmark</code>, <code>doormark</code></td>
+        <td><span style="font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:-.01em">Harrier</span></td>
+        <td>against <code>--track-display</code> at -.038em</td></tr>
+    <tr><td class="t-track">-.02em</td><td>the stand's own headings</td>
+        <td><span style="font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:-.02em">Harrier</span></td>
+        <td>documentation, not product</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3 class="k-h2">The three tokens, for comparison</h3>
+<div class="k-scale">
+  <code>--track-mono &middot; .06em<br>measured on plate J &middot; 0 product uses</code>
+  <div style="font-family:var(--font-mono);font-size:var(--size-xs);letter-spacing:var(--track-mono);text-transform:uppercase">34 of 36 accepted</div>
+
+  <code>--track-display &middot; -.038em<br>rendered test &middot; 0 product uses</code>
+  <div style="font:600 var(--size-xl)/1 var(--font-sans);letter-spacing:var(--track-display)">18 waiting</div>
+
+  <code>--track-wordmark &middot; .16em<br>measured on plate J &middot; 0 uses anywhere</code>
+  <div style="font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:var(--track-wordmark)">HARRIER</div>
+</div>
+<p class="k-note"><b>The product's own tracking already meets what the dark ground needs</b>, which is why forcing the token onto it would be the wrong way round. <code>CLAUDE.md</code> requires slightly open tracking on small monospace because of halation, and stage 04's spread of .04 to .14em is open throughout. Making the six into one to make a token look used would change stage 04's typography for the sake of the token. The question this page asks is the other one: <b>should six values be six, and if not, which one survives.</b></p>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [
+  { id:'families', label:'Families' },
+  { id:'scale',    label:'The scale' },
+  { id:'weights',  label:'Weights' },
+  { id:'tracking', label:'Tracking' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+/* fleet :: PATTERN
+   ============================================================================
+   BUILT FROM. z5 as its host, pane-head, frow with its head row, fleet-more.
+   Through frow: rec, was, and the record of every tenant.
+   PAGE. design/kit/fleet.html
+   STANDS ON. 10 grey screens of 62, all 10 of them already in colour.
+
+   THE RESTING STATE OF THE DETAIL PANE, AND THE DIFFERENTIATOR OF THE PRODUCT.
+   CLAUDE.md keeps the fleet out of the global navigation because it is what this
+   pane shows when it is not showing a case, so it costs zero taps, and it binds
+   the rule this composition exists to satisfy: THE EMPTY STATE OF THE PANE MUST
+   READ AS "THIS IS THE FLEET", NOT AS "THIS IS EMPTY". A screen where the pane
+   renders `empty` instead of this has failed the decision, not the layout.
+
+   THIS FILE HAS ONE RULE, AND THAT IS THE FINDING RATHER THAN THE SHORTFALL.
+   The composition is carried entirely by its parts: pane-head names it, frow
+   carries its own three column grid and its own hover, fleet-more is a line of
+   text, and the host is already a column. A pattern that needs no arrangement is
+   a pattern whose components were drawn to fit each other, which is the outcome
+   the level is for. The one rule below is not new either: it was half of a line
+   in z5.css that hid the pane at 360 for two unrelated reasons at once, and it is
+   split here so each half says which reason it is. The other half is in
+   case-pane.css.
+
+   NO COLOUR IN THIS FILE. A pattern arranges, it does not paint.
+   ============================================================================ */
+
+@media (max-width:900px){
+  /* THE PANE AT REST IS A DESK INSTRUMENT. Node 3.1 settles that selecting at 360
+     opens the standalone case rather than a pane covering the list, so at that
+     width there is nothing for a pane at rest to be beside, and the fleet is not
+     rendered. The full list is a screen of its own and it arrives with Clients. */
+  .fleet{ display: none }
+}

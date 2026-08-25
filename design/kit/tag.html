@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Claim tag</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Claim tag</h1>
+<p class="k-lede">Two or three words that say what kind of claim follows, and then get out of the way. 44 instances across 22 screens, inside <code>claim</code>, which is the line of evidence in the case narrative.</p>
+<p class="k-note">Design principle 2 says the cheapest correct thing first and depth one key away. <b>The tag is the cheapest thing on the densest surface in the product:</b> it lets the analyst skip a claim she has already understood without reading the sentence that carries it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading);max-width:52ch"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions in the six hours before the case opened.</p>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading);max-width:52ch"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions in the six hours before the case opened.</p>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.tag</code><span>the whole component. A <code>span</code> every time, and it sits <b>inside</b> the claim's text rather than beside it</span></li>
+  <li><code>::after</code><span><b>two non breaking spaces, and they are the component rather than a margin.</b> A margin lets the browser break the line between the tag and the words it introduces, and at 360 it did. The two spaces cannot break</span></li>
+</ul>
+<p class="k-note"><b>It is inside <code>.txt</code>, not a sibling of it.</b> As a sibling it became a flex item of the claim and took a line of its own at 360, one line per claim on the densest surface in the product. That was found at stage 07: a move is supposed to change where a thing is declared and nothing about how it looks.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-lede"><b>None. The words vary and the component does not.</b></p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis a reader looks for</th><th>Values</th><th>Why the cell is empty</th></tr></thead>
+  <tbody>
+    <tr><td>kind of claim</td><td class="k-none">&ndash;</td><td><b>The word is the value.</b> <code>identity</code>, <code>not found</code>, <code>points the other way</code>. A class per kind would freeze a vocabulary that <code>voice/docs/microcopy.md</code> owns, and it would need a new value the first time Clerk finds a kind of evidence nobody listed</td></tr>
+    <tr><td>absence</td><td class="k-none">&ndash;</td><td><b>The claim's, not the tag's.</b> When Clerk found nothing, <code>claim--absence</code> dims the whole line and the tag dims with it. 18 of the 131 sources on the case pane are that case, and the rule that they are still evidence lives with the claim</td></tr>
+    <tr><td>emphasis</td><td class="k-none">&ndash;</td><td><b>Prohibited.</b> A loud tag would compete with the sentence it introduces, and the sentence is the evidence</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>One literal closed here.</b> <code>kit.css</code> wrote <code>letter-spacing: .06em</code>, which is exactly <code>--track-mono</code>, measured on plate J and read by no product rule until now. Same computed value, one fewer way to say it, and the typography page is down to seven unresolved tracking values from eight.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">At the head of a claim in the case narrative, and nowhere else. It is not a label and not a category: <b>it is the first two words of the sentence, set in a different voice</b> so the eye can use them as an index.</p>
+<p class="k-note"><b>Where she meets it.</b> Reading Clerk's evidence, on the surface the whole product exists for. Six hours a day means she reads hundreds of these, and the tag is what lets her read the third claim without reading the second.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><p style="margin:0;font-size:var(--size-sm);line-height:var(--leading)"><span class="tag">not found</span>No second signal on this tenant in the same window.</p></div>
+    <p>Inside the claim, before the sentence, in the words the evidence itself uses. It reads as part of the line and not as a heading over it.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><i class="state">not found</i></div>
+    <p>Not as a badge. A boundary makes it a thing that reports an outcome, which is <b><code>state</code></b>, and a case narrative full of boxes stops being a narrative.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading);max-width:52ch"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions in the six hours before the case opened.</p>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading);max-width:52ch"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions in the six hours before the case opened.</p>
+    </div>
+  </div>
+</div>
+<p class="k-note">It sets its own ink at rest, which is the one thing that separates it from <code>key</code> and <code>mark</code>, and it still takes the claim's dimming when the claim is an absence. That rule is the claim's.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">One role, and the rest is geometry: <code>--font-mono</code>, <code>--size-xs</code> and <code>--track-mono</code>, which this component is the first consumer of.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;p class="claim"&gt;&lt;span class="txt"&gt;&lt;span class="tag"&gt;identity&lt;/span&gt;Token replay from a new ASN.&lt;/span&gt;&lt;/p&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where"><a href="../case.html">.txt inside .claim &middot; 44</a></div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

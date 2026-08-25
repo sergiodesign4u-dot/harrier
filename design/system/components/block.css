@@ -1,0 +1,40 @@
+/* block :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Geometry: --font-mono, --size-xs, --space-2.
+
+   PAGE. design/kit/block.html
+   STANDS ON. 227 instances across 50 screens, which makes it the most widely
+   spread component in the product: `pane-body` 141, `body` 31, `doc` 28,
+   `brief` 20.
+
+   IT IS A SLOT, AND THAT IS THE FINDING RATHER THAN A THIN COMPONENT. Counted in
+   the browser at step 2: 227 instances show **43 distinct sets of child zones**
+   and ONE computed form. A heading and a free space, and everything that varies
+   is what somebody put in it. Six molecules turned out to be slots between them
+   and their pages say so, so nobody looks for a variant matrix that does not
+   exist.
+   ----------------------------------------------------------------------------
+   THE HEADING IS h2 OR h3 AND THE CHOICE IS NOT COSMETIC. In the pane the block
+   sits under the pane's h2, so its heading is an h3. In Z4 with no pane title
+   above it, the same heading has to be an h2 or the document outline skips a
+   level. The shift brief restyled it by hand until stage 07 found it; the rule
+   takes both and gives them one face.
+   ---------------------------------------------------------------------------- */
+
+.block{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.block > :is(h2,h3){
+  margin: 0;
+  font: 600 var(--size-xs)/1 var(--font-mono);
+  letter-spacing: .1em;        /* one of the six mono values, and a literal */
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* -- NO VARIANTS AND NO STATES -----------------------------------------------
+   A slot has neither. It is not interactive and it has nothing to switch: what
+   changes is the content, and the content is other components. */

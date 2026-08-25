@@ -1,0 +1,58 @@
+/* z5 :: ORGANISM, and it contains others
+   READS. Fill: --bg-surface, --bg-page. Line: --rule-edge. Structure: --pane-w,
+   --width-sheet.
+   CONTAINS. pane-head, pane-body, pane-foot, and through them everything on the
+   case pane and the fleet.
+   PAGE. design/kit/z5.html   STANDS ON. 48 instances across 48 screens.
+
+   THE DETAIL PANE, AND ITS RESTING STATE IS THE FLEET. That is the decision the
+   whole product's navigation hangs on: CLAUDE.md keeps the fleet out of the menu
+   because it is what this pane shows when it is not showing a case, so it costs
+   zero taps. And it binds a rule on this layer in as many words: THE EMPTY STATE
+   OF THIS PANE MUST READ AS "THIS IS THE FLEET", NOT AS "THIS IS EMPTY". If it
+   ever renders an `empty`, that decision has failed.
+
+   WHAT FILLS IT IS A PATTERN, NOT A VARIANT. The case pane, 38 uses, and the
+   fleet, 10, have no zone in common past the head. Making the fleet a variant of
+   the case pane would have written it as a pane with no body, which is to say as
+   an empty case, and the requirement above would have failed in the architecture
+   rather than in the pixels. Both are patterns and they arrive at stage 09.
+
+   -- surface. Two axes' worth of values, and both are about the ROUTE ---------
+   `is-paper` puts the case on the page ground instead of the raised one, 21 uses.
+   `is-standalone` gives it its own address, 3 uses: a permalink, and a phone at
+   03:00. Node 3.1 settles that selecting at 360 opens the standalone rendering
+   rather than a pane covering the list, so at that width the pane is simply not
+   rendered and the case becomes the whole page. Two routes, one rendering, which
+   is what node 4.2 has always been. */
+
+.z5{
+  flex: 0 0 var(--pane-w);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  overflow-y: auto;
+}
+.z5.is-paper{ background: var(--bg-page) }
+
+.z5.is-standalone{
+  flex: 1 1 auto;
+  max-width: var(--width-sheet);
+  border-left: var(--rule-edge);
+  border-right: var(--rule-edge);
+}
+@media (max-width:900px){
+  /* the shell stops scrolling here and the document takes over, so the pane must
+     release its own scroll or the sticky foot pins to a box that never moves */
+  .z5{ overflow: visible }
+  /* WHETHER THE PANE IS RENDERED AT ALL BELONGS TO ITS FILLING, and until stage 09
+     one line said it for both fillings at once. `.z5{display:none}` hid the fleet
+     at rest and the desk only case pane of the log and the shift screens, for two
+     unrelated reasons written as one rule. It is two rules now, in
+     patterns/fleet.css and patterns/case-pane.css, and each names its reason.
+     The rule that removes the sheet's side borders stays here, because a border
+     is paint and paint does not go to a pattern. */
+  .z5.is-standalone{ border-left: none; border-right: none }
+}
+/* NO STATES. */

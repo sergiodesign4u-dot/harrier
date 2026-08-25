@@ -6,16 +6,16 @@
 <meta name="robots" content="noindex">
 <title>Harrier &middot; Case file, Clerk still working, in colour</title>
 <link rel="stylesheet" href="../_nav.css">
-<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="system/index.css">
 </head>
 <body>
-<div class="wf-shell">
+<div class="shell">
 <aside id="sidebar"></aside>
-<div class="wf-screen">
+<div class="screen">
   <header id="wf-z1"></header>
   <p id="wf-z2"></p>
   <main class="z45">
-    <section class="z4" aria-labelledby="qh">
+    <section class="z4 queue-list" aria-labelledby="qh">
       <div class="scopebar" role="group" aria-label="Scope and filters">
         <button class="chip" type="button">All tenants &#9662;</button>
         <button class="chip" type="button">Waiting on a decision &times;</button>
@@ -40,7 +40,7 @@
           <span role="gridcell">Mass file rename on one host</span>
           <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
           <span role="gridcell" class="cost">4 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state">decided</i><i class="chip chip--state chip--solid">unrecorded</i></span>
+          <span class="states" role="gridcell"><i class="state">decided</i><i class="state state--solid">unrecorded</i></span>
           <span class="age" role="gridcell">1h</span>
         </a>
         <a class="row is-selected" role="row" href="case-investigating.html">
@@ -49,7 +49,7 @@
           <span role="gridcell">Token replay from a new ASN</span>
           <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
           <span role="gridcell" class="cost">9 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state chip--ghost">investigating</i></span>
+          <span class="states" role="gridcell"><i class="state state--ghost">investigating</i></span>
           <span class="age" role="gridcell">27m</span>
         </a>
         <a class="row" role="row" href="case.html">
@@ -58,7 +58,7 @@
           <span role="gridcell">Ransomware precursor on FS-02</span>
           <span class="concluded" role="gridcell"><b>Real, contained</b></span>
           <span role="gridcell" class="cost">14 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="states" role="gridcell"><i class="state">acted</i></span>
           <span class="age" role="gridcell">52m</span>
         </a>
         <a class="row" role="row" href="case-no-baseline.html">
@@ -85,7 +85,7 @@
           <span role="gridcell">Beaconing to a new domain</span>
           <span class="concluded" role="gridcell"><b>Real, contained</b></span>
           <span role="gridcell" class="cost">5 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="states" role="gridcell"><i class="state">acted</i></span>
           <span class="age" role="gridcell">2h</span>
         </a>
         <a class="row" role="row" href="case.html">
@@ -107,11 +107,11 @@
       </p>
     </section>
 
-    <aside class="z5 is-paper" aria-labelledby="ph">
+    <aside class="z5 case-pane is-paper" aria-labelledby="ph">
       <div class="pane-head">
         <h2 id="ph">C-4417 &middot; Larkfield Logistics</h2>
         <p class="sub">Token replay from a new ASN &middot; High &middot; counting</p>
-        <p class="chips-hd"><i class="chip chip--state">investigating</i></p>
+        <p class="chips-hd"><i class="state">investigating</i></p>
       </div>
       <div class="pane-body">
         <div class="arriving" aria-label="Clerk is working"></div>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Fleet more</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Fleet more</h1>
+<p class="k-lede">It says what is not on the screen. 10 instances across 10 screens, at the foot of the fleet.</p>
+<p class="k-note">The pane holds a handful of tenants and the analyst carries 40 or more, so the last line of the fleet names how many are below the fold. <b>It is the count that stops the visible rows from reading as the whole fleet</b>, and it is the difference between a summary and a sample.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;border:var(--rule-edge)">
+        <a class="frow" href="#anatomy"><span>Halden Freight</span><span>Investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+        <p class="fleet-more" style="margin:0">34 more tenants &middot; all in the client list</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;border:var(--rule-edge)">
+        <a class="frow" href="#anatomy"><span>Halden Freight</span><span>Investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+        <p class="fleet-more" style="margin:0">34 more tenants &middot; all in the client list</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.fleet-more</code><span>one mono line at 11px in secondary ink, at the foot of the list</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>control</b></td><td><span class="k-none">none, and this is the component</span></td><td><b>Everything about the position says load more, and it is a line of text.</b> The fleet at rest is a glance, not a place to browse, and a control here would invite the analyst to work the pane instead of the queue. The full list is a screen of its own, in cluster 7, and it arrives with Clients</td></tr>
+    <tr><td><b>a percentage</b></td><td><span class="k-none">forbidden</span></td><td><code>voice.md</code> requires a count with its scope. <b>34 more</b> is checkable against the 40 the analyst knows she carries</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>It is the quietest line in the pane. A loud one would say the missing tenants are a problem, and they are simply not on this screen</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>If it ever becomes pressable it becomes <code>btn</code> or <code>link</code>, and this component stops existing.</b> That is written here rather than left to be discovered, because the pressure to make it a control will come from somebody looking at the position rather than at the job.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">At the foot of the fleet, when there are more tenants than the pane shows. Ten of the sixteen fleet renderings carry it, and the other six show every tenant they have.</p>
+<p class="k-note"><b>Where she meets it.</b> While glancing at the fleet, which is most of a shift. The line is what tells her the glance is a sample and how big a sample it is.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><p class="fleet-more" style="margin:0;padding:0">34 more tenants &middot; all in the client list</p></div>
+    <p>The count and where the rest live. It closes the list honestly and points at the screen that holds the whole thing.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="btn btn--quiet" href="#rules">Show 34 more</a></div>
+    <p>Never a control. The pane is a glance and the queue is the work; a button here spends a tap on browsing at the exact moment the analyst should be ruling on a case.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;border:var(--rule-edge)">
+        <a class="frow" href="#anatomy"><span>Halden Freight</span><span>Investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+        <p class="fleet-more" style="margin:0">34 more tenants &middot; all in the client list</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;border:var(--rule-edge)">
+        <a class="frow" href="#anatomy"><span>Halden Freight</span><span>Investigate</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+        <p class="fleet-more" style="margin:0">34 more tenants &middot; all in the client list</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the whole line</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;p class="fleet-more"&gt;34 more tenants &amp;middot; all in the client list&lt;/p&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">the foot of the fleet &middot; 10</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

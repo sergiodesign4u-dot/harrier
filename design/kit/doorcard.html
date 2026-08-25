@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Door card</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Door card</h1>
+<p class="k-lede"><b>The only centred thing in Harrier.</b> 5 instances across 5 screens, on the door: the one surface of this product that is not behind authentication.</p>
+<p class="k-note">Everything else is a console laid out from the top left of a two monitor desk. The door has no queue, no pane and no analyst yet, so the card takes the middle of an empty screen and stops at 440px.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;display:flex">
+        <div class="doorcard">
+          <p class="doormark" style="margin:0;font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:-.01em">Harrier</p>
+          <h1 style="margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)">Sign in</h1>
+          <div class="field"><label class="label" for="d-mail">Email</label><input class="input" id="d-mail" type="email" value="r.idrissi@example.com"><p class="hint" style="margin:0">No password here. Your email decides which provider signs you in.</p></div>
+          <a class="btn btn--primary" href="#anatomy" style="width:100%;justify-content:center">Open your provider&rsquo;s sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;display:flex">
+        <div class="doorcard">
+          <p class="doormark" style="margin:0;font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:-.01em">Harrier</p>
+          <h1 style="margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)">Sign in</h1>
+          <div class="field"><label class="label" for="d-mail">Email</label><input class="input" id="d-mail" type="email" value="r.idrissi@example.com"><p class="hint" style="margin:0">No password here. Your email decides which provider signs you in.</p></div>
+          <a class="btn btn--primary" href="#anatomy" style="width:100%;justify-content:center">Open your provider&rsquo;s sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.doorcard</code><span>the card. <code>margin:auto</code> in a flex zone, which is what centres it in both axes without a single fixed position</span></li>
+  <li><code>.doormark</code><span><b>the wordmark, and it is a paragraph rather than the heading.</b> The <code>h1</code> names the screen, and the one public page of a security product does not put a brand where the page title belongs</span></li>
+  <li><code>field</code><span>one, and the button under it. There is no password: the email decides which provider signs you in</span></li>
+  <li><code>banner</code> and <code>block</code><span><b>optional zones.</b> A banner above the form when the last attempt failed or the session expired; a block below when there is something to explain</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>zones</b></td><td>banner present or absent</td><td><b>Its only axis, and it is not a modifier.</b> What is in the card is decided by what happened before it was rendered: a session that expired, a provider that errored, an address that was deep linked</td></tr>
+    <tr><td><b>width</b></td><td><span class="k-none">no values</span></td><td>440px, once. A wider sign in card on a 1920 monitor reads as a form to fill in; this is one field and one button</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>There is one action and it is the primary. A second action on a door is a second way in</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">On the five door screens: sign in, signed out, session expired, provider error, and a deep link that needs authentication first. It is the whole of cluster 1 in one component.</p>
+<p class="k-note"><b>Where she meets it.</b> Once a shift at most, and at 03:00 when a pager link lands her here before the case. That second path is why the deep linked form keeps the address it was going to: <code>ia/docs/sitemap.md</code> settles that a case opened from a pager survives the sign in.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><div class="doorcard" style="margin:0;width:auto"><p style="margin:0;font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:-.01em">Harrier</p><h1 style="margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)">Sign in</h1></div></div>
+    <p>The wordmark as a line, the screen name as the heading. A screen reader reads Sign in as the page, which is what the page is.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><div class="doorcard" style="margin:0;width:auto"><h1 style="margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)">Harrier</h1></div></div>
+    <p>Never the brand as the <code>h1</code>. It tells assistive technology the page is called Harrier, which is true of all sixty two screens and useful on none of them.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;display:flex">
+        <div class="doorcard">
+          <p class="doormark" style="margin:0;font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:-.01em">Harrier</p>
+          <h1 style="margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)">Sign in</h1>
+          <div class="field"><label class="label" for="d-mail">Email</label><input class="input" id="d-mail" type="email" value="r.idrissi@example.com"><p class="hint" style="margin:0">No password here. Your email decides which provider signs you in.</p></div>
+          <a class="btn btn--primary" href="#anatomy" style="width:100%;justify-content:center">Open your provider&rsquo;s sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;display:flex">
+        <div class="doorcard">
+          <p class="doormark" style="margin:0;font:600 var(--size-lg)/1 var(--font-sans);letter-spacing:-.01em">Harrier</p>
+          <h1 style="margin:0;font:600 var(--size-xl)/var(--leading-tight) var(--font-sans)">Sign in</h1>
+          <div class="field"><label class="label" for="d-mail">Email</label><input class="input" id="d-mail" type="email" value="r.idrissi@example.com"><p class="hint" style="margin:0">No password here. Your email decides which provider signs you in.</p></div>
+          <a class="btn btn--primary" href="#anatomy" style="width:100%;justify-content:center">Open your provider&rsquo;s sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The field and the button inside it are, and both carry their own.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the card’s ground, against the zone behind it</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the card’s boundary, through --rule-edge</td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="doorcard"&gt;
+  &lt;p class="doormark"&gt;Harrier&lt;/p&gt;
+  &lt;h1&gt;Sign in&lt;/h1&gt;
+  &lt;div class="field"&gt;...&lt;/div&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../index-signed-out.html">sign in</a>
+  <a href="../index-expired.html">session expired</a>
+  <a href="../index-idp-error.html">provider error</a>
+  <a href="../index-deep-link.html">a deep link</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

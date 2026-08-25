@@ -1,0 +1,30 @@
+/* rows :: ORGANISM
+   READS. nothing. It is layout.
+   CONTAINS. row, and empty when there is none.
+   PAGE. design/kit/rows.html   STANDS ON. 43 instances across 43 screens: in Z4
+   38 and inside a block 5.
+
+   IT IS THE SCROLL CONTAINER OF THE QUEUE AND THAT IS ALL IT IS. Three
+   declarations. It exists so the rows scroll and the zone around them does not:
+   the scope bar, the readout and the keyboard strip stay while two hundred rows
+   go past, and the head row sticks to the top of THIS box rather than to the
+   viewport.
+
+   INSIDE A BRIEF THE LIST DOES NOT SCROLL, and that is `rows-moved`, which is a
+   different container with its own file. This one is the queue's box and nothing
+   else redefines it.
+
+   -- list. THE LOG'S WIDTHS MOVED TO THE ROW AND THIS CONTAINER HAS NO HALF ------
+   `.rows--log` used to set `--row-tracks` on the container and the row read it.
+   The row reads `--row-tracks-log` directly now, so this file declares nothing for
+   the log and an earlier draft claimed it did. **`.rows--log` therefore survives on
+   two screens as a name doing no work**, and it goes to list three of the
+   reconciliation rather than being quietly deleted: it is a hook a rollout may
+   still want, and deciding that is not this file's job. */
+
+.rows{
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;      /* without it the flex item refuses to shrink and never scrolls */
+}
+/* NO STATES. */

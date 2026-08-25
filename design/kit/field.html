@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Field</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Field</h1>
+<p class="k-lede">Three atoms in one order, and the order is the component. 30 instances across 15 screens.</p>
+<p class="k-note">Label, control, hint. <b>The label is never inside the control, the hint is never above the label</b>, and the gap between them is one step of the scale so the three read as one thing rather than three.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="field"><label class="label" for="f-why">Why you are rejecting</label><textarea class="input" id="f-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea><p class="hint" style="margin:0">A reason is required</p></div>
+        <div class="field"><label class="label" for="f-mail">Email</label><input class="input" id="f-mail" type="email" value="r.idrissi@example.com"></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="field"><label class="label" for="f-why">Why you are rejecting</label><textarea class="input" id="f-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea><p class="hint" style="margin:0">A reason is required</p></div>
+        <div class="field"><label class="label" for="f-mail">Email</label><input class="input" id="f-mail" type="email" value="r.idrissi@example.com"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.field</code><span>a column with one step of gap. That is the whole declaration</span></li>
+  <li><code>label</code><span>its own atom, with a <code>for</code>. Not optional: measured at 31 labels against 30 fields</span></li>
+  <li><code>input</code><span>its own atom, and it is one component for <code>input</code>, <code>textarea</code> and <code>select</code></span></li>
+  <li><code>hint</code><span>its own atom, on 7 of the 30</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>control</b></td><td>textarea</td><td>21</td><td>carried by <code>input</code>, not by a modifier here</td></tr>
+    <tr><td></td><td>input</td><td>9</td><td>the same</td></tr>
+    <tr><td><b>hint</b></td><td>present</td><td>7</td><td><b>presence rather than a modifier.</b> A field asks for a hint when the constraint cannot be read off the label, and that is a fact about the question</td></tr>
+    <tr><td></td><td>absent</td><td>23</td><td></td></tr>
+    <tr><td><b>error</b></td><td><span class="k-none">no values</span></td><td>0</td><td><b>The product has no error state on a field.</b> The reject dialog holds its main action out of reach until a reason is given and says so in a hint. That is a defensible answer and it is not a drawn one. In <code>backlog.md</code>, and named on the input and hint pages as well</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>It is the clearest molecule in the system.</b> Three atoms, a direction and a gap, and everything a reader expects to find here is somewhere else on purpose: the box is <code>input</code>, the name is <code>label</code>, the constraint is <code>hint</code>, and each of them stands alone on other screens.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Wherever the product has to collect something it cannot know. That is a short list on purpose: <b>an adjudication console asks the analyst for almost nothing</b>, because everything it needs it has already correlated.</p>
+<p class="k-note"><b>Where she meets it.</b> Only when she disagrees with Clerk. 21 of the 30 are one question, <b>why you are rejecting</b>, and design principle 3 is the reason: the reason goes straight into tuning, so the field is the part of the interface that teaches.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><div class="field"><label class="label" for="f-do">Why you are rejecting</label><textarea class="input" id="f-do" rows="2">Benign, called a threat.</textarea></div></div>
+    <p>Label above, control below, one step apart. Clicking the label focuses the control, which the browser does for free once the elements are right.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><div class="field"><input class="input" placeholder="Why you are rejecting" aria-label="do not"><p class="hint" style="margin:0">Why you are rejecting</p></div></div>
+    <p>Not with the name in the placeholder and not with the hint repeating it. The placeholder disappears when she starts typing, and a hint that repeats the label spends a line saying nothing.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="field"><label class="label" for="f-why">Why you are rejecting</label><textarea class="input" id="f-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea><p class="hint" style="margin:0">A reason is required</p></div>
+        <div class="field"><label class="label" for="f-mail">Email</label><input class="input" id="f-mail" type="email" value="r.idrissi@example.com"></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="field"><label class="label" for="f-why">Why you are rejecting</label><textarea class="input" id="f-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea><p class="hint" style="margin:0">A reason is required</p></div>
+        <div class="field"><label class="label" for="f-mail">Email</label><input class="input" id="f-mail" type="email" value="r.idrissi@example.com"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The control inside it has hover and focus and carries them itself. <b>The field draws no ring around the group, and it must not:</b> a ring around three things says three things are focused.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<p class="k-note"><b>No colour role at all.</b> Geometry only.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="field"&gt;
+  &lt;label class="label" for="why"&gt;Why you are rejecting&lt;/label&gt;
+  &lt;textarea class="input" id="why" rows="3"&gt;&lt;/textarea&gt;
+  &lt;p class="hint"&gt;A reason is required&lt;/p&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../reject.html">the reject dialog &middot; 12</a>
+  <a href="../index-signed-out.html">the door &middot; 5</a>
+  <a href="../case-amend.html">a block &middot; 7</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

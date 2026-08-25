@@ -1,0 +1,40 @@
+/* label :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Geometry: --font-mono, --size-xs, and the
+   product's most used tracking value.
+
+   PAGE. design/kit/label.html
+   STANDS ON. 31 instances across 15 screens: above a field 30, and once in an
+   option list.
+
+   IT IS THE NAME OF AN ANSWER, NOT A HEADING. `Why you are rejecting`,
+   `On Larkfield Logistics, C-4417`, `Email`, `Your wording`. It is uppercase
+   mono at 11px because voice.md gives a machine-readable name a different
+   register from the prose around it, exactly as `tag` and `state` do, and it is
+   secondary ink because the answer is the thing being read and this is only its
+   name.
+   ----------------------------------------------------------------------------
+   IT IS A `label` ELEMENT WITH A `for`, ON ALL 31. That is not a style decision
+   and it cannot be traded: it is what makes the field's name reach a screen
+   reader and what makes the name a click target that focuses the field. A `div`
+   drawn to look like this would lose both and nothing on the screen would say
+   so.
+
+   THE TRACKING IS .08em, THE MOST USED OF THE SIX MONO VALUES in the product,
+   and it is a literal rather than --track-mono at .06em. The typography page
+   carries the open question about all of them; nothing was collapsed here to
+   make a token look used.
+   ---------------------------------------------------------------------------- */
+
+.label{
+  font: 600 var(--size-xs)/1 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   Clicking it focuses the field, which is the browser doing its job through
+   `for` and not a state of this component: nothing about the label changes. It
+   takes no hover for the same reason, because a label that lit up under the
+   pointer would promise something it is not the one doing. */

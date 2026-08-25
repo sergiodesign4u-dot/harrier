@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Latitude ladder</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Latitude ladder</h1>
+<p class="k-lede"><b>This is the differentiator, and it is a component.</b> 26 instances across 26 screens: for one tenant, every action Clerk could take, marked yes or no, with the ceiling shown and the reason where the answer is no.</p>
+<p class="k-note"><code>CLAUDE.md</code> names calibrated trust as <b>the only surviving differentiator</b> and requires stage 04 to carry it with a concrete element on the reference screen. This ladder is that element.</p>
+<p class="k-note"><b>It was not in the register.</b> Step 2 built the register from a browser census of <b>controls</b>, and this is a container. Found at step 5 by scanning every class that owns a rule block in <code>kit.css</code> against the register: twenty one came back and thirteen were components. <code>docs/inventory.md</code> section 13 has all of them. <b>This is the one that matters most of the thirteen:</b> <code>mark</code> was written and the ladder it lives in was not, and <code>mark</code>’s own page says the three readings on the screens belong to the ladder row.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="lat" style="width:100%;max-width:400px">
+        <div><span class="mark">yes</span><span>Investigate</span></div>
+        <div class="ceiling"><span class="mark">yes</span><span>Contain a single endpoint</span></div>
+        <div class="off"><span class="mark">no</span><span>Disable an account</span><span class="why">above latitude here</span></div>
+        <div class="off"><span class="mark">no</span><span>Isolate a host</span><span class="why">above latitude here</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="lat" style="width:100%;max-width:400px">
+        <div><span class="mark">yes</span><span>Investigate</span></div>
+        <div class="ceiling"><span class="mark">yes</span><span>Contain a single endpoint</span></div>
+        <div class="off"><span class="mark">no</span><span>Disable an account</span><span class="why">above latitude here</span></div>
+        <div class="off"><span class="mark">no</span><span>Isolate a host</span><span class="why">above latitude here</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.lat</code><span>the ladder, in its own hairline border</span></li>
+  <li><code>.lat &gt; div</code><span>one action. The rows are the ladder and they have no class of their own</span></li>
+  <li><code>mark</code><span>its own atom, 20px wide, so the yes and no column reads down</span></li>
+  <li><code>.why</code><span><b>the reason, and only where the answer is no.</b> Pushed right, 11px</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>row state</b></td><td>base</td><td>26</td><td>the agent may do this, and it is not the ceiling</td></tr>
+    <tr><td></td><td><code>.ceiling</code></td><td>26</td><td><b>the highest action the agent may take on this tenant.</b> A surface and weight 600, not a colour: the accent has four jobs and no fifth. Exactly one per ladder</td></tr>
+    <tr><td></td><td><code>.off</code></td><td>101</td><td><b>above latitude here.</b> The whole line recedes and the reason arrives on the right</td></tr>
+    <tr><td><b>length</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td>Four actions or seven is a count. What the ladder lists is what the agent could do, and that is a fact about the product rather than about the tenant</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In the case pane, for the tenant the case belongs to, and on the fleet where forty of them are the resting state of the right pane. It answers the third of the three MVP jobs: <b>know where the agent’s record has earned latitude</b>.</p>
+<p class="k-note"><b>Where she meets it.</b> While deciding whether Clerk should have acted rather than asked. <b>Out of reach is shown and not hidden</b>, and 101 of the 153 marks are `no`: hiding them would make the ladder a list of what the agent CAN do, and she needs the shape of what it cannot.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="lat"><div class="ceiling"><span class="mark">yes</span><span>Contain a single endpoint</span></div><div class="off"><span class="mark">no</span><span>Disable an account</span><span class="why">above latitude here</span></div></div></div>
+    <p>The ceiling given a ground, and everything above it receded with its reason. Two rows and she knows how much rope this agent has on this client.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="lat"><div class="ceiling"><span class="mark">yes</span><span>Contain a single endpoint</span></div></div></div>
+    <p>Never only the permitted actions. A ladder that lists what the agent can do is a capability list; what makes it calibrated trust is that it also shows where the agent stops.</p>
+  </div>
+</div>
+<p class="k-note">At 360 on the standalone route the reason column is dropped: the answer is the column and the explanation is a line the analyst does not have room for. That rule lives with <code>z5</code>, which is the route that changes it.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="lat" style="width:100%;max-width:400px">
+        <div><span class="mark">yes</span><span>Investigate</span></div>
+        <div class="ceiling"><span class="mark">yes</span><span>Contain a single endpoint</span></div>
+        <div class="off"><span class="mark">no</span><span>Disable an account</span><span class="why">above latitude here</span></div>
+        <div class="off"><span class="mark">no</span><span>Isolate a host</span><span class="why">above latitude here</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="lat" style="width:100%;max-width:400px">
+        <div><span class="mark">yes</span><span>Investigate</span></div>
+        <div class="ceiling"><span class="mark">yes</span><span>Contain a single endpoint</span></div>
+        <div class="off"><span class="mark">no</span><span>Disable an account</span><span class="why">above latitude here</span></div>
+        <div class="off"><span class="mark">no</span><span>Isolate a host</span><span class="why">above latitude here</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the ceiling row</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the action</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>a row above latitude, and its reason</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the border and the rules between rows</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="lat"&gt;
+  &lt;div&gt;&lt;span class="mark"&gt;yes&lt;/span&gt;&lt;span&gt;Investigate&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="ceiling"&gt;&lt;span class="mark"&gt;yes&lt;/span&gt;&lt;span&gt;Contain a single endpoint&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="off"&gt;&lt;span class="mark"&gt;no&lt;/span&gt;&lt;span&gt;Disable an account&lt;/span&gt;&lt;span class="why"&gt;above latitude here&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case.html">the case pane &middot; 21</a>
+  <a href="../queue.html">the fleet &middot; 5</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

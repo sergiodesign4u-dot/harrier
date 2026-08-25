@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Z5, the pane</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix pn-. THE FULL COLUMN AND THE TWO THEMES STACK. Two panes side by side
+   are two --pane-w before the gap, and half of the article column is 525. The themes go
+   one above the other, which costs a scroll and no truth. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE SCENE. A smaller but REAL box, never a transform. The pane has a width token, so unlike
+   the zones around it this one can stand at its own size: both panes below are at the real
+   --pane-w, 320 at 1440 and 380 above 1560, and the type is the product's. The fiction is
+   the height. */
+.pn-scroll{ width:100%; overflow-x:auto }
+.pn-pair  { display:flex; gap:var(--space-4); min-width:800px }
+.pn-stage { display:flex; height:420px; border:var(--rule-edge); background:var(--bg-page) }
+.pn-cap   { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+            margin:var(--space-2) 0 0 }
+/* BELOW 900 THE PANE AT REST IS NOT RENDERED, and that is node 3.1 rather than a fault. The
+   stand does not put it back: it stands the box down and says what happened, so the reader
+   sees the product's own behaviour instead of a documentation copy of it. */
+.pn-say   { display:none; border:var(--rule-hair); padding:var(--space-3);
+            font-size:var(--size-sm); line-height:var(--leading); color:var(--text-secondary) }
+/* A CAPTION THAT IS TRUE AT 1440 AND FALSE AT 360 IS THE CLASS ONLY A BROWSER FINDS, and this
+   bench renders two panes at the desk and one on a phone. Two captions, one per width. */
+.pn-cap-n { display:none }
+@media (max-width:900px){
+  .pn-pair{ min-width:0; flex-direction:column }
+  .pn-stage{ height:340px; width:100% }
+  .pn-rest{ display:none }
+  .pn-say { display:block }
+  .pn-cap-d{ display:none }
+  .pn-cap-n{ display:block }
+}
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism, and it contains another</p>
+<h1 class="k-title">Z5, the pane</h1>
+<p class="k-lede"><b>The detail pane, and its resting state is the fleet.</b> 48 instances across 48 screens. That is the decision the whole product&rsquo;s navigation hangs on.</p>
+<p class="k-note"><code>CLAUDE.md</code> keeps the fleet out of the menu because it is what this pane shows when it is not showing a case, <b>so it costs zero taps</b>. And it binds a rule on this layer in as many words: <b>the empty state of this pane must read as &ldquo;this is the fleet&rdquo;, not as &ldquo;this is empty&rdquo;.</b> If it ever renders an <a href="empty.html">empty</a>, that decision has failed.</p>
+<p class="k-note"><b>What fills it is a pattern, not a variant.</b> The case pane, 38 uses, and the fleet, 10, have no zone in common past the head. Making the fleet a variant of the case pane would have written it as a pane with no body, which is to say as an empty case, and the requirement above would have failed in the architecture rather than in the pixels. Both are patterns and they arrive at stage 09.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A scaled scene, not a diagram.</b> This is the one zone in the product with a width token, so it can stand at its own size rather than be drawn: both panes below are at the real <code>--pane-w</code>, which is <b>320px at 1440 and 380px above 1560</b>: the pane narrows before the list does, with the real type and the real spacing. The fiction is the height, 420px against a viewport. <b>The two are shown together because that is the argument:</b> past the head they share no zone at all.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="pn-scroll">
+        <div class="pn-pair">
+          <div class="pn-stage pn-rest">
+            <aside class="z5">
+              <div class="pane-head"><h2>Fleet</h2><p class="sub">40 tenants, nothing selected. Ordered by where attention is owed</p></div>
+              <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
+              <a class="frow" href="#anatomy"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+              <a class="frow" href="#anatomy"><span>Halcyon Care</span><span>Contain endpoint</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+              <a class="frow" href="#anatomy"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
+              <p class="fleet-more">37 more, 30 day window &middot; a row narrows the queue to that tenant</p>
+            </aside>
+          </div>
+          <p class="pn-say">At this width the pane at rest is not rendered at all, and the box that held it has been stood down rather than filled in. Node 3.1 settles it: selecting at 360 opens the standalone case, so there is no pane for the fleet to rest in.</p>
+          <div class="pn-stage">
+            <aside class="z5 is-paper">
+              <div class="pane-head"><h2>C-4417</h2><p class="sub">Larkfield Logistics &middot; filed by Clerk 26m ago</p></div>
+              <div class="pane-body">
+                <section class="block"><h3>What Clerk concluded</h3><p class="nar"><b>Real, contain identity.</b> A refresh token was replayed from an ASN this tenant has never used.</p></section>
+                <section class="block"><h3>The evidence, 9 signals</h3><p class="claim"><span class="txt"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions</span><span class="src">Entra sign in</span></p></section>
+              </div>
+              <div class="pane-foot"><a class="btn btn--primary" href="#anatomy">Accept <span class="key">Enter</span></a><a class="btn btn--quiet" href="#anatomy">Reject <span class="key">R</span></a></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="pn-cap pn-cap-d">the fleet at rest on the left, a case on the right. Same zone, no shared body</p>
+    <p class="pn-cap pn-cap-n">a case, and it is the whole page. The pane at rest is not rendered at this width</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="pn-scroll">
+        <div class="pn-pair">
+          <div class="pn-stage pn-rest">
+            <aside class="z5">
+              <div class="pane-head"><h2>Fleet</h2><p class="sub">40 tenants, nothing selected. Ordered by where attention is owed</p></div>
+              <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
+              <a class="frow" href="#anatomy"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+              <a class="frow" href="#anatomy"><span>Halcyon Care</span><span>Contain endpoint</span><span class="rec">4 of 4<span class="was">too few to compare</span></span></a>
+              <a class="frow" href="#anatomy"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
+              <p class="fleet-more">37 more, 30 day window &middot; a row narrows the queue to that tenant</p>
+            </aside>
+          </div>
+          <p class="pn-say">At this width the pane at rest is not rendered at all, and the box that held it has been stood down rather than filled in. Node 3.1 settles it: selecting at 360 opens the standalone case, so there is no pane for the fleet to rest in.</p>
+          <div class="pn-stage">
+            <aside class="z5 is-paper">
+              <div class="pane-head"><h2>C-4417</h2><p class="sub">Larkfield Logistics &middot; filed by Clerk 26m ago</p></div>
+              <div class="pane-body">
+                <section class="block"><h3>What Clerk concluded</h3><p class="nar"><b>Real, contain identity.</b> A refresh token was replayed from an ASN this tenant has never used.</p></section>
+                <section class="block"><h3>The evidence, 9 signals</h3><p class="claim"><span class="txt"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions</span><span class="src">Entra sign in</span></p></section>
+              </div>
+              <div class="pane-foot"><a class="btn btn--primary" href="#anatomy">Accept <span class="key">Enter</span></a><a class="btn btn--quiet" href="#anatomy">Reject <span class="key">R</span></a></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="pn-cap pn-cap-d">the fleet at rest on the left, a case on the right. Same zone, no shared body</p>
+    <p class="pn-cap pn-cap-n">a case, and it is the whole page. The pane at rest is not rendered at this width</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.z5</code><span><code>flex:0 0 --pane-w</code>, a flex column on <code>--bg-surface</code> with its own scroll. 380px, and 320px below 1560: the pane is the one zone in the product that does not negotiate its width</span></li>
+  <li><code><a href="pane-head.html">pane-head</a></code><span>the only zone the two compositions share. Sticky, and it names what the pane is showing</span></li>
+  <li><code><a href="pane-body.html">pane-body</a>, <a href="pane-foot.html">pane-foot</a></code><span>the case pane, 38. The argument and the ruling, and the foot is where the analyst decides</span></li>
+  <li><code><a href="frow.html">frow</a>, <a href="fleet-more.html">fleet-more</a></code><span>the fleet, 10. Tenant, what Clerk may do alone, and the record behind that grant. No body and no foot, which is why it is a second pattern and not a variant</span></li>
+  <li><code>.is-standalone .nar</code><span><b>68ch, and it is the one place in the product with a measure.</b> Prose in a sheet is read as a document rather than scanned, and every other surface here is scanned</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">Two axes, both about the route rather than about anything on the screen, and one empty axis that is a prohibition.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><b>ground</b></td><td>base</td><td class="num">&ndash;</td><td><code>--bg-surface</code>, the raised plane. The pane is a thing on the console rather than part of it</td></tr>
+    <tr><td><code>.is-paper</code></td><td class="num">21</td><td>the page ground instead. A case being ruled on stops being an object beside the list and becomes the thing you are reading</td></tr>
+    <tr><td rowspan="2"><b>route</b></td><td>base</td><td class="num">&ndash;</td><td>a pane inside <a href="z45.html">the split</a>, at <code>--pane-w</code></td></tr>
+    <tr><td><code>.is-standalone</code></td><td class="num">3</td><td><b>its own address: a permalink, and a phone at 03:00.</b> It stops being fixed width and grows to <code>--width-sheet</code> with a rule down both sides. Node 3.1 settles that selecting at 360 opens this rendering rather than a pane covering the list, so at that width the pane is simply not rendered and the case becomes the whole page. <b>Two routes, one rendering</b>, which is what node 4.2 has always been</td></tr>
+    <tr><td><b>content</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and it is the most consequential empty cell in the system.</b> The case pane and the fleet are <b>patterns</b>, produced at stage 09. Writing the fleet as a variant would have written it as a pane with no body, which is an empty case, and the rule this zone exists to keep would have failed in the architecture</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The two axes are not independent, and that is measured rather than assumed:</b> all 3 standalone renderings in colour also carry <code>is-paper</code>. A case with its own address is always the thing you are reading.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">As the right half of <a href="z45.html">the split</a>, on every authenticated screen that has one. It shows a case when a case is selected and the fleet when nothing is. There is no third thing it shows, and adding one would cost the fleet its zero taps.</p>
+<p class="k-note"><b>Where she meets it.</b> Constantly, and mostly without looking at it. That is the point of the resting state: the fleet is on the screen while she works the queue, so design principle 4 holds by itself. <b>Tenant context is never more than a glance away</b>, and the glance is to the right rather than to a menu.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><aside class="z5" style="flex:1 1 auto;overflow:visible"><div class="pane-head" style="position:static"><h2>Fleet</h2><p class="sub">40 tenants, nothing selected</p></div><div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div><a class="frow" href="#rules"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36</span></a></aside></div>
+    <p>Nothing selected, so the pane shows the fleet. It reads as an answer to a question she did not have to ask.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><aside class="z5" style="flex:1 1 auto;overflow:visible"><div class="pane-head" style="position:static"><h2>Case</h2><p class="sub">Nothing selected</p></div><p class="empty"><b>No case selected.</b> Pick a row on the left to see it here.</p></aside></div>
+    <p>Never <a href="empty.html">empty</a> here. <code>empty</code> is the component for a list with nothing in it, and it is correct in <a href="z4.html">Z4</a> when the queue really is clear. In this pane it spends the differentiator: the fleet is not in the menu precisely because this is where it lives, and a placeholder puts it nowhere.</p>
+  </div>
+</div>
+
+<p class="k-note"><b>Narrow the window past 900 and both cells above empty themselves</b>, because a pane at rest is a desk instrument and the product does not render one at 360. That is the same rule seen from the other side: at that width a case does not open in a pane, it opens as its own page.</p>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R10.</b> The fleet has no route and no navigation item. A route would make the differentiator a place you go.</li>
+  <li><b>R3.</b> No overlay covers the detail pane. Design principle 5: no overlay hides the evidence the analyst is deciding on.</li>
+  <li><b>R7.</b> The detail pane never renders an <code>empty</code>. Its resting state is the fleet, and <code>CLAUDE.md</code> says a pane that reads as empty has failed the decision rather than the layout.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The rows inside the fleet and the buttons inside the foot carry theirs.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="pn-stage" style="height:200px">
+        <aside class="z5 is-paper">
+          <div class="pane-head"><h2>Fleet</h2><p class="sub">The zone at rest, and its rest is not empty</p></div>
+          <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
+          <a class="frow" href="#states"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="pn-stage" style="height:200px">
+        <aside class="z5 is-paper">
+          <div class="pane-head"><h2>Fleet</h2><p class="sub">The zone at rest, and its rest is not empty</p></div>
+          <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
+          <a class="frow" href="#states"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">Put the pointer on the tenant row: the hover belongs to <a href="frow.html">frow</a> and not to the zone. Narrow the window past 900 and the pane at rest disappears entirely, which is node 3.1 rather than a bug.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the raised plane, and the base ground of the pane</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td><code>.is-paper</code>, 21 uses. The case you are reading rather than an object beside the list</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line</td><td>both sides of the standalone sheet, through <code>--rule-edge</code></td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;aside class="z5 is-paper" aria-labelledby="ph"&gt;
+  &lt;div class="pane-head"&gt;&lt;h2 id="ph"&gt;C-4417&lt;/h2&gt;&hellip;&lt;/div&gt;
+  &lt;div class="pane-body"&gt;&hellip;&lt;/div&gt;
+  &lt;div class="pane-foot"&gt;&hellip;&lt;/div&gt;
+&lt;/aside&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">the fleet at rest &middot; 10</a>
+  <a href="../case.html">a case being ruled on &middot; 38</a>
+  <a href="../case-standalone.html">its own address &middot; 3</a>
+  <a href="../shift.html">the shift pane</a>
+  <a href="../case-history.html">the log narrowed to a case</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

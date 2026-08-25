@@ -4,123 +4,242 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Harrier &middot; The shell every screen is built on</title>
+<title>Harrier &middot; Shell</title>
 <link rel="stylesheet" href="../../_nav.css">
-<link rel="stylesheet" href="kit.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix sl-. THE FULL COLUMN AND THE TWO THEMES STACK. The shell is a whole
+   browser window and half of the article column is 525px, which is narrower than the panel
+   plus a pane. The themes go one above the other, which costs a scroll and no truth. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE DIAGRAM. A labelled block drawing of the two columns, not a picture. Real: the panel is
+   --nav-w, the same 236px it takes on every screen, and the two bands inside the product are
+   --zone-top and --zone-strip at their own heights. The overall height is the fiction, and it
+   is the one thing about this component that cannot be shown in a document: the product is
+   pinned to a viewport and a documentation column is not one. */
+.sl-scroll{ width:100%; overflow-x:auto }
+.sl-diag  { display:flex; min-width:760px; height:300px; border:var(--rule-edge);
+            background:var(--bg-page) }
+.sl-panel { flex:0 0 var(--nav-w); border-right:var(--rule-hair); padding:var(--space-3);
+            font:400 var(--size-xs)/1.5 var(--font-mono); color:var(--text-secondary) }
+.sl-prod  { flex:1 1 auto; min-width:0; display:flex; flex-direction:column }
+.sl-band  { flex:0 0 auto; display:flex; flex-wrap:wrap; gap:var(--space-2); align-items:center;
+            justify-content:space-between; padding:0 var(--space-3);
+            border-bottom:var(--rule-hair);
+            font:400 var(--size-xs)/1.2 var(--font-mono); color:var(--text-secondary) }
+.sl-rest  { flex:1 1 auto; min-height:0; padding:var(--space-3); background:var(--bg-quiet);
+            font:400 var(--size-xs)/1.5 var(--font-mono); color:var(--text-secondary) }
+.sl-diag b{ font-weight:600; color:var(--text-primary) }
+.sl-mini  { display:flex; height:130px; border:var(--rule-edge); background:var(--bg-page);
+            font:400 var(--size-xs)/1.4 var(--font-mono); color:var(--text-secondary) }
+.sl-mini > div{ padding:var(--space-2) }
+.sl-cap   { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+            margin:var(--space-2) 0 0 }
+/* A CAPTION THAT IS TRUE AT 1440 AND FALSE AT 360 IS THE CLASS ONLY A BROWSER FINDS. The
+   drawing below is the desk rendering and it does not answer the media query the component
+   answers, because a second copy of a product rule in the stand is where the drift starts.
+   Two captions instead, one per width, and the narrow one says what the drawing is. */
+.sl-cd{ }
+.sl-cn{ display:none }
+@media (max-width:900px){ .sl-cd{ display:none } .sl-cn{ display:block } }
+
+</style>
 </head>
-<!--
-  shell.html :: the markup of a screen, and the only place it is written.
-
-  A screen is not drawn. It is ASSEMBLED: this shell, plus classes from kit.css,
-  plus the screen's own content. Nothing on a screen carries a style of its own,
-  and a detail that is missing goes into the kit first, then onto the screen.
-
-  The five zones are node 0.1 of the IA and they are the same on every
-  authenticated screen:
-
-    Z1  the top bar        wordmark, the three sections, the annunciator, the analyst
-    Z2  the strip          live / arriving / reconnecting / stale / clerk down
-    Z4  the working column the queue, the log, the brief, a form
-    Z5  the detail pane    the case file, and the FLEET when nothing is selected
-    Z6  the notices        a stack, and only when there is something to say
-
-  Z1 and Z2 are still rendered by wireframes/_nav.js at the moment, which is the
-  last thing tying design/ to a folder stage 05 froze. The CSS tie is already gone:
-  every page under design/ now links kit.css and nothing else. The JS tie is cut at
-  step 5, when the sample screens are assembled from this file.
--->
 <body>
-<div class="wf-shell">
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
 
-  <!-- the project panel. Chrome, not product. It reads --nav-w from _nav.css -->
-  <aside id="sidebar"></aside>
+<p class="k-eyebrow">Organism, and it contains another</p>
+<h1 class="k-title">Shell</h1>
+<p class="k-lede"><b>Two columns: the panel that belongs to the design process, and the product.</b> 62 instances across 62 screens, and it is the outermost component in the system.</p>
+<p class="k-note"><b>It is the only place where something that is not the product sits inside the same box as the product.</b> <code>base.css</code> says the same thing from the other side: <code>#sidebar</code> is documentation chrome and it is declared there because it travels with every screen.</p>
+<p class="k-note"><b><code>height:100vh</code> at the desk and <code>auto</code> at 360, and both are load bearing.</b> Pinned to one viewport, the columns scroll and the page does not, which is what makes the <a href="pane-foot.html">pane foot</a> sticky and the queue head stay. At 360 the layout is a block, the document takes the scroll back, and every zone releases its own.</p>
+<p class="k-note"><b>Stage 07 found this from the outside.</b> <code>min-height:100vh</code> let the shell grow with its content, so <code>bottom:0</code> had no scroll container to resolve against and the decision sat two viewports down. One word between a console and a very long web page.</p>
+<p class="k-note"><b>The product still calls it <code>.wf-shell</code></b>, and step 6 renames it together with <a href="screen.html">screen</a>.</p>
 
-  <div class="wf-screen">
-
-    <!-- Z1. Injected today; the markup it produces is this -->
-    <header class="z1">
-      <span class="wordmark">Harrier</span>
-      <nav aria-label="Sections">
-        <a href="queue.html" aria-current="page">Queue</a>
-        <a href="shift.html">Shift</a>
-        <a href="log.html">Log</a>
-      </nav>
-      <span class="spacer"></span>
-      <a class="kmap" href="keyboard.html" title="Keyboard map" aria-label="Keyboard map">?</a>
-      <p class="annun" aria-label="Clerk&rsquo;s latitude across the fleet">
-        <b>FLEET</b>
-        <span class="sep">|</span><span class="part">40 tenants</span>
-        <span class="sep">|</span><span class="part">acts alone up to <b>contain network</b> at 3</span>
-        <span class="sep">|</span><span class="part"><b>1</b> moved down</span>
-      </p>
-      <span class="mono dim" style="font-size:var(--t-xs)">R. Idrissi</span>
-    </header>
-
-    <!-- Z2. One of five states, never invented on the page -->
-    <p class="z2"><b>Live</b> last case 4s <span class="sep">&middot;</span> Clerk investigating 3</p>
-
-    <main class="z45">
-
-      <!-- Z4. The working column -->
-      <section class="z4" aria-labelledby="qh">
-        <div class="scopebar" role="group" aria-label="Scope and filters">
-          <a class="chip" href="#">All tenants &#9662;</a>
-          <button class="chip" type="button">Waiting on a decision &times;</button>
-          <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
-        </div>
-
-        <h1 id="qh" class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></h1>
-
-        <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
-          <div class="row row--head" role="row">
-            <span role="columnheader">Sev</span>
-            <span role="columnheader">Tenant</span>
-            <span role="columnheader">What it is</span>
-            <span role="columnheader">The verdict</span>
-            <span role="columnheader">To check</span>
-            <span role="columnheader">State</span>
-            <span role="columnheader">Age</span>
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A diagram of the two columns, not a scaled scene.</b> The shell is a browser window, and the one property that matters most about it, being exactly one viewport tall, is the property a documentation page cannot have. Drawing it and saying so is honest; rendering a 300px box and calling it the shell would not be. What is real below: the panel is <code>--nav-w</code> at 236px, and the two bands inside the product are <code>--zone-top</code> at 56px and <code>--zone-strip</code> at 26px.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="sl-scroll">
+        <div class="sl-diag">
+          <div class="sl-panel"><b>#sidebar</b><br>--nav-w &middot; 236px<br>the project panel. Chrome, not product, and it is the only thing in this box that is not Harrier</div>
+          <div class="sl-prod">
+            <div class="sl-band" style="height:var(--zone-top)"><b>screen &rsaquo; Z1</b><span>--zone-top &middot; 56px</span></div>
+            <div class="sl-band" style="height:var(--zone-strip)"><b>screen &rsaquo; Z2</b><span>--zone-strip &middot; 26px</span></div>
+            <div class="sl-rest"><b>screen &rsaquo; Z45</b><br>height:100vh at the desk, so this column scrolls and the page does not<br>height:auto at 360, so the document takes the scroll back</div>
           </div>
-          <a class="row is-selected" role="row" href="#">
-            <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
-            <span class="client" role="gridcell">Larkfield Logistics</span>
-            <span role="gridcell">Token replay from a new ASN</span>
-            <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
-            <span role="gridcell" class="cost">9 signals</span>
-            <span class="states" role="gridcell"><i class="chip chip--state">taken</i></span>
-            <span class="age" role="gridcell">27m</span>
-          </a>
         </div>
-
-        <p class="qfoot">
-          <span>7 of 18 shown</span>
-          <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
-          <span class="only-desk"><kbd>Enter</kbd> decides, focus moves into the pane</span>
-          <span>order: unrecorded, waiting on you, severity, age</span>
-        </p>
-      </section>
-
-      <!-- Z5. The detail pane. At rest it holds the FLEET, and that is what gives
-           per-tenant latitude zero taps. Its empty state must read as "this is the
-           fleet", never as "this is empty" -->
-      <aside class="z5" aria-labelledby="fh">
-        <div class="pane-head">
-          <h2 id="fh">Fleet</h2>
-          <p class="sub">40 tenants, nothing selected. Ordered by where attention is owed</p>
+      </div>
+    </div>
+    <p class="sl-cap sl-cd">a row, and the column inside it is screen. Only one of the two stacks</p>
+    <p class="sl-cap sl-cn">drawn at the desk. At this width the row is a block: the panel sits over the product and the page takes the scroll back</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="sl-scroll">
+        <div class="sl-diag">
+          <div class="sl-panel"><b>#sidebar</b><br>--nav-w &middot; 236px<br>the project panel. Chrome, not product, and it is the only thing in this box that is not Harrier</div>
+          <div class="sl-prod">
+            <div class="sl-band" style="height:var(--zone-top)"><b>screen &rsaquo; Z1</b><span>--zone-top &middot; 56px</span></div>
+            <div class="sl-band" style="height:var(--zone-strip)"><b>screen &rsaquo; Z2</b><span>--zone-strip &middot; 26px</span></div>
+            <div class="sl-rest"><b>screen &rsaquo; Z45</b><br>height:100vh at the desk, so this column scrolls and the page does not<br>height:auto at 360, so the document takes the scroll back</div>
+          </div>
         </div>
-        <div class="frow frow--head"><span>Tenant</span><span>Acts alone up to</span><span class="rec">Accepted</span></div>
-        <a class="frow" href="#"><span>Larkfield Logistics</span><span>Contain endpoint</span><span class="rec">34 of 36<span class="was">was 33 of 36</span></span></a>
-        <p class="fleet-more">33 more, 30 day window &middot; a row narrows the queue to that tenant</p>
-      </aside>
+      </div>
+    </div>
+    <p class="sl-cap sl-cd">a row, and the column inside it is screen. Only one of the two stacks</p>
+    <p class="sl-cap sl-cn">drawn at the desk. At this width the row is a block: the panel sits over the product and the page takes the scroll back</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.shell</code><span>three declarations: <code>display:flex</code>, <code>align-items:stretch</code>, <code>height:100vh</code>. It reads nothing at all, because it is layout</span></li>
+  <li><code>align-items:stretch</code><span>what makes both columns full height rather than as tall as their content. Without it the panel ends where its last link does and the rule down its side stops halfway</span></li>
+  <li><code>height:100vh</code><span><b>not <code>min-height</code>, and the difference is a defect stage 07 found from the outside.</b> A minimum lets the box grow with its content, and a <code>position:sticky</code> foot then has no scroll container to resolve against</span></li>
+  <li><code>#sidebar</code><span>the project panel, at <code>--nav-w</code>. Declared in <code>base.css</code> rather than here, because it travels with every screen and belongs to the process rather than to the product</span></li>
+  <li><code><a href="screen.html">screen</a></code><span>the product, and the other child. A column, where this is a row</span></li>
+  <li>at 360<span><code>display:block</code> and <code>height:auto</code>. The panel stacks over the product, and every zone inside releases the scroll it was holding for the desk</span></li>
+</ul>
 
-    </main>
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">There are none, on any axis, and this is the only component in the system where that is true of every axis at once.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>form</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>One form on all 62. Three declarations do not have a second version</td></tr>
+    <tr><td><b>viewport</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited as an axis, and it is the one that looks most like a variant.</b> Width is layout, and the register took the viewport twins off the variant list for exactly this reason. The 360 rendering is the same component answering a media query</td></tr>
+    <tr><td><b>route</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>The door and the console are the same shell. The route is <a href="screen.html">screen</a>&rsquo;s axis, one level in, because what changes is what is in the column and not that there is one</td></tr>
+    <tr><td><b>panel</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and it is a scope decision rather than a design one.</b> The panel is on every screen because this is a portfolio build. A shipped Harrier has one column, and that is a deletion rather than a variant</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Once per page, as the first element in the <code>body</code>, holding exactly two children. There is no case in this product where it is used differently, and no case where it is nested.</p>
+<p class="k-note"><b>Where she meets it.</b> Never, and it would be a defect if she did. What she meets is its consequence: the queue head that stays while two hundred rows go past, the verdict buttons that sit at the foot of the pane instead of two screens down, and the fact that a console at 1440 behaves like an application rather than like a document. All three are <code>height:100vh</code>.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<p class="k-note">The two drawings below are proportional in width and 130px tall: the comparison is about which box holds the panel, and neither arrangement has a height token.</p>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="sl-mini"><div style="flex:0 0 38%;border-right:var(--rule-hair)"><b style="color:var(--text-primary)">#sidebar</b><br>the process</div><div style="flex:1 1 auto;background:var(--bg-quiet)"><b style="color:var(--text-primary)">screen</b><br>the product, whole</div></div></div>
+    <p>Two children, side by side. The product column is untouched by the panel beside it, and deleting the panel leaves a shipped console rather than a hole.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="sl-mini"><div style="flex:1 1 auto;background:var(--bg-quiet)"><b style="color:var(--text-primary)">screen</b><br>the product, now holding something that is not it<div style="margin-top:var(--space-2);border:var(--rule-hair);padding:var(--space-2)"><b style="color:var(--text-primary)">#sidebar</b> inside</div></div></div></div>
+    <p>Never inside. <a href="screen.html">screen</a> is the product and nothing else, which is why <code>base.css</code> declares the panel as documentation chrome from the other side. Put the panel in there and the product has to make room for the process, and the day the panel goes the product does not know how to be whole.</p>
   </div>
 </div>
 
-<!-- The panel. NAV_BASE is '../../' from design/kit/, '../' from a screen in design/ -->
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> It reads no colour role either: this is the one component in the system whose entire declaration is geometry.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="sl-scroll">
+        <div class="sl-diag" style="height:170px">
+          <div class="sl-panel"><b>#sidebar</b><br>--nav-w &middot; 236px</div>
+          <div class="sl-prod">
+            <div class="sl-band" style="height:var(--zone-top)"><b>screen</b><span>--zone-top &middot; 56px</span></div>
+            <div class="sl-rest"><b>the box at rest</b><br>and it has no other</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="sl-scroll">
+        <div class="sl-diag" style="height:170px">
+          <div class="sl-panel"><b>#sidebar</b><br>--nav-w &middot; 236px</div>
+          <div class="sl-prod">
+            <div class="sl-band" style="height:var(--zone-top)"><b>screen</b><span>--zone-top &middot; 56px</span></div>
+            <div class="sl-rest"><b>the box at rest</b><br>and it has no other</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">Narrow the window past 900 and the row becomes a block. That is the whole of what this component ever does, and it is the only thing here a reader can produce rather than take on trust.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td><b>nowhere.</b> The shell sets no ground of its own; this is the page ground it stands on, painted by <code>base.css</code> on the body</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td><b>nowhere.</b> Inherited straight through to both children, and named here so the empty row is a statement rather than an omission</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Two rows and both of them are empty, which is the point.</b> The outermost component in a design system reading no colour at all is what keeps the theme a property of the root rather than something a container can override on its way down.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;body&gt;
+&lt;div class="shell"&gt;
+  &lt;aside id="sidebar"&gt;&lt;/aside&gt;         &lt;!-- the project panel. Chrome, not product --&gt;
+  &lt;div class="screen"&gt;
+    &lt;header class="z1"&gt;&hellip;&lt;/header&gt;    &lt;!-- injected by design/_shell.js --&gt;
+    &lt;p class="z2"&gt;&hellip;&lt;/p&gt;             &lt;!-- injected the same way --&gt;
+    &lt;main class="z45"&gt;
+      &lt;section class="z4"&gt;&hellip;&lt;/section&gt;
+      &lt;aside class="z5"&gt;&hellip;&lt;/aside&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;</div>
+<p class="k-note"><b>A screen is not drawn, it is assembled:</b> this skeleton, plus classes from the system, plus the screen&rsquo;s own content. Nothing on a screen carries a style of its own, and a detail that is missing goes into a component file first and onto the screen second. The five zones are node 0.1 of the IA and each has its own page: <a href="z1.html">Z1</a>, <a href="z2.html">Z2</a>, <a href="z4.html">Z4</a>, <a href="z5.html">Z5</a>, <a href="z6.html">Z6</a>.</p>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">the console &middot; every screen</a>
+  <a href="../index.html">the door</a>
+  <a href="../case-standalone.html">the standalone route</a>
+  <a href="../overview.html">all 52 in colour</a></div>
+</main>
+</div>
 <script>
-  window.DESIGN_NAV_BASE = '../';
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
-<script src="../_nav.js"></script>
+<script src="_nav.js"></script>
 </body>
 </html>

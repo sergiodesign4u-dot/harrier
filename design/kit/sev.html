@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Severity</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Severity</h1>
+<p class="k-lede">Two things in a fixed arrangement, and the arrangement is the whole point: the glyph is the glance and the word is the answer. 225 instances across 34 screens.</p>
+<p class="k-note"><b>It is the smallest molecule in the system and it earns the level.</b> Neither part is optional and the order never changes. Take the word away and it is a graphic carrying information available nowhere else; take the bars away and it is a word in a column of two hundred.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.sev</code><span>the pair, and <b>it is what carries the colour</b>. It sets <code>currentColor</code> for both parts, so the glyph and the word can never disagree</span></li>
+  <li><code>.bars</code><span>its own atom. Three slots, n of them lit, and the count is read by <code>:has()</code></span></li>
+  <li>the word<span>High, Medium or Low. No class: there is one text zone and a name for it would be a name for the only thing there</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>severity</th><th>Uses</th><th>Rendered</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>high</b></td><td>56</td><td><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span></td><td><b>Not a class.</b> The count of lit slots is the value and the molecule reads it, which is how the whole ramp landed on 32 screens without one attribute being added to one wireframe</td></tr>
+    <tr><td><b>medium</b></td><td>71</td><td><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span></td><td>the most common, and the reason the ramp had to descend in chroma rather than in loudness</td></tr>
+    <tr><td><b>low</b></td><td>46</td><td><span class="sev"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span></td><td>cool slate, and <b>never green</b>: a low severity case is not a resolved one</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In the first cell of a queue row, and nowhere else today. It is the first thing read and the thing that sorts eighteen rows into an order.</p>
+<p class="k-note"><b>Where she meets it.</b> Scanning, before she has read a single client name. That is why it is a shape AND a colour AND a word: the shape carries at a metre, the colour carries at a glance, and the word carries when neither does.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span></div>
+    <p>Always both parts, always in this order. The word is also what makes the unlit slot legal below 3:1.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span></div>
+    <p>Never the bars alone. That is <b><code>bars</code></b>, which is an atom and not a severity: on its own it is a graphic the analyst has to learn before she can read the queue, and a WCAG 1.4.11 failure with it.</p>
+  </div>
+</div>
+<p class="k-note"><b>This molecule is why <code>bars.css</code> is allowed to draw its unlit slot at 2.997.</b> 1.4.11 exempts a graphic whose information is available in text, and the text is here, on every one of the 225. The line is written in both files: drop the word from this one and the other stops being correct.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The row around it has a hover and a selected ground; severity does not change because you pointed at it.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+      <span class="sev" style="font-size:12.5px;line-height:1.35"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-sev-high</code></td><td>ink 4.5:1</td><td>the pair, when three slots are lit</td><td><span data-tok="--text-sev-high" data-theme-read="dark"></span></td><td><span data-tok="--text-sev-high" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-sev-medium</code></td><td>ink 4.5:1</td><td>two slots</td><td><span data-tok="--text-sev-medium" data-theme-read="dark"></span></td><td><span data-tok="--text-sev-medium" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-sev-low</code></td><td>ink 4.5:1</td><td>one slot</td><td><span data-tok="--text-sev-low" data-theme-read="dark"></span></td><td><span data-tok="--text-sev-low" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;span class="sev"&gt;&lt;span class="bars"&gt;&lt;i class="on"&gt;&lt;/i&gt;&lt;i class="on"&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt; Medium&lt;/span&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">the first cell of a queue row &middot; 225</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

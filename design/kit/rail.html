@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Rail</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bx-. A WIDE COMPONENT GETS THE FULL COLUMN AND THE TWO THEMES STACK.
+   The frame is 820px and half of the article column is 525, so squeezing the bench would
+   document a rendering the product does not have. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+@media (max-width:900px){ .k-bench-half{ padding:var(--space-3) } }
+
+/* THE BENCH IS THE COLUMN THE RECORD SCROLLS IN, and the point of the component is invisible
+   without it. `position:sticky; top:0` resolves against the nearest scrolling ancestor, which
+   on a screen is z4 on the entry route. Here it is a 260px box with the same overflow, so the
+   marking can be seen staying while the record goes past under it. */
+.bx-scroll{ height:260px; overflow-y:auto; width:100%;
+            border:var(--rule-edge); background:var(--bg-page) }
+.bx-scroll .frame{ margin:0 auto }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Rail</h1>
+<p class="k-lede">The marking on a record that leaves the building. <b>5 instances across 5 screens</b>, at the top of <code>frame</code>, and nowhere else.</p>
+<p class="k-note"><b>The marking is a frame, not a banner, and this is the sticky half of it.</b> A banner scrolls away, and somebody who arrives at a framed record by permalink and reads the middle of it must still know what they are reading. So the rail sticks and the border never leaves.</p>
+<p class="k-note"><b>Inverted, and it is the loudest surface in the product.</b> That is what a record leaving the building looks like: <code>--bg-invert</code> under <code>--text-on-invert</code> at 14.92 in dark, uppercase mono at .09em. <b>Nothing else in Harrier is inverted across a full width.</b> The .09em is one hundredth off its neighbour, one of the eight tracking values the typography page carries unresolved, and it is the only rule in the product using it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>What the bench is standing in.</b> A 260px scrolling box, which is <code>z4</code> on the entry route, holding a <code>frame</code>. Scroll it: the record moves and the marking does not. A bench with no overflow would have shown a bar sitting at the top of a box and proved nothing about the one property this component exists for.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-scroll">
+        <article class="frame">
+          <p class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#anatomy">Open the log</a></p>
+          <div style="padding:var(--space-5) var(--space-5) var(--space-4)">
+            <section class="block">
+              <h3>What was decided, and by whom</h3>
+              <p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi through the provider&rsquo;s on call tool. Clerk&rsquo;s verdict, <b>real, contain identity</b>, stands unruled.</p>
+              <p class="nar"><b>No reason code, and that is correct rather than missing.</b> The reason taxonomy routes rejections to tuning. An escalation routes to a person, so what it carries is the handover.</p>
+              <p class="nar">The evidence snapshot was read 27 minutes before the ruling, and this page is that snapshot rather than the live case.</p>
+              <p class="nar">The snapshot names its window: six sources queried over 24 hours, and two of them answered nothing.</p>
+              <p class="nar">Nothing on this page can be edited, and nothing on it has been edited since it was written.</p>
+            </section>
+          </div>
+          <p class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-scroll">
+        <article class="frame">
+          <p class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#anatomy">Open the log</a></p>
+          <div style="padding:var(--space-5) var(--space-5) var(--space-4)">
+            <section class="block">
+              <h3>What was decided, and by whom</h3>
+              <p class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga, SOC lead, by R. Idrissi through the provider&rsquo;s on call tool. Clerk&rsquo;s verdict, <b>real, contain identity</b>, stands unruled.</p>
+              <p class="nar"><b>No reason code, and that is correct rather than missing.</b> The reason taxonomy routes rejections to tuning. An escalation routes to a person, so what it carries is the handover.</p>
+              <p class="nar">The evidence snapshot was read 27 minutes before the ruling, and this page is that snapshot rather than the live case.</p>
+              <p class="nar">The snapshot names its window: six sources queried over 24 hours, and two of them answered nothing.</p>
+              <p class="nar">Nothing on this page can be edited, and nothing on it has been edited since it was written.</p>
+            </section>
+          </div>
+          <p class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.rail</code><span>the marking. <code>position:sticky; top:0</code>, <code>z-index:2</code>, a wrapping flex row aligned on the baseline, inverted, uppercase mono at <code>--size-xs</code> with .09em of tracking</span></li>
+  <li>the marking itself<span>a bare text node and a <code>b</code>: what this is, and the instant it was true. <b>Three zones, and the count is the whole argument for why the closing line is a different component</b></span></li>
+  <li><code>.soft</code><span><b>the qualifier, in the sentence&rsquo;s own voice.</b> Weight 400, sentence case, no tracking, and 72 per cent opacity. It says what the marking applies to, and it steps out of the uppercase register to do it</span></li>
+  <li><code>.rail-out</code><span><b>the way out of the record.</b> Pushed right, never wrapping, bordered in the rail&rsquo;s own ink through <code>currentColor</code> rather than through a line token</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>none</b></td><td><span class="k-none">no values</span></td><td class="num">5</td><td>All five are the same marking. What changes between them is the sentence, and a sentence is content</td></tr>
+    <tr><td><b>position</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and it is the definition of the component.</b> A static rail is <code>rail-foot</code>, which is a different component because it has zero zones rather than three. The splitting rule is the count of zones, not the drawing</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> There is nothing above inverted. This is already the loudest surface in the product, and a second level would mean one record leaves the building harder than another</td></tr>
+    <tr><td><b>tone</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> A record that is partial, changed or beyond retention says so <b>in the sentence</b>, on four of the five screens. The marking does not change colour to grade how trustworthy the record is</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">At the top of a <code>frame</code>, once, on anything that will be read by somebody who was not in the room and does not have the console: a client summary, an exported log entry, a snapshot addressed with <code>?as-of</code>. Never on a working surface.</p>
+<p class="k-note"><b>Where she meets it.</b> Rarely, and it is not really for her. The compliance requirement behind this product is that every Clerk action and every human override writes to an append-only log <b>carrying the evidence snapshot as it stood at decision time</b>, and this rail is what makes a printed or forwarded copy of that snapshot say so on its own. Months later somebody reads it without her, and the marking is the only thing that stops it being mistaken for the live case.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="rail" style="position:static">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#rules">Open the log</a></div></div>
+    <p>What it is, when it was true, what it is not, and the way back to the live thing. Four readings in one line, and the line never leaves the top of the record.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="rail-foot">End of the record as it stood 2026-08-22T04:14:05Z. Nothing below this line, and nothing on this page, can be edited.</div></div>
+    <p>Not at the bottom. That is <b><code>rail-foot</code></b>, and it is a different component rather than a variant: <b>zero zones against three</b>. It has no qualifier and no way out, because there is nothing below a record to leave to, and a second inverted bar would open the frame twice.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>The rail has none. The way out is a link and carries the link&rsquo;s.</b> Point at <code>Open the log</code>, and tab into it: the ring is the global one and it lands on the rail&rsquo;s own ink.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:var(--width-frame)">
+        <p class="rail" style="position:static">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#states">Open the log</a></p>
+        <p class="rail" style="position:static;margin-top:var(--space-3)">PARTIAL RECORD <b>2 of 9 signals</b><span class="soft">Two sources are beyond retention. What is missing is named below.</span><a class="rail-out" href="#states">Open the log</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:var(--width-frame)">
+        <p class="rail" style="position:static">AS IT STOOD <b>2026-08-22T04:14:05Z</b><span class="soft">A record of what was known then. This is not the live case.</span><a class="rail-out" href="#states">Open the log</a></p>
+        <p class="rail" style="position:static;margin-top:var(--space-3)">PARTIAL RECORD <b>2 of 9 signals</b><span class="soft">Two sources are beyond retention. What is missing is named below.</span><a class="rail-out" href="#states">Open the log</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The two above are the same component with two sentences, and they are laid out static so both can stand in one bench. In the product only one is ever on a page, and it is sticky.</p>
+<p class="k-note"><b>The way out borrows no line token.</b> <code>border: 1px solid currentColor</code>, so it is drawn in whatever ink the rail is wearing and inverts with it automatically. That is also why it needs no hover of its own: the ink it borrows is already at 14.92 against its own plate.</p>
+<p class="k-note">At 360 the rail wraps rather than clipping, and <code>--width-frame</code> gives way to the screen. The marking, the qualifier and the way out each take a line, in that order, and the way out keeps <code>white-space:nowrap</code> so <code>Open the log</code> never breaks across two.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-invert</code></td><td>fill</td><td>the whole bar. The one full width inversion in the product</td><td><span data-tok="--bg-invert" data-theme-read="dark"></span></td><td><span data-tok="--bg-invert" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-on-invert</code></td><td>ink 4.5:1</td><td>everything on it, <b>measured against its own plate</b> rather than against the page: 14.92 in dark, 14.18 in light</td><td><span data-tok="--text-on-invert" data-theme-read="dark"></span></td><td><span data-tok="--text-on-invert" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-record</code></td><td>line 3:1</td><td>not read here, and read by <code>frame</code> around it. The rail&rsquo;s own border is <code>currentColor</code></td><td><span data-tok="--line-record" data-theme-read="dark"></span></td><td><span data-tok="--line-record" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--radius-ui</code></td><td>geometry</td><td>the corners of the way out</td><td><span data-tok="--radius-ui" data-theme-read="dark"></span></td><td><span data-tok="--radius-ui" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--size-xs</code></td><td>geometry</td><td>the type size, mono, weight 600, at .09em</td><td><span data-tok="--size-xs" data-theme-read="dark"></span></td><td><span data-tok="--size-xs" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;article class="frame"&gt;
+  &lt;p class="rail"&gt;AS IT STOOD &lt;b&gt;2026-08-22T04:14:05Z&lt;/b&gt;
+    &lt;span class="soft"&gt;A record of what was known then. This is not the live case.&lt;/span&gt;
+    &lt;a class="rail-out" href="log.html"&gt;Open the log&lt;/a&gt;&lt;/p&gt;
+  &lt;div class="doc"&gt;&hellip;&lt;/div&gt;
+  &lt;p class="rail-foot"&gt;End of the record&hellip;&lt;/p&gt;
+&lt;/article&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../entry.html">the record</a>
+  <a href="../entry-partial.html">partial</a>
+  <a href="../entry-changed.html">changed since</a>
+  <a href="../entry-beyond-retention.html">beyond retention</a>
+  <a href="../entry-gone.html">gone</a>
+  <a href="rail-foot.html">the line that closes it</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

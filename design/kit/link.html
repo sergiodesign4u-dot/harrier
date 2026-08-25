@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Link</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Link</h1>
+<p class="k-lede">24 instances across 24 screens, inside whatever encloses them. It takes the ink of its host and colours nothing but its own underline, which is what lets the same element sit in a grey note, in an expansion and in a severity line without becoming a fourth thing in each.</p>
+<p class="k-note"><b>It had no declaration anywhere, and that is what made it dangerous rather than merely unnamed.</b> Stage 07 shipped <b>151 browser blue links across 27 screens</b>, in the one stage whose contract says there is no colour. Nothing declared them, so nothing flagged them: the defect was an ABSENT rule, and an instrument that greps can only see rules that exist. It took asking the browser for a computed colour to find it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading);max-width:46ch">Clerk read the sign in log for this tenant. <a class="link" href="#states">Okta system log, 12 June</a>, and the window is the six hours before the case opened.</p>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading);max-width:46ch">Clerk read the sign in log for this tenant. <a class="link" href="#states">Okta system log, 12 June</a>, and the window is the six hours before the case opened.</p>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.link</code><span>the whole component. One element, one text node, and no colour of its own</span></li>
+  <li><code>text-decoration-color</code><span>the only thing it paints. <code>--text-secondary</code> at rest, so the underline is visible without competing with the sentence it is in</span></li>
+  <li><code>text-underline-offset</code><span>2px. The type is 12.5px in most of its hosts and an underline on the baseline eats the descenders</span></li>
+</ul>
+<p class="k-note"><b>Two rules for the same thing, and both are needed.</b> <code>base.css</code> keeps a declaration on the bare <code>a</code> as the safety net: a link that carries no class still cannot come back blue. This file is the component, and step 6 puts the class on the markup.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-lede"><b>None. The size is the container's and the colour is the host's.</b></p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis a reader looks for</th><th>Values</th><th>Why the cell is empty</th></tr></thead>
+  <tbody>
+    <tr><td>size</td><td class="k-none">&ndash;</td><td><b>Set by the container, not chosen.</b> 11px inside <code>gnote</code> on 15 screens, 12.5px inside <code>expand</code> on 6, <code>nar</code> on 2, <code>empty</code> on 2 and Z6 once. A <code>.link--sm</code> would let a link be a different size from the sentence it is in, which is the one thing it must never be</td></tr>
+    <tr><td>emphasis</td><td class="k-none">&ndash;</td><td><b>Prohibited.</b> Colour is scarce in this product and a link inside a grey note is not more important than the note. What marks it is the underline</td></tr>
+    <tr><td>external</td><td class="k-none">&ndash;</td><td><b>Not this component's job.</b> A source that opens somewhere else is <code>src</code>, which carries the one icon this product applies for exactly that reason. A link here never leaves the product</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Inside running text, for something particular. The 24 instances are almost all the same job: a note explaining what Clerk did, naming the thing it read, and offering it. That is <code>gnote</code>, 15 of the 24.</p>
+<p class="k-note"><b>Where she meets it.</b> Reading the evidence, deciding whether to go and check. Design principle 2 says the cheapest correct thing first and depth one key away: <b>the link is the depth.</b> It has to be visible enough to be found on the second read and quiet enough not to be found on the first, which is the whole reason the underline carries it and the word does not.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><span style="font-size:var(--size-sm)">and the baseline is in <a class="link" href="#rules">this tenant's normal week</a></span></div>
+    <p>Inside the sentence, on the words that name the thing. The link is the noun, not a Read more after it: what it says is what you get.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="btn" href="#rules">Open this entry in the log</a></div>
+    <p>Not as a control standing on its own. Something that stands alone and is pressed is <b><code>btn</code></b>, and it claims a boundary and a place in the zone's one main action. A link that has been given a border is a button that forgot to say so.</p>
+  </div>
+</div>
+<p class="k-note">And not for a source. <b>A line of evidence naming where it came from is <code>src</code></b>, 131 instances, and it carries the external icon because the source opens outside the case. Using a link there loses the one signal that says you are leaving.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede">Live, in both themes. Point at the link in the sentence, then reach it with Tab.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading);max-width:46ch">Clerk read the sign in log for this tenant. <a class="link" href="#states">Okta system log, 12 June</a>, and the window is the six hours before the case opened.</p>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <p style="margin:0;font-size:var(--size-sm);line-height:var(--leading);max-width:46ch">Clerk read the sign in log for this tenant. <a class="link" href="#states">Okta system log, 12 June</a>, and the window is the six hours before the case opened.</p>
+    </div>
+  </div>
+</div>
+<div class="k-gesture">
+  <div><b>Point at it</b><p>hover. The underline comes up to reading strength. The word does not move.</p></div>
+  <div><b>Press Tab</b><p>focus-visible. The ring goes round the word, clear of the descenders at 1px offset.</p></div>
+</div>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>State</th><th>What it overrides</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><b>rest</b></td><td><code>--text-secondary</code>, on the underline only</td>
+        <td><span data-tok="--text-secondary" data-theme-read="dark"></span></td>
+        <td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><b>hover</b></td><td><code>--text-hover</code>, on the underline only</td>
+        <td><span data-tok="--text-hover" data-theme-read="dark"></span></td>
+        <td><span data-tok="--text-hover" data-theme-read="light"></span></td></tr>
+    <tr><td><b>focus-visible</b></td><td><code>--color-focus</code>, through <code>base.css</code></td>
+        <td><span data-tok="--color-focus" data-theme-read="dark"></span></td>
+        <td><span data-tok="--color-focus" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The word keeps its host's colour in every state.</b> Changing it on hover would make a link inside a severity line change severity for as long as the pointer is on it, which is the one thing this component was named to stop.</p>
+<p class="k-note"><b>Two states are absent and each says why.</b> <b>Active:</b> a link navigates on release, so the pressed moment and the page change are the same event and nothing would be seen. A button is different, and that is exactly why it has one: its press may not complete. <b>Out of reach:</b> a link that cannot be followed is not a link. Where the product has something to name and nowhere to send you it writes the words without a link at all, which is what <code>gnote</code> does on the four screens where the evidence has fallen out of the retention window.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<p class="k-note">Two roles, both on the underline, and <b>none on the word</b>: <code>--text-secondary</code> and <code>--text-hover</code>. Geometry: nothing but the 2px offset, because the size belongs to the container.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">Clerk read the sign in log for this tenant. &lt;a class="link" href="entry.html"&gt;Okta system log, 12 June&lt;/a&gt;.</div>
+<h3 class="k-h2">Five places it stands</h3>
+<div class="k-where">
+  <a href="../case.html">.gnote &middot; 15</a>
+  <a href="../case-history.html">.expand &middot; 6</a>
+  <a href="../case-no-baseline.html">.nar &middot; 2</a>
+  <a href="../queue-empty.html">.empty &middot; 2</a>
+  <a href="../queue-notice.html">Z6 &middot; 1</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

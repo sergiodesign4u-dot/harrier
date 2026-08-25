@@ -59,17 +59,15 @@ window.NAV = [
      12, а не 13: рішення і його ціна записані в docs/decisions.md.
      README тримає СВІЙ рядок статусу на кожен етап, як і для CJM: сайдбар відстежує
      існування сторінки, README завершеність етапу. */
-  { label:'Design System', wip:true, children:[
+  { label:'Design System', children:[
       /* ДВІ ПЕРШІ ІСНУЮТЬ УЖЕ, і саме тому вони тут: топ-лінк групи веде на першу ГОТОВУ
          сторінку, тож без них пункт два кроки поспіль було б нікуди відкрити. Кіт це
          насіння системи, а не екран продукту, тому в роадмепі він стоїть під нею.
          НА КРОЦІ 4, коли зʼявиться overview.html і власна панель стенда, ці два рядки
          звіряються заново: сторінки стенда веде design/kit/_nav.js, і дублювати їх у
          кореневому реєстрі тоді вже нема потреби. */
-      { label:'Component kit',       page:'design/kit/kit.html',      done:true  },
-      { label:'The shell',           page:'design/kit/shell.html',    done:true  },
-      { label:'Tokens + Components', page:'design/kit/overview.html', done:false },
-      { label:'Patterns + Guide',    page:'design/kit/why.html',      done:false },
+      { label:'Tokens + Components', page:'design/kit/overview.html', done:true  },
+      { label:'Patterns + Guide',    page:'design/kit/why.html',      done:true  },
   ]},
   { label:'Responsive',          page:null, done:false },
   { label:'Animation',           page:null, done:false },

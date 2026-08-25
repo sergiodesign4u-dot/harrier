@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Severity bars</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Severity bars</h1>
+<p class="k-lede">Severity, drawn as a count of lit slots. 225 instances across 34 screens, always inside <code>sev</code> and <code>sev</code> is always inside a queue row. <b>The whole component is three slots and how many of them are on.</b></p>
+<p class="k-note"><b>The severity is selected on the drawing, not on a class.</b> The markup carries three slots and lights n of them, and <code>:has()</code> counts. That is why the whole ramp landed on 32 screens at stage 06 <b>without one attribute being added to one wireframe</b>, and it is why the coloured copies still hold a structural diff of exactly zero against their grey originals.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.bars</code><span>the whole component, and it is what carries the colour. A <code>span</code> every time</span></li>
+  <li><span><code>i</code>, three of them</span><span>the slots. 5px, 8.5px and 12px tall, so the height is a second signal after the count and the shape is legible at a glance from a metre away</span></li>
+  <li><code>i.on</code><span>lit. It reads <code>currentColor</code> for both its fill and its border, which is why the severity ramp is three roles and not six</span></li>
+  <li>the word beside it<span><b>not part of this component.</b> That is <code>sev</code>, the molecule that holds the bars and the word together and gives them one colour. It is written in the molecules round</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">One axis, three values, and <b>the axis is not a class</b>. Nothing in the markup names the severity: the count of lit slots is the value, and the file reads it.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>severity</th><th>Uses</th><th>Rendered</th><th>Selected by</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>high</b></td><td class="num">56</td>
+        <td><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+        <td><code>:has(i:nth-child(3).on)</code></td>
+        <td rowspan="3"><b>The ramp descends in chroma, not in loudness.</b> On a dark ground every value has to clear 4.5:1, so brightness cannot carry it. Warm to cool, and <b>never to green</b>, because a low severity case is not a resolved one</td></tr>
+    <tr><td><b>medium</b></td><td class="num">71</td>
+        <td><span class="bars"><i class="on"></i><i class="on"></i><i></i></span></td>
+        <td><code>:has(2) :not(:has(3))</code></td></tr>
+    <tr><td><b>low</b></td><td class="num">46</td>
+        <td><span class="bars"><i class="on"></i><i></i><i></i></span></td>
+        <td><code>:has(1) :not(:has(2))</code></td></tr>
+    <tr><td><b>none lit</b></td><td class="num">0</td><td><span class="bars"><i></i><i></i><i></i></span></td>
+        <td class="k-none">no rule</td>
+        <td><b>It renders and it means nothing</b>, and the empty cell is shown rather than skipped. A case with no severity does not reach the queue, so the product never draws this. If it ever does, the component says colourless rather than guessing</td></tr>
+    <tr><td><b>a fourth level</b></td><td class="num">&ndash;</td><td class="k-none">prohibited</td><td class="k-none">&ndash;</td>
+        <td>Three slots is the drawing. A fourth would need a fourth colour that clears 4.5:1 on three grounds and still reads as between two of the existing ones, and the ramp has no room left in chroma</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-lede" style="margin-top:var(--space-5)"><b>The <code>:has()</code> moved from <code>.row</code> to the component, and nothing rendered differently.</b></p>
+<p class="k-note"><code>kit.css</code> wrote <code>.row:has(.bars i:nth-child(3).on) .bars i.on</code>. That is the same result inside a row and <b>no result anywhere else</b>: a severity drawn on the shift brief or inside a log entry would have come out colourless. A component may not depend on the container it happens to stand in today, and the selectors on this page are the proof that it no longer does, because none of these bars is inside a row.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In a queue row, in the severity cell, and nowhere else today. Design principle 1 says every row is a decision rather than a record: <b>the bars are the first thing that sorts one row from the next</b>, before the client, before the verdict and before the age.</p>
+<p class="k-note"><b>Where she meets it.</b> Scanning. Rasha carries 40 or more tenants and arrives at a queue of eighteen; the shape of this column is what tells her which three to open first. That is why it is a shape and a colour rather than a word alone, and why the word is there anyway.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span></div>
+    <p>Always with the word. The bars are the glance and the word is the answer, and the word is also what makes the unlit slot legal below 3:1.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span></div>
+    <p>Never alone. A count of bars with no word is a graphic carrying information available nowhere else, which is a WCAG 1.4.11 failure and, worse, a thing the analyst has to learn before she can read the queue.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The row around it has a hover and a selected ground; the bars sit on whatever the row is doing and change nothing of their own.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+      <span style="display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--size-sm);line-height:1.35"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+    </div>
+  </div>
+</div>
+<p class="k-lede" style="margin-top:var(--space-5)"><b>The unlit slot is exempt from 1.4.11, and the exemption is written rather than assumed.</b></p>
+<p class="k-note"><code>--line-edge</code> measures <b>2.997</b> against the page, which is below the 3:1 that a graphical object required to understand the content must clear. It is allowed here because <b>the severity is also in text, immediately beside it</b>: <code>sev</code> renders the bars and then the word on every one of the 225 instances, measured. 1.4.11 exempts a graphic whose information is available in text, and this is that case rather than an oversight. <b>If the word is ever dropped from <code>sev</code>, this stops being true</b> and the slot needs <code>--line-control</code>. The line is in <code>bars.css</code> so that whoever drops it reads it first.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-sev-high</code></td><td>ink 4.5:1</td><td><span data-tok="--text-sev-high" data-theme-read="dark"></span></td><td><span data-tok="--text-sev-high" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-sev-medium</code></td><td>ink 4.5:1</td><td><span data-tok="--text-sev-medium" data-theme-read="dark"></span></td><td><span data-tok="--text-sev-medium" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-sev-low</code></td><td>ink 4.5:1</td><td><span data-tok="--text-sev-low" data-theme-read="dark"></span></td><td><span data-tok="--text-sev-low" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">The three severity roles are declared as <b>ink</b> and not as fill, even though the lit slot is a filled rectangle: the slot borrows the component's ink with <code>currentColor</code>, and the word beside it is real text at 4.5:1. Declaring them as fill would have let the 3:1 floor apply to a word.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;span class="sev"&gt;&lt;span class="bars"&gt;&lt;i class="on"&gt;&lt;/i&gt;&lt;i class="on"&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt; Medium&lt;/span&gt;</div>
+<p class="k-note">Three <code>i</code> always, and <code>on</code> on the first n. The markup never names the severity, so a row cannot say High and draw Low.</p>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where"><a href="../queue.html">.sev inside a queue row &middot; 225</a></div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

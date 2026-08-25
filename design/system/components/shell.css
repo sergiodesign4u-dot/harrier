@@ -1,0 +1,31 @@
+/* shell :: ORGANISM, and it is the outermost one
+   READS. nothing. It is layout.
+   CONTAINS. the documentation panel and `screen`.
+   PAGE. design/kit/shell.html   STANDS ON. 62 instances across 62 screens.
+
+   TWO COLUMNS: the panel that belongs to the design process, and the product. It
+   is the only place in the system where something that is not the product sits
+   inside the same box as the product, and `base.css` says the same thing from the
+   other side: `#sidebar` is documentation chrome and it is declared there because
+   it travels with every screen.
+
+   `height: 100vh` AT THE DESK AND `auto` AT 360, AND BOTH ARE LOAD BEARING.
+   Pinned to one viewport, the columns scroll and the page does not, which is what
+   makes the pane foot sticky and the queue head stay. At 360 the layout is a
+   block, the document takes the scroll back, and every zone releases its own.
+   Stage 07 found this from the outside: `min-height:100vh` let the shell grow with
+   its content, so `bottom:0` had no scroll container to resolve against and the
+   decision sat two viewports down.
+
+   THE PRODUCT STILL CALLS IT `.wf-shell`, and step 6 renames it with `screen`. */
+
+.shell{
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+}
+
+@media (max-width:900px){
+  .shell{ display: block; height: auto }
+}
+/* NO STATES. */

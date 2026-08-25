@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Queue foot</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Queue foot</h1>
+<p class="k-lede">Where the keyboard is taught. 45 instances across 45 screens: one under every queue.</p>
+<p class="k-note">Design principle 5 puts keyboard before mouse and principle 3 says the override is one key and it teaches. <b>The foot of the queue is where the analyst who has been clicking for a week finds out she did not have to.</b> It is the quietest strip on the screen and it is deliberately never a dialog: a modal that teaches shortcuts is a modal that gets dismissed.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;border:var(--rule-edge)">
+        <div class="qfoot"><span><kbd>j</kbd> <kbd>k</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>a</kbd> accept</span><span><kbd>?</kbd> all keys</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;border:var(--rule-edge)">
+        <div class="qfoot"><span><kbd>j</kbd> <kbd>k</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>a</kbd> accept</span><span><kbd>?</kbd> all keys</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.qfoot</code><span>a wrapping mono row at 11px with a hairline above it</span></li>
+  <li><code>kbd</code><span><b>the keys, and this is an open row.</b> They are <code>kbd</code> elements taking secondary ink and a control border, while <code>key</code> everywhere else is a span taking the host’s colour through <code>currentColor</code></span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>count</b></td><td>three or four hints</td><td>A count. Which shortcuts a screen advertises is a fact about the screen</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td><b>Prohibited.</b> It is the last thing on the screen and it must stay there. A loud keyboard strip is a strip that gets read once and resented afterwards</td></tr>
+    <tr><td><b>placement</b></td><td><span class="k-none">no values</span></td><td>Always the foot of the list, never floating and never fixed. It is a footnote, and a footnote that follows you is an overlay</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The open row, named rather than folded.</b> Same job, two forms: <code>kbd</code> here and <code>key</code> everywhere else. Step 2 did not rule on it and this file does not collapse it silently. It goes to the reconciliation as <b>a control drawing the same thing past the system</b>, and the <code>key</code> page carries the same note from the other side.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Under the queue, once. It is the only place in the product that lists shortcuts inline; the full set is the keyboard map at node 0.5, one key away.</p>
+<p class="k-note"><b>Where she meets it.</b> In week one, and then never again on purpose. The measure of this component working is that an analyst stops reading it.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><div class="qfoot" style="border:0"><span><kbd>j</kbd> <kbd>k</kbd> move</span><span><kbd>a</kbd> accept</span></div></div>
+    <p>The key and what it does, in the analyst’s words, in the place she is already looking when a list ends.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="btn btn--quiet" href="#rules">Keyboard shortcuts</a></div>
+    <p>Not a button that opens a list. Design principle 2 puts the cheapest correct thing first: four hints in a strip cost nothing, and a button costs a tap to learn what a tap would have saved.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R1.</b> Not more than one <code>.btn--primary</code> <b>per layer</b>, and a foot does not compete with it. A second is allowed only as the viewport twin of the first, or in a modal layer over the screen.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> Nothing in it is pressable: it is a picture of the keyboard, and the keyboard is the control.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;border:var(--rule-edge)">
+        <div class="qfoot"><span><kbd>j</kbd> <kbd>k</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>a</kbd> accept</span><span><kbd>?</kbd> all keys</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;border:var(--rule-edge)">
+        <div class="qfoot"><span><kbd>j</kbd> <kbd>k</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>a</kbd> accept</span><span><kbd>?</kbd> all keys</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the hints and the keys</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-control</code></td><td>line 3:1</td><td>the border on each key</td><td><span data-tok="--line-control" data-theme-read="dark"></span></td><td><span data-tok="--line-control" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the hairline above the strip</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="qfoot"&gt;&lt;span&gt;&lt;kbd&gt;j&lt;/kbd&gt; &lt;kbd&gt;k&lt;/kbd&gt; move&lt;/span&gt;&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">under the queue &middot; 45</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

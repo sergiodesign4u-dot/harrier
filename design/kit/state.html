@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; State</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">State</h1>
+<p class="k-lede">A word that reports a condition. <b>194 instances across 44 screens: the largest component in the product by count.</b> It says what has already happened to a case, and there is nothing to press.</p>
+<p class="k-note"><b>It was half of <code>chip</code> until step 2.</b> <code>chip--state</code> had to turn the pointer off with <code>cursor:default</code>, which is the shape of a component pretending to be another one. Splitting it is why this file declares no states at all, and why <code>chip</code> no longer has to say <code>default</code>.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <i class="state">decided</i>
+      <i class="state">acted</i>
+      <i class="state state--solid">unrecorded</i>
+      <i class="state state--ghost">investigating</i>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <i class="state">decided</i>
+      <i class="state">acted</i>
+      <i class="state state--solid">unrecorded</i>
+      <i class="state state--ghost">investigating</i>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.state</code><span>the whole component. An <code>i</code> on all 155 coloured instances, because it is a run of text with a different voice rather than a control or an emphasis</span></li>
+  <li>the word<span>uppercase mono at 11px with .04em of tracking. The register, not the sentence: <code>voice/docs/voice.md</code> puts a machine-readable outcome in a different voice from the prose around it</span></li>
+</ul>
+<p class="k-note"><b>No affordance mark, and that is the whole difference from <code>chip</code>.</b> A chip carries a caret or a cross because pressing it does something. A state carries neither because pressing it does nothing, and the absence is the signal.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>Rendered</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="3"><b>emphasis</b></td><td><code>.state</code></td><td class="num">146</td>
+        <td><span class="k-cell"><i class="state">decided</i></span></td>
+        <td>the outcome as it stands. The default, and most states are it</td></tr>
+    <tr><td><code>.state--solid</code></td><td class="num">46</td>
+        <td><span class="k-cell"><i class="state state--solid">unrecorded</i></span></td>
+        <td><b>something went wrong with the record itself.</b> Two words earn it, <code>unrecorded</code> and <code>superseded</code>, and the inverted plate makes them the loudest thing on the screen. Stage 06 considered spending the accent here and did not: inverting through the reading ink already does it, and a fifth job would make the accent mean less everywhere else</td></tr>
+    <tr><td><code>.state--ghost</code></td><td class="num">2</td>
+        <td><span class="k-cell"><i class="state state--ghost">investigating</i></span></td>
+        <td><b>still happening.</b> The word is true and provisional at once, and a dashed boundary is how the rest of this system says not settled yet</td></tr>
+    <tr><td><b>size</b></td><td class="k-none">no second value</td><td class="num">&ndash;</td><td class="k-none">prohibited</td>
+        <td>11px is the floor of the scale. A row can carry four states and that is a count, not a density problem</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-lede"><b>Thirteen words on three surfaces, not six.</b></p>
+<p class="k-note">The stage 07 kit page said "the set of six is closed", and that is true of one surface. Counted in the grey corpus, which is the whole product:</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Surface</th><th>The closed set</th><th>What the words answer</th></tr></thead>
+  <tbody>
+    <tr><td><b>the queue row and the case pane</b><br>34 screens</td>
+        <td><i class="state">decided</i> <i class="state">acted</i> <i class="state state--solid">unrecorded</i> <i class="state">escalated</i> <i class="state state--ghost">investigating</i> <i class="state">taken</i></td>
+        <td>what has happened to this case so far. <b>Two of the six are the rule <code>CLAUDE.md</code> binds on this layer:</b> a case that left the analyst's hands must not look identical to one that did not, so <code>escalated</code> and <code>unrecorded</code> are visible states and not flags in a database</td></tr>
+    <tr><td><b>the log</b><br>3 screens</td>
+        <td><i class="state">accepted</i> <i class="state">amended</i> <i class="state">rejected</i> <i class="state state--solid">superseded</i> <i class="state">acted alone</i></td>
+        <td>what the ruling WAS. A different question from the one above, which is why the words do not overlap and why they are a second closed set rather than five more members of the first</td></tr>
+    <tr><td><b>the history of one case</b><br>2 screens</td>
+        <td><i class="state">filed</i> <i class="state">opened</i></td>
+        <td>what happened at this point in the chain</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Adding a fourteenth word is a voice decision before it is a component one.</b> Every one of these is in <code>voice/docs/microcopy.md</code>, and the sets are closed there. A state that is not in one of the three sets means either a new surface or a word that should have been one of the existing ones.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><i class="state">decided</i> <i class="state state--solid">unrecorded</i></div>
+    <p>Side by side in a row's states cell, reporting what is true. Neither offers to be pressed and neither needs to: what you do about them is in the pane.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="chip" href="#rules">All tenants &#9662;</a></div>
+    <p>Not for something that narrows a list or changes the scope. That is <b><code>chip</code></b>, which looks close and is a different component: it has a pointer, an affordance mark and four states, because there is something to press.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> No hover, no active, no focus, no out of reach.</p>
+<p class="k-note">Giving it a hover would be the same defect as inventing a role: it would say the word can be pressed, and it cannot. <b>What changes underneath it is the row</b>, and the row is a different component: a selected row repaints its ground and the state sits on the new one without knowing.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <i class="state">decided</i>
+      <i class="state">acted</i>
+      <i class="state state--solid">unrecorded</i>
+      <i class="state state--ghost">investigating</i>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <i class="state">decided</i>
+      <i class="state">acted</i>
+      <i class="state state--solid">unrecorded</i>
+      <i class="state state--ghost">investigating</i>
+    </div>
+  </div>
+</div>
+<p class="k-note">Point at any of them and nothing happens, which is the component working.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-invert</code></td><td>fill</td><td><span data-tok="--bg-invert" data-theme-read="dark"></span></td><td><span data-tok="--bg-invert" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-on-invert</code></td><td>ink 4.5:1</td><td><span data-tok="--text-on-invert" data-theme-read="dark"></span></td><td><span data-tok="--text-on-invert" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-control</code></td><td>line 3:1</td><td><span data-tok="--line-control" data-theme-read="dark"></span></td><td><span data-tok="--line-control" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><code>line-height: 1</code> and <code>text-decoration: none</code> are declared for the same reason as on <code>chip</code>: a component may not render differently depending on which tag it is written as. The tracking is <b>.04em</b> and it is a literal, the tightest of the six mono values in the product; it is not <code>--track-mono</code> at .06em, and the typography page carries the open question about all of them.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;i class="state"&gt;decided&lt;/i&gt;
+&lt;i class="state state--solid"&gt;unrecorded&lt;/i&gt;
+&lt;i class="state state--ghost"&gt;investigating&lt;/i&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">.states inside a row &middot; 185</a>
+  <a href="../case.html">.chips-hd in the pane head &middot; 9</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

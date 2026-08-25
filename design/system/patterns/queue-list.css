@@ -1,0 +1,50 @@
+/* queue-list :: PATTERN
+   ============================================================================
+   BUILT FROM. z4 as its host, and scopebar, readout, banner, rows, qfoot as its
+   zones. Through rows: row with its seven tracks, and everything a row carries.
+   PAGE. design/kit/queue-list.html
+   STANDS ON. 38 grey screens of 62, 29 of them already in colour.
+
+   THE LIST HALF OF THE SPLIT, AND THE MAIN DASHBOARD OF THE PRODUCT. Scope at
+   the top, a counted claim under it, an optional banner, the rows, and the
+   keyboard taught at the foot. CLAUDE.md settles that the dashboard is the queue
+   with the fleet in the pane and not the other way round, and this is that
+   sentence as a composition.
+
+   IT IS A PATTERN AND NOT A VARIANT OF Z4 for the same reason the case pane is
+   not a variant of z5: z4's other filling, the shift brief, drops the scope bar
+   and the rows and grows a brief. Zones disappear, so by the anatomy rule of
+   stage 08 it is a different thing wearing the same host.
+
+   -- one variant, and it is the log ------------------------------------------
+   `--log` keeps all five zones and changes what the rows are about: the queue is
+   what is waiting, the log is what was decided. Same zones in the same order, so
+   this is a variant and not a third pattern.
+
+   WHAT MOVED IN HERE. One block out of z4.css, and it had the shape this whole
+   level exists to collect: a selector written in one component that names four
+   others, conditioned on which filling the host is carrying.
+
+     z4.css   .z4--log .scopebar, .z4--log .rows, .z4--log .qfoot,
+              .z4--log .banner:not(.only-narrow)      at 900
+              .z4--log .only-narrow                   at 900
+
+   `.z4 > .banner` did NOT move, and the difference is the point: it places the
+   banner in the column whichever filling the column is carrying, so it belongs
+   to the zone rather than to the composition. A rule moves here only when it is
+   conditioned on the filling.
+
+   NO COLOUR IN THIS FILE. A pattern arranges, it does not paint.
+   ============================================================================ */
+
+@media (max-width:900px){
+  /* THE LOG IS NOT RENDERED AT 360, and the narrowed page says so instead of
+     squeezing seven columns into a phone. CLAUDE.md gives the phone ONE scenario,
+     a paged case read and escalated, and answering an auditor is not it. Node 5.4
+     is the boundary case and it is different: a permalink can arrive anywhere. */
+  .queue-list--log .scopebar,
+  .queue-list--log .rows,
+  .queue-list--log .qfoot,
+  .queue-list--log .banner:not(.only-narrow){ display: none }
+  .queue-list--log .only-narrow{ margin: var(--space-4) }
+}

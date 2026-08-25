@@ -1,0 +1,38 @@
+/* was :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Geometry: --size-xs.
+
+   PAGE. design/kit/was.html
+   STANDS ON. 72 instances across 16 screens, always inside `rec` and never
+   anywhere else.
+
+   IT IS THE TREND, AND WITHOUT IT THE COUNT IS NOT EVIDENCE. `31 of 36` says
+   what the agent's record is; `was 34 of 36` says which way it is going, and the
+   direction is the whole of the claim CLAUDE.md calls calibrated trust: that the
+   trust is EARNED and VISIBLE rather than asserted. A record with no trend is a
+   number the analyst has to remember last week's value of, forty times over,
+   which is exactly the failure mode the riskiest assumption names.
+   ----------------------------------------------------------------------------
+   IT IS A BLOCK INSIDE AN INLINE PARENT, on purpose. `rec` is one grid cell and
+   the trend takes the line below the count rather than sitting beside it, so the
+   column of counts stays a column: with the trend inline, every cell would be a
+   different width and the digits would stop lining up.
+
+   TEN OF THE SEVENTY TWO SAY `too few to compare` INSTEAD OF A NUMBER, and that
+   is voice rather than a variant. It is the fourth voice rule rendered: say what
+   is true about the machine, including what it did not find. A tenant with four
+   decisions has no trend, and inventing one would be the worst thing this
+   component could do.
+   ---------------------------------------------------------------------------- */
+
+.was{
+  display: block;
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* -- NO VARIANTS AND NO STATES -----------------------------------------------
+   It does not colour the direction. A green `was 28 of 36` and a red
+   `was 34 of 36` is the obvious move and it is wrong here: the accent does four
+   jobs and no fifth, the severity ramp is spoken for, and a trend that is
+   painted good or bad decides for the analyst what she is being asked to judge. */

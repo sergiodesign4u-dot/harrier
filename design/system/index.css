@@ -1,0 +1,157 @@
+/* Harrier design system :: the one entry point
+   ============================================================================
+   A screen links THIS file and nothing else. The whole system hangs on it, which
+   is why the chain is checked in a browser the moment a component is added rather
+   than at the end of the stage.
+
+   ORDER IS THE LADDER, AND IT IS NOT THE ALPHABET. Alphabetical order puts
+   dialog.css before field.css and form.css before input.css, which is to say the
+   composed thing above its own parts in the cascade. A contextual fix then gets
+   cured with !important and the system carries it for years. Bottom up removes
+   that by construction: an atom can never be overridden by the molecule that
+   contains it, because the molecule comes after.
+
+   A NEW COMPONENT GOES IN ITS OWN GROUP, NOT AT THE END OF THIS FILE. Appended
+   at the bottom it looks harmless and it is exactly how the ladder comes apart:
+   an atom written at step 6 or at stage 12 would sit below every organism. The
+   separator comments below exist so the next person has somewhere to put it.
+   ============================================================================ */
+
+@import url("tokens.css");
+@import url("base.css");
+
+/* ---- ATOMS. The smallest thing with a name. 18 ---------------------------
+   Three subgroups, agreed before the build, because a level with more than about
+   eight components needs a second sort or nobody can find anything in it. The
+   order inside the level is controls, then marks, then the parts of a text, and
+   btn comes first in its own right as the reference component of the stage. */
+
+/* controls: the five that take states */
+@import url("components/btn.css");
+@import url("components/navitem.css");
+@import url("components/link.css");
+@import url("components/chip.css");
+@import url("components/input.css");
+
+/* marks: read, never pressed. None of them has a state */
+@import url("components/key.css");
+@import url("components/state.css");
+@import url("components/bars.css");
+@import url("components/mark.css");
+@import url("components/tag.css");
+@import url("components/stamp.css");
+
+/* the parts of a text: they exist only inside something larger */
+@import url("components/src.css");
+@import url("components/anote.css");
+@import url("components/was.css");
+@import url("components/rec.css");
+@import url("components/hint.css");
+@import url("components/label.css");
+@import url("components/arriving.css");
+
+/* ---- MOLECULES. Atoms in a fixed arrangement. 34 -------------------------
+   Four subgroups, agreed before the build. Order inside the level is the row
+   family, then the slots, then the furniture of a zone, then notices and input. */
+
+/* the row family: everything that repeats down a list */
+@import url("components/row.css");
+@import url("components/row-moved.css");
+@import url("components/sev.css");
+@import url("components/frow.css");
+@import url("components/opt.css");
+@import url("components/rota.css");
+
+/* slots: a heading and a free space. No variant matrix, and their pages say so */
+@import url("components/block.css");
+@import url("components/nar.css");
+@import url("components/prov.css");
+@import url("components/gnote.css");
+@import url("components/empty.css");
+@import url("components/tomb.css");
+
+/* the furniture of a zone: one per surface that has one */
+@import url("components/scopebar.css");
+@import url("components/readout.css");
+@import url("components/pane-head.css");
+@import url("components/qfoot.css");
+@import url("components/chips-hd.css");
+@import url("components/fleet-more.css");
+
+/* notices and input */
+@import url("components/banner.css");
+@import url("components/toast.css");
+@import url("components/outage.css");
+@import url("components/field.css");
+@import url("components/expand.css");
+@import url("components/doorcard.css");
+
+/* the ten the step 2 census missed. inventory.md section 13 says why */
+@import url("components/claim.css");
+@import url("components/lat.css");
+@import url("components/bline.css");
+@import url("components/cons.css");
+@import url("components/contact.css");
+@import url("components/covers.css");
+@import url("components/axisb.css");
+@import url("components/sa-offer.css");
+@import url("components/addr.css");
+@import url("components/annun.css");
+
+
+/* ---- ORGANISMS. A zone or a screen region. 21 ----------------------------
+   Two packs by CONTAINMENT rather than by purpose, because the ladder has three
+   rungs and no fourth: an organism may contain another one, so the ones that
+   contain none come first and the ones that do come last. */
+
+/* containing no other organism */
+@import url("components/z1.css");
+@import url("components/z2.css");
+@import url("components/z6.css");
+@import url("components/rows.css");
+@import url("components/rows-moved.css");
+@import url("components/optlist.css");
+@import url("components/pane-body.css");
+@import url("components/pane-foot.css");
+@import url("components/dialog.css");
+@import url("components/rail.css");
+@import url("components/rail-foot.css");
+@import url("components/door.css");
+@import url("components/doc.css");
+
+/* containing another organism */
+@import url("components/frame.css");
+@import url("components/brief.css");
+@import url("components/scrim.css");
+@import url("components/z4.css");
+@import url("components/z5.css");
+@import url("components/z45.css");
+@import url("components/screen.css");
+@import url("components/shell.css");
+
+/* ---- PATTERNS. A composition that already stands on three or more screens ---
+   Stage 09, and they come AFTER the components because a pattern is built from
+   them: a rule that arranges parts has to be able to reach past the part's own
+   declaration. Nothing here paints. Every rule in these four files was CUT from a
+   component file, not copied into one, and each file names where its rules came
+   from. The threshold is three screens counted on the GREY corpus, where the
+   whole product is; the colour count is the second number on each page and it
+   grows at stage 12.
+
+   ORDER INSIDE THE LEVEL IS THE ZONE. Both fillings of z4, then both fillings of
+   z5, so the panel and this file read the same way as the screen does, left to
+   right. */
+@import url("patterns/queue-list.css");
+@import url("patterns/shift-brief.css");
+@import url("patterns/case-pane.css");
+@import url("patterns/fleet.css");
+
+/* ---- PLACES. Where a component stands, rather than a form of it -----------
+   Step 2 kept these out of the register on purpose and they still need a
+   declaration. places.css says what the test for the file is. */
+@import url("places.css");
+
+/* ---- UTILITIES, AND THEY COME LAST ---------------------------------------
+   A utility says one thing about one element and it has to win, so it comes after
+   every component. utilities.css says what putting it first cost. */
+@import url("utilities.css");

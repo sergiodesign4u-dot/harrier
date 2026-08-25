@@ -1,0 +1,33 @@
+/* covers :: MOLECULE
+   READS. Ink: --text-secondary. Geometry: --font-mono, --size-sm, --size-xs,
+   --space-1, --space-2.
+   PAGE. design/kit/covers.html   STANDS ON. 4 renderings across 4 screens, in the
+   LOG's reading pane: `log`, `log-narrowing`, `case-history` and
+   `case-history-superseded`. The header said the shift brief and no shift screen
+   carries the class; counted by a reader with clean context.
+
+   A LABEL AND ITS VALUE, STACKED. What a reading of the log covered: which
+   tenants, which window, which analyst. It is the only place in the product where a label sits
+   ABOVE its value rather than beside it, and the reason is the width: a brief is
+   read in a narrow column and a two column definition list wraps into nonsense.
+
+   THE LABEL SHARES ITS FACE WITH `label` AND IS NOT IT. Same 11px uppercase mono
+   at .08em, and a different job: `label` names an answer the analyst will type,
+   this names a fact she is being told. Two roles, and the surface rule that keeps
+   ink and line apart is the same rule that keeps these apart. */
+
+.covers{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--size-sm);
+}
+.covers .k{
+  font: 600 var(--size-xs)/1 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.covers .v{ margin-bottom: var(--space-2) }
+
+/* NO STATES, AND NO VARIANTS. Three pairs or four is a count. */

@@ -1,0 +1,83 @@
+/* z1 :: ORGANISM
+   READS. Fill: --bg-page. Ink: --text-primary, --text-secondary, --text-hover.
+   Line: --rule-edge, --rule-hair, --line-hover. Structure: --zone-top.
+   CONTAINS. navitem, annun, and the keyboard map trigger.
+   PAGE. design/kit/z1.html   STANDS ON. 57 instances across 57 screens, and
+   \x60the class is in no html file\x60: design/_shell.js injects the whole bar.
+
+   THE TOP BAR, NODE 0.2. 56px, and it holds FIVE things in a fixed order: the
+   wordmark, the three navigation items, the annunciator, the analyst's name, and
+   one control. An earlier draft of this file said four and left the name out,
+   which a reader with clean context caught against the generator. It is
+   the only zone that is the same on every authenticated screen, which is why the
+   generator owns it and why an inventory taken from the screens has no header in
+   it and does not notice.
+
+   ONE CONTROL IN THE WHOLE BAR, and it is the way into the keyboard map. It
+   rendered a literal question mark until stage 07: the one glyph in the shell
+   that says nothing about what it opens. The accessible name is already Keyboard
+   map, so replacing the visible character loses nothing and the icon is the third
+   of the three this product applies.
+
+   THE MASK PAINTS AT 1.5 HERE. It carried 1.8 in kit.css against a set that
+   declares 1.5 everywhere in CSS, with no comment and no row in DESIGN.md.
+   Found by design/kit/checks/icons.mjs and corrected in the file that owns it. */
+
+.z1{
+  flex: 0 0 auto;
+  min-height: var(--zone-top);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 0 var(--space-4);
+  border-bottom: var(--rule-edge);
+  background: var(--bg-page);
+}
+
+.z1 .wordmark{ font: 600 var(--size-lg)/1 var(--font-sans); letter-spacing: -.01em }
+.z1 nav      { display: flex; gap: var(--space-4) }
+.z1 .spacer  { flex: 1 1 auto }
+
+/* the keyboard map trigger. A bordered control, and its hover is one of the two
+   rules --line-hover was read off. */
+.z1 .kmap{
+  font-size: 0;
+  line-height: 0;
+  padding: 6px 8px;
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.z1 .kmap::before{
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Crect%20x%3D%222%22%20y%3D%226%22%20width%3D%2220%22%20height%3D%2212%22%2F%3E%3Cpath%20d%3D%22M6%2010h1M10%2010h1M14%2010h1M18%2010h1M6%2014h12%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Crect%20x%3D%222%22%20y%3D%226%22%20width%3D%2220%22%20height%3D%2212%22%2F%3E%3Cpath%20d%3D%22M6%2010h1M10%2010h1M14%2010h1M18%2010h1M6%2014h12%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+}
+.z1 .kmap:hover{ color: var(--text-hover); border-color: var(--line-hover) }
+
+/* -- session. One axis, two values ------------------------------------------
+   Signed out, the bar drops the navigation, the map and the annunciator: there
+   is nothing to navigate to and no agent to report on. Two instances. */
+.z1--out .note{
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+@media (max-width:1400px){
+  /* the annunciator overflowed at 1280, the product's declared minimum */
+  .z1{ flex-wrap: wrap; padding-top: var(--space-2); padding-bottom: var(--space-2) }
+}
+@media (max-width:900px){
+  .z1{ gap: var(--space-3); flex-wrap: wrap; min-height: auto;
+       padding: var(--space-2) var(--space-3) }
+  /* the nav takes its own line and scrolls sideways rather than wrapping to two */
+  .z1 nav{ order: 3; width: 100%; gap: var(--space-3); overflow-x: auto }
+}
+/* focus-visible is global. The bar itself has no states. */

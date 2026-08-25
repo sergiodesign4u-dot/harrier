@@ -1,0 +1,35 @@
+/* rail-foot :: ORGANISM
+   READS. Fill: --bg-surface. Ink: --text-secondary. Line: --line-record, 2px.
+   PAGE. design/kit/rail-foot.html   STANDS ON. 5 instances across 5 screens, at
+   the bottom of `frame`.
+
+   ZERO ZONES, AND THAT IS WHY IT IS NOT A VARIANT OF `rail`. The head rail has
+   three: the marking, its qualifier and the way out. This has one text node and
+   no way out, because there is nothing below a record to leave to. A zone that
+   disappeared means a different component, which is the splitting criterion the
+   whole register runs on, and this is the clearest instance of it in the system.
+
+   IT CLOSES THE FRAME RATHER THAN OPENING IT. Static, not sticky. Quiet, not
+   inverted. Sentence case at weight 400. It says what the record is and stops. */
+
+.rail-foot{
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border-top: 2px solid var(--line-record);
+  font: 400 var(--size-sm)/1.3 var(--font-mono);
+  letter-spacing: 0;
+  text-transform: none;
+}
+/* AND IT HAS NO WAY OUT. The head rail carries a link back to the console; this one
+   carries nothing, because there is nothing below a record to leave to. The rule is
+   here rather than in rail.css so that the zero zones claim above is true in the file
+   as well as in the prose. */
+.rail-foot .rail-out{ display: none }
+
+/* NO STATES. */

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Outage</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Outage</h1>
+<p class="k-lede">The product is down and the page still has to be useful. 3 instances across 3 screens: service unavailable, planned, and partial.</p>
+<p class="k-note">It says <b>what is out, since when, what still works and what to do meanwhile</b>, in that order. It is the one surface where the analyst is not deciding anything and the interface is answering for itself.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%">
+        <div class="outage" style="margin:0"><h1>Service unavailable<span class="sub">since 04:12 UTC &middot; incident INC-2291</span></h1>
+          <div class="out-line"><span class="k">What is out</span><span>Case correlation. Clerk files nothing until it is back.</span></div>
+          <div class="out-line"><span class="k">What still works</span><span>Every case already filed, the log, and your shift brief.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%">
+        <div class="outage" style="margin:0"><h1>Service unavailable<span class="sub">since 04:12 UTC &middot; incident INC-2291</span></h1>
+          <div class="out-line"><span class="k">What is out</span><span>Case correlation. Clerk files nothing until it is back.</span></div>
+          <div class="out-line"><span class="k">What still works</span><span>Every case already filed, the log, and your shift brief.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.outage</code><span>a 660px column, centred, in a zone with no pane and no list</span></li>
+  <li><code>h1 .sub</code><span>since when and which incident. Mono, because both are quotable into a ticket</span></li>
+  <li><code>.out-line</code><span><b>a fact and its label. Not a table:</b> there are three of them and they read as sentences, and a table of three rows is a table nobody reads as one</span></li>
+  <li><code>::before</code><span><b>the mark, and this is the only component that carries one.</b> A fixed 120px image beside the text, never a background: a page with no product on it may carry a mark and may not carry a scene</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>kind</b></td><td>unavailable</td><td>1</td><td>everything is out</td></tr>
+    <tr><td></td><td>planned</td><td>1</td><td>it is out on purpose and there is an end time</td></tr>
+    <tr><td></td><td>partial</td><td>1</td><td><b>some of it works</b>, and the What still works line is the reason the component has that zone at all</td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> An outage is not a case. Painting it in the severity ramp would spend a colour that means something specific on a page that means something else</td></tr>
+    <tr><td><b>a retry control</b></td><td><span class="k-none">not here</span></td><td>&ndash;</td><td>The buttons live in <code>.out-act</code>, which is a place and not part of this component. Three of the three carry one and it is still the container’s</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The path to the mark is relative to the component file, and it is the one thing in this package that is not portable by itself.</b> Named rather than left to be discovered: lifting <code>design/system/</code> into another project takes <code>design/visuals/</code> with it, or this rule resolves to nothing.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">On the three systemic screens, and nowhere else. It is the only component in the system whose job is to be read when the product cannot do its job.</p>
+<p class="k-note"><b>Where she meets it.</b> At 03:00, from a phone, when a page she was paged to will not load. That is why the mark drops to 84px at 360: it must not take the fold from the sentence that says what is happening.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><div class="out-line" style="border:0;padding:0"><span class="k">What still works</span><span>Every case already filed, the log, and your shift brief.</span></div></div>
+    <p>A label and a fact, as a sentence. She can act on it: the log still opens, so the thing she was paged about can still be read.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><p style="margin:0;font-size:12.5px">Something went wrong. Please try again later.</p></div>
+    <p>Never a stock apology. It names nothing, dates nothing and leaves the analyst with no way to tell whether the case she was paged about is readable.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%">
+        <div class="outage" style="margin:0"><h1>Service unavailable<span class="sub">since 04:12 UTC &middot; incident INC-2291</span></h1>
+          <div class="out-line"><span class="k">What is out</span><span>Case correlation. Clerk files nothing until it is back.</span></div>
+          <div class="out-line"><span class="k">What still works</span><span>Every case already filed, the log, and your shift brief.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%">
+        <div class="outage" style="margin:0"><h1>Service unavailable<span class="sub">since 04:12 UTC &middot; incident INC-2291</span></h1>
+          <div class="out-line"><span class="k">What is out</span><span>Case correlation. Clerk files nothing until it is back.</span></div>
+          <div class="out-line"><span class="k">What still works</span><span>Every case already filed, the log, and your shift brief.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The buttons in <code>.out-act</code> are, and they carry their own.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the heading and the facts</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the subline and the labels</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the rule above each fact</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="outage"&gt;
+  &lt;h1&gt;Service unavailable&lt;span class="sub"&gt;since 04:12 UTC&lt;/span&gt;&lt;/h1&gt;
+  &lt;div class="out-line"&gt;&lt;span class="k"&gt;What is out&lt;/span&gt;&lt;span&gt;Case correlation.&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../unavailable.html">service unavailable</a>
+  <a href="../unavailable-planned.html">planned</a>
+  <a href="../unavailable-partial.html">partial</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

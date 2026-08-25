@@ -1,0 +1,27 @@
+/* gnote :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Geometry: --size-xs, --space-2.
+   CONTAINS. link, 15 times out of 48.
+
+   PAGE. design/kit/gnote.html
+   STANDS ON. 48 instances across 27 screens: `block` 46 and four others.
+
+   IT IS THE SOFT LINE UNDER A BLOCK. What Clerk did not check, where the reader
+   can go and look, what the count excludes. It is the quietest thing on the case
+   pane and it is where most of the product's links live.
+   ----------------------------------------------------------------------------
+   IT WAS THE MOST DUPLICATED THING IN THE PRODUCT. Before stage 07 it was
+   written as a literal style attribute in three generators and on a dozen
+   blocks, which is the shape a component takes when nobody has named it yet.
+
+   A SLOT: 8 sets of child zones and one computed form.
+   ---------------------------------------------------------------------------- */
+
+.gnote{
+  margin: var(--space-2) 0 0;
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* -- NO VARIANTS AND NO STATES -----------------------------------------------
+   Not interactive. The 15 links inside it are `link` and carry their own. */

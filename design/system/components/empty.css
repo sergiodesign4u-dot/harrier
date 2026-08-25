@@ -1,0 +1,50 @@
+/* empty :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-primary, --text-secondary. Geometry: --size-md, --size-sm,
+   --space-2, --space-4, --space-5, --space-7.
+   CONTAINS. link, twice.
+
+   PAGE. design/kit/empty.html
+   STANDS ON. 6 instances across 6 screens: `rows` 5 and `block` 1.
+
+   AN EMPTY QUEUE IS NOT A FAILURE AND MUST NOT LOOK LIKE ONE. Nothing waiting is
+   the state the analyst is working towards, and the copy says what is true
+   rather than apologising: what the scope currently is, and what would change it.
+   voice.md owns the sentences; this owns the shape.
+   ----------------------------------------------------------------------------
+   THE FIRST LINE IS A HEADING DRAWN AS A `b`, AND IT IS `display:block`. In an
+   empty state the first line is the answer and everything after it is the
+   explanation, so it takes the reading ink at --size-md while the rest recedes.
+   One instance runs it inline instead, and that is `b.run`: a sentence where the
+   answer is a phrase inside it rather than a line of its own.
+
+   A SLOT: 5 sets of child zones across 6 instances.
+
+   THIS COMPONENT IS ALSO A RULE FROM CLAUDE.md AND IT IS NOT THIS ONE. The empty
+   state of the DETAIL PANE must read as "this is the fleet" rather than as "this
+   is empty", and that is `z5` holding the fleet, not this. If the resting pane
+   ever renders an `empty`, the decision to keep the fleet out of the menu has
+   failed.
+   ---------------------------------------------------------------------------- */
+
+.empty{
+  padding: var(--space-7) var(--space-4);
+  text-align: center;
+  font-size: var(--size-sm);
+  color: var(--text-secondary);
+}
+
+.empty b{
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--size-md);
+  color: var(--text-primary);
+}
+.empty b.run{ display: inline; font-size: inherit }
+
+/* -- density. One axis, two values -------------------------------------------
+   Inside a block rather than filling a pane, the state has a heading above it
+   already and does not need to hold a whole column. */
+.empty--tight{ padding: var(--space-5) }
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------- */

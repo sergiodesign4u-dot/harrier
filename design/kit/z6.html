@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Z6, the notices</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bx-. The two themes stack: the stack is 400px wide and it has to be
+   seen sitting in a box rather than floating in a column. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+@media (max-width:900px){ .k-bench-half{ padding:var(--space-3) } }
+
+/* THE BENCH IS THE BOX THE STACK IS POSITIONED AGAINST, and it is not a decoration.
+   In the product that box is z45, which declares position:relative for exactly this reason.
+   `transform` is here because at 900px and below the stack becomes position:FIXED, which
+   would otherwise resolve against the viewport and float four copies of itself over this
+   document. A transformed ancestor is a containing block for a fixed descendant too, so the
+   360 rendering lands inside its own bench and stays honest. */
+.bx-stage{ position:relative; transform:translateZ(0); height:300px; overflow:hidden;
+           border:var(--rule-edge); background:var(--bg-page); width:100% }
+/* the label of what is UNDER the stack. Top right on purpose: the stack lives bottom left, so
+   a label anywhere else would be covered by the thing it is describing. */
+.bx-under{ position:absolute; inset:0; display:flex; align-items:flex-start; justify-content:flex-end;
+           padding:var(--space-3);
+           font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+           text-transform:uppercase; color:var(--text-secondary) }
+/* `.k-vs p` in _page.css is a DESCENDANT selector at 0,1,1 and it beats a component class at
+   0,1,0, so a product paragraph placed in the comparison cells is repainted by the stand. The
+   toast declares no colour of its own, so what is restored here is INHERITANCE rather than a
+   value: nothing is copied, and a changed token still reaches this page by itself. */
+.k-vs .toast p{ color:inherit; font:inherit; margin:0 }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Z6, the notices</h1>
+<p class="k-lede">Node 8.4, the notice stack. <b>2 instances across 2 screens</b>, and <b>the whole zone was specified in prose and drawn nowhere</b> until stage 07 step 9 read the stage contract as a checklist. Three notices were marked MVP and not one of them existed.</p>
+<p class="k-note"><b>It never covers the pane.</b> Bottom left, <code>--width-toast</code> at 400px, and design principle 5 forbids an overlay that hides the evidence the analyst is deciding on. A notice stack is the component most likely to break that rule, which is why the position is written into the component rather than left to whoever places one.</p>
+<p class="k-note"><b>The cap is one at 360 and three at the desk, and drawing it is what settled that.</b> Measured: three notices took 408 of 760 pixels at 360, so the notice layer covered more of the phone than the case did. Node 8.4 makes the cap a <b>layout</b> decision and the persistence a <b>compliance</b> one, so the cap may differ per width and the persistence may not. The one that stays is the failure, because it is the one that cannot be dismissed; with no failure present the newest stays.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>What the bench is standing in.</b> A 300px box with <code>position:relative</code>, which is <code>z45</code>: the split declares that one property so the stack sits inside the console rather than on the viewport. The bench also carries a <code>transform</code>, because at 900px and below Z6 becomes <code>position:fixed</code>, and without a transformed ancestor four copies of this page&rsquo;s stack would pin themselves to the bottom of your screen instead of to their own bench.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-stage">
+        <div class="bx-under">the console, uncovered</div>
+        <div class="z6" aria-label="Notices">
+          <div class="toast" role="status"><p><span class="role">STATUS</span><b>Reconnected. 3 cases replayed.</b> They arrived while the connection was down and are in the list now, in their place.</p><a class="t-x" href="#anatomy" aria-label="Dismiss this notice">&times;</a></div>
+          <div class="toast toast--alert" role="alert"><p><span class="role">ALERT</span><b>The verdict on C-4417 did not write.</b> This console is the only place that decision exists.</p><span class="t-hold">stays until the write lands</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-stage">
+        <div class="bx-under">the console, uncovered</div>
+        <div class="z6" aria-label="Notices">
+          <div class="toast" role="status"><p><span class="role">STATUS</span><b>Reconnected. 3 cases replayed.</b> They arrived while the connection was down and are in the list now, in their place.</p><a class="t-x" href="#anatomy" aria-label="Dismiss this notice">&times;</a></div>
+          <div class="toast toast--alert" role="alert"><p><span class="role">ALERT</span><b>The verdict on C-4417 did not write.</b> This console is the only place that decision exists.</p><span class="t-hold">stays until the write lands</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.z6</code><span>the stack. Absolutely positioned bottom left of <code>z45</code>, <code>z-index:5</code>, a flex column with one step of gap between notices</span></li>
+  <li><code>--width-toast</code><span>400px, written as <code>min(400px, 100% &minus; --space-6)</code>, so a narrow console shrinks the stack rather than letting it reach the pane</span></li>
+  <li><code>.toast</code><span>the notice itself, its own molecule. One to three of them, and the count is a count rather than a variant</span></li>
+  <li><code>.z6-more</code><span>the count of what is not shown. <b>Declared in <code>kit.css</code> and not in <code>z6.css</code></b>, so it is on the two screens and not yet in the system. It is left out of this bench rather than drawn unpainted</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>none</b></td><td><span class="k-none">no values</span></td><td class="num">2</td><td>Both instances are the same stack. What differs between them is how many notices are in it, and <b>a count is not a variant</b></td></tr>
+    <tr><td><b>position</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and this is the one that matters.</b> There is no top right stack and no centred one. Bottom left is the corner furthest from the pane, and a stack that could be moved would eventually be moved onto the evidence</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>It belongs to the notice rather than the stack. <code>toast--alert</code> is where the difference between something that finished and something that failed is drawn</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Once per screen, and only on a screen that has something to say as a result of what the analyst just did. It is not a place to put the state of the screen, and it is not a place to put the state of the connection: those are <code>banner</code> and <code>z2</code>.</p>
+<p class="k-note"><b>Where she meets it.</b> Rarely, and at the worst moments. The alert form exists for one situation, a verdict that did not write, and on a phone at 03:00 it is the only notice she will see: everything else is suppressed underneath it. That is the cap doing its job rather than a notice being lost.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-stage" style="height:150px"><div class="bx-under">the evidence, still readable</div><div class="z6"><div class="toast toast--alert" role="alert"><p><span class="role">ALERT</span><b>The verdict on C-4417 did not write.</b></p><span class="t-hold">stays until the write lands</span></div></div></div></div>
+    <p>Bottom left, inside the console, above nothing. The case she is ruling on stays in view while the notice tells her the ruling has not landed.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-stage" style="height:150px"><div class="bx-under">the evidence, now covered</div><div class="dialog" style="position:absolute;right:var(--space-3);top:var(--space-2);max-height:none;width:min(320px,92%)"><header><h2>The verdict did not write</h2></header><footer><span class="grow"></span><span class="btn">OK</span></footer></div></div></div>
+    <p>Never as a modal. That is <b><code>dialog</code></b>, and a dialog is for a decision that needs an answer before anything else happens. A failed write needs to be seen and does not need an answer, and a dialog would take the evidence off the screen to say so.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R3.</b> No overlay covers the detail pane. Design principle 5: no overlay hides the evidence the analyst is deciding on.</li>
+  <li><b>R4.</b> The notice layer shows <b>at most</b> three notices at the desk and <b>at most one</b> at 360, and a failure takes the single slot.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>The stack has none. The toasts inside it carry theirs.</b> What the stack does have is a second rendering, and it is a layout rule rather than a state: <b>narrow the window past 900px and the stack goes from absolute to fixed, and from three notices to one.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-stage">
+        <div class="bx-under">the console, uncovered</div>
+        <div class="z6" aria-label="Notices">
+          <div class="toast" role="status"><p><span class="role">STATUS</span><b>D. Okonkwo has C-4417 open.</b> Nothing is locked, and the log records both if you both file.</p><a class="t-x" href="#states" aria-label="Dismiss this notice">&times;</a></div>
+          <div class="toast" role="status"><p><span class="role">STATUS</span><b>Reconnected. 3 cases replayed.</b> They are in the list now, in their place.</p><a class="t-x" href="#states" aria-label="Dismiss this notice">&times;</a></div>
+          <div class="toast toast--alert" role="alert"><p><span class="role">ALERT</span><b>The verdict on C-4417 did not write.</b></p><span class="t-hold">stays until the write lands</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-stage">
+        <div class="bx-under">the console, uncovered</div>
+        <div class="z6" aria-label="Notices">
+          <div class="toast" role="status"><p><span class="role">STATUS</span><b>D. Okonkwo has C-4417 open.</b> Nothing is locked, and the log records both if you both file.</p><a class="t-x" href="#states" aria-label="Dismiss this notice">&times;</a></div>
+          <div class="toast" role="status"><p><span class="role">STATUS</span><b>Reconnected. 3 cases replayed.</b> They are in the list now, in their place.</p><a class="t-x" href="#states" aria-label="Dismiss this notice">&times;</a></div>
+          <div class="toast toast--alert" role="alert"><p><span class="role">ALERT</span><b>The verdict on C-4417 did not write.</b></p><span class="t-hold">stays until the write lands</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Three notices go in and one comes out, and the CSS does the choosing.</b> <code>.z6:has(.toast--alert) .toast:not(.toast--alert)</code> hides everything that is not the failure; with no failure present, <code>:not(:last-of-type)</code> hides everything but the newest. No script decides which notice survives, which is why the rule cannot drift from the one written in node 8.4.</p>
+<p class="k-note"><b>At 360 it is the one place in the product a stack is fixed to the viewport.</b> There is no <code>z45</code> box to hang off at that width, because the layout is block. It still never covers the pane, because at 360 there is no pane. The bottom padding carries <code>env(safe-area-inset-bottom)</code>, so the last line clears the home indicator rather than sitting under it.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the bar behind the stack, and only at 360 where it is fixed</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the line above that bar, through <code>--rule-edge</code></td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--width-toast</code></td><td>structure</td><td>the width of the stack at the desk</td><td><span data-tok="--width-toast" data-theme-read="dark"></span></td><td><span data-tok="--width-toast" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--zone-notice-clear</code></td><td>structure</td><td>what <code>z45</code> ends above so the last row is not underneath the stack</td><td><span data-tok="--zone-notice-clear" data-theme-read="dark"></span></td><td><span data-tok="--zone-notice-clear" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">The stack itself paints no ink. Every colour a reader sees in it belongs to <code>toast</code>, which is the component the readout for those values lives on.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="z6" aria-label="Notices"&gt;
+  &lt;div class="toast" role="status"&gt;&hellip;&lt;/div&gt;
+  &lt;div class="toast toast--alert" role="alert"&gt;&hellip;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- it goes inside .z45, which is position:relative, and nowhere else --&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue-notice.html">one notice</a>
+  <a href="../queue-notices.html">three, and the cap</a>
+  <a href="toast.html">the notice itself</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

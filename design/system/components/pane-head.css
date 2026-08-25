@@ -1,0 +1,70 @@
+/* pane-head :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-primary, --text-secondary. Line: --rule-edge. Geometry:
+   --size-lg, --size-xl, --leading-tight, --space-1, --space-3, --space-4.
+   CONTAINS. chips-hd, on 7 of the 48.
+
+   PAGE. design/kit/pane-head.html
+   STANDS ON. 48 instances across 48 screens, at the top of the detail pane.
+
+   IT NAMES WHAT THE PANE IS SHOWING and it is sticky, so the name stays while
+   the evidence scrolls under it. On a surface where the analyst is deciding, the
+   thing she is deciding about may not leave the screen.
+   ----------------------------------------------------------------------------
+   ONE AXIS AND IT IS THE ROUTE, WHICH MAKES IT THE ONLY MOLECULE HERE WHOSE
+   VARIANT COMES FROM THE URL. In the pane, 45 instances, the title is an h2 and
+   the pane sits beside the queue. Standalone, 3 instances, the case has its own
+   address for a permalink and for a phone at 03:00: the title becomes the page's
+   h1, it stops being sticky because there is nothing beside it to scroll past,
+   and three zones arrive that the paired form does not have.
+
+   THAT IS A ZONE APPEARING, WHICH BY THE ANATOMY RULE WOULD MAKE IT A DIFFERENT
+   COMPONENT. It is kept as a variant on one ground: the three zones are the
+   SHELL the standalone route has to grow, not a different head, and every zone
+   the paired form has survives in the same order. Named here rather than
+   assumed, because it is the closest call in this level.
+   ---------------------------------------------------------------------------- */
+
+.pane-head{
+  position: sticky;
+  top: 0;
+  background: inherit;      /* it takes the pane's ground, whichever it is */
+  padding: var(--space-4);
+  border-bottom: var(--rule-edge);
+}
+
+.pane-head h2{
+  margin: 0;
+  font: 600 var(--size-lg)/var(--leading-tight) var(--font-sans);
+  color: var(--text-primary);
+}
+
+/* the same subline under a pane title and under a dialog title. It was one rule
+   and an identical inline copy on three dialog generators until stage 07. */
+.pane-head .sub{
+  margin: var(--space-1) 0 0;
+  font-size: var(--size-sm);
+  color: var(--text-secondary);
+}
+
+/* -- route. Standalone: the case has its own address ------------------------- */
+.pane-head--standalone{ position: static }
+.pane-head--standalone h1{
+  margin: 0;
+  font: 600 var(--size-xl)/var(--leading-tight) var(--font-sans);
+  /* arrived at stage 09 from the duplicate of this rule that lived in z5.css. It is
+     the display tracking of the wordmark rather than of the type scale, and it was
+     the only declaration the duplicate had that this one did not. */
+  letter-spacing: -.01em;
+  color: var(--text-primary);
+}
+@media (max-width:900px){
+  .pane-head--standalone h1{ font-size: var(--size-lg) }
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------- */
+
+
+@media (max-width:900px){
+  .pane-head{ padding: var(--space-3) }
+}

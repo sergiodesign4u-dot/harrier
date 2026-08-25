@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Handover line</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL. A WIDE COMPONENT GETS THE FULL COLUMN AND THE TWO THEMES STACK.
+   Squeezing the bench would document a rendering the product does not have; the themes go
+   one above the other instead, which costs a scroll and no truth. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-bench-row > div, .k-cell > div{ overflow-x:auto }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+@media (max-width:900px){ .k-bench-half{ padding:var(--space-3) } }
+/* A component wider than the stand's narrow column scrolls INSIDE its own bench rather than
+   being shrunk. The product gives it more room than a documentation page does, and squeezing
+   it here would document a rendering that does not exist. */
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Handover line</h1>
+<p class="k-lede">A line in the shift brief: something that moved while you were away. 35 instances across 7 screens, and it stands nowhere else.</p>
+<p class="k-note"><b>It is a different component and not a variant, and the reason is the anatomy rule rather than the drawing.</b> It has <b>four zones</b> where the queue row has seven. No severity and no cost: a pointer in a handover is not a thing to triage, it is a thing that already happened.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:760px;border:var(--rule-edge)">
+        <div class="row-moved row-moved--head"><span>When</span><span>What moved</span><span>State</span><span>&nbsp;</span></div>
+        <div class="row-moved"><span>04:14</span><span>C-4417 escalated to S. Varga</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+        <div class="row-moved"><span>05:02</span><span>C-4501 ruled and filed</span><span class="states"><i class="state">decided</i></span><span class="when">1h</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:760px;border:var(--rule-edge)">
+        <div class="row-moved row-moved--head"><span>When</span><span>What moved</span><span>State</span><span>&nbsp;</span></div>
+        <div class="row-moved"><span>04:14</span><span>C-4417 escalated to S. Varga</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+        <div class="row-moved"><span>05:02</span><span>C-4501 ruled and filed</span><span class="states"><i class="state">decided</i></span><span class="when">1h</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.row-moved</code><span>the whole line. A <code>div</code> and not an <code>a</code>, and that is the component</span></li>
+  <li>four zones<span>when, what, the state it ended in, and how long ago. The queue row’s severity, verdict and cost have nothing to say about a decision somebody else already took</span></li>
+  <li><code>.states</code><span>holds <code>state</code>. In 132px a state can be two words wide, so it wraps and centres rather than clipping</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>head</b></td><td><code>.row-moved--head</code></td><td>5</td><td>the column names. It is a line and it is not a record, which is why it is a variant</td></tr>
+    <tr><td><b>list</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> There is one list of things that moved and there will not be a second: a shift brief is one shift</td></tr>
+    <tr><td><b>state</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Nothing here is selected, hovered or opened.</b> See the state block, which is the whole of what separates this from <code>row</code></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">The <b>132px, 1fr, 116px, 44px</b> track set is <code>--row-tracks-moved</code> in <code>tokens.css</code>. It was one of the two values the second instrument at step 1 found declared and recorded nowhere.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">At the top of a shift, once. The brief answers one question: what happened while I was not here. Rasha reads it, decides whether anything needs picking up, and goes to the queue.</p>
+<p class="k-note"><b>Where she meets it.</b> Twice a day at most, and never in the middle of ruling. That is the whole argument for it having no states: a brief that could be clicked would invite her to work it, and the work is in the queue.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div style="border:var(--rule-edge)"><div class="row-moved"><span>04:14</span><span>C-4417 escalated to S. Varga</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div></div></div>
+    <p>Four zones, read left to right as a sentence: at this time, this happened, it ended here, that long ago.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div style="border:var(--rule-edge)"><a class="row-moved" href="#rules" style="cursor:pointer"><span>04:14</span><span>C-4417 escalated to S. Varga</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></a></div></div>
+    <p>Never as a link. It looks harmless and it says the shift can be re-opened. If a line in a brief needs to lead somewhere, the thing it leads to is a case, and the case is reached from the queue.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>Two, and the first reading of this component had them wrong.</b> Every one of the thirty instances is an <code>a</code> with an <code>href</code>: a line in a handover names a case, and the case opens. Hover and active are the same two tokens the queue row reads.</p>
+<p class="k-note"><b>What survived the correction is the smaller half of the original claim.</b> There is no SELECTED state: a brief is read in one pass and nothing in it is being ruled on. That is still the difference from <code>row</code> that matters most, and it is a real one; "point at these and nothing happens" was not.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:760px;border:var(--rule-edge)">
+        <div class="row-moved row-moved--head"><span>When</span><span>What moved</span><span>State</span><span>&nbsp;</span></div>
+        <div class="row-moved"><span>04:14</span><span>C-4417 escalated to S. Varga</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+        <div class="row-moved"><span>05:02</span><span>C-4501 ruled and filed</span><span class="states"><i class="state">decided</i></span><span class="when">1h</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:760px;border:var(--rule-edge)">
+        <div class="row-moved row-moved--head"><span>When</span><span>What moved</span><span>State</span><span>&nbsp;</span></div>
+        <div class="row-moved"><span>04:14</span><span>C-4417 escalated to S. Varga</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+        <div class="row-moved"><span>05:02</span><span>C-4501 ruled and filed</span><span class="states"><i class="state">decided</i></span><span class="when">1h</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">A queue row is <b>decided</b>; a line in a handover is <b>read, and then opened if she wants the case behind it</b>. So it hovers like a row and it never carries a selected state, because the brief is a record of what somebody else already did and there is nothing in it to rule on. The sentence that stood here said no hover and no href, and the markup on three coloured screens says otherwise on eighteen instances.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the head, and the elapsed time</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the rule between lines, through --rule-hair</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="row-moved"&gt;
+  &lt;span&gt;04:14&lt;/span&gt;
+  &lt;span&gt;C-4417 escalated to S. Varga&lt;/span&gt;
+  &lt;span class="states"&gt;&lt;i class="state"&gt;escalated&lt;/i&gt;&lt;/span&gt;
+  &lt;span class="when"&gt;2h&lt;/span&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../shift.html">the shift brief &middot; 30</a>
+  <a href="../shift-outgoing.html">the head &middot; 5</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

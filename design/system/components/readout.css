@@ -1,0 +1,44 @@
+/* readout :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-primary, --text-secondary. Line: --rule-hair. Geometry:
+   --size-sm, --space-2, --space-4.
+
+   PAGE. design/kit/readout.html
+   STANDS ON. 45 instances across 45 screens: one per queue, always directly
+   under the scope bar.
+
+   IT IS THE ONE SENTENCE THAT SUMS THE LIST. "18 waiting across 12 of 40
+   tenants." voice.md requires a number to name its claim, its scope and its
+   window and to lead with a count rather than a percentage, and this line is the
+   product's shortest instance of that rule: two counts and their scope, in one
+   sentence, above two hundred rows.
+   ----------------------------------------------------------------------------
+   WEIGHT 700 AND NOT 600. Attribute A3 caps the working emphasis at 600 and
+   allows 700 on a COUNTED VALUE ONLY. This is one of the two places in the
+   product that qualifies, and the other is the annunciator.
+
+   AND THE PRODUCT WAS BREAKING THAT RULE ON 35 SCREENS. `.readout` is an `h1` on
+   every one of them, which is the right element: the queue's heading names the
+   state of the queue rather than the word Queue. The UA draws an h1 at weight
+   700, `.readout` never said otherwise, and the 700 reached the whole line
+   including `across 12 of 40 tenants in your scope`, which is not a counted
+   value. The `b` rule looked like it was doing the work and was overriding
+   nothing. It declares 400 now and `b` carries the 700 it was always supposed
+   to be the only thing carrying.
+   Found by design/kit/checks/geometry.mjs. The value is never wrong in any file:
+   the ELEMENT was deciding it, which is the third time this round. Row in
+   tokens-audit.md.
+   ---------------------------------------------------------------------------- */
+
+.readout{
+  padding: var(--space-2) var(--space-4);
+  border-bottom: var(--rule-hair);
+  font-size: var(--size-sm);
+  font-weight: 400;   /* see below: the element was deciding this */
+}
+
+.readout b   { font-weight: 700; color: var(--text-primary) }
+.readout .dim{ color: var(--text-secondary) }
+
+/* -- NO VARIANTS AND NO STATES -----------------------------------------------
+   What varies is the sentence, and the sentence is voice. */

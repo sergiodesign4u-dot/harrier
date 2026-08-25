@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Stamp</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Stamp</h1>
+<p class="k-lede">One line at the foot of the case body, 24 instances across 24 screens, and it is the part of the interface that has to still be true months later. <b>Who filed it, when, and the address of the evidence as it stood.</b></p>
+<p class="k-note">The main job in <code>CLAUDE.md</code> ends with <b>and I can still defend it months later</b>. Geo and compliance require an append-only log carrying the evidence snapshot at decision time. <b>The stamp is where that requirement becomes a string on a screen.</b></p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <p class="stamp" style="width:100%">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <p class="stamp" style="width:100%">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.stamp</code><span>the whole component. A <code>p</code> every time, and always the last thing in the case body</span></li>
+  <li><code>border-top</code><span><code>--rule-hair</code>, the role declared to separate and carry no meaning. It closes the body without claiming to be a section</span></li>
+  <li><code>b</code><span>the elapsed time. <code>voice/docs/voice.md</code> says a number names its claim, its scope and its window, and 26m is the number here</span></li>
+  <li><code>code</code><span>the <code>?as-of</code> address. Not decoration: it is the deep link that reproduces the evidence as it stood, and it is settled by the IA layer rather than by this page</span></li>
+</ul>
+<p class="k-note"><b>It wraps anywhere on purpose.</b> <code>overflow-wrap: anywhere</code>, because the <code>?as-of</code> parameter is 27 characters with no space in it and at 360 it left the pane. A timestamp that is cut off is worse than one that breaks in the middle: the first is unusable and the second is merely ugly.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-lede"><b>None. What varies is the sentence, and the sentence is voice.</b></p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>What a reader sees varying</th><th>Uses</th><th>Where it is decided</th></tr></thead>
+  <tbody>
+    <tr><td><code>Filed by Clerk</code></td><td class="num">21</td><td rowspan="2"><code>voice/docs/microcopy.md</code>. <b>Clerk files and proposes; it does not think, believe or want</b>, which is one of the five voice rules that must hold every session. A component variant here would put a verb in a stylesheet</td></tr>
+    <tr><td><code>Opened by Clerk</code></td><td class="num">3</td></tr>
+    <tr><td>a third part after the address</td><td class="num">3</td><td>the sentence again. Three screens add who else is on the case or that the snapshot is gone, and they add words rather than a modifier</td></tr>
+    <tr><td>emphasis</td><td class="num">&ndash;</td><td><b>Prohibited.</b> It is secondary ink and it stays there. A stamp that competed with the evidence would be a footer shouting at the thing it dates</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Once per case pane, at the foot of the body, and nowhere else. It is not a general timestamp: <b>it is the provenance of one filed opinion.</b> A time that appears in a row or a log entry is that surface's own column and not this component.</p>
+<p class="k-note"><b>Where she meets it.</b> Twice, months apart. Once while deciding, where it tells her how fresh Clerk's work is; and once when somebody asks why she ruled the way she did, where the <code>?as-of</code> address is the whole answer. The second reading is the one this component exists for, and it is the one nobody is in the room for.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><p class="stamp" style="margin:0">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p></div>
+    <p>The actor, the elapsed time and the address, in that order, at the foot. Quiet, complete, and quotable.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><p class="stamp" style="margin:0">Filed <b>26m</b> ago</p></div>
+    <p>Not without the address. An elapsed time alone dates the opinion and does not reproduce the evidence, and reproducing the evidence is the requirement. The relative time also stops being true the moment the page is printed, which is a surface this product really has.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> It is the record, and a record you can point at is a record somebody expects to change.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <p class="stamp" style="width:100%">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <p class="stamp" style="width:100%">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
+    </div>
+  </div>
+</div>
+<p class="k-note">The <code>?as-of</code> address is rendered as <code>code</code> and not as a link, on all 24 instances. That is deliberate and it is the one thing on this page most likely to be argued with: making it a link would put a control in the one line that has to read as a fact. It goes to <code>backlog.md</code> as a question for stage 09 rather than being changed here.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">The rule above it is <code>--rule-hair</code> at 1.18, deliberately below every floor: it separates and carries no meaning, which is exactly what the role is declared for.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;p class="stamp"&gt;Filed by Clerk &lt;b&gt;26m&lt;/b&gt; ago &amp;middot; &lt;code&gt;?as-of=2026-08-22T04:14:05Z&lt;/code&gt;&lt;/p&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where"><a href="../case.html">the foot of the case body &middot; 24</a></div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

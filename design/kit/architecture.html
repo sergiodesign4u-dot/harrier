@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Architecture</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix a-. Two diagrams that are easier drawn than described. */
+.a-ladder{ display:grid; gap:var(--space-2); margin:0 0 var(--space-5) }
+.a-rung{ border:var(--rule-edge); padding:var(--space-3) var(--space-4) }
+.a-rung b{ display:block; font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+           text-transform:uppercase; color:var(--text-accent); margin:0 0 var(--space-2) }
+.a-rung p{ margin:0; font-size:var(--size-sm); line-height:var(--leading); color:var(--text-secondary) }
+.a-rung code{ color:var(--text-primary) }
+.a-ceiling{ border-style:dashed; border-color:var(--line-separator) }
+.a-tree{ font:400 var(--size-sm)/1.7 var(--font-mono); white-space:pre; overflow-x:auto;
+         border:var(--rule-edge); padding:var(--space-4); margin:0 0 var(--space-5);
+         color:var(--text-secondary) }
+.a-tree b{ color:var(--text-primary); font-weight:400 }
+.a-five{ counter-reset:a; list-style:none; padding:0; margin:0 0 var(--space-4); max-width:74ch }
+.a-five li{ counter-increment:a; position:relative; padding:var(--space-2) 0 var(--space-2) var(--space-6);
+            border-bottom:var(--rule-hair); font-size:var(--size-sm); line-height:var(--leading) }
+.a-five li::before{ content:counter(a); position:absolute; left:0; top:var(--space-2);
+                    font:400 var(--size-xs)/1.5 var(--font-mono); color:var(--text-accent) }
+.a-five code{ color:var(--text-primary) }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Foundations</p>
+<h1 class="k-title">Architecture</h1>
+<p class="k-lede">Not what the system looks like. What it is made of, what may read what, and what it takes to add to it. This page is the first foundation and not the last, because a system is read starting from its rules. The audit, the inventory and the coverage map are evidence <b>about</b> the system and they live in Checks; mixed into one group at the bottom, the rules would hide behind the reporting.</p>
+<p class="k-note">Source: <code>docs/architecture.md</code>.</p>
+
+
+<h2 class="k-h" id="ladders">Two ladders, and both of them use the word level</h2>
+<p class="k-note">Confusing them is the most expensive mistake available here, because the cure is a cascade problem rather than a typo.</p>
+
+<h3 class="k-h2">The token ladder: where a value came from</h3>
+<div class="a-ladder">
+  <div class="a-rung"><b>semantic &middot; why is this colour here</b>
+    <p><code>--bg-page</code>, <code>--text-secondary</code>, <code>--line-control</code>. Every role points at a primitive through <code>var()</code>. <b>Colour is read by a component only through here.</b></p></div>
+  <div class="a-rung"><b>primitive &middot; which value</b>
+    <p><code>--warm-950</code>, <code>--space-4</code>, <code>--size-md</code>. Raw values with no role. Geometry, type and space are read by components <b>directly</b>.</p></div>
+</div>
+<p class="k-note"><b>Geometry gets no second rung, and not because it matters less.</b> A radius and a height have nothing to override: a theme and a rebrand change colour, not the height of a control. A third rung would be a third layer of renaming with no flexibility bought, and changing the colour of a button would cost three files instead of one.</p>
+<p class="k-note"><b>A component token is founded one at a time, never in bulk</b>, and only where a state lands on no role at all. The hover of a card and the hover of a list row are one <code>--bg-hover</code> and need nothing of their own. The hover of a dangerous button has to darken from the danger colour rather than from the ground, and there a component token is earned.</p>
+<p class="k-note"><b>This system founded none, and the reason is a fact about the product rather than a preference.</b> The textbook case for a component token is the dangerous button, and <b>this product has no dangerous control anywhere</b>: the button carries three modifiers, <code>--primary</code>, <code>--quiet</code> and the collapsed <code>--primary-narrow</code>, and not one of them is red. Rejecting Clerk is a first class action and design principle 3 says so, so it is drawn as an ordinary action and never as a destruction. Every state in the system lands on a shared role, and the one value that needed a new step of a ramp got a <b>primitive</b> rather than a component token, because a pressed accent is the accent and not the button.</p>
+
+<h3 class="k-h2">The component ladder: markup nesting</h3>
+<p class="k-note">The rule is <b>level = 1 + the highest level of what it contains</b>.</p>
+<div class="a-ladder">
+  <div class="a-rung"><b>organisms &middot; contain molecules, or are the shell of a screen</b>
+    <p><code>shell</code>, <code>z1</code>, <code>z4</code>, <code>z5</code>, <code>rows</code>, <code>dialog</code>, <code>door</code>. 19 of them.</p></div>
+  <div class="a-rung"><b>molecules &middot; contain atoms</b>
+    <p><code>row</code>, <code>frow</code>, <code>banner</code>, <code>field</code>, <code>opt</code>, <code>pane-head</code>, <code>toast</code>. 24 of them.</p></div>
+  <div class="a-rung"><b>atoms &middot; contain nothing else from the system</b>
+    <p><code>btn</code>, <code>chip</code>, <code>state</code>, <code>key</code>, <code>bars</code>, <code>navitem</code>, <code>link</code>, the form primitives. 19 of them.</p></div>
+  <div class="a-rung a-ceiling"><b>patterns &middot; stage 09, and the criterion changes</b>
+    <p>A composition that repeated on three or more screens. The case pane and the fleet are both patterns of Z5, not variants of it.</p></div>
+</div>
+<p class="k-note"><b>The third level is the ceiling and the formula stops there.</b> The sign-in dialog contains a form and a form is an organism too, so the formula would produce a fourth level that does not exist. Everything that contains an organism stays an organism, and nesting inside the level controls only the <b>order</b>: first the organisms that contain no other organism, then the ones that do.</p>
+
+
+<h2 class="k-h" id="grouping">Grouping by purpose is forbidden at the top level</h2>
+<p class="k-note">By purpose a button and a sign-in dialog are both "forms", and they would sit side by side while one lives inside the other. Purpose is a secondary sort <b>inside</b> a level, and only once a level holds more than about eight. The price is paid three times when this is broken, and none of the three is cosmetic.</p>
+<ul class="a-five">
+  <li>An <code>@import</code> in alphabetical order puts <code>dialog.css</code> before <code>field.css</code> and <code>form.css</code> before <code>input.css</code>, so the whole is assembled above its own parts in the cascade and a contextual fix gets cured with <code>!important</code>.</li>
+  <li>A split that takes the card before the button writes button rules into the card's file.</li>
+  <li>An agent building a molecule before its atoms draws them a hover of their own and a name of their own.</li>
+</ul>
+
+
+<h2 class="k-h" id="reads">What a component may read</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Kind of value</th><th>Read from</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>colour</td><td><b>semantic only</b></td><td>a theme and a rebrand override colour, and they do it by redefining roles. A component that reads a colour primitive is a hole the first theme finds</td></tr>
+    <tr><td>radius, spacing, size</td><td><b>primitive directly</b></td><td>there is nothing to override</td></tr>
+    <tr><td>a state</td><td><b>a state token</b>, in both themes</td><td><code>:hover</code> reads <code>--bg-hover</code> and <code>--line-hover</code>, <code>:active</code> reads <code>--bg-active</code>, <code>:focus-visible</code> reads <code>--color-focus</code> through <code>base.css</code>, out of reach reads <code>--opacity-disabled</code>. <b>Five, not four:</b> a bordered control here hovers by raising its boundary as well as its ground, in two rules that predate this stage</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>No new hex and no new number appears in a component file.</b> A state written as a value is the same hole as a component reading a colour primitive, and it is paid for three times: in the theme, where it becomes forty edits instead of three lines; in consistency, where twenty components each get a hover of their own; and at stage 11, which would have to start by collecting the states back together.</p>
+
+
+<h2 class="k-h" id="naming">How a role is named</h2>
+<p class="k-note"><b>Read out of the audit, never taken from another system.</b> <code>--color-primary</code> and <code>--surface-2</code> are somebody else's names. A role exists only where <code>docs/tokens-audit.md</code> shows it standing on screens, and its comment carries how many places it was read from. An empty role is not a reserve for the future; it is noise that real roles drown in.</p>
+<p class="k-note">Three axes decide whether a role gets a token, and they are three different questions.</p>
+<ul class="a-five">
+  <li><b>Purpose.</b> Two purposes are two tokens even when the value is identical today. The question is not what colour it is, it is whether these two places could ever diverge.</li>
+  <li><b>Repetition.</b> One single use does not prove a role. <code>--clay-500</code> stands in one place in the whole product and that place is a swatch on this stand, so it stays a primitive and waits.</li>
+  <li><b>Surface.</b> A role declares what it paints: <b>ink</b>, <b>fill</b> or <b>line</b>. One role may not paint two surfaces even when the purpose is one and the value is the same, because the thresholds differ: ink answers to 4.5:1, fill and line to 3:1.</li>
+</ul>
+<p class="k-note"><b>The third axis catches the quietest colour defect there is.</b> A fill role dropped onto a small bold label passes as a surface and fails as text, and a table of text and background pairs cannot see it, because nobody declared it as text. The cost of getting it wrong is not cosmetic either: if the text role exists, the cure is one word in a declaration; if it does not, the cure is the value, and the band moves along with the label.</p>
+
+
+<h2 class="k-h" id="pair">The theme pair is a property of the level, not an event</h2>
+<p class="k-note"><b>Nothing on this stand is a picture of the product.</b> A component page shows the component by linking the same <code>index.css</code> a screen links, and a state is produced by the reader rather than photographed for them: a bench of real controls in both themes at once, and a readout that asks the browser what each state resolves to. The alternative was a screenshot per state, and the first one taken here documented a focus ring that was not in it. A picture is a second copy, and a second copy is where drift starts.</p>
+<p class="k-note">Every role is written twice at the moment it is founded, once in <code>:root</code> and once in <code>[data-theme="light"]</code>. A role without a pair does not exist, and neither does a state without one: in the second theme the focus ring disappears, the product stops being keyboard passable, and the only way to notice is to switch themes, which is to say never.</p>
+<p class="k-note"><b>The pair is not a mirror.</b> Contrast is computed against the opposite ground, so the light theme takes a different step of the same ramp rather than the same primitive. Where a value genuinely clears its threshold from both directions it stays, and both measurements sit beside it so it can be seen that this was measured rather than skipped.</p>
+<p class="k-note"><code>:root</code> carries the <b>dark</b> theme, because that is what the product ships. The light theme is the pair, and it is the first concrete form of the debt <code>CLAUDE.md</code> names.</p>
+
+
+<h2 class="k-h" id="folders">Two folders, and one of them can leave</h2>
+<div class="a-tree">design/
+├── <b>system/</b>                 the CODE. This whole folder can be lifted
+│   ├── tokens.css          into another project and it works there.
+│   ├── base.css
+│   ├── index.css           the single entry point, @import BY LEVEL
+│   └── components/&lt;name&gt;.css
+└── <b>kit/</b>                    the SHOWCASE. It stays here.
+    ├── docs/*.md           the sources
+    ├── overview.html       the hub
+    ├── &lt;foundation&gt;.html   architecture, colour, typography, geometry, icons
+    ├── &lt;component&gt;.html    one page per component
+    ├── _nav.js  _page.css  the stand's registry and its own furniture
+    └── kit.html  shell.html  frozen, from stage 07</div>
+<p class="k-note">A product class inside the showcase, or a showcase style inside a component file, is a defect either way.</p>
+
+
+<h2 class="k-h" id="adding">Adding a component is five things</h2>
+<p class="k-note">And the last two are the ones that get skipped.</p>
+<ol class="a-five">
+  <li><code>design/system/components/&lt;name&gt;.css</code></li>
+  <li><code>design/kit/&lt;name&gt;.html</code>, with its five blocks</li>
+  <li>an entry in <code>design/kit/_nav.js</code>, <b>in the group of its own level</b></li>
+  <li>a row in <code>design/kit/docs/inventory.md</code>, <b>with its level</b></li>
+  <li>an <code>@import</code> in <code>design/system/index.css</code>, <b>into the group of its own level and not at the end of the file</b></li>
+</ol>
+<p class="k-note">The card on the hub is not a sixth thing: the registry renders it from the same entry. <b>Four and five matter most for a component added after the system is built</b>, which is every component added by a reconciliation, by a new screen, or by the rollout. Appended at the end of the file it looks harmless, and that is exactly how the ladder falls apart.</p>
+
+
+<h2 class="k-h" id="fixes">Where a fix lives</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>What changed</th><th>Where it goes</th></tr></thead>
+  <tbody>
+    <tr><td>a colour that carries a role</td><td>the semantic level of <code>tokens.css</code></td></tr>
+    <tr><td>a raw value</td><td>the primitive level of <code>tokens.css</code></td></tr>
+    <tr><td>how a component looks</td><td>that component's file</td></tr>
+    <tr><td>markup</td><td>the component's page, and every screen it stands on</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>A fix made on one screen is a desync, not a fix.</b> A value approved on a coloured screen is never carried anywhere by hand: it goes into a variable, where it reaches every screen by itself, and then it is checked <b>in a browser</b> that it arrived on the second screen and on every repeat of the component.</p>
+
+
+<h2 class="k-h" id="patterns">Patterns, and why there are four</h2>
+<p class="k-note">A pattern is a composition that already stands on three or more screens, and the counter runs on <code>wireframes/</code>: colour holds 52 pages of 62 until stage 12, so three occurrences there would be a statement about the sample wearing the name of a rule.</p>
+<div class="a-rung" style="margin:0 0 var(--space-4)"><b>the definition this product produced</b>
+  <p style="color:var(--text-primary)"><b>A pattern here is a FILLING.</b> One container component, filled with a set of zones, where the container's other filling drops zones and grows different ones. The anatomy rule of stage 08 says a zone that disappears means a different thing rather than a variant; applied one level up, that rule produces exactly four compositions and no others.</p></div>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Pattern</th><th>Host</th><th>Its zones</th><th>Grey</th><th>Colour</th></tr></thead>
+  <tbody>
+    <tr><td><a class="link" href="queue-list.html">queue-list</a></td><td><code>z4</code></td><td>scopebar, readout, banner, rows, qfoot</td><td>38</td><td>29</td></tr>
+    <tr><td><a class="link" href="shift-brief.html">shift-brief</a></td><td><code>z4</code></td><td>readout, banner, brief, qfoot</td><td>7</td><td>7</td></tr>
+    <tr><td><a class="link" href="case-pane.html">case-pane</a></td><td><code>z5</code></td><td>pane-head, pane-body, pane-foot</td><td>38</td><td>29</td></tr>
+    <tr><td><a class="link" href="fleet.html">fleet</a></td><td><code>z5</code></td><td>pane-head, frow, fleet-more</td><td>10</td><td>10</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">The two hosts have three other fillings between them and none is a pattern, because each is a single zone with its own class: <code>frame</code> on the five entry screens, <code>outage</code> on the three system states, and <code>door</code> on the five sign in states, which fills the shell rather than either half of the split. <b>A filling with one wrapper is a component, and the wrapper is its name.</b></p>
+<p class="k-note"><b>A pattern owns no paint and writes no new rule.</b> Every declaration in <code>design/system/patterns/</code> was cut from a component file, and each file names where its rules came from. What made a rule a candidate was mechanical rather than a judgement: a selector, written inside one component, that names another component <b>and</b> is conditioned on which filling the host is carrying. Fourteen rules matched, in three of them. <code>.z4 &gt; .banner</code> did not: it places the banner whichever filling the column carries, so it belongs to the zone.</p>
+<p class="k-note"><b>One rule was doing two jobs and neither was named.</b> <code>.z5{ display:none }</code> at 900 hid the fleet at rest and the desk-only case pane of the log and shift screens, on one line, for two unrelated reasons. It is two rules now, one in each pattern, and 102 renderings say the result is identical.</p>
+
+
+<h2 class="k-h" id="usage">Usage rules</h2>
+<p class="k-note">Three classes of prohibition, and only the first has a home on a component page: <b>substitution</b> ("this needs a tag rather than a badge") lives as the rule and antirule block there and is not repeated here. <b>Composition</b> and <b>context</b> cannot be written as an antirule at all, because no other component is the right one to take. The component is correct and its count or its neighbour is not.</p>
+<p class="k-note">The Components column names <b>patterns as well as components</b>, because a rule about a count is most often a rule about the filling that does the counting.</p>
+<p class="k-note"><b>Every rule below is also a function.</b> <code>design/kit/checks/rules.mjs</code> is these eleven in this order, measured at 1440 and at 360, on what renders rather than on what is in the markup. A prohibition written only in prose is a prohibition nobody runs, and three of these are true at one width and false at the other.</p>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>#</th><th>The rule</th><th>Class</th><th>Where it came from</th><th>Components</th></tr></thead>
+  <tbody>
+    <tr><td>R1</td><td>Not more than one <code>.btn--primary</code> <b>per layer</b>, and a foot does not compete with it. A second is allowed only as the viewport twin of the first, or in a modal layer over the screen</td><td>composition</td><td><code>conventions.md</code>, "exactly one primary action per screen", corrected by the counter</td><td>btn, dialog, scrim, pane-foot, qfoot, case-pane, queue-list, shift-brief</td></tr>
+    <tr><td>R2</td><td>A <code>dialog</code> never stands without a <code>scrim</code>, and one of each at a time</td><td>composition</td><td>counter: 11 dialogs on 11 screens, every one inside a scrim</td><td>dialog, scrim</td></tr>
+    <tr><td>R3</td><td>No overlay covers the detail pane</td><td>context</td><td><code>docs/decisions.md</code>, node 4.4, design principle 5</td><td>scrim, dialog, z6, toast, z5, z45, case-pane, fleet</td></tr>
+    <tr><td>R4</td><td>Three notices at the desk, <b>one</b> at 360, and a failure takes the single slot</td><td>composition</td><td><code>conventions.md</code> measured 408 of 760 pixels at 360; the counter agrees</td><td>z6, toast</td></tr>
+    <tr><td>R5</td><td>No shell before authentication, and no annunciator on a console that cannot read Clerk</td><td>context</td><td>counter: 5 screens with no <code>z1</code>, two more with <code>z1--out</code> and no <code>z2</code></td><td>z1, z2, z45, navitem, annun</td></tr>
+    <tr><td>R6</td><td>One <code>readout</code> per screen</td><td>composition</td><td>counter: 45 screens, maximum of one on every one</td><td>readout, queue-list, shift-brief</td></tr>
+    <tr><td>R7</td><td>The detail pane never renders an <code>empty</code></td><td>context</td><td><code>CLAUDE.md</code>: the pane at rest must read as the fleet, not as empty</td><td>empty, z5, fleet, case-pane</td></tr>
+    <tr><td>R8</td><td>A <code>.only-desk</code> element never renders at 360, a <code>.only-narrow</code> never at the desk</td><td>context</td><td><code>wireframes/docs/critique.md</code>: 22 pages showed the 360 block at 1440</td><td>btn, banner, hint, cons, prov, scrim, shift-brief</td></tr>
+    <tr><td>R9</td><td>One selected row at a time, and none at 360</td><td>composition, context</td><td>counter: 23 screens, maximum of one; zero at 360 by node 3.1</td><td>row, rows, queue-list</td></tr>
+    <tr><td>R10</td><td>The fleet has no route and no navigation item</td><td>context</td><td><code>docs/decisions.md</code>: a route would make the differentiator a place you go</td><td>fleet, navitem, z5</td></tr>
+    <tr><td>R11</td><td>One <code>h1</code> per screen</td><td>composition</td><td><code>voice/docs/critique.md</code>: two node specifications disagree on 19 screens</td><td>readout, pane-head, case-pane</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>R11 is the one the corpus breaks, and it breaks it at one width only.</b> On 16 coloured screens and 21 grey ones there is no <code>h1</code> at all at 360: the heading is the queue readout, the readout lives in the list column, and at 360 a case screen hides that column. Stage 05 found the contradiction underneath it and could not see the consequence, because the consequence is a computed style at one viewport. It is open, with its screens named, in the <a class="link" href="docs/backlog.md">backlog</a>.</p>
+<p class="k-note"><b>What a NEW screen does about it</b>, because "open" is not an instruction: ship the same structure the sixteen have, add the screen to the backlog row, and do not invent a local cure. A heading promoted on one screen and nowhere else is the desync this system is built to prevent, and the fix is one decision about the document outline of the whole product rather than sixteen decisions plus yours.</p>
+<p class="k-note"><p class="k-note"><b>R3 was broken on four grey screens, and building one of them in colour answered it.</b> The escalate family draws a full width dialog at 360 over a pane still rendered behind it, where <code>reject</code> drops its scrim at that width and escalate cannot: escalating from a phone is the product's one mobile scenario. <a class="link" href="../escalate.html">Escalate</a> was the screen this stage built out of the system, the rule caught it on the first run, and the fix is one line in <code>z45.css</code>. The three grey states that remain uncoloured still report it, and they close by being built.</p>
+
+
+<h2 class="k-h" id="contribute">Contributing to the system</h2>
+<div class="a-rung" style="border:var(--rule-control);padding:var(--space-4);margin:0 0 var(--space-4)">
+  <p style="margin:0;font:600 var(--size-lg)/var(--leading-tight) var(--font-sans);color:var(--text-primary)">New appears in <code>design/system/</code> first and on the screen second. Never the other way round.</p>
+</div>
+<p class="k-note">That is the whole rule. Without it, styles are growing on screens again within a week and the system is another name for a folder somebody once tidied. Below is the address for each of the four kinds of new thing.</p>
+
+<h3 class="k-h2">A new value</h3>
+<p class="k-note"><code>design/system/tokens.css</code>, at its own level. A colour that carries a role goes in the semantic level with an origin comment; a raw value goes in the primitive level. <b>A token of state is written in both themes at once or it does not exist:</b> the pair is a property of the level rather than an event, and a role declared in one theme looks flawless in that theme and loses a focus ring in the other.</p>
+
+<h3 class="k-h2">A new component, and it is five things</h3>
+<ol class="a-five">
+  <li><code>design/system/components/&lt;name&gt;.css</code>, with four states in both themes if it is interactive, and a header naming what it reads</li>
+  <li><code>design/kit/&lt;name&gt;.html</code>, with all five blocks: anatomy, variants and sizes, when to use it, rule and anti-rule, states</li>
+  <li>an entry in <code>design/kit/_nav.js</code> <b>in the group of its own level</b></li>
+  <li>a row in <code>docs/inventory.md</code> <b>with its level</b></li>
+  <li>an <code>@import</code> in <code>index.css</code> <b>in its own level group, not at the end of the file</b></li>
+</ol>
+<p class="k-note"><b>Three and five are the two that get skipped.</b> The system is already assembled and appending a file at the bottom looks harmless, and it is exactly how the ladder comes apart: an atom written at stage 12 would sit below every organism in the cascade, and the first contextual conflict gets cured with <code>!important</code>.</p>
+
+<h3 class="k-h2">A new composition</h3>
+<p class="k-note">Count it on <code>wireframes/</code>, where the whole product is. <b>Three screens or more:</b> a file in <code>design/system/patterns/</code>, a page in <code>design/kit/</code>, an entry in the Patterns group of the registry, an <code>@import</code> after the components, and a row in the inventory. The same five things one rung higher. <b>Two screens:</b> it stays markup and goes into the candidates table on <a class="link" href="patterns.html#candidates">Patterns</a>, so the next round finds a list instead of starting the count again.</p>
+<p class="k-note">The <b>page</b> carries five blocks like a component's page, and the fifth is different: anatomy, variants, when to use it, rule and anti-rule, and <b>where it stands</b>, three or more screens named with links. <b>There is no states block, and there should not be:</b> every component in the composition carries its own states on its own page, so a states block here would either be a second copy or an invented state for the composition, which is the same defect as a pattern with its own paint.</p>
+<p class="k-note">A pattern that needs a declaration none of its parts has is not a pattern asking to be born. It is a component or a variant missing, and the component comes first.</p>
+
+<h3 class="k-h2">A new usage rule</h3>
+<p class="k-note">A row in the table above, with the <b>source column filled in</b>: counted on the screens, decided at an earlier stage, or caught by a critique. A rule with an empty source is an invention wearing the word rule. Then a <b>Limits</b> subsection on the page of every component the rule names, linking back here, and a function in <code>design/kit/checks/rules.mjs</code>. One author, three visible places, and the last one is what makes it run rather than be read.</p>
+
+<h3 class="k-h2">A new place</h3>
+<p class="k-note"><code>design/system/places.css</code>, and it is the fifth kind of thing rather than a fourth kind of component. <b>The test is one question: does the rule say something about a THING, or about a GAP between things?</b> A gap, an order or a width is a place. It gets no page, no registry entry and no inventory row, because it is not a thing anybody can be told to reach for: it is where a thing stands. The file itself carries the reason for every entry in it. <b>A place that carries a colour, a line or a family is not a place</b>, and stage 09 learned that by trying to move two of them into a pattern.</p>
+
+<h3 class="k-h2">A new screen of the product</h3>
+<p class="k-note">Flat in <code>design/</code>, beside the others, named after its node. It links <code>system/index.css</code> and nothing else, it carries the design panel through <code>design/_nav.js</code>, its shell comes from <code>design/_shell.js</code>, and it is registered in <code>design/_nav.js</code> so it appears on the coverage map of <a class="link" href="../overview.html">the screens page</a>. <b>There is no folder of examples</b>: a screen assembled out of the system is a screen of the product, and the stages after this one adapt it, animate it and hand it over with the rest.</p>
+<p class="k-note">Before it is accepted, run <code>node design/kit/checks/rules.mjs design &lt;screen&gt;.html</code> and answer every rule by name. A rule that the screen breaks is fixed <b>on the screen</b>, because that is an assembly error rather than a gap in the system, and a rule that turns out to be wrong or too narrow comes back to the table above with a correction and a reason.</p>
+
+<h3 class="k-h2">On a screen, with none of the above</h3>
+<p class="k-note"><b>Forbidden.</b> A screen carries no style of its own, and it does not carry an inline declaration either. If a screen needs something the system does not have, the something is an order for the system. Three inline declarations survived stage 08 on three coloured screens; one of them found an existing home at stage 09 and the other two are rows in the <a class="link" href="docs/backlog.md">backlog</a>.</p>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [
+  { id:'ladders',  label:'Two ladders' },
+  { id:'grouping', label:'Grouping' },
+  { id:'reads',    label:'What a component reads' },
+  { id:'naming',   label:'Naming a role' },
+  { id:'pair',     label:'The theme pair' },
+  { id:'folders',  label:'Two folders' },
+  { id:'adding',   label:'Adding a component' },
+  { id:'fixes',    label:'Where a fix lives' },
+  { id:'patterns', label:'Patterns' },
+  { id:'usage',      label:'Usage rules' },
+  { id:'contribute', label:'Contributing' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

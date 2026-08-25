@@ -1,0 +1,43 @@
+/* scrim :: ORGANISM, and it contains another
+   READS. Fill: --bg-scrim. Structure: --pane-w. Geometry: --space-4, --space-6.
+   CONTAINS. dialog.
+   PAGE. design/kit/scrim.html   STANDS ON. 11 instances across 11 screens.
+
+   IT IS WHAT ANCHORS THE DIALOG RATHER THAN CENTRING IT. `align-items:flex-start`
+   and `justify-content:flex-end`, with right padding equal to the pane's width:
+   the dialog lands beside the case rather than on top of it. Node 4.4 requires it
+   and design principle 5 requires it generally.
+
+   `--bg-scrim` READS `--bg-page` RATHER THAN A PRIMITIVE, so its pair is automatic
+   and it can never tint the page with a colour the interface does not otherwise
+   contain. It was stage 04's LIGHT theme ink at 28 per cent, written as a literal,
+   which is the one value the brand remap could never see. Changed by a user
+   decision at stage 07 step 4. THE SENTENCE THAT STOOD HERE SAID IT HAD NEVER BEEN
+   SEEN ON A COLOURED SCREEN, and it was false when it was written: six reject
+   states have been in colour since stage 07 and `escalate` joined them at stage 09,
+   so this fill stands on seven. Left as a correction rather than a deletion,
+   because what it got wrong is worth more than what it got right: a claim about
+   where a value is NOT seen ages the moment the sample grows, and this file had no
+   way to notice.
+
+   -- viewport. One axis, two values ------------------------------------------
+   `--desk-only` on 7 of the 11: a scrim that exists only where there is a pane to
+   stay clear of. At 360 there is no pane, so there is nothing to anchor against
+   and the dialog takes the screen. */
+
+.scrim{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--space-6) calc(var(--pane-w) + var(--space-5)) var(--space-6) var(--space-5);
+  background: var(--bg-scrim);
+}
+
+@media (max-width:900px){
+  /* no pane at 360, so nothing to stay clear of */
+  .scrim{ padding: 0; align-items: stretch }
+  .scrim--desk-only{ display: none }
+}
+/* NO STATES. */

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Scope bar</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Scope bar</h1>
+<p class="k-lede">What am I looking at, answered before the first row is read. 38 instances across 38 screens: <b>exactly one per surface that has one</b>.</p>
+<p class="k-note">Design principle 4 says tenant context is never more than a glance away, and the analyst carries 40 or more tenants: the same signal is a Tuesday at one client and an incident at another. <b>The bar is that glance, and it is the reason the queue can be a flat list rather than forty grouped ones.</b></p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="scopebar" style="width:100%;max-width:460px">
+        <a class="chip" href="#anatomy">All tenants &#9662;</a>
+        <a class="chip" href="#anatomy">Waiting on a decision &times;</a>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="scopebar" style="width:100%;max-width:460px">
+        <a class="chip" href="#anatomy">All tenants &#9662;</a>
+        <a class="chip" href="#anatomy">Waiting on a decision &times;</a>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.scopebar</code><span>a wrapping flex row with a hairline under it. That is the whole declaration</span></li>
+  <li><code>chip</code><span>one to four of them. Set filters first, unset ones after, and the order is the markup’s</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>count</b></td><td>three or four chips</td><td><b>A count, not a variant, and this is the clearest case of that rule in the product.</b> The number of filters is a fact about the screen, and nothing in the bar changes when it goes from three to four</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td><b>Prohibited.</b> The bar is a place, and the chips inside it carry the only emphasis axis there is</td></tr>
+    <tr><td><b>alignment</b></td><td><span class="k-none">no values</span></td><td>A right aligned action in the bar would be a control competing with the filters. Where the queue needs one it is in <code>qfoot</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Above a list that can be narrowed: the queue on 38 screens, and the reject dialog where the chips name what the rejection applies to.</p>
+<p class="k-note"><b>Where she meets it.</b> Twice a shift, and never in the middle of ruling on a case. The scope is set at the start and then left alone, which is why the bar is quiet at rest and why the caret is the only thing offering to be pressed.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><div class="scopebar" style="border:var(--rule-edge)"><a class="chip" href="#rules">All tenants &#9662;</a><button class="chip chip--ghost" type="button">Sort: default &#9662;</button></div></div>
+    <p>Set and unset side by side, above the list they narrow, with a hairline separating them from it.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><div class="scopebar" style="border:var(--rule-edge)"><i class="state">escalated</i><i class="state">unrecorded</i></div></div>
+    <p>Never states. A bar that promises to change the list and holds words you cannot press is the one mistake this component invites, and <code>state</code> has its own page saying the same thing from the other side.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The chips inside it are, and they carry their own.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="scopebar" style="width:100%;max-width:460px">
+        <a class="chip" href="#anatomy">All tenants &#9662;</a>
+        <a class="chip" href="#anatomy">Waiting on a decision &times;</a>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="scopebar" style="width:100%;max-width:460px">
+        <a class="chip" href="#anatomy">All tenants &#9662;</a>
+        <a class="chip" href="#anatomy">Waiting on a decision &times;</a>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the hairline under it, through --rule-hair</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="scopebar" role="group" aria-label="Scope and filters"&gt;
+  &lt;a class="chip" href="queue.html?tenant=all"&gt;All tenants &amp;#9662;&lt;/a&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">above the queue &middot; 34</a>
+  <a href="../reject.html">the reject dialog &middot; 4</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

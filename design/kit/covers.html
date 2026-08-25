@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Covers</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Covers</h1>
+<p class="k-lede">A label and its value, stacked. What the view you are looking at actually covers: which tenants, which window, how many entries, and how far back it can answer. <b>4 instances across 4 screens</b>, four pairs in each.</p>
+<p class="k-note"><b>It is the only place in the product where a label sits above its value rather than beside it</b>, and the reason is the width. These stand at the top of a narrow reading column, and a two column definition list wraps into nonsense there: the value goes to three lines while the label keeps one, and the pair stops reading as a pair.</p>
+<p class="k-note"><b>The label shares its face with <code>label</code> and is not it.</b> Same 11px uppercase mono at <code>.08em</code>, and a different job: <code>label</code> names an answer you are about to type, this names a fact you are being told. Two roles, and the surface rule that keeps ink and line apart is the same rule that keeps these apart.</p>
+<p class="k-note"><b>Where it stands is not where two files say it stands.</b> Both <code>components/covers.css</code> and <code>components/brief.css</code> place it in the shift brief. Counted on the frozen wireframes, all four renderings are in the log&rsquo;s reading pane: the log itself, the log narrowed by a chip, and the two case history views. Two of those four are built in colour and the other two are still grey.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="covers">
+          <span class="k">Narrowed to</span><span class="v">Case <b>C-4417</b> at Larkfield Logistics. <b>One chip</b>, and no other filter: a case is a thing with a beginning</span>
+          <span class="k">Entries</span><span class="v"><b>3</b></span>
+          <span class="k">Spanning</span><span class="v"><b>2026-08-22T04:12:09Z</b> to <b>2026-08-22T04:41:12Z</b></span>
+          <span class="k">How far back this can answer</span>
+          <span class="v">The earliest entry held for these tenants is <b>2026-02-03T08:14:20Z</b>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="covers">
+          <span class="k">Narrowed to</span><span class="v">Case <b>C-4417</b> at Larkfield Logistics. <b>One chip</b>, and no other filter: a case is a thing with a beginning</span>
+          <span class="k">Entries</span><span class="v"><b>3</b></span>
+          <span class="k">Spanning</span><span class="v"><b>2026-08-22T04:12:09Z</b> to <b>2026-08-22T04:41:12Z</b></span>
+          <span class="k">How far back this can answer</span>
+          <span class="v">The earliest entry held for these tenants is <b>2026-02-03T08:14:20Z</b>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.covers</code><span>the stack. A column with <code>--space-1</code> between every child, which is what puts a label tight against the value it names</span></li>
+  <li><code>.k</code><span><b>the label, and it is a fact you are being told.</b> 11px mono, weight 600, uppercase at <code>.08em</code>, receded ink. Four of them per rendering</span></li>
+  <li><code>.v</code><span>the value, at the body size and the reading ink, with <code>--space-2</code> under it. <b>That bottom margin is the whole grouping mechanism:</b> 4px above a label and 8px below a value is what makes four pairs read as four rather than as eight lines</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>form</b></td><td>base</td><td>4</td><td>the only form. <b>No states and no variants:</b> what changes between the four renderings is which four facts are true, and three pairs or four is a count rather than a variant</td></tr>
+    <tr><td><b>orientation</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> A side by side reading is the thing this component exists instead of. Introducing it at a wider viewport would mean the pane had two layouts for the same four facts, and the pane is narrow at every width the log is read at</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> No accent and no severity. These four facts qualify everything under them equally, and lighting one would say a reader could skip the other three</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">At the top of a reading pane, once, before anything it qualifies. Every pair has to be a fact about the <b>view</b> rather than about the record: what it is narrowed to, how much is in it, what window it spans, and what it cannot answer. The last of those four is the one that earns the component, because a log that quietly stops at a retention boundary is a log that lies by omission.</p>
+<p class="k-note"><b>Where she meets it.</b> Months after the decision, when somebody has asked her to account for it. This is the third of the console&rsquo;s clusters, answering for it later, and it is the surface where she is least likely to be the one reading. Whoever opens the log needs to know the shape of what they are looking at before they read a single entry, which is why these four lines come before the entries and not after them.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="covers"><span class="k">How far back this can answer</span><span class="v">The earliest entry held for these tenants is <b>2026-02-03T08:14:20Z</b>.</span></div></div>
+    <p>A fact about the view, in a full sentence, with its own date. The label names the claim and the value carries the scope, which is the voice rule for a number applied to a pair rather than to a line.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="covers"><span class="k">Tenants</span><span class="v"><span class="input" style="display:inline-block;padding:4px 8px;min-width:160px">All 40</span></span></div></div>
+    <p>Never above something you can answer. A name over a control is <code>label</code>, which wears the same face for the opposite job and sits above a field 30 times out of its 31. The face is shared on purpose and the two must not be: one says here is what is true, the other says here is what you have to tell us.</p>
+  </div>
+</div>
+<p class="k-note">At 360 the component does not change, because it was already built for the narrow case. That is the argument in reverse: a two column pair would need a breakpoint here and a stacked one does not, so the stacked one is the desk rendering as well as the phone rendering.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> Nothing in it can be pressed, tabbed to or changed. The chip that narrowed the view is a control and lives on the <code>scopebar</code> above; this only reports what that chip did.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="covers">
+          <span class="k">Narrowed to</span><span class="v">All tenants in your provider scope. No actor filter, no decision filter</span>
+          <span class="k">Entries</span><span class="v"><b>34</b></span>
+          <span class="k">Spanning</span><span class="v"><b>2026-08-21T19:00:00Z</b> to now</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="covers">
+          <span class="k">Narrowed to</span><span class="v">All tenants in your provider scope. No actor filter, no decision filter</span>
+          <span class="k">Entries</span><span class="v"><b>34</b></span>
+          <span class="k">Spanning</span><span class="v"><b>2026-08-21T19:00:00Z</b> to now</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>A narrowed view and an unnarrowed one are the same component with different values</b>, which is exactly why neither is a state. Compare the first pair here with the one in the anatomy above: the log narrowed to a single case says so in the value, not in a class, and nothing about the rendering changes when the chip comes off.</p>
+<p class="k-note"><b>No empty form either.</b> The four facts are always true of any view of the log, including a view with nothing in it, where <code>Entries</code> reads zero and the span is still worth saying. A count of zero is still a count, which is the same rule <code>bline</code> settles with <code>.n.is-quiet</code>.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the label, and it is the only colour the component declares</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the value, <b>inherited from the page rather than set here</b></td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="covers"&gt;
+  &lt;span class="k"&gt;Narrowed to&lt;/span&gt;&lt;span class="v"&gt;Case &lt;b&gt;C-4417&lt;/b&gt; at Larkfield Logistics&lt;/span&gt;
+  &lt;span class="k"&gt;Entries&lt;/span&gt;&lt;span class="v"&gt;&lt;b&gt;3&lt;/b&gt;&lt;/span&gt;
+  &lt;span class="k"&gt;How far back this can answer&lt;/span&gt;
+  &lt;span class="v"&gt;The earliest entry held for these tenants is &lt;b&gt;2026-02-03T08:14:20Z&lt;/b&gt;.&lt;/span&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case-history.html">one case, its whole history</a>
+  <a href="../case-history-superseded.html">with a corrected ruling inside it</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

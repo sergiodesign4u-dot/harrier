@@ -14,7 +14,9 @@
  * identical and only the implementation moved.
  *
  * The markup below is the same markup, and it is written a second time in kit/shell.html
- * where a person can read it. If the two ever disagree, shell.html is the specification and
+ * where a person can read it. Since stage 08 that page is also the component page for
+ * `shell`, and the skeleton lives in its Copy this block. If the two ever disagree,
+ * shell.html is the specification and
  * this file is the bug.
  */
 window.WF_SHELL = function (o) {
@@ -55,7 +57,10 @@ window.WF_SHELL = function (o) {
            so that branch was already unreachable there; here the registry is not loaded at
            all and the three items are always links. When Clients arrives with cluster 7 this
            is where it is decided again. */
-        return '<a href="' + n.href + '"' + (n.id === o.current ? ' aria-current="page"' : '') + '>' + n.label + '</a>';
+        /* the class arrives at stage 08 step 6. `.z1 nav a` painted 132 nodes through a
+           descendant selector, so the component had no name and could not travel. */
+        return '<a class="navitem' + (n.id === o.current ? ' is-current' : '') + '" href="' + n.href + '"' +
+               (n.id === o.current ? ' aria-current="page"' : '') + '>' + n.label + '</a>';
       }).join('') + '</nav>' +
       '<span class="spacer"></span>' +
       /* 0.2 section 4 puts the keyboard map in Z1. The kit paints this one as an icon. */

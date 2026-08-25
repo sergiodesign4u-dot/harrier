@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Second axis</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Second axis</h1>
+<p class="k-lede">Where a rejection goes, and <b>the reason four taps never became five</b>. <b>3 instances across 3 screens</b>, in the reject dialog, directly under the reason you picked.</p>
+<p class="k-note"><code>CLAUDE.md</code> measures the cost: rejecting Clerk takes four taps against accepting&rsquo;s two, and design principle 3 says the override is one key. What stage 04 bought is that <b>five of the six reasons derive the second axis</b>. When the reason settles where the case goes, this component shows the answer <b>locked</b> rather than asking again. Only the sixth reason opens it as a list.</p>
+<p class="k-note"><b>The locked form is dashed and not disabled.</b> It is not a control that cannot be used: it is an answer that has already been given, by the choice above it. A disabled control here would be the fifth tap dressed as a sixth, and the fifth tap is the one stage 07 was told it may not add.</p>
+<p class="k-note"><b>It was not in the register.</b> The step 2 census counted controls, and in its dominant form this holds none: the locked box is text in a box. Found at step 5 by scanning <code>kit.css</code> against the register, one of thirteen, all listed in <code>docs/inventory.md</code> section 13.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="axisb"><div class="locked"><b>Tenant context missing</b><span class="routes">the tenant baseline, and it is locked</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="axisb"><div class="locked"><b>Tenant context missing</b><span class="routes">the tenant baseline, and it is locked</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.axisb</code><span>the axis itself, and it declares almost nothing: a column with <code>--space-2</code> between its children. What it holds decides how it looks, which is the point of having it rather than two unrelated blocks</span></li>
+  <li><code>.locked</code><span><b>the answer already given.</b> A dashed 1px border drawn in the receded ink, the UI radius, and a baseline aligned row. Receded and dashed together are this system&rsquo;s one word for not settled by you</span></li>
+  <li><code>.locked b</code><span>the reason that settled it, at the reading ink and weight 600. It is the only thing in the box at full strength, because it is the only thing you chose</span></li>
+  <li><code>.routes</code><span>where the case goes, written by both the locked box and by <code>opt</code>. <b>Only <code>opt</code> declares it</b>, so inside the locked box it inherits the box&rsquo;s 12.5px rather than taking <code>opt</code>&rsquo;s 11px mono pushed right</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>form</b></td><td><code>.locked</code></td><td>2</td><td><b>the reason derived the answer.</b> Five of the six reasons in the taxonomy do, so this is the common case and it costs no keystroke</td></tr>
+    <tr><td></td><td>open, holding <code>opt</code></td><td>1</td><td><b>the sixth reason, where the pairing is genuinely ambiguous.</b> The axis fills with two options and asks for one number key. Two choices, not five, and this is the only place in the rejection a second keystroke is asked for. <code>opt</code> stands here twice against 60 in <code>optlist</code></td></tr>
+    <tr><td><b>state</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>None of its own.</b> Open, the states belong to <code>opt</code>, which carries hover, active, focus and chosen. Locked, there is nothing to press. A state on the container would be a third thing to keep in step with the two that already work</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> No accent ground on either form. The accent has four jobs in this product and no fifth, and the one accented thing in a reject dialog is the button that files it</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In the reject dialog, once, under the reason list, in the block headed <i>Where it goes</i>. Which form it takes is not a design choice made per screen: it is decided by the reason above it, and the taxonomy decides that. If you find yourself choosing between locked and open, the pairing has not been settled and that is the thing to settle.</p>
+<p class="k-note"><b>Where she meets it.</b> In the seconds after she has decided Clerk is wrong, when the interface is still costing her taps and accepting is still two. She sees the locked form far more often than the open one, and every time she sees it the product has spent a keystroke she would otherwise have paid.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="axisb"><div class="locked"><b>Held, not routed</b><span class="routes">nowhere yet, and counted</span></div></div></div>
+    <p>The reason at full strength, the destination beside it, and a dashed border saying the answer came from the choice above rather than from you. Even the answer <i>nowhere</i> is stated, because a rejection that goes nowhere and a rejection nobody decided about are different records.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><span class="btn" aria-disabled="true">The tenant baseline</span></div>
+    <p>Never a disabled control. <code>[aria-disabled="true"]</code> on a <code>btn</code> or an <code>opt</code> says you may not do this; what is true here is that you already have. Where the axis is genuinely open the answer is <code>opt</code> in a list, offered and pressable, and where it is settled the dashed box says so without pretending to be a control at all.</p>
+  </div>
+</div>
+<p class="k-note">At 360 the locked row wraps inside its own border: both children are flex items with an automatic minimum size, so the destination drops under the reason rather than pushing the box past the dialog. Nothing is hidden, because the reason and the destination are the two halves of one sentence.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none.</b> Locked, there is nothing to press: it reports an answer. Open, every state belongs to <code>opt</code>, which brings its own hover, active, focus ring and chosen ground, and the container adds nothing on top of them.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="axisb" style="margin-bottom:var(--space-4)"><div class="locked"><b>Tenant context missing</b><span class="routes">the tenant baseline, and it is locked</span></div></div>
+        <div class="axisb">
+          <a class="opt" href="#states"><span class="key">1</span><span class="lbl">Detection is too broad</span><span class="routes">detection engineering</span></a>
+          <a class="opt" href="#states"><span class="key">2</span><span class="lbl">Tenant context missing</span><span class="routes">the tenant baseline</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="axisb" style="margin-bottom:var(--space-4)"><div class="locked"><b>Tenant context missing</b><span class="routes">the tenant baseline, and it is locked</span></div></div>
+        <div class="axisb">
+          <a class="opt" href="#states"><span class="key">1</span><span class="lbl">Detection is too broad</span><span class="routes">detection engineering</span></a>
+          <a class="opt" href="#states"><span class="key">2</span><span class="lbl">Tenant context missing</span><span class="routes">the tenant baseline</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="k-gesture">
+  <div><b>Point at the locked box</b><p>nothing, in either theme. No ground, no border change, no cursor.</p></div>
+  <div><b>Point at an option</b><p>hover, from <code>opt</code>. The whole row takes a ground and the answer is one number key away.</p></div>
+  <div><b>Press Tab</b><p>the ring lands on the two options and skips the locked box, because the locked box is not focusable.</p></div>
+</div>
+<p class="k-note"><b>Put the two forms side by side and the argument is visible in one look.</b> The same destination, <i>the tenant baseline</i>, appears in both: once as an answer you are being told and once as an answer you are being asked for. Solid borders and a pressable ground on the second, a dashed border and no response on the first. Nothing about the locked form says unavailable, and that is deliberate.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the locked box, its destination, <b>and its dashed border</b>, which is the one place in the system an ink role draws a line</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the reason that settled the answer</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Two roles and no line role at all.</b> The dashed border reads <code>--text-secondary</code> rather than <code>--line-control</code>, and that is the drawing being consistent with itself: the border and the text inside it are one greyed statement, so they move together when either theme changes. It also means the border is measured as ink and comfortably above the 3:1 a control boundary would need.</p>
+
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="axisb"&gt;
+  &lt;div class="locked"&gt;&lt;b&gt;Tenant context missing&lt;/b&gt;&lt;span class="routes"&gt;the tenant baseline, and it is locked&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="axisb"&gt;
+  &lt;a class="opt" href="..."&gt;&lt;span class="key"&gt;1&lt;/span&gt;&lt;span class="lbl"&gt;Detection is too broad&lt;/span&gt;&lt;span class="routes"&gt;detection engineering&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../reject-axis-b.html">open, and asking &middot; 1</a>
+  <a href="../reject-tenant-normal.html">locked to the tenant baseline</a>
+  <a href="../reject-other.html">locked to nowhere, and counted</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* expand :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-surface. Ink: --text-accent on the mark. Line:
+   --line-separator. Geometry: --size-sm, --space-2, --space-3, --space-4.
+   CONTAINS. link, 6 times out of 32.
+
+   PAGE. design/kit/expand.html
+   STANDS ON. 32 instances across 28 screens: `block` 27 and `doorhelp` 5.
+
+   DESIGN PRINCIPLE 2 ENDS HERE. Cheapest correct thing first, depth one key
+   away: the expansion IS the depth. The claim reads without it and the working
+   is inside it, and the analyst who trusts the verdict never opens one.
+   ----------------------------------------------------------------------------
+   IT BECOMES A NATIVE `details` AND ABSORBS FIVE `summary` ON THE DOOR. Step 2
+   ruled it and step 6 executes it. The reason is not tidiness: a div that
+   expands has to reimplement the keyboard, the accessible name and the open
+   state, and `details` has all three for free. It is also why print works, where
+   the rule in base.css opens every expansion on the page.
+
+   IT EXPANDS IN PLACE AND NEVER OVER THE BLOCK. Design principle 5 forbids an
+   overlay that hides the evidence being decided on, and this is the component
+   most likely to have been drawn as one.
+   ---------------------------------------------------------------------------- */
+
+.expand{
+  position: relative;
+  margin: var(--space-2) 0 var(--space-3) var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  border-left: 2px solid var(--line-separator);
+  background: var(--bg-surface);
+  font-size: var(--size-sm);
+}
+
+/* THE MARK IS ONE OF THE THREE ICONS THIS PRODUCT APPLIES, and it earned its
+   space because depth had no mark on it at all. Painted as a CSS mask with
+   background:currentColor, so it inherits, and set in the accent because
+   pointing at where more is kept is one of the accent's four jobs. */
+.expand::before{
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  color: var(--text-accent);
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+}
+
+/* -- NO VARIANTS -------------------------------------------------------------
+   It is a slot: what is inside is whatever the claim needed to show.
+
+   -- STATES: the browser's, and that is the point of using `details`. Open and
+   closed are the element's own state and need no class; focus-visible lands on
+   the summary through base.css. Nothing here declares a hover, because the
+   summary is the control and it is one line of text rather than a plate. */
+
+/* THE MASK NOW PAINTS AT THE WEIGHT THE SET DECLARES. It carried 1.8 while every CSS rule in
+   the project draws the same glyph at 1.5, with no comment and no row in DESIGN.md: one
+   drawing at two weights, 20 per cent apart, and the geometry identical on both sides.
+   Found by design/kit/checks/icons.mjs, which decodes every mask data URI and compares it
+   against design/system/icons.js character for character. The third applied glyph, the
+   keyboard map trigger in Z1, still carries 1.8 and follows in the organisms round with the
+   file that owns it. Row in tokens-audit.md. */

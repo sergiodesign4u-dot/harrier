@@ -1,0 +1,37 @@
+/* scopebar :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Line: --rule-hair. Geometry: --space-2, --space-3, --space-4.
+   CONTAINS. chip, three or four of them.
+
+   PAGE. design/kit/scopebar.html
+   STANDS ON. 38 instances across 38 screens: one per queue and one per reject
+   dialog. Exactly one per surface that has one.
+
+   IT ANSWERS "WHAT AM I LOOKING AT" BEFORE THE FIRST ROW IS READ. Design
+   principle 4 says tenant context is never more than a glance away, and the
+   analyst carries 40 or more tenants: the same signal is a Tuesday at one client
+   and an incident at another. The bar is that glance, and it is the reason the
+   queue can be a flat list rather than forty grouped ones.
+   ----------------------------------------------------------------------------
+   NO VARIANTS. Three or four chips is a COUNT, not a variant, and this is the
+   clearest case of that rule in the product: the number of filters is a fact
+   about the screen and nothing in the bar changes when it goes from three to
+   four.
+   ---------------------------------------------------------------------------- */
+
+.scopebar{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--rule-hair);
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   The chips inside it are, and they carry their own. The bar is a place. */
+
+
+@media (max-width:900px){
+  .scopebar{ padding: var(--space-2) var(--space-3) }
+}

@@ -1,0 +1,26 @@
+/* pane-body :: ORGANISM
+   READS. Geometry: --space-3, --space-4, --space-5.
+   CONTAINS. block, banner, frow, claim, lat, stamp, prov.
+   PAGE. design/kit/pane-body.html   STANDS ON. 38 instances across 38 screens.
+
+   THE SURFACE THE WHOLE PRODUCT EXISTS FOR. Everything between the pane's head and
+   its foot: the verdict, the evidence, the latitude ladder and the stamp. It is a
+   slot, measured: 13 distinct sets of child zones and ONE computed form.
+
+   FIVE STEPS OF GAP BETWEEN BLOCKS AND TWO INSIDE THEM. That ratio is the whole
+   of the reading rhythm on the densest surface in the product: sections are far
+   apart so the eye can find one, and lines inside a section are close so it can
+   read down. Design principle 5 says density is the feature, and this is where
+   the density is spent rather than saved. */
+
+.pane-body{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-4);
+}
+
+@media (max-width:900px){
+  .pane-body{ padding: var(--space-3) }
+}
+/* NO STATES. */

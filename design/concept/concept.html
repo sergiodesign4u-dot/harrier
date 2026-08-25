@@ -6,7 +6,7 @@
 <title>Harrier &middot; The visual language</title>
 <link rel="stylesheet" href="../../_nav.css">
 <link rel="stylesheet" href="../../research/_page.css">
-<link rel="stylesheet" href="../kit/kit.css">
+<link rel="stylesheet" href="../system/index.css">
 <link rel="stylesheet" href="_stand.css">
 <style>
 /* PAGE-LOCAL, prefix cn-. The product sheet and its unsets live in _stand.css and are shared
@@ -16,75 +16,75 @@
 
 /* palette, drawn as the swatch plus its origin, because a value without an origin is not a value here */
 .cn-sw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 14px}
-.cn-sw figure{margin:0;border:1px solid var(--color-rule)}
-.cn-sw i{display:block;height:78px;border-bottom:1px solid var(--color-rule)}
+.cn-sw figure{margin:0;border:1px solid var(--line-edge)}
+.cn-sw i{display:block;height:78px;border-bottom:1px solid var(--line-edge)}
 .cn-sw figcaption{padding:11px 14px;font-size:13px;line-height:1.5}
 .cn-sw b{display:block;font:600 10px/1 var(--font-mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}
 .cn-sw code{font-size:12.5px}
-.cn-sw .o{display:block;margin-top:7px;font-size:12px;color:var(--color-text-dim)}
+.cn-sw .o{display:block;margin-top:7px;font-size:12px;color:var(--text-secondary)}
 @media (max-width:760px){.cn-sw{grid-template-columns:1fr 1fr}}
 
 /* a dark bench: components are shown on the ground they live on, never on paper */
-.cn-bench{background:var(--color-ground);border:1px solid var(--color-rule);padding:26px 28px;margin:0 0 14px;
-          color:var(--color-text);font:400 14px/1.4 var(--font-sans)}
+.cn-bench{background:var(--bg-page);border:1px solid var(--line-edge);padding:26px 28px;margin:0 0 14px;
+          color:var(--text-primary);font:400 14px/1.4 var(--font-sans)}
 .cn-bench p{max-width:none;margin:0}
-.cn-bench h3{color:var(--color-text);font-family:var(--font-sans);margin:0}
+.cn-bench h3{color:var(--text-primary);font-family:var(--font-sans);margin:0}
 .cn-lab{font:400 9px/1 var(--font-mono);letter-spacing:var(--track-mono);text-transform:uppercase;
-        color:var(--color-text-dim);margin:0 0 12px;display:block}
+        color:var(--text-secondary);margin:0 0 12px;display:block}
 .cn-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.cn-grid > div + div{border-left:1px solid var(--color-rule);padding-left:30px}
+.cn-grid > div + div{border-left:1px solid var(--line-edge);padding-left:30px}
 .cn-stack > * + *{margin-top:22px}
 @media (max-width:760px){.cn-grid{grid-template-columns:1fr}.cn-grid > div + div{border-left:0;padding-left:0}}
 
 /* the type specimen at the sizes the interface actually uses */
 .cn-t1{font-size:34px;font-weight:500;letter-spacing:var(--track-display);line-height:1.04}
 .cn-t2{font-size:21px;font-weight:500;letter-spacing:var(--track-display)}
-.cn-t3{font-size:14px;font-weight:400;line-height:1.45;color:var(--color-text)}
-.cn-t4{font-size:14px;font-weight:400;line-height:1.45;color:var(--color-text-dim)}
+.cn-t3{font-size:14px;font-weight:400;line-height:1.45;color:var(--text-primary)}
+.cn-t4{font-size:14px;font-weight:400;line-height:1.45;color:var(--text-secondary)}
 .cn-t5{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono)}
-.cn-t6{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+.cn-t6{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);color:var(--text-secondary)}
 .cn-alpha{font-family:var(--font-mono);font-size:12px;letter-spacing:var(--track-mono);line-height:1.9;
-          color:var(--color-text-dim)}
+          color:var(--text-secondary)}
 
 /* buttons, exactly the four the verdict bar carries and no fifth */
-.cn-btn{display:inline-block;border:1px solid var(--color-rule);border-radius:var(--radius-ui);
+.cn-btn{display:inline-block;border:1px solid var(--line-edge);border-radius:var(--radius-ui);
         padding:8px 13px;font:400 11px var(--font-mono);letter-spacing:var(--track-mono);
-        color:var(--color-text);background:transparent}
-.cn-btn.pri{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+        color:var(--text-primary);background:transparent}
+.cn-btn.pri{background:var(--text-accent);color:var(--text-on-action);border-color:var(--text-accent)}
 .cn-row-btn{display:flex;gap:8px;flex-wrap:wrap}
 
 /* geometry, drawn 1:1 rather than described */
 .cn-geo{display:flex;gap:34px;align-items:flex-end;flex-wrap:wrap}
 .cn-geo figure{margin:0}
-.cn-geo .box{width:104px;height:64px;border:1px solid var(--color-accent);border-radius:var(--radius-ui)}
+.cn-geo .box{width:104px;height:64px;border:1px solid var(--text-accent);border-radius:var(--radius-ui)}
 .cn-geo .box.o{border-radius:var(--radius-object)}
 .cn-geo figcaption{margin-top:9px;font:400 9px var(--font-mono);letter-spacing:var(--track-mono);
-        color:var(--color-text-dim)}
-.cn-rules div{border-top:1px solid var(--color-rule);padding-top:7px;margin-bottom:14px;
-        font:400 9px var(--font-mono);letter-spacing:var(--track-mono);color:var(--color-text-dim)}
-.cn-rules div.soft{border-top-color:var(--color-hairline)}
+        color:var(--text-secondary)}
+.cn-rules div{border-top:1px solid var(--line-edge);padding-top:7px;margin-bottom:14px;
+        font:400 9px var(--font-mono);letter-spacing:var(--track-mono);color:var(--text-secondary)}
+.cn-rules div.soft{border-top-color:var(--line-separator)}
 
 /* A thick coloured border on one side of a card is the most recognisable tell of a
    generated interface, and the impeccable detector named this element by line. Replaced
    with the register this project already uses everywhere else: a small monospace label
    above a hairline rule, which is the NEO MIRAI treatment section 2c of concept.md
    recorded as the form the user chose. */
-.cn-flag{border-top:1px solid var(--color-failure);padding:16px 0 0;margin:0 0 18px}
+.cn-flag{border-top:1px solid var(--clay-500);padding:16px 0 0;margin:0 0 18px}
 /* the rule carries the flag and the label does not: --color-failure is 4.09 on the ground,
    which clears 3:1 for a non-text boundary and does not clear 4.5 for a 9.5px label. The
    literal that stood here, #9c3535, was a fourth saturated set and A2 forbids one by name. */
 .cn-flag .k{font:600 9.5px/1 var(--font-mono);letter-spacing:.13em;text-transform:uppercase;
-            color:var(--color-text-dim);display:block;margin-bottom:8px}
+            color:var(--text-secondary);display:block;margin-bottom:8px}
 .cn-flag p{margin:0;font-size:14.5px;line-height:1.55;max-width:none}
-.cn-num{font-family:var(--font-mono);font-size:13px;color:var(--color-text-dim)}
-.cn-t2dim{color:var(--color-text-dim);font-weight:400;font-size:15px;letter-spacing:0}
+.cn-num{font-family:var(--font-mono);font-size:13px;color:var(--text-secondary)}
+.cn-t2dim{color:var(--text-secondary);font-weight:400;font-size:15px;letter-spacing:0}
 .cn-gap{margin-top:10px}
 .cn-wide{min-width:260px}
 .cn-wrap{flex-wrap:wrap}
-.cn-boxed{border:1px solid var(--color-edge)}
+.cn-boxed{border:1px solid var(--line-control)}
 /* the reference screen is the real page, embedded, so a replica of it cannot drift */
-.cn-live{width:100%;height:616px;overflow:hidden;border:1px solid var(--color-rule);margin:0 0 14px;
-         background:var(--color-ground)}
+.cn-live{width:100%;height:616px;overflow:hidden;border:1px solid var(--line-edge);margin:0 0 14px;
+         background:var(--bg-page)}
 .cn-live iframe{width:1440px;height:900px;border:0;transform:scale(.6847);transform-origin:0 0}
 @media (max-width:1080px){.cn-live{overflow-x:auto;overflow-y:hidden}}
 </style>
@@ -113,20 +113,20 @@
 <p>Twelve values. Six are named roles on the plate, three are surfaces measured inside the console it drew, and three are the severity ramp, which is derived rather than sampled and says so. Taken as <b>pixels</b> and then checked against the plate's own stylesheet, which agreed at every role. Full sample points in <code>DESIGN-artifacts.md</code>, section 2.</p>
 
 <div class="cn-sw">
-<figure><i style="background:var(--color-ground)"></i><figcaption><b>Ground</b><code>#11110f</code><span class="o">The board. Pixel of plate J, GROUND swatch</span></figcaption></figure>
-<figure><i style="background:var(--color-surface)"></i><figcaption><b>Surface</b><code>#171714</code><span class="o">Panels inside the console. Pixel of plate J, detail pane</span></figcaption></figure>
-<figure><i style="background:var(--color-surface-sel)"></i><figcaption><b>Surface selected</b><code>#2a2418</code><span class="o">The row being ruled on. Pixel of plate J, active row</span></figcaption></figure>
-<figure><i style="background:var(--color-text)"></i><figcaption><b>Text</b><code>#e9e4da</code><span class="o">Never pure white, which is a halation constraint rather than a taste</span></figcaption></figure>
-<figure><i style="background:var(--color-text-dim)"></i><figcaption><b>Text dim</b><code>#aaa397</code><span class="o">Secondary. Pixel of plate J, SECONDARY swatch</span></figcaption></figure>
-<figure><i style="background:var(--color-rule)"></i><figcaption><b>Rule</b><code>#675f50</code><span class="o">Separators and panel edges. 2.997 against the ground, which is below 3:1 and allowed only because 1.4.11 covers controls, not dividers</span></figcaption></figure>
-<figure><i style="background:var(--color-accent)"></i><figcaption><b>Accent</b><code>#d29c3f</code><span class="o">Latitude, the live state, where you are, and the row being decided with its primary action. Four jobs and no fifth</span></figcaption></figure>
-<figure><i style="background:var(--color-accent-ink)"></i><figcaption><b>Accent ink</b><code>#18140e</code><span class="o">Text on the accent. Measured on plate J, the Accept button</span></figcaption></figure>
-<figure><i style="background:var(--color-failure)"></i><figcaption><b>Failure</b><code>#b25d44</code><span class="o">4.09 on the ground, so borders and icons only. May not carry small text</span></figcaption></figure>
-<figure><i style="background:var(--color-sev-high)"></i><figcaption><b>Severity high</b><code>#d9704f</code><span class="o">Derived from the failure hue. The plate drew no severity scale, so this is the one family that is derived rather than sampled</span></figcaption></figure>
-<figure><i style="background:var(--color-sev-medium)"></i><figcaption><b>Severity medium</b><code>#9d9182</code><span class="o">Warm neutral, almost no chroma</span></figcaption></figure>
-<figure><i style="background:var(--color-sev-low)"></i><figcaption><b>Severity low</b><code>#828e96</code><span class="o">Cool slate. The one cool value in a warm palette, and it is deliberate</span></figcaption></figure>
-<figure><i style="background:var(--color-edge)"></i><figcaption><b>Edge</b><code>#7b7260</code><span class="o">The boundary of a control. The rule at 2.997 does not clear 3:1, and 1.4.11 asks for it on anything that identifies a control</span></figcaption></figure>
-<figure><i style="background:var(--color-hairline)"></i><figcaption><b>Hairline</b><code>#232219</code><span class="o">The line between rows. Below every floor on purpose: it separates and never carries meaning. It lived in four files and no variable until the audit</span></figcaption></figure>
+<figure><i style="background:var(--bg-page)"></i><figcaption><b>Ground</b><code>#11110f</code><span class="o">The board. Pixel of plate J, GROUND swatch</span></figcaption></figure>
+<figure><i style="background:var(--bg-surface)"></i><figcaption><b>Surface</b><code>#171714</code><span class="o">Panels inside the console. Pixel of plate J, detail pane</span></figcaption></figure>
+<figure><i style="background:var(--bg-selected)"></i><figcaption><b>Surface selected</b><code>#2a2418</code><span class="o">The row being ruled on. Pixel of plate J, active row</span></figcaption></figure>
+<figure><i style="background:var(--text-primary)"></i><figcaption><b>Text</b><code>#e9e4da</code><span class="o">Never pure white, which is a halation constraint rather than a taste</span></figcaption></figure>
+<figure><i style="background:var(--text-secondary)"></i><figcaption><b>Text dim</b><code>#aaa397</code><span class="o">Secondary. Pixel of plate J, SECONDARY swatch</span></figcaption></figure>
+<figure><i style="background:var(--line-edge)"></i><figcaption><b>Rule</b><code>#675f50</code><span class="o">Separators and panel edges. 2.997 against the ground, which is below 3:1 and allowed only because 1.4.11 covers controls, not dividers</span></figcaption></figure>
+<figure><i style="background:var(--text-accent)"></i><figcaption><b>Accent</b><code>#d29c3f</code><span class="o">Latitude, the live state, where you are, and the row being decided with its primary action. Four jobs and no fifth</span></figcaption></figure>
+<figure><i style="background:var(--text-on-action)"></i><figcaption><b>Accent ink</b><code>#18140e</code><span class="o">Text on the accent. Measured on plate J, the Accept button</span></figcaption></figure>
+<figure><i style="background:var(--clay-500)"></i><figcaption><b>Failure</b><code>#b25d44</code><span class="o">4.09 on the ground, so borders and icons only. May not carry small text</span></figcaption></figure>
+<figure><i style="background:var(--text-sev-high)"></i><figcaption><b>Severity high</b><code>#d9704f</code><span class="o">Derived from the failure hue. The plate drew no severity scale, so this is the one family that is derived rather than sampled</span></figcaption></figure>
+<figure><i style="background:var(--text-sev-medium)"></i><figcaption><b>Severity medium</b><code>#9d9182</code><span class="o">Warm neutral, almost no chroma</span></figcaption></figure>
+<figure><i style="background:var(--text-sev-low)"></i><figcaption><b>Severity low</b><code>#828e96</code><span class="o">Cool slate. The one cool value in a warm palette, and it is deliberate</span></figcaption></figure>
+<figure><i style="background:var(--line-control)"></i><figcaption><b>Edge</b><code>#7b7260</code><span class="o">The boundary of a control. The rule at 2.997 does not clear 3:1, and 1.4.11 asks for it on anything that identifies a control</span></figcaption></figure>
+<figure><i style="background:var(--line-separator)"></i><figcaption><b>Hairline</b><code>#232219</code><span class="o">The line between rows. Below every floor on purpose: it separates and never carries meaning. It lived in four files and no variable until the audit</span></figcaption></figure>
 </div>
 
 <p><b>The accent is spent, not applied, and the list was counted in a browser rather than asserted.</b> On the finished screen it does four jobs: latitude, on the fleet and on the case; the live state; where you are in the navigation; and the row being decided together with its primary action. <b>The stand said three, which was true of a poster and false of a screen</b>, so the number is corrected here rather than defended. One thing was taken off the list on sight: the solid <code>unrecorded</code> chip had picked up the accent, and it is loud enough inverted, so spending the accent on it would have made the accent mean less everywhere else.</p>
@@ -164,7 +164,7 @@
     <figure><div class="box o"></div><figcaption>--radius-object &middot; 5px &middot; printed and physical only</figcaption></figure>
     <figure class="cn-wide"><div class="cn-rules">
       <div>--color-rule &middot; structure, 3.00 against the ground</div>
-      <div class="soft">var(--color-hairline) &middot; between rows, below the non-text limit on purpose</div>
+      <div class="soft">var(--line-separator) &middot; between rows, below the non-text limit on purpose</div>
     </div><figcaption>two rule weights, and the softer one never carries meaning</figcaption></figure>
   </div>
 </div>

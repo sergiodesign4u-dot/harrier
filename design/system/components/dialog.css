@@ -1,0 +1,82 @@
+/* dialog :: ORGANISM
+   READS. Fill: --bg-page. Line: --rule-edge. Structure: --width-dialog,
+   --width-dialog-wide. Geometry: --space-7.
+   CONTAINS. field, optlist, cons, axisb, contact, btn, hint.
+   PAGE. design/kit/dialog.html   STANDS ON. 11 instances across 11 screens, and
+   always inside `scrim`.
+
+   IT IS ANCHORED, NOT CENTRED, AND IT NEVER COVERS THE PANE. Node 4.4 says it in
+   its own words and design principle 5 says it generally: no overlay hides the
+   evidence the analyst is deciding on. A centred dialog on a two monitor desk
+   lands exactly on the case she is ruling about.
+
+   THREE ZONES IN A FIXED ORDER: a head that does not scroll, a body that does, and
+   a foot that does not. `max-height` is the viewport minus one step of the space
+   scale, which is what kit.css writes. An earlier draft of this file said "the
+   viewport minus the two zones above it" and computed it from --zone-top and
+   --zone-strip: it read better and it was not what the product does, and a reader
+   with clean context caught the comment still standing after the rule was corrected.
+
+   -- width. One axis, two values --------------------------------------------
+   Base at --width-dialog, and `--map` at --width-dialog-wide for the keyboard
+   map, which is a REFERENCE TABLE rather than a decision: it is read across, not
+   answered. --width-dialog is the one value in this system with no origin, and it
+   is still open at step 9. */
+
+.dialog{
+  display: flex;
+  flex-direction: column;
+  width: min(var(--width-dialog), 100%);
+  max-height: calc(100vh - var(--space-7));
+  overflow: hidden;
+  background: var(--bg-page);
+  border: var(--rule-edge);
+  border-radius: var(--radius-ui);
+}
+
+.dialog > header{
+  flex: 0 0 auto;
+  padding: var(--space-4);
+  border-bottom: var(--rule-edge);
+}
+.dialog > header h2{
+  margin: 0;
+  font: 600 var(--size-lg)/var(--leading-tight) var(--font-sans);
+}
+.dialog > header .sub{
+  margin: var(--space-1) 0 0;
+  font-size: var(--size-sm);
+  color: var(--text-secondary);
+}
+
+.dialog > .body{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+}
+
+.dialog > footer{
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: var(--rule-edge);
+}
+/* the spacer that pushes the actions right. A place, and it lives with the foot
+   that places them rather than with the button that is placed. */
+.dialog > footer .grow{ flex: 1 1 auto }
+.dialog > footer .btn { flex: 0 0 auto; white-space: nowrap }
+
+.dialog--map{ width: min(var(--width-dialog-wide), 100%) }
+
+@media (max-width:900px){
+  /* at 360 the dialog IS the screen: there is nothing beside it to stay clear of */
+  .dialog{ width: 100%; max-height: 100vh; border: none }
+}
+/* NO STATES. Everything inside it carries its own. */

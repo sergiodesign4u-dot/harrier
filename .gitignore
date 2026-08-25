@@ -4,3 +4,12 @@ node_modules/
 
 __pycache__/
 /*.png
+
+# The pixel comparison of stage 08 writes 204 renderings here, 36MB of them, and they
+# are a MEASUREMENT rather than an artefact: `node design/kit/checks/pixels.mjs before`
+# and `after` regenerate the pair on demand. They are also the one thing the design
+# system is not allowed to contain, by a decision recorded at stage 08: nothing on the
+# stand is a picture, because a picture of a component is a second copy that goes stale
+# without saying so. Stage 09 replaced them with checks/refactor.mjs, which compares two
+# rendered trees element by element and needs no image at all.
+design/kit/screens/

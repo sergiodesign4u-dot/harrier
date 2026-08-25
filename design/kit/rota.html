@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Rota</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Rota</h1>
+<p class="k-lede">Who is on call, read from the provider’s own tool. 7 instances across 7 screens, in the shift brief.</p>
+<p class="k-note"><b>Harrier reads this and never owns it</b>, so there is no control anywhere in the component: only the name node 4.6 needs when an escalation has to go to somebody. That dependency is why the open question about who the secondary persona is <b>blocks a mechanism rather than a paragraph</b>.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="rota" style="width:100%;max-width:400px">
+        <div><span class="who">R. Idrissi</span><span class="role">Tier 2</span><span class="when">22:00 to 06:00</span></div>
+        <div class="is-now"><span class="who">S. Varga</span><span class="role">SOC lead</span><span class="when">on now</span></div>
+        <div><span class="who">M. Okonkwo</span><span class="role">Tier 2</span><span class="when">06:00 to 14:00</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="rota" style="width:100%;max-width:400px">
+        <div><span class="who">R. Idrissi</span><span class="role">Tier 2</span><span class="when">22:00 to 06:00</span></div>
+        <div class="is-now"><span class="who">S. Varga</span><span class="role">SOC lead</span><span class="when">on now</span></div>
+        <div><span class="who">M. Okonkwo</span><span class="role">Tier 2</span><span class="when">06:00 to 14:00</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.rota</code><span>the whole list, in its own border. It is a panel and not a table: three or four names read as sentences</span></li>
+  <li><code>.who</code><span>the person. Weight 600, and it never wraps</span></li>
+  <li><code>.role</code><span>what they are on for. Secondary ink at 11px, because it qualifies the name rather than competing with it</span></li>
+  <li><code>.when</code><span>the window, mono, pushed right. <code>on now</code> for the one that is</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>state</b></td><td><code>.is-now</code></td><td>1 per rota</td><td><b>the only thing this component says.</b> Who is on right now, given a surface rather than a colour: the accent has four jobs and no fifth, and this is a fact about a clock rather than about a decision</td></tr>
+    <tr><td><b>length</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td>Three or four names is a <b>count</b>. A rota with eight names is a longer rota</td></tr>
+    <tr><td><b>action</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited, and it is the point of the component.</b> Harrier does not own the schedule. A control here would offer to change somebody else’s on call rota from an adjudication console</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In the shift brief, once, next to what moved. It exists so that an escalation has a recipient and the analyst does not have to leave the product to find out who that is.</p>
+<p class="k-note"><b>Where she meets it.</b> At the start of a shift, and again at 03:00 when something has to go to a human. It is read twice and never touched.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="rota"><div class="is-now"><span class="who">S. Varga</span><span class="role">SOC lead</span><span class="when">on now</span></div></div></div>
+    <p>A name, a role and a window, with the one that matters given a ground. Enough to address an escalation and nothing more.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="btn btn--quiet" href="#rules">Change the rota</a></div>
+    <p>Never a control. The rota belongs to the provider’s on call tool, and a button here would either lie or write into a system this product does not own.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> Point at any line and nothing happens, which is the component working.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="rota" style="width:100%;max-width:400px">
+        <div><span class="who">R. Idrissi</span><span class="role">Tier 2</span><span class="when">22:00 to 06:00</span></div>
+        <div class="is-now"><span class="who">S. Varga</span><span class="role">SOC lead</span><span class="when">on now</span></div>
+        <div><span class="who">M. Okonkwo</span><span class="role">Tier 2</span><span class="when">06:00 to 14:00</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="rota" style="width:100%;max-width:400px">
+        <div><span class="who">R. Idrissi</span><span class="role">Tier 2</span><span class="when">22:00 to 06:00</span></div>
+        <div class="is-now"><span class="who">S. Varga</span><span class="role">SOC lead</span><span class="when">on now</span></div>
+        <div><span class="who">M. Okonkwo</span><span class="role">Tier 2</span><span class="when">06:00 to 14:00</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><code>.is-now</code> looks like a state and is a <b>fact</b>: it is true because of the time, not because of anything the analyst did. That is why it is a class in the markup rather than a pseudo-class.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the line that is on now</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the name</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the role and the window</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the border and the rules between lines</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="rota"&gt;
+  &lt;div&gt;&lt;span class="who"&gt;R. Idrissi&lt;/span&gt;&lt;span class="role"&gt;Tier 2&lt;/span&gt;&lt;span class="when"&gt;22:00 to 06:00&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="is-now"&gt;&lt;span class="who"&gt;S. Varga&lt;/span&gt;&lt;span class="role"&gt;SOC lead&lt;/span&gt;&lt;span class="when"&gt;on now&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../shift.html">the shift brief &middot; 7</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

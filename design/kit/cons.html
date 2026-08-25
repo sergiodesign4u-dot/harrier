@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Consequence</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Consequence</h1>
+<p class="k-lede">What will happen if you file this. <b>9 instances across 9 screens</b>, in the reject and escalate dialogs, and it says what <i>follows</i> rather than what you are doing.</p>
+<p class="k-note">The dialog title already says what you are doing. This box says what comes after: the case closes, or it goes to a named person, or one tenant&rsquo;s baseline changes. Design principle 3 says the override is one key <b>and it teaches</b>, and this is the half that teaches.</p>
+<p class="k-note"><b><code>min-height: 58px</code>, and it is the only fixed height in the system.</b> The box is filled by the choice above it, so without a floor the dialog footer moves as you pick a reason, and the button you are aiming at is the one that moves. Two lines of consequence is the common case, and the floor is two lines.</p>
+<p class="k-note"><b>It was not in the register.</b> Step 2 built the register from a browser census of <b>controls</b>, and this is a text container: it reports and is never pressed, so it never entered the list to be measured. Found at step 5 against <code>kit.css</code>, and <code>docs/inventory.md</code> section 13 carries all thirteen.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:440px">
+        <div class="cons">Goes to <b>agent tuning</b> as <b>Clerk weighted the wrong signal</b>. The answer was right and the reasoning was not, and accepting it would put an unsound argument in the record.</div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:440px">
+        <div class="cons">Goes to <b>agent tuning</b> as <b>Clerk weighted the wrong signal</b>. The answer was right and the reasoning was not, and accepting it would put an unsound argument in the record.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.cons</code><span>the box. A hairline, the UI radius, 12.5px, and a floor of 58px that nothing else in the system has</span></li>
+  <li><code>b</code><span><b>the two things a reader has to be able to take away without reading the sentence:</b> where it goes and what it is called there. Weight 600 and the reading ink, against the box&rsquo;s inherited body ink</span></li>
+  <li><code>.is-empty</code><span>on the box itself, before a reason has been chosen. Dashed border and the receded ink</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>settled</b></td><td>base</td><td>7</td><td>a reason has been chosen and the consequence is known. The border is solid, because the answer is</td></tr>
+    <tr><td></td><td><code>.is-empty</code></td><td>2</td><td><b>nothing chosen yet.</b> Dashed and receded, which is this system&rsquo;s one word for not settled: the ghost chip, the provisional state, the tombstone and here. The box still occupies its 58px, so choosing a reason fills it instead of growing the dialog</td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> Every consequence in the product is one the analyst is about to cause on purpose. Ranking them would mean the interface warning her off a decision it is asking her to make, and design principle 3 says rejecting Clerk is a first-class action rather than a fallback path</td></tr>
+    <tr><td><b>tone</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> No cautionary ground and no accent. The one place the strongest consequence in the product is drawn, sending one tenant&rsquo;s normality to detection engineering, it is enforced by the pairing above the box rather than by a colour on it</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>One modifier stands on the screens and is not in this file.</b> <code>.cons--gap</code>, a top margin of <code>--space-2</code>, wears 2 of the 9 renderings, on the two rejections where a locked <code>axisb</code> sits directly above the box. It is declared in <code>design/kit/kit.css</code> and it did not travel into <code>components/cons.css</code> at step 5.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In a dialog, once, directly under the choice that determines it, and above the footer. Never twice on one surface: two consequence boxes mean the dialog is asking two questions and should be two dialogs. If nothing downstream changes, say that in the box rather than leaving it out, which is what the tenant baseline rejection does.</p>
+<p class="k-note"><b>Where she meets it.</b> Every time she disagrees with Clerk, which is the moment the whole product is built for and the moment she is most likely to give up and accept instead. Reject already costs four taps against accept&rsquo;s two; this box is the return on the extra two, because it is where she finds out that her reason went somewhere.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="cons">Goes to <b>the tenant baseline</b> for <b>Larkfield Logistics</b>. Nothing outside this client changes, and the next signal like it arrives already scored.</div></div>
+    <p>Where it goes, what it is called when it gets there, and what does not change. The two bolded parts are the answer; the sentence after them is the reason she can hand to somebody else.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="cons">A reason is required before you can file this rejection.</div></div>
+    <p>Never a requirement. That is <code>hint</code>, which stands in the dialog footer beside the button it is about, 11 times out of its 18. Spending the only fixed height in the system on a rule the footer already enforces buys nothing, and it costs the reader the one place she looks for the consequence.</p>
+  </div>
+</div>
+<p class="k-note">At 360 the box keeps its floor and its padding and the text reflows inside it. The floor is a <code>min-height</code> rather than a <code>height</code> for exactly this reason: three lines at 360 grow the box instead of clipping the third.</p>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R8.</b> A <code>.only-desk</code> element never renders at 360, and a <code>.only-narrow</code> never renders at the desk.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has one, and no pointer produces it.</b> <code>.is-empty</code> is set by whether a reason has been chosen above, so it is a state of the dialog rather than of the box. Beyond that there are none: it reports, and it is not pressed.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:440px">
+        <div class="cons is-empty" style="margin-bottom:var(--space-3)">Pick a reason above and this fills in.</div>
+        <div class="cons">Goes to <b>agent tuning</b> as <b>Clerk weighted the wrong signal</b>. The answer was right and the reasoning was not.</div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:440px">
+        <div class="cons is-empty" style="margin-bottom:var(--space-3)">Pick a reason above and this fills in.</div>
+        <div class="cons">Goes to <b>agent tuning</b> as <b>Clerk weighted the wrong signal</b>. The answer was right and the reasoning was not.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>The two boxes are the same height, and that is the component working.</b> Both stand at the 58px floor whatever they hold, so the footer under them does not move between the two renderings. Watch the dashed border and not the text: it is the only thing that changes, and it changes because the answer is not settled rather than because the box is empty.</p>
+<p class="k-note"><b>No hover, no active, no focus and no out of reach.</b> There is nothing to press, so the four interactive states have nowhere to attach. The dashed border is deliberately not a disabled treatment: disabled says you may not, and what is true here is that you have not yet.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the bolded destination, and the sentence by inheritance</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the whole box while nothing is chosen, and the dashed border with it</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the border of the settled box, through <code>--rule-hair</code></td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="cons"&gt;Goes to &lt;b&gt;agent tuning&lt;/b&gt; as &lt;b&gt;Clerk weighted the wrong signal&lt;/b&gt;.
+  The answer was right and the reasoning was not.&lt;/div&gt;
+
+&lt;div class="cons is-empty"&gt;Pick a reason above and this fills in.&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../reject.html">nothing chosen yet</a>
+  <a href="../reject-chosen.html">a reason chosen</a>
+  <a href="../reject-other.html">held, not routed</a>
+  <a href="../reject-tenant-normal.html">the tenant baseline</a>
+  <a href="../reject-write-failed.html">the write failed</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

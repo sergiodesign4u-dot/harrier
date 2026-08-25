@@ -1,0 +1,337 @@
+/* design/kit/_page.css :: the STAND's own furniture, and nothing else.
+   ============================================================================
+   Everything here is prefixed k-, and no product class is described. The rule
+   runs the other way too: nothing in design/system/ knows this file exists, and
+   no screen under design/ links it.
+
+   Page-local prefixes exist because of what this project has already paid for
+   them: research/_page.css owns .note, .q, .node, .lede, .tw and .s1 to .s5, and
+   the two stage 06 documents inherited its LIGHT palette along with its column
+   scale, so a paragraph ran at 1.42:1 and a file path at 1.14:1 for two stages.
+   The prefix is the cure for a class name. It is not a cure for an element
+   selector, and it is not a cure for a whole theme arriving with a stylesheet.
+
+   The stand deliberately loads the product's base.css: the reset, the type and
+   the ground are the material being shown. If the product frame breaks the
+   stand, base.css is not the thing that changes.
+   ============================================================================ */
+
+
+/* ---- the shell of a stand page --------------------------------------------
+   A document, not a screen. Both columns take their own height and the page
+   scrolls past them, which is what every documentation page here does. */
+.k-shell{ display:flex; align-items:flex-start; min-height:100vh }
+.k-main { flex:1 1 auto; min-width:0; padding:var(--space-5) var(--space-6) var(--space-7);
+          max-width:1180px }
+
+
+/* ---- the panel ------------------------------------------------------------
+   Structure comes from _nav.js, the nav-* class contract from /_nav.css, and
+   the colour of those classes from the --nav-* remap in tokens.css. */
+/* The stand's own padding on the panel. THE STICKY LIVES IN base.css, not here: kit.html
+   and shell.html carry the same panel and do not link this file, and two copies of one
+   mechanism is where the two surfaces start behaving differently. */
+#sidebar{ padding:20px 14px; background:var(--bg-page); border-right:var(--rule-hair) }
+
+.k-out    { margin:0 0 var(--space-4) }
+.k-out a  { font-size:var(--size-sm); color:var(--text-secondary); text-decoration:none }
+.k-out a:hover{ color:var(--text-primary) }
+.k-badge  { display:inline-block; font:600 var(--size-xs)/1 var(--font-mono);
+            letter-spacing:.08em; text-transform:uppercase; color:var(--text-accent);
+            border:var(--rule-control); padding:var(--space-1) var(--space-2) }
+.k-sub    { font-size:var(--size-xs); color:var(--text-secondary);
+            margin:var(--space-2) 0 var(--space-4); line-height:var(--leading) }
+.k-group  { font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+            text-transform:uppercase; color:var(--text-secondary);
+            margin:var(--space-4) 0 var(--space-2) }
+
+/* the theme switch. Two buttons rather than one toggle, because a toggle whose
+   label is the state you are in and a toggle whose label is the state you would
+   get read identically and neither is readable at a glance. */
+.k-theme  { display:flex; gap:var(--space-1); margin:var(--space-5) 0 0 }
+.k-theme button{
+  flex:1 1 auto; font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+  text-transform:uppercase; padding:var(--space-2) var(--space-1);
+  background:transparent; color:var(--text-secondary);
+  border:var(--rule-control); border-radius:var(--radius-ui); cursor:pointer;
+}
+.k-theme button[aria-pressed="true"]{ background:var(--bg-invert); color:var(--text-on-invert) }
+
+.k-cross  { margin-top:var(--space-6); padding-top:var(--space-3);
+            border-top:var(--rule-hair); display:flex; flex-direction:column; gap:var(--space-2) }
+.k-cross a{ font-size:var(--size-xs); color:var(--text-secondary); text-decoration:none }
+.k-cross a:hover{ color:var(--text-primary) }
+
+
+/* ---- page furniture -------------------------------------------------------- */
+.k-eyebrow{ font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+            text-transform:uppercase; color:var(--text-secondary); margin:0 0 var(--space-2) }
+.k-title  { font:600 var(--size-xl)/var(--leading-tight) var(--font-sans);
+            letter-spacing:-.02em; margin:0 0 var(--space-3) }
+.k-lede   { max-width:74ch; font-size:var(--size-md); line-height:var(--leading);
+            margin:0 0 var(--space-5); color:var(--text-primary) }
+.k-h      { font:600 var(--size-lg)/var(--leading-tight) var(--font-sans);
+            margin:var(--space-7) 0 var(--space-2) }
+.k-h2     { font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+            text-transform:uppercase; color:var(--text-secondary);
+            margin:var(--space-5) 0 var(--space-3) }
+.k-note   { max-width:74ch; font-size:var(--size-sm); line-height:var(--leading);
+            color:var(--text-secondary); margin:0 0 var(--space-4) }
+.k-note b, .k-lede b{ color:var(--text-primary); font-weight:600 }
+.k-note code, .k-lede code, .k-table code{ font-family:var(--font-mono); font-size:.94em }
+
+/* the scene: material stands inside its own container, never on a bare page */
+.k-scene  { border:var(--rule-edge); padding:var(--space-4); background:var(--bg-surface);
+            margin:0 0 var(--space-4) }
+
+
+/* ---- tables ---------------------------------------------------------------- */
+.k-wrap-x { overflow-x:auto; margin:0 0 var(--space-5) }
+.k-table  { width:100%; border-collapse:collapse; font-size:var(--size-sm) }
+.k-table th{ text-align:left; font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+             text-transform:uppercase; color:var(--text-secondary); white-space:nowrap;
+             padding:var(--space-2) var(--space-3) var(--space-2) 0; border-bottom:var(--rule-edge) }
+.k-table td{ padding:var(--space-2) var(--space-3) var(--space-2) 0;
+             border-bottom:var(--rule-hair); vertical-align:top }
+.k-table .num{ font-family:var(--font-mono); text-align:right; white-space:nowrap }
+.k-pass   { color:var(--text-primary) }
+.k-fail   { color:var(--text-sev-high); font-weight:600 }
+.k-exempt { color:var(--text-secondary) }
+
+
+/* ---- colour ---------------------------------------------------------------- */
+.k-swatches{ display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr));
+             gap:var(--space-2); margin:0 0 var(--space-5) }
+.k-sw     { border:var(--rule-hair) }
+.k-sw i   { display:block; height:56px }
+.k-sw b   { display:block; font:400 var(--size-xs)/1.4 var(--font-mono);
+            padding:var(--space-2); color:var(--text-primary); font-weight:400;
+            overflow-wrap:anywhere }
+.k-sw small{ display:block; font:400 var(--size-xs)/1.4 var(--font-mono);
+             padding:0 var(--space-2) var(--space-2); color:var(--text-secondary) }
+
+/* a role shown in BOTH themes at once. The left half is the shipped theme, the
+   right half is its pair, and neither is the switcher's current state. */
+.k-pair   { display:grid; grid-template-columns:1fr 1fr; border:var(--rule-hair) }
+.k-pair > div{ padding:var(--space-3) }
+.k-pair .k-half-l{ border-right:var(--rule-hair) }
+.k-roles  { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+            gap:var(--space-3); margin:0 0 var(--space-5) }
+.k-role b { display:block; font:400 var(--size-xs)/1.4 var(--font-mono);
+            font-weight:400; margin:0 0 var(--space-1); overflow-wrap:anywhere }
+.k-role p { margin:var(--space-2) 0 0; font-size:var(--size-xs); line-height:var(--leading);
+            color:var(--text-secondary) }
+.k-surface{ font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+            text-transform:uppercase; color:var(--text-secondary) }
+.k-demo-ink { font-size:var(--size-sm) }
+.k-demo-fill{ display:block; height:22px; border:var(--rule-hair) }
+.k-demo-line{ display:block; height:0; border-top-width:2px; border-top-style:solid; margin:10px 0 }
+
+
+/* ---- type ------------------------------------------------------------------ */
+.k-scale  { display:grid; grid-template-columns:150px 1fr; gap:var(--space-3) var(--space-4);
+            align-items:baseline; margin:0 0 var(--space-5) }
+.k-scale code{ font:400 var(--size-xs)/1.5 var(--font-mono); color:var(--text-secondary) }
+
+
+/* ---- geometry -------------------------------------------------------------- */
+.k-space  { display:grid; grid-template-columns:150px 1fr; gap:var(--space-3) var(--space-4);
+            align-items:center; margin:0 0 var(--space-5) }
+.k-space i{ display:block; height:14px; background:var(--bg-invert) }
+.k-box    { display:inline-block; min-width:88px; padding:var(--space-3);
+            border:var(--rule-control); text-align:center; font-family:var(--font-mono);
+            font-size:var(--size-xs); margin:0 var(--space-2) var(--space-2) 0 }
+.k-rules  { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+            gap:var(--space-4); margin:0 0 var(--space-5) }
+
+
+/* ---- icons ----------------------------------------------------------------- */
+.k-icons  { display:grid; grid-template-columns:repeat(auto-fill,minmax(104px,1fr));
+            gap:var(--space-2); margin:0 0 var(--space-4) }
+.k-icons figure{ margin:0; text-align:center; border:var(--rule-hair);
+                 padding:var(--space-4) var(--space-1) var(--space-2) }
+.k-icons figcaption{ font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+                     margin-top:var(--space-3) }
+.k-icon   { width:20px; height:20px; display:inline-block; vertical-align:-4px;
+            fill:none; stroke:currentColor; stroke-width:1.5;
+            stroke-linecap:butt; stroke-linejoin:miter }
+
+
+/* ---- the hub --------------------------------------------------------------- */
+.k-cards  { display:grid; grid-template-columns:repeat(auto-fill,minmax(268px,1fr));
+            gap:var(--space-3); margin:0 0 var(--space-6) }
+.k-card   { display:block; border:var(--rule-edge); padding:var(--space-4);
+            text-decoration:none; color:inherit }
+.k-card:hover{ background:var(--bg-surface) }
+/* DIRECT CHILDREN ONLY, AND THIS COST A CONTRAST FAILURE THE DAY A COMPONENT
+   ARRIVED. `.k-card span` was written for the card's own blurb and it is 0,1,1,
+   so it beat `.btn--primary` at 0,1,0 and repainted the first product component
+   ever placed inside a card: the label came back at --text-secondary on the
+   accent ground, 1.02 in dark and 2.57 in light, and the key with it. The prefix
+   was no defence, because the leak was a DESCENDANT selector rather than a name.
+   The stand may describe its own children and nothing further down. */
+.k-card > b { display:block; font-size:var(--size-md); font-weight:600; margin:0 0 var(--space-1) }
+.k-card > span{ display:block; font-size:var(--size-xs); color:var(--text-secondary);
+                line-height:var(--leading) }
+.k-mini   { display:flex; gap:2px; margin:0 0 var(--space-3); height:20px; flex-wrap:wrap }
+.k-mini i { flex:1 1 auto; display:block }
+.k-mini-t { font:600 var(--size-lg)/1 var(--font-sans); margin:0 0 var(--space-3);
+            color:var(--text-primary) }
+
+
+/* ---- 360 -------------------------------------------------------------------
+   The stand is a document and it is read at the desk, but the project measures
+   360 on every surface it builds, so the panel stacks rather than shrinking the
+   article into a gutter. */
+@media (max-width:900px){
+  .k-shell{ display:block }
+  #sidebar{ width:auto; border-right:0; border-bottom:var(--rule-hair) }
+  .k-main { padding:var(--space-4) var(--space-4) var(--space-7); max-width:none }
+  .k-pair { grid-template-columns:1fr }
+  .k-pair .k-half-l{ border-right:0; border-bottom:var(--rule-hair) }
+  .k-scale, .k-space{ grid-template-columns:1fr; gap:var(--space-1) var(--space-3) }
+}
+
+
+/* ---- a component page, and the five blocks it always carries ---------------
+   Added at step 5 with the reference component. Everything here is furniture:
+   the component itself is painted by design/system/, and this file must never
+   describe it. If a component looks right only on its own page, one of these
+   two files is doing the other's job. */
+
+/* 1. ANATOMY. The component large, on the ground it actually has, with its parts
+      named by the class you would edit rather than by what the zone looks like. */
+.k-anat   { display:flex; align-items:center; gap:var(--space-5); flex-wrap:wrap;
+            border:var(--rule-edge); background:var(--bg-surface);
+            padding:var(--space-6) var(--space-5); margin:0 0 var(--space-3) }
+.k-parts  { list-style:none; margin:0 0 var(--space-5); padding:0;
+            font-size:var(--size-sm); line-height:var(--leading); max-width:74ch }
+.k-parts li{ padding:var(--space-2) 0; border-bottom:var(--rule-hair);
+             display:grid; grid-template-columns:190px 1fr; gap:var(--space-3) }
+.k-parts code{ font-family:var(--font-mono); font-size:var(--size-xs);
+               color:var(--text-accent); overflow-wrap:anywhere }
+.k-parts span{ color:var(--text-secondary) }
+
+/* 2. VARIANTS. An empty cell is shown rather than skipped, and it says which of
+      the two things it is: a prohibition with its reason, or a line of backlog. */
+.k-cell    { display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap }
+.k-none    { font:400 var(--size-xs)/1.5 var(--font-mono); color:var(--text-secondary) }
+
+/* 4. RULE AND ANTI-RULE. Two columns, because the page exists to narrow a choice
+      and one example alone never narrows anything. */
+.k-vs      { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-4);
+             margin:0 0 var(--space-5) }
+/* min-width:0 BECAUSE A GRID TRACK IS AT LEAST ITS MIN CONTENT UNLESS TOLD OTHERWISE,
+   and a rule cell can hold a whole queue row. Without it the single column at 360 grew
+   to 730px on one page and took the document sideways with it. Same defect as the theme
+   bench above, and the second time this file has paid for it, so it is written here for
+   the container rather than scoped to the page that happened to show it. */
+.k-vs > div{ border:var(--rule-edge); padding:var(--space-4); min-width:0 }
+/* AND IT SCROLLS RATHER THAN PUSHING THE PAGE. One rule cell holds a whole queue
+   row, seven tracks and 646px of it, inside a column half the page wide. min-width:0
+   lets the grid track stop growing to fit it; this lets the row that still does not
+   fit scroll inside its own cell instead of taking the document sideways. Same
+   answer as .k-wrap-x above, and the same reason. */
+.k-cell    { min-width:0; overflow-x:auto }
+.k-vs h4   { font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+             text-transform:uppercase; margin:0 0 var(--space-3) }
+.k-do  h4  { color:var(--text-primary) }
+.k-dont h4 { color:var(--text-sev-high) }
+/* DIRECT CHILD, FOR THE SECOND TIME IN THIS FILE. `.k-vs p` is 0,1,1 and beat `.rail` at
+   0,1,0, so a `p` carrying a product class inside a rule cell came back at 1.97 in dark.
+   The same family as the `.k-card span` incident above, found by a reader with clean
+   context rather than by the sweep, because the sweep sees a low ratio and not a cause.
+   The direct child was not enough: a rule cell holds the component itself, and on the
+   claim page that component IS a `p`. `:not([class])` is what finally separates the
+   stand's own sentence from anything carrying a product class, and it needed no change
+   to any of the eighty pages. */
+.k-vs > div > p:not([class]){ font-size:var(--size-sm); line-height:var(--leading);
+                              color:var(--text-secondary); margin:var(--space-3) 0 0 }
+
+/* 5. STATES. LIVE, AND NEVER A PICTURE OF ONE.
+      The pack asks for rest alive and the four interactive states as snapshots,
+      because hover, active and focus exclude each other on one element and cannot
+      stand in a row alive. This stand does not take that trade. A snapshot is a
+      second copy of the component: it has to be re-shot, it goes stale in silence,
+      and the first one taken here came back showing a button with no focus ring
+      because programmatic focus does not set :focus-visible. What replaces it is
+      two things that are both alive: a BENCH of real controls the reader produces
+      each state on with their own pointer and keyboard, standing in BOTH THEMES at
+      once; and a READOUT of what each state resolves to, computed off the live
+      element when the page renders. Change a token and both follow. */
+.k-bench     { display:grid; grid-template-columns:1fr 1fr; border:var(--rule-edge);
+               margin:0 0 var(--space-3) }
+.k-bench-half{ padding:var(--space-4); background:var(--bg-page); color:var(--text-primary) }
+.k-bench-half + .k-bench-half{ border-left:var(--rule-edge) }
+.k-bench-tag { font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+               text-transform:uppercase; color:var(--text-secondary); margin:0 0 var(--space-4) }
+.k-bench-row { display:flex; gap:var(--space-3); align-items:center; flex-wrap:wrap }
+.k-gesture   { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+               gap:var(--space-3); margin:0 0 var(--space-5) }
+.k-gesture div{ border-left:2px solid var(--line-control); padding:0 0 0 var(--space-3) }
+.k-gesture b { display:block; font-size:var(--size-sm); font-weight:600 }
+.k-gesture p { margin:var(--space-1) 0 0; font-size:var(--size-xs); line-height:var(--leading);
+               color:var(--text-secondary) }
+.k-val       { display:flex; align-items:center; gap:var(--space-2); white-space:nowrap }
+.k-val i     { width:16px; height:16px; flex:0 0 16px; border:var(--rule-hair); display:block }
+.k-val code  { font-family:var(--font-mono); font-size:var(--size-xs) }
+
+/* the technical tail: what it reads, where it lives, what to copy, where it stands */
+.k-code    { font:400 var(--size-sm)/1.6 var(--font-mono); background:var(--bg-surface);
+             border:var(--rule-hair); padding:var(--space-4); overflow-x:auto;
+             margin:0 0 var(--space-4); white-space:pre; color:var(--text-primary) }
+.k-where   { display:flex; flex-wrap:wrap; gap:var(--space-2); margin:0 0 var(--space-5) }
+.k-where a { font:400 var(--size-xs)/1 var(--font-mono); text-decoration:none;
+             border:var(--rule-hair); padding:var(--space-2) var(--space-3);
+             color:var(--text-secondary) }
+.k-where a:hover{ color:var(--text-primary); border-color:var(--line-control) }
+
+@media (max-width:900px){
+  .k-vs{ grid-template-columns:1fr }
+  .k-parts li{ grid-template-columns:1fr; gap:var(--space-1) }
+  /* the two themes stack rather than halving an already narrow column */
+  .k-bench{ grid-template-columns:1fr }
+  .k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+}
+
+/* -- the Limits subsection, stage 09 -----------------------------------------
+   It sits inside the rule and antirule block on 22 component pages and carries the
+   composition and context rules that mention that component. One author in
+   architecture.md, two visible places, exactly as the microcopy inventory works. */
+.k-limits{ list-style:none; padding:0; margin:0 0 var(--space-5); max-width:78ch }
+.k-limits li{ padding:var(--space-2) 0 var(--space-2) var(--space-4);
+              border-left:2px solid var(--line-control);
+              margin:0 0 var(--space-2);
+              font-size:var(--size-sm); line-height:var(--leading);
+              color:var(--text-secondary) }
+.k-limits li b{ color:var(--text-primary) }
+.k-limits li code{ color:var(--text-primary) }
+
+/* -- the pattern stage, stage 09 ---------------------------------------------
+   A pattern is a whole column or a whole pane, so it cannot stand in a bench row
+   the way an atom does: it needs a bounded box to be a column INSIDE. The stage
+   gives it one, and the height is deliberate rather than arbitrary. It is short
+   enough that the sticky zones of the composition prove they are sticky, which is
+   the one thing a full height rendering would hide. */
+.k-stage{ height:420px; display:flex; align-items:stretch; overflow:hidden;
+          border:var(--rule-edge); background:var(--bg-page) }
+.k-stage > *{ min-width:0 }
+.k-stage-tall{ height:520px }
+.k-stage .z5{ flex:1 1 auto }
+.k-zones{ list-style:none; padding:0; margin:0 0 var(--space-5); max-width:78ch }
+.k-zones li{ display:grid; grid-template-columns:170px 1fr; gap:var(--space-4);
+             padding:var(--space-2) 0; border-bottom:var(--rule-hair);
+             font-size:var(--size-sm); line-height:var(--leading); color:var(--text-secondary) }
+.k-zones li > b{ font-weight:400 }
+.k-zones li b code{ color:var(--text-primary) }
+.k-zones span b{ color:var(--text-primary) }
+@media (max-width:900px){
+  .k-zones li{ grid-template-columns:1fr; gap:var(--space-1) }
+  .k-stage{ height:340px }
+}
+
+/* A GRID TRACK IS AT LEAST ITS MIN-CONTENT UNLESS TOLD OTHERWISE, and a pattern's
+   min-content is a seven track row: the two halves of the bench grew to 1776px on
+   queue-list.html and pushed the page sideways at 1440. Scoped to benches that hold
+   a stage so the other 73 component pages keep the sizing they were measured with. */
+.k-bench:has(.k-stage) > .k-bench-half{ min-width: 0 }

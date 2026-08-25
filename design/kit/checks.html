@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; The instruments</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix c-. */
+.c-inst{ border-top:var(--rule-edge); padding:var(--space-4) 0;
+         display:grid; grid-template-columns:190px 1fr 210px; gap:var(--space-5); align-items:start }
+.c-inst:last-of-type{ border-bottom:var(--rule-edge); margin:0 0 var(--space-5) }
+.c-inst code.f{ font-size:var(--size-sm); color:var(--text-primary) }
+.c-inst .stage{ display:block; font:400 var(--size-xs)/1.8 var(--font-mono); letter-spacing:.08em;
+                text-transform:uppercase; color:var(--text-secondary) }
+.c-inst p{ margin:0 0 var(--space-2); font-size:var(--size-sm); line-height:var(--leading);
+           color:var(--text-secondary) }
+.c-inst p:last-child{ margin:0 }
+.c-inst b{ color:var(--text-primary) }
+.c-inst .n{ border-left:var(--rule-edge); padding-left:var(--space-4);
+            font:400 var(--size-sm)/var(--leading) var(--font-mono); color:var(--text-secondary) }
+.c-inst .n b{ color:var(--text-primary); font-weight:400 }
+.c-zero{ color:var(--text-accent) }
+.c-run{ border:var(--rule-control); padding:var(--space-4); margin:0 0 var(--space-5);
+        font:400 var(--size-sm)/1.9 var(--font-mono); overflow-x:auto }
+.c-run span{ color:var(--text-secondary) }
+@media (max-width:900px){
+  .c-inst{ grid-template-columns:1fr; gap:var(--space-3) }
+  .c-inst .n{ border-left:0; border-top:var(--rule-hair); padding:var(--space-3) 0 0 }
+}
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Checks</p>
+<h1 class="k-title">The instruments</h1>
+<p class="k-lede">Twelve of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
+<p class="k-note"><b>There are no screenshots in this system, and these are why.</b> A picture of a component is a second copy: it has to be retaken, it goes stale without saying so, and the first one taken on this stand documented a focus ring it did not contain, because a focus set from a script does not match <code>:focus-visible</code>. What the refactors of stage 08 and 09 promise is proved by rendering the tree twice and comparing it element by element, which says <b>which element moved</b> rather than how many pixels changed.</p>
+
+<div class="c-run">node design/kit/checks/contrast.mjs <span>the stand, every text node, both themes, both viewports</span>
+node design/kit/checks/contrast.mjs design/ <span>the same over the coloured screens</span>
+node design/kit/checks/rules.mjs design <span>the eleven usage rules, by name, on the product</span>
+node design/kit/checks/compose.mjs <span>every composition in the grey corpus, counted</span></div>
+
+<h2 class="k-h" id="what">What each one finds, and what it says today</h2>
+
+<div class="c-inst">
+  <div><code class="f">contrast.mjs</code><span class="stage">stage 07</span></div>
+  <div>
+    <p>A contrast ratio for <b>every text node on every page</b>, in both themes and at both viewports, with the ground composited layer by layer down to the body. Reading the first three numbers of an <code>rgba()</code> and calling it solid reports a panel item at 3.58 that is really 4.87, which is a false failure and can as easily be a false pass.</p>
+    <p><b>It found the defect that no reader, no search and no reviewer can see.</b> At stage 06, a light documentation palette inherited by two dark pages, where the opening paragraph ran at 1.42:1 and every file path at 1.14:1 for two stages. At stage 07, 1018 failures on 128 pages made by four values. At stage 08, a stand class repainting the first product component placed inside it. At stage 09, a grid track sized by its content pushing a page sideways at 1440.</p>
+  </div>
+  <div class="n"><b>344</b> renderings<br><b>86</b> pages<br><span class="c-zero"><b>0</b> failures</span><br><span class="c-zero"><b>0</b> overflow</span><br>112 exemptions, declared</div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">rules.mjs</code><span class="stage">stage 09</span></div>
+  <div>
+    <p><b>The eleven usage rules, as functions.</b> A prohibition written only in prose is a prohibition nobody runs. Each rule is measured at both viewports on what renders rather than on what is in the markup, and each may answer "not applicable": a screen with no dialog does not pass the dialog rule, it is not asked. Counting those as passes is how a suite reports green while testing nothing.</p>
+    <p><b>Two of the eleven only became correct when they stopped reading the file and started reading the box.</b> Two primary actions in a document are one primary action on a screen when the second is the viewport twin of the first. And an overlay pinned to the viewport covers a pane that sits below the fold, because the pane passes under it the moment anybody scrolls.</p>
+  </div>
+  <div class="n"><b>11</b> rules<br><b>104</b> renderings<br><b>1</b> broken, and it is R11 on 16 screens<br>open in the <a class="link" href="docs/backlog.md">backlog</a></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">refactor.mjs</code><span class="stage">stage 09</span></div>
+  <div>
+    <p>The tree as it stood <b>before the first edit</b> against the tree as it stands now, walked element by element in document order at both viewports. The baseline is a copy of <code>design/</code> taken outside the repository, so no image and no duplicate tree is committed.</p>
+    <p><b>It reports the tree shape before the boxes.</b> A pattern class is added to an element that already exists, so the two subtrees must have the same element count in the same order, and a count that does not line up is a bigger finding than any box that moved.</p>
+  </div>
+  <div class="n"><b>102</b> renderings<br><b>51</b> screens<br><span class="c-zero"><b>0</b> shape changes</span><br><span class="c-zero"><b>0</b> boxes moved</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">compose.mjs</code><span class="stage">stage 09</span></div>
+  <div>
+    <p>Every composition in the grey corpus, counted as <code>host{child child}</code> with runs of the same child collapsed, so a queue of eighteen rows and a queue of three are one composition. <b>It reads the DOM and not the file</b>, because two of the corpus's biggest compositions live in no html file at all: the whole global navigation and both shell zones are written by a script at load.</p>
+    <p>The same pass read backwards gives the prohibitions: for every class, the maximum instances found on any one screen. <b>A maximum of one is a candidate for a rule and never the rule itself</b>, because the counter cannot tell a deliberate constraint from a component that has not yet had a second reason.</p>
+  </div>
+  <div class="n"><b>104</b> compositions<br><b>62</b> grey pages<br><b>68</b> on two screens<br><b>54</b> on three<br><b>4</b> became patterns</div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">coverage.mjs</code><span class="stage">stage 08</span></div>
+  <div>
+    <p>Every selector of the deleted <code>kit.css</code>, against every selector the system declares, through a map of what was renamed and a list of what was deliberately dropped with its reason. <b>It is what made deleting a 367 selector stylesheet a measurement rather than a hope.</b></p>
+    <p>Its own failure mode is a row that can never fire, and stage 09 found one: an earlier rename rewrote the prefix a later row was matching on, so the row sat there looking like cover. A declared list with nothing in it fails this system's rules as loudly as an undeclared case.</p>
+  </div>
+  <div class="n"><b>367</b> selectors<br><span class="c-zero"><b>0</b> declared nowhere</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">geometry.mjs</code><span class="stage">stage 08</span></div>
+  <div>
+    <p>The box of each component <b>on its own stand page</b> against the same component <b>on the screen it stands on</b>. It exists because the stand can drift from the product silently: the page looks like documentation and the screen looks like a screen, and nobody compares them.</p>
+    <p>It was written after a <code>font</code> shorthand quietly reset a line height and moved every chip by 4.94px, and then it found the product's own defect: <b>three chip heights in one scope bar</b>, because the element was deciding the height.</p>
+  </div>
+  <div class="n"><b>42</b> pairs<br><span class="c-zero"><b>0</b> unexplained</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">themes.mjs</code><span class="stage">stage 08</span></div>
+  <div>
+    <p>The dark theme as a <b>stress test of the neighbourhood</b> rather than of a component: fills that merge, two roles that arrive at one value, a role that clears its threshold in one theme and fails in the other, and a pair that looks copied rather than measured.</p>
+    <p><b>It printed FAIL fifteen times on its first run and meant nothing.</b> It assumed a token resolves to <code>rgb()</code> and they resolve to hex, so every ratio was <code>NaN</code>. An instrument that has never been wrong out loud is an instrument nobody has checked.</p>
+  </div>
+  <div class="n"><span class="c-zero"><b>0</b> failures</span><br><b>2</b> ramp collapses, declared</div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">icons.mjs</code><span class="stage">stage 08</span></div>
+  <div>
+    <p>Every icon applied as a CSS mask, character for character against <code>design/system/icons.js</code>, which is the one source the set has. A glyph pasted into a stylesheet is a second copy, and a second copy of a path is one nobody will ever diff by eye.</p>
+  </div>
+  <div class="n"><span class="c-zero"><b>0</b> geometry differences</span><br><span class="c-zero"><b>0</b> stroke findings</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">migrate.mjs</code><span class="stage">stage 08</span></div>
+  <div>
+    <p>The migrated screen against the version in the last commit, element by element. <b>It is the instrument that sees a cascade defect</b>, where both stylesheets are correct, both declarations are correct, and what is wrong is which of them wins. It found three: a component beating a viewport utility because the system loads later, a media query written where a class selector belonged, and a narrow only rule hoisted to the top level.</p>
+  </div>
+  <div class="n"><b>102</b> renderings<br><b>862</b> elements moved<br><span class="c-zero"><b>0</b> unexplained</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">pixels.mjs</code> and <code class="f">attribute.mjs</code><span class="stage">stage 08</span></div>
+  <div>
+    <p>A per pixel difference computed in a browser canvas, and a check that every visible difference is attributable to a named row of <code>docs/tokens-audit.md</code>. <b>They answer how much and where</b>, where the two comparisons above answer which element, and the pair is what makes "we did change some things" stop eating the whole comparison.</p>
+  </div>
+  <div class="n">used at stage 08<br>superseded for stage 09 by <code>refactor.mjs</code>, which needs no images</div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">syntax.mjs</code><span class="stage">stage 09</span></div>
+  <div>
+    <p>Two counts and nothing else: comment openers against terminators, and braces. <b>The cheapest instrument here and the last one written</b>, because it took a self inflicted wound to see the need for it.</p>
+    <p>An edit to a comment in <code>tokens.css</code> dropped its terminator. The comment swallowed two declarations and the closing brace of the semantic block, so everything after it became <b>nested inside that block</b>, and two media queries then read <code>:root</code> as a descendant of the root, which nothing can be. <b>Both of the system's responsive primitives went dead:</b> the pane stopped narrowing below 1560 and the queue row stopped collapsing to one column at 360.</p>
+    <p><b>Every other instrument on this page passed while it was broken.</b> The contrast sweep, because nothing about colour changed. The overflow check, because a row that is suddenly 646px wide sits inside a scroll container and clips. The usage rules, because none of the eleven is about a track. The baseline comparison, because it hides the panel and reads the product's boxes, and at 1440 they were unchanged.</p>
+  </div>
+  <div class="n"><b>83</b> stylesheets<br><span class="c-zero"><b>0</b> unterminated</span><br><span class="c-zero"><b>0</b> unclosed</span></div>
+</div>
+
+<h2 class="k-h" id="rule">The rule they were all written under</h2>
+<p class="k-lede"><b>An instrument that has never found anything is not a clean result. It is an untested instrument.</b></p>
+<p class="k-note">That sentence is in <code>CLAUDE.md</code> because it was paid for: a search meant to catch a rule declared twice compared inline against inline and never inline against the shared sheet, and reported clean for two steps while ten rules were duplicated. Every instrument here has a paragraph in its own header naming the defect it failed to catch on its first run, and three of them were corrected during stage 09 alone: one counted a contents page as a screen, one measured a rule other than the one it was named after, and one compared two rectangles at a scroll position instead of across a column. <b>The twelfth exists because a defect got past all eleven.</b></p>
+<p class="k-note">The full log of what each pass found, what was fixed, and what was withdrawn on verification is <a class="link" href="docs/critique.md">the critique log</a>. What the system knows it does not do yet is <a class="link" href="docs/backlog.md">the backlog</a>, and every row of it names who closes it.</p>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [
+  { id:'what', label:'What each one finds' },
+  { id:'rule', label:'The rule behind them' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

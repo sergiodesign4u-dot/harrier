@@ -6,16 +6,16 @@
 <meta name="robots" content="noindex">
 <title>Harrier &middot; Case queue, no case matches, in colour</title>
 <link rel="stylesheet" href="../_nav.css">
-<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="system/index.css">
 </head>
 <body>
-<div class="wf-shell">
+<div class="shell">
 <aside id="sidebar"></aside>
-<div class="wf-screen">
+<div class="screen">
   <header id="wf-z1"></header>
   <p id="wf-z2"></p>
   <main class="z45">
-    <section class="z4" aria-labelledby="qh">
+    <section class="z4 queue-list" aria-labelledby="qh">
       <div class="scopebar" role="group" aria-label="Scope and filters">
         <button class="chip" type="button">Meridian Health &times;</button>
         <button class="chip chip--solid" type="button">Severity: High &times;</button>
@@ -25,7 +25,7 @@
 
       <h1 id="qh" class="readout"><b>No case matches this scope</b> <span class="dim">3 filters, 1 tenant</span></h1>
 
-      <div class="banner qbanner"><b>Severity: High is what emptied it.</b> Remove it and 6 cases come back. The chip is marked in the bar above, where the question was asked.<span class="act"><a class="btn btn--primary" href="queue.html">Remove Severity: High</a></span></div>
+      <div class="banner"><b>Severity: High is what emptied it.</b> Remove it and 6 cases come back. The chip is marked in the bar above, where the question was asked.<span class="act"><a class="btn btn--primary" href="queue.html">Remove Severity: High</a></span></div>
 
       <div class="rows" role="grid" aria-labelledby="qh" tabindex="0">
         <p class="empty"><b>Nothing here, and it is the narrowing rather than the queue.</b>
@@ -40,7 +40,7 @@
       </p>
     </section>
 
-    <aside class="z5" aria-labelledby="fh">
+    <aside class="z5 fleet" aria-labelledby="fh">
       <div class="pane-head">
         <h2 id="fh">Fleet</h2>
         <p class="sub">12 tenants in your scope. The fleet narrows with the queue</p>

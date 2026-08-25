@@ -1,0 +1,39 @@
+/* doorcard :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-page. Line: --rule-edge. Geometry: --radius-ui, --space-4,
+   --space-5.
+   CONTAINS. banner and block, both optional, plus the sign in form.
+
+   PAGE. design/kit/doorcard.html
+   STANDS ON. 5 instances across 5 screens, on the door: the one surface of this
+   product that is not behind authentication.
+
+   IT IS THE ONLY CENTRED THING IN HARRIER. Everything else is a console laid out
+   from the top left of a two monitor desk; the door has no queue, no pane and no
+   analyst yet, so the card takes the middle of an empty screen and stops at
+   440px.
+   ----------------------------------------------------------------------------
+   ITS TWO ZONES ARE OPTIONAL AND THAT IS ITS ONLY AXIS. A banner above the form
+   when the last attempt failed or the session expired, and a block below it when
+   there is something to explain. Neither is a modifier: what is in the card is
+   decided by what happened before it was rendered.
+
+   THE WORDMARK IN IT IS A PARAGRAPH AND NOT THE HEADING. The h1 names the
+   screen, and the one public page of a security product does not put a brand
+   where the page title belongs.
+   ---------------------------------------------------------------------------- */
+
+.doorcard{
+  position: relative;
+  margin: auto;
+  width: min(440px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: var(--rule-edge);
+  border-radius: var(--radius-ui);
+  background: var(--bg-page);
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------- */

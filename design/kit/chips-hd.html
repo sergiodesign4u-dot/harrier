@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Head states</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Head states</h1>
+<p class="k-lede">The case’s condition, next to the case’s name. 7 instances across 7 screens, under the title in a pane head.</p>
+<p class="k-note">The states are the same component the queue row carries in its states cell. What this molecule does is <b>put them where the analyst is already looking when she opens a case</b>, so that <code>escalated</code> or <code>unrecorded</code> is read before the evidence rather than after the decision.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;border:var(--rule-edge);background:var(--bg-surface);padding:var(--space-4)">
+        <h2 style="margin:0;font:600 var(--size-lg)/var(--leading-tight) var(--font-sans)">C-4417</h2>
+        <div class="chips-hd"><i class="state">decided</i><i class="state state--solid">unrecorded</i><i class="state">escalated</i></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;border:var(--rule-edge);background:var(--bg-surface);padding:var(--space-4)">
+        <h2 style="margin:0;font:600 var(--size-lg)/var(--leading-tight) var(--font-sans)">C-4417</h2>
+        <div class="chips-hd"><i class="state">decided</i><i class="state state--solid">unrecorded</i><i class="state">escalated</i></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.chips-hd</code><span>a wrapping row with one step of gap and one step of margin above. That is the whole declaration</span></li>
+  <li><code>state</code><span>one to four of them, in the order the case acquired them</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>count</b></td><td>one to four states</td><td>A count. How many conditions a case is in is a fact about the case</td></tr>
+    <tr><td><b>placement</b></td><td><span class="k-none">no values</span></td><td>Always under the title and above the body. Beside the title it would compete with the identifier; below the subline it would read as content</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>The states carry their own, and <code>--solid</code> is already the loudest thing this system says</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>It is one declaration and it still earns a name.</b> A row of states under a pane title is a composition that recurs, and the alternative is seven pane heads each declaring the same wrapping flex. It is the smallest molecule in the system after <code>sev</code>, and both are here for the same reason: <b>the arrangement is the component.</b></p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Under a pane title, when the case is in a condition worth knowing before reading it. Not every case has one: 7 of the 48 pane heads carry this.</p>
+<p class="k-note"><b>Where she meets it.</b> The instant a case opens. <code>CLAUDE.md</code> binds a rule on this layer: <b>a case that left the analyst’s hands must not look identical to one that did not.</b> In the queue that rule is the states cell; in the pane it is this.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><div class="chips-hd" style="margin:0"><i class="state">decided</i><i class="state state--solid">unrecorded</i></div></div>
+    <p>The conditions the case is in, under its name, before anything else. Two facts and no sentence.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><p class="k-note" style="margin:0;font-size:12.5px">This case has been decided but the verdict was not recorded.</p></div>
+    <p>Not as prose. The condition is a closed set of words the analyst reads in the queue all day, and turning it into a sentence in the pane makes her read the same fact twice in two forms.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The states inside it have none either, which makes this the only molecule in the system where nothing at any level can be pressed.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;border:var(--rule-edge);background:var(--bg-surface);padding:var(--space-4)">
+        <h2 style="margin:0;font:600 var(--size-lg)/var(--leading-tight) var(--font-sans)">C-4417</h2>
+        <div class="chips-hd"><i class="state">decided</i><i class="state state--solid">unrecorded</i><i class="state">escalated</i></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px;border:var(--rule-edge);background:var(--bg-surface);padding:var(--space-4)">
+        <h2 style="margin:0;font:600 var(--size-lg)/var(--leading-tight) var(--font-sans)">C-4417</h2>
+        <div class="chips-hd"><i class="state">decided</i><i class="state state--solid">unrecorded</i><i class="state">escalated</i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<p class="k-note"><b>No colour role at all.</b> Geometry only.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="chips-hd"&gt;&lt;i class="state"&gt;decided&lt;/i&gt;&lt;i class="state state--solid"&gt;unrecorded&lt;/i&gt;&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case-unrecorded.html">under a pane title &middot; 7</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

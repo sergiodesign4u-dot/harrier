@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Banner</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Banner</h1>
+<p class="k-lede">Something true about the whole screen. 54 instances across 44 screens, which makes it the third most widely spread component in the product.</p>
+<p class="k-note">The queue is stale, the connection is degraded, this case was already ruled on by somebody else. <b>It is never about one row and never about one claim</b>, and that is the whole of the rule for using it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:var(--space-3)">
+        <div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
+        <div class="banner banner--quiet"><p style="margin:0">This queue was last refreshed 4m ago.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:var(--space-3)">
+        <div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
+        <div class="banner banner--quiet"><p style="margin:0">This queue was last refreshed 4m ago.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.banner</code><span>the notice, in its own boundary. It never covers anything: design principle 5 forbids an overlay that hides the evidence being decided on</span></li>
+  <li><code>b</code><span>the fact, at weight 700. The sentence after it says what follows from the fact</span></li>
+  <li><code>.act</code><span><b>optional.</b> A banner offers an action only when there is one, and 34 of the 54 offer none</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>emphasis</b></td><td><code>.banner</code></td><td>50</td><td>it interrupts. A full edge and reading ink</td></tr>
+    <tr><td></td><td><code>.banner--quiet</code></td><td>4</td><td><b>it reports.</b> A hairline edge and secondary ink, for something the analyst should know and does not have to act on</td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited, and the axis has only two values because a third would need a colour.</b> The accent has four jobs and no fifth, and the severity ramp belongs to cases. A red banner would say the SCREEN has a severity, and screens do not</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>It is <code>display:flow-root</code> above 900px, and that is a bug fix rather than a preference.</b> As a flex row it made a flex item of every element child, so a second <code>b</code> started its own line and the punctuation after it orphaned. Seen at 1440 at stage 07. The action floats right instead, which lets the sentence wrap around it. Below 900 it goes back to flex, because there the action takes its own line anyway.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">At the top of a zone, when something about the whole zone has changed: Clerk is down, the connection is reconnecting, this case has already been acted on. 20 of them sit in Z4 above the queue and 16 in the detail pane.</p>
+<p class="k-note"><b>Where she meets it.</b> On arrival, and it is the component that has to earn its interruption. Fifty four instances across forty four screens is close to the ceiling: one more reason to show a banner and the analyst starts reading past them.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block"><div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing.</p></div></div>
+    <p>The fact, then what follows from it. The second half is the part that lets her keep working, and it is the half most notices leave out.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><p class="gnote" style="margin:0">Not checked: the tenant baseline for the same window.</p></div>
+    <p>Not for something about one block. That is <b><code>gnote</code></b>, which sits under the block it qualifies and claims no boundary. A banner there would say the screen has a problem when one section has a gap.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R8.</b> A <code>.only-desk</code> element never renders at 360, and a <code>.only-narrow</code> never renders at the desk.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:var(--space-3)">
+        <div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
+        <div class="banner banner--quiet"><p style="margin:0">This queue was last refreshed 4m ago.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:var(--space-3)">
+        <div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
+        <div class="banner banner--quiet"><p style="margin:0">This queue was last refreshed 4m ago.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The button inside it is, and it carries its own. <b>A banner is never dismissible</b>: what it reports is either still true, in which case hiding it is a lie, or no longer true, in which case the screen removes it.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the ground, so it reads as raised off a surface and level with the page</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the fact</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the quiet form</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the boundary, through --rule-edge</td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the quiet boundary</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="banner"&gt;
+  &lt;p&gt;&lt;b&gt;Clerk is down.&lt;/b&gt; Last correlation 26m ago.&lt;/p&gt;
+  &lt;span class="act"&gt;&lt;a class="btn btn--quiet" href="unavailable.html"&gt;What is down&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue-clerk-down.html">in Z4 &middot; 20</a>
+  <a href="../case-acted.html">in the pane &middot; 16</a>
+  <a href="../shift.html">the brief &middot; 5</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

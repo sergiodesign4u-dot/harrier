@@ -1,0 +1,31 @@
+/* chips-hd :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Geometry only: --space-1, --space-2.
+   CONTAINS. state, one to four of them.
+
+   PAGE. design/kit/chips-hd.html
+   STANDS ON. 7 instances across 7 screens, under the title in a pane head.
+
+   IT IS THE CASE'S CONDITION, NEXT TO THE CASE'S NAME. The states are the same
+   component the queue row carries in its states cell; what this molecule does is
+   put them where the analyst is already looking when she opens a case, so that
+   `escalated` or `unrecorded` is read before the evidence rather than after the
+   decision.
+   ----------------------------------------------------------------------------
+   IT IS ONE DECLARATION AND IT STILL EARNS A NAME. A row of states under a pane
+   title is a composition that recurs, and the alternative is seven pane heads
+   each declaring the same flex-wrap. It is the smallest molecule in the system
+   after `sev`, and both are here for the same reason: the arrangement is the
+   component.
+
+   NO VARIANTS. One to four states is a COUNT.
+   ---------------------------------------------------------------------------- */
+
+.chips-hd{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------- */

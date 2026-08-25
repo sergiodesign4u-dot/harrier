@@ -1,0 +1,75 @@
+/* frow :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-surface, --bg-selected. Ink: --text-primary,
+   --text-secondary, --text-accent. Line: --rule-hair, --rule-edge.
+   CONTAINS. rec, was, mark by way of the ladder.
+
+   PAGE. design/kit/frow.html
+   STANDS ON. 88 instances across 16 screens: 76 in the detail pane at rest and
+   12 inside a block.
+
+   THIS IS THE FLEET, ONE LINE OF IT. Three zones: the tenant, the highest thing
+   Clerk may do there, and the record. CLAUDE.md names the fleet as the only
+   surviving differentiator and requires it to read at a glance in the operator
+   console rather than on a configuration page, and this row is that glance
+   repeated forty times.
+   ----------------------------------------------------------------------------
+   THE MIDDLE COLUMN TAKES THE ACCENT AND IT IS SELECTED BY POSITION, because the
+   wireframe gives that column no class. Latitude is the accent's first job. The
+   stage 06 audit found the concept stand accenting it and the real screen not,
+   which made the stand a claim about a screen rather than a picture of one.
+
+   THE FLUSH VARIANT IS THE CONTEXT PATCH TURNED INTO MARKUP. kit.css line 622
+   dropped the side padding with `.pane-body .frow`, which is the parent reaching
+   into the child, and the reason was sound: the pane body already pads its
+   contents. It is `.frow--flush` now, 12 instances, carried by the markup. No
+   pixel moves.
+   ---------------------------------------------------------------------------- */
+
+.frow{
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 118px 92px;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-bottom: var(--rule-hair);
+  font-size: var(--size-sm);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* latitude, by position. The third child is `rec` and carries its own ink. */
+.frow:not(.frow--head) > span:nth-child(2){ color: var(--text-accent) }
+
+/* -- head --------------------------------------------------------------------- */
+.frow--head{
+  background: var(--bg-surface);
+  border-bottom: var(--rule-edge);
+  font: 600 var(--size-xs)/1.2 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* -- flush. Inside a pane body, which already pads its contents ---------------- */
+.frow--flush{ padding-left: 0; padding-right: 0 }
+
+/* -- STATES -------------------------------------------------------------------
+   IT HOVERS ONE STEP LOUDER THAN THE QUEUE ROW, and that is deliberate rather
+   than inconsistent. A queue row is one of two hundred and hover is a pointer
+   passing; a fleet row is one of forty and hover is the analyst comparing two
+   tenants, so the ground has to hold the comparison. --bg-selected, 1.23 off the
+   page against the queue row's 1.05. */
+.frow:hover:not(.frow--head){ background: var(--bg-selected) }
+
+/* focus-visible is global, in base.css.
+   NO SELECTED STATE. Nothing in the fleet is being ruled on: it is the record,
+   and the thing you rule on is a case. */
+
+
+/* -- 360. Three zones become two, and the record takes the second --------------
+   Latitude is the zone that goes: on a phone the analyst is reading a record,
+   not deciding how much rope to give. */
+@media (max-width:900px){
+  .frow{ grid-template-columns: minmax(0,1fr) 96px; padding: var(--space-2) var(--space-3) }
+  .frow .rec{ grid-column: 2 }
+}

@@ -1,0 +1,40 @@
+/* addr :: MOLECULE
+   READS. Fill: --bg-surface. Line: --rule-hair. Geometry: --radius-ui, --size-sm,
+   --space-2, --space-3.
+   CONTAINS. btn, on the ones that offer to copy.
+   PAGE. design/kit/addr.html   STANDS ON. 5 renderings across 5 screens, all of
+   them node 5.4's states. The header said six; the sixth is node 8.1's `nf-addr`,
+   which the inventory explicitly keeps out of the kit.
+
+   THE ADDRESS OF A THING, RENDERED SO IT CAN BE TAKEN. A log entry's `?as-of`
+   permalink, and the address a deep link was heading for before the door asked
+   who you are. Both are strings somebody pastes into a ticket at 03:00, so both
+   get a boundary, a ground and a button rather than being a run of text.
+
+   kit.css CALLS IT ONE COMPONENT IN AS MANY WORDS: it existed twice, on node 5.4
+   and on node 8.1, with the same hairline and the same wrapping, and it says the
+   sign in page CAN adopt it instead of a bare code chip. It has not: no door page
+   carries the class. The header said adopted, which turned a proposal into a fact,
+   and a reader with clean context caught it. It still was not in the register,
+   which is the finding in inventory.md section 13.
+
+   THE CODE FLEXES FROM 220px AND WRAPS ANYWHERE. A URL with a 27 character query
+   parameter and no space in it left the box at 360 otherwise, which is the same
+   defect `stamp` carries the same cure for. */
+
+.addr{
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--space-2) var(--space-3);
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+  background: var(--bg-surface);
+}
+.addr code{
+  flex: 1 1 220px;
+  font-size: var(--size-sm);
+  overflow-wrap: anywhere;
+}
+/* NO STATES. The copy button carries its own. */

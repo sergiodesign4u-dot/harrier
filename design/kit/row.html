@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Queue row</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix w-. A WIDE COMPONENT GETS THE FULL COLUMN AND THE TWO THEMES STACK.
+   Seven zones need 726px before the gaps, and half of the article column is 525. Squeezing
+   the bench would document a rendering the product does not have; the themes go one above
+   the other instead, which costs a scroll and no truth. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-bench-row > div, .k-cell > div{ overflow-x:auto }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+@media (max-width:900px){ .k-bench-half{ padding:var(--space-3) } }
+/* A component wider than the stand's narrow column scrolls INSIDE its own bench rather than
+   being shrunk. The product gives it more room than a documentation page does, and squeezing
+   it here would document a rendering that does not exist. */
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Queue row</h1>
+<p class="k-lede">The largest component in the product: <b>259 instances across 39 screens</b>, 200 in the queue and 25 in the log. Seven zones, and every one of them is there to answer the same question.</p>
+<p class="k-note"><b>Design principle 1 is this component.</b> Every row is a decision, not a record: if a line in the queue does not tell the analyst what to do next, it does not earn its height. That is why there are seven zones and not four, and why the verdict Clerk proposes is one of them rather than something you open the case to find.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:920px;border:var(--rule-edge)">
+        <a class="row" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span><span class="client">Meridian Health</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a>
+        <a class="row is-selected" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span><span class="client">Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:920px;border:var(--rule-edge)">
+        <a class="row" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span><span class="client">Meridian Health</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a>
+        <a class="row is-selected" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span><span class="client">Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.row</code><span>the whole line. An <code>a</code> in the product, so the row is one tab stop and the keyboard traversal the split pane depends on costs nothing extra</span></li>
+  <li><code>.sev</code><span>severity, its own molecule. First, because it is what sorts one row from the next before anything is read</span></li>
+  <li><code>.client</code><span>the tenant, weight 600. Design principle 4: the same signal is a Tuesday at one client and an incident at another</span></li>
+  <li>third cell<span>what it is, in secondary ink. It steps back behind who it is at and what to do about it</span></li>
+  <li><code>.concluded</code><span><b>Clerk’s verdict, and the reason the row is a decision.</b> The <code>b</code> comes up to --size-md and the line under it takes the accent when it is about latitude</span></li>
+  <li><code>.cost</code>, <code>.age</code><span>mono, right aligned, so two columns of figures read down rather than ragged</span></li>
+  <li><code>.states</code><span>holds <code>state</code>, one to four of them</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">Two axes and no third. Both are settled by where the row stands rather than by anybody choosing.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><b>list</b></td><td><code>.row</code></td><td class="num">200</td>
+        <td>the queue. Seven zones at <code>--row-tracks</code></td></tr>
+    <tr><td><code>.row--log</code></td><td class="num">25</td>
+        <td><b>the same seven zones at different widths</b>, <code>--row-tracks-log</code>. Nothing appears and nothing disappears, which is exactly why this is a variant and the shift brief’s line is not</td></tr>
+    <tr><td><b>head</b></td><td><code>.row--head</code></td><td class="num">39</td>
+        <td>sticky, so the column names stay while two hundred rows go past under them. It is a row and it is <b>not a decision</b>, which is why it is a variant rather than its own component and why it takes none of the states</td></tr>
+    <tr><td><b>size</b></td><td class="k-none">no values</td><td class="num">&ndash;</td>
+        <td><b>Prohibited.</b> Density is design principle 5 and the row is already at 12.5px on a 1.35 line. A comfortable row would be an admission that the dense one is unreadable</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Two track sets stopped being values from nowhere in this round.</b> The second instrument at step 1 found five declarations of <code>--row-tracks</code> and said two of them carried values recorded in no document. They are <code>--row-tracks-log</code> and <code>--row-tracks-moved</code> in <code>tokens.css</code> now, and the component files read them rather than writing a track list of their own.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">This is the queue, and the queue is the product. Rasha arrives at eighteen of these across twelve of forty tenants and has to know which three to open first. The row exists so that she can decide <b>without opening anything</b>: severity sorts, the client gives it context, and the verdict tells her whether Clerk has already done the work.</p>
+<p class="k-note"><b>Where she meets it.</b> Six hours a day. That is the whole argument for 12.5px, a 1.35 line and no decorative whitespace, and it is why the hover is the quietest in the system: a pointer passing over a row is not a decision, and 265 rules in this product agree.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div style="border:var(--rule-edge)"><a class="row" href="#rules"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span><span class="client">Meridian Health</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a></div></div>
+    <p>Seven zones, all filled, one line. The verdict is on the row, so the analyst can rule on the list without opening the pane.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div style="border:var(--rule-edge)"><a class="frow" href="#rules"><span>Meridian Health</span><span>Investigate</span><span class="rec">31 of 36<span class="was">was 34 of 36</span></span></a></div></div>
+    <p>Not for the fleet. That is <b><code>frow</code></b>, three zones, and it is a record rather than a decision: nothing in it is waiting for a ruling, so it has no severity, no verdict and no selected state.</p>
+  </div>
+</div>
+<p class="k-note"><b>The superseded state is a hatch and not a colour, and the reason is that there is no colour left.</b> The accent has four jobs and no fifth, and the severity ramp belongs to cases. A hatch also keeps the row readable, which matters: a ruling that was replaced is still a ruling and somebody is reading it to find out what happened.</p>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R9.</b> One selected row at a time, and none at 360: at that width selecting opens the standalone case instead.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede">Live, in both themes. Point at the first row, hold the pointer down, tab into it. The second one is selected.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:920px;border:var(--rule-edge)">
+        <a class="row" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span><span class="client">Meridian Health</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a>
+        <a class="row is-selected" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span><span class="client">Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:920px;border:var(--rule-edge)">
+        <a class="row" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span><span class="client">Meridian Health</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a>
+        <a class="row is-selected" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span><span class="client">Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b><span class="dim">above latitude here</span></span><span class="cost">4m</span><span class="states"><i class="state">decided</i></span><span class="age">26m</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Being ruled on takes two signals and not one.</b> The ground moves a full step further than hover, and a 3px inset in <code>--line-current</code> marks the edge. The inset is what survives at 360, where the ground alone is 1.23 off the page and the row is the only thing on the screen.</p>
+<p class="k-note"><b>The head takes no states at all.</b> It cannot be opened and it is not a decision. <b>Out of reach does not exist</b>: a case that cannot be opened is not in the queue.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-hover</code></td><td>fill</td><td>under the pointer, 1.05 off the page</td><td><span data-tok="--bg-hover" data-theme-read="dark"></span></td><td><span data-tok="--bg-hover" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-selected</code></td><td>fill</td><td>being ruled on</td><td><span data-tok="--bg-selected" data-theme-read="dark"></span></td><td><span data-tok="--bg-selected" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-current</code></td><td>line 3:1</td><td>the 3px inset on the selected row</td><td><span data-tok="--line-current" data-theme-read="dark"></span></td><td><span data-tok="--line-current" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the head, and the hatch on a superseded row</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the client and the verdict</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>what it is, the cost and the age</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-accent</code></td><td>ink 4.5:1</td><td>the latitude line under the verdict</td><td><span data-tok="--text-accent" data-theme-read="dark"></span></td><td><span data-tok="--text-accent" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the rule between rows, through --rule-hair</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;a class="row" href="case.html"&gt;
+  &lt;span class="sev"&gt;&lt;span class="bars"&gt;&lt;i class="on"&gt;&lt;/i&gt;&lt;i class="on"&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt; Medium&lt;/span&gt;
+  &lt;span class="client"&gt;Meridian Health&lt;/span&gt;
+  &lt;span&gt;Token replay from a new ASN&lt;/span&gt;
+  &lt;span class="concluded"&gt;&lt;b&gt;Compromised identity&lt;/b&gt;&lt;span class="dim"&gt;above latitude here&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="cost"&gt;4m&lt;/span&gt;
+  &lt;span class="states"&gt;&lt;i class="state"&gt;decided&lt;/i&gt;&lt;/span&gt;
+  &lt;span class="age"&gt;26m&lt;/span&gt;
+&lt;/a&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">the queue &middot; 200</a>
+  <a href="../entry.html">the log &middot; 25</a>
+  <a href="../queue-decided.html">a ruled row &middot; 23</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

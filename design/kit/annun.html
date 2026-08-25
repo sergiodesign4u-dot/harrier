@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Annunciator</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+  /* Page-local, and it describes the STAND's own wrapper rather than the component.
+     The strip is nowrap above 1400px and it is wider than half of this article, which is
+     narrower than the top bar it really stands in. The wrapper scrolls so the bench shows
+     the real nowrap rendering instead of a wrapped one the product never draws at 1440. */
+  .an-scroll{ width:0; min-width:100%; overflow-x:auto }
+  .an-scroll > .annun{ margin:0 }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Annunciator</h1>
+<p class="k-lede">The one fixed slot that reports on Clerk. Three parts in one order: <b>what the agent is doing, what it has done, and who is answering for it.</b> Node 0.3, read only in the MVP.</p>
+<p class="k-note"><b>55 renderings and zero html files.</b> <code>design/_shell.js</code> writes it, exactly like <code>navitem</code>, <code>z1</code> and <code>z2</code>. An inventory taken from the screens alone cannot see it, which is precisely why it was missing from the register: it has no class in any file. Of the 55, <b>31 screens pass a tenant reading of their own</b> and the rest take the fleet reading, which the shell holds as its default.</p>
+<p class="k-note"><b>It changes on the tenant, never on the arrow key.</b> With nothing selected it reads the fleet; with a case selected it reads that tenant. The accessible name follows the state for the same reason, because one fixed name would be false in one of the two readings.</p>
+<p class="k-note"><b>The count is 700 and that is allowed.</b> Attribute A3 permits weight 700 on a counted value only, and this is one of the two places in the product that qualifies. The other is <code>readout</code>, which was breaking the same rule until round 2 measured it.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>Both halves below scroll sideways, and the reason is this page rather than the component.</b> The strip in its nowrap form measures <b>700px</b> for the reading shown, and a half of this article at 1440 gives it <b>525px</b>. In <code>z1</code> it has the width of the top bar left over after the wordmark, three navigation items, the keyboard map and the analyst&rsquo;s name, which is where the 1280 defect below was found. Drag either half to read the third part, or narrow the window past 1400 to see the form the product draws at its declared minimum.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="an-scroll">
+        <p class="annun"><b>LARKFIELD LOGISTICS</b><span class="sep">|</span><span class="part">acts alone up to <b>contain endpoint</b></span><span class="sep">|</span><span class="part"><b>34 of 36</b> accepted, 30 days</span><span class="sep">|</span><span class="part"><span class="ovrd">ACTED</span> 24m</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="an-scroll">
+        <p class="annun"><b>LARKFIELD LOGISTICS</b><span class="sep">|</span><span class="part">acts alone up to <b>contain endpoint</b></span><span class="sep">|</span><span class="part"><b>34 of 36</b> accepted, 30 days</span><span class="sep">|</span><span class="part"><span class="ovrd">ACTED</span> 24m</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.annun</code><span>the strip. A centred flex row inside <code>--rule-edge</code>, all of it 11px mono, and <code>white-space: nowrap</code> above 1400px so the three parts read as one line</span></li>
+  <li><code>b</code><span>the lead and every counted value inside a part, at weight 700 in the accent ink. It is the only accented text in the top bar, and what it accents is a figure</span></li>
+  <li><code>.sep</code><span><b>the <code>|</code> between parts, and it is a divider drawn as a character.</b> The one declared contrast exemption in the whole system</span></li>
+  <li><code>.part</code><span>one reading, and it has no declaration of its own. It exists because each part must be its own element: as bare text runs, hiding the separator at 360 merged the neighbours into one anonymous flex item and the fleet reading rendered as <code>40 tenantsacts alone up to</code></span></li>
+  <li><code>.ovrd</code><span>an override, on the inverted plate</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>reading</b></td><td>tenant</td><td>31</td><td>a case is selected, so the strip reads that client: what Clerk may do alone here, and its record on this tenant. Design principle 4 says tenant context is never more than a glance away, and this is the glance</td></tr>
+    <tr><td></td><td>fleet</td><td>24</td><td><b>nothing selected, and the strip does not go blank.</b> It reads across all forty: the count, the ceiling, and how many moved. It is the shell&rsquo;s default, so a screen that says nothing about a tenant gets it without asking</td></tr>
+    <tr><td><b>the third part</b></td><td><code>.ovrd</code></td><td>4</td><td><b>an override, inverted, and it is the loudest thing the strip can say:</b> the analyst has taken a decision out of the agent&rsquo;s hands. Four renderings carry one, and each names a case whose outcome the human decided</td></tr>
+    <tr><td><b>state</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>None, and it is a scope decision.</b> The strip is read only in the MVP: it reports, and there is nothing on it to press. Whether latitude is ever changed from here belongs to cluster 7, which is also where the <code>Clients</code> navigation item arrives</td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> A record of <code>34 of 36</code> is not an alarm and must not be drawn as one. The severity ramp says how bad a case is; this says how much rope the agent has earned, and colouring the second in the first&rsquo;s vocabulary would make earned trust read as a warning</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Nowhere by hand. It is a fixed slot in the top bar, written by the shell on every signed in screen, and it is placed by <code>z1</code> rather than by a page. Signed out, <code>z1</code> drops it along with the navigation and the keyboard map, because there is no tenant and no analyst to report on.</p>
+<p class="k-note"><b>Where she meets it.</b> Continuously, and mostly without looking at it. It is above every screen for six hours a day, which is the argument for 11px mono and no ornament: it has to be legible when she looks and silent when she does not. The one moment it is read deliberately is when she is deciding whether Clerk should have acted rather than asked, and the second part of the strip is the answer.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="an-scroll"><p class="annun"><b>FLEET</b><span class="sep">|</span><span class="part">40 tenants</span><span class="sep">|</span><span class="part"><b>1</b> moved down</span></p></div></div>
+    <p>The scope, then the count, then what changed. Every accented word is a figure, and the strip says what is true about the machine including the part that got worse.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="an-scroll"><p class="annun"><b>FLEET</b><span class="sep">|</span><span class="part"><span class="ovrd">40 TENANTS</span></span><span class="sep">|</span><span class="part">all healthy</span></p></div></div>
+    <p>Never the inverted plate on anything but an override. A case condition that is merely worth noticing is <code>state</code>, which carries thirteen words on three surfaces and is built for exactly that. Inverting a count spends the strip&rsquo;s loudest register on a number that is true every day.</p>
+  </div>
+</div>
+<p class="k-note"><b>It overflowed at 1280, which is the product&rsquo;s declared minimum, so this was a defect at the width the spec names.</b> Nowrap plus a third part pushed the analyst&rsquo;s name past the right edge, measured at 1344 in a 1280 window. Below 1400px it wraps inside its own border rather than losing a part or clipping the bar.</p>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R5.</b> No shell before authentication, and no annunciator on a console that cannot read Clerk.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none.</b> Read only in the MVP, and the strip reports rather than offers: no hover, no active, no focus ring, no out of reach. What looks like a state here is a reading, and a reading is decided by whether a tenant is selected rather than by anything the analyst does to the strip.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="an-scroll">
+        <p class="annun"><b>FLEET</b><span class="sep">|</span><span class="part">40 tenants</span><span class="sep">|</span><span class="part">acts alone up to <b>contain network</b> at 3</span><span class="sep">|</span><span class="part"><b>1</b> moved down</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="an-scroll">
+        <p class="annun"><b>FLEET</b><span class="sep">|</span><span class="part">40 tenants</span><span class="sep">|</span><span class="part">acts alone up to <b>contain network</b> at 3</span><span class="sep">|</span><span class="part"><b>1</b> moved down</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Narrow this page and watch the dividers go rather than the parts.</b> Below 900px the strip takes a line of its own under the bar, wraps, and drops every <code>|</code>: a separator that wraps onto a line by itself is a character with no job. Nothing else is removed, because each of the three parts is a different claim and none of them is the summary of the other two.</p>
+<p class="k-note"><b>Two declared departures, and both are written down rather than discovered.</b> At 360 the type goes to 10.5px, one of the two places in the product below the 11px floor. And the <code>|</code> measures 1.18 against its ground and is meant to: WCAG 1.4.1 does not cover a purely decorative glyph, and the exemption is declared in <code>design/kit/checks/contrast.mjs</code> so a value that stops being exempt shows up as a new line instead of staying quiet. It is declared as <b>ink</b> so the surface rule can see it at all, which is the point of declaring surfaces.</p>
+<p class="k-note"><b>One finding is open on it.</b> The <code>|</code> has no <code>aria-hidden</code>, so a screen reader announces it three times per strip on every screen. That was raised at the step 4 gate as a finding rather than settled as a decision, and it is still a finding.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-accent</code></td><td>ink 4.5:1</td><td>the lead and every counted value, at weight 700</td><td><span data-tok="--text-accent" data-theme-read="dark"></span></td><td><span data-tok="--text-accent" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-divider</code></td><td>ink, and exempt</td><td>the <code>|</code> between parts. <b>The one declared exemption in the system</b></td><td><span data-tok="--text-divider" data-theme-read="dark"></span></td><td><span data-tok="--text-divider" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-invert</code></td><td>fill</td><td>the override plate</td><td><span data-tok="--bg-invert" data-theme-read="dark"></span></td><td><span data-tok="--bg-invert" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-on-invert</code></td><td>ink 4.5:1</td><td>the override word, measured against its own plate rather than against the page</td><td><span data-tok="--text-on-invert" data-theme-read="dark"></span></td><td><span data-tok="--text-on-invert" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the border of the strip, through <code>--rule-edge</code></td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the parts, <b>inherited from <code>z1</code> and never set here</b></td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;!-- written by design/_shell.js, never by a screen --&gt;
+&lt;p class="annun" aria-label="Clerk’s latitude on this tenant"&gt;
+  &lt;b&gt;LARKFIELD LOGISTICS&lt;/b&gt;
+  &lt;span class="sep"&gt;|&lt;/span&gt;&lt;span class="part"&gt;acts alone up to &lt;b&gt;contain endpoint&lt;/b&gt;&lt;/span&gt;
+  &lt;span class="sep"&gt;|&lt;/span&gt;&lt;span class="part"&gt;&lt;b&gt;34 of 36&lt;/b&gt; accepted, 30 days&lt;/span&gt;
+  &lt;span class="sep"&gt;|&lt;/span&gt;&lt;span class="part"&gt;&lt;span class="ovrd"&gt;ACTED&lt;/span&gt; 24m&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;!-- what a screen actually writes --&gt;
+&lt;script&gt;WF_SHELL({ current:'queue', strip:'live' });&lt;/script&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">the fleet reading</a>
+  <a href="../case.html">a tenant reading</a>
+  <a href="../case-acted.html">an override, ACTED</a>
+  <a href="../queue-decided.html">an override, DECIDED by you</a>
+  <a href="z1.html">the bar it stands in</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

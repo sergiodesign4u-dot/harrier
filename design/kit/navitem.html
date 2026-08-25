@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Navigation item</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Navigation item</h1>
+<p class="k-lede">The global navigation, and the whole of it: <b>three items in the MVP</b>. 132 instances across 44 screens, and not one of them is in an HTML file. <code>design/_shell.js</code> writes the bar, which is why this component stood on 132 nodes for four stages without a class or a name.</p>
+<p class="k-note">Clients arrives with cluster 7 and is not here. <b>The fleet has no item of its own and never will</b>: it is the resting state of the Queue's right pane, so it costs zero taps and would cost one if it were a fourth item.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <nav style="display:flex;gap:var(--space-4)">
+      <a class="navitem is-current" href="#states">Queue</a>
+      <a class="navitem" href="#states">Shift</a>
+      <a class="navitem" href="#states">Log</a>
+      </nav>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <nav style="display:flex;gap:var(--space-4)">
+      <a class="navitem is-current" href="#states">Queue</a>
+      <a class="navitem" href="#states">Shift</a>
+      <a class="navitem" href="#states">Log</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.navitem</code><span>the whole component. An <code>a</code> every time, generated, never written by hand</span></li>
+  <li><code>.is-current</code><span>where you are. It is a state and not a variant: the same item wears it on one screen and not on the next</span></li>
+  <li><code>border-bottom</code><span>2px, and <b>always present</b>. Transparent when the item is not current, so arriving on a page does not move the other two items by two pixels</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">One axis, two values, and it is a state rather than a choice: which item is current is decided by the route, never by the person writing the markup.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>What changes</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><b>state</b></td><td><code>.navitem</code></td><td class="num">88</td>
+        <td>secondary ink, transparent underline</td>
+        <td>everywhere you are not</td></tr>
+    <tr><td><code>.navitem.is-current</code></td><td class="num">44</td>
+        <td>reading ink, weight 600, and the underline arrives in <code>--line-current</code></td>
+        <td><b>Exactly one per bar, and the route sets it.</b> Two signals rather than one, because at 360 the bar wraps and the underline can end up on its own line away from its neighbours</td></tr>
+    <tr><td><b>emphasis</b></td><td class="k-none">no values</td><td class="num">&ndash;</td><td class="k-none">prohibited</td>
+        <td><b>Three items cannot have a hierarchy among themselves.</b> They are the three intents of the MVP and none of them outranks another; a primary nav item would be a fourth answer to a question the sitemap already settled</td></tr>
+    <tr><td><b>out of reach</b></td><td class="k-none">no values</td><td class="num">0</td><td class="k-none">a rule with no wearer</td>
+        <td><b>kit.css carried one and nothing ever used it.</b> <code>.z1 nav span</code>, struck through in the hairline colour, for a section that cannot be opened. The generator emits an <code>a</code> every time and never a span: <b>zero instances in either corpus</b>. It goes to the reconciliation as a class nobody wears</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Only in Z1, and only for the three clusters of intent. This is the one component in the system whose count is settled by the IA rather than by a screen: <code>ia/docs/sitemap.md</code> decides what is in the bar, and a fourth item arrives when a cluster does, not when a screen needs a shortcut.</p>
+<p class="k-note"><b>Where she meets it.</b> At the start of a shift and almost never afterwards. Rasha lives in the Queue for six hours, and the bar exists so that the two other places she has to answer for, the Shift and the Log, are one click away rather than a search. It is the least used control in the product and it still has to say where she is at a glance, because a case opened from a pager at 03:00 lands her somewhere she did not choose.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><nav style="display:flex;gap:var(--space-4)"><a class="navitem is-current" href="#rules">Queue</a><a class="navitem" href="#rules">Shift</a></nav></div>
+    <p>One current item, ink and underline together. The bar answers where am I before it answers where can I go.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="link" href="#rules">Open this entry in the log</a></div>
+    <p>Not for moving between screens inside the page. That is <b><code>link</code></b>. A navitem is a place in the product's structure; a link is a way to something particular, and the difference is exactly the one the underline makes.</p>
+  </div>
+</div>
+<p class="k-note">And not for the fleet. <b>The fleet is the resting state of the Queue's right pane</b>, decided in <code>CLAUDE.md</code> and not reopened here: giving it a navitem would put a tap between the analyst and the thing this product is differentiated on.</p>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R10.</b> The fleet has no route and no navigation item. A route would make the differentiator a place you go.</li>
+  <li><b>R5.</b> No shell before authentication, and no annunciator on a console that cannot read Clerk.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede">Live, in both themes, and nothing here is a picture. Point at an item that is not current, press Tab into the row.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <a class="navitem is-current" href="#states">Queue</a>
+      <a class="navitem" href="#states">Shift</a>
+      <a class="navitem" href="#states">Log</a>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <a class="navitem is-current" href="#states">Queue</a>
+      <a class="navitem" href="#states">Shift</a>
+      <a class="navitem" href="#states">Log</a>
+    </div>
+  </div>
+</div>
+<div class="k-gesture">
+  <div><b>Point at one</b><p>hover. The ink comes up to reading strength and nothing else moves.</p></div>
+  <div><b>Press Tab</b><p>focus-visible. The ring, declared once in <code>base.css</code>.</p></div>
+</div>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>State</th><th>What it overrides</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><b>rest</b></td><td><code>--text-secondary</code></td>
+        <td><span data-tok="--text-secondary" data-theme-read="dark"></span></td>
+        <td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><b>current</b></td><td><code>--text-primary</code><br><code>--line-current</code></td>
+        <td><span data-tok="--text-primary" data-theme-read="dark"></span><span data-tok="--line-current" data-theme-read="dark"></span></td>
+        <td><span data-tok="--text-primary" data-theme-read="light"></span><span data-tok="--line-current" data-theme-read="light"></span></td></tr>
+    <tr><td><b>hover</b></td><td><code>--text-hover</code></td>
+        <td><span data-tok="--text-hover" data-theme-read="dark"></span></td>
+        <td><span data-tok="--text-hover" data-theme-read="light"></span></td></tr>
+    <tr><td><b>focus-visible</b></td><td><code>--color-focus</code>, through <code>base.css</code></td>
+        <td><span data-tok="--color-focus" data-theme-read="dark"></span></td>
+        <td><span data-tok="--color-focus" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="k-note"><b>This component is why <code>--text-hover</code> exists.</b> It has neither a ground nor a boundary it could move: a plate under a nav item makes it read as a button, and a boundary competes with the underline that means you are here. Ink is the only surface left, and the surface rule forbids borrowing <code>--line-hover</code> for it even though the two are the same colour today. The three together say one sentence: <b>hover raises whatever it touches to full strength on its own surface.</b></p>
+<p class="k-note"><b>Active is the same move as hover</b>, declared rather than left out so nobody adds a third step later thinking it was forgotten: the navigation follows immediately and there is nothing a pressed state could say that the arrival does not. <b>Out of reach does not exist</b>, and the rule that drew it is the row above.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<p class="k-note">Ink and one line, no fill at all. <code>--text-secondary</code>, <code>--text-primary</code>, <code>--text-hover</code>, <code>--line-current</code>. Geometry straight from primitive: <code>--size-md</code> and <code>--space-2</code>.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;nav aria-label="Sections"&gt;
+  &lt;a class="navitem is-current" href="queue.html" aria-current="page"&gt;Queue&lt;/a&gt;
+  &lt;a class="navitem" href="shift.html"&gt;Shift&lt;/a&gt;
+  &lt;a class="navitem" href="entry.html"&gt;Log&lt;/a&gt;
+&lt;/nav&gt;</div>
+<p class="k-note"><b>You will not write this by hand.</b> <code>design/_shell.js</code> emits the whole bar from one call, and step 6 is what puts the class into the generator. <code>aria-current="page"</code> and <code>.is-current</code> carry the same fact to two audiences and both are required.</p>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">Z1, every authenticated screen &middot; 132</a>
+  <a href="../index-signed-out.html">and not on the door &middot; z1--out drops it</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

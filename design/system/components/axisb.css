@@ -1,0 +1,50 @@
+/* axisb :: MOLECULE
+   READS. Ink: --text-primary, --text-secondary. Line: --text-secondary, dashed.
+   Geometry: --font-mono, --radius-ui, --size-sm, --size-xs, --space-2, --space-3.
+   CONTAINS. opt, when the axis is open.
+   PAGE. design/kit/axisb.html   STANDS ON. 3 instances across 3 screens, in the
+   reject dialog.
+
+   THE SECOND AXIS OF A REJECTION, AND THE REASON FOUR TAPS NEVER BECAME FIVE.
+   CLAUDE.md measures it: reject costs four taps against accept's two, and what
+   stage 04 bought is that FIVE OF SIX REASONS DERIVE THE SECOND AXIS. When the
+   reason settles where the case goes, this component shows the answer LOCKED
+   rather than asking again. Only the sixth reason opens it as a list.
+
+   THE LOCKED FORM IS DASHED AND NOT DISABLED. It is not a control that cannot be
+   used: it is an answer that has already been given, by the choice above it. A
+   disabled control here would be the fifth tap dressed as a sixth. */
+
+.axisb{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.axisb .locked{
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  border: 1px dashed var(--text-secondary);
+  border-radius: var(--radius-ui);
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-secondary);
+  font-size: var(--size-sm);
+}
+.axisb .locked b{ color: var(--text-primary); font-weight: 600 }
+
+/* THE DESTINATION READS THE SAME WAY WHETHER THE AXIS IS OPEN OR LOCKED. `.routes`
+   was declared only as `.opt .routes`, so inside a locked axis it rendered at the
+   box's 12.5px sans instead of 11px mono pushed right, on two screens. Found by a
+   reader with clean context. Two components declaring one cell is the price of the
+   cell belonging to neither. */
+.axisb .routes{
+  margin-left: auto;
+  flex: 0 0 auto;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* NO STATES. When the axis is open it holds `opt`, which carries its own. */

@@ -1,0 +1,143 @@
+/* Harrier design system :: base
+   ============================================================================
+   What belongs to no component: the reset, the document's own type, the default
+   a link takes, the focus outline, the three global text utilities, and the one
+   surface that is not a screen at all.
+
+   Everything here is lifted from design/kit/kit.css unchanged in what it does.
+   What changed is which name each declaration reads: a colour now goes through a
+   role from tokens.css, never through a primitive.
+
+   This file assumes tokens.css is already loaded. It is not imported here on
+   purpose: index.css is the single entry point and it is born at step 5, with
+   the first component. Nothing links either file yet.
+   ============================================================================ */
+
+
+/* ---- reset, and it is three lines because that is all the product needs ---- */
+*,*::before,*::after{ box-sizing:border-box }
+html,body{ margin:0; padding:0 }
+
+
+/* ---- the document ---------------------------------------------------------
+   The one place the page's ground and ink are set. Every screen inherits both,
+   which is why a theme flip needs no rule anywhere else. */
+body{
+  background:var(--bg-page);
+  color:var(--text-primary);
+  font:var(--size-md)/var(--leading) var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+}
+
+
+/* ---- a link takes the ink of whatever it sits in ---------------------------
+   Written at the lowest specificity in the system and above every component, so
+   any class that wants its own colour still wins.
+
+   Without it stage 07 shipped 151 browser blue links across 27 screens, in the
+   one stage whose contract says there is no colour. Nothing declared them, so
+   nothing flagged them: the defect was an ABSENT rule, and an instrument that
+   greps can only see rules that exist. It took asking the browser for a computed
+   colour to find it, which is the same instrument that found the drift at step 1. */
+a{
+  color:inherit;
+  text-decoration-color:var(--text-secondary);
+  text-underline-offset:2px;
+}
+a:hover{ text-decoration-color:var(--text-hover) }
+/* the class version of the same thing is components/link.css. This rule stays as the SAFETY
+   NET for an `a` that carries no class, and it is the reason the blue never comes back. */
+
+
+/* ---- focus, and it is visible only to the keyboard ------------------------
+   focus-visible rather than focus: the ring is for whoever came by tab and is in
+   the way of whoever came by mouse. Design principle 5 puts keyboard first, so
+   this is the one outline in the product and it is never removed.
+
+   --focus-ring reads --color-focus, founded at step 5 in both themes and checked
+   at the non-text floor of 3:1 because a ring is a line and not text. It is
+   declared HERE and in no component file: everything focusable takes the same
+   ring, and thirty per-component copies is how thirty rings drift apart.
+   The 1px offset is load bearing rather than decorative: on .btn--primary the
+   ring sits on the accent ground at 1.00 without it. */
+:focus-visible{ outline:var(--focus-ring); outline-offset:1px }
+
+
+/* ---- the three global text utilities MOVED OUT OF HERE at step 6 -----------
+   They are in design/system/utilities.css, which is the LAST import rather than
+   one of the first. A utility that comes before the components loses to any of
+   them at equal specificity, which is not what a utility is for. The file that
+   replaced them says what it cost to find that out. */
+
+
+/* ---- the documentation panel's own frame ----------------------------------
+   Not product. It is here because the panel travels with every screen, and
+   because leaving it out would give the reader a stripe of unpainted ground on
+   every page. --nav-w is declared in /_nav.css, which owns the panel's width;
+   the five colour names it reads are remapped in tokens.css section 2e. */
+#sidebar{
+  flex:0 0 var(--nav-w);
+  border-right:var(--rule-hair);
+  background:var(--bg-page);
+  min-width:0;
+
+  /* IT TRAVELS WITH THE SCROLL, and this is the one rule here that is about the READER
+     rather than about the product. A component page is two thousand pixels long and the
+     panel is how you reach the next component, so scrolling it out of reach turns every
+     move between components into a scroll back to the top.
+     Three declarations and all three are load bearing. align-self, because .wf-shell
+     stretches its items to full height and a stretched item has nothing to stick inside.
+     max-height and overflow, because with seventeen atoms the list is already taller than
+     a laptop viewport and a sticky panel taller than the screen hides its own last item.
+     top:0, because neither surface has a fixed header above it; research/_page.css solves
+     the same problem with top:56px and the difference is that those pages have one.
+     On a product screen the shell is exactly 100vh and scrolls inside its own zones, so
+     this costs nothing there and is simply never triggered.
+     design/_nav.js injects the same three declarations for the stage 07 pages, which do not
+     link this file yet. That is one mechanism in two places and it is temporary: step 8 puts
+     the product on index.css and the injected copy goes with it. */
+  align-self:flex-start;
+  position:sticky;
+  top:0;
+  max-height:100vh;
+  overflow-y:auto;
+  overscroll-behavior:contain;   /* the page does not start moving when the panel ends */
+}
+
+/* At 360 the panel stacks above the article on every surface in this project, so sticking
+   it would cover a third of the one viewport that has none to spare. */
+@media (max-width:900px){
+  #sidebar{
+    position:static; max-height:none; overflow:visible;
+    /* the panel stacks above the article here, so the divider turns through ninety
+       degrees with it. Ported from kit.css, and missing until the attribution
+       instrument found a right border on a panel that no longer has anything to
+       its right. */
+    width:auto; flex:none;
+    border-right:none;
+    border-bottom:var(--rule-edge);   /* the product's own weight; the stand keeps a hairline */
+  }
+}
+
+
+/* ---- the artefact that leaves the building --------------------------------
+   Settled at the close of 03b: in print every expansion is open, the address is
+   on the page, and the panel is gone.
+
+   This block names component classes and still lives here rather than being
+   split across five component files. Print is a SURFACE, not a component, and
+   scattering it would mean nobody could ever read what the printed record looks
+   like without opening five files. The exception is written down rather than
+   assumed, and step 9 checks it is still the right call.
+
+   True black on true white, and not the screen greys: --text-primary is a warm
+   bone that prints as nothing at all. This is the one place in the system where
+   a literal colour is correct, and it is said out loud here because two critique
+   instruments flagged it independently before the reason was written down. */
+@media print{
+  #sidebar,.z1,.z2{ display:none }
+  .frame{ border:2px solid #000; margin:0 }
+  .rail { position:static; background:#fff; color:#000; border-bottom:2px solid #000 }
+  .expand{ display:block }
+  .doc  { padding:16pt }
+}

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Moved rows</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bx-. A WIDE COMPONENT GETS THE FULL COLUMN AND THE TWO THEMES STACK.
+   Four zones need 292px of fixed track before the flexible one and the gaps, and half of the
+   article column leaves the middle column nothing. Squeezing the bench would document a
+   rendering the product does not have. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+@media (max-width:900px){ .k-bench-half{ padding:var(--space-3) } }
+
+/* THE BENCH IS THE DOCUMENT, and it is what makes the point of the component visible.
+   In the product this list sits inside a block inside a brief, and the brief is the thing
+   that scrolls. Here the bench is a 240px scrolling box holding a block, so the reader can
+   see the list going past WITH the document rather than inside a second scrollbar. */
+.bx-brief{ height:240px; overflow-y:auto; width:100%; border:var(--rule-edge);
+           background:var(--bg-page); padding:var(--space-4) }
+/* AT 360 THE HANDOVER LINE KEEPS ITS FOUR ZONES, and this column is narrower than the desk
+   brief it is drawn for. The three fixed tracks of --row-tracks-moved plus their gaps come to
+   less than a phone and more than this bench, so without a floor the flexible middle track
+   collapses to nothing and the sentence sets one character wide. The floor is the three fixed tracks, their
+   gaps, and 180px for the flexible one, which is roughly what the sentence gets on the desk.
+   The box then scrolls sideways rather than squashing: a squashed rendering is one the product
+   does not have. */
+@media (max-width:900px){
+  .bx-brief{ padding:var(--space-2) }
+  .bx-brief .rows-moved{ min-width:calc(132px + 180px + 116px + 44px + 3 * var(--space-2)) }
+}
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Moved rows</h1>
+<p class="k-lede">The list of what moved while you were away. <b>5 instances across 5 screens</b>, inside a block in the shift brief, and nowhere else.</p>
+<p class="k-note"><b>The container the row split also created</b>, and it is the reason the organisms went from 16 to 19 at step 2 rather than to 18. When <code>.rows--moved .row</code> became its own component, the list around it became one too: it holds a different row, it does not scroll, and it draws a rule above itself because it sits inside a block rather than filling a zone.</p>
+<p class="k-note"><b>It does not scroll, and that is the whole difference from <code>rows</code>.</b> A handover is read from the top in one pass. A scroll box here would hide the last thing that moved behind a scrollbar, inside a document that already scrolls.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>What the bench is standing in.</b> A 240px scrolling box, which is <code>brief</code>: the surface that scrolls in the product. Scroll it, and the list goes past with the document rather than inside a scrollbar of its own. That is the component, and a bench that gave the list its own height would have hidden it.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-brief">
+        <section class="block">
+          <h3>What moved this shift</h3>
+          <div class="rows-moved" role="grid" tabindex="0">
+            <div class="row-moved row-moved--head" role="row"><span role="columnheader">Tenant</span><span role="columnheader">What changed</span><span role="columnheader">State</span><span role="columnheader">When</span></div>
+            <div class="row-moved" role="row"><span>Larkfield Logistics</span><span>Token replay from a new ASN. <b>Escalated to S. Varga</b>, and no verdict was filed, so it is still open</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+            <div class="row-moved" role="row"><span>Meridian Health</span><span>Impossible travel, ruled benign by D. Okonkwo</span><span class="states"><i class="state">decided</i></span><span class="when">4h</span></div>
+            <div class="row-moved" role="row"><span>Halden Freight</span><span>Inbox rule created, still waiting on a decision since before this shift</span><span class="states"></span><span class="when">9h</span></div>
+            <div class="row-moved" role="row"><span>Ardwick Trust</span><span>Password spray on 40 accounts, blocked at the edge, closed by Clerk alone</span><span class="states"><i class="state">decided</i></span><span class="when">11h</span></div>
+            <div class="row-moved" role="row"><span>Selkirk Mutual</span><span>New device enrolment during onboarding, closed by Clerk alone</span><span class="states"><i class="state">decided</i></span><span class="when">12h</span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-brief">
+        <section class="block">
+          <h3>What moved this shift</h3>
+          <div class="rows-moved" role="grid" tabindex="0">
+            <div class="row-moved row-moved--head" role="row"><span role="columnheader">Tenant</span><span role="columnheader">What changed</span><span role="columnheader">State</span><span role="columnheader">When</span></div>
+            <div class="row-moved" role="row"><span>Larkfield Logistics</span><span>Token replay from a new ASN. <b>Escalated to S. Varga</b>, and no verdict was filed, so it is still open</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+            <div class="row-moved" role="row"><span>Meridian Health</span><span>Impossible travel, ruled benign by D. Okonkwo</span><span class="states"><i class="state">decided</i></span><span class="when">4h</span></div>
+            <div class="row-moved" role="row"><span>Halden Freight</span><span>Inbox rule created, still waiting on a decision since before this shift</span><span class="states"></span><span class="when">9h</span></div>
+            <div class="row-moved" role="row"><span>Ardwick Trust</span><span>Password spray on 40 accounts, blocked at the edge, closed by Clerk alone</span><span class="states"><i class="state">decided</i></span><span class="when">11h</span></div>
+            <div class="row-moved" role="row"><span>Selkirk Mutual</span><span>New device enrolment during onboarding, closed by Clerk alone</span><span class="states"><i class="state">decided</i></span><span class="when">12h</span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.rows-moved</code><span>the list. Three declarations and no more than that</span></li>
+  <li><code>flex:0 0 auto</code><span>it takes its content&rsquo;s height and never grows into the space around it. The opposite of <code>rows</code>, which takes what is left</span></li>
+  <li><code>overflow:visible</code><span><b>declared rather than left out.</b> Written down because the neighbouring component sets <code>auto</code>, and a property that matters is a property that is said out loud</span></li>
+  <li><code>border-top</code><span><code>--rule-hair</code>. It sits inside a block rather than filling a zone, so it draws its own line off the heading above it</span></li>
+  <li><code>.row-moved</code><span>the line inside it. Four zones at <code>--row-tracks-moved</code>, its own component, and the reason this one exists</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>none</b></td><td><span class="k-none">no values</span></td><td class="num">5</td><td>All five instances are the same list. What differs is how many lines are in it, and <b>a count is not a variant</b></td></tr>
+    <tr><td><b>list</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> There is one handover list and it holds one kind of line. A second track set here would be the argument that split this component off <code>rows</code> in the first place, made again and answered differently</td></tr>
+    <tr><td><b>scroll</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and it is the definition of the component.</b> A scrolling handover list is <code>rows</code>. If a brief ever needs one, the brief is too long</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>It was <code>.rows--moved</code> in <code>kit.css</code>, a variant of <code>rows</code>.</b> Step 2 ruled the rename on the anatomy criterion and step 6 executed it: the five screens carry <code>rows-moved</code> now, and the row inside them carries <code>row-moved</code>. <b>Not one pixel moved.</b> The reconciliation table in <code>docs/inventory.md</code> is where both rows are recorded.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In the shift brief, in the block that answers what moved while you were away, once. It is not a general list container: anything that fills a zone and can run past its own height is <code>rows</code>.</p>
+<p class="k-note"><b>Where she meets it.</b> Twice a shift, at the two moments the console is not about a case: coming on, and handing off. That is the second of the three MVP jobs, and this list is the part of it that answers <b>what did I miss</b>. Everything in it has already happened, which is why nothing in the line is a decision and why there is no severity column to sort by.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-brief" style="height:auto"><section class="block"><h3>What moved this shift</h3><div class="rows-moved"><div class="row-moved row-moved--head"><span>Tenant</span><span>What changed</span><span>State</span><span>When</span></div><div class="row-moved"><span>Larkfield Logistics</span><span>Token replay. <b>Escalated to S. Varga</b>, still open</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div><div class="row-moved"><span>Meridian Health</span><span>Impossible travel, ruled benign</span><span class="states"><i class="state">decided</i></span><span class="when">4h</span></div></div></section></div></div>
+    <p>Every line visible, the whole block as tall as its content, and the page around it doing the scrolling. Nothing about the handover is hidden below a fold inside a fold.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-brief" style="height:auto"><section class="block"><h3>What moved this shift</h3><div class="rows" style="height:74px;border-top:var(--rule-hair)"><div class="row-moved"><span>Larkfield Logistics</span><span>Token replay. <b>Escalated to S. Varga</b>, still open</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div><div class="row-moved"><span>Meridian Health</span><span>Impossible travel, ruled benign</span><span class="states"><i class="state">decided</i></span><span class="when">4h</span></div></div></section></div></div>
+    <p>Never <b><code>rows</code></b> here. It is the scroll container of the queue, and inside a document it produces a second scrollbar: the last thing that moved goes below a fold the analyst has no reason to expect, on the one surface she reads exactly once.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>None, and neither has the line inside it.</b> That is the difference from the queue row that is easiest to miss: a queue row is <b>opened</b> and a handover line is <b>read</b>. No hover, no selected, no <code>href</code>, because there is nothing at the other end of it. A hover here would say the shift can be re-opened.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-brief" style="height:auto">
+        <section class="block">
+          <h3>What moved this shift</h3>
+          <div class="rows-moved">
+            <div class="row-moved row-moved--head"><span>Tenant</span><span>What changed</span><span>State</span><span>When</span></div>
+            <div class="row-moved"><span>Larkfield Logistics</span><span>Token replay. <b>Escalated to S. Varga</b>, still open</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+            <div class="row-moved"><span>Meridian Health</span><span>Impossible travel, ruled benign</span><span class="states"><i class="state">decided</i></span><span class="when">4h</span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-brief" style="height:auto">
+        <section class="block">
+          <h3>What moved this shift</h3>
+          <div class="rows-moved">
+            <div class="row-moved row-moved--head"><span>Tenant</span><span>What changed</span><span>State</span><span>When</span></div>
+            <div class="row-moved"><span>Larkfield Logistics</span><span>Token replay. <b>Escalated to S. Varga</b>, still open</span><span class="states"><i class="state">escalated</i></span><span class="when">2h</span></div>
+            <div class="row-moved"><span>Meridian Health</span><span>Impossible travel, ruled benign</span><span class="states"><i class="state">decided</i></span><span class="when">4h</span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>The head row takes no states either, and it is a variant rather than a component.</b> Same argument as the queue&rsquo;s head: it names columns, it is not a decision, and it cannot be opened. 5 of the 35 handover lines in the product are heads.</p>
+<p class="k-note"><b>At 360 there is no shift brief at all</b>, so there is no narrow rendering of this list to document. Z4 hides the brief below 900, because coming on shift happens at a desk with two monitors and the phone has one scenario, a paged case read and escalated. The bench above keeps the desk rendering at that width and scrolls sideways to hold it, which is the nearest honest thing to showing nothing.</p>
+<p class="k-note">The container itself declares no media query. The line inside it keeps its four zones wherever it stands, because <code>row-moved</code> reads <code>--row-tracks-moved</code> directly rather than through the <code>:root</code> collapse that flattens the queue row to one column.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the rule above the list, through <code>--rule-hair</code>. The only thing this file paints</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+    <tr><td><span class="k-none">no fill</span></td><td>&ndash;</td><td>transparent. The brief&rsquo;s ground shows through</td><td><span class="k-none">&ndash;</span></td><td><span class="k-none">&ndash;</span></td></tr>
+    <tr><td><span class="k-none">no ink</span></td><td>&ndash;</td><td>it has no text of its own</td><td><span class="k-none">&ndash;</span></td><td><span class="k-none">&ndash;</span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the time column, declared by <code>row-moved</code> rather than here</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The five screens still write the line as an <code>a</code> with an <code>href</code> to the case.</b> <code>row-moved.css</code> forbids it in as many words, and the two have not been reconciled. What follows is the component file&rsquo;s form.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;section class="block"&gt;
+  &lt;h3&gt;What moved this shift&lt;/h3&gt;
+  &lt;div class="rows-moved" role="grid" tabindex="0"&gt;
+    &lt;div class="row-moved row-moved--head" role="row"&gt;&hellip;&lt;/div&gt;
+    &lt;div class="row-moved" role="row"&gt;&hellip;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../shift.html">the brief &middot; coming on</a>
+  <a href="../shift-outgoing.html">handing off</a>
+  <a href="../shift-nothing-carried.html">a shift with nothing to carry</a>
+  <a href="row-moved.html">the line itself</a>
+  <a href="rows.html">the list that scrolls</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Claim</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Claim</h1>
+<p class="k-lede">The line of evidence. <b>131 instances across 24 screens</b>, and after the row it is the most repeated thing in the product.</p>
+<p class="k-note">Three zones in one order: what kind of claim this is, the claim, and where it came from. Design principle 2 is built out of these: <b>the tag lets her skip, the sentence lets her judge, and the source lets her check</b>.</p>
+<p class="k-note"><b>It was not in the register.</b> Step 2 built the register from a browser census of <b>controls</b>, and this is a container. Found at step 5 by scanning every class that owns a rule block in <code>kit.css</code> against the register: twenty one came back and thirteen were components. <code>docs/inventory.md</code> section 13 has all of them.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <p class="claim"><span class="txt"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#a">Entra sign in</a></p>
+        <p class="claim claim--absence"><span class="txt"><span class="tag">not found</span>No second signal on this tenant in the same window.</span><span class="src">tenant baseline</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <p class="claim"><span class="txt"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#a">Entra sign in</a></p>
+        <p class="claim claim--absence"><span class="txt"><span class="tag">not found</span>No second signal on this tenant in the same window.</span><span class="src">tenant baseline</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.claim</code><span>one line of evidence, with a hairline above it and none on the first</span></li>
+  <li><code>.txt</code><span>the sentence, and <b>the tag sits inside it</b> rather than beside it. As a sibling the tag became a flex item and took a line of its own at 360, one line per claim on the densest surface in the product</span></li>
+  <li><code>src</code><span>its own atom, pushed right and never wrapping</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>absence</b></td><td>base</td><td>113</td><td>Clerk found something</td></tr>
+    <tr><td></td><td><code>.claim--absence</code></td><td>18</td><td><b>Clerk found nothing, and that is the fourth voice rule rendered:</b> say what is true about the machine, including what it did not find. The whole line dims together, tag, sentence and source, because <b>the absence is the claim</b> rather than a weaker version of one</td></tr>
+    <tr><td><b>severity</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> A claim is not a case. The severity ramp belongs to the row, and painting one line of evidence would tell the analyst which part of the argument to believe</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">In the evidence block of a case, once per thing Clerk found or looked for. It is the unit the analyst reads down until she either believes the verdict or does not.</p>
+<p class="k-note"><b>Where she meets it.</b> Dozens of times a shift, on the one surface the whole product exists for. Six hours a day is why the tag exists at all: it is what lets her read the fourth claim without reading the third.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><p class="claim" style="border:0"><span class="txt"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#r">Entra sign in</a></p></div>
+    <p>Kind, claim, source. The count names its scope and the source opens where it came from.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><p class="claim" style="border:0"><span class="txt">Suspicious sign in activity detected.</span></p></div>
+    <p>Never without a source and never as a summary. A claim with nowhere to check it is an assertion, and this product exists because the analyst arrives distrusting the machine.</p>
+  </div>
+</div>
+<p class="k-note">At 360 the claim wraps and the source takes its own line pushed right. Before that it parked at the top right and a two line claim read as two columns.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <p class="claim"><span class="txt"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#a">Entra sign in</a></p>
+        <p class="claim claim--absence"><span class="txt"><span class="tag">not found</span>No second signal on this tenant in the same window.</span><span class="src">tenant baseline</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:460px">
+        <p class="claim"><span class="txt"><span class="tag">identity</span>Token replay from a new ASN, 3 of 3 sessions.</span><a class="src" href="#a">Entra sign in</a></p>
+        <p class="claim claim--absence"><span class="txt"><span class="tag">not found</span>No second signal on this tenant in the same window.</span><span class="src">tenant baseline</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the whole line when it is an absence</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the hairline between claims</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;p class="claim"&gt;&lt;span class="txt"&gt;&lt;span class="tag"&gt;identity&lt;/span&gt;Token replay.&lt;/span&gt;&lt;a class="src" href="..."&gt;Entra sign in&lt;/a&gt;&lt;/p&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case.html">the evidence block &middot; 113</a>
+  <a href="../case-no-baseline.html">an absence &middot; 18</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

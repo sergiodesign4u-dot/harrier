@@ -1,0 +1,101 @@
+/* chip :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-page, --bg-invert, --bg-hover, --bg-active. Ink:
+   --text-primary, --text-secondary, --text-on-invert. Line: --rule-control,
+   --line-hover. Geometry: --size-xs, --font-sans, --radius-ui, --space-1,
+   --space-2.
+
+   PAGE. design/kit/chip.html
+   STANDS ON. 122 instances across 44 screens, all of them in .scopebar: the
+   filters above the queue and the scope of a rejection.
+
+   HALF OF IT LEFT AT STEP 2. `chip--state` was 194 instances of a word that
+   reports a condition, and a word you cannot press is not a chip. It became
+   `state`, its own component, and what stayed here is only what is pressable.
+   That is why this file declares cursor:pointer without a modifier turning it
+   off, which kit.css had to do.
+   ----------------------------------------------------------------------------
+   TWO DECLARATIONS COLLAPSED INTO ONE, the same pair as on the button:
+   --rule-edge at kit.css line 243 and --rule-control at line 837. The second was
+   the one that rendered, and it is the correct one: this is the boundary of a
+   control and 1.4.11 asks 3:1 of it.
+   ---------------------------------------------------------------------------- */
+
+.chip{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  border: var(--rule-control);
+  border-radius: var(--radius-ui);
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--size-xs);
+  line-height: 1;
+  text-decoration: none;
+  /* THE HEIGHT AND THE UNDERLINE ARE DECLARED BECAUSE THE ELEMENT WAS DECIDING THEM.
+     kit.css set only the family and the size, so everything else came from whichever
+     element the chip happened to be written as. In ONE scope bar on queue.html three
+     chips stood at THREE HEIGHTS: an `a` at 25.94 inheriting --leading from the body,
+     a `button` at 22.00 on the UA's line-height:normal, and another at 23.00 because
+     the caret glyph is taller than the cross. The `a` was also UNDERLINED, because
+     nothing removed it and .chip never said not to.
+     Both lines are here for the same reason .btn carries them: a component may not
+     render differently depending on which tag it is written as. 21.00px everywhere
+     now, which is padding plus one line, and the row is in tokens-audit.md.
+     Found by design/kit/checks/geometry.mjs, which measures the box on the product
+     screen and on the stand and compares. No reader and no grep sees this: both
+     declarations are correct and it is the ELEMENT that differs. */
+  background: var(--bg-page);
+  color: var(--text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* -- emphasis. Three values, and the axis is how settled the filter is -------- */
+
+/* NOT SET YET. A dashed boundary for a filter that has not been narrowed: "Sort:
+   default", "Any actor". It recedes to secondary ink because an unset filter is
+   not information, it is an offer. */
+.chip--ghost{
+  border-style: dashed;
+  color: var(--text-secondary);
+}
+
+/* THE SCOPE ITSELF, inverted out of the reading ink. Two instances, both in the
+   reject dialog, both naming the case being ruled on. */
+.chip--solid{
+  background: var(--bg-invert);
+  color: var(--text-on-invert);
+}
+
+/* -- STATES ------------------------------------------------------------------ */
+
+.chip:hover{
+  background: var(--bg-hover);
+  border-color: var(--line-hover);
+}
+.chip:active{
+  background: var(--bg-active);
+  border-color: var(--line-hover);
+}
+
+/* THE INVERTED CHIP TAKES NO HOVER, AND THIS IS A FINDING RATHER THAN AN
+   OMISSION. Both of its hover surfaces are already spent: the ground IS the
+   invert plate, which is the top of the ramp with no step above it, and the
+   boundary is what identifies it against that plate. Raising the boundary to
+   --line-hover would put bone on bone at 1.00.
+   The right cure is not a token for two instances, it is a product question:
+   the inverted plate is what this system uses for a thing that REPORTS, and an
+   interactive chip probably should not wear it. It goes to backlog.md at step 6.
+   Until then the pointer and the "x" carry it, and it is said out loud on the
+   page rather than left to be discovered. */
+.chip--solid:hover,
+.chip--solid:active{
+  background: var(--bg-invert);
+  border-color: var(--line-control);
+}
+
+/* focus-visible is global, in base.css.
+   OUT OF REACH DOES NOT EXIST. A filter that cannot be applied is not shown; the
+   scope bar renders the filters that apply to what is on the screen. Zero
+   instances of a disabled chip in either corpus. */

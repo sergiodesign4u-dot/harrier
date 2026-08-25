@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Chip</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Chip</h1>
+<p class="k-lede">The scope of what you are looking at, and the way to change it. 122 instances across 44 screens, every one of them in <code>scopebar</code>: the filters above the queue and the scope of a rejection.</p>
+<p class="k-note"><b>Half of this component left at step 2.</b> <code>chip--state</code> was 194 instances of a word that reports a condition, and <b>a word you cannot press is not a chip</b>. It became <code>state</code>, its own component, and what stayed here is only what is pressable. That is why this file declares <code>cursor:pointer</code> with no modifier turning it off, which <code>kit.css</code> had to.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <a class="chip" href="#states">All tenants &#9662;</a>
+      <a class="chip" href="#states">Waiting on a decision &times;</a>
+      <a class="chip chip--ghost" href="#states">Sort: default &#9662;</a>
+      <button class="chip" type="button">Sort: newest &#9662;</button>
+      <a class="chip chip--solid" href="#states">Case C-4417 &times;</a>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <a class="chip" href="#states">All tenants &#9662;</a>
+      <a class="chip" href="#states">Waiting on a decision &times;</a>
+      <a class="chip chip--ghost" href="#states">Sort: default &#9662;</a>
+      <button class="chip" type="button">Sort: newest &#9662;</button>
+      <a class="chip chip--solid" href="#states">Case C-4417 &times;</a>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.chip</code><span>the control. An <code>a</code> in the product, because changing the scope changes the address: a filtered queue is a place you can send someone</span></li>
+  <li>text node<span>the label. It says the scope in the analyst's words, not the field name: <b>All tenants</b>, not <b>tenant=*</b></span></li>
+  <li><span><code>&#9662;</code> or <code>&times;</code></span><span>the affordance, and the two are not interchangeable. <b>The caret opens a choice, the cross removes this one.</b> 77 carets against 45 crosses, and a chip carrying neither is not a control</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">Two axes. The first is how settled the filter is; the second is what pressing it will do, and it belongs to the content rather than to a class.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Rendered</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="3"><b>emphasis</b></td><td><code>.chip</code></td>
+        <td><span class="k-cell"><a class="chip" href="#variants">All tenants &#9662;</a></span></td>
+        <td>a filter that is set. The default, and most chips are it</td></tr>
+    <tr><td><code>.chip--ghost</code></td>
+        <td><span class="k-cell"><a class="chip chip--ghost" href="#variants">Sort: default &#9662;</a></span></td>
+        <td><b>not narrowed yet.</b> A dashed boundary and secondary ink, because an unset filter is not information, it is an offer. Reading the bar has to tell you what is actually narrowing the list</td></tr>
+    <tr><td><code>.chip--solid</code></td>
+        <td><span class="k-cell"><a class="chip chip--solid" href="#variants">Case C-4417 &times;</a></span></td>
+        <td><b>the scope itself, not a filter on it.</b> Two instances, both in the reject dialog, both naming the case being ruled on. See the state block: this variant has a real problem and it is named there rather than hidden</td></tr>
+    <tr><td rowspan="2"><b>content</b></td><td>label + <code>&#9662;</code></td><td class="num">77</td>
+        <td rowspan="2"><b>Not a class, and it must not become one.</b> Which mark a chip carries is decided by what pressing it does, and that is a fact about the filter. A <code>.chip--removable</code> would let the two disagree</td></tr>
+    <tr><td>label + <code>&times;</code></td><td class="num">45</td></tr>
+    <tr><td><b>size</b></td><td class="k-none">no second value</td><td class="k-none">prohibited</td>
+        <td>11px is the floor of the scale and the chip is at it. Three or four chips in a bar is a count, not a density problem</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Only in a scope bar, and only for something that narrows a list or names what a decision applies to. Design principle 4 says tenant context is never more than a glance away: <b>the chips are that glance.</b> Rasha carries 40 or more tenants and the same signal is a Tuesday at one client and an incident at another, so the bar above the queue has to say which clients she is looking at before she reads a single row.</p>
+<p class="k-note"><b>Where she meets it.</b> Twice a shift, and never in the middle of ruling on a case. The scope is set at the start and then left alone, which is why a chip is quiet at rest and why the caret is the only thing offering to be pressed.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><a class="chip" href="#rules">All tenants &#9662;</a><a class="chip chip--ghost" href="#rules">Sort: default &#9662;</a></div>
+    <p>Set and unset side by side, and you can tell them apart without reading either. The dashed one is an offer; the solid boundary is something actually narrowing the list.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><a class="chip" href="#rules">escalated</a> <a class="chip chip--solid" href="#rules">unrecorded</a></div>
+    <p>Not for a word that reports a condition. Those two are <b><code>state</code></b>, drawn here as chips to show what the mistake looks like: they offer to be pressed and there is nothing to press. <code>state</code> is a different component with <code>cursor:default</code>, no affordance mark and no states at all, and it is written in the marks round.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede">Live, in both themes. Point at the first three, hold the pointer down, tab through them. <b>Then try the fourth one and watch nothing happen.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <a class="chip" href="#states">All tenants &#9662;</a>
+      <a class="chip" href="#states">Waiting on a decision &times;</a>
+      <a class="chip chip--ghost" href="#states">Sort: default &#9662;</a>
+      <button class="chip" type="button">Sort: newest &#9662;</button>
+      <a class="chip chip--solid" href="#states">Case C-4417 &times;</a>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <a class="chip" href="#states">All tenants &#9662;</a>
+      <a class="chip" href="#states">Waiting on a decision &times;</a>
+      <a class="chip chip--ghost" href="#states">Sort: default &#9662;</a>
+      <button class="chip" type="button">Sort: newest &#9662;</button>
+      <a class="chip chip--solid" href="#states">Case C-4417 &times;</a>
+    </div>
+  </div>
+</div>
+<div class="k-gesture">
+  <div><b>Point at one</b><p>hover. The ground moves one step and the boundary rises to the reading ink.</p></div>
+  <div><b>Hold the pointer down</b><p>active. One further step of the same ramp.</p></div>
+  <div><b>Press Tab</b><p>focus-visible, the ring from <code>base.css</code>.</p></div>
+  <div><b>The inverted one</b><p>it does not answer, and the row below says why.</p></div>
+</div>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>State</th><th>What it overrides</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><b>rest</b></td><td><code>--bg-page</code><br><code>--line-control</code></td>
+        <td><span data-tok="--bg-page" data-theme-read="dark"></span><span data-tok="--line-control" data-theme-read="dark"></span></td>
+        <td><span data-tok="--bg-page" data-theme-read="light"></span><span data-tok="--line-control" data-theme-read="light"></span></td></tr>
+    <tr><td><b>hover</b></td><td><code>--bg-hover</code><br><code>--line-hover</code></td>
+        <td><span data-tok="--bg-hover" data-theme-read="dark"></span><span data-tok="--line-hover" data-theme-read="dark"></span></td>
+        <td><span data-tok="--bg-hover" data-theme-read="light"></span><span data-tok="--line-hover" data-theme-read="light"></span></td></tr>
+    <tr><td><b>active</b></td><td><code>--bg-active</code></td>
+        <td><span data-tok="--bg-active" data-theme-read="dark"></span></td>
+        <td><span data-tok="--bg-active" data-theme-read="light"></span></td></tr>
+    <tr><td><b>focus-visible</b></td><td><code>--color-focus</code>, through <code>base.css</code></td>
+        <td><span data-tok="--color-focus" data-theme-read="dark"></span></td>
+        <td><span data-tok="--color-focus" data-theme-read="light"></span></td></tr>
+    <tr><td><b>out of reach</b></td><td class="k-none">does not exist</td><td colspan="2">A filter that cannot be applied is not shown. The scope bar renders the filters that apply to what is on the screen, and there are zero disabled chips in either corpus</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="k-note"><b>The inverted chip takes no hover, and this is a finding rather than an omission.</b> Both of its hover surfaces are already spent: the ground <b>is</b> the invert plate, which is the top of the ramp with no step above it, and the boundary is what identifies it against that plate, so raising it to <code>--line-hover</code> would put bone on bone at 1.00. <b>The cure is not a token for two instances</b>, and the rule that one use is not a role says so. It is a product question: the inverted plate is what this system uses for a thing that <b>reports</b>, and an interactive chip probably should not wear it. It goes to <code>backlog.md</code> at step 6, and until then the pointer and the cross carry it.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the chip</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the ground of the two outline forms</td></tr>
+    <tr><td><code>--bg-invert</code></td><td>fill</td><td>the scope form's plate</td></tr>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the label, 14.92</td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the unset label, 7.56</td></tr>
+    <tr><td><code>--text-on-invert</code></td><td>ink 4.5:1</td><td>the scope label, 14.92 on its own plate</td></tr>
+    <tr><td><code>--line-control</code></td><td>line 3:1</td><td>the boundary, 3.98, and it is the role that exists for exactly this</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Two declarations collapsed into one</b>, the same pair as on the button: <code>--rule-edge</code> at <code>kit.css</code> line 243 and <code>--rule-control</code> at line 837, six hundred lines apart, and the second was the one that rendered. Same computed value here and one place to read it.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;a class="chip" href="queue.html?tenant=all"&gt;All tenants &amp;#9662;&lt;/a&gt;
+&lt;a class="chip chip--ghost" href="queue.html?sort=default"&gt;Sort: default &amp;#9662;&lt;/a&gt;
+&lt;a class="chip" href="queue.html"&gt;Waiting on a decision &amp;times;&lt;/a&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">.scopebar above the queue &middot; 84</a>
+  <a href="../reject.html">.scopebar in the reject dialog &middot; 38</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

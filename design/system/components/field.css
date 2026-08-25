@@ -1,0 +1,37 @@
+/* field :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Geometry only: --space-1.
+   CONTAINS. label, input, and a hint on 7 of the 30.
+
+   PAGE. design/kit/field.html
+   STANDS ON. 30 instances across 15 screens: `prompts` 12, `block` 7,
+   `doorform` 5, `seek` 4.
+
+   IT IS THREE ATOMS IN ONE ORDER AND THE ORDER IS THE COMPONENT. Label, control,
+   hint. The label is never inside the control, the hint is never above the
+   label, and the gap between them is one step of the scale so the three read as
+   one thing rather than three.
+   ----------------------------------------------------------------------------
+   IT IS ONE DECLARATION AND IT IS THE CLEAREST MOLECULE IN THE SYSTEM. Three
+   atoms, a direction and a gap. Everything a reader expects to find here is
+   somewhere else on purpose: the box is `input`, the name is `label`, the
+   constraint is `hint`, and each of them stands alone on other screens.
+
+   NOTHING IN THE PRODUCT IS A FIELD WITHOUT A LABEL. Measured: 31 labels against
+   30 fields, and the extra one is in an option list.
+   ---------------------------------------------------------------------------- */
+
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* -- hint. One axis, two values, and it is presence rather than a modifier ----
+   7 of the 30 carry one. A field asks for a hint when the constraint cannot be
+   read off the label, and that is a fact about the question. */
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   The control inside it has hover and focus and carries them itself. The field
+   draws no focus ring around the group, and it must not: a ring around three
+   things says three things are focused. */

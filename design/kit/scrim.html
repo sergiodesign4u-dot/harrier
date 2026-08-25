@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Scrim</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix sr-. THE FULL COLUMN AND THE TWO THEMES STACK. The whole argument of this
+   component is a clearance of --pane-w on the right, and half of the article column
+   cannot hold that plus a 520px dialog. Squeezing it would document an anchoring that does
+   not exist, so the themes go one above the other. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE SCENE. A smaller but REAL box, never a transform: at 1440 the clearance is the real
+   --pane-w and the dialog is at its real --width-dialog. `contain` is what makes a
+   position:fixed component resolve against this box instead of the documentation page, and it
+   is the one thing on this page the product does not have. The fiction is the height. */
+.sr-stage{ position:relative; contain:layout paint; width:100%; max-width:960px; height:420px;
+           border:var(--rule-edge); overflow:hidden }
+.sr-cap  { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+           margin:var(--space-2) 0 0 }
+/* A CAPTION THAT IS TRUE AT 1440 AND FALSE AT 360 IS THE CLASS ONLY A BROWSER FINDS. The
+   drawing below is the desk rendering and it does not answer the media query the component
+   answers, because a second copy of a product rule in the stand is where the drift starts.
+   Two captions instead, one per width, and the narrow one says what the drawing is. */
+.sr-cd{ }
+.sr-cn{ display:none }
+@media (max-width:900px){ .sr-cd{ display:none } .sr-cn{ display:block } }
+
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism, and it contains another</p>
+<h1 class="k-title">Scrim</h1>
+<p class="k-lede"><b>It is what anchors the dialog rather than centring it.</b> 11 instances across 11 screens, and it holds one thing: a <a href="dialog.html">dialog</a>.</p>
+<p class="k-note"><code>align-items:flex-start</code> and <code>justify-content:flex-end</code>, with right padding equal to the pane&rsquo;s width: <b>the dialog lands beside the case rather than on top of it.</b> Node 4.4 requires it and design principle 5 requires it generally, in as many words: no overlay hides the evidence the analyst is deciding on. A centred dialog on a two monitor desk lands exactly on the case she is ruling about.</p>
+<p class="k-note"><b><code>--bg-scrim</code> reads <code>--bg-page</code> rather than a primitive</b>, so it can never tint the console with a colour the interface does not otherwise contain. It was stage 04&rsquo;s light theme ink at 28 per cent, written as a literal, which is the one value the brand remap could never see. Changed by a user decision at stage 07 step 4, and <b>it had never been seen on a coloured screen</b>: every page carrying a scrim is a reject or an escalate, and this bench is the first place it has stood in both themes at once.</p>
+<p class="k-note"><b>And standing it in both themes is what found the defect, which is reported here rather than repaired.</b> <code>tokens.css</code> says the pair is automatic because the role follows <code>--bg-page</code>, and <b>measured in the browser it does not follow it</b>: a custom property&rsquo;s <code>var()</code> is substituted where the property is <b>declared</b>, which is <code>:root</code>, and the already substituted value is what inherits down. The light theme redeclares <code>--bg-page</code> and never redeclares this, so in light the ground resolves to <b>the dark page colour at 78 per cent</b>. The light half of the bench below is the evidence: the console under it goes to a dark veil while its ink stays dark, and the readout at the foot of this page prints the same string in both columns. <code>checks/contrast.mjs</code> cannot see it either, because it composites a text node&rsquo;s <b>ancestors</b> and a scrim is a sibling laid over them.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A scaled scene, not a diagram.</b> A drawing of this component would be a rectangle, and the thing worth seeing is the clearance on the right and the ground the console reads through. At 1440 the box below is 960px and the padding on the right is <code>calc(--pane-w + --space-4)</code>, which is 336px at that width and 396px above 1560, and the dialog inside it is at its own <code>--width-dialog</code>. Narrow the window past 900 and the same scene switches to the 360 rendering by itself.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="sr-stage">
+        <div class="z45" style="height:100%">
+          <section class="z4">
+            <h1 class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></h1>
+            <div class="rows">
+              <a class="row is-selected" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span><span class="client">Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b></span><span class="cost">4m</span><span class="states"><i class="state">taken</i></span><span class="age">27m</span></a>
+            </div>
+          </section>
+          <aside class="z5">
+            <div class="pane-head"><h2>C-4417</h2><p class="sub">Larkfield Logistics &middot; the case being ruled on</p></div>
+            <div class="pane-body"><section class="block"><h3>The evidence</h3><p class="nar">Still readable, and that is the whole point of the clearance on the right.</p></section></div>
+          </aside>
+          <div class="scrim">
+            <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="sr-h1">
+              <header><h2 id="sr-h1">Reject Clerk&rsquo;s verdict</h2><p class="sub">C-4417 &middot; Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b></p></header>
+              <div class="body"><section class="block"><h3>What Clerk got wrong</h3><div class="optlist" role="radiogroup" aria-label="What Clerk got wrong"><a class="opt" href="#anatomy"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a><a class="opt" href="#anatomy"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a></div></section></div>
+              <footer><span class="hint">A reason is required</span><span class="grow"></span><a class="btn btn--quiet" href="#anatomy">Cancel <span class="key">Esc</span></a></footer>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="sr-cap sr-cd">the pane on the right is clear, and that clearance is this component</p>
+    <p class="sr-cap sr-cn">no pane at this width, so the padding goes to zero and the dialog takes the screen. There is nothing to stay clear of</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="sr-stage">
+        <div class="z45" style="height:100%">
+          <section class="z4">
+            <h1 class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></h1>
+            <div class="rows">
+              <a class="row is-selected" href="#anatomy"><span class="sev"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span><span class="client">Larkfield Logistics</span><span>Token replay from a new ASN</span><span class="concluded"><b>Compromised identity</b></span><span class="cost">4m</span><span class="states"><i class="state">taken</i></span><span class="age">27m</span></a>
+            </div>
+          </section>
+          <aside class="z5">
+            <div class="pane-head"><h2>C-4417</h2><p class="sub">Larkfield Logistics &middot; the case being ruled on</p></div>
+            <div class="pane-body"><section class="block"><h3>The evidence</h3><p class="nar">Still readable, and that is the whole point of the clearance on the right.</p></section></div>
+          </aside>
+          <div class="scrim">
+            <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="sr-h2">
+              <header><h2 id="sr-h2">Reject Clerk&rsquo;s verdict</h2><p class="sub">C-4417 &middot; Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b></p></header>
+              <div class="body"><section class="block"><h3>What Clerk got wrong</h3><div class="optlist" role="radiogroup" aria-label="What Clerk got wrong"><a class="opt" href="#anatomy"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a><a class="opt" href="#anatomy"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a></div></section></div>
+              <footer><span class="hint">A reason is required</span><span class="grow"></span><a class="btn btn--quiet" href="#anatomy">Cancel <span class="key">Esc</span></a></footer>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="sr-cap sr-cd">the pane on the right is clear, and that clearance is this component</p>
+    <p class="sr-cap sr-cn">no pane at this width, so the padding goes to zero and the dialog takes the screen. There is nothing to stay clear of</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.scrim</code><span><code>position:fixed</code> over <code>inset:0</code> at <code>z-index:10</code>. The one component in the system that leaves the flow entirely</span></li>
+  <li>the anchoring<span><b>three declarations and they are the component.</b> <code>display:flex</code>, <code>align-items:flex-start</code>, <code>justify-content:flex-end</code>: top right, never the middle</span></li>
+  <li>the clearance<span><code>padding: --space-6 calc(--pane-w + --space-4) --space-6 --space-4</code>. <b>The right padding is the pane</b>, so the dialog stops where the evidence starts</span></li>
+  <li><code>--bg-scrim</code><span>the ground, and it is <code>--bg-page</code> at 78 per cent rather than a primitive. <b>It covers the pane as well as the list:</b> the padding places the dialog, and the veil is <code>inset:0</code>. In dark that is the page over the page, so the console dims and stays legible; in light it is the dark page over a light one, which is the open defect above</span></li>
+  <li><code><a href="dialog.html">dialog</a></code><span>the only thing it ever holds, always exactly one</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">One axis, two values, and it is about the viewport rather than about anything anybody chooses.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><b>viewport</b></td><td>base</td><td class="num">4</td><td>It renders at both widths. At 360 the padding goes to zero and <code>align-items</code> goes to <code>stretch</code>, so the dialog takes the screen: there is no pane there, so there is nothing to stay clear of</td></tr>
+    <tr><td><code>.scrim--desk-only</code></td><td class="num">7</td><td><b>Not rendered at 360 at all.</b> A scrim that exists only where there is a pane to stay clear of. Seven of the eleven are decisions the analyst takes at a desk with the case beside her, and offering them on a phone would offer a ruling with the evidence off screen</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> There is one ground and it is 78 per cent of the page. A darker scrim for a heavier decision would say the console matters less when the stakes are higher, which is the opposite of what is true</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Around a <a href="dialog.html">dialog</a>, and only there. Eleven screens, all of them a reject or an escalate: the two places in the product where the analyst is asked a question that has to be answered before anything else happens.</p>
+<p class="k-note"><b>Where she meets it.</b> Every time she disagrees with Clerk, which design principle 3 says must stay a first class action rather than a fallback path. That is why the dialog is anchored: she is reading the evidence on the right while she picks the reason on the left, and a centred overlay would make her remember the case instead of seeing it.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><section class="dialog" style="max-height:none"><header><h2>Reject Clerk&rsquo;s verdict</h2><p class="sub">C-4417 &middot; Larkfield Logistics</p></header><footer><span class="hint">A reason is required</span><span class="grow"></span><a class="btn btn--quiet" href="#rules">Cancel <span class="key">Esc</span></a></footer></section></div>
+    <p>A question that cannot be left unanswered, anchored beside the evidence it is about. If the analyst has to decide, she has to be able to look.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="toast" role="status"><p><span class="role">STATUS</span><b>Reconnected. 3 cases replayed.</b> They arrived while the connection was down and are in the list now, in their place.</p><a class="t-x" href="#rules" aria-label="Dismiss this notice">&times;</a></div></div>
+    <p>Never a scrim around something that needs no answer. That is <a href="toast.html">toast</a> in <a href="z6.html">Z6</a>, bottom left at <code>--width-toast</code>, which covers nothing and can be dismissed. A scrim spends the whole screen to ask one question, so it is only ever worth it when there is a question.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R1.</b> Not more than one <code>.btn--primary</code> <b>per layer</b>, and a foot does not compete with it. A second is allowed only as the viewport twin of the first, or in a modal layer over the screen.</li>
+  <li><b>R2.</b> A <code>dialog</code> never stands without a <code>scrim</code>, and one of each at a time.</li>
+  <li><b>R3.</b> No overlay covers the detail pane. Design principle 5: no overlay hides the evidence the analyst is deciding on.</li>
+  <li><b>R8.</b> A <code>.only-desk</code> element never renders at 360, and a <code>.only-narrow</code> never renders at the desk.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> The dialog inside it carries the whole exchange, and the way out is <code>Esc</code> rather than a click on the ground.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="sr-stage" style="height:240px">
+        <div class="z45" style="height:100%">
+          <section class="z4"><h1 class="readout"><b>18 waiting</b> <span class="dim">the console, at rest under the ground</span></h1></section>
+          <aside class="z5"><div class="pane-head"><h2>C-4417</h2><p class="sub">Larkfield Logistics</p></div></aside>
+          <div class="scrim"><section class="dialog" style="max-height:none"><header><h2>Reject Clerk&rsquo;s verdict</h2><p class="sub">One state, and it is the only one</p></header></section></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="sr-stage" style="height:240px">
+        <div class="z45" style="height:100%">
+          <section class="z4"><h1 class="readout"><b>18 waiting</b> <span class="dim">the console, at rest under the ground</span></h1></section>
+          <aside class="z5"><div class="pane-head"><h2>C-4417</h2><p class="sub">Larkfield Logistics</p></div></aside>
+          <div class="scrim"><section class="dialog" style="max-height:none"><header><h2>Reject Clerk&rsquo;s verdict</h2><p class="sub">One state, and it is the only one</p></header></section></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">Both halves are the same scene under the two grounds, and this is the first place <code>--bg-scrim</code> has ever been seen in light: the role was changed at stage 07 step 4 and every screen that carries it is still grey. <b>Read the two halves against each other rather than each on its own.</b> That is what the defect above looks like, and it is why a role is not paired until something has rendered it in both themes.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-scrim</code></td><td>fill</td><td>the whole ground, and it is the console at 78 per cent rather than a colour of its own</td><td><span data-tok="--bg-scrim" data-theme-read="dark"></span></td><td><span data-tok="--bg-scrim" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>what the role above resolves to before the transparency, which is why its pair is automatic</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>The scrim row prints a declaration rather than a colour, and the two cells print the same one.</b> <code>--bg-scrim</code> is the one role in the system that resolves through another role, so the browser hands back the <code>color-mix</code> with <code>--bg-page</code> already substituted, from <code>:root</code>, which is the dark theme. <b>The identical pair is the finding rather than a limit of the instrument:</b> the row underneath shows the two grounds it is meant to be 78 per cent of, and only one of them ever reaches it.</p>
+<p class="k-note"><code>--pane-w</code> is structure rather than colour and it has no theme pair: 380px, and 320px below 1560. It is read here through <code>calc()</code> and by <a href="z5.html">Z5</a> itself, which is the only reason the two ever agree.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="scrim scrim--desk-only"&gt;
+  &lt;section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh"&gt;
+    &hellip;
+  &lt;/section&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../reject.html">the reject dialog</a>
+  <a href="../reject-chosen.html">a reason chosen</a>
+  <a href="../reject-axis-b.html">the second axis</a>
+  <a href="../reject-other.html">other, and say why</a>
+  <a href="../reject-tenant-normal.html">normal at this tenant</a>
+  <a href="../reject-write-failed.html">the write failed</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

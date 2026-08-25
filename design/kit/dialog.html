@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Dialog</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bx-. A WIDE COMPONENT GETS THE FULL COLUMN AND THE TWO THEMES STACK.
+   The dialog is 520px before its padding and half of the article column is 525, so squeezing
+   the bench would document a rendering the product does not have. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+@media (max-width:900px){ .k-bench-half{ padding:var(--space-3) } }
+
+/* THE BENCH GIVES IT A HEIGHT TO RUN OUT OF, and it does that without touching the component.
+   The three zone rule is only visible when the middle one has more in it than there is room
+   for, and on a screen what settles that is `max-height: 100vh minus the two zones above`.
+   Here the dialog is a stretched flex item in a 320px box, so it is exactly as tall as the
+   box and the body takes the overflow, which is the same arrangement one viewport smaller.
+   Nothing about the component is overridden to do it. */
+.bx-desk{ display:flex; align-items:stretch; height:320px; width:100% }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Dialog</h1>
+<p class="k-lede">The one overlay in the product. <b>11 instances across 11 screens</b>, and always inside <code>scrim</code>.</p>
+<p class="k-note"><b>It is anchored, not centred, and it never covers the pane.</b> Node 4.4 says it in its own words and design principle 5 says it generally: no overlay hides the evidence the analyst is deciding on. A centred dialog on a two monitor desk lands exactly on the case she is ruling about, which is the one thing she needs while she is answering it. The anchoring is <code>scrim</code>&rsquo;s job, with right padding equal to the pane&rsquo;s width; this component only has to be narrow enough to leave.</p>
+<p class="k-note"><b>Three zones in a fixed order: a head that does not scroll, a body that does, and a foot that does not.</b> <code>max-height</code> stops the box a step of <code>--space-7</code> short of the viewport, so <b>the dialog ends inside the console rather than at the edge of the screen</b>, and <code>overflow:hidden</code> keeps the scrolling body inside the rounded corner. Seven reasons and a free text field can be longer than a laptop, and when they are it is the reasons that move, never the question and never the way out.</p>
+<p class="k-note"><b>The file&rsquo;s header describes an earlier form of that measurement</b>, the viewport minus <code>--zone-top</code> and <code>--zone-strip</code>, and its READS line still names both. The declaration is what this page and the readout at the bottom of it follow, and the difference is recorded rather than corrected here.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>What the bench is standing in.</b> A 320px box the dialog is stretched to fill. Nothing about the component is overridden: on a screen its height is settled by <code>max-height</code> against the viewport, and here it is settled by the box, which produces the same arrangement one viewport smaller. Scroll the middle: the question stays, the actions stay.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-desk">
+        <section class="dialog" role="dialog" aria-modal="true" aria-label="Reject Clerk's verdict">
+          <header>
+            <h2>Reject Clerk&rsquo;s verdict</h2>
+            <p class="sub">C-4417 &middot; Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b></p>
+          </header>
+          <div class="body">
+            <section class="block">
+              <h3>What Clerk got wrong</h3>
+              <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+                <a class="opt" href="#anatomy"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+                <a class="opt" href="#anatomy"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+                <a class="opt" href="#anatomy"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
+                <a class="opt" href="#anatomy"><span class="key">4</span><span class="lbl">Right answer, wrong scope</span><span class="routes">agent tuning</span></a>
+                <a class="opt" href="#anatomy"><span class="key">5</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+                <a class="opt" href="#anatomy"><span class="key">6</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
+              </div>
+            </section>
+          </div>
+          <footer><span class="hint">A reason is required</span><span class="grow"></span><a class="btn btn--quiet" href="#anatomy">Cancel <span class="key">Esc</span></a><span class="btn" aria-disabled="true">File the rejection <span class="key">Enter</span></span></footer>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-desk">
+        <section class="dialog" role="dialog" aria-modal="true" aria-label="Reject Clerk's verdict">
+          <header>
+            <h2>Reject Clerk&rsquo;s verdict</h2>
+            <p class="sub">C-4417 &middot; Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b></p>
+          </header>
+          <div class="body">
+            <section class="block">
+              <h3>What Clerk got wrong</h3>
+              <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+                <a class="opt" href="#anatomy"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+                <a class="opt" href="#anatomy"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+                <a class="opt" href="#anatomy"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
+                <a class="opt" href="#anatomy"><span class="key">4</span><span class="lbl">Right answer, wrong scope</span><span class="routes">agent tuning</span></a>
+                <a class="opt" href="#anatomy"><span class="key">5</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+                <a class="opt" href="#anatomy"><span class="key">6</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
+              </div>
+            </section>
+          </div>
+          <footer><span class="hint">A reason is required</span><span class="grow"></span><a class="btn btn--quiet" href="#anatomy">Cancel <span class="key">Esc</span></a><span class="btn" aria-disabled="true">File the rejection <span class="key">Enter</span></span></footer>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.dialog</code><span>the box. A flex column at <code>--width-dialog</code>, on <code>--bg-page</code>, with one edge around it, <code>--radius-ui</code> on the corners and <code>overflow:hidden</code> so the body that scrolls stays inside them</span></li>
+  <li><code>&gt; header</code><span><code>flex:0 0 auto</code>. The question, and it never scrolls away from its own answers</span></li>
+  <li><code>&gt; header h2</code><span>the question itself at <code>--size-lg</code>, weight 600</span></li>
+  <li><code>&gt; header .sub</code><span>which case, at which tenant, and what Clerk filed. Secondary ink, because it is context rather than the question</span></li>
+  <li><code>&gt; .body</code><span><b>the only part that moves.</b> <code>flex:1 1 auto</code> with <code>min-height:0</code>, four steps of gap, and <code>overflow-y:auto</code></span></li>
+  <li><code>&gt; footer</code><span><code>flex:0 0 auto</code>, wrapping, with an edge above it. The way out and the way through, always reachable</span></li>
+  <li><code>&gt; footer .grow</code><span><b>the spacer that pushes the actions right.</b> A place, and it lives with the foot that places them rather than with the button that is placed</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><b>width</b></td><td>base</td><td class="num">10</td><td><code>--width-dialog</code>. A question with a short set of answers</td></tr>
+    <tr><td><code>.dialog--map</code></td><td class="num">1</td><td><code>--width-dialog-wide</code>, for the keyboard map, <b>which is a reference table rather than a decision</b>: it is read across, not answered. A wider box is right for reading and wrong for deciding, which is why this is one value and not a free size</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> There is no destructive form and no warning form. The severity ramp belongs to cases, and a red dialog would rank the analyst&rsquo;s own action against a compromised identity</td></tr>
+    <tr><td><b>position</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>It has none of its own. Where the box lands is <code>scrim</code>, which anchors it to the right with the pane&rsquo;s width as padding, and that is the rule the whole overlay exists under</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b><code>--width-dialog</code> is the one value in this system with no origin</b>, in <code>kit.css</code> or in <code>DESIGN.md</code>, and it is still open. It is recorded as open rather than given a reason after the fact.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">For a decision that needs an answer before anything else can happen, and that has answers the product already knows: rejecting a verdict and escalating a case. Not for reporting, not for confirming, and not for anything the analyst could have answered on the surface she was already on.</p>
+<p class="k-note"><b>Where she meets it.</b> Every time she disagrees with Clerk. Rejecting costs four taps against accept&rsquo;s two, and this box is where three of them happen, so everything in it is arranged to keep it at three: no <code>Next</code>, no confirmation, and the primary action carries <code>Enter</code>. <b>At 360 the dialog is the screen</b>, because there is nothing beside it to stay clear of, and reject is not offered there at all: on a phone the exit is escalate.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><section class="dialog" style="max-height:none"><header><h2>Escalate C-4417</h2><p class="sub">Larkfield Logistics &middot; Clerk filed <b>real, contain identity</b></p></header><div class="body"><div class="optlist" role="radiogroup" aria-label="Who takes it"><a class="opt" href="#rules"><span class="key">1</span><span class="lbl">S. Varga, SOC lead</span><span class="routes">on call until 07:00</span></a><a class="opt" href="#rules"><span class="key">2</span><span class="lbl">The tenant&rsquo;s named contact</span><span class="routes">Larkfield, out of hours</span></a></div></div><footer><span class="grow"></span><a class="btn btn--quiet" href="#rules">Cancel <span class="key">Esc</span></a><a class="btn btn--primary" href="#rules">Escalate <span class="key">Enter</span></a></footer></section></div>
+    <p>A question, a set of answers, and one way through with one way out. Everything the analyst needs to answer it is inside the box, and the case it is about is still on the screen behind.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><section class="dialog" style="max-height:none"><header><h2>Verdict filed</h2><p class="sub">C-4417 &middot; accepted and written to the log</p></header><footer><span class="grow"></span><a class="btn btn--primary" href="#rules">OK</a></footer></section></div>
+    <p>Never to report something that already happened. That is <b><code>toast</code></b>, in <code>z6</code>, bottom left and clear of the pane. A dialog demands an answer, and <code>OK</code> is not an answer: it is a tax on a decision she has already taken, forty times a shift.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R1.</b> Not more than one <code>.btn--primary</code> <b>per layer</b>, and a foot does not compete with it. A second is allowed only as the viewport twin of the first, or in a modal layer over the screen.</li>
+  <li><b>R2.</b> A <code>dialog</code> never stands without a <code>scrim</code>, and one of each at a time.</li>
+  <li><b>R3.</b> No overlay covers the detail pane. Design principle 5: no overlay hides the evidence the analyst is deciding on.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>None. Everything inside it carries its own.</b> The option list, the buttons and the field each have their states, and the box has one job: to hold them still while she answers.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-desk" style="height:260px">
+        <section class="dialog" role="dialog" aria-modal="true" aria-label="Reject, with a reason chosen">
+          <header><h2>Reject Clerk&rsquo;s verdict</h2><p class="sub">C-4417 &middot; Larkfield Logistics</p></header>
+          <div class="body">
+            <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+              <a class="opt" href="#states"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+              <a class="opt is-chosen" href="#states"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+              <a class="opt" href="#states"><span class="key">3</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+            </div>
+          </div>
+          <footer><span class="grow"></span><a class="btn btn--quiet" href="#states">Cancel <span class="key">Esc</span></a><a class="btn btn--primary" href="#states">File the rejection <span class="key">Enter</span></a></footer>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-desk" style="height:260px">
+        <section class="dialog" role="dialog" aria-modal="true" aria-label="Reject, with a reason chosen">
+          <header><h2>Reject Clerk&rsquo;s verdict</h2><p class="sub">C-4417 &middot; Larkfield Logistics</p></header>
+          <div class="body">
+            <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
+              <a class="opt" href="#states"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+              <a class="opt is-chosen" href="#states"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+              <a class="opt" href="#states"><span class="key">3</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+            </div>
+          </div>
+          <footer><span class="grow"></span><a class="btn btn--quiet" href="#states">Cancel <span class="key">Esc</span></a><a class="btn btn--primary" href="#states">File the rejection <span class="key">Enter</span></a></footer>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>The footer holds the hint that says why the primary is out of reach</b>, in the place a person looks when a control will not answer. <code>A reason is required</code> is a sentence and not a tooltip: design principle 3 says out of reach is shown with the ceiling stated rather than hidden.</p>
+<p class="k-note"><b>At 360 the dialog is the screen.</b> Full width, no border, and <code>max-height:100vh</code>, because there is nothing beside it to stay clear of. The scrim that anchors it at the desk is not rendered at all on 7 of the 11, which is <code>scrim--desk-only</code>: a scrim exists to keep the dialog off the pane, and at that width there is no pane.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the box. It is opaque, so the case behind it is beside it rather than through it</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the border, the line under the head and the line over the foot, all through <code>--rule-edge</code></td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the sub line under the question</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--width-dialog</code></td><td>structure</td><td>the width, and the one value in this system with no origin</td><td><span data-tok="--width-dialog" data-theme-read="dark"></span></td><td><span data-tok="--width-dialog" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--width-dialog-wide</code></td><td>structure</td><td>the keyboard map, read across rather than answered</td><td><span data-tok="--width-dialog-wide" data-theme-read="dark"></span></td><td><span data-tok="--width-dialog-wide" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--space-7</code></td><td>geometry</td><td>subtracted from the viewport, so the box ends inside the console rather than at the edge of the screen</td><td><span data-tok="--space-7" data-theme-read="dark"></span></td><td><span data-tok="--space-7" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--radius-ui</code></td><td>geometry</td><td>the corners</td><td><span data-tok="--radius-ui" data-theme-read="dark"></span></td><td><span data-tok="--radius-ui" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="scrim scrim--desk-only"&gt;
+  &lt;section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dh"&gt;
+    &lt;header&gt;&lt;h2 id="dh"&gt;Reject Clerk&amp;rsquo;s verdict&lt;/h2&gt;&lt;p class="sub"&gt;&hellip;&lt;/p&gt;&lt;/header&gt;
+    &lt;div class="body"&gt;&lt;section class="block"&gt;&hellip;&lt;/section&gt;&lt;/div&gt;
+    &lt;footer&gt;&lt;span class="hint"&gt;&hellip;&lt;/span&gt;&lt;span class="grow"&gt;&lt;/span&gt;&lt;a class="btn"&gt;&hellip;&lt;/a&gt;&lt;/footer&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../reject.html">reject &middot; nothing chosen</a>
+  <a href="../reject-chosen.html">a reason chosen</a>
+  <a href="../reject-axis-b.html">the second axis</a>
+  <a href="../reject-other.html">other, and say why</a>
+  <a href="../reject-write-failed.html">the write failed</a>
+  <a href="optlist.html">the option list</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Standalone offer</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Standalone offer</h1>
+<p class="k-lede">It offers to put the case back in its list. <b>3 instances across 3 screens</b>, at the top of a case opened by its own address, and it is <b>the standalone route admitting what it is</b>.</p>
+<p class="k-note">A case reached by permalink, or out of a chat message, or from a pager, has no queue beside it. The verdict controls all work, and what is missing is everything around them: the seventeen other cases, the row that changes when you file, the next thing to look at. One line says so and offers the way back.</p>
+<p class="k-note"><b>It is hidden at 360, and that is the point.</b> On a phone the standalone rendering is not a fallback, it is the design: node 3.1 settles that selecting at 360 opens the standalone case rather than a pane covering the list. Offering to open the queue there would offer the analyst the surface she deliberately does not have.</p>
+<p class="k-note"><b>It was not in the register.</b> The step 2 census counted controls; this is a container whose only control belongs to <code>btn</code>, so the census recorded the button and never the line it stands in. One of the thirteen found at step 5, in <code>docs/inventory.md</code> section 13.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>Read this section at the desk.</b> Below 900px the component removes itself, so at 360 the two halves below are empty by design and the note under them is the whole rendering.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:520px">
+        <div class="sa-offer">
+          <a class="btn" href="#anatomy">Open this case in the queue</a>
+          <span class="why">Puts this case back in the pane with the list beside it. All four verdict controls work here, and they are offered second rather than blocked.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:520px">
+        <div class="sa-offer">
+          <a class="btn" href="#anatomy">Open this case in the queue</a>
+          <span class="why">Puts this case back in the pane with the list beside it. All four verdict controls work here, and they are offered second rather than blocked.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.sa-offer</code><span>the line. A wrapping flex row aligned on the <b>baseline</b>, with <code>--space-3</code> of padding under it and a hairline below that. The rule is what makes it a header for the case rather than a first paragraph of it</span></li>
+  <li><code>.btn</code><span>the offer, in the outline emphasis and never the filled one. It is <code>btn</code> unchanged: this component contributes nothing to it but a place to stand</span></li>
+  <li><code>.why</code><span><b>what you get by taking it, at 11px.</b> <code>flex: 1 1 var(--space-7)</code>, so it takes whatever is left beside the button and wraps under it once 48px is no longer enough. <code>min-width: 0</code> is what lets it wrap instead of pushing the row wider</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>form</b></td><td>base</td><td>3</td><td>the only form. What differs across the three is the sentence: on a fresh case it is what the queue adds, on a stale one it is that the queue is stale too and still better, and after filing it is that the page stayed put because there was no list to move you into. Three sentences, one component</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> The button never takes the accent ground. <code>--bg-action</code> is the main action of its zone and there is exactly one, and on a case that action is the verdict. An offer to change surface competing with the ruling is the offer winning an argument it should not be in</td></tr>
+    <tr><td><b>position</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> Top of the case, above the title, once. At the foot it would be read after the decision it was meant to inform, and a second copy would be a second offer to leave a page she has not read yet</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Only on the standalone case route, and only at a desk. It is not a back link and not a breadcrumb: it does not go where you came from, it goes to the same case rendered in the surface that has the list beside it. If the queue is already on screen, there is nothing to offer.</p>
+<p class="k-note"><b>Where she meets it.</b> When somebody has sent her a case rather than her having picked one up: a permalink in a chat, a link out of a ticket, a case quoted in a handover. She is at the desk, she has been dropped into the middle of the console, and this is the first line she reads. On the phone at 03:00 she never meets it at all, because there it would offer her the console she cannot work in.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="sa-offer" style="border-bottom:0;padding-bottom:0;margin-bottom:0"><a class="btn" href="#rules">Open this case in the queue</a><span class="why">The next case is there. This page stayed on the one you just ruled on because it has no list to move you into.</span></div></div>
+    <p>An outline button and one sentence naming what the other surface has that this one does not. It says what is true about the page you are on, which is the same standard the product holds Clerk to.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="sa-offer" style="border-bottom:0;padding-bottom:0;margin-bottom:0"><a class="btn btn--primary" href="#rules">Open this case in the queue</a><span class="why">For the full experience, open the case in the console.</span></div></div>
+    <p>Never the accent ground, and never a sentence that says this page is the lesser one. The offer is <code>btn</code> in its outline emphasis, because the filled emphasis on a case belongs to the verdict. All four verdict controls work here; the queue is offered second, not instead.</p>
+  </div>
+</div>
+<p class="k-note">Between 900px and the row&rsquo;s natural width the sentence wraps under the button rather than squeezing beside it, which is what <code>flex-wrap</code> and a 48px basis buy. <b>Below 900px there is no rendering at all, so at 360 the two boxes above hold their paragraphs and no example.</b> That is the component and not a gap in the page.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none.</b> The button inside it carries hover, active and the focus ring, and the container adds nothing. What it does have instead of a state is a viewport at which it stops existing, and that is not a state: nothing about the case changes, the offer does.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:520px">
+        <div class="sa-offer">
+          <a class="btn" href="#states">Open this case in the queue</a>
+          <span class="why">The queue is stale too, and it is still the better surface: it has the other seventeen cases beside this one.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:520px">
+        <div class="sa-offer">
+          <a class="btn" href="#states">Open this case in the queue</a>
+          <span class="why">The queue is stale too, and it is still the better surface: it has the other seventeen cases beside this one.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Narrow this page to 360 and the two benches above go empty.</b> That is the component behaving, and it is the only way to see it: <code>display: none</code> under 900px is a rule about the viewport, so no snapshot and no smaller box reproduces it. The rule sits in <code>components/sa-offer.css</code> rather than on the screens, so a fourth standalone state inherits it without anybody remembering to.</p>
+<p class="k-note"><b>No out of reach form, and it could not have one.</b> The queue is either the surface you are on or the surface you are not, and there is no case where opening it is refused. Where the console itself is down, the whole page is <code>outage</code> and this line is not on it.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the sentence beside the button, and the only ink the component sets</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the rule under the row, through <code>--rule-hair</code></td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-control</code></td><td>line 3:1</td><td>the button&rsquo;s boundary, <b>and it comes from <code>btn</code> rather than from here</b></td><td><span data-tok="--line-control" data-theme-read="dark"></span></td><td><span data-tok="--line-control" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="sa-offer"&gt;
+  &lt;a class="btn" href="case.html"&gt;Open this case in the queue&lt;/a&gt;
+  &lt;span class="why"&gt;Puts this case back in the pane with the list beside it.&lt;/span&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case-standalone.html">the case by its own address</a>
+  <a href="../case-standalone-stale.html">and the queue is stale too</a>
+  <a href="../case-standalone-filed.html">after you have ruled on it</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

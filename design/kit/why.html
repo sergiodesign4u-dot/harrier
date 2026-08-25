@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Why the system is like this</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix w-. */
+.w-attr{ border-top:var(--rule-edge); padding:var(--space-4) 0;
+         display:grid; grid-template-columns:200px 1fr 260px; gap:var(--space-5); align-items:start }
+.w-attr:last-of-type{ border-bottom:var(--rule-edge) }
+.w-attr h3{ margin:0; font:600 var(--size-md)/var(--leading-tight) var(--font-sans) }
+.w-attr .id{ display:block; font:400 var(--size-xs)/1.8 var(--font-mono); letter-spacing:.08em;
+             text-transform:uppercase; color:var(--text-accent) }
+.w-attr p{ margin:0 0 var(--space-2); font-size:var(--size-sm); line-height:var(--leading);
+           color:var(--text-secondary) }
+.w-attr p:last-child{ margin:0 }
+.w-attr b{ color:var(--text-primary) }
+.w-attr .seen{ border-left:var(--rule-edge); padding-left:var(--space-4);
+               font-size:var(--size-sm); line-height:var(--leading); color:var(--text-secondary) }
+.w-attr .seen b{ display:block; font:400 var(--size-xs)/1.8 var(--font-mono); letter-spacing:.08em;
+                 text-transform:uppercase; color:var(--text-secondary) }
+
+.w-line{ display:grid; grid-template-columns:repeat(5,1fr); gap:var(--space-2); margin:0 0 var(--space-4) }
+.w-line div{ border:var(--rule-hair); padding:var(--space-3); font-size:var(--size-sm);
+             line-height:var(--leading); color:var(--text-secondary) }
+.w-line div:last-child{ border:var(--rule-control) }
+.w-line b{ display:block; font:400 var(--size-xs)/1.8 var(--font-mono); letter-spacing:.08em;
+           text-transform:uppercase; color:var(--text-accent); margin:0 0 var(--space-1) }
+
+.w-doors{ display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3); margin:0 0 var(--space-4) }
+.w-door{ border:var(--rule-edge); padding:var(--space-4); text-decoration:none; display:block; color:inherit }
+.w-door:hover{ background:var(--bg-hover) }
+.w-door b{ display:block; font:600 var(--size-md)/1.3 var(--font-sans); color:var(--text-primary);
+           margin:0 0 var(--space-2) }
+.w-door span{ display:block; font-size:var(--size-sm); line-height:var(--leading); color:var(--text-secondary) }
+.w-door .q{ font:400 var(--size-xs)/1.8 var(--font-mono); letter-spacing:.08em;
+            text-transform:uppercase; color:var(--text-accent) }
+.w-door--stop{ border:var(--rule-control) }
+@media (max-width:900px){
+  .w-attr{ grid-template-columns:1fr; gap:var(--space-3) }
+  .w-attr .seen{ border-left:0; border-top:var(--rule-hair); padding:var(--space-3) 0 0 }
+  .w-line{ grid-template-columns:1fr }
+  .w-doors{ grid-template-columns:1fr }
+}
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Design system</p>
+<h1 class="k-title">Why the system is like this</h1>
+<p class="k-lede">Everything else on this stand says what the system contains. This page says where it came from, how to use it, and what to do when it does not contain what you need. It is written for three readers: whoever picks this up in a month, the developer who gets it at handoff, and the next session that has to decide where something goes.</p>
+<p class="k-note"><b>Nothing here is a preference.</b> Every value in this system reaches back through a chain of five files to a pixel on a poster, and every rule reaches back to a count on the screens. Where a decision was taste, it says so and names whose.</p>
+
+
+<h2 class="k-h" id="attributes">Five attributes, and what each one costs</h2>
+<p class="k-lede">The visual language is five pairs of opposites, settled at stage 06. Each carries the line of research it stands on and the borrowed technique it licenses. <b>A pair without both is an invention, and a technique without a pair is a clone at the level of the detail.</b></p>
+
+<div class="w-attr">
+  <div><span class="id">A1</span><h3>Precise, not soft</h3></div>
+  <div>
+    <p>Design principle 5: <b>density is the feature.</b> Six hours a day means no decorative whitespace, keyboard before mouse. Under it, satisficing under volume is supported by analyst quotes in two practitioner studies.</p>
+    <p><b>What it rejected:</b> pill buttons, and the 32px card padding of the reference it took the radius from. That is a marketing page breathing, not a console at 1440 carrying eighteen rows and a pane.</p>
+    <p><b>The plate overruled the reference.</b> The reference proposed 2px. Plate J draws zero on every interface element and keeps a radius for physical objects only, so A1 is met more strictly than the reference met it.</p>
+  </div>
+  <div class="seen"><b>Where it is visible</b>
+    <a class="link" href="geometry.html#radius">A radius of zero</a>, and it is a decision rather than an omission: it is what makes the square terminals of the icon set consistent with everything they sit in. <a class="link" href="geometry.html#space">Seven space steps</a>, with two of them carrying the density between them.
+  </div>
+</div>
+
+<div class="w-attr">
+  <div><span class="id">A2</span><h3>Saturation is spent on two closed sets, not decorative</h3></div>
+  <div>
+    <p>The accent carries latitude, the live strip, where you are in the navigation, and the row being decided with its primary action. The severity ramp carries High, Medium and Low. <b>Both sets are closed and countable, and a fifth use of colour anywhere is a defect rather than a variation.</b></p>
+    <p><b>This attribute was amended in writing rather than stretched.</b> It used to read "saturation is scarce". Severity was readable only by counting bars and the user asked for it to read as colour, and there is no way to grant that inside the old wording: three more coloured elements on every row is exactly the economy the old version refused. The previous text is kept rather than deleted.</p>
+    <p>What stayed load bearing is that <b>colour has to be countable</b>. The ramp descends in chroma rather than in brightness, because on a dark ground every value has to clear 4.5:1 and loudness cannot carry a ramp. It runs warm to cool and never reaches green: a low severity case is not a resolved one.</p>
+  </div>
+  <div class="seen"><b>Where it is visible</b>
+    <a class="link" href="color.html">Twenty three primitives and twenty seven roles</a>, each with a surface and a pair. <a class="link" href="bars.html">The severity bars</a> and <a class="link" href="mark.html">the latitude mark</a> are the two closed sets, and <a class="link" href="btn.html">the button</a> is where the fourth accent job stands.
+  </div>
+</div>
+
+<div class="w-attr">
+  <div><span class="id">A3</span><h3>Authority by restraint, not by emphasis</h3></div>
+  <div>
+    <p>The social job, verbatim: <b>"I want it to look like the work of someone who knew what they were doing, so that nobody has to redo it to be sure."</b> Beside it, a study finding that analysts with three or more years want the system to augment their speed rather than reiterate fundamentals.</p>
+    <p><b>It is more than typography.</b> It is the same argument the product makes about Clerk: it files a verdict, it does not insist on one. A console that shouts at its operator is a consumer product wearing a uniform.</p>
+    <p><b>It gained a ceiling at stage 06 and a defect at stage 08.</b> 600 is the working emphasis and 700 is allowed on a counted value only. The readout is an <code>h1</code> on 35 screens, so the browser's own 700 reached a heading that is not a counted value, and it took a box comparison against the product to see it.</p>
+  </div>
+  <div class="seen"><b>Where it is visible</b>
+    <a class="link" href="typography.html#weights">Three weights and no 500</a>, and <a class="link" href="readout.html">the readout</a>, which now declares 400 explicitly because a tag was deciding it.
+  </div>
+</div>
+
+<div class="w-attr">
+  <div><span class="id">A4</span><h3>Depth by tone, not by blur</h3></div>
+  <div>
+    <p>Design principle 5's second half: <b>no overlay that hides the evidence the analyst is deciding on.</b> And the structure the wireframes settled: a top bar, a connection strip, a list, a detail pane and a notice stack, all live at once on one screen.</p>
+    <p><b>Two independent references reached the same rule</b>, which is why this is a discipline rather than a preference. Depth by blur on four layers is how a dense screen turns to soup.</p>
+    <p><b>It was carried on a poster and proved in a browser.</b> Three grounds with no blur and no shadow anywhere in the console, and whether three tones separate a queue, a pane and a selected row at 1440 was decided at stage 06 step 6 rather than on the plate.</p>
+  </div>
+  <div class="seen"><b>Where it is visible</b>
+    <a class="link" href="color.html">The fill roles</a>, four usable steps above the page, and the theme check that reports both ramp collapses as declared rather than hiding them.
+  </div>
+</div>
+
+<div class="w-attr">
+  <div><span class="id">A5</span><h3>Counted, not estimated</h3></div>
+  <div>
+    <p>Voice principle 3: <b>a number names its claim, its scope and its window, count first and never a bare percentage.</b> Under it, verbatim from a practitioner study: an explanation is more meaningful <b>"if I have some context about how that percentage was generated"</b>.</p>
+    <p><b>What it licenses:</b> monospace as a primary face rather than a garnish for timestamps. Every load bearing value in this product is a count, and proportional digits make a column of counts unreadable.</p>
+    <p><b>What it rejects:</b> confidence as a large coloured ring or gauge. Voice principle 3 forbids the bare percentage in words, and it must not come back as a picture.</p>
+  </div>
+  <div class="seen"><b>Where it is visible</b>
+    <a class="link" href="typography.html#families">Two families</a>, chosen on a rendered comparison of four candidates each rather than on the name drawn on the plate. <a class="link" href="rec.html">The record</a> and <a class="link" href="was.html">the trend</a> are where the counting shows.
+  </div>
+</div>
+
+<p class="k-note"><b>The reflex these five were written against was measured, not assumed.</b> Ten style results came back for a query about a dense operator console and <b>eight were dark plus an electric blue or violet accent</b>, describing themselves in nearly the same words. That is the dangerous kind of reflex: it looks correct for security tooling specifically and it would survive a review. Two of the ten were not that, and both are in the record: one spends its single accent on orange, and the other is warm ivory and is kept as the anti-reference, because a bright field is a glare source at 03:00.</p>
+<p class="k-note"><b>The ground is dark and a light theme is a named debt rather than a nicety.</b> It was decided against the reading research, which favours light and favours it more as the type gets smaller, and against halation, which hits a large minority. What carries it is the rota: 79% of SOCs run 24/7 and a case is opened from a phone at 03:00. Halation then forces three things, and without them dark is done badly: never pure white on pure black, body text at 400 or above, and slightly open tracking on small monospace.</p>
+
+
+<h2 class="k-h" id="origin">Where a value comes from</h2>
+<p class="k-lede">No value in this system was chosen here. Each one arrives through five files, and each hop is a file you can open.</p>
+<div class="w-line">
+  <div><b>1 &middot; the plate</b>A poster, drawn and then read as <b>pixels</b> rather than as a caption. The palette was sampled off the image and checked against the plate's own stylesheet, which agreed at every role.</div>
+  <div><b>2 &middot; artifacts</b><code>DESIGN-artifacts.md</code>. Every value with its origin, its contrast against all three grounds, and the eight plates that were not taken.</div>
+  <div><b>3 &middot; the theme</b>Stage 06 coloured three real screens by <b>remapping the wireframe variables</b>, at a structural diff asserted byte for byte. The second screen cost one rule and the third cost none.</div>
+  <div><b>4 &middot; the kit</b>Stage 07 read <code>DESIGN.md</code> out of the running code rather than proposing it, and folded three stylesheets into one, proved by a byte identical screenshot.</div>
+  <div><b>5 &middot; tokens</b><code>design/system/tokens.css</code>. Two levels, and <a class="link" href="color.html">every role in both themes side by side</a> with a contrast table computed in the page rather than transcribed.</div>
+</div>
+<p class="k-note"><b>A reference is not an origin.</b> It says how something is made, not why it is right here. A value carried straight out of a reference would have a reference as its origin, and that is the one thing this chain exists to prevent. The one value in the whole system with no origin says so out loud on <a class="link" href="geometry.html#widths">Geometry</a>, and it is still open.</p>
+
+
+<h2 class="k-h" id="using">How to use it, and there are four doors</h2>
+<p class="k-lede">Four questions, four places. The fourth is named separately on purpose: somebody assembling a screen for the first time is looking for permission, and meets the prohibition only after having done it their own way.</p>
+<div class="w-doors">
+  <a class="w-door" href="overview.html">
+    <span class="q">which component do I take</span>
+    <b>Overview</b>
+    <span>Seventy three of them at three levels, each with a live miniature painted by the same stylesheet the page it leads to documents. Every page carries anatomy, variants, when to use it, rule and anti-rule, and states in both themes.</span>
+  </a>
+  <a class="w-door" href="patterns.html">
+    <span class="q">is this composition already solved</span>
+    <b>Patterns</b>
+    <span>Four compositions that already stand on three or more screens, plus the six two screen candidates waiting for a third. Look here <b>before</b> reaching for the components: a composition you assemble yourself when a pattern exists is a fifth answer to a question that has four.</span>
+  </a>
+  <a class="w-door" href="architecture.html">
+    <span class="q">what are the rules</span>
+    <b>Architecture</b>
+    <span>Two ladders that both use the word level, what a component may read, how a role is named, why the theme pair is a property of the level rather than an event, and the five things it takes to add a component.</span>
+  </a>
+  <a class="w-door w-door--stop" href="architecture.html#usage">
+    <span class="q">what may I not do</span>
+    <b>Usage rules</b>
+    <span>Eleven prohibitions of composition and context, each with the count or the decision it came from, and each one also a function in <code>design/kit/checks/rules.mjs</code>. <b>Run them against your screen rather than reading them.</b></span>
+  </a>
+</div>
+<p class="k-note"><b>Both themes are accepted even though the product ships one.</b> A screen carries no theme code, no toggle and no <code>data-theme</code> attribute: the pair is a property of the token level rather than a feature, and <code>base.css</code> is the one place the page's ground and ink are set, so flipping the theme needs no rule anywhere else. The switch lives in this stand's panel and not in the product, and there is no <code>prefers-color-scheme</code> anywhere in the system, deliberately: the console's ground is a decision about a room at 03:00 rather than about an operating system setting. What that obliges you to do is still real. <b>A component that breaks in the theme nobody ships still breaks</b>, and the person who finds out is the developer at handoff, so a new role and every one of its states is written in both themes at the moment it is founded, and the finished screen is rendered twice.</p>
+<p class="k-note"><b>The order of the four is the order to use them in.</b> Look for a pattern; if there is none, assemble from components; if the component you need does not exist, that is an order for the system and not an exception for your screen. A screen never carries a style of its own.</p>
+
+
+<h2 class="k-h" id="growing">How to grow it</h2>
+<p class="k-lede">One rule, and it is the difference between a living system and a folder somebody once tidied.</p>
+<div class="a-rung" style="border:var(--rule-control);padding:var(--space-4);margin:0 0 var(--space-4)">
+  <p style="margin:0;font:600 var(--size-lg)/var(--leading-tight) var(--font-sans);color:var(--text-primary)">New appears in <code>design/system/</code> first and on the screen second. Never the other way round.</p>
+</div>
+<p class="k-note">Without it, styles are growing on screens again within a week and the system is just another name for a folder. The full section is <a class="link" href="architecture.html#contribute">Contributing to the system</a> on Architecture, with the address for each of the four kinds of new thing: a value, a component, a composition and a rule. The two parts of it that get skipped are named there explicitly, because they are the two that look harmless: <b>the registry entry in the group of its own level</b>, and <b>the <code>@import</code> in its own level group rather than at the end of the file</b>.</p>
+
+
+<h2 class="k-h" id="backlog">What the system does not do yet</h2>
+<p class="k-lede">The honest list. Every row names what is missing, where it shows, why it was left, and who closes it. <b>A backlog with no owner on a row is a wish.</b></p>
+<div id="w-backlog"><p class="k-note">Loading the backlog.</p></div>
+<p class="k-note">Source: <code>design/kit/docs/backlog.md</code>. Four of these rows were opened by stage 09 itself, three of them by running the usage rules for the first time and one by an audit reading a file against its own header.</p>
+
+</main>
+</div>
+<script>
+/* THE BACKLOG IS READ FROM ITS OWN FILE, not transcribed into this page. A second
+   copy is the one that goes stale, and this is the one section of the stand whose
+   whole value is that it is current. The parse is deliberately small: it takes the
+   markdown tables under the two open headings and nothing else. */
+(function () {
+  var host = document.getElementById('w-backlog');
+  fetch('docs/backlog.md').then(function (r) {
+    if (!r.ok) throw new Error(r.status);
+    return r.text();
+  }).then(function (md) {
+    var out = '', section = null;
+    md.split('\n').forEach(function (ln) {
+      if (ln.indexOf('## ') === 0) {
+        section = ln.slice(3).trim();
+        if (/^Closed/.test(section)) section = null;
+        else out += '<h3 class="k-h2">' + section + '</h3><div class="k-wrap-x"><table class="k-table"><tbody>';
+        return;
+      }
+      if (!section || ln.indexOf('|') !== 0) return;
+      var cells = ln.split('|').slice(1, -1);
+      if (/^[\s:-]+$/.test(cells.join(''))) return;
+      var head = /^\s*What is missing/.test(cells[0]);
+      out += '<tr>' + cells.map(function (c) {
+        var t = c.trim()
+          .replace(/`([^`]+)`/g, '<code>$1</code>')
+          .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+        return (head ? '<th>' : '<td>') + t + (head ? '</th>' : '</td>');
+      }).join('') + '</tr>';
+    });
+    if (section) out += '</tbody></table></div>';
+    /* the last table is closed above only if the file ended inside one; close any
+       table the loop opened and did not, rather than emitting broken markup */
+    var opens = (out.match(/<table/g) || []).length, closes = (out.match(/<\/table>/g) || []).length;
+    while (closes++ < opens) out += '</tbody></table></div>';
+    host.innerHTML = out || '<p class="k-note">The backlog file has no open rows.</p>';
+  }).catch(function () {
+    /* file:// forbids fetch on most browsers, and the stand is accepted on the live
+       URL rather than on a local server. Saying so beats an empty box. */
+    host.innerHTML = '<p class="k-note"><b>The backlog could not be read from this page.</b> ' +
+      'Opened from a file path rather than over http, the browser refuses the request. ' +
+      'The file is <a class="link" href="docs/backlog.md">docs/backlog.md</a> and it is the source either way.</p>';
+  });
+})();
+window.NAV_SECTIONS = [
+  { id:'attributes', label:'Five attributes' },
+  { id:'origin',     label:'Where a value comes from' },
+  { id:'using',      label:'Four doors' },
+  { id:'growing',    label:'How to grow it' },
+  { id:'backlog',    label:'What it does not do yet' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

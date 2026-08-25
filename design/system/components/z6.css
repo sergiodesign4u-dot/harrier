@@ -1,0 +1,66 @@
+/* z6 :: ORGANISM
+   READS. Fill: --bg-page. Line: --rule-edge. Structure: --width-toast,
+   --zone-notice-clear. Geometry: --space-2, --space-3, --space-4.
+   CONTAINS. toast.
+   PAGE. design/kit/z6.html   STANDS ON. 2 instances across 2 screens.
+
+   THE NOTICE STACK, NODE 8.4, AND THE WHOLE ZONE WAS SPECIFIED IN PROSE AND DRAWN
+   NOWHERE until stage 07 step 9 read the contract as a checklist. Three notices
+   were marked MVP and not one existed.
+
+   IT NEVER COVERS THE PANE. Bottom left, 400px wide, above the fold of nothing:
+   design principle 5 forbids an overlay that hides the evidence the analyst is
+   deciding on, and a notice stack is the component most likely to break it.
+
+   THE CAP IS ONE AT 360 AND THREE AT THE DESK, AND DRAWING IT IS WHAT SETTLED
+   THAT. Measured: three notices took 408 of 760 pixels at 360, so the notice
+   layer covered more of the phone than the case did. Node 8.4 says the cap is a
+   LAYOUT decision and the persistence is a COMPLIANCE one, so the cap may differ
+   per width and the persistence may not. The one that stays is the failure,
+   because it is the one that cannot be dismissed; with no failure present the
+   newest stays. */
+
+.z6{
+  position: absolute;
+  left: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 5;
+  width: min(var(--width-toast), calc(100% - var(--space-6)));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+@media (max-width:900px){
+  /* there is no .z45 box to hang off at this width because the layout is block,
+     so this is the one place in the product a stack is fixed to the viewport. It
+     still never covers the pane, because at 360 there is no pane. */
+  .z6{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    width: auto;
+    padding: var(--space-2) var(--space-3) calc(var(--space-3) + env(safe-area-inset-bottom));
+    background: var(--bg-page);
+    border-top: var(--rule-edge);
+  }
+  .z6:has(.toast--alert) .toast:not(.toast--alert){ display: none }
+  .z6:not(:has(.toast--alert)) .toast:not(:last-of-type){ display: none }
+}
+/* THE COUNT LINE, AND IT WAS DROPPED IN THE MIGRATION. The cap hides notices rather
+   than deleting them, so the stack has to say how many it is holding back. Declared
+   in kit.css and in no file under design/system/ until a reader with clean context
+   found it on `queue-notices` wearing a class nothing painted. It is the second half
+   of the argument the header above makes: a cap that does not report is a silence. */
+.z6-more{
+  margin: 0;
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-2);
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+  background: var(--bg-page);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* NO STATES. The toasts inside it carry theirs. */

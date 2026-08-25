@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Colour</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Foundations</p>
+<h1 class="k-title">Colour</h1>
+<p class="k-lede">Twenty two raw values and twenty one roles. A component never reads a value from the top half of this page: colour is the one thing a theme and a rebrand override, so it is read through a role or not at all. Geometry goes the other way and is read straight from the primitive, because it has nothing to override.</p>
+
+<h2 class="k-h" id="primitive">Primitive, the raw values</h2>
+<p class="k-note">Fourteen of these are the product. Nine came off <code>brand-plate-j.png</code>, eight as pixels and one measured, and five are derived. The eight below the rule are the light end of the same ramp, added at step 3 of this stage, and they are the only values this stage introduced. Every one carries where it came from.</p>
+
+<h3 class="k-h2">The warm neutral ramp, and it carries the whole console</h3>
+<div class="k-swatches">
+  <div class="k-sw"><i style="background:var(--warm-950)"></i><b>--warm-950</b><small>#11110f &middot; pixel of plate J, GROUND</small></div>
+  <div class="k-sw"><i style="background:var(--warm-900)"></i><b>--warm-900</b><small>#171714 &middot; pixel of plate J, detail pane</small></div>
+  <div class="k-sw"><i style="background:var(--warm-850)"></i><b>--warm-850</b><small>#232219 &middot; derived from the ground</small></div>
+  <div class="k-sw"><i style="background:var(--warm-800)"></i><b>--warm-800</b><small>#2a2418 &middot; pixel of plate J, active row</small></div>
+  <div class="k-sw"><i style="background:var(--warm-500)"></i><b>--warm-500</b><small>#675f50 &middot; pixel of plate J, RULE</small></div>
+  <div class="k-sw"><i style="background:var(--warm-400)"></i><b>--warm-400</b><small>#7b7260 &middot; derived, the rule hue raised to clear 3:1</small></div>
+  <div class="k-sw"><i style="background:var(--warm-300)"></i><b>--warm-300</b><small>#9d9182 &middot; derived, severity medium</small></div>
+  <div class="k-sw"><i style="background:var(--warm-200)"></i><b>--warm-200</b><small>#aaa397 &middot; pixel of plate J, SECONDARY</small></div>
+  <div class="k-sw"><i style="background:var(--warm-50)"></i><b>--warm-50</b><small>#e9e4da &middot; pixel of plate J, TEXT</small></div>
+</div>
+
+<h3 class="k-h2">Amber, the one saturated hue the console spends</h3>
+<div class="k-swatches">
+  <div class="k-sw"><i style="background:var(--amber-500)"></i><b>--amber-500</b><small>#d29c3f &middot; pixel of plate J, ACCENT</small></div>
+  <div class="k-sw"><i style="background:var(--amber-950)"></i><b>--amber-950</b><small>#18140e &middot; measured on plate J, text on Accept</small></div>
+</div>
+<p class="k-note">Attribute A2 says saturation is scarce, and on this product that is a number rather than a stance: <b>the accent does four jobs and no fifth</b>, counted in the DOM on the finished screen rather than asserted. Latitude, the live state, where you are, and the row being decided with its primary action.</p>
+
+<h3 class="k-h2">The failure hue and the severity ramp</h3>
+<div class="k-swatches">
+  <div class="k-sw"><i style="background:var(--clay-500)"></i><b>--clay-500</b><small>#b25d44 &middot; pixel of plate J, FAILURE. No role: one use in the product and it is this swatch</small></div>
+  <div class="k-sw"><i style="background:var(--clay-400)"></i><b>--clay-400</b><small>#d9704f &middot; derived, severity high</small></div>
+  <div class="k-sw"><i style="background:var(--warm-300)"></i><b>--warm-300</b><small>#9d9182 &middot; severity medium</small></div>
+  <div class="k-sw"><i style="background:var(--slate-300)"></i><b>--slate-300</b><small>#828e96 &middot; severity low, the only cool value anywhere</small></div>
+</div>
+<p class="k-note">The ramp descends in <b>chroma</b> and not in loudness. On a dark ground every value has to clear 4.5:1, which compresses the whole ramp into 4.6 to 6.5, so brightness cannot carry it. Warm to cool, and it never reaches green: a low severity case is not a resolved one, and green would say it was. Nothing in this product is green anywhere, including the six state chips, because they are positions and not outcomes.</p>
+
+<h3 class="k-h2">The light end of the same ramp, and it is all this stage added</h3>
+<p class="k-note">A role without a pair is not allowed and the ramp above has no light end, so eight values were derived by the method the product already used for <code>--warm-850</code> and <code>--warm-400</code>: <b>hold the plate's hue and saturation, move lightness until the threshold is met</b>. Nothing here is sampled from anywhere new and nothing here is a second palette.</p>
+<div class="k-swatches">
+  <div class="k-sw"><i style="background:var(--warm-0)"></i><b>--warm-0</b><small>#f8f7f4 &middot; TEXT hue at lightness 96.5. The light page</small></div>
+  <div class="k-sw"><i style="background:var(--warm-25)"></i><b>--warm-25</b><small>#f1ede7 &middot; the same at 92.5. 1.09 off the page, against the dark pair's 1.05</small></div>
+  <div class="k-sw"><i style="background:var(--warm-100)"></i><b>--warm-100</b><small>#e5e3de &middot; RULE hue, lightened to 1.20. Mirrors --warm-850 at 1.18</small></div>
+  <div class="k-sw"><i style="background:var(--amber-100)"></i><b>--amber-100</b><small>#f2e1c6 &middot; ACCENT hue, lightened to 1.20. Mirrors --warm-800 at 1.23</small></div>
+  <div class="k-sw"><i style="background:var(--amber-700)"></i><b>--amber-700</b><small>#835e1f &middot; ACCENT hue, darkened until it clears 4.5 on the worst light ground</small></div>
+  <div class="k-sw"><i style="background:var(--clay-600)"></i><b>--clay-600</b><small>#aa4525 &middot; the same method, severity high</small></div>
+  <div class="k-sw"><i style="background:var(--warm-600)"></i><b>--warm-600</b><small>#6e6356 &middot; severity medium</small></div>
+  <div class="k-sw"><i style="background:var(--slate-500)"></i><b>--slate-500</b><small>#5c666d &middot; severity low</small></div>
+</div>
+
+
+<h2 class="k-h" id="roles">Semantic, the roles</h2>
+<p class="k-lede">Every role names the surface it paints, because the surface decides the threshold. One role may not paint two surfaces even when the purpose is one and the value is identical: a fill role dropped onto a small bold label passes as a surface and fails as text, and a table of text and background pairs cannot see it, because nobody declared it as text.</p>
+<p class="k-note"><b>Both themes are shown at once, on purpose.</b> Each card is split: the left half is the theme the product ships and the right half is its pair. Neither half follows the switcher in the panel, because the pairs were written as material at step 3 and a page that showed only the current one would hide half of what it documents.</p>
+
+<div class="k-roles" id="k-role-cards"></div>
+
+
+<h2 class="k-h" id="contrast">Contrast, computed in this page</h2>
+<p class="k-lede">Not transcribed. Every figure below is measured when the page renders, by painting each role onto each ground and reading the result back, so a token that changes changes this table with it. <b>Every role is tabulated, not only the ones somebody called textual</b>, because that is exactly where a fill role painting a label would hide.</p>
+<p class="k-note">Thresholds: <b>4.5:1</b> for ink, dropping to 3:1 at 24px or at 19px bold. <b>3:1</b> for fill and line, WCAG 1.4.11, non-text contrast. Eight rows are exempt and each carries its reason in the verdict: a ground is not a boundary, a divider is not a control, and a decorative glyph is not text. The exemption is written rather than assumed, which is the only way the next reader can tell a decision from an oversight.</p>
+
+<div class="k-wrap-x">
+<table class="k-table" id="k-contrast">
+  <thead><tr>
+    <th>Role</th><th>Paints</th><th>Measured against</th>
+    <th class="num">Dark</th><th class="num">Light</th><th class="num">Floor</th><th>Verdict</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<p class="k-note" id="k-summary"></p>
+
+<h3 class="k-h2">The two lines that are below a floor on purpose</h3>
+<p class="k-note"><b><code>--line-separator</code> separates and never carries meaning</b>, so it sits below every floor deliberately. It is the line between rows, and it lived in four files and in no variable at all until the stage 06 audit found it.</p>
+<p class="k-note"><b><code>--line-edge</code> draws panel edges at 2.997 in dark and 2.88 in light, and that is allowed for exactly what it does.</b> WCAG 1.4.11 covers what identifies a <b>control</b>, not a divider. Anything that is the boundary of a control takes <code>--line-control</code>, which clears 3:1 from both directions. This was recorded at stage 06 as sitting at "exactly 3.00", which was a rounded number reported as a threshold met, and the recomputation corrected it.</p>
+
+</main>
+</div>
+
+<span id="k-probe-light" data-theme="light" style="position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden"></span>
+
+<script>
+window.NAV_SECTIONS = [
+  { id:'primitive', label:'Primitive' },
+  { id:'roles',     label:'Roles' },
+  { id:'contrast',  label:'Contrast' }
+];
+
+/* The role table. `against` names the grounds a role is judged on, and for the two inks that
+   sit on their own plate it is that plate rather than the page: measuring them against the
+   page would report a failure for a pairing that never happens. */
+window.KIT_ROLES = [
+  {n:'--bg-page',        s:'fill', t:null, x:'a ground, and two grounds beside each other are not a control boundary. What has to contrast is what sits ON them, and those rows are below', a:['--bg-surface'], from:'The board and the page behind everything. 24 sites: body, the screen, Z1, Z4, the dialog, the toast.', o:'pixel of plate J'},
+  {n:'--bg-surface',     s:'fill', t:null, x:'a ground, same reason', a:['--bg-page'],    from:'The raised plane, and the hover ground of two different families. 19 sites: Z2, Z5, the column head, a hovered row, the expansion.', o:'pixel of plate J'},
+  {n:'--bg-selected',    s:'fill', t:null, x:'a ground, same reason. It is read by the accent inset on its left edge, which is --line-current', a:['--bg-page'],    from:'The row being ruled on. 3 sites. Amber tinted on purpose: the accent says this is the decision and the ground under it agrees.', o:'pixel of plate J'},
+  {n:'--bg-invert',      s:'fill', t:3,    a:['--bg-page'],    from:'The plate that demands attention, inverted out of the reading ink. 9 sites, the solid chip the loudest.', o:'pixel of plate J'},
+  {n:'--bg-action',      s:'fill', t:null, x:'the control is identified by its BOUNDARY, and that is --line-control, which clears 3:1 in both themes. The fill is 2.29 on the light page and that is allowed for exactly this reason', a:['--bg-page'],    from:'The main action of its zone, and there is exactly one per zone. The primary button on 43 screens.', o:'pixel of plate J'},
+  {n:'--bg-quiet',       s:'fill', t:null, x:'a ground, same reason', a:['--bg-page'],    from:'The plate that is present and not asking. 3 sites, and the ground of what is out of reach.', o:'derived'},
+  {n:'--text-primary',   s:'ink',  t:4.5,  a:['--bg-page','--bg-surface','--bg-selected'], from:'Reading text. Body plus 21 sites.', o:'pixel of plate J'},
+  {n:'--text-secondary', s:'ink',  t:4.5,  a:['--bg-page','--bg-surface','--bg-selected'], from:'The largest single role in the product, 81 sites: the nav item at rest, every count, every timestamp, the hint, the stamp.', o:'pixel of plate J'},
+  {n:'--text-accent',    s:'ink',  t:4.5,  a:['--bg-page','--bg-surface','--bg-selected'], from:'The accented word: the latitude figure, the live state. 6 sites. Same value as the action fill and the current line today, and three roles, because a word, a plate and a line can diverge.', o:'pixel of plate J'},
+  {n:'--text-on-invert', s:'ink',  t:4.5,  bg:'--bg-invert', a:['--bg-invert'],  from:'5 sites. Measured against its own plate, not against the page.', o:'pixel of plate J'},
+  {n:'--text-on-action', s:'ink',  t:4.5,  bg:'--bg-action', a:['--bg-action'],  from:'4 sites. Exists only to sit on the accent.', o:'measured on plate J'},
+  {n:'--text-sev-high',  s:'ink',  t:4.5,  a:['--bg-page','--bg-surface','--bg-selected'], from:'Severity, and the lit bar borrows it with currentColor rather than taking a fill token, which is why this ramp is three roles and not six.', o:'derived'},
+  {n:'--text-sev-medium',s:'ink',  t:4.5,  a:['--bg-page','--bg-surface','--bg-selected'], from:'Severity, medium.', o:'derived'},
+  {n:'--text-sev-low',   s:'ink',  t:4.5,  a:['--bg-page','--bg-surface','--bg-selected'], from:'Severity, low.', o:'derived'},
+  {n:'--text-divider',   s:'ink',  t:null, x:'a divider drawn as a character. WCAG 1.4.1 does not cover a purely decorative glyph', a:['--bg-page'],    from:'The vertical bar between the parts of the annunciator. A divider drawn as a character, and exempt: WCAG 1.4.1 does not cover a purely decorative glyph. Declared as ink so the surface rule can see it at all.', o:'derived'},
+  {n:'--line-separator', s:'line', t:null, x:'it separates and carries no meaning, so it is below every floor deliberately', a:['--bg-page'],    from:'What separates and carries no meaning. 30 sites. Below every floor deliberately.', o:'derived'},
+  {n:'--line-edge',      s:'line', t:null, x:'1.4.11 covers what identifies a CONTROL, not a divider. A control boundary takes --line-control instead', a:['--bg-page'],    from:'A panel edge, 36 sites. Below 3:1 and allowed: 1.4.11 covers what identifies a control, not a divider.', o:'pixel of plate J'},
+  {n:'--line-control',   s:'line', t:3,    a:['--bg-page','--bg-surface','--bg-selected'], from:'The boundary of a control: chip, button, kbd. The only one of the three lines that clears the floor.', o:'derived'},
+  {n:'--line-current',   s:'line', t:3,    a:['--bg-page','--bg-surface','--bg-selected'], from:'Where you are, and what is being decided: the current nav item, the selected row.', o:'pixel of plate J'},
+  {n:'--line-record',    s:'line', t:3,    a:['--bg-page'],    from:'The border of the record that leaves the building. Print included.', o:'pixel of plate J'}
+];
+</script>
+<script>
+(function(){
+  var probe = document.getElementById('k-probe-light');
+  var pen = document.createElement('span');
+  pen.style.cssText='position:absolute;left:-9999px';
+  document.body.appendChild(pen);
+  var penL = document.createElement('span');
+  penL.style.cssText='position:absolute;left:-9999px';
+  probe.appendChild(penL);
+
+  /* Ask the browser what the token RESOLVES to, rather than parsing what the file says.
+     A colour written as color-mix, or through three var() hops, still comes back as rgb. */
+  function val(tok, light){
+    var p = light ? penL : pen;
+    p.style.color = '';
+    p.style.color = 'var(' + tok + ')';
+    return getComputedStyle(p).color;
+  }
+  function rgb(str){
+    var m = str.match(/[\d.]+/g);
+    return m ? [ +m[0], +m[1], +m[2], m.length>3 ? +m[3] : 1 ] : [0,0,0,1];
+  }
+  function lin(c){ c/=255; return c<=0.04045 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4); }
+  function lum(c){ return 0.2126*lin(c[0]) + 0.7152*lin(c[1]) + 0.0722*lin(c[2]); }
+  function ratio(a,b){
+    var la = lum(rgb(a)), lb = lum(rgb(b));
+    var hi = Math.max(la,lb), lo = Math.min(la,lb);
+    return (hi+0.05)/(lo+0.05);
+  }
+  function worst(role, grounds, light){
+    var v = val(role, light), out = null;
+    grounds.forEach(function(g){
+      var r = ratio(v, val(g, light));
+      if (out === null || r < out.r) out = { r:r, g:g };
+    });
+    return out;
+  }
+  function f(x){ return (Math.round(x*100)/100).toFixed(2); }
+
+  /* --- the role cards, both themes side by side --- */
+  var host = document.getElementById('k-role-cards');
+  window.KIT_ROLES.forEach(function(R){
+    var card = document.createElement('div');
+    card.className = 'k-role k-scene';
+    card.style.padding = '0';
+    card.style.background = 'transparent';
+    var head = document.createElement('div');
+    head.style.padding = '12px 12px 0';
+    head.innerHTML = '<b>' + R.n + '</b><span class="k-surface">' + R.s + '</span>';
+    card.appendChild(head);
+
+    var pair = document.createElement('div');
+    pair.className = 'k-pair';
+    pair.style.margin = '10px 12px 0';
+    [['k-half-l', false, 'dark, shipped'], ['k-half-r', true, 'light, the pair']].forEach(function(H){
+      var half = document.createElement('div');
+      half.className = H[0];
+      /* BOTH halves declare their theme, and the left one is not allowed to rely on the
+         page being dark. It did, and the whole page quietly showed one theme twice as
+         soon as the reader chose light: twenty one cards labelled "dark, shipped" and
+         rendering light. tokens.css puts [data-theme="dark"] on the same rule as :root
+         so this costs an attribute rather than a second copy of the palette. */
+      half.setAttribute('data-theme', H[1] ? 'light' : 'dark');
+      /* an ink that lives on its own plate is shown ON that plate. Painted onto the page it
+         would render invisible and the card would document the opposite of the row below it. */
+      half.style.background = 'var(' + (R.bg || '--bg-page') + ')';
+      var demo = '';
+      if (R.s === 'ink') {
+        demo = R.t === null
+          /* an exempt role is shown doing its real job rather than reading as text: the whole
+             point of the exemption is that this glyph is not text, and a sample that pretends
+             it is would argue the opposite of what the row says */
+          ? '<span class="k-demo-ink">Live <span style="color:var(' + R.n + ')">|</span> Clerk investigating 3</span>'
+          : '<span class="k-demo-ink" style="color:var(' + R.n + ')">34 of 36 accepted</span>';
+      }
+      if (R.s === 'fill') demo = '<i class="k-demo-fill" style="background:var(' + R.n + ')"></i>';
+      if (R.s === 'line') demo = '<i class="k-demo-line" style="border-top-color:var(' + R.n + ')"></i>';
+      half.innerHTML = demo +
+        '<span class="k-surface" style="display:block;margin-top:8px;color:var(' + (R.bg ? (R.bg === '--bg-invert' ? '--text-on-invert' : '--text-on-action') : '--text-secondary') + ')">' + H[2] + '</span>';
+      pair.appendChild(half);
+    });
+    card.appendChild(pair);
+
+    var p = document.createElement('p');
+    p.className = 'k-role';
+    p.style.cssText = 'margin:10px 12px 12px;font-size:var(--size-xs);line-height:var(--leading);color:var(--text-secondary)';
+    p.textContent = R.from + ' Origin: ' + R.o + '.';
+    card.appendChild(p);
+    host.appendChild(card);
+  });
+
+  /* --- the contrast table --- */
+  var tb = document.querySelector('#k-contrast tbody');
+  var pass = 0, fail = 0, exempt = 0;
+  window.KIT_ROLES.forEach(function(R){
+    var d = worst(R.n, R.a, false), l = worst(R.n, R.a, true);
+    var tr = document.createElement('tr');
+    var verdict, cls;
+    if (R.t === null) { verdict = 'exempt: ' + (R.x || 'the reason is beside it'); cls = 'k-exempt'; exempt++; }
+    else if (d.r >= R.t && l.r >= R.t) { verdict = 'passes in both'; cls = 'k-pass'; pass++; }
+    else { verdict = 'FAILS'; cls = 'k-fail'; fail++; }
+    var against = R.a.length > 1 ? d.g + ', the worst of ' + R.a.length : d.g;
+    tr.innerHTML =
+      '<td><code>' + R.n + '</code></td>' +
+      '<td>' + R.s + '</td>' +
+      '<td><code>' + against + '</code></td>' +
+      '<td class="num">' + f(d.r) + '</td>' +
+      '<td class="num">' + f(l.r) + '</td>' +
+      '<td class="num">' + (R.t === null ? 'n/a' : R.t.toFixed(1)) + '</td>' +
+      '<td class="' + cls + '">' + verdict + '</td>';
+    tb.appendChild(tr);
+  });
+  document.getElementById('k-summary').innerHTML =
+    '<b>' + pass + ' of ' + (pass + fail) + ' roles with a floor clear it in both themes</b>, ' +
+    exempt + ' are exempt with the reason written beside them, and ' + fail + ' fail. ' +
+    'Counted when this page rendered, in this browser.';
+})();
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

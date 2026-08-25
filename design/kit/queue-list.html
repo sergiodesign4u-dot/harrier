@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Queue list</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Pattern</p>
+<h1 class="k-title">Queue list</h1>
+<p class="k-lede">The list half of the split, and the main dashboard of the product. Scope at the top, a counted claim under it, an optional banner, the rows, and the keyboard taught at the foot. 38 grey screens of 62, 29 of them already in colour.</p>
+<p class="k-note"><code>CLAUDE.md</code> settles it and does not reopen it: <b>the dashboard is the queue, with the fleet in the pane, and not the other way round.</b> That decision was made by the choice of primary persona, and this composition is what it looks like. Design principle 1 governs everything inside it: every row is a decision, not a record, and a line that does not tell the analyst what to do next has not earned its height.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note">Live, in both themes, in a box short enough that the scope bar proves it stays and the foot proves it sticks. Those two are the whole reason the column scrolls rather than the page.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-stage k-stage-tall">
+      <section class="z4 queue-list">
+        <div class="scopebar" role="group" aria-label="Scope and filters">
+          <a class="chip" href="#anatomy">All tenants &#9662;</a>
+          <button class="chip" type="button">Waiting on a decision &times;</button>
+          <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+        </div>
+        <p class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></p>
+        <div class="rows" role="grid" tabindex="0">
+          <div class="row row--head" role="row">
+            <span role="columnheader">Sev</span><span role="columnheader">Tenant</span>
+            <span role="columnheader">What it is</span><span role="columnheader">The verdict</span>
+            <span role="columnheader">To check</span><span role="columnheader">State</span>
+            <span role="columnheader">Age</span>
+          </div>
+          <a class="row" role="row" href="#anatomy">
+            <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+            <span class="client" role="gridcell">Meridian Health</span>
+            <span role="gridcell">Mass file rename on one host</span>
+            <span class="concluded" role="gridcell"><b>Real, contain the endpoint</b></span>
+            <span role="gridcell" class="cost">4 signals</span>
+            <span class="states" role="gridcell"><i class="state state--solid">unrecorded</i></span>
+            <span class="age" role="gridcell">6m</span>
+          </a>
+          <a class="row is-selected" role="row" href="#anatomy">
+            <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+            <span class="client" role="gridcell">Larkfield Logistics</span>
+            <span role="gridcell">Token replay from a new ASN</span>
+            <span class="concluded" role="gridcell"><b>Real, contain the identity</b></span>
+            <span role="gridcell" class="cost">9 signals</span>
+            <span class="states" role="gridcell"></span>
+            <span class="age" role="gridcell">26m</span>
+          </a>
+          <a class="row" role="row" href="#anatomy">
+            <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+            <span class="client" role="gridcell">Halcyon Care</span>
+            <span role="gridcell">New global admin added</span>
+            <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
+            <span role="gridcell" class="cost">3 signals</span>
+            <span class="states" role="gridcell"></span>
+            <span class="age" role="gridcell">41m</span>
+          </a>
+        </div>
+        <p class="qfoot">
+          <span>3 of 18 shown</span>
+          <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+          <span>order: unrecorded, waiting on you, severity, age</span>
+        </p>
+      </section>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-stage k-stage-tall">
+      <section class="z4 queue-list">
+        <div class="scopebar" role="group" aria-label="Scope and filters">
+          <a class="chip" href="#anatomy">All tenants &#9662;</a>
+          <button class="chip" type="button">Waiting on a decision &times;</button>
+          <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
+        </div>
+        <p class="readout"><b>18 waiting</b> <span class="dim">across 12 of 40 tenants in your scope</span></p>
+        <div class="rows" role="grid" tabindex="0">
+          <div class="row row--head" role="row">
+            <span role="columnheader">Sev</span><span role="columnheader">Tenant</span>
+            <span role="columnheader">What it is</span><span role="columnheader">The verdict</span>
+            <span role="columnheader">To check</span><span role="columnheader">State</span>
+            <span role="columnheader">Age</span>
+          </div>
+          <a class="row" role="row" href="#anatomy">
+            <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
+            <span class="client" role="gridcell">Meridian Health</span>
+            <span role="gridcell">Mass file rename on one host</span>
+            <span class="concluded" role="gridcell"><b>Real, contain the endpoint</b></span>
+            <span role="gridcell" class="cost">4 signals</span>
+            <span class="states" role="gridcell"><i class="state state--solid">unrecorded</i></span>
+            <span class="age" role="gridcell">6m</span>
+          </a>
+          <a class="row is-selected" role="row" href="#anatomy">
+            <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+            <span class="client" role="gridcell">Larkfield Logistics</span>
+            <span role="gridcell">Token replay from a new ASN</span>
+            <span class="concluded" role="gridcell"><b>Real, contain the identity</b></span>
+            <span role="gridcell" class="cost">9 signals</span>
+            <span class="states" role="gridcell"></span>
+            <span class="age" role="gridcell">26m</span>
+          </a>
+          <a class="row" role="row" href="#anatomy">
+            <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i></i><i></i></span> Low</span>
+            <span class="client" role="gridcell">Halcyon Care</span>
+            <span role="gridcell">New global admin added</span>
+            <span class="concluded" role="gridcell"><b>Benign, new admin onboarding</b></span>
+            <span role="gridcell" class="cost">3 signals</span>
+            <span class="states" role="gridcell"></span>
+            <span class="age" role="gridcell">41m</span>
+          </a>
+        </div>
+        <p class="qfoot">
+          <span>3 of 18 shown</span>
+          <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+          <span>order: unrecorded, waiting on you, severity, age</span>
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
+<ul class="k-zones">
+  <li><b><code>scopebar</code></b><span>what you are looking at, as chips you can press. It is the first zone because the count under it is only true within it <a class="link" href="scopebar.html">page</a></span></li>
+  <li><b><code>readout</code></b><span>the counted claim. One per screen, and it is the <code>h1</code> <a class="link" href="readout.html">page</a></span></li>
+  <li><b><code>banner</code></b><span>optional, between the claim and the rows. It appears on 12 of the 38 and its placement belongs to the column rather than to the banner <a class="link" href="banner.html">page</a></span></li>
+  <li><b><code>rows</code></b><span>the scrollport and the grid. Seven tracks, set by <code>--row-tracks</code> <a class="link" href="rows.html">page</a></span></li>
+  <li><b><code>qfoot</code></b><span>where the keyboard is taught, and deliberately never a dialog <a class="link" href="qfoot.html">page</a></span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>what the rows are about</b></td><td>base, 36 screens</td><td>The queue: what is waiting on a decision</td></tr>
+    <tr><td></td><td><code>--log</code>, 2 screens</td><td><b>The log: what was decided.</b> Same five zones in the same order, so it is a variant and not a third pattern. The row tracks change and the column is not rendered at 360 at all, because the phone has one scenario and answering an auditor is not it</td></tr>
+    <tr><td><b>the rows themselves</b></td><td><span class="k-none">not a variant</span></td><td>An <code>empty</code> where the rows go is still this pattern. Four screens do it: nothing waiting, no match for the scope, the queue taken by someone else, and the queue still assembling</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Any screen whose job is <b>choosing what to work on next</b>. That is the queue and its seven states, the log and its two, and the case screens, where the list stays beside the pane so the analyst can see what she is not doing.</p>
+<p class="k-note"><b>Where she meets it.</b> First thing on shift and every time she finishes ruling on something. It is the screen she returns to, which is why the scope she set has to survive the return.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <p>Fill it. A new state of the queue is this pattern with a different middle: an <code>empty</code> instead of rows, a <code>banner</code> above them, a different set of chips. Nothing about the scope bar, the claim or the keyboard strip is a decision you are making again.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <p>Take it for a column that is not a list. The entry screens put a <code>frame</code> in this same host and the system states put an <code>outage</code>; each is one wrapper with one job, and reaching for this pattern there would mean carrying a scope bar and a keyboard strip that have nothing to scope and nothing to traverse.</p>
+  </div>
+</div>
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b> that reach this pattern. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>.</p>
+<ul class="k-limits">
+  <li><b>R1.</b> Not more than one <code>.btn--primary</code> per layer. This column carries none of its own: the decision is made in the pane, and the foot here teaches the keyboard instead.</li>
+  <li><b>R6.</b> One <code>readout</code> per screen. It is the counted claim about what you are looking at, and a second would be a second claim.</li>
+  <li><b>R9.</b> One selected row at a time, and none at 360: at that width selecting opens the standalone case instead of moving a pane that is not rendered.</li>
+</ul>
+
+<h2 class="k-h" id="where">Where it stands</h2>
+<p class="k-note">38 grey screens. The first three are the proof of existence; the rest are named because a pattern is only as real as the list of places it already stands.</p>
+<div class="k-where">
+  <a href="../../wireframes/queue.html">queue</a> <a href="../../wireframes/queue-empty.html">queue, nothing waiting</a> <a href="../../wireframes/queue-no-match.html">queue, no match</a> <a href="../../wireframes/queue-streaming.html">queue, assembling</a> <a href="../../wireframes/queue-taken.html">queue, taken</a> <a href="../../wireframes/queue-stale.html">queue, stale</a> <a href="../../wireframes/queue-decided.html">queue, decided</a> <a href="../../wireframes/case.html">case</a> <a href="../../wireframes/case-history.html">log</a> <a href="../../wireframes/reject.html">reject</a>
+</div>
+<p class="k-note"><b>29 of the 38 are already in colour</b>, and the other 9 are queue and case states waiting for stage 12. Live, in colour: <a class="link" href="../queue.html">the queue</a>, <a class="link" href="../case.html">a case with the list beside it</a>, <a class="link" href="../case-history.html">the log</a>.</p>
+
+<h2 class="k-h" id="tech">What it is made of, and what moved into it</h2>
+<p class="k-note">File: <code>design/system/patterns/queue-list.css</code>. Imported in <code>index.css</code> after every component and before the places, because a pattern is built from components and has to be able to reach past their own declarations.</p>
+<p class="k-note"><b>Built from</b> <a class="link" href="scopebar.html">scopebar</a>, <a class="link" href="readout.html">readout</a>, <a class="link" href="banner.html">banner</a>, <a class="link" href="rows.html">rows</a>, <a class="link" href="row.html">row</a> and <a class="link" href="qfoot.html">qfoot</a>, standing in <a class="link" href="z4.html">z4</a>. Nothing new was written for it.</p>
+<p class="k-note"><b>One block moved in, out of <code>z4.css</code>,</b> and it had the shape this whole level exists to collect: a selector written inside one component that names four others, conditioned on which filling the host is carrying. The class moved with it, because <code>.z4--log</code> named the host rather than the thing.</p>
+<div class="k-code">/* was in components/z4.css */
+.z4--log .scopebar,
+.z4--log .rows,
+.z4--log .qfoot,
+.z4--log .banner:not(.only-narrow){ display: none }
+
+/* is in patterns/queue-list.css */
+.queue-list--log .scopebar,
+.queue-list--log .rows,
+.queue-list--log .qfoot,
+.queue-list--log .banner:not(.only-narrow){ display: none }</div>
+<p class="k-note"><b><code>.z4 &gt; .banner</code> did not move, and the difference is the point.</b> It places the banner in the column whichever filling the column is carrying, so it belongs to the zone rather than to the composition. A rule moves here only when it is conditioned on the filling.</p>
+<h3 class="k-h2">Copy this</h3>
+<p class="k-note"><b>Three classes on one element, and each is a different level.</b> <code>z4</code> is the zone, <code>queue-list</code> is the filling, <code>queue-list--log</code> is the variant of the filling. The grey corpus still writes <code>z4--log</code> and always will: it is frozen.</p>
+<div class="k-code">&lt;!-- the queue --&gt;
+&lt;section class="z4 queue-list"&gt;
+  &lt;div class="scopebar"&gt;&hellip;&lt;/div&gt;
+  &lt;h1 class="readout"&gt;&hellip;&lt;/h1&gt;
+  &lt;div class="banner"&gt;&hellip;&lt;/div&gt;        &lt;!-- optional --&gt;
+  &lt;div class="rows" role="grid" tabindex="0"&gt;&hellip;&lt;/div&gt;
+  &lt;p class="qfoot"&gt;&hellip;&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;!-- the log: the same five zones, and one more class --&gt;
+&lt;section class="z4 queue-list queue-list--log"&gt;
+  &hellip;
+  &lt;div class="rows rows--log"&gt;&lt;a class="row row--log"&gt;&hellip;&lt;/a&gt;&lt;/div&gt;
+  &lt;div class="banner only-narrow"&gt;&hellip;&lt;/div&gt;   &lt;!-- what 360 gets instead --&gt;
+&lt;/section&gt;</div>
+<p class="k-note"><b>A new screen carrying this pattern moves two numbers</b>, and they are hard coded in four places on purpose so that none of them can drift quietly: the counts on this page, on <a class="link" href="patterns.html">Patterns</a>, in the header of <code>design/system/patterns/queue-list.css</code> and in <code>docs/inventory.md</code>. Recount with <code>node design/kit/checks/compose.mjs</code> for the grey number and by counting the class in <code>design/*.html</code> for the coloured one.</p>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [
+  { id:'anatomy',  label:'Anatomy' },
+  { id:'variants', label:'Variants' },
+  { id:'use',      label:'When to use it' },
+  { id:'rules',    label:'Rule and anti-rule' },
+  { id:'where',    label:'Where it stands' },
+  { id:'tech',     label:'What moved into it' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

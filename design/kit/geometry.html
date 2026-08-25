@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Geometry</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix g-. */
+.g-zone{ border:var(--rule-edge); margin:0 0 var(--space-5); overflow:hidden }
+.g-zone div{ border-bottom:var(--rule-hair); padding:0 var(--space-3);
+             display:flex; align-items:center; justify-content:space-between;
+             font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary) }
+.g-zone div:last-child{ border-bottom:0 }
+.g-w{ display:flex; flex-direction:column; gap:var(--space-2); margin:0 0 var(--space-5) }
+.g-w i{ display:block; height:20px; background:var(--bg-quiet); border:var(--rule-hair);
+        position:relative; max-width:100% }
+.g-w span{ font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary) }
+.g-print{ background:#fff; color:#000; border:2px solid #000; padding:var(--space-4);
+          font-size:var(--size-sm); max-width:520px }
+.g-print b{ color:#000 }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Foundations</p>
+<h1 class="k-title">Geometry</h1>
+<p class="k-lede">Space, radius, line and the measures that stop growing. None of it gets a second token level: a radius and a height have nothing a theme or a rebrand could override, so a component reads them straight from the primitive. That is the one place this system deliberately does less than the shape of a design system suggests.</p>
+
+
+<h2 class="k-h" id="space">The space scale, shown as space</h2>
+<p class="k-note">One scale, seven steps, 268 uses. <code>--space-2</code> and <code>--space-3</code> carry the density between them, which is what six hours a day at a console looks like as a number.</p>
+
+<div class="k-space">
+  <code>--space-1 &middot; 4px<br>28 uses</code><i style="width:4px"></i>
+  <code>--space-2 &middot; 8px<br>83 uses</code><i style="width:8px"></i>
+  <code>--space-3 &middot; 12px<br>72 uses</code><i style="width:12px"></i>
+  <code>--space-4 &middot; 16px<br>45 uses</code><i style="width:16px"></i>
+  <code>--space-5 &middot; 24px<br>23 uses</code><i style="width:24px"></i>
+  <code>--space-6 &middot; 32px<br>8 uses</code><i style="width:32px"></i>
+  <code>--space-7 &middot; 48px<br>9 uses</code><i style="width:48px"></i>
+</div>
+
+
+<h2 class="k-h" id="radius">Radius, and there is one</h2>
+<p class="k-note">Measured on the brandbook plate: <b>no console element carries a radius.</b> A radius of zero is a decision and not an omission, and it is what makes the square terminals of the icon set consistent with everything they sit in.</p>
+<div>
+  <span class="k-box" style="border-radius:var(--radius-ui)">--radius-ui<br>0</span>
+  <span class="k-box" style="border-radius:5px">--radius-object<br>5px</span>
+</div>
+<p class="k-note"><code>--radius-object</code> is measured on the plate for <b>physical applications only</b>, and it is unused in the interface by definition, because the product does not render a printed object. It has zero uses across the product and it is on the list step 9 rules on.</p>
+
+
+<h2 class="k-h" id="lines">Three lines, and which one a component takes is a WCAG decision</h2>
+<p class="k-note">Not a taste. The three differ by what they are allowed to identify, and getting it wrong is the difference between a divider that reads as a control boundary and a control that cannot be found.</p>
+
+<div class="k-rules">
+  <div class="k-scene">
+    <i style="display:block;border-top:var(--rule-hair);margin:0 0 var(--space-3)"></i>
+    <b style="font:400 var(--size-xs)/1.5 var(--font-mono);color:var(--text-primary)">--rule-hair</b>
+    <p class="k-note" style="margin:var(--space-2) 0 0">1.18:1 in dark, 1.20 in light. It separates and it never carries meaning, so it is below every floor deliberately. The line between rows, 30 sites.</p>
+  </div>
+  <div class="k-scene">
+    <i style="display:block;border-top:var(--rule-edge);margin:0 0 var(--space-3)"></i>
+    <b style="font:400 var(--size-xs)/1.5 var(--font-mono);color:var(--text-primary)">--rule-edge</b>
+    <p class="k-note" style="margin:var(--space-2) 0 0">2.997:1 in dark, 2.88 in light. A panel edge, 36 sites. Below 3:1 and allowed: 1.4.11 covers what identifies a <b>control</b>, not a divider.</p>
+  </div>
+  <div class="k-scene">
+    <i style="display:block;border-top:var(--rule-control);margin:0 0 var(--space-3)"></i>
+    <b style="font:400 var(--size-xs)/1.5 var(--font-mono);color:var(--text-primary)">--rule-control</b>
+    <p class="k-note" style="margin:var(--space-2) 0 0">3.24:1 in dark, 3.70 in light. <b>The boundary of a control</b>: chip, button, kbd. The only one of the three that clears the floor, and the reason it exists at all.</p>
+  </div>
+</div>
+<p class="k-note">The fourth width in the product is <b>2px</b>, and it has no token. It draws the current nav item's underline, the alert toast, the framed record and the printed page. Whether that is a fourth line token or a component decision is open, and it is one of the eight tracking and line values this stage carried without collapsing.</p>
+<p class="k-note"><b>Round 1 located it rather than closing it.</b> Two of the four now live in a component file and say so in a comment: <code>navitem.css</code> writes the underline and <code>link.css</code> writes the underline offset. The reason it is still open is that <code>--focus-ring</code> already bakes 2px into a composite, so a token would have to explain why the ring and the underline are the same number and the panel edge is not. That is a real question about what 2px MEANS in this product, and step 9 answers it with the count in front of it.</p>
+
+
+<h2 class="k-h" id="frame">The frame of a screen</h2>
+<p class="k-note">The zones of node 0.1, drawn to their own tokens. This is not a picture of the shell: each band below is its real height.</p>
+
+<div class="g-zone">
+  <div style="height:var(--zone-top)"><span>Z1, the top bar</span><span>--zone-top &middot; 56px</span></div>
+  <div style="height:var(--zone-strip)"><span>Z2, the annunciator</span><span>--zone-strip &middot; 26px</span></div>
+  <div style="height:120px"><span>Z4 and Z5, the split</span><span>the pane is --pane-w &middot; 380px, 320px below 1560</span></div>
+</div>
+
+<p class="k-note">The queue row is a grid of seven tracks and it is the one structural value that is not a single number: <code>--row-tracks</code> is <code>90px 120px minmax(104px,1fr) minmax(120px,1.2fr) 72px 100px 40px</code>. The log keeps those seven zones and changes their widths; the shift brief has four zones and is a different component, which is why two further track sets exist and are not values from nowhere.</p>
+
+
+<h2 class="k-h" id="widths">What stops growing</h2>
+<p class="k-note">Five measures, and each of them answers a different question about when a thing has become wide enough to stop being read.</p>
+<div class="g-w">
+  <span>--width-sheet &middot; 760px &middot; a case standing alone with no list beside it</span><i style="width:760px"></i>
+  <span>--width-frame &middot; 820px &middot; the framed record</span><i style="width:820px"></i>
+  <span>--width-dialog-wide &middot; 720px &middot; the keyboard map, a reference table rather than a decision</span><i style="width:720px"></i>
+  <span>--width-dialog &middot; 520px &middot; the dialog</span><i style="width:520px"></i>
+  <span>--width-toast &middot; 400px &middot; the notice stack, never as wide as the pane</span><i style="width:400px"></i>
+  <span>--measure &middot; 66ch &middot; a single column of prose. Zero uses</span><i style="width:66ch"></i>
+</div>
+<p class="k-note"><b><code>--width-dialog</code> is the one value in this system with no origin.</b> Its four neighbours all carry one, in the file or in <code>DESIGN.md</code>, and it carries none in either. Found by the second instrument at step 1 and carried unchanged rather than quietly justified. Open at the step 4 gate.</p>
+<p class="k-note"><code>--zone-notice-clear</code> at 180px is the sixth, and it is the only one that is not a maximum: it is what the page ends above at 360 so that one notice hides nothing behind it.</p>
+
+
+<h2 class="k-h" id="print">The artefact that leaves the building</h2>
+<p class="k-note">Print is a real surface of this product, settled at the close of 03b, and it lives in <code>base.css</code> rather than being split across five component files. Print is a surface and not a component, and scattering it would mean nobody could read what the printed record looks like without opening five files.</p>
+<div class="g-print">
+  <p style="margin:0 0 8px;font-weight:600">Decision log entry, as of 12 June 2026</p>
+  <p style="margin:0;font-size:12.5px">In print every expansion is open, the address is on the page, and the panel is gone. <b>True black on true white, and not the screen greys:</b> the reading ink of this product is a warm bone that prints as nothing at all. This is the one place in the system where a literal colour is correct, and it is said out loud because two critique instruments flagged it independently before the reason was written down.</p>
+</div>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [
+  { id:'space',  label:'Space' },
+  { id:'radius', label:'Radius' },
+  { id:'lines',  label:'Lines' },
+  { id:'frame',  label:'The frame' },
+  { id:'widths', label:'What stops growing' },
+  { id:'print',  label:'Print' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

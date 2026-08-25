@@ -1,0 +1,57 @@
+/* opt :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-surface, --bg-invert, --bg-hover. Ink: --text-primary,
+   --text-secondary, --text-on-invert. Line: --rule-hair.
+   CONTAINS. key.
+
+   PAGE. design/kit/opt.html
+   STANDS ON. 62 instances across 8 screens: the reject dialog's reason list 60,
+   and the second axis 2.
+
+   DESIGN PRINCIPLE 3 IS PAID FOR HERE. The override is one key and it teaches,
+   and rejecting Clerk costs four taps against accept's two. This component is
+   taps two and three: pick a reason, pick where it goes. What stage 04 bought is
+   that five of six reasons derive the second axis, so four never became five,
+   and the fourth tap is Enter rather than a confirmation step.
+   ----------------------------------------------------------------------------
+   IT IS A LINK, AND THAT WAS A DECISION. Choosing a reason is something the
+   analyst DOES, so stage 07 gave it a real href and a real destination rather
+   than a dead label. That is also why it has states at all: nothing else in this
+   subgroup does.
+   ---------------------------------------------------------------------------- */
+
+.opt{
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: var(--rule-hair);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.opt:last-child{ border-bottom: none }
+
+.opt .lbl   { flex: 1 1 auto; min-width: 0 }
+/* where this reason sends the case, right aligned so the column reads down */
+.opt .routes{ margin-left: auto; flex: 0 0 auto; text-align: right;
+              font-family: var(--font-mono); font-size: var(--size-xs);
+              color: var(--text-secondary) }
+/* the key is its own atom; this is the option's side of the arrangement */
+.opt .key   { flex: 0 0 auto }
+
+/* -- STATES -------------------------------------------------------------------
+   CHOSEN IS A STATE AND NOT A VARIANT: the same option wears it on one screen
+   and not on the next, and which one wears it is the analyst's answer. */
+.opt.is-chosen{ background: var(--bg-surface) }
+/* the key inverts with the choice, and it does so by reading currentColor: the
+   option repaints its own ink and `key` follows without knowing */
+.opt.is-chosen .key{ background: var(--bg-invert); color: var(--text-on-invert) }
+
+.opt:hover:not(.is-chosen){ background: var(--bg-hover) }
+.opt:active{ background: var(--bg-active) }
+
+/* focus-visible is global, in base.css, and it matters here more than on most
+   things: the whole point of the list is that it is answered with a number key,
+   so the ring has to say which row a number would land on.
+   OUT OF REACH DOES NOT EXIST. A reason that does not apply is not offered. */

@@ -1,0 +1,80 @@
+/* toast :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-page. Ink: --text-primary, --text-secondary. Line:
+   --rule-edge, --rule-hair, --line-hover. Geometry: --radius-ui, --font-mono,
+   --size-sm, --size-md, --space-1, --space-3, --space-5.
+
+   PAGE. design/kit/toast.html
+   STANDS ON. 4 instances across 2 screens, in Z6.
+
+   THE WHOLE ZONE WAS SPECIFIED IN PROSE AND DRAWN NOWHERE until stage 07 step 9
+   found it: node 8.4 named three notices as MVP and not one of them existed.
+   That is the cheapest kind of gap to find and the most expensive to leave.
+   ----------------------------------------------------------------------------
+   THE FAILURE NOTICE CARRIES NO CLOSE CONTROL AT ALL, and that is the component
+   rather than an omission. While a verdict is unrecorded the notice is not
+   dismissible, and a disabled X would be a control arguing with itself. It says
+   what is holding instead, in words, in the place the control would have been.
+   That is `--alert`: a 2px border and a held explanation where the dismiss was.
+
+   `.t-x:hover` IS ONE OF THE TWO RULES --line-hover WAS READ OFF. It and the
+   keyboard map trigger in Z1 both raise a bordered control's boundary to the
+   reading ink, which is what made hover on a border a role rather than a habit.
+   ---------------------------------------------------------------------------- */
+
+.toast{
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-3);
+  border: var(--rule-edge);
+  border-radius: var(--radius-ui);
+  background: var(--bg-page);
+  font-size: var(--size-sm);
+  line-height: var(--leading);
+}
+.toast p{ margin: 0; flex: 1 1 auto; min-width: 0 }
+
+/* who is speaking, in the anote's register: this is the machine reporting on
+   itself rather than the product addressing the analyst */
+.toast .role{
+  display: block;
+  margin-bottom: var(--space-1);
+  font: 700 9.5px/1 var(--font-mono);
+  letter-spacing: .14em;
+  color: var(--text-secondary);
+}
+
+.toast .t-x{
+  flex: 0 0 auto;
+  width: var(--space-5);
+  height: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--size-md);
+  line-height: 1;
+}
+.toast .t-x:hover{
+  border-color: var(--line-hover);
+  color: var(--text-hover);
+}
+
+/* -- kind. One axis, two values, and the second one removes a control --------- */
+.toast--alert{ border-width: 2px }
+.toast--alert .t-hold{
+  flex: 0 0 auto;
+  align-self: center;
+  max-width: 9em;
+  text-align: right;
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* -- STATES -------------------------------------------------------------------
+   The toast has none. The dismiss inside it has hover and focus, and both are
+   declared above and in base.css. */

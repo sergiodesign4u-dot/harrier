@@ -1,0 +1,46 @@
+/* link :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: nothing of its own, it inherits. Line: --text-secondary and
+   --text-hover, on the UNDERLINE rather than on a border.
+
+   PAGE. design/kit/link.html
+   STANDS ON. 24 instances across 24 screens, inside whatever encloses them:
+   .gnote 15, .expand 6, .nar 2, .empty 2, and one in Z6.
+
+   IT HAD NO DECLARATION ANYWHERE, and that is what made it dangerous rather
+   than merely unnamed. Stage 07 shipped 151 browser blue links across 27
+   screens, in the one stage whose contract says there is no colour, because
+   nothing declared them and an instrument that greps can only see rules that
+   exist. base.css now carries the safety net on the bare `a`; this file is the
+   component, and step 6 puts the class on the markup.
+   ----------------------------------------------------------------------------
+   IT TAKES THE INK OF WHATEVER IT SITS IN. Colour is scarce in this product and
+   a link inside a grey note is not more important than the note. What marks it
+   is the underline, and the underline is the only thing it colours.
+   ---------------------------------------------------------------------------- */
+
+.link{
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--text-secondary);
+  text-underline-offset: 2px;             /* the 2px open row: see geometry.html */
+}
+
+/* -- STATES ------------------------------------------------------------------ */
+
+/* The underline comes up to reading strength. The word itself does not move,
+   because it already carries the colour of its host and changing it would make
+   a link inside a severity line change severity. */
+.link:hover{ text-decoration-color: var(--text-hover) }
+
+/* focus-visible is global, in base.css. The ring goes round the word, and the
+   1px offset keeps it clear of the descenders.
+
+   TWO STATES ARE ABSENT AND EACH SAYS WHY.
+   ACTIVE: a link navigates on release, so the pressed moment and the page
+   change are the same event and nothing would be seen. A button is different:
+   its press may not complete, and that is why it has one.
+   OUT OF REACH: a link that cannot be followed is not a link. Where the product
+   has something to name and nowhere to send you, it writes the words without a
+   link at all, which is what .gnote does on the four screens where the source
+   is gone. */

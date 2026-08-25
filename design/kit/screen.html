@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Screen</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix cl-. THE FULL COLUMN AND THE TWO THEMES STACK. A whole screen halved
+   into an article column would be a picture of nothing, so the themes go one above the other.
+   NO BACKGROUND IMAGE ANYWHERE ON THIS PAGE. The one photograph in the product belongs to the
+   product, and a documentation column wearing it would be the stand looking like the thing it
+   is supposed to be describing. */
+.k-bench{ grid-template-columns:minmax(0,1fr) }
+.k-bench-half + .k-bench-half{ border-left:0; border-top:var(--rule-edge) }
+.k-bench-row, .k-cell{ overflow-x:auto }
+.k-bench-row > *, .k-cell > *{ min-width:0 }
+.k-vs{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) }
+.k-vs > div{ min-width:0 }
+@media (max-width:900px){ .k-vs{ grid-template-columns:minmax(0,1fr) } }
+
+/* THE DIAGRAM. Real heights where they are tokens: --zone-top 56px and --zone-strip 26px are
+   the bands' own heights below, not a drawing of them. --pane-w is real on the pane band. The
+   overall height is drawn, because a screen is a viewport. */
+.cl-scroll{ width:100%; overflow-x:auto }
+.cl-diag  { display:flex; flex-direction:column; min-width:700px; height:320px;
+            border:var(--rule-edge); background:var(--bg-page) }
+.cl-band  { flex:0 0 auto; display:flex; flex-wrap:wrap; gap:var(--space-2);
+            align-items:center; justify-content:space-between; padding:0 var(--space-3);
+            border-bottom:var(--rule-hair);
+            font:400 var(--size-xs)/1.2 var(--font-mono); color:var(--text-secondary) }
+.cl-band b{ font-weight:600; color:var(--text-primary) }
+.cl-rest  { flex:1 1 auto; min-height:0; display:flex; flex-wrap:nowrap;
+            align-items:stretch; border-bottom:0; padding:0 }
+.cl-rest > div{ padding:var(--space-3); font:400 var(--size-xs)/1.5 var(--font-mono);
+            color:var(--text-secondary) }
+.cl-l     { flex:1 1 auto; min-width:0; border-right:var(--rule-edge) }
+.cl-r     { flex:0 0 var(--pane-w); background:var(--bg-quiet) }
+.cl-mini  { display:flex; height:120px; border:var(--rule-edge); background:var(--bg-page);
+            font:400 var(--size-xs)/1.4 var(--font-mono); color:var(--text-secondary) }
+.cl-mini > div{ padding:var(--space-2) }
+.cl-cap   { font:400 var(--size-xs)/1 var(--font-mono); color:var(--text-secondary);
+            margin:var(--space-2) 0 0 }
+/* A CAPTION THAT IS TRUE AT 1440 AND FALSE AT 360 IS THE CLASS ONLY A BROWSER FINDS. The
+   drawing below is the desk rendering and it does not answer the media query the component
+   answers, because a second copy of a product rule in the stand is where the drift starts.
+   Two captions instead, one per width, and the narrow one says what the drawing is. */
+.cl-cd{ }
+.cl-cn{ display:none }
+@media (max-width:900px){ .cl-cd{ display:none } .cl-cn{ display:block } }
+
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism, and it contains another</p>
+<h1 class="k-title">Screen</h1>
+<p class="k-lede"><b>The column the whole product lives in.</b> 62 instances across 62 screens: every screen in the product is one. Z1 at the top, Z2 under it, and everything else filling what is left.</p>
+<p class="k-note"><b>Three declarations, and the reason it is a component at all is the one beside it.</b> <a href="shell.html">shell</a> is a <b>row</b> and this is a <b>column</b>: the documentation panel and the product are siblings, and only one of them stacks. Take that away and the top bar sits beside the console instead of over it.</p>
+<p class="k-note"><b>The one photograph in the product is painted here, and it is not on this page.</b> <code>.screen:has(.door)</code> lays an image behind everything at <code>z-index:-1</code> at 78 per cent, with a gradient of <code>--bg-page</code> over it running 30 to 78 per cent down the surface, and <code>isolation:isolate</code> keeps the negative index inside this box rather than sending it behind the page. The rule is here rather than on <a href="door.html">door</a> because the image belongs to the whole surface, and the card on top of it keeps its own opaque ground so it stays readable. <b>The stand describes it and does not wear it:</b> <a href="../index.html">open the real door</a> to see the thing itself.</p>
+<p class="k-note"><b>The rename is done, and a screen written today writes <code>class="screen"</code>.</b> Stage 08 step 2 ruled it and step 6 executed it: all 53 coloured screens carry it and none carries <code>.wf-screen</code>. It was the largest single row in the rename map and <b>it moved not one pixel</b>. <b>The grey corpus still says <code>.wf-screen</code> and always will</b>, because <code>wireframes/</code> has been frozen since stage 05, and that asymmetry is a property of the two corpora rather than an unfinished job.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>A diagram of the zones, not a scaled scene.</b> A screen is a viewport, and a viewport in a documentation column is a photograph of a monitor. What is real below: the top band is <code>--zone-top</code> at 56px and the strip under it is <code>--zone-strip</code> at 26px, both at their own heights rather than drawn to them, and the pane band is <code>--pane-w</code>, 320px at 1440 and 380px above 1560. The overall height is the fiction.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="cl-scroll">
+        <div class="cl-diag">
+          <div class="cl-band" style="height:var(--zone-top)"><b>Z1, the top bar</b><span>--zone-top &middot; 56px &middot; wordmark, three sections, the annunciator, one control</span></div>
+          <div class="cl-band" style="height:var(--zone-strip)"><b>Z2, the strip</b><span>--zone-strip &middot; 26px &middot; never silent when connected</span></div>
+          <div class="cl-band cl-rest">
+            <div class="cl-l"><b>Z45</b><br>the split, flex:1 1 auto. On five screens this band is the door instead, and the two bands above it are not rendered at all</div>
+            <div class="cl-r"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="cl-cap cl-cd">Z1 and Z2 are at their token heights. The rest is what is left</p>
+    <p class="cl-cap cl-cn">Z1 and Z2 keep those heights at this width too. What is under them stacks, and the drawing above is the desk rendering</p>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="cl-scroll">
+        <div class="cl-diag">
+          <div class="cl-band" style="height:var(--zone-top)"><b>Z1, the top bar</b><span>--zone-top &middot; 56px &middot; wordmark, three sections, the annunciator, one control</span></div>
+          <div class="cl-band" style="height:var(--zone-strip)"><b>Z2, the strip</b><span>--zone-strip &middot; 26px &middot; never silent when connected</span></div>
+          <div class="cl-band cl-rest">
+            <div class="cl-l"><b>Z45</b><br>the split, flex:1 1 auto. On five screens this band is the door instead, and the two bands above it are not rendered at all</div>
+            <div class="cl-r"><b>Z5</b><br>--pane-w &middot; 320px here, 380 above 1560</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="cl-cap cl-cd">Z1 and Z2 are at their token heights. The rest is what is left</p>
+    <p class="cl-cap cl-cn">Z1 and Z2 keep those heights at this width too. What is under them stacks, and the drawing above is the desk rendering</p>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.screen</code><span><code>flex:1 1 auto</code>, <code>min-width:0</code>, a flex column on <code>--bg-page</code>. Five declarations and the last of them is the only paint</span></li>
+  <li><code><a href="z1.html">z1</a>, <a href="z2.html">z2</a></code><span><b>the class is in no html file.</b> <code>design/_shell.js</code> injects both on every authenticated screen, which is why an inventory taken from the screens alone has no header in it and does not notice</span></li>
+  <li><code><a href="z45.html">z45</a> or <a href="door.html">door</a></code><span>whatever is left. One of the two, never both: authenticated on 55 and the door on 5</span></li>
+  <li><code>:has(.door)::before</code><span>the photograph, at 78 per cent behind everything</span></li>
+  <li><code>:has(.door)::after</code><span>the gradient over it, <code>--bg-page</code> from 30 to 78 per cent. <b>Two pseudo elements rather than one</b>, because the image and the wash have to be dimmed and tinted separately or the card stops being readable</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-note">One axis, three values, and <b>all three are about what is inside</b> rather than about how the column paints.</p>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="3"><b>route</b></td><td>authenticated</td><td class="num">55</td><td>Z1, Z2 and the split. The console, and it is what fifty five of the sixty two screens are</td></tr>
+    <tr><td>door</td><td class="num">5</td><td><b>the only surface not behind authentication, and the only one carrying a photograph.</b> No top bar and no strip, because there is nobody signed in to name and nothing to navigate to. The image belongs to the whole column rather than to the card standing on it</td></tr>
+    <tr><td>no strip</td><td class="num">2</td><td>Z1 without Z2, on the systemic states. The bar renders as <code>z1--out</code>, which drops the navigation, the map and the annunciator, and there is no strip because there is no connection to report on</td></tr>
+    <tr><td><b>theme</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited here.</b> The theme is an attribute on the root and every role pairs itself. A screen that could choose its own ground would let one surface of the console disagree with the rest of it</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Once per page, inside <a href="shell.html">shell</a>, holding everything that is the product. If something on the page is not the product, it is the documentation panel and it is the shell&rsquo;s other child.</p>
+<p class="k-note"><b>Where she meets it.</b> Never, and that is the measure of it working. This component has no ink, no line and one fill; what she meets are the four things standing in it. The one place it becomes visible is the door, where the product is allowed to look like something before it looks like a tool, and even there the visible part is a photograph the column carries for the card.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<p class="k-note">The two drawings below are proportional rather than measured: the point is the axis they stack on, and neither of them has a token width.</p>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="cl-mini" style="flex-direction:column"><div style="flex:0 0 auto;border-bottom:var(--rule-hair)"><b style="color:var(--text-primary)">Z1</b> over everything</div><div style="flex:1 1 auto;background:var(--bg-quiet)">Z45, the console under it</div></div></div>
+    <p>A column. The top bar spans the product and the console fills what is left, which is what every one of the sixty two screens is.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="cl-mini"><div style="flex:0 0 34%;border-right:var(--rule-hair)"><b style="color:var(--text-primary)">Z1</b> beside it</div><div style="flex:1 1 auto;background:var(--bg-quiet)">Z45</div></div></div>
+    <p>Never a row. The row is <a href="shell.html">shell</a>, one level up, and its job is to put the documentation panel beside the product. Make this one a row too and the two siblings become indistinguishable, which is the reason the split into two components exists at all.</p>
+  </div>
+</div>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> Every state on a Harrier screen belongs to something standing inside this column.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="cl-scroll">
+        <div class="cl-diag" style="height:190px">
+          <div class="cl-band" style="height:var(--zone-top)"><b>Z1</b><span>--zone-top &middot; 56px</span></div>
+          <div class="cl-band" style="height:var(--zone-strip)"><b>Z2</b><span>--zone-strip &middot; 26px</span></div>
+          <div class="cl-band cl-rest"><div class="cl-l"><b>the column at rest</b><br>and it has no other</div><div class="cl-r"><b>Z5</b><br>--pane-w</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="cl-scroll">
+        <div class="cl-diag" style="height:190px">
+          <div class="cl-band" style="height:var(--zone-top)"><b>Z1</b><span>--zone-top &middot; 56px</span></div>
+          <div class="cl-band" style="height:var(--zone-strip)"><b>Z2</b><span>--zone-strip &middot; 26px</span></div>
+          <div class="cl-band cl-rest"><div class="cl-l"><b>the column at rest</b><br>and it has no other</div><div class="cl-r"><b>Z5</b><br>--pane-w</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The two bands at the top hold their heights in both themes and at both widths: 56 and 26 are the same at 360 as at 1920, because the shell above stops being a viewport there and every zone releases its own scroll rather than shrinking.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the ground of the whole product, and the only colour this component sets</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-page</code></td><td>fill, twice over</td><td>the gradient over the door photograph, the same role at 30 and 78 per cent through <code>color-mix</code></td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note">One role, read twice. The image itself is a visual rather than a token, and it lives at <code>design/visuals/door.jpg</code> with its origin recorded beside it.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="screen"&gt;
+  &lt;header class="z1"&gt;&hellip;&lt;/header&gt;   &lt;!-- injected by design/_shell.js --&gt;
+  &lt;p class="z2"&gt;&hellip;&lt;/p&gt;              &lt;!-- injected the same way --&gt;
+  &lt;main class="z45"&gt;&hellip;&lt;/main&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../queue.html">authenticated &middot; 55</a>
+  <a href="../index.html">the door, and the photograph &middot; 5</a>
+  <a href="../index-signed-out.html">no strip &middot; 2</a>
+  <a href="../overview.html">all of them at once</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+/* rota :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-surface. Ink: --text-primary, --text-secondary. Line:
+   --rule-hair. Geometry: --radius-ui, --font-mono, --size-xs, --space-2,
+   --space-3.
+
+   PAGE. design/kit/rota.html
+   STANDS ON. 7 instances across 7 screens, in the shift brief.
+
+   HARRIER READS THIS AND NEVER OWNS IT. The on call rota comes from the
+   provider's own tool, so there is no control anywhere in this component: only
+   the name node 4.6 needs when an escalation has to name a recipient. That
+   dependency is the reason the open question about who the secondary persona is
+   blocks a mechanism rather than a paragraph.
+   ----------------------------------------------------------------------------
+   `is-now` IS THE ONLY THING IT SAYS. Who is on right now, given a surface. Every
+   other line is context, and the component would be a list of names without it.
+   ---------------------------------------------------------------------------- */
+
+.rota{
+  display: flex;
+  flex-direction: column;
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+}
+
+.rota > div{
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: var(--rule-hair);
+  font-size: var(--size-sm);
+}
+.rota > div:last-child{ border-bottom: none }
+
+.rota .who { font-weight: 600; white-space: nowrap; color: var(--text-primary) }
+.rota .role{ color: var(--text-secondary); font-size: var(--size-xs) }
+.rota .when{ margin-left: auto; white-space: nowrap;
+             font-family: var(--font-mono); font-size: var(--size-xs);
+             color: var(--text-secondary) }
+
+/* WHO IS ON NOW. A surface rather than a colour: the accent has four jobs and no
+   fifth, and this is a fact about a clock rather than about a decision. */
+.rota .is-now{ background: var(--bg-surface) }
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   Nothing in it can be pressed, because Harrier does not own the rota. A hover
+   here would offer to change somebody else's on call schedule. */

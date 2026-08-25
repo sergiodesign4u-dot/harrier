@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Contact</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Contact</h1>
+<p class="k-lede">Who you reach, and what they are on for. A name, its qualification and what to say, <b>in a box of their own</b>, because handing a case on names a recipient and you have to be able to read that name back to somebody on a call.</p>
+<p class="k-note"><b>It is where an open question lands.</b> <code>CLAUDE.md</code> leaves it unanswered whether the SOC lead uses the console at all, and says node 4.6 depends on the answer because an escalation names a recipient. This component is 4.6&rsquo;s answer as currently drawn: it addresses a person read from the rota, and the rota is a system Harrier does not own. If the answer changes, this is the file that changes.</p>
+<p class="k-note"><b>Where it actually stands is worth reading before you place one.</b> The header of <code>components/contact.css</code> puts it in the escalate dialog at 6 instances across 3 screens. Counted on the frozen wireframes, the class itself wears <b>3 renderings across 3 screens</b>, all three of them on the outage page, where it names the provider&rsquo;s duty line. The other three of the six are <code>out-contact</code>, which <code>docs/inventory.md</code> assigns to <code>outage</code> as a zone. The escalate dialog is still grey and carries its recipient under a class of its own.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="contact">
+          <span class="who">The service delivery duty line</span>
+          <p class="meta">The provider&rsquo;s declared fallback, and the same one an escalation reaches for when nobody is on the rota.</p>
+          <p><b>The number is a value your provider declares.</b> Harrier does not carry one of its own, and a wrong number at 03:00 costs more than no number.</p>
+          <p>Tell them the console is not answering and for how long.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="contact">
+          <span class="who">The service delivery duty line</span>
+          <p class="meta">The provider&rsquo;s declared fallback, and the same one an escalation reaches for when nobody is on the rota.</p>
+          <p><b>The number is a value your provider declares.</b> Harrier does not carry one of its own, and a wrong number at 03:00 costs more than no number.</p>
+          <p>Tell them the console is not answering and for how long.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.contact</code><span>the box. A column, <code>--space-2</code> between its lines, inside <code>--rule-edge</code>. The panel edge and not the hairline: this is a thing you look up, not a row in a list</span></li>
+  <li><code>.who</code><span><b>the name, and it is the only 17px in the component.</b> Weight 600 and the reading ink. It is set as large as a pane title because it is the one string that gets read out loud</span></li>
+  <li><code>.meta</code><span>what they are on for, at the receded ink. It qualifies the name, so it sits directly under it and never below the instructions</span></li>
+  <li><code>p</code><span>what to say, at 12.5px with the margin reset to zero. Three of these on the fullest rendering, one sentence each, and the gap between them comes from the box rather than from the paragraph</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>recipient</b></td><td>base</td><td>3</td><td>the only form. All three renderings name the same duty line and differ only in what they tell you to say, which is a copy decision and not a variant</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> No accent ground and no filled plate. A contact is read when something has already gone wrong, and a box that shouts on a page whose whole subject is an outage adds nothing the page has not said</td></tr>
+    <tr><td><b>unreachable</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Backlog.</b> The escalate dialog needs a rendering for a named recipient who is no longer on the rota, and the grey wireframe draws one: a dashed border with the name struck through. That screen has no coloured rendering yet, so the state has no home here. It arrives with node 4.6</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Once on a surface, for one person or one staffed line, when the next move is off the console and onto a call. Never as a directory: two of these side by side turn a decision into a choice, and the point of the box is that it has already been made. Where the console is up and the handoff is inside the product, the recipient belongs to the escalate dialog and not to a free-standing box.</p>
+<p class="k-note"><b>Where she meets it.</b> Rarely, and always badly: the console is not answering and she still owes the client an answer. That is the argument for the 17px name. She is reading it off a screen she does not trust, to a phone, at whatever hour the outage happened, and the one thing that must survive that is the name.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="contact"><span class="who">S. Varga</span><p class="meta">Takes escalations until 07:00, read from the rota.</p><p>Say which tenant and what you have already ruled on.</p></div></div>
+    <p>A person, what they are on for and until when, and one line of what to say. The qualification sits under the name because it decides whether this is still the right name at the hour you are reading it.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="contact"><span class="who">soc-escalations@provider.example</span><p class="meta">The shared mailbox for out of hours.</p></div></div>
+    <p>Never a system. A mailbox, a ticket queue or a rota tool is a string you paste, and the component for a string you paste is <code>addr</code>, which gives it a ground and a copy button. This box is for a recipient who answers, and dressing an address as one implies somebody is on the other end.</p>
+  </div>
+</div>
+<p class="k-note">At 360 nothing about the box changes and nothing needs to: it is already a single column, and the name is the only thing above 14px. This is the one surface in the product where the phone rendering is the important one, and the layout was chosen so there would be no second rendering to keep true.</p>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> It is read and quoted, never pressed. There is no link inside it either: the number is a value the provider declares and Harrier does not carry one, so there is nothing here to open.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="contact">
+          <span class="who">The service delivery duty line</span>
+          <p class="meta"><b>The part that is down blocks a decision.</b> This is the provider&rsquo;s declared fallback.</p>
+          <p>Tell them the console is not answering and for how long.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="contact">
+          <span class="who">The service delivery duty line</span>
+          <p class="meta"><b>The part that is down blocks a decision.</b> This is the provider&rsquo;s declared fallback.</p>
+          <p>Tell them the console is not answering and for how long.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>The absence of a hover is the useful fact here.</b> Every other bordered box in the product that you can do something with lights under the pointer. This one does not, and that is how it reads as a thing to copy down rather than a thing to click when the page around it has stopped working.</p>
+<p class="k-note"><b>One state is owed and is not here.</b> A recipient read from a rota can be wrong by the time you read it, and the grey escalate screen already draws that case. Until that screen is built in colour, this component has one form and the variants table says so rather than leaving the row out.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-primary</code></td><td>ink 4.5:1</td><td>the name, and the instructions by inheritance</td><td><span data-tok="--text-primary" data-theme-read="dark"></span></td><td><span data-tok="--text-primary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td>the qualifying line under the name</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the boundary of the box, through <code>--rule-edge</code></td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="contact"&gt;
+  &lt;span class="who"&gt;S. Varga&lt;/span&gt;
+  &lt;p class="meta"&gt;Takes escalations until 07:00, read from the rota.&lt;/p&gt;
+  &lt;p&gt;Say which tenant and what you have already ruled on.&lt;/p&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../unavailable.html">the whole console is down</a>
+  <a href="../unavailable-partial.html">part of it is down</a>
+  <a href="../unavailable-planned.html">down to plan</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

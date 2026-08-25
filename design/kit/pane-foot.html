@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Pane foot</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix bx-.
+   THE BENCH IS THE PANE, and without it this component is a row of buttons with a line above
+   it. `position:sticky; bottom:0` resolves against the nearest SCROLLING ancestor, so a bench
+   that did not scroll would show the foot sitting still and prove nothing. This box is z5:
+   340px, the pane's raised ground, and its own overflow-y. Scroll it and the foot stays. */
+.bx-z5{ width:100%; max-width:var(--pane-w); height:340px; overflow-y:auto;
+        display:flex; flex-direction:column;
+        background:var(--bg-surface); border:var(--rule-edge) }
+/* THE DEFECT, REBUILT RATHER THAN DESCRIBED. The shape both failures had is: the pane keeps
+   its own overflow-y and grows with its content, so it never scrolls, while something OUTSIDE
+   it does. `bottom:0` then resolves against a box that never moves and the foot simply sits at
+   the end of the evidence. bx-doc is that outer scroller; bx-pane-loose is the pane with no
+   height to be constrained by. */
+.bx-doc{ height:200px; overflow-y:auto; width:100%; max-width:var(--pane-w);
+         border:var(--rule-edge); background:var(--bg-page) }
+.bx-pane-loose{ display:flex; flex-direction:column; overflow-y:auto;
+                background:var(--bg-surface) }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Organism</p>
+<h1 class="k-title">Pane foot</h1>
+<p class="k-lede"><b>This is where the analyst rules.</b> Accept, Amend, Reject, Escalate: four buttons that carry the main job of the whole product between them, and <b>86 of the product&rsquo;s 157 buttons stand here</b>. 35 instances across 35 screens.</p>
+<p class="k-note">It is sticky at the bottom of the pane, so the decision is reachable without scrolling back from the end of nine signals. <code>margin-top:auto</code> pushes it down when the case is short, <code>position:sticky</code> holds it when the case is long, and <b>a ruling that has to be scrolled to is a ruling that gets postponed</b>.</p>
+<p class="k-note"><b>Sticky and never stuck, twice over, and both were found by measurement.</b> At the desk, <code>min-height:100vh</code> on the shell let it grow with its content, so there was no scroll container for <code>bottom:0</code> to resolve against; the shell is pinned to exactly one viewport now and the columns scroll instead of the page. At 360 the shell stops scrolling and the document takes over, but the pane kept its own <code>overflow-y:auto</code>, so <code>bottom:0</code> pinned to a box that never scrolls and <b>the decision sat two viewports down</b>. Node 4.2 had found that and fixed it privately for one screen; every other pane kept the defect until stage 07.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-note"><b>What the bench is standing in.</b> A 340px box at <code>--pane-w</code> with the pane&rsquo;s ground and its own <code>overflow-y</code>, which is <code>z5</code>. <code>bottom:0</code> resolves against the nearest scrolling ancestor and nothing else, so a bench that did not scroll would show a foot standing still and prove the opposite of the component. Scroll inside it: the evidence moves, the four buttons do not.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-z5">
+        <div class="pane-body">
+          <section class="block"><h3>What Clerk filed</h3><p class="nar"><b>Real, and it proposes to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen.</p></section>
+          <section class="block"><h3>What happened</h3><p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p><p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</p><p class="nar"><span class="when">04:13</span>Inbox rule created, forwarding to an external address.</p></section>
+          <section class="block"><h3>Normal at this tenant</h3><p class="nar"><b>2 token replays</b> in 90 days, both real</p></section>
+        </div>
+        <div class="pane-foot">
+          <a class="btn btn--primary" href="#anatomy">Accept <span class="key">a</span></a>
+          <a class="btn" href="#anatomy">Amend <span class="key">m</span></a>
+          <a class="btn" href="#anatomy">Reject <span class="key">r</span></a>
+          <a class="btn" href="#anatomy">Escalate <span class="key">e</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-z5">
+        <div class="pane-body">
+          <section class="block"><h3>What Clerk filed</h3><p class="nar"><b>Real, and it proposes to contain the identity.</b> A refresh token issued to this user is in use from an ASN the tenant has never seen.</p></section>
+          <section class="block"><h3>What happened</h3><p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p><p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</p><p class="nar"><span class="when">04:13</span>Inbox rule created, forwarding to an external address.</p></section>
+          <section class="block"><h3>Normal at this tenant</h3><p class="nar"><b>2 token replays</b> in 90 days, both real</p></section>
+        </div>
+        <div class="pane-foot">
+          <a class="btn btn--primary" href="#anatomy">Accept <span class="key">a</span></a>
+          <a class="btn" href="#anatomy">Amend <span class="key">m</span></a>
+          <a class="btn" href="#anatomy">Reject <span class="key">r</span></a>
+          <a class="btn" href="#anatomy">Escalate <span class="key">e</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.pane-foot</code><span>the strip. A wrapping flex row with two steps of gap, three of padding down and four across, and an edge above it</span></li>
+  <li><code>margin-top:auto</code><span>it sits at the bottom of the pane even when the case is two paragraphs long, rather than floating under the last line</span></li>
+  <li><code>position:sticky; bottom:0</code><span><b>the declaration the component exists for.</b> It resolves against <code>z5</code>, and only while <code>z5</code> is the thing that scrolls</span></li>
+  <li><code>background:inherit</code><span><b>the foot takes the pane&rsquo;s own surface, whichever it is.</b> A paper pane and a console pane both get a foot that matches, and neither needs a variant</span></li>
+  <li><code>.btn</code><span>one to four of them. The first is <code>--primary</code> and carries the accepted verdict; the rest are outline, and each carries its key</span></li>
+</ul>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>none</b></td><td><span class="k-none">no values</span></td><td class="num">35</td><td><b>One to four buttons is a count.</b> A case pane carries four, a sealed shift carries one, and the strip is the same strip</td></tr>
+    <tr><td><b>surface</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited, and <code>background:inherit</code> is why it can be.</b> The foot never names a ground of its own, so the 21 paper panes and the 14 raised ones share one declaration</td></tr>
+    <tr><td><b>position</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td><b>Prohibited.</b> There is no static foot. If a surface wants a row of actions that scrolls away, that surface is a document and the actions belong in its flow</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td class="num">&ndash;</td><td>It belongs to the button. Outline, filled and quiet are <code>btn</code>&rsquo;s axis, and the foot is where 86 of the product&rsquo;s 157 buttons happen to stand</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">At the bottom of a detail pane that is asking for a decision, and only there. The route decides how many buttons: four on a case, two on the permalink, one on a shift that has been sealed, none on a record.</p>
+<p class="k-note"><b>Where she meets it.</b> Dozens of times a shift, at the end of every case she reads. This is the strip that carries the main job in the whole product, and design principle 3 is measured against it: <b>accept costs two taps and reject costs four</b>, and the fourth is <code>Enter</code> rather than a confirmation. The fifth is what nothing after this stage may add.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-z5" style="height:200px"><div class="pane-body"><section class="block"><h3>What Clerk filed</h3><div class="nar"><b>Real, and it proposes to contain the identity.</b></div></section><section class="block"><h3>Normal at this tenant</h3><div class="nar"><b>2 token replays</b> in 90 days, both real</div></section><section class="block"><h3>Evidence</h3><div class="nar">Nine signals, six sources, 24 hours.</div></section></div><div class="pane-foot"><a class="btn btn--primary" href="#rules">Accept <span class="key">a</span></a><a class="btn" href="#rules">Reject <span class="key">r</span></a></div></div></div>
+    <p>Inside a pane that scrolls. Scroll the evidence past and the ruling stays under the pointer, on the pane&rsquo;s own ground, with the accepted verdict first.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="bx-z5" style="height:200px;max-width:none;border:2px solid var(--line-record)"><div class="rail">AS IT STOOD <b>2026-08-22T04:14:05Z</b></div><div class="pane-body"><section class="block"><h3>What was decided, and by whom</h3><div class="nar"><b>Escalated, not ruled.</b> Handed to S. Varga by R. Idrissi.</div></section></div><div class="pane-foot"><a class="btn btn--primary" href="#rules">Accept <span class="key">a</span></a><a class="btn" href="#rules">Reject <span class="key">r</span></a></div></div></div>
+    <p>Never on a record. That is <b><code>rail-foot</code></b>, which closes the frame and offers nothing: <b>you cannot rule on the past</b>, and an <code>Accept</code> here would be a second decision wearing the first one&rsquo;s date. The framed record has no verdict controls at any width, and that is a rule rather than an omission.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R1.</b> Not more than one <code>.btn--primary</code> <b>per layer</b>, and a foot does not compete with it. A second is allowed only as the viewport twin of the first, or in a modal layer over the screen.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>The strip has none. The buttons carry theirs.</b> Point at one, hold it down, tab along the row. What the strip has instead is a failure mode, and it is below.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="bx-z5" style="height:220px">
+        <div class="pane-body">
+          <section class="block"><h3>What happened</h3><p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p><p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>.</p><p class="nar"><span class="when">04:13</span>Inbox rule created, forwarding out.</p></section>
+          <section class="block"><h3>Normal at this tenant</h3><p class="nar"><b>2 token replays</b> in 90 days, both real</p></section>
+        </div>
+        <div class="pane-foot">
+          <a class="btn btn--primary" href="#states">Accept <span class="key">a</span></a>
+          <a class="btn" href="#states">Reject <span class="key">r</span></a>
+          <span class="btn" aria-disabled="true">Escalate <span class="key">e</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="bx-z5" style="height:220px">
+        <div class="pane-body">
+          <section class="block"><h3>What happened</h3><p class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</p><p class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>.</p><p class="nar"><span class="when">04:13</span>Inbox rule created, forwarding out.</p></section>
+          <section class="block"><h3>Normal at this tenant</h3><p class="nar"><b>2 token replays</b> in 90 days, both real</p></section>
+        </div>
+        <div class="pane-foot">
+          <a class="btn btn--primary" href="#states">Accept <span class="key">a</span></a>
+          <a class="btn" href="#states">Reject <span class="key">r</span></a>
+          <span class="btn" aria-disabled="true">Escalate <span class="key">e</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>The one thing worth drawing here is the defect, and it is not a class.</b> Below is the same foot in a pane that keeps its own <code>overflow-y</code> and has no height to be constrained by, inside something else that scrolls. <code>bottom:0</code> resolves against a box that never moves, so the strip is not sticky at all: it sits at the end of the evidence, and the buttons are wherever the argument happened to finish. <b>This is what the product did at 360 on every pane but one until stage 07.</b> Scroll to find the ruling.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, the defect</p>
+    <div class="k-bench-row">
+      <div class="bx-doc">
+        <div class="bx-pane-loose">
+        <div class="pane-body">
+          <section class="block"><h3>What happened</h3><div class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</div><div class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</div><div class="nar"><span class="when">04:13</span>Inbox rule created, forwarding to an external address.</div></section>
+          <section class="block"><h3>Evidence, 9 signals</h3><div class="nar">A refresh token was presented from an ASN this tenant has never seen.</div><div class="nar">The same token was used from the corporate range four minutes earlier.</div></section>
+          <section class="block"><h3>Normal at this tenant</h3><div class="nar"><b>2 token replays</b> in 90 days, both real</div></section>
+        </div>
+        <div class="pane-foot">
+          <a class="btn btn--primary" href="#states">Accept <span class="key">a</span></a>
+          <a class="btn" href="#states">Reject <span class="key">r</span></a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the defect</p>
+    <div class="k-bench-row">
+      <div class="bx-doc">
+        <div class="bx-pane-loose">
+        <div class="pane-body">
+          <section class="block"><h3>What happened</h3><div class="nar"><span class="when">04:08</span>Sign in from the corporate range, token issued.</div><div class="nar"><span class="when">04:12</span>The same token presented from <b>ASN 41xxx</b>, no MFA prompt.</div><div class="nar"><span class="when">04:13</span>Inbox rule created, forwarding to an external address.</div></section>
+          <section class="block"><h3>Evidence, 9 signals</h3><div class="nar">A refresh token was presented from an ASN this tenant has never seen.</div><div class="nar">The same token was used from the corporate range four minutes earlier.</div></section>
+          <section class="block"><h3>Normal at this tenant</h3><div class="nar"><b>2 token replays</b> in 90 days, both real</div></section>
+        </div>
+        <div class="pane-foot">
+          <a class="btn btn--primary" href="#states">Accept <span class="key">a</span></a>
+          <a class="btn" href="#states">Reject <span class="key">r</span></a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Out of reach is shown rather than hidden</b>, and the third button in the first bench is one of the 5 in the product. A control that cannot be used stays visible with the ceiling stated, because a hidden control teaches nothing. That rule belongs to <code>btn</code>; the foot is where the analyst meets it.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--line-edge</code></td><td>line, exempt</td><td>the edge above the strip, through <code>--rule-edge</code>. The only thing this file paints</td><td><span data-tok="--line-edge" data-theme-read="dark"></span></td><td><span data-tok="--line-edge" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-surface</code></td><td>fill</td><td>the ground it inherits inside a raised pane</td><td><span data-tok="--bg-surface" data-theme-read="dark"></span></td><td><span data-tok="--bg-surface" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-page</code></td><td>fill</td><td>the ground it inherits inside a paper pane, 21 of the 35</td><td><span data-tok="--bg-page" data-theme-read="dark"></span></td><td><span data-tok="--bg-page" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--bg-action</code></td><td>fill</td><td>the accepted verdict, declared by <code>btn--primary</code></td><td><span data-tok="--bg-action" data-theme-read="dark"></span></td><td><span data-tok="--bg-action" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--text-on-action</code></td><td>ink 4.5:1</td><td>its label and its key</td><td><span data-tok="--text-on-action" data-theme-read="dark"></span></td><td><span data-tok="--text-on-action" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-control</code></td><td>line 3:1</td><td>the border of the three that are not primary</td><td><span data-tok="--line-control" data-theme-read="dark"></span></td><td><span data-tok="--line-control" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="pane-foot"&gt;
+  &lt;a class="btn btn--primary" href="queue-decided.html"&gt;Accept &lt;span class="key"&gt;a&lt;/span&gt;&lt;/a&gt;
+  &lt;a class="btn" href="case-amend.html"&gt;Amend &lt;span class="key"&gt;m&lt;/span&gt;&lt;/a&gt;
+  &lt;a class="btn" href="reject.html"&gt;Reject &lt;span class="key"&gt;r&lt;/span&gt;&lt;/a&gt;
+  &lt;a class="btn" href="escalate.html"&gt;Escalate &lt;span class="key"&gt;e&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- the last child of .z5, and .z5 is what scrolls --&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../case.html">four buttons &middot; the reference</a>
+  <a href="../case-standalone.html">the permalink, and 360</a>
+  <a href="../case-acted.html">after the ruling</a>
+  <a href="btn.html">the button</a>
+  <a href="pane-body.html">the body above it</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

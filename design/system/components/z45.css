@@ -1,0 +1,56 @@
+/* z45 :: ORGANISM, and it contains three
+   READS. Structure: --zone-notice-clear.
+   CONTAINS. z4, z5, z6, scrim.
+   PAGE. design/kit/z45.html   STANDS ON. 57 instances across 57 screens.
+
+   THE SPLIT. It is the UX pattern of the whole product in one declaration: a flex
+   row with the list on the left and the detail on the right. Two of the three
+   reasons for choosing it stand on evidence, and MICROSOFT SHIPS IT with keyboard
+   traversal of the queue, so it carries no novelty and is not presented as one.
+
+   IT IS LAYOUT AND IT HAS NO VARIANTS. Both panes 32, with a scrim 11, list only
+   9, pane only 3: those are counts of what is inside, not forms of this.
+
+   THREE RULES HERE READ THEIR OWN CHILDREN, and each is the container doing a job
+   no child could do alone. A FOURTH LEFT AT STAGE 09: the standalone route's
+   button pair reached through z5 into pane-foot into btn, which is a statement
+   about a composition rather than about this box, and it lives in
+   patterns/case-pane.css now. What is left below names only z45's own children. With a paper pane, Z4 is not rendered: the case takes
+   the screen and the list steps aside. With a standalone pane, the row centres,
+   because a sheet with no list beside it belongs in the middle. With a notice
+   stack present, the page ends `--zone-notice-clear` above the bottom, or the
+   last row is unreachable underneath it.
+
+   `position: relative` IS LOAD BEARING. Z6 is absolutely positioned against this
+   box, which is how the notice stack sits inside the console rather than on the
+   viewport, and never covers the pane. */
+
+.z45{
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.z45:has(> .z5.is-standalone){ justify-content: center }
+
+@media (max-width:900px){
+  .z45{ display: block }
+  /* BOTH OF THESE ARE NARROW ONLY, and hoisting them out of here was a real defect
+     for the length of one measurement: with the paper pane rule at the top level the
+     list disappeared at 1440 on every case screen. The pixel comparison caught it on
+     the first run, which is what the comparison is for. */
+  .z45:has(> .z5.is-paper) > .z4{ display: none }
+  /* AND NEITHER IS THE PANE, WHILE A DIALOG IS OVER IT. Node 4.4 and design principle
+     5 both say no overlay hides the evidence being ruled on, and at the desk the
+     dialog is anchored so it never has to. At 360 there is one column and a dialog
+     that is the screen, so the pane behind it is unreachable rather than merely
+     covered: the analyst scrolls the page and it passes under a fixed overlay.
+     Added at stage 09 when the first screen built out of the system, escalate, was
+     run against the usage rules and broke R3 at this width and nowhere else.
+     `--desk-only` scrims are exempt because they are not rendered here at all. */
+  .z45:has(> .scrim:not(.scrim--desk-only)) > .z5{ display: none }
+  .z45:has(> .z6){ padding-bottom: var(--zone-notice-clear) }
+}
+/* NO STATES. */

@@ -1,0 +1,66 @@
+/* annun :: MOLECULE
+   READS. Ink: --text-accent, --text-divider, --text-on-invert. Fill: --bg-invert.
+   Line: --rule-edge. Geometry: --font-mono, --size-xs, --space-1, --space-3.
+   PAGE. design/kit/annun.html   STANDS ON. 55 renderings and ZERO html files:
+   design/_shell.js writes it, exactly like `navitem`, `z1` and `z2`.
+
+   IT IS THE ONE FIXED SLOT THAT REPORTS ON CLERK. Three parts: what the agent is
+   doing, what it has done, and who is answering for it. Node 0.3, read only in
+   the MVP. An inventory taken from the screens alone cannot see it, which is
+   exactly why it was missing from the register: it has no class in any file.
+
+   THE `|` BETWEEN PARTS IS A DIVIDER DRAWN AS A CHARACTER, and it is the one
+   declared contrast exemption in this whole system. It measures 1.18 and it is
+   meant to: WCAG 1.4.1 does not cover a purely decorative glyph. It is declared as
+   INK so the surface rule can see it at all, which is the point of declaring
+   surfaces. It also has no `aria-hidden`, so a screen reader announces it, and
+   that is a finding raised at the step 4 gate rather than a decision.
+
+   THE COUNT IS 700 AND THAT IS ALLOWED. Attribute A3 permits weight 700 on a
+   counted value only, and this is one of the two places in the product that
+   qualifies. The other is `readout`, which was breaking the same rule until
+   round 2 measured it. */
+
+.annun{
+  margin: 0;          /* it is written as a `p` by the generator and nothing reset the UA
+                         margin: found by a reader with clean context */
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border: var(--rule-edge);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  white-space: nowrap;
+}
+.annun b   { font-weight: 700; color: var(--text-accent) }
+.annun .sep{ color: var(--text-divider) }
+
+/* AN OVERRIDE IS INVERTED, and it is the loudest thing the strip can say: the
+   analyst has taken a decision out of the agent's hands. */
+.annun .ovrd{
+  background: var(--bg-invert);
+  color: var(--text-on-invert);
+  padding: 0 var(--space-1);
+  font-weight: 700;
+}
+
+@media (max-width:1400px){
+  /* IT OVERFLOWED AT 1280, which is the product's declared minimum, so this was a
+     defect at the width the spec names: nowrap plus a third part pushed the
+     analyst's name past the right edge, measured at 1344 in a 1280 window. It
+     wraps inside its own border rather than losing a part or clipping the bar. */
+  .annun{ white-space: normal }
+}
+@media (max-width:900px){
+  .annun{
+    order: 2;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-size: 10.5px;   /* the second of the two places below the 11px floor */
+  }
+  /* the divider goes rather than wrapping onto a line of its own */
+  .annun .sep{ display: none }
+}
+/* NO STATES. Read only in the MVP, and the strip reports rather than offers. */

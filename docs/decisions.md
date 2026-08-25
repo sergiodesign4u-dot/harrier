@@ -683,3 +683,79 @@ They are now one item, `Design System`, with two children: `Tokens + Components`
 Setting `wip:true` at step 1 of stage 08 made the roadmap paint the item in the ordinary link colour, because the rule `.nav-item.is-wip > .nav-top` was written assuming a stage in progress already has a page. It does not: the page arrives at step 4, three steps later. The renderer was right and emitted a `<span>` so nothing could point at a missing file; the stylesheet then coloured that span as though it were clickable, and it was clicked.
 
 Fixed in `/_nav.css` by splitting the rule on the element rather than adding a flag: `a.nav-top` under `is-wip` keeps the link colour, `span.nav-top` under `is-wip` takes the muted colour and `cursor:default`. The badge still separates it from SOON, in the accent rather than in grey. The defect was live for exactly the window the two flags were designed to describe, and it is the first time anything has occupied that window: every previous stage built its registry page in the same step that raised the flag.
+
+## 2026-08-25 &middot; The documentation panel travels with the scroll, and stage 07 had disabled it on purpose
+
+Stage 07 gave `design/_nav.js` two branches. A **screen** got `position:sticky` on the panel; a **document** got `.wf-shell{align-items:flex-start}` and then `#sidebar{position:static}`. The comment there names a real defect and a correct first half: the shell is a flex row with `align-items:stretch`, which is right for a screen and wrong for a document, because it pinned both columns to one viewport and let the article overflow.
+
+**The second half was not needed and it cost the thing the panel is for.** Top aligning the row is what fixes the overflow; making the panel static as well is what scrolled it out of reach. A component page on the stage 08 stand is two thousand pixels long and the panel is how you reach the next component, so every move between components became a scroll back to the top. The stand inherited the same shape and had the same defect.
+
+**One more declaration was hiding under it, and it was found by measuring rather than by reading.** With the branch removed, `position` computed to `sticky` on the document pages and the panel still scrolled away, because `kit.css` pins `.wf-shell` to `height:100vh`. A sticky element sticks only inside its containing block, so the panel travelled for exactly one viewport and then left with the row that held it. A document now gets `height:auto; min-height:100vh` as well, and a screen keeps the viewport pin it needs.
+
+Verified on sixteen combinations, four surfaces at two viewports in the stand and two product screens: sticky and held at the top while the page scrolls at the desk, static and stacked at 360, no horizontal overflow anywhere. The mechanism now also lives in `design/system/base.css` for the pages that are already on the system; the injected copy in `design/_nav.js` covers the pages that are not, and step 8 removes it.
+
+## 2026-08-25 &middot; `color-scheme` follows the theme, because the browser draws things this system does not
+
+A native `select` on the console ground opened a **white** list. Nothing in the stylesheets is wrong: the popup, the scrollbar, the caret in a field and the default ring on an unstyled control are drawn by the browser, and the only way to tell it which way they go is `color-scheme`.
+
+It is declared in `tokens.css` beside the roles rather than in `base.css`, because it is a value that changes with the theme and it belongs with the values that change with the theme: `dark` on `:root, [data-theme="dark"]` and `light` on `[data-theme="light"]`. It is the one declaration in that file that is not a token, and the comment there says so.
+
+This is the same class of defect as the light theme that leaked into two dark documents at stage 06: the value is never wrong in any file, and what is wrong is what the browser does with what the file did not say.
+
+## 2026-08-25 &middot; Stage 08 closed, and what it cost to be sure
+
+**The register was wrong three times and each correction came from a different instrument.** It was 62 at step 2, built from a browser census of controls. Writing `input` found that `input`, `textarea` and `select` have the same anatomy, which is none, and it went to 60. Scanning every class that owns a rule block against the register found **thirteen components the census had never seen**, including `claim` at 131 instances and `lat`, which is the latitude ladder and therefore the differentiator itself. It is 73.
+
+**The census missed them because it counted CONTROLS.** Every one of the thirteen is a container or a text composition, and the anatomy column was measured only for rows the control census had already produced. A component with no control inside it never entered the list to be measured. That is the finding to carry forward: **an inventory takes the shape of the instrument that made it**, and the cure is a second instrument with a different shape, not a more careful reading of the first.
+
+**Six of the seven defects this stage found are invisible to reading.** A `font` shorthand that resets `line-height`. A chip standing at three heights in one bar because the element decided them. A readout at weight 700 on 35 screens because it is an `h1` and nothing said otherwise. A utility losing to a component because the system loaded later. A narrow only rule hoisted to the top level. A scrim that did not pair by theme because `var()` resolves where it is declared. In every one of them **both files are correct and what is wrong is what the browser does with them**, which is why the answer was always another measurement and never another review.
+
+**And one instrument was wrong out loud on its first run, which is the only reason it got fixed.** The theme stress test assumed a token resolves to `rgb()`; these resolve to hex, so every ratio was `NaN` and it printed FAIL fifteen times. A check that fails loudly when it is broken is worth more than one that passes quietly.
+
+**The stage is a refactor and the product moved on purpose in five named places**, each a row in `design/kit/docs/tokens-audit.md`: the chip and state height, the readout weight, the field boundary at 3.98 rather than 2.997, the key border following its host, and the source icon only on the sources that open. 862 elements moved across 102 renderings and **not one of them is unattributed**.
+
+---
+
+## 2026-08-25 &middot; A pattern here is a filling, and that definition is what kept the level to four files
+
+Stage 09 had to find the compositions that repeat on three or more screens and give them a level of their own. The counter found 104 distinct compositions across the 62 grey pages, **68 standing on two screens or more and 54 on three or more**, which is far too many to be a level: almost all of the 54 are a component's own anatomy. `claim` is a text and a source on 24 screens, and that is what `claim` **is**.
+
+What separated the real thing from the noise was one sentence, and it came out of a rule stage 08 had already written for a level below:
+
+> **A pattern here is a FILLING.** One container component, filled with a set of zones, where the container's other filling drops zones and grows different ones.
+
+Stage 08's anatomy rule says a zone that disappears means a different component rather than a variant of the same one. Applied one level up, it produces **exactly four** compositions in this product and no others: the split has two zones, each zone has two fillings. `z4` is either the queue list or the shift brief; `z5` is either a case pane or the fleet.
+
+**`z5.css` had predicted this before this stage existed.** It argued in its own header that the fleet is a pattern rather than a variant of the case pane, because writing it as a variant would have written it as a pane with no body, which is to say as an empty case, and `CLAUDE.md` forbids exactly that reading of the pane. The stage did not invent the criterion, it found the criterion already applied once and generalised it.
+
+**The five other fillings are not patterns and the test says why.** `frame` on the entry screens, `outage` on the system states, `door` on the sign in states: each is one wrapper with one job. **A filling with one wrapper is a component, and the wrapper is its name.**
+
+### What moved, and the criterion for moving it was mechanical
+
+Fourteen rules left three component files, and none was copied. A rule was a candidate if, and only if, **its selector was written inside one component, named another component, and was conditioned on which filling the host was carrying**. `.z4 > .banner` failed that test and stayed: it places the banner whichever filling the column carries, so it belongs to the zone.
+
+**One rule turned out to be doing two jobs and neither was named.** `.z5{ display:none }` at 900 hid the fleet at rest and the desk only case pane of the log and shift screens on one line, for two unrelated reasons. It is two rules now, one in each pattern.
+
+**Two things tried to move and were sent back, and a read only audit against the files' own headers caught both.** `.pane-head--standalone h1` was a rule stage 08 had written in **two** places, with the second winning on specificity so the first looked like it worked. And `.sa-fresh` and `.sa-route` carry a line, a family and an ink: a pattern that paints is a second folder of components wearing a new name, so they stayed in `places.css`. **The level's defining rule was broken in the level's own file, under a header saying the opposite**, which is why an audit that reads a file against its own claims is worth more than one that reads it against a checklist.
+
+### The prohibitions came from the same counter read backwards
+
+A pattern is what repeated three times or more; a prohibition is what **never happened once, although it could**. Eleven rules, and every one carries the count, the earlier decision or the critique log it came from. A rule with an empty source is an invention wearing the word rule.
+
+**The stage 04 convention that had waited four stages for a reader is one of them, and the counter corrected it on the way in.** `conventions.md` says "exactly one primary action per screen". Measured on what renders, eight of the 62 screens show two, and every one of the eight is a modal over a pane: the screen's own primary sits under a scrim with `aria-modal`, unreachable. The rule is **per layer**, and a second primary is also legitimate when it is the viewport twin of the first. The wording that went four stages without a reader would have failed eight screens on its first run.
+
+**Every rule is also a function**, in `design/kit/checks/rules.mjs`, measured at both viewports on what renders rather than on the markup. Three of the eleven are true at one width and false at the other, and one of them only became correct when the counter stopped reading the file and started reading the box.
+
+Two rules the corpus breaks, and both are recorded rather than smoothed. **R11: sixteen coloured screens have no `h1` at all at 360**, because the heading is the queue readout, the readout lives in the list column, and a case screen hides that column at that width. Stage 05 had already found the contradiction underneath it, between two node specifications, and could not see this consequence, because the consequence is a computed style at one viewport. **R3: the escalate family draws a dialog pinned to the viewport over a pane still rendered behind it at 360.** That one was fixed, on the composition, when the stage built its first screen.
+
+### The self sufficiency test cost the product one screen and bought four honest rows
+
+`design/escalate.html`, the fourth verdict and the only one of the four with no coloured rendering. It was assembled with no style of its own, no inline declaration and nothing added to the system on the way, which is the whole point: **the screen shows what came out of what already exists**, and what it could not reach goes to the backlog rather than being drawn.
+
+It reached three things and not the fourth. The recipient of an escalation is `.rcpt` in the grey corpus and `contact` in the system, the same anatomy under two names, so the screen uses `contact` and the recipient's name renders one step larger. The state where the recipient has left the rota has no home at all. And running the usage rules against it found the R3 violation **on a screen nobody had built yet**, which is the strongest argument available for writing prohibitions as functions.
+
+### What was deliberately not done
+
+**No section of stage 09 on a pixel proof page, because that page does not exist and will not.** At stage 08 the user ruled that nothing in the design system may be a screenshot, and the pixel proof became live instruments. The stage's evidence is `checks/refactor.mjs`, which renders the tree as it stood before the first edit against the tree as it stands now and reports **which element moved** rather than how many pixels changed. 102 renderings, 0 tree shape changes, 0 boxes moved. The deviation from the contract is recorded in `design/kit/docs/critique.md` rather than satisfied by renaming something.
+
+**IA was not touched**, and that is the contract rather than an omission: the screen came from a wireframe that already carries node 4.6, so the three IA surfaces stay as they are. They move only when a screen arrives without a node.

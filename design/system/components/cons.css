@@ -1,0 +1,39 @@
+/* cons :: MOLECULE
+   READS. Ink: --text-primary, --text-secondary. Line: --rule-hair. Geometry:
+   --radius-ui, --size-sm, --space-2, --space-3.
+   PAGE. design/kit/cons.html   STANDS ON. 9 instances across 9 screens, in the
+   reject and escalate dialogs.
+
+   IT SAYS WHAT WILL HAPPEN IF YOU FILE THIS. Not what you are doing, which the
+   dialog title already says: what follows. The case closes, or it goes to a named
+   person, or the tenant's baseline changes. Design principle 3 says the override
+   is one key and it teaches, and this is the half that teaches.
+
+   min-height: 58px, AND IT IS THE ONLY FIXED HEIGHT IN THE SYSTEM. The box is
+   filled by the choice above it, so without a floor the dialog's footer moves as
+   the analyst picks a reason, and the button she is aiming at is the one that
+   moves. Two lines of consequence is the common case and the floor is two lines. */
+
+.cons{
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--size-sm);
+  min-height: 58px;
+}
+.cons b{ font-weight: 600; color: var(--text-primary) }
+
+/* -- state. Nothing chosen yet -------------------------------------------------
+   Dashed and receded, which is this system's word for not settled: the ghost chip,
+   the provisional state, the tombstone and here. */
+.cons.is-empty{
+  border-style: dashed;
+  color: var(--text-secondary);
+}
+/* -- placement. One value, and it is a margin rather than a form ------------
+   Two of the nine sit under something rather than beside it and take a step of
+   air. It was lost in the split and found by a reader with clean context: the
+   class is on the screens and was in no file under design/system/. */
+.cons--gap{ margin-top: var(--space-2) }
+
+/* NO STATES beyond that one. It reports; it is not pressed. */

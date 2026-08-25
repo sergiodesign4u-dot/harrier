@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Key</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix y-. */
+.y-host{ display:flex; gap:var(--space-4); align-items:center; flex-wrap:wrap }
+.y-opt{ display:flex; align-items:center; gap:var(--space-3); border:var(--rule-hair);
+        padding:var(--space-2) var(--space-3); background:var(--bg-page); min-width:220px;
+        font-size:var(--size-sm) }
+.y-opt.is-on{ background:var(--bg-surface) }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Key</h1>
+<p class="k-lede">A picture of a keyboard key, 152 instances on 34 screens. It is the only component in this system that reads <b>no colour role at all</b>: it takes the colour of whatever it stands in and draws its border out of that. That is the component, not an omission, and it is why the same element works on a filled amber button and inside a quiet list row without a single variant.</p>
+<p class="k-note">Written in round 0 beside <code>btn</code> rather than in its own round. The button's dominant content form is label plus key, 83 of 157, and a reference component that cannot show its own dominant form is not a reference.</p>
+
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-anat">
+  <span class="key" style="font-size:20px;padding:2px 10px">Enter</span>
+  <span class="key" style="font-size:20px;padding:2px 10px">a</span>
+  <span class="key" style="font-size:20px;padding:2px 10px">Esc</span>
+</div>
+<ul class="k-parts">
+  <li><code>.key</code><span>the whole component. One element, one text node, no inner zones. It is a <code>span</code> everywhere and never a <code>kbd</code>, which is a separate open row named at the bottom of this page</span></li>
+  <li><code>border: 1px solid currentColor</code><span>the one declaration that carries the idea. Not a colour token: the border is whatever the host's ink is, so the key belongs to the control rather than sitting on it</span></li>
+</ul>
+<p class="k-note">Shown above at 20px so the drawing is legible. <b>Its real size is 11px, <code>--size-xs</code></b>, which is the floor of the type scale, and it never renders larger anywhere in the product.</p>
+
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-lede"><b>None, and that is the finding rather than an empty section.</b> The axis a reader expects here is the host, and the host is precisely what the component refuses to encode: it inherits.</p>
+
+<div class="k-scene y-host">
+  <a class="btn" href="#variants">Amend <span class="key">m</span></a>
+  <a class="btn btn--primary" href="#variants">Accept <span class="key">a</span></a>
+  <a class="btn btn--quiet" href="#variants">Cancel <span class="key">Esc</span></a>
+  <span class="y-opt">Not a threat <span class="key" style="margin-left:auto">1</span></span>
+  <span class="y-opt is-on">Benign, expected <span class="key" style="margin-left:auto">2</span></span>
+</div>
+<p class="k-note">Five hosts, one declaration, five different renderings. The key on the accent button is amber ink on amber ground; the key on a quiet button recedes with the button; the key in a list row takes the row's ink. <b>Nothing in <code>key.css</code> knows any of that.</b></p>
+
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis a reader looks for</th><th>Values</th><th>Why the cell is empty</th></tr></thead>
+  <tbody>
+    <tr><td>host</td><td class="k-none">&ndash;</td><td><b>Prohibited.</b> A <code>.key--on-primary</code> would be the host's name written into the guest, and it would need a new value every time a new host appears. <code>currentColor</code> covers every host that will ever exist, including the ones not drawn yet</td></tr>
+    <tr><td>size</td><td class="k-none">&ndash;</td><td><b>Prohibited.</b> 11px is the floor of the scale and the key is always at it. Something that needs to be bigger is not a key, it is the control the key is on</td></tr>
+    <tr><td>emphasis</td><td class="k-none">&ndash;</td><td><b>Prohibited.</b> The dimming is the host's: <code>.btn .key</code> sits at .75 and <code>.btn--primary .key</code> at .85, and both lines live in <code>btn.css</code> because they are the button's decision about its guest, not the key's about itself</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>One consolidation happened here and it is the only appearance change step 2 decided.</b> <code>kit.css</code> declared the key twice: <code>currentColor</code> inside <code>.btn</code> and a fixed rule colour inside <code>.opt</code>. So on a filled button the key belonged to the button, and inside an option it carried a line that belonged to nothing. <b>39 places on the coloured screens and 45 across the whole product</b> take the host's colour now. The row is in <code>tokens-audit.md</code> under consolidated drift.</p>
+
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">Wherever an action has a keyboard shortcut, and nowhere else. Design principle 3 says the override is one key and it teaches, so the letter is the real interface and the pointer is the fallback: <b>the key on a button is how the analyst learns to stop using the mouse.</b> 85 of the 152 stand on buttons for exactly that reason, 45 stand in the reject dialog's option list, and 22 stand on the keyboard map, which is the one screen where a key is the subject rather than a hint.</p>
+<p class="k-note">The empty slot collapses by itself. The shell's <code>foot()</code> always emits the span, so before <code>.key:empty</code> a control with no shortcut wore a bordered blank that reads as a key nobody can press. Found at stage 07 and carried here as part of the component rather than as a patch on the button.</p>
+
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><a class="btn" href="#rules">Escalate <span class="key">e</span></a></div>
+    <p>Inside the control the shortcut operates. The key sits last, after the label, and the label still says what happens: reading the button without the key must lose nothing.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell"><span class="key">e</span></div>
+    <p>Never alone as something to press. A key is a picture, not a control: it has no hover, no focus and nothing happens when it is clicked. Something pressable is <b><code>btn</code></b>. Something that reports a condition is <b><code>state</code></b>.</p>
+  </div>
+</div>
+
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b> No hover, no active, no focus, no out of reach. Inventing one would be the same defect as inventing a role: a hover on a key would say it can be pointed at, and it cannot.</p>
+<p class="k-note">What looks like a state on the screens is the host changing under it. In the reject dialog a chosen option inverts, and the key inverts with it, <b>because the key reads <code>currentColor</code> and the option repainted its own ink</b>. That rule belongs to <code>opt</code> and lives in its file, not here. Shown below rather than described, so the mechanism is visible:</p>
+<div class="k-scene y-host">
+  <span class="y-opt">Not a threat <span class="key" style="margin-left:auto">1</span></span>
+  <span class="y-opt is-on" style="background:var(--bg-invert);color:var(--text-on-invert)">Benign, expected <span class="key" style="margin-left:auto">2</span></span>
+</div>
+
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<p class="k-note"><b>No colour role, and this is the only row in the system that says that.</b> Geometry only: <code>--font-mono</code>, <code>--size-xs</code>, <code>--radius-ui</code> at zero, <code>--space-1</code>. The border is <code>currentColor</code> and the ink is inherited, so the component needs no pair in the light theme and gets one for free.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;span class="key"&gt;a&lt;/span&gt;
+&lt;a class="btn" href="..."&gt;Amend &lt;span class="key"&gt;m&lt;/span&gt;&lt;/a&gt;</div>
+<p class="k-note">The file is <code>design/system/components/key.css</code>, six declarations and one of them is <code>:empty</code>.</p>
+
+<h3 class="k-h2">One open row, and step 6 rules on it</h3>
+<p class="k-note"><b><code>.qfoot kbd</code> does the same job in a different form and step 2 did not rule on it.</b> It is a <code>kbd</code> element rather than a span, it takes secondary ink rather than the host's, and it draws its border from <code>--line-control</code> rather than <code>currentColor</code>. It is not folded in here, because folding it silently is how a consolidation stops being a decision. It goes to the reconciliation as a list two row: a control drawing the same thing past the system.</p>
+
+<h3 class="k-h2">Three places it stands</h3>
+<div class="k-where">
+  <a href="../case.html">inside .btn &middot; 85</a>
+  <a href="../reject.html">inside .opt &middot; 45</a>
+  <a href="../queue.html">the keyboard map &middot; 22</a>
+</div>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [
+  { id:'anatomy',  label:'Anatomy' },
+  { id:'variants', label:'Variants' },
+  { id:'use',      label:'When to use it' },
+  { id:'rules',    label:'Rule and anti-rule' },
+  { id:'states',   label:'States' },
+  { id:'tech',     label:'What it reads' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

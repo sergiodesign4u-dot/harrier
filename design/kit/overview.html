@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Design system</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+<style>
+/* PAGE-LOCAL, prefix h-. The hub's own furniture. */
+.h-strip{ display:flex; flex-wrap:wrap; border-top:var(--rule-edge); border-bottom:var(--rule-hair);
+          margin:0 0 var(--space-6) }
+.h-strip div{ flex:1 1 160px; padding:var(--space-3) var(--space-4) var(--space-3) 0 }
+.h-strip .k{ font:400 var(--size-xs)/1 var(--font-mono); letter-spacing:.08em;
+             text-transform:uppercase; color:var(--text-secondary); margin:0 0 var(--space-2) }
+.h-strip .n{ font-size:23px; font-weight:500; letter-spacing:-.02em }
+.h-strip .w{ font-size:var(--size-xs); color:var(--text-secondary); line-height:var(--leading);
+             margin-top:var(--space-1) }
+.h-soon{ border:var(--rule-hair); border-style:dashed; padding:var(--space-4);
+         color:var(--text-secondary); font-size:var(--size-sm); line-height:var(--leading);
+         max-width:74ch }
+</style>
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Design system</p>
+<h1 class="k-title">Tokens and components</h1>
+<p class="k-lede">The same product, a different architecture. The flat kit of stage 07 is splitting into two levels of token and one file per component, and nothing about how the product looks is supposed to move. What the stand shows is the material: every value, every role in both themes, and eventually every component with its states and its rules.</p>
+<p class="k-note">The code lives in <code>design/system/</code> and can be lifted into another project whole. This folder is the showcase and stays here. <b>Foundations are accepted before any component is written</b>, because a change to a scale costs one file now and thirty files afterwards.</p>
+
+<div class="h-strip">
+  <div><p class="k">Primitives</p><p class="n">23</p><p class="w">14 from the product, 8 for the light pair, 1 for a pressed accent</p></div>
+  <div><p class="k">Roles</p><p class="n">27</p><p class="w">21 semantic and 6 state, each with a surface and a pair</p></div>
+  <div><p class="k">Usage rules</p><p class="n">11</p><p class="w">each with its source, and each also a function</p></div>
+  <div><p class="k">Components</p><p class="n">73</p><p class="w">18 atoms, 34 molecules, 21 organisms</p></div>
+  <div><p class="k">Patterns</p><p class="n">4</p><p class="w">two fillings each of the two zones of the split, and no others cleared three screens</p></div>
+</div>
+
+<h2 class="k-h" id="foundations">Foundations</h2>
+<p class="k-note">Read them in this order. Architecture first, because a system is read starting from its rules.</p>
+<div id="k-cards"></div>
+
+<h2 class="k-h" id="components">Components</h2>
+<p class="k-note">Seventy three, built in rounds from the bottom up. A component is passed once and closed completely: file, four states in both themes, a page of five blocks, a registry entry and an <code>@import</code> in its own group. The full checklist is section 12 of <code>docs/inventory.md</code>. It began at 62 at step 2, lost two in round 1 when <code>input</code>, <code>textarea</code> and <code>select</code> turned out to have the same anatomy, and gained thirteen at step 5 that the census had never seen. Section 13 of the inventory says why.</p>
+<div id="k-components"></div>
+
+<h2 class="k-h" id="patterns">Patterns</h2>
+<p class="k-note">The level above the component, added at stage 09. A composition that already stands on three or more screens, counted on the grey corpus where the whole product is. Four of them, and all four are the same shape: <b>a filling</b>, one container filled with a set of zones where the container's other filling drops zones and grows different ones. <a class="link" href="patterns.html">When to take a pattern and when to take the components</a>, and the six two screen candidates waiting for a third.</p>
+<div id="k-patterns"></div>
+
+<h2 class="k-h" id="next">What is not here yet</h2>
+<div class="h-soon">
+  <p style="margin:0 0 12px"><b>Nothing of the system's own three levels.</b> 23 primitives and 27 roles, 73 components and 4 patterns, each with its file, its page, its registry entry and its <code>@import</code> in its own group. Every screen in the product links <code>design/system/index.css</code> and nothing else, and every rule of use is written down and runnable.</p>
+  <p style="margin:0 0 12px"><b>Eleven instruments</b> live in <code>design/kit/checks/</code>: a contrast ratio for every text node, a box comparison of each component against the screen it stands on, the migrated screen against the committed original, the tree before a refactor against the tree after it, the coverage of the deleted stylesheet, the composition counter, the usage rules, the icon set against its masks, and the dark theme as a stress test. They are evidence <b>about</b> the system, so they have their own group rather than sitting beside the rules.</p>
+  <p style="margin:0 0 12px"><b>There is no pixel proof page, and that is a deviation from the pack recorded rather than hidden.</b> Nothing in this system is a screenshot: a picture of a component is a second copy that goes stale without saying so, and the first one taken on this stand documented a focus ring it did not contain. What the stage 08 and 09 refactors promise is proved by rendering instead, element by element at both viewports, and <code>docs/critique.md</code> carries the numbers.</p>
+  <p style="margin:0"><b>Responsive, animation, rollout and handoff.</b> Stages 10 to 13. The patterns are what makes the first two cheap: a breakpoint and a transition land in one file and reach every screen the composition stands on, rather than in twenty copies of it.</p>
+</div>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [
+  { id:'foundations', label:'Foundations' },
+  { id:'components',  label:'Components' },
+  { id:'patterns',    label:'Patterns' },
+  { id:'next',        label:'What is next' }
+];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

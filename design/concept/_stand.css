@@ -3,7 +3,7 @@
    cannot drift: a component copied into a second page is where drift starts, and stages
    07 and 08 would inherit it silently.
 
-   VALUES come from .../kit/kit.css and nowhere else. Nothing here invents a colour, a radius
+   VALUES come from design/system/ and nowhere else. Nothing here invents a colour, a radius
    or a tracking value. Direction A is the composition chosen at step 4; directions B and C
    stay local to directions.html because they were not chosen.
 
@@ -15,8 +15,8 @@
 
 /* the frame: each direction is drawn at a real 1440 and scaled to the column, so the
    proportions on this page are the proportions on the desk, not an impression of them */
-.dr-hold{width:100%;height:616px;overflow:hidden;border:1px solid var(--color-rule);
-         background:var(--color-ground);margin:0 0 14px}
+.dr-hold{width:100%;height:616px;overflow:hidden;border:1px solid var(--line-edge);
+         background:var(--bg-page);margin:0 0 14px}
 .dr-scale{width:1440px;height:900px;transform:scale(.6847);transform-origin:0 0}
 /* below the documentation shell's own breakpoint the column is narrower than 986, so the
    sheet is scrolled rather than silently cropped: a cropped direction reads as a design
@@ -25,7 +25,7 @@
 
 /* ---- the product, one brand. Shared components first. ---- */
 .dr-s{width:1440px;height:900px;display:flex;flex-direction:column;
-      background:var(--color-ground);color:var(--color-text);
+      background:var(--bg-page);color:var(--text-primary);
       font:400 14px/1.4 var(--font-sans);letter-spacing:0}
 .dr-s .m{font-family:var(--font-mono);letter-spacing:var(--track-mono)}
 /* The documentation sheet owns bare ELEMENT selectors: `p{max-width:74ch}` and an h2 colour.
@@ -34,83 +34,83 @@
    clamped to 444px, which is exactly 74ch of the mono at 10px, and the pane heading rendered
    in the documentation accent instead of a colour from kit.css. */
 .dr-s p{max-width:none;margin:0}
-.dr-s h1,.dr-s h2,.dr-s h3{color:var(--color-text);font-family:var(--font-sans);margin:0}
+.dr-s h1,.dr-s h2,.dr-s h3{color:var(--text-primary);font-family:var(--font-sans);margin:0}
 
 .dr-z1{height:46px;flex:0 0 46px;display:flex;align-items:center;gap:26px;padding:0 20px;
-       border-bottom:1px solid var(--color-rule)}
+       border-bottom:1px solid var(--line-edge)}
 .dr-z1 .wm{font:600 14px var(--font-sans);letter-spacing:var(--track-wordmark)}
 .dr-z1 nav{display:flex;gap:20px;font-family:var(--font-mono);font-size:11px;
-           letter-spacing:var(--track-mono);color:var(--color-text-dim)}
-.dr-z1 nav .on{color:var(--color-text);border-bottom:2px solid var(--color-accent);padding-bottom:3px}
+           letter-spacing:var(--track-mono);color:var(--text-secondary)}
+.dr-z1 nav .on{color:var(--text-primary);border-bottom:2px solid var(--text-accent);padding-bottom:3px}
 .dr-z1 .sp{margin-left:auto;font-family:var(--font-mono);font-size:10px;
-           letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+           letter-spacing:var(--track-mono);color:var(--text-secondary)}
 .dr-z2{height:26px;flex:0 0 26px;display:flex;align-items:center;padding:0 20px;
        font-family:var(--font-mono);font-size:10px;letter-spacing:var(--track-mono);
-       color:var(--color-accent);border-bottom:1px solid var(--color-rule)}
+       color:var(--text-accent);border-bottom:1px solid var(--line-edge)}
 
 .dr-scope{display:flex;gap:7px;align-items:center}
-.dr-scope i,.dr-chip{font-style:normal;display:inline-block;border:1px solid var(--color-edge);
+.dr-scope i,.dr-chip{font-style:normal;display:inline-block;border:1px solid var(--line-control);
        border-radius:var(--radius-ui);padding:4px 8px;font-family:var(--font-mono);font-size:10px;
-       letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+       letter-spacing:var(--track-mono);color:var(--text-secondary)}
 /* inverted, exactly as the product inverts it. It was on the accent here and not on the
    real screen, which the stage 06 audit caught: the stand may not show a component the
    product does not have. */
-.dr-chip.sol{background:var(--color-text);color:var(--color-ground);border-color:var(--color-text)}
+.dr-chip.sol{background:var(--text-primary);color:var(--bg-page);border-color:var(--text-primary)}
 
 .dr-read{font-size:21px;font-weight:500;letter-spacing:var(--track-display);margin:0}
-.dr-read span{color:var(--color-text-dim);font-weight:400;letter-spacing:0;font-size:15px}
+.dr-read span{color:var(--text-secondary);font-weight:400;letter-spacing:0;font-size:15px}
 
 .dr-bars{display:inline-flex;gap:2px;vertical-align:middle;margin-right:6px}
-.dr-bars i{width:3px;height:9px;background:var(--color-rule);display:block}
-.dr-bars i.on{background:var(--color-accent)}
+.dr-bars i{width:3px;height:9px;background:var(--line-edge);display:block}
+.dr-bars i.on{background:var(--text-accent)}
 
 /* Severity is the one place besides the accent where saturation is spent, and the set is
    closed at three. The word and the bars take the same value, so the row reads at a glance
    rather than on a count. Attribute A2 was amended for this, and the amendment is written
    into design/concept/docs/concept.md rather than left implicit. */
-.sev-hi .sv{color:var(--color-sev-high)}
-.sev-me .sv{color:var(--color-sev-medium)}
-.sev-lo .sv{color:var(--color-sev-low)}
-.sev-hi .dr-bars i.on{background:var(--color-sev-high)}
-.sev-me .dr-bars i.on{background:var(--color-sev-medium)}
-.sev-lo .dr-bars i.on{background:var(--color-sev-low)}
+.sev-hi .sv{color:var(--text-sev-high)}
+.sev-me .sv{color:var(--text-sev-medium)}
+.sev-lo .sv{color:var(--text-sev-low)}
+.sev-hi .dr-bars i.on{background:var(--text-sev-high)}
+.sev-me .dr-bars i.on{background:var(--text-sev-medium)}
+.sev-lo .dr-bars i.on{background:var(--text-sev-low)}
 .a-row .sv,.c-row .sv{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono)}
 
-.dr-foot{margin:0;padding:9px 20px;border-top:1px solid var(--color-rule);display:flex;gap:22px;
-     font-family:var(--font-mono);font-size:10px;letter-spacing:var(--track-mono);color:var(--color-text-dim)}
-.dr-foot kbd{border:1px solid var(--color-rule);padding:1px 4px;font:inherit}
+.dr-foot{margin:0;padding:9px 20px;border-top:1px solid var(--line-edge);display:flex;gap:22px;
+     font-family:var(--font-mono);font-size:10px;letter-spacing:var(--track-mono);color:var(--text-secondary)}
+.dr-foot kbd{border:1px solid var(--line-edge);padding:1px 4px;font:inherit}
 
-.dr-pane{background:var(--color-surface);border-left:1px solid var(--color-rule);
+.dr-pane{background:var(--bg-surface);border-left:1px solid var(--line-edge);
          display:flex;flex-direction:column;min-width:0}
-.dr-ph{padding:14px 18px 12px;border-bottom:1px solid var(--color-rule)}
+.dr-ph{padding:14px 18px 12px;border-bottom:1px solid var(--line-edge)}
 .dr-ph h2{margin:0 0 4px;font-size:17px;font-weight:500;letter-spacing:var(--track-display)}
-.dr-ph p{margin:0;font-size:12px;color:var(--color-text-dim);max-width:none}
+.dr-ph p{margin:0;font-size:12px;color:var(--text-secondary);max-width:none}
 .dr-fr{display:grid;grid-template-columns:1fr 108px 96px;gap:10px;padding:9px 18px;
-       border-bottom:1px solid var(--color-hairline);font-size:12px;align-items:baseline}
+       border-bottom:1px solid var(--line-separator);font-size:12px;align-items:baseline}
 .dr-fr.h{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
-         color:var(--color-text-dim);text-transform:uppercase}
+         color:var(--text-secondary);text-transform:uppercase}
 .dr-fr .l{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--track-mono);
-          color:var(--color-accent)}
+          color:var(--text-accent)}
 .dr-fr .r{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono);text-align:right}
-.dr-fr .r em{display:block;font-style:normal;font-size:9px;color:var(--color-text-dim)}
+.dr-fr .r em{display:block;font-style:normal;font-size:9px;color:var(--text-secondary)}
 .dr-fmore{padding:11px 18px;font-family:var(--font-mono);font-size:9px;
-          letter-spacing:var(--track-mono);color:var(--color-text-dim)}
+          letter-spacing:var(--track-mono);color:var(--text-secondary)}
 
 /* ---------- A, the ledger. 62 / 38, scope on its own band, one line per row ---------- */
 .a-body{flex:1;display:grid;grid-template-columns:62% 38%;min-height:0}
 .a-q{display:flex;flex-direction:column;min-width:0}
-.a-band{padding:12px 20px 11px;border-bottom:1px solid var(--color-rule)}
+.a-band{padding:12px 20px 11px;border-bottom:1px solid var(--line-edge)}
 .a-head{padding:14px 20px 10px}
 .a-rows{flex:1;min-height:0}
 .a-row{display:grid;grid-template-columns:88px 150px 1fr 190px 68px 118px 40px;gap:12px;
-       padding:11px 20px;border-bottom:1px solid var(--color-hairline);align-items:center;font-size:13px}
+       padding:11px 20px;border-bottom:1px solid var(--line-separator);align-items:center;font-size:13px}
 .a-row.h{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--track-mono);
-         color:var(--color-text-dim);text-transform:uppercase;padding:7px 20px;border-bottom-color:var(--color-rule)}
-.a-row.sel{background:var(--color-surface-sel);box-shadow:inset 3px 0 var(--color-accent)}
+         color:var(--text-secondary);text-transform:uppercase;padding:7px 20px;border-bottom-color:var(--line-edge)}
+.a-row.sel{background:var(--bg-selected);box-shadow:inset 3px 0 var(--text-accent)}
 .a-row .v{font-weight:500}
-.a-row .v em{font-style:normal;display:block;font-size:11px;color:var(--color-accent)}
+.a-row .v em{font-style:normal;display:block;font-size:11px;color:var(--text-accent)}
 .a-row .c,.a-row .g{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-mono);
-       color:var(--color-text-dim)}
+       color:var(--text-secondary)}
 .a-row .g{text-align:right}
 .a-row .st{display:flex;gap:4px;justify-content:flex-end}
 .a-row .st .dr-chip{padding:3px 5px;font-size:8px}
@@ -140,18 +140,18 @@
    the same class the block at the top of this file already names, found there inside the
    product mock and fixed only there: the document around the mock was never looked at. */
 
-.eyebrow{color:var(--color-accent)}
-.lede{color:var(--color-text-dim)}
-main h2{color:var(--color-accent);border-top-color:var(--color-rule)}
+.eyebrow{color:var(--text-accent)}
+.lede{color:var(--text-secondary)}
+main h2{color:var(--text-accent);border-top-color:var(--line-edge)}
 /* square, because A1 is precise rather than soft and a 3px pill contradicts it on the very
    page that states the attribute */
-code,.mono{background:var(--color-surface);color:var(--color-text);border-radius:var(--radius-ui)}
+code,.mono{background:var(--bg-surface);color:var(--text-primary);border-radius:var(--radius-ui)}
 table{min-width:0}
-th,td{border-bottom:1px solid var(--color-hairline)}
+th,td{border-bottom:1px solid var(--line-separator)}
 /* white-space:nowrap on a header cell is right in a light research document at full width
    and is the whole of the 360 overflow here: it set the intrinsic width of the table to 376
    on a 360 board, and neither min-width:0 nor a narrower cell could get under it. */
-th{background:var(--color-surface);color:var(--color-text-dim);border-bottom:1px solid var(--color-rule);
+th{background:var(--bg-surface);color:var(--text-secondary);border-bottom:1px solid var(--line-edge);
    white-space:normal}
 /* a four column comparison cannot be made to fit 360 and should not be made to try: below
    the narrow breakpoint the table scrolls inside itself rather than pushing the document,

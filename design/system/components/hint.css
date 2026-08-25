@@ -1,0 +1,38 @@
+/* hint :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Geometry: --size-xs.
+
+   PAGE. design/kit/hint.html
+   STANDS ON. 18 instances across 18 screens: under a field 7, and in a dialog
+   footer 11.
+
+   IT SAYS WHAT THE INTERFACE WILL NOT DO FOR YOU. `A reason is required`,
+   `One selection, one key`, `No password here. Your email decides which provider
+   signs you in.` Design principle 2 says the cheapest correct thing first, and a
+   hint is the cheapest correct thing there is: one line, secondary ink, and it
+   never repeats the label above it.
+   ----------------------------------------------------------------------------
+   TWO DECLARATIONS COLLAPSED INTO ONE. kit.css declared it twice with identical
+   values, `.field .hint` at line 345 and `.dialog > footer .hint` at line 751,
+   four hundred lines apart. Neither was wrong and both were the parent reaching
+   into the child. **No pixel moves.** The row is in the rename map.
+
+   ELEVEN OF THE EIGHTEEN ARE A span AND SEVEN ARE A p, and the difference is
+   real rather than sloppy: in a dialog footer the hint sits on the same line as
+   the buttons and must not take a line of its own, and under a field it is a
+   paragraph. The component draws both identically and the element decides the
+   flow, which is the same arrangement `input` uses for its three controls.
+   ---------------------------------------------------------------------------- */
+
+.hint{
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE ------------------------------------
+   THE ONE PLACE THE PRODUCT WOULD WANT AN ERROR STATE IS HERE, and it does not
+   have one. `A reason is required` in the reject dialog is a hint that is true
+   before anything has gone wrong and stays exactly the same after: it never
+   turns red, because nothing in this product ever tells the analyst she was
+   wrong about a field. Whether that is right is a step 6 question and it is in
+   backlog.md, named on the input page as well. */

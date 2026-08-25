@@ -1,0 +1,35 @@
+/* key :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Nothing but currentColor and geometry: --font-mono, --size-xs,
+   --radius-ui, --space-1. It is the one atom in the system that takes NO colour
+   role, and that is the component rather than an omission.
+
+   PAGE. design/kit/key.html
+   STANDS ON. 152 instances across 34 screens: inside .btn 85, inside .opt 45,
+   and 22 on the keyboard map, which keeps its own eleven one-off classes.
+
+   NOT INTERACTIVE. It is a picture of a key, never a control. The thing you press
+   it on is the control, and the key has no states.
+   ----------------------------------------------------------------------------
+   ONE ATOM, ONE DECLARATION. kit.css declared it twice with different borders:
+   currentColor inside .btn, --color-rule inside .opt. The first is the component
+   and the second was a context patch, so on a filled button the key belonged to
+   the button and inside an option it carried a fixed line that belonged to
+   nothing. 39 places on the coloured screens and 45 across the product change
+   here; the row is in tokens-audit.md under consolidated drift, and it is the
+   only appearance change step 2 decided.
+   ---------------------------------------------------------------------------- */
+
+.key{
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-ui);
+  padding: 0 var(--space-1);
+}
+
+/* AN EMPTY KEY SLOT RENDERED AS AN EMPTY BOX. The shell's foot() always emits the
+   span, so a control with no shortcut wore a bordered blank that reads as a key
+   nobody can press. Found at stage 07 and carried here as part of the component
+   rather than as a patch on the button. */
+.key:empty{ display: none }

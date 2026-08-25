@@ -1,0 +1,573 @@
+/* Harrier design system :: tokens
+   ============================================================================
+   TWO LEVELS AND NO THIRD.
+
+   PRIMITIVE answers "which value". Raw colour, geometry, type, space. No role,
+   no purpose. A component never reads a colour primitive directly: colour is the
+   one thing a theme and a rebrand override, so it goes through a role. Geometry
+   has nothing to override, so a component reads it from here without a detour.
+
+   SEMANTIC answers "why is this colour here". Every role points at a primitive
+   through var(), carries where it came from, how many places it was read out of,
+   which SURFACE it paints, and its measured contrast IN BOTH THEMES.
+
+   THE PAIR IS A PROPERTY OF THE LEVEL, NOT AN EVENT. Every role is written twice
+   at once, and the two values are not the same primitive: contrast is computed
+   against the opposite ground, so the light theme takes a different step of the
+   same ramp. A role without a pair does not exist.
+
+   :root IS THE DARK THEME, because that is what the product ships. CLAUDE.md
+   calls the console ground dark and a light theme a named debt. The pack that
+   describes this stage assumes the reverse and writes [data-theme="dark"]; here
+   the default carries the product and the attribute that overrides it is
+   [data-theme="light"]. [data-theme="dark"] exists too, on the SAME rule as
+   :root rather than as a copy of it, so a subtree can be forced back to the
+   shipped theme inside a light page. Section 2 says why that is not optional.
+
+   NOTHING IS INVENTED. Every value below stood in design/kit/kit.css, with its
+   origin comment carried over verbatim, EXCEPT the eight light-side primitives
+   in section 1e and one amber step in 1b, added at step 5 and named there. Those are named there, one by one, with the method that made
+   them, because a role without a pair is not allowed and the existing ramp had
+   no light end. The method is the product's own: hold the plate's hue and
+   saturation, move lightness until the threshold is met.
+
+   STATE TOKENS ARRIVED AT STEP 5, on the reference component, and there are
+   five rather than four. The pack names --bg-hover, --bg-active, --color-focus
+   and --opacity-disabled; this product hovers a bordered control by raising its
+   BOUNDARY and not only its ground, in two places that were already written
+   (.z1 .kmap:hover and .toast .t-x:hover), so --line-hover is read off the
+   product rather than added to it. Section 2g, and every one of them is paired.
+
+   Origin chain: pixel of brand-plate-j.png to DESIGN-artifacts.md to
+   design/_theme.css to design/kit/kit.css to this file. Grounds: /DESIGN.md.
+   Uses counted in design/kit/docs/tokens-audit.md.
+   ============================================================================ */
+
+
+/* ============================================================================
+   1. PRIMITIVE
+   ============================================================================ */
+
+:root{
+
+  /* -- 1a. The warm neutral ramp -----------------------------------------
+     One hue axis carries the whole console: ground, panel, line, ink. Nine
+     steps, five of them pixels of plate J and four derived. The ramp is warm
+     throughout, which is why the light theme can be built from the same axis
+     rather than from a second palette. */
+  --warm-950: #11110f;  /* pixel of plate j, palette zone, GROUND */
+  --warm-900: #171714;  /* pixel of plate j, console, detail pane */
+  --warm-850: #232219;  /* derived from the ground. The line BETWEEN rows, deliberately
+                           below every contrast floor: it separates and never carries
+                           meaning. It lived in four files and in no variable until 06 */
+  --warm-800: #2a2418;  /* pixel of plate j, console, active row. Amber tinted, which is
+                           why it sits off the neutral run of the ramp */
+  --warm-500: #675f50;  /* pixel of plate j, palette zone, RULE */
+  --warm-400: #7b7260;  /* derived: the rule hue raised until it clears 3:1 on all three
+                           grounds, 3.98 / 3.78 / 3.24 */
+  --warm-300: #9d9182;  /* warm neutral, almost no chroma. Severity medium at 06 step 5 */
+  --warm-200: #aaa397;  /* pixel of plate j, palette zone, SECONDARY */
+  --warm-50:  #e9e4da;  /* pixel of plate j, palette zone, TEXT */
+
+  /* -- 1b. Amber, the one saturated hue the console spends ----------------
+     DESIGN.md 2.2: the accent does four jobs and no fifth. Attribute A2 says
+     saturation is scarce, and that is a number rather than a stance. */
+  --amber-500: #d29c3f; /* pixel of plate j, palette zone, ACCENT */
+  --amber-950: #18140e; /* measured on plate j, text on Accept */
+  --amber-600: #ae7d29; /* THE ONE VALUE THIS STAGE ADDS BEYOND THE LIGHT PAIR, and it exists
+                           for one state: the accent button pressed. The accent button carries
+                           its own ground, so it cannot press by moving the ground under it the
+                           way every other control does, and --bg-active would turn the main
+                           action of a zone into a dark plate for the length of a click.
+                           Derived by this file's own method: hold plate J's hue 38 and
+                           saturation .62, lower lightness from .535 until the press reads.
+                           IT STOPS AT .42 AND THE LABEL IS WHAT STOPS IT: --text-on-action
+                           measures 5.03 here and 4.21 one step further down, so a deeper press
+                           would take the label below 4.5:1. 1.49 against the rest state,
+                           5.19 on the dark page, 3.40 on the light one */
+
+  /* -- 1c. The failure hue and the severity ramp --------------------------
+     Derived rather than sampled, because the plate drew no severity scale.
+     The ramp descends in CHROMA, not in loudness: on a dark ground every value
+     has to clear 4.5:1, so brightness cannot carry it. Warm to cool, and never
+     green, because a low severity case is not a resolved one. */
+  --clay-500: #b25d44;  /* pixel of plate j, palette zone, FAILURE. 4.09 / 3.89 / 3.33,
+                           which clears 3:1 for a border and does NOT clear 4.5:1.
+                           NO SEMANTIC ROLE: one use in the whole product and that use is
+                           the swatch on the kit page. Step 9 decides whether it stays */
+  --clay-400: #d9704f;  /* derived from the failure hue, severity high, 5.74 / 5.46 / 4.68 */
+  --slate-300:#828e96;  /* cool slate, severity low, 5.63 / 5.35 / 4.59. The only cool
+                           value anywhere in the product */
+
+  /* -- 1d. Geometry, and it gets no second level -------------------------
+     A radius and a height do not change with a theme or a rebrand the way a
+     colour does. They have nothing to override, so a component reads them here. */
+  --radius-ui:     0;      /* measured on plate j: no console element carries a radius */
+  --radius-object: 5px;    /* measured on plate j, physical applications only. UNUSED in the
+                              interface by definition, and 0 uses across the product */
+
+  /* type scale. Small and short on purpose: design principle 5, density is the feature */
+  --size-xs:   11px;    /* was --t-xs. column heads, chips, meta. stage 04 */
+  --size-sm:   12.5px;  /* was --t-sm. dense data: rows, tables. stage 04 */
+  --size-md:   14px;    /* was --t-md. body, controls, and the verdict in a row. stage 04 */
+  --size-lg:   17px;    /* was --t-lg. screen title, pane title. stage 04 */
+  --size-xl:   21px;    /* was --t-xl. the one heading a page is allowed. stage 04 */
+  --leading:       1.45;/* was --lh. stage 04 */
+  --leading-tight: 1.25;/* was --lh-tight. stage 04 */
+
+  /* families. DECLARED AND NOT LOADED, which is a finding rather than a decision:
+     nothing in the product links a webfont, so both resolve from the reader's own
+     machine and fall back to system-ui and ui-monospace everywhere else. Raised at
+     the step 3 gate, and this comment stands until it is answered */
+  --font-sans:  'Archivo', system-ui, sans-serif;          /* chosen for character, DESIGN-artifacts 6 */
+  --font-mono:  'IBM Plex Mono', ui-monospace, monospace;  /* chosen for character, DESIGN-artifacts 6 */
+
+  /* tracking. Measured on the plate and read by NO product rule: all ten uses are on
+     documentation pages. Meanwhile the product writes six literal mono tracking values
+     of its own, .04 .06 .08 .09 .1 .14em, and two display values. THAT DRIFT IS NOT
+     RESOLVED HERE: step 2 did not rule on it and this file does not collapse silently.
+     It goes to the typography page at step 4 with all eight values on it */
+  --track-display:  -.038em; /* rendered test: Archivo collides at the plate's -.055em */
+  --track-mono:     .06em;   /* measured on plate j */
+  --track-wordmark: .16em;   /* measured on plate j, HARRIER lockup. 0 uses */
+
+  /* space. One scale, 268 uses, and --space-2 and --space-3 carry the density */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;   /* was --s1..--s4. stage 04 */
+  --space-5: 24px; --space-6: 32px; --space-7: 48px;                  /* was --s5..--s7. stage 04 */
+
+  /* structure */
+  --zone-top:   56px;   /* was --z-top. the Z1 top bar. stage 04 */
+  --zone-strip: 26px;   /* was --z-strip. the Z2 annunciator strip. stage 04 */
+  --pane-w:    380px;   /* was --pane. the Z5 detail pane, 320px below 1560. stage 04 */
+  --row-tracks:       90px 120px minmax(104px,1fr) minmax(120px,1.2fr) 72px 100px 40px;
+                        /* stage 04. The queue row, seven zones */
+  --row-tracks-log:   74px 96px minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr) 106px 138px;
+                        /* the SAME seven zones at the log's widths. A variant of the row, not
+                           another component: nothing appears and nothing disappears */
+  --row-tracks-moved: 132px minmax(0,1fr) 116px 44px;
+                        /* FOUR zones, and that is why the shift brief's line is a component of
+                           its own. No severity and no `to check`: a pointer is not a thing to
+                           triage, it is a thing that already happened.
+                           THESE TWO WERE VALUES FROM NOWHERE UNTIL ROUND 2. The second
+                           instrument at step 1 found five declarations of --row-tracks and
+                           said two of them carried values recorded in no document. They are
+                           recorded here now, and the component files read them rather than
+                           writing a track list of their own */
+
+  /* the four things that stop growing, plus the measure */
+  --measure:           66ch;  /* a single column of prose. 0 uses */
+  --width-sheet:       760px; /* a case standing alone with no list beside it */
+  --width-frame:       820px; /* the framed record */
+  --width-dialog:      520px; /* the dialog. NO ORIGIN in kit.css and none in DESIGN.md, and
+                                 its four neighbours all carry one. A value from nowhere,
+                                 carried unchanged and raised at the step 3 gate */
+  --width-dialog-wide: 720px; /* the keyboard map, a reference table rather than a decision.
+                                 0 uses today; step 2 gave it dialog--map as its consumer */
+  --width-toast:       400px; /* the notice stack, never as wide as the pane */
+  --zone-notice-clear: 180px; /* what the page ends above at 360 so one notice hides nothing */
+
+  /* -- 1e. THE LIGHT END OF THE SAME RAMP, AND IT IS THE ONLY THING THIS FILE ADDS
+     Eight values, and every one is derived by the method the product already used for
+     --warm-850 and --warm-400: hold the plate's hue and saturation, move lightness
+     until the threshold is met. Nothing here is sampled from anywhere new and nothing
+     here is a second palette. They exist because a role without a pair is not allowed
+     and the ramp above has no light end. Every figure beside them is computed, not
+     estimated, and the three light grounds are --warm-0, --warm-25 and --amber-100. */
+  --warm-0:   #f8f7f4;  /* derived: the TEXT swatch hue and saturation at lightness 96.5.
+                           The light page */
+  --warm-25:  #f1ede7;  /* the same, at 92.5. The light raised plane, 1.09 off the page,
+                           which is the light mirror of the dark pair's 1.05 */
+  --warm-100: #e5e3de;  /* derived: the RULE swatch hue and saturation, lightened until it
+                           sits 1.20 off the light page. The mirror of --warm-850 at 1.18,
+                           and deliberately below every floor for the same reason */
+  --amber-100:#f2e1c6;  /* derived: the ACCENT hue and saturation, lightened until 1.20 off
+                           the light page. The mirror of --warm-800 at 1.23 */
+  --amber-700:#835e1f;  /* derived: the ACCENT hue and saturation, darkened until it CLEARS 4.5
+                           on the WORST of the three light grounds. 5.47 / 5.02 / 4.56.
+                           The first derivation stopped at 4.4996 and printed as 4.50, which is
+                           a rounded number reported as a threshold met. The live table on
+                           color.html failed it, which is what a table computed in the page is
+                           for; stage 06 made the same mistake on --line-edge and needed a
+                           recomputation to find it */
+  --clay-600: #aa4525;  /* the same method on the severity high hue. 5.46 / 5.02 / 4.56 */
+  --warm-600: #6e6356;  /* the same method on severity medium. 5.47 / 5.03 / 4.57 */
+  --slate-500:#5c666d;  /* the same method on severity low. 5.48 / 5.04 / 4.58 */
+}
+
+
+/* ============================================================================
+   2. SEMANTIC, dark. This is what the product ships.
+
+   Every role names its SURFACE, because the surface decides the threshold:
+   INK answers to 4.5:1 (3:1 when it is 24px, or 19px bold), FILL and LINE
+   answer to 3:1 by WCAG 1.4.11. One role may not paint two surfaces even when
+   the value is identical, because a fill role dropped onto an 11px bold label
+   passes as a surface and fails as text, and no table of text and background
+   pairs can see it: nobody declared it as text.
+
+   Figures below are measured against the three grounds in order:
+   page / surface / selected row.
+
+   TWO SELECTORS AND ONE DECLARATION. :root carries the shipped theme, and
+   [data-theme="dark"] is here so that a SUBTREE can be forced back to dark
+   inside a light page, which is what a page showing both themes at once needs.
+   It is the same block rather than a copy: a second copy of twenty one roles
+   would drift, and the drift would be invisible until somebody flipped a switch.
+   Without it colour.html rendered BOTH halves of every role card light as soon
+   as the reader chose the light theme, and went on calling the left one
+   "dark, shipped". Found by asking the browser for --bg-page in each half.
+   ============================================================================ */
+
+:root, [data-theme="dark"]{
+
+  /* THE ONE DECLARATION HERE THAT IS NOT A TOKEN, and it has to be here because it has to
+     follow the theme. color-scheme tells the browser which way its OWN chrome goes: the
+     popup a native select opens, the scrollbar in the documentation panel, the caret in a
+     field, the default focus ring on a control the page has not styled. Without it a select
+     on this ground opens a WHITE list, which is the one place a dark product leaks. Declared
+     next to the roles rather than in base.css because a value that changes with the theme
+     belongs with the values that change with the theme. */
+  color-scheme: dark;
+
+  /* -- 2a. FILL ---------------------------------------------------------- */
+
+  --bg-page:      var(--warm-950);  /* FILL. The board and the page behind everything.
+                                       24 sites: body, .wf-screen, .z1, .z4, .dialog, .toast */
+  --bg-surface:   var(--warm-900);  /* FILL. The raised plane, and the hover ground of two
+                                       different families. 19 sites: .z2, .z5, .row--head,
+                                       .row:hover, .expand, .frow--head, .rota .is-now */
+  --bg-selected:  var(--warm-800);  /* FILL. The row being ruled on. 3 sites: .row.is-selected,
+                                       .frow:hover. Amber tinted on purpose: the accent says
+                                       "this is the decision" and the ground under it agrees */
+  --bg-invert:    var(--warm-50);   /* FILL. The plate that demands attention, inverted out of
+                                       the reading ink. 9 sites, .chip--solid the loudest.
+                                       PAIRED WITH --text-on-invert, 14.92 in dark */
+  --bg-action:    var(--amber-500); /* FILL. The main action of its zone, and there is exactly
+                                       one per zone. .btn--primary on 43 screens.
+                                       PAIRED WITH --text-on-action, 7.48 in both themes */
+  --bg-quiet:     var(--warm-850);  /* FILL. The plate that is present and not asking:
+                                       .arriving, and the ground of what is out of reach.
+                                       3 sites. Value shared with --line-separator today,
+                                       role different: a plate and a line can diverge */
+  --bg-scrim:     color-mix(in srgb, var(--bg-page) 78%, transparent);
+                                    /* FILL. The ground a dialog stands on, 11 screens.
+                                       IT DOES NOT PAIR BY ITSELF AND THIS FILE SAID IT DID,
+                                       for two steps. A custom property's var() is substituted
+                                       where the property is DECLARED, here on :root, and the
+                                       substituted value is what inherits. The light theme
+                                       redeclares --bg-page and never redeclared this, so a
+                                       light scrim resolved to the DARK page at 78 per cent:
+                                       a dark wash over a light console with the console's own
+                                       dark ink still on it. Found by a reader with clean
+                                       context, in the browser, on the light half of the bench.
+                                       The contrast sweep cannot see it either: it composites
+                                       a text node's ANCESTORS, and a scrim is a sibling laid
+                                       over them. It is declared in both blocks now.
+                                       User decision at 07 step 4; it was stage 04's LIGHT
+                                       theme ink at 28 per cent, the one value the remap
+                                       could never see because it was written as a literal */
+
+  /* -- 2b. INK ----------------------------------------------------------- */
+
+  --text-primary:    var(--warm-50);   /* INK 4.5:1. Reading text. body plus 21 sites.
+                                          14.92 / 14.18 / 12.15 */
+  --text-secondary:  var(--warm-200);  /* INK 4.5:1. The largest single role in the product,
+                                          81 sites: .z1 nav a, .row .dim, every count, every
+                                          timestamp, .hint, .stamp, .gnote.
+                                          7.56 / 7.18 / 6.15 */
+  --text-accent:     var(--amber-500); /* INK 4.5:1. The accented word: the latitude figure,
+                                          the live state in .z2 b. 6 sites.
+                                          7.71 / 7.33 / 6.28.
+                                          Same value as --bg-action and --line-current today,
+                                          three roles, because a word, a plate and a line can
+                                          diverge and they answer to different thresholds */
+  --text-on-invert:  var(--warm-950);  /* INK 4.5:1, and it is measured against ITS OWN plate,
+                                          not against the page: 14.92 on --bg-invert.
+                                          5 sites: .chip--solid, .annun .ovrd */
+  --text-on-action:  var(--amber-950); /* INK 4.5:1 against --bg-action: 7.48. 4 sites.
+                                          Exists only to sit on the accent */
+  --text-sev-high:   var(--clay-400);  /* INK 4.5:1. Severity, and the lit bar borrows it with
+                                          currentColor rather than taking a fill token of its
+                                          own, which is why this ramp is three roles and not
+                                          six. 5.74 / 5.46 / 4.68 */
+  --text-sev-medium: var(--warm-300);  /* INK 4.5:1. 6.13 / 5.82 / 4.99 */
+  --text-sev-low:    var(--slate-300); /* INK 4.5:1. 5.63 / 5.35 / 4.59 */
+  --text-divider:    var(--warm-850);  /* INK, AND EXEMPT, with the exemption written here
+                                          rather than assumed. The "|" between the parts of the
+                                          annunciator is a divider drawn as a character. It is
+                                          1.18 / 1.12 / 1.04 and it is meant to be: WCAG 1.4.1
+                                          does not cover a purely decorative glyph. Declared as
+                                          ink so the surface rule can see it at all, which is
+                                          the whole point of declaring surfaces */
+
+  /* -- 2c. LINE ---------------------------------------------------------- */
+
+  --line-separator: var(--warm-850);  /* LINE. What separates and carries no meaning: the line
+                                         between rows, 30 sites through --rule-hair.
+                                         1.18 / 1.12 / 1.04, deliberately below every floor */
+  --line-edge:      var(--warm-500);  /* LINE. A panel edge, 36 sites through --rule-edge.
+                                         3.00 / 2.85 / 2.44, which is BELOW 3:1 and allowed
+                                         for exactly this: 1.4.11 covers what identifies a
+                                         CONTROL, not a divider. Recorded at 06 as "exactly
+                                         3.00", which was a rounded number reported as a
+                                         threshold met, and corrected to 2.997 */
+  --line-control:   var(--warm-400);  /* LINE 3:1. The boundary of a control: chip, button,
+                                         kbd. 3 sites through --rule-control, and it is the
+                                         only one of the three lines that clears the floor.
+                                         3.98 / 3.78 / 3.24 */
+  --line-current:   var(--amber-500); /* LINE 3:1. Where you are, and what is being decided:
+                                         the current nav item's underline, the selected row's
+                                         inset. 7.71 / 7.33 / 6.28 */
+  --line-record:    var(--warm-50);   /* LINE 3:1. The border of the record that leaves the
+                                         building: .frame and .rail, print included.
+                                         14.92 / 14.18 / 12.15 */
+
+  /* -- 2d. STATE. Founded at step 5 on the reference component --------------
+     A state is a token, never a style. No component below writes a hex or a
+     number for hover, active, focus or disabled: it overrides one of these, and
+     it becomes correct in the other theme without being written twice.
+
+     FIVE, NOT FOUR, and the fifth is read off the product rather than added to
+     it. The pack names four. This product hovers a BORDERED control by raising
+     its boundary, and it does so in two rules that predate this stage:
+     .z1 .kmap:hover and .toast .t-x:hover both move border-color to the reading
+     ink. A ground alone would not carry hover here: --bg-hover sits 1.05 off the
+     dark page, which is right for a row that fills the width of a pane and far
+     too quiet for a button 120px wide.
+
+     WHAT THE PRODUCT ALREADY HAD, and what it did not. hover: 265 rules,
+     .row and a.opt, the ground below. focus: one global rule, borrowing.
+     disabled: one rule, a hand repaint, replaced here and recorded in
+     tokens-audit.md. active: NOTHING, anywhere, on any control. */
+
+  --bg-hover:   var(--warm-900);  /* FILL. The ground under the pointer. 1.05 off the page.
+                                     Read off .row:hover and a.opt:hover, 265 instances, which
+                                     is why it is this step and not a louder one */
+  --bg-active:  var(--warm-800);  /* FILL. The ground while the pointer is DOWN, one further
+                                     step of the same ramp, 1.23 off the page. The product had
+                                     no :active rule anywhere, so this is the one state with no
+                                     precedent to read; the direction is the ramp's, and the
+                                     value already stood in kit.css as the selected row.
+                                     Amber tinted, and that is right: pressing is deciding */
+  --text-hover: var(--text-primary);
+                                  /* INK. The ink under the pointer, raised to reading strength.
+                                     Founded in round 1 on navitem and link, both of which sit in
+                                     a 56px bar or inside running text and can take neither a
+                                     ground nor a boundary. It may not borrow --line-hover even
+                                     though the two are the same colour today: one paints ink at
+                                     4.5:1 and the other paints a line at 3:1, and the surface
+                                     rule forbids one role doing both. Together the three say one
+                                     sentence: HOVER RAISES WHATEVER IT TOUCHES TO FULL STRENGTH
+                                     ON ITS OWN SURFACE, ground to --bg-hover, line to
+                                     --line-hover, ink to here */
+  --line-hover: var(--line-record);
+                                  /* LINE 3:1. The boundary of a control under the pointer,
+                                     raised to the reading ink. 14.92 against the dark page and
+                                     1.93 against the accent fill, which is the one place it is
+                                     quiet and still louder than the accent border it replaces
+                                     at 1.00. Reads --line-record rather than a primitive so the
+                                     two follow the ramp together; they are two roles because a
+                                     printed record and a pointer can diverge */
+  --color-focus: var(--amber-500);/* LINE 3:1, checked in both themes because a ring is a line
+                                     and not text. 7.71 / 7.33 / 6.28 on the three dark grounds.
+                                     THE 1px OUTLINE OFFSET IS LOAD BEARING: on .btn--primary
+                                     the ring would sit on its own accent ground at 1.00, and
+                                     the offset puts it on the page instead. Same value as
+                                     --line-current today and a different role: where you ARE
+                                     is not what you are POINTING AT */
+  --opacity-disabled: .54;        /* Not a colour and not geometry: it dims a whole control at
+                                     once, which is the point. Measured rather than chosen: the
+                                     rest ink at .54 lands at 5.00 on the dark page. See the
+                                     light pair, which is .61 and lands at 4.99 */
+
+  /* -- 2e. Composites, and they are semantic because they carry colour ----
+     Kept as composites so 93 call sites keep working unchanged. A component may
+     write these or write the line role directly; either way the colour is a role. */
+  /* EVERY ONE OF THESE IS DECLARED AGAIN IN THE LIGHT BLOCK, and it has to be:
+     var() resolves where it is written, so an expression that reads a role is not
+     paired by the role's pair. Stage 09 found all four of them, and the five bridge
+     tokens below, carrying dark values into every light subtree on the stand. */
+  --rule-hair:    1px solid var(--line-separator);
+  --rule-edge:    1px solid var(--line-edge);
+  --rule-control: 1px solid var(--line-control);
+  --focus-ring:   2px solid var(--color-focus);
+                                      /* THE ONE STATE THAT ALREADY EXISTED in the product, and
+                                         it was borrowing --line-current. Step 5 founded
+                                         --color-focus in 2g and the composite reads it now.
+                                         Same computed value in both themes, different role:
+                                         where you ARE and what you are POINTING AT can diverge,
+                                         and one of them follows the pointer */
+
+  /* -- 2f. The documentation panel, remapped -----------------------------
+     /_nav.css was written for the documentation pages, which are light. Left
+     unmapped the panel renders near-black text on the console ground and is
+     effectively invisible, which is what the browser showed at stage 06. These
+     five are not product and not showcase: they are a bridge to another file's
+     names, and they follow the theme like everything else here. */
+  --nav-fg:     var(--text-primary);
+  --nav-active: var(--text-accent);
+  --nav-muted:  var(--text-secondary);
+  --nav-rule:   var(--line-edge);
+  --nav-badge:  var(--text-accent);
+
+  /* -- 2g. Compatibility, and TWO stages have now failed to remove them ---
+     Two stage 04 names of the original thirty, kept for inline style attributes
+     in the BODY of three screens. A style block lives in the head and could be
+     hoisted; an attribute could not.
+
+     STAGE 08 SAID STEP 6 WOULD REMOVE THEM AND STEP 6 DID NOT. Stage 09 removed
+     one of the three: `entry-gone` had an exact home already, `.wrapline` in
+     places.css at the same value, and no pixel moved. The other two are a padding
+     and a margin used ONCE each, and a variant on one instance breaks the rule
+     that one use is not a role, so they went to the backlog instead of being
+     drawn. `--s4` has two consumers left and `--s2` has NONE: it is carried only
+     so that removing the pair is one decision rather than two. */
+  --s2: var(--space-2);
+  --s4: var(--space-4);
+}
+
+
+/* ============================================================================
+   3. SEMANTIC, light. The pair, and it is not a mirror.
+
+   Contrast is computed against the opposite ground, so a role takes a DIFFERENT
+   step of the ramp here, not the same primitive. Four roles do keep the same
+   primitive and each says why: the value happens to clear its threshold from
+   both directions, and that is measured rather than assumed.
+
+   Only semantic is redefined. No primitive is touched, and no primitive carries
+   a role.
+
+   This is where CLAUDE.md's named debt gets its first concrete form. It is the
+   proof that the semantic level really is overridden separately, which a rebrand
+   would not prove, and it is not a shipped feature: the switcher lives in the
+   stand at step 4 and the decision about the product's own switcher is step 8.
+
+   Figures are measured against the three light grounds in order:
+   page / surface / selected row.
+   ============================================================================ */
+
+/* ============================================================================
+   1f. THE ONE RESPONSIVE PRIMITIVE, and it is here rather than in a component
+   because that is where the product put it and because of what it does NOT
+   reach. At 360 the queue row becomes one column, so --row-tracks collapses on
+   :root. A container that declares its own track set, the log list and the shift
+   brief, is CLOSER in the inheritance chain and keeps it: the log holds its seven
+   zones and the brief its four. That is the product's own behaviour, ported
+   rather than reasoned, and it is the reason this override is a token and not a
+   rule in row.css.
+   ============================================================================ */
+@media (max-width:1560px){
+  /* THE PANE NARROWS BEFORE THE LIST DOES. Below 1560 the detail pane drops from 380 to
+     320 and the queue keeps the 60 pixels, because the list is where the analyst chooses
+     what to open and the pane is where she reads one thing. Ported from kit.css, and NOT
+     ported at first: the attribution instrument found the row 60px narrower on every
+     screen at 1440 before this line existed. */
+  :root{ --pane-w: 320px }
+}
+
+@media (max-width:900px){
+  :root{ --row-tracks: 1fr }
+}
+
+
+[data-theme="light"]{
+
+  color-scheme: light;
+
+  /* FILL */
+  --bg-page:      var(--warm-0);    /* the light page */
+  --bg-surface:   var(--warm-25);   /* raised means one step TOWARDS the ink, so in light it
+                                       is darker rather than lighter. 1.09 off the page,
+                                       against the dark pair's 1.05 */
+  --bg-selected:  var(--amber-100); /* 1.20 off the page, against the dark pair's 1.23 */
+  --bg-invert:    var(--warm-900);  /* the inverted plate inverts the other way. PAIRED WITH
+                                       --text-on-invert at 14.18 */
+  --bg-action:    var(--amber-500); /* SAME PRIMITIVE, and it is measured, not lazy: a filled
+                                       button carries its own ground, so the ink on it does
+                                       not care which theme is running. 7.48 either way, and
+                                       the control is identified by --line-control at 4.44 */
+  --bg-quiet:     var(--warm-100);
+  --bg-scrim:     color-mix(in srgb, var(--bg-page) 78%, transparent);
+                  /* THE SAME EXPRESSION, DECLARED AGAIN, and the repetition is the point:
+                     var() resolves where it is written, so an expression that reads a role
+                     has to be rewritten in every block that redefines that role. It is the
+                     one place in this file where two identical lines are not a duplicate. */
+
+  /* INK */
+  --text-primary:    var(--warm-950);  /* 17.64 / 16.21 / 14.73 */
+  --text-secondary:  var(--warm-500);  /* 5.89 / 5.41 / 4.91. The RULE swatch reads as
+                                          secondary ink on a light ground, which is the ramp
+                                          being used from the other end rather than extended */
+  --text-accent:     var(--amber-700); /* 5.47 / 5.02 / 4.56. The dark theme's accent is
+                                          2.29 on the light page and would fail as text */
+  --text-on-invert:  var(--warm-50);   /* against its own plate: 14.18 */
+  --text-on-action:  var(--amber-950); /* against its own plate: 7.48. Same primitive, and the
+                                          reason is the same as --bg-action */
+  --text-sev-high:   var(--clay-600);  /* 5.46 / 5.02 / 4.56 */
+  --text-sev-medium: var(--warm-600);  /* 5.47 / 5.03 / 4.57 */
+  --text-sev-low:    var(--slate-500); /* 5.48 / 5.04 / 4.58 */
+  --text-divider:    var(--warm-100);  /* 1.20 / 1.10 / 1.00, exempt for the same reason */
+
+  /* LINE */
+  --line-separator: var(--warm-100);  /* 1.20 / 1.10 / 1.00 */
+  --line-edge:      var(--warm-300);  /* 2.88 / 2.65 / 2.40, below 3:1 exactly as in dark, and
+                                         allowed for exactly the same reason */
+  --line-control:   var(--warm-400);  /* SAME PRIMITIVE, and measured from both directions:
+                                         3.98 / 3.78 / 3.24 in dark and 4.44 / 4.08 / 3.70 in
+                                         light. A value in the middle of the ramp clears the
+                                         non-text floor against either end */
+  --line-current:   var(--amber-700); /* 5.47 / 5.02 / 4.56. The dark accent is 2.29 on the
+                                         light page, so an underline in it would fail 1.4.11.
+                                         Same value as --text-accent here and a different one
+                                         from it in dark, which is why they are two tokens */
+  --line-record:    var(--warm-950);  /* 17.64 / 16.21 / 14.73 */
+
+  /* STATE. Paired, and the pair is not a mirror in any of the five */
+  --bg-hover:   var(--warm-25);   /* raised means one step TOWARDS the ink here too, so hover
+                                     darkens. 1.09 off the light page against dark's 1.05 */
+  --bg-active:  var(--warm-100);  /* 1.20 off the page against dark's 1.23 */
+  --text-hover: var(--text-primary);
+                                  /* follows the reading ink, so it inverts with it */
+  --line-hover: var(--line-record);
+                                  /* follows --line-record, so it inverts with it: bone in dark
+                                     and near black here. 7.71 against the accent fill, which is
+                                     four times what the same role measures there */
+  --color-focus: var(--amber-700);/* 5.47 / 5.02 / 4.56. The dark ring is 2.29 on the light page
+                                     and would fail 1.4.11, which is exactly the defect a
+                                     ceremonial pair hides */
+  --opacity-disabled: .61;        /* AND THIS IS WHY AN OPACITY NEEDS A PAIR. The same .54 that
+                                     lands the dark ink at 5.00 lands the light one at 3.96,
+                                     because dimming towards a light ground and towards a dark
+                                     one are not the same operation. .61 lands it at 4.99 */
+
+  /* -- COMPOSITES AND BRIDGES, DECLARED AGAIN, and the repetition is the whole point.
+     `var()` RESOLVES WHERE IT IS WRITTEN. A composite declared once, in the block above,
+     computes there against the dark line roles and then carries those values into every
+     subtree that switches to this theme. The roles underneath it pair correctly and it
+     does not, which is why nothing that reads a ROLE could find this.
+
+     MEASURED BEFORE IT WAS BELIEVED, at stage 09, on a light bench half:
+       --focus-ring   was 2px solid #d29c3f, the DARK accent, which the comment on
+                      --color-focus five lines up says is 2.29 on this page and would
+                      fail 1.4.11. The defect that comment warns about was present one
+                      level above the token it warns about.
+       --rule-edge    was #675f50 where this theme's --line-edge is #9d9182
+       --rule-hair, --rule-control, and all five --nav-* the same way
+
+     THIS IS THE THIRD TIME THIS EXACT SHAPE HAS BEEN PAID FOR. `--bg-scrim` was found
+     and fixed at stage 08 for the same reason and the comment there says so; the
+     composites were beside it and were not looked at, because they read a role and a
+     role has a pair. A rule that says "every role is written twice" does not cover an
+     EXPRESSION that reads a role, and that is the sentence this block exists to add. */
+  --rule-hair:    1px solid var(--line-separator);
+  --rule-edge:    1px solid var(--line-edge);
+  --rule-control: 1px solid var(--line-control);
+  --focus-ring:   2px solid var(--color-focus);
+
+  --nav-fg:     var(--text-primary);
+  --nav-active: var(--text-accent);
+  --nav-muted:  var(--text-secondary);
+  --nav-rule:   var(--line-edge);
+  --nav-badge:  var(--text-accent);
+}

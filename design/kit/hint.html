@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Hint</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Hint</h1>
+<p class="k-lede">One line saying what the interface will not do for you. 18 instances across 18 screens: under a field 7, and in a dialog footer 11.</p>
+<p class="k-note">Design principle 2 says the cheapest correct thing first, and a hint is the cheapest correct thing there is: one line, secondary ink, and <b>it never repeats the label above it</b>. <code>A reason is required</code>, <code>One selection, one key</code>, <code>No password here. Your email decides which provider signs you in.</code></p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);width:100%;max-width:400px">
+        <label class="label" for="x-why">Why you are rejecting</label>
+        <textarea class="input" id="x-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+        <p class="hint" style="margin:0">A reason is required</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);width:100%;max-width:400px">
+        <label class="label" for="x-why">Why you are rejecting</label>
+        <textarea class="input" id="x-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+        <p class="hint" style="margin:0">A reason is required</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.hint</code><span>the whole component. One line, no inner zones</span></li>
+  <li>the field above it<span><b>not part of this component.</b> That is <code>label</code> and <code>input</code>, and the three together are <code>field</code>, which is a molecule</span></li>
+</ul>
+<p class="k-note"><b>Two declarations collapsed into one.</b> <code>kit.css</code> declared it twice with identical values, <code>.field .hint</code> at line 345 and <code>.dialog > footer .hint</code> at line 751, four hundred lines apart. Neither was wrong and both were the parent reaching into the child. <b>No pixel moves</b>, and the row is in the rename map.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Values</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td><b>element</b></td><td><code>span</code> 11, <code>p</code> 7</td>
+        <td><b>Real, rather than sloppy.</b> In a dialog footer the hint sits on the same line as the buttons and must not take a line of its own; under a field it is a paragraph. The component draws both identically and <b>the element decides the flow</b>, which is the same arrangement <code>input</code> uses for its three controls</td></tr>
+    <tr><td><b>error</b></td><td class="num">0</td>
+        <td><b>The one place the product would want an error state, and it does not have one.</b> <code>A reason is required</code> in the reject dialog is true before anything has gone wrong and stays exactly the same after: <b>it never turns red</b>, because nothing in this product tells the analyst she was wrong about a field. Whether that is right is a step 6 question and it is in <code>backlog.md</code>, named on the input page as well</td></tr>
+    <tr><td><b>emphasis</b></td><td class="k-none">&ndash;</td><td>Secondary ink, always. A hint that competed with the answer would be the interface talking over the person</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">When the analyst would otherwise have to try something to find out. It is not help text and it is not a description: <b>it names a constraint or removes a doubt</b>, in one line, and if it needs two lines it is the wrong component.</p>
+<p class="k-note"><b>Where she meets it.</b> In the reject dialog, mostly, which is the one place in this product where she is asked for something rather than shown something. Reject costs four taps against accept's two, and the hint is what stops the fourth from being a surprise.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell"><span class="hint">A reason is required</span></div>
+    <p>The constraint, in the analyst's words, before she runs into it. Four words, secondary ink, and it says nothing the label already said.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block"><p class="anote" style="margin:0">Node 4.4 section 2. The reason goes straight into tuning.</p></div>
+    <p>Not for an argument about the design. That is <b><code>anote</code></b>, which has its own register and its own rail. A node number in a hint is a count of the product's own parts standing in the interface, which <code>voice.md</code> forbids.</p>
+  </div>
+</div>
+
+
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Counted on the grey corpus at stage 09, and every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R8.</b> A <code>.only-desk</code> element never renders at 360, and a <code>.only-narrow</code> never renders at the desk.</li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);width:100%;max-width:400px">
+        <label class="label" for="x-why">Why you are rejecting</label>
+        <textarea class="input" id="x-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+        <p class="hint" style="margin:0">A reason is required</p>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);width:100%;max-width:400px">
+        <label class="label" for="x-why">Why you are rejecting</label>
+        <textarea class="input" id="x-why" rows="2">Benign, called a threat. The tenant baseline explains it.</textarea>
+        <p class="hint" style="margin:0">A reason is required</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note">The interesting thing about this block is what is <b>not</b> in it. A hint is where most systems put the error state, and this one does not have one anywhere. That is a real decision with a real cost, and it is written down rather than discovered later.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;p class="hint"&gt;A reason is required&lt;/p&gt;
+&lt;span class="hint"&gt;One selection, one key&lt;/span&gt;   &lt;!-- on the buttons' own line --&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../reject.html">a dialog footer &middot; 11</a>
+  <a href="../index-signed-out.html">under a field &middot; 7</a>
+</div>
+
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

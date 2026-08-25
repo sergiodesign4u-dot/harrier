@@ -1,0 +1,56 @@
+/* door :: ORGANISM
+   READS. Fill: --bg-surface. Ink: --text-primary. Geometry: --font-mono,
+   --size-sm, --size-xl, --leading-tight, --space-1, --space-4, --space-7.
+   CONTAINS. doorcard, and through it banner, field, btn, expand.
+   PAGE. design/kit/door.html   STANDS ON. 5 instances across 5 screens.
+
+   THE ONE SURFACE OF THIS PRODUCT THAT IS NOT BEHIND AUTHENTICATION, and the only
+   one that carries a photograph. Everything else in Harrier is a console; this is
+   a page, and it is the single place where the product is allowed to look like
+   something before it looks like a tool.
+
+   THE IMAGE IS ON THE SCREEN AND NOT ON THIS COMPONENT. `screen:has(.door)` paints
+   it behind everything at z-index -1, with a gradient over it, so the card can
+   keep its own opaque ground and stay readable. That rule lives with `screen`
+   because the image belongs to the whole surface rather than to the column.
+
+   NO VARIANTS. What differs between the five is what the card holds: a banner
+   when the last attempt failed, a block when there is something to explain, an
+   address when a deep link is waiting. All five are `doorcard`'s. */
+
+.door{
+  flex: 1 1 auto;
+  display: flex;
+  overflow-y: auto;
+  padding: var(--space-7) var(--space-4);
+}
+
+.door p    { margin: 0 }
+.door h1   { margin: 0; font: 600 var(--size-xl)/var(--leading-tight) var(--font-sans) }
+/* an address on the door is a run of code inside a sentence rather than the
+   `addr` block: there is nothing to copy yet, only somewhere you were going */
+.door code {
+  font-family: var(--font-mono);
+  font-size: var(--size-sm);
+  background: var(--bg-surface);
+  padding: 0 var(--space-1);
+  overflow-wrap: anywhere;
+}
+/* .banner makes a flex item of every element child, so a second `b` starts its own
+   line and the punctuation after it orphans. Seen at 1440: the banner gets ONE child. */
+.door .banner > p{ font-size: inherit }
+
+/* the help under the form. The form itself is a place and lives in places.css. */
+.doorhelp{ border-top: var(--rule-hair); padding-top: var(--space-3); font-size: var(--size-sm) }
+.doorhelp p{ margin: var(--space-2) 0 0; color: var(--text-secondary) }
+/* the five summaries the expansion absorbs at stage 09. Until then they are drawn
+   here, because a summary with no styling is a triangle and a pointer. */
+.doorhelp summary{
+  cursor: pointer;
+  min-height: var(--space-5);
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+/* NO STATES. */

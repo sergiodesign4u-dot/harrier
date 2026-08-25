@@ -1,0 +1,123 @@
+/* row :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-surface, --bg-selected, --bg-hover. Ink: --text-primary,
+   --text-secondary. Line: --rule-hair, --rule-edge, --line-current. Structure:
+   --row-tracks and --row-tracks-log.
+   CONTAINS. sev, state, and its own cells.
+
+   PAGE. design/kit/row.html
+   STANDS ON. 259 instances across 39 screens, and it is the largest component in
+   the product. 200 in the queue and 25 in the log.
+
+   DESIGN PRINCIPLE 1 IS THIS COMPONENT. Every row is a decision, not a record: if
+   a line in the queue does not tell the analyst what to do next, it does not earn
+   its height. That is why there are seven zones and not four, and why the verdict
+   Clerk proposes is one of them.
+   ----------------------------------------------------------------------------
+   SEVEN ZONES, TWO WIDTH SETS, ONE COMPONENT. The log keeps all seven and changes
+   their widths, which is a variant. The shift brief has FOUR zones, which is a
+   different component: `row-moved`. That is the anatomy rule, and it is the only
+   thing that decides a split here.
+   ---------------------------------------------------------------------------- */
+
+.row{
+  display: grid;
+  grid-template-columns: var(--row-tracks);
+  gap: var(--space-2);
+  align-items: start;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: var(--rule-hair);
+  font-size: var(--size-sm);
+  line-height: 1.35;          /* tighter than --leading: a row is scanned, not read */
+  text-decoration: none;
+  color: inherit;
+}
+
+/* every cell can wrap and none can push the grid wider than the pane */
+.row > *{ min-width: 0; overflow-wrap: anywhere }
+
+/* -- list. One axis, two values, and both keep all seven zones ---------------- */
+.row--log{ grid-template-columns: var(--row-tracks-log) }
+
+/* -- head. It is a row and it is not a decision, which is why it is a variant --
+   Sticky, so the column names stay while 200 rows go past under them. */
+.row--head{
+  position: sticky;
+  top: 0;
+  background: var(--bg-surface);
+  border-bottom: var(--rule-edge);
+  font: 600 var(--size-xs)/1.2 var(--font-mono);
+  letter-spacing: .08em;      /* the most used of the six mono values, and a literal */
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+/* -- the cells. Named zones, not a free grid ---------------------------------- */
+.row .client   { font-weight: 600; color: var(--text-primary) }
+.row .dim      { color: var(--text-secondary) }
+.row .cost,
+.row .age      { font-family: var(--font-mono); color: var(--text-secondary); text-align: right }
+.row .states   { display: flex; flex-wrap: wrap; gap: var(--space-1) }
+.row .concluded b   { font-size: var(--size-md); color: var(--text-primary); font-weight: 600 }
+/* `above latitude here` IS latitude, so it takes the accent rather than receding */
+.row .concluded .dim{ color: var(--text-accent) }
+/* what the case IS steps back behind who it is at and what to do about it */
+.row > span:nth-child(3){ color: var(--text-secondary) }
+.row--log .when{ font-family: var(--font-mono); font-size: var(--size-xs);
+                 color: var(--text-secondary); text-align: right }
+.row--log .why { font-size: var(--size-xs); color: var(--text-secondary) }
+.row .sup      { display: block; font-size: var(--size-xs); color: var(--text-secondary);
+                 margin-top: var(--space-1) }
+
+/* -- STATES -------------------------------------------------------------------
+   The head takes none of them: it is not a decision and it cannot be opened. */
+
+.row:hover:not(.row--head){ background: var(--bg-hover) }
+
+/* BEING RULED ON. Two signals and not one: the ground moves a full step further
+   than hover, and a 3px inset in --line-current marks the edge. The inset is what
+   survives at 360, where the ground alone is 1.23 off the page and the row is the
+   only thing on the screen. */
+.row.is-selected{
+  background: var(--bg-selected);
+  box-shadow: inset 3px 0 0 var(--line-current);
+}
+
+/* SUPERSEDED. A hatch rather than a colour, because there is no colour left that
+   would not mean severity, and because a ruling that was replaced is still a
+   ruling: it has to stay readable rather than be greyed out. */
+.row.is-superseded{
+  background: repeating-linear-gradient(135deg,
+    transparent 0 7px, var(--bg-surface) 7px 8px);
+}
+
+/* focus-visible is global, in base.css. A row is an `a` in the product, so the
+   whole line is one tab stop and the keyboard traversal the split pane pattern
+   depends on costs nothing extra.
+   OUT OF REACH DOES NOT EXIST. A case that cannot be opened is not in the queue. */
+
+
+/* -- 1560. The pane narrows and the row gives the width back ------------------
+   Below 1560 the detail pane drops from 380 to 320, which is a token, and the
+   row trades four pixels of side padding for four of content. Two rules and one
+   decision: the analyst on a single 1440 monitor loses padding rather than a
+   column. */
+.row--log .states .state{ white-space: normal; text-align: center }
+
+@media (max-width:1560px){
+  .row,
+  .row--head{ padding-left: var(--space-3); padding-right: var(--space-3) }
+}
+
+/* -- 360. The row becomes ONE COLUMN and drops what a phone cannot use ---------
+   --row-tracks collapses to 1fr in tokens.css, which is where the product put it.
+   What is left here is the component's own share of the narrow rendering. */
+@media (max-width:900px){
+  .row{ gap: var(--space-1); padding: var(--space-3) }
+  .row--head{ display: none }   /* column heads mean nothing once the row is five lines */
+  .row .cost{ display: none }   /* on a phone she is not choosing what to read next */
+  .row .age,
+  .row .sev { text-align: left }
+}

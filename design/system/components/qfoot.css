@@ -1,0 +1,48 @@
+/* qfoot :: MOLECULE
+   ----------------------------------------------------------------------------
+   READS. Ink: --text-secondary. Line: --rule-hair, --rule-control. Geometry:
+   --font-mono, --size-xs, --radius-ui, --space-1, --space-2, --space-4.
+   CONTAINS. what the product writes as `kbd`, and that is an open row.
+
+   PAGE. design/kit/qfoot.html
+   STANDS ON. 45 instances across 45 screens: one under every queue.
+
+   IT IS WHERE THE KEYBOARD IS TAUGHT. Design principle 5 puts keyboard before
+   mouse and principle 3 says the override is one key and it teaches, and the
+   foot of the queue is where the analyst who has been clicking for a week finds
+   out she did not have to. It is the quietest strip on the screen and it is
+   deliberately never a dialog.
+   ----------------------------------------------------------------------------
+   AN OPEN ROW SITS INSIDE THIS COMPONENT, and it is named rather than folded.
+   The keys in here are `kbd` elements taking secondary ink and a
+   --rule-control border, while `key` everywhere else is a span taking the host's
+   colour through currentColor. Same job, two forms. Step 2 did not rule on it
+   and this file does not collapse it silently: it goes to the reconciliation as
+   a control drawing the same thing past the system. The `key` page carries the
+   same note.
+   ---------------------------------------------------------------------------- */
+
+.qfoot{
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border-top: var(--rule-hair);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* the second form, carried unchanged until step 6 rules on it */
+.qfoot kbd{
+  font: inherit;
+  border: var(--rule-control);
+  border-radius: var(--radius-ui);
+  padding: 0 var(--space-1);
+  color: var(--text-secondary);
+}
+
+/* -- NO VARIANTS AND NO STATES -----------------------------------------------
+   Nothing in it is pressable. It is a picture of the keyboard, and the keyboard
+   is the control. */
