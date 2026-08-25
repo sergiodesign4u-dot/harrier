@@ -35,6 +35,15 @@
    conditioned on the filling.
 
    NO COLOUR IN THIS FILE. A pattern arranges, it does not paint.
+
+   AND THE BASE CLASS DECLARES NOTHING, which is worth saying because it is the
+   only one of the four patterns of which that is true. `.queue-list` is worn on 29
+   screens and every rule this file owns is conditioned on the `--log` filling, so
+   the base is a NAME rather than a declaration: what it would have declared is the
+   zone's, and it is already in `z4.css`. It is kept for two readers. The markup
+   reads base plus variant everywhere else in the system, and `compose.mjs` counts
+   the composition by this name. Found at stage 12 by `screens.mjs`, which cannot
+   tell a name that draws nothing from a typo, and is a declared exemption there.
    ============================================================================ */
 
 @media (max-width:1279.98px){

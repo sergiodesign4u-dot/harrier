@@ -40,7 +40,7 @@
 
 <p class="k-eyebrow">Checks</p>
 <h1 class="k-title">The instruments</h1>
-<p class="k-lede">Fourteen of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
+<p class="k-lede">Seventeen of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
 <p class="k-note"><b>There are no screenshots in this system, and these are why.</b> A picture of a component is a second copy: it has to be retaken, it goes stale without saying so, and the first one taken on this stand documented a focus ring it did not contain, because a focus set from a script does not match <code>:focus-visible</code>. What the refactors of stage 08 and 09 promise is proved by rendering the tree twice and comparing it element by element, which says <b>which element moved</b> rather than how many pixels changed.</p>
 
 <div class="c-run">node design/kit/checks/contrast.mjs <span>the stand, every text node, both themes, both viewports</span>
@@ -65,7 +65,7 @@ node design/kit/checks/compose.mjs <span>every composition in the grey corpus, c
     <p><b>The eleven usage rules, as functions.</b> A prohibition written only in prose is a prohibition nobody runs. Each rule is measured at both viewports on what renders rather than on what is in the markup, and each may answer "not applicable": a screen with no dialog does not pass the dialog rule, it is not asked. Counting those as passes is how a suite reports green while testing nothing.</p>
     <p><b>Two of the eleven only became correct when they stopped reading the file and started reading the box.</b> Two primary actions in a document are one primary action on a screen when the second is the viewport twin of the first. And an overlay pinned to the viewport covers a pane that sits below the fold, because the pane passes under it the moment anybody scrolls.</p>
   </div>
-  <div class="n"><b>11</b> rules<br><b>104</b> renderings<br><b>1</b> broken, and it is R11 on 16 screens<br>open in the <a class="link" href="docs/backlog.md">backlog</a></div>
+  <div class="n"><b>12</b> rules<br><b>124</b> renderings<br><span class="c-zero"><b>0</b> broken</span><br>R11 was 17 and closed at stage 12</div>
 </div>
 
 <div class="c-inst">
@@ -168,10 +168,42 @@ node design/kit/checks/compose.mjs <span>every composition in the grey corpus, c
   <div class="n"><b>1398</b> elements move<br><b>4</b> roles, one value each<br><span class="c-zero"><b>0</b> above 1ms under reduce</span><br><span class="c-zero"><b>0</b> stopped existing</span></div>
 </div>
 
+<div class="c-inst">
+  <div><code class="f">screens.mjs</code><span class="stage">stage 12</span></div>
+  <div>
+    <p><b>Is a screen file only markup?</b> The rollout builds ten pages with subagents, and the one failure mode that survives every other instrument in this folder is an agent writing appearance into the file it was told to write. Twenty screens each carrying their own media query look right in a browser, pass contrast, pass the usage rules, and are twenty products.</p>
+    <p><b>It reads the file, deliberately, and that is the whole difference from the rest of this folder.</b> Everything else here asks the browser what it resolved, because the browser is the only witness to what renders. This one asks what is WRITTEN, because the defect is a line of authorship: a rule that never fires is still a rule in the wrong file, and it will fire the day somebody renames a class.</p>
+    <p><b>The tenth sign is the one that needs a parser.</b> Nine of them are words to search for. The tenth, a class no stylesheet declares, is what catches the agent who drew instead of stopping, so the file reads every sheet in <code>design/system/</code> and strips the comments first: this project&rsquo;s stylesheets carry more prose than rules, and a class name quoted in a comment would otherwise declare itself.</p>
+    <p><b>Its first run reported 59 hex values and 51 unknown classes, and almost all of it was the instrument.</b> The hex was <code>&amp;#9662;</code>, the triangle on every filter chip, read as a colour on 23 pages. Three of the classes are named in the files that dropped them and are declared exemptions now. <b>One was real:</b> <code>qbanner</code>, which the stage 08 rename map removed from five screens and left on the sixth, wearing a name whose declaration had moved to the parent.</p>
+  </div>
+  <div class="n"><b>62</b> pages<br><b>10</b> signs<br><span class="c-zero"><b>0</b> of them found</span><br>5 exempt, declared</div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">coverage-map.mjs</code><span class="stage">stage 12</span></div>
+  <div>
+    <p><b>The map against the disk, and both ways round.</b> The coverage map is a declared list, so the idle control applies to it in both directions: a row can be green over a page that does not open, and a page can exist that no row mentions. Reading the table catches neither, because the table is the thing being checked.</p>
+    <p><b>It opens the pages rather than testing for a file.</b> A half assembled page is a file too. Every record declared in colour is loaded in a browser, and a page that throws, 404s a stylesheet, renders no <code>h1</code> or renders no panel is not covered whatever the registry says.</p>
+    <p><b>It does not require the map to be all green.</b> What the stage promises is that nothing was lost, not that everything was done. A screen deliberately out of scope stays on the map as its own state with a reason and is counted. <b>A green row over an unfinished screen and a vanished row for something we chose not to build are the same lie told two ways.</b></p>
+  </div>
+  <div class="n"><b>62</b> records<br><b>62</b> opened<br><span class="c-zero"><b>0</b> green over nothing</span><br><span class="c-zero"><b>0</b> in nobody&rsquo;s count</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">census.mjs</code><span class="stage">stage 12</span></div>
+  <div>
+    <p><b>Every control in the product, snapshot first.</b> Twenty three properties are taken from every node and nothing is keyed during the walk, because keying while walking decides that two controls are the same before it has looked at the properties by which they differ. The collapse happens afterwards, on the full set, and each table names what it collapsed by.</p>
+    <p><b>Section 6 of the census said &ldquo;Reserved&rdquo; for four stages</b>, and the honest reading of that is not that the measurement was skipped: it is that the walk was a script written from scratch each time somebody remembered to run it, so there was nothing to point the section at. It also ran twice over the 52 coloured screens, which was the sample; this is the first time it has seen the product.</p>
+    <p><b>It found the most invisible defect of the stage on its first run.</b> Twelve textareas on the escalate family had been rendering as raw browser controls, monospace at 13.3px with the user agent&rsquo;s grey border, inside a dark dialog, <b>since stage 09</b>. Contrast passed them because the browser&rsquo;s own colours happen to clear the floor, the usage rules do not look at fields, and <b>a class that is missing is not a forbidden sign</b>, so the file reading instrument could not see it either.</p>
+    <p><b>Its first list of divergences was 18 rows and half of them were the instrument</b>, folding a selected row in beside an unselected one. The form key ignores state and viewport classes now, and the list is 16.</p>
+  </div>
+  <div class="n"><b>5106</b> nodes<br><b>1610</b> product controls<br><b>28</b> classes worn<br><span class="c-zero"><b>0</b> controls with no form</span></div>
+</div>
+
 <h2 class="k-h" id="rule">The rule they were all written under</h2>
 <p class="k-lede"><b>An instrument that has never found anything is not a clean result. It is an untested instrument.</b></p>
-<p class="k-note">That sentence is in <code>CLAUDE.md</code> because it was paid for: a search meant to catch a rule declared twice compared inline against inline and never inline against the shared sheet, and reported clean for two steps while ten rules were duplicated. Every instrument here has a paragraph in its own header naming the defect it failed to catch on its first run, and three of them were corrected during stage 09 alone: one counted a contents page as a screen, one measured a rule other than the one it was named after, and one compared two rectangles at a scroll position instead of across a column. <b>The twelfth exists because a defect got past all eleven, the thirteenth because three widths cannot see what happens between them, and the fourteenth because a screenshot cannot see a movement at all.</b> The fourteenth then found three defects in itself before it found one in the product, which is the same lesson in a smaller box.</p>
-<p class="k-note">The full log of what each pass found, what was fixed, and what was withdrawn on verification is <a class="link" href="docs/critique.md">the critique log</a>. What the system knows it does not do yet is <a class="link" href="docs/backlog.md">the backlog</a>, and every row of it names who closes it.</p>
+<p class="k-note">That sentence is in <code>CLAUDE.md</code> because it was paid for: a search meant to catch a rule declared twice compared inline against inline and never inline against the shared sheet, and reported clean for two steps while ten rules were duplicated. Every instrument here has a paragraph in its own header naming the defect it failed to catch on its first run, and three of them were corrected during stage 09 alone: one counted a contents page as a screen, one measured a rule other than the one it was named after, and one compared two rectangles at a scroll position instead of across a column. <b>The twelfth exists because a defect got past all eleven, the thirteenth because three widths cannot see what happens between them, and the fourteenth because a screenshot cannot see a movement at all.</b> The fourteenth then found three defects in itself before it found one in the product, which is the same lesson in a smaller box. <b>The fifteenth is the only one that reads a file rather than a browser</b>, and it is the only one whose subject is not the product but the people building it. <b>The sixteenth checks a document</b>, because the coverage map is the one claim in this case study that cannot be verified by looking at it. It found nothing on the product on its first run, and one defect of its own before that: it read the registry by slicing from the first occurrence of the global&rsquo;s NAME, which in a file that opens with three paragraphs about that name means handing prose to a JavaScript parser. <b>And the seventeenth is the oldest of the three:</b> the census walk existed at stage 08 and was never a file, so the section that reported it said &ldquo;Reserved&rdquo; for four stages. Writing it down is what let it run over the whole product instead of the sample, and it found on its first run what four stages of instruments had not.</p>
+<p class="k-note">The full log of what each pass found, what was fixed, and what was withdrawn on verification is <a class="link" href="docs/critique.md">the critique log</a>. How the last ten screens were built, by whom, and what they had to ask is <a class="link" href="docs/rollout.md">the rollout journal</a>. What the system knows it does not do yet is <a class="link" href="docs/backlog.md">the backlog</a>, and every row of it names who closes it.</p>
 
 </main>
 </div>

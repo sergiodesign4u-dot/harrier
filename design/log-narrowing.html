@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Decision log, narrowing, in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="system/index.css">
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<div class="screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4 queue-list queue-list--log" aria-labelledby="lh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip chip--solid" type="button">Meridian Health &times;</button>
+        <button class="chip chip--solid" type="button">Rejected &times;</button>
+        <button class="chip chip--solid" type="button">2026-06-01 to 2026-06-30 &times;</button>
+        <button class="chip chip--ghost" type="button">Any actor &#9662;</button>
+      </div>
+
+      <h1 id="lh" class="readout"><b>Narrowing</b> <span class="dim">Meridian Health &middot; rejected &middot; June 2026</span></h1>
+
+      <div class="banner only-narrow"><b>The decision log is a desk surface.</b> The phone has one scenario in this product, a paged case read and escalated, and answering an auditor is not it.<br><br>One thing here does open on a phone: <b>a single entry at its own address</b>, because a permalink can arrive anywhere.<span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>
+      <div class="rows rows--log" role="grid" aria-labelledby="lh" tabindex="0">
+        <div class="arriving" aria-label="Narrowing"></div>
+        <p class="empty empty--tight"><b>Narrowing to Meridian Health, rejected, June 2026.</b>
+          The query stays on screen while it runs, so nothing is answered from a half drawn list.<br><br>
+          It can resolve two ways: <a class="link" href="log-snapshot-gone.html">it matched, 3 entries</a> or <a class="link" href="log-not-found.html">it matched nothing</a>.</p>
+      </div>
+
+      <p class="qfoot">
+        <span>counting, no rows drawn yet</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span class="only-desk"><kbd>Enter</kbd> opens the entry at its own address</span>
+        <span>order: newest first, always. Nothing here is sorted by urgency</span>
+      </p>
+    </section>
+
+    <aside class="z5 case-pane" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">What this view covers</h2>
+        <p class="sub">Nothing is selected, and this is not an empty pane. It is the answer to the question you are about to be asked</p>
+      </div>
+      <div class="pane-body">
+        <div class="covers">
+          <span class="k">Narrowed to</span><span class="v"><b>Meridian Health</b>, decision <b>rejected</b>, June 2026</span>
+          <span class="k">Entries</span><span class="v"><b>counting</b></span>
+          <span class="k">Spanning</span><span class="v"><b>2026-06-01T00:00:00Z</b> to <b>2026-06-30T23:59:59Z</b></span>
+          <span class="k">How far back this can answer</span>
+          <span class="v">The earliest entry held for these tenants is <b>2026-02-03T08:14:20Z</b>. <b>Nothing is ever deleted from the log.</b> How long the evidence snapshot behind an entry stays retrievable is set by your provider, and an entry past that window still tells you what was decided and by whom.</span>
+        </div>
+        <section class="block">
+          <h3>Whose decisions are here</h3>
+          <p class="nar">Every decision on every tenant in your provider scope, <b>not only your own</b>. A log that showed only yours could not answer a question about a shift you did not work.</p>
+        </section>
+        <section class="block">
+          <h3>What cannot be done here</h3>
+          <p class="nar">Nothing on this screen edits anything, and there is no control that could. A mistake becomes a <b>second entry</b> rather than a correction of the first.</p>
+        </section>
+      </div>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="_shell.js"></script>
+<script>WF_SHELL({ current:'log', strip:'live' });</script>
+<script>
+  /* the panel of this stage, in its own namespace. Not the roadmap: a screen of the product
+     is not a step of the process, and mixing them is what made the sidebar unreadable. */
+  window.DESIGN_NAV_BASE = '';
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

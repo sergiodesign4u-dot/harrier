@@ -1,0 +1,120 @@
+/* miss :: MOLECULE
+   READS. Ink: --text-primary, --text-secondary. Line: --rule-hair. Geometry:
+   --font-sans, --leading, --leading-tight, --measure, --size-xs, --size-lg,
+   --size-md, --size-xl, --space-1, --space-2, --space-3, --space-4, --space-5,
+   --space-7.
+   CONTAINS. block, addr, btn, link.
+   PAGE. design/kit/miss.html   STANDS ON. 1 instance on 1 screen, node 8.1.
+
+   THE COLUMN THAT SAYS AN ADDRESS RESOLVED TO NOTHING. It is node 8.1 and it
+   carries one rule that is not small: in a multi tenant security console, "no
+   such case" and "not your tenant" must render IDENTICALLY, or the address bar
+   becomes a way to enumerate another provider's clients. Everything about this
+   component follows from that. It names two exits and it names no cause.
+
+   NOT A DEAD END, AND THE NAME SAYS SO. `CLAUDE.md` requires that none of the
+   systemic states be one, and this screen answers that with `exits`: two named
+   destinations inside a sentence, because the block bank ruled out a pair of
+   buttons here. It is called `miss` because the address missed, which is a fact
+   about the request rather than a verdict about the person.
+
+   IT IS THE FOURTH SYSTEMIC SCREEN AND THE FIRST ONE THE SYSTEM COULD NOT DRESS.
+   Node 8.2 has `outage`, one molecule with its own heading and four zones, built
+   because it had three coloured renderings. This node had ONE, in grey, so the
+   census filed its five classes as one-offs and "one use is not a role" kept
+   them out, correctly, from evidence that was complete and unrepresentative.
+   Its row in the enrichment journal reads the same way `contact.is-gone`'s does.
+
+   ONE COMPONENT WITH FOUR ZONES, NOT FOUR COMPONENTS, and that is a decision
+   rather than a convenience: the zones only exist inside this column, and the
+   column is the screen. It is the shape `outage` already has.
+
+   -- width, and it is the only consumer OUTSIDE base.css ---------------------
+   `--measure` was written at stage 08 with zero uses, and **stage 10 gave it its
+   first**, on fourteen kinds of prose in `base.css`. A draft of this paragraph
+   said it had none through stages 09, 10 and 11 and lifted "this is the screen"
+   from the comment where stage 10 had already claimed it, which is a stale count
+   with the sign reversed: a file taking credit for a closure somebody else made.
+   What is true, and checked across the whole system: **this is the only COMPONENT
+   that reads it.** Without it the column runs the whole of a 1440 viewport,
+   because `z4--solo` centres a child and does not width it, and prose 1200 pixels
+   wide is unreadable in a way that has nothing to do with taste.
+   ---------------------------------------------------------------------------- */
+
+.miss{
+  width: min(var(--measure), 100%);
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  /* the zones below ask about the width of THIS column, not of the viewport:
+     the query that sizes the exits is a container query, and this is where the
+     container is declared, because this component is what places them */
+  container-type: inline-size;
+}
+
+.miss h1{
+  margin: 0;
+  font: 600 var(--size-xl)/var(--leading-tight) var(--font-sans);
+}
+
+/* what the page can tell you, and it is also all it tells anybody */
+.miss .say{ margin: 0; font-size: var(--size-lg); line-height: var(--leading) }
+.miss .say b{ font-weight: 700 }
+
+/* -- the two exits, and they are a sentence rather than a button bar -----------
+   Block 2 of the bank is TWO NAMED EXITS IN THE SENTENCE. `inline-block` buys
+   them a real tap height without turning them into the pair of buttons the bank
+   ruled out: at the desk they are text in a sentence, and on a phone they stay
+   text in a sentence and get bigger. */
+.miss .exits{ margin: 0; font-size: var(--size-md) }
+.miss .exits a{
+  display: inline-block;
+  padding: var(--space-1) 0;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+/* what you asked for, and why showing it is safe.
+
+   THE MEASURE IS ON THE TEXT AS WELL AS ON THE COLUMN, and the first version of
+   this file had it only on the column, which is the mistake `base.css` warns about
+   in as many words: a measure is counted in CHARACTERS, and text at two sizes in
+   one column stops at two different pixel widths. The column is 66ch of 15px type;
+   these notes are 11px, so they ran 81ch at 480 and 89 at 520. The width sweep
+   reported it at 42 widths, every one of them above the declared minimum, and it is
+   the same finding stage 10 recorded for the pane: THE LONGEST LINE IN THIS PRODUCT
+   IS NOT AT 2560, IT IS AT 520, because below the point the layout is one column and
+   the smallest text in the product fills it. */
+.miss .note{
+  margin: 0;
+  max-width: var(--measure);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+.miss .note b{ color: var(--text-primary) }
+/* the closing note stands under no block, so it takes a rule of its own */
+.miss .note--sep{ border-top: var(--rule-hair); padding-top: var(--space-3) }
+
+/* -- behaviour on width. A CONTAINER QUERY, AND THE RUNG BELOW IT WAS TRIED ----
+   The grey wrote this as a viewport query at 900, which is a number stage 10
+   deleted from the product. Fluid was tried first and cannot do it: the step
+   runs the wrong way round, larger as the column gets NARROWER, and a `clamp`
+   whose middle term is `vw` can only run the other way. So it is the container
+   rung, and the threshold is registered in `responsive.md` section 6 with the
+   rest.
+
+   This is the one place in the product where a thing gets BIGGER on a phone, and
+   the reason is a tap target rather than a reading size: the page is reachable
+   from a pager at 03:00, which makes 360 a real width here rather than a proof. */
+@container (max-width: 30rem){
+  .miss{ padding: var(--space-5) var(--space-3) var(--space-7); gap: var(--space-4) }
+  .miss .exits{ font-size: var(--size-lg) }
+  .miss .exits a{ padding: var(--space-2) 0 }
+}
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE --------------------------------------
+   The controls inside it are: two links in the sentence and one button beside the
+   address. The column is read. */

@@ -59,11 +59,43 @@ This file exists because the alternative is silence. A thing that was found, con
 | **The log at rest has no decision about its foot.** `case-pane` documents the head and the body of the "what the view covers" filling and says nothing about `pane-foot` | `design/kit/case-pane.html`, the variants table | The three case panes with no foot are cases already ruled on, which is a different reason from a view that was never a case. Both readings are defensible and neither is written | stage 12, when the log is built in colour |
 | **The scope bar goes below the point and the readout keeps claiming a scope.** The readout is a counted claim about what you are looking at, and its only control is not rendered | `patterns/queue-list.css` | The claim is still true, because the scope is still applied; what is gone is the ability to change it. Whether a claim you cannot act on should be worded differently is a voice decision | stage 12, with the narrow only line the log already needs |
 
+## Opened by stage 12, when the fan out built the four screens the system had never dressed
+
+| What is missing | Where it is visible | Why it was deferred | Who closes it |
+|---|---|---|---|
+| **`block--rcpt` carried an order and now nothing does.** The grey escalate writes `<section class="block block--rcpt">` with a page local `order:-1` that puts the recipient first inside the dialog at 360. Stage 08 ruled that the modifier takes its form from `block`; stage 09 executed the ruling by dropping the modifier, and the recipient is first in source order anyway | all four coloured escalate screens, and `contact.css`'s header, which described the grey markup as current until this stage | **One instance is not a role**, which is the rule that also refused `esc-first` before it. The order it protected is real and is held by source order alone, which no rule measures: a block inserted above the recipient by anybody who does not know that would move it, silently, at one width only | the stage that gives the escalate dialog a second block above the recipient, or nobody |
+| **The one control that makes a recipient exist takes no focus ring.** The fallback list on `escalate-no-recipient` is a `<label class="opt">` inside a `role="radiogroup"` with no input, while `opt.css` says outright that an `opt` is a link and that the ring exists for it. **44 of the 45** `opt` instances in the product are anchors; this is the one that is not | `design/escalate-no-recipient.html`, and `design/kit/opt.html`'s Limits block, which does not say what to do when the grey hands you a non anchor | **Changing an element is not a colour decision.** The grey is frozen and this is a markup question about how a single choice with no destination is expressed, which is node 4.6's and not the rollout's | the stage that answers node 4.6's open question about who receives an escalation, and `opt.html`'s Limits either way |
+| **A 12px gap became 8px on one screen, deliberately.** The grey puts `style="margin-top:var(--s3)"` between the recipient and the fallback list; `.block`'s own gap gives `--space-2` | `design/escalate-no-recipient.html`, the "Who this goes to" block | Refused for the same reason as the row above it: a place class for one instance is what the register exists to prevent. Recorded because the difference from the grey is real and deliberate rather than an oversight | nobody. It is closed by being named |
+
 ## Opened by stage 11, and there is one
 
 | What is missing | Where it is visible | Why it was deferred | Who closes it |
 |---|---|---|---|
 | **`.doorhelp summary` is a control with no state.** It carries `cursor: pointer`, it is the only thing on the sign in page anybody clicks besides the button, and its file says "NO STATES". It is the only control in this product with no hover at all | `design/system/components/door.css`, and the five sign in screens | **Motion lands on states and never creates them.** Drawing a hover here would be inventing a state at the motion stage, which is the pattern this project rules against by name: a class the product never wears animates nothing and documents a lie. It is an order against stage 08's five things, and the smallest one in the backlog | whenever the door is next opened, and it is a ten minute job that nobody should do inside a stage that is not allowed to |
+
+## Closed at stage 12, and the rows above are left standing rather than deleted
+
+**A backlog whose closed rows vanish reads as a backlog nobody ever opened.** Every row named here is still written above, under the stage that opened it, with the reason it was deferred intact. This section says what happened to it, because the difference between "considered and closed" and "never noticed" is the whole value of having looked.
+
+| The row | What stage 12 did |
+|---|---|
+| **Seventeen coloured screens with no `h1` at 360** | **Closed.** The `h1` follows what renders at 360, which settles the contradiction in favour of `case-file.md` section 7. Three declarations changed, no pixel moved, and `rules.mjs` reports 124 renderings of R11 with nothing broken. The full ruling is in `architecture.md` section 10 |
+| **Four escalate screens draw a dialog over a pane at 360** | **Closed by measurement, and stage 10 had already closed it without noticing.** The scrim drops its padding and stretches below the point, and `z5` is not rendered there at all. R3 holds on all four |
+| **`rcpt` is not a component and `contact` is the nearest** | **Ruled.** `contact` is the component and keeps its name and its 17px |
+| **The recipient has no `is-gone` state** | **Built.** `contact.is-gone`, a domain state: dashed boundary, the name struck and dropped to secondary, and the name stays |
+| **`.seek` has no consumer** | **Closed by use.** It stands on `log-not-found` |
+| **`--radius-object` and `--measure` have zero uses** | **Half closed, and the other half was already closed at stage 10.** `--measure` widths `miss` as well as fourteen kinds of prose in `base.css`. `--radius-object` still has none |
+| **`--row-tracks-log` has no narrow value** | **Ruled unreachable, by measurement.** `queue-list--log` does not render the list below the point at all, and the rollout added no log row anywhere else. The third census is what proves it |
+| **The log at rest has no decision about its foot** | **Ruled: no `pane-foot`.** The log's pane is a view that was never a case, so there is nothing on it to rule on. Both readings ended at the same drawing and what was missing was the reason |
+| **The scope bar goes below the point while the readout still claims a scope** | **Closed by reading the screen rather than the pattern file.** The narrow line the row asked for was drawn at stage 04 and worded at stage 05 |
+| **`claim--against` is declared in no stylesheet** | **Ruled: it stays undrawn**, on 22 coloured pages, and it is a declared exemption in `screens.mjs` with the reason |
+| **`.qfoot kbd` and `.key` do the same job in two forms** | **Closed by the screen with the most keys in the product.** `keyboard` uses `.key` throughout, because every key on it is a key you are being taught. The map confirms the two forms are two jobs rather than folding them |
+| **Forty five coloured screens link a screen that has no coloured copy** | **Closed by existing.** The rollout built the pages the links already pointed at. Zero dead internal links across all 62 screens |
+| **`amend` is a dialog in one document and a case screen in four others**, and whether its scrim is `--desk-only` is decided nowhere | **Settled by the screen rather than by a document.** `case-amend.html` has no scrim and no dialog: the fields stand in the pane, so amending is an **edit in place**, and the scrim question dissolves. `scrim.html` carries the answer now |
+
+### And three rows are NOT closed, which is why they are still above
+
+`div.expand` does not become `details.expand`: it needs 23 summary sentences, which is microcopy, and it moves to the handoff. Neither webfont is loaded, which costs money and a request. And `.doorhelp summary` still has no state, on five screens this stage never touched.
 
 ## Closed by the reconciliation itself
 

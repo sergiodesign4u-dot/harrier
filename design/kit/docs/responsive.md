@@ -83,7 +83,7 @@ Each of those is a job away from being real. None has one.
 
 A third list, and it is not derivable from the second. **The audit is sorted by screen and adaptation lives in the component.** A component standing only on screens in the "same" category never appears in the audit at all, and would reach stage 12 with no verdict about width, to be placed on a screen that is wider than anything it has met.
 
-Source: the 73 components and 4 patterns of `docs/inventory.md`, every one of them, in order of level.
+Source: the 73 components and 4 patterns of `docs/inventory.md`, every one of them, in order of level. **Stage 12 added two more**, `keyrow` and `miss`, and their width rows are in the register table rather than here: one does not adapt and has a floor, and the other is the system's only container query.
 
 **Fourteen of the 77 carry a stage 08 name the grey corpus does not have**, and each resolves through the rename map rather than being left blank: `screen` is `wf-screen` there, `shell` is `wf-shell`, `state` is `chip--state`, `navitem` is `.z1 nav a`, `input` and `label` are `.field input` and `.field > label`, `link` is a bare anchor, `rail-foot` is `rail--foot`, `row-moved` and `rows-moved` are `row` and `rows--moved` inside the brief, and the four patterns are classes stage 09 added to colour only. A missing row and an empty row are different things, and it is the second that slips through.
 
@@ -148,11 +148,31 @@ Read top down. A point is written only when the fluid answer physically cannot w
 
 ## 6. Container thresholds
 
-**None, and that is a finding rather than an omission.** A container query was the expected answer for the queue row, which genuinely does not know whether it stands in a 724px column at the declared minimum or a 1223px one at 1920. It turned out not to need one: what the row needed was for its two prose tracks to stop growing, and a track can carry its own ceiling in `ch`. `minmax(6.5rem, 32ch)` says the same thing as a container query about a measure and says it continuously.
+**One, and it arrived at stage 12 with the last screen the system had never dressed.**
 
-`container-type` is therefore declared nowhere in `design/system/`, and that is checkable: a `@container` rule with no `container-type` above it never fires, silently, and the component simply always looks as though it stands in a wide place. There is no such rule here to fire.
+| Threshold | Container | What changes | Why fluid could not do it |
+|---|---|---|---|
+| **30rem** | `.miss`, node 8.1's centred column | The two exits go from `--size-md` to `--size-lg` and their tap padding from `--space-1` to `--space-2`, and the column's own padding and gap tighten | **The step runs the wrong way round.** It gets LARGER as the column gets narrower, and a `clamp` whose middle term is `vw` can only run the other way. It is a tap target rather than a reading size: node 8.1 is reachable from a pager at 03:00, which makes 360 a real width here rather than a proof |
+
+It is a container query and not the width point because what decides the step is how much room the sentence has, not how wide the window is. The grey wrote it as a viewport query at 900, which is one of the three numbers this stage deleted.
+
+`container-type: inline-size` is declared on `.miss` itself, which is the rule of section 4 rather than an exception to it: the placer declares it, and `miss` is what places `exits`.
+
+**Everything below this line was true until stage 12 and is kept, because the reasoning still holds for the rest of the system.**
+
+**None anywhere else, and that is a finding rather than an omission.** A container query was the expected answer for the queue row, which genuinely does not know whether it stands in a 724px column at the declared minimum or a 1223px one at 1920. It turned out not to need one: what the row needed was for its two prose tracks to stop growing, and a track can carry its own ceiling in `ch`. `minmax(6.5rem, 32ch)` says the same thing as a container query about a measure and says it continuously.
+
+`container-type` was therefore declared nowhere in `design/system/` until `miss`, and that is checkable: a `@container` rule with no `container-type` above it never fires, silently, and the component simply always looks as though it stands in a wide place. There is no such rule here to fire.
 
 The one place a container query does stand is `design/kit/responsive.html`, in the live demonstration of what a container query is. That is the stand rather than the product, and it declares its own `container-type` on the same element.
+
+## 6b. One repair that is not a threshold, and it took two stages to generalise
+
+**`.only-desk` declares `display: block`**, which is a place utility deciding a component's display. On a `btn`, whose own value is `inline-flex`, that turns the label and the key from flex items into inline text and takes the key's box from 13px to 15.
+
+It was cured once at stage 09, on the standalone route only, with a rule in `case-pane.css` reasserting `inline-flex`. Stage 12 put viewport twins on the paired pane as well, four verdict controls that are a desk decision with escalate as the narrow twin, and the box comparison against the stand reported four unexplained differences the moment it did. **The selector drops `.is-standalone` now and covers both fillings of the pane**, which is what a pattern is for, and **it carries the narrow half too**: a rule that repairs a display outranks the utility that would otherwise turn it off, so repairing one width breaks the other.
+
+The utility itself is left alone deliberately. Ninety spans and fifteen other elements wear `.only-desk` and depend on the `block`, and a utility that declared nothing would move all of them to fix four.
 
 ## 7. The shell
 

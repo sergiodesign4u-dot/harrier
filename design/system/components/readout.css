@@ -31,6 +31,13 @@
    ---------------------------------------------------------------------------- */
 
 .readout{
+  /* THE ELEMENT WAS DECIDING THIS TOO, and stage 12 is where it mattered. The UA
+     draws an h1 at .67em and an h2 at .83em, and this line becomes an h2 on the
+     screens whose subject is the case rather than the queue (rule R11). Left to
+     the element, one tag change would have moved the rows down 4px on 17 screens.
+     8px against the 8.375 the browser was giving: the nearest token, and the
+     0.375 per side is the whole of the change. Row in tokens-audit.md. */
+  margin: var(--space-2) 0;
   padding: var(--space-2) var(--space-4);
   border-bottom: var(--rule-hair);
   font-size: var(--size-sm);

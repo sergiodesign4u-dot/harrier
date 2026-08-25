@@ -147,9 +147,13 @@ The inventory above is sorted by event, and the rollout at stage 12 will ask abo
 
 | Screens | What moves on them |
 |---|---|
-| **All 52 coloured screens** | Every control's response: `btn`, `chip`, `navitem`, `link`, `input`, `src` and the rows, whichever of them the screen carries. 120ms, `ease`, one of four properties, and never a size or a position. Plus the focus ring, which does not transition |
-| **`queue-streaming`, `shift-assembling`, `case-investigating`, `entry-partial`** | And the filling bar, `arriving`: a 1.4s sweep, `transform` only, replaced by a still 40 per cent fill under reduce |
+| **All 62 coloured screens** | Every control's response: `btn`, `chip`, `navitem`, `link`, `input`, `src` and the rows, whichever of them the screen carries. 120ms, `ease`, one of four properties, and never a size or a position. Plus the focus ring, which does not transition |
+| **`queue-streaming`, `shift-assembling`, `case-investigating`, `log-narrowing`** | And the filling bar, `arriving`: a 1.4s sweep, `transform` only, replaced by a still 40 per cent fill under reduce |
 | **Everything else about every screen** | Nothing, and each of those is a navigation rather than an absence: a dialog opening, a notice arriving, a verdict filed, a case selected. What carries them is the cross document transition in `base.css`, one declaration for all 62 |
+
+**The first row said 52 and was counting the SAMPLE. The second said four and named five screens, one of which has never carried the component.** The corpus is 62. The filling bar stands on four, and `log-narrowing` is one of them, node 5.2, where the log narrows before it draws: it was grey when this table was written, so it could not be here. **`entry-partial` was in the list and never had an `arriving` at all**, in colour or in grey, which `arriving.css` says beside its own count of four and this table contradicted.
+
+Both halves were found the same way and neither by reading. The first by **the agent that built the log**, which was told to read this section for its own screen, found itself outside a list of four, and reported it rather than editing the file, because a fan out agent does not write to `design/kit/`. The second by a **reader with clean context at the close**, holding the corrected row against a browser count over all 62 screens. **The correction was itself wrong for one measurement**, because it added a screen and did not check the four already there, which is the same defect one turn later.
 
 **A screen written at stage 12 gets all of this by linking `system/index.css` and writing no motion of its own.** That is the whole point of the shape: the response of a control is in the control, the cycle is in the component that owns it, and the movement between documents is in `base.css`.
 

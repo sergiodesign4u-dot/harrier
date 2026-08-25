@@ -1,8 +1,10 @@
 /* optlist :: ORGANISM
    READS. Line: --rule-edge. Geometry: --radius-ui.
-   CONTAINS. opt.
-   PAGE. design/kit/optlist.html   STANDS ON. 13 instances across 8 screens, in
-   the reject and escalate dialogs.
+   CONTAINS. opt, and since stage 12 keyrow.
+   PAGE. design/kit/optlist.html   STANDS ON. 14 instances across 8 screens,
+   measured on the finished product: 6 in the reject dialog, 1 in the escalate
+   dialog with no recipient, and 7 on the keyboard map, which opens a fresh list
+   per group of keys and one more for the control at its foot.
 
    IT IS THE RADIO PATTERN, AND IT IS NAMED AS ONE RATHER THAN REPLACED. Checkbox,
    radio and toggle are absent from this product entirely: there is no form to
@@ -14,7 +16,30 @@
    a set of options in separate boxes reads as several questions, and there is one.
 
    NO VARIANTS. Three options or six is a count, and step 2 said so in as many
-   words. */
+   words. That is still true, and what it does have since stage 12 is a SECOND
+   FILLING: `keyrow`, the reference row of node 0.5, in the same border and the
+   same hairlines. `opt` is a link with four states because choosing a reason is
+   something the analyst does; every row of the keyboard map is inert, and putting
+   seventeen unanswerable rows inside a component whose own file says it is a link
+   would have flipped a fifth of that component's population into a lie.
+
+   ONE CONTAINER, TWO SETS OF ZONES, AND STILL NOT A PATTERN, and the reason is
+   not the count. A first draft of this paragraph said a pattern needs three screens
+   and both fillings stand on two: the `opt` filling stands on SEVEN and the
+   `keyrow` filling on ONE, so neither half of that sentence was true and the
+   conclusion happened to be. The real reason is the definition stage 09 wrote:
+   a rule moves to `patterns/` when a selector written inside ONE component names
+   ANOTHER and is conditioned on which filling the host carries. There is no such
+   rule here. This file declares the border and the radius, each row declares its
+   own box, and nothing in either reads the other. **A container holding a
+   component is anatomy, not a composition**, which is what `CLAUDE.md` means when
+   it says almost all of them are a component's own anatomy.
+
+   **A list holds one filling or the other, never both inside the same border**,
+   which is the only rule this file gains, and it is **R12** in
+   `design/kit/docs/architecture.md` and a function in `checks/rules.mjs`. It was a
+   sentence here and nothing else for one stage, which is exactly the shape that
+   section forbids. */
 
 .optlist{
   display: flex;

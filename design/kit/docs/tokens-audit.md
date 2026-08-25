@@ -417,3 +417,13 @@ The pairs were written at step 3 and the state tokens at step 5. What this step 
 | the source icon on `a.src` only | 1 | 13 |
 
 **The pixel comparison says 9.0 per cent and that is not a contradiction.** A state four pixels shorter moves everything below it, so every pixel under the first one differs on a full page capture even where nothing is wrong. The pixel measure answers HOW MUCH and the element walk answers WHAT, and only the second can be attributed. Both are in `design/kit/checks/`.
+
+---
+
+## ONE VALUE MOVED AT STAGE 12, AND IT WAS THE ELEMENT DECIDING IT
+
+| Change | Was | Now | Why |
+|---|---|---|---|
+| `.readout` gains `margin: var(--space-2) 0` | **8.375px**, the browser's `0.67em` for an `h1` at 12.5px | **8px** | Rule R11 moved the `h1` on seventeen screens from the readout to the pane head, and the readout became an `h2`. It had no margin of its own, so the tag change alone would have taken it to `0.83em`, that is 10.375px, and pushed two hundred rows down four pixels on each of those screens. **0.375px per side is the whole of the deliberate change**, and it is here rather than nowhere because the value was never a decision until now |
+
+**It is the fourth time in this project the ELEMENT was deciding a value nobody had written**, after the readout's own weight, the `h1` inside `pane-head--standalone` and the heading levels themselves. The class of defect is one instrument short by construction: the value is not wrong in any file, so nothing that reads a file can see it, and it only shows up when the tag changes underneath it.

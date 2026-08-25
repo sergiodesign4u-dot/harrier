@@ -71,7 +71,12 @@ window.NAV = [
   ]},
   { label:'Responsive',          page:'design/kit/responsive.html', done:true },
   { label:'Animation',           page:'design/kit/motion.html', done:true },
-  { label:'Rollout',             page:null, done:false },
+  /* THE PRODUCT'S OWN FRONT DOOR, and it has to be set by hand: the stage 01 registry
+     wrote Rollout with page:null because no page existed then, and a finished stage
+     with a null page stays a grey word instead of a link. It points at design/index.html
+     rather than at the hub, because the hub is the UI + Visual item and two roadmap
+     items on one page break the active highlight. */
+  { label:'Rollout',             page:'design/index.html', done:true },
   { label:'Handoff',             page:null, done:false },
 ];
 

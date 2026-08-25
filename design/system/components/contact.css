@@ -2,15 +2,27 @@
    READS. Ink: --text-primary, --text-secondary. Line: --rule-edge. Geometry:
    --font-sans, --radius-ui, --size-lg, --size-sm, --leading-tight, --space-2,
    --space-3.
-   PAGE. design/kit/contact.html   STANDS ON. 3 renderings across 3 screens, and
-   they are the OUTAGE pages rather than the escalate dialog. The header said six
-   across three and named the wrong surface; a reader with clean context counted
-   the class and found three. The other three of the six were `out-contact`, which
+   PAGE. design/kit/contact.html   STANDS ON. 7 renderings across 7 screens, measured
+   on the finished product: three on the outage pages and FOUR in the escalate
+   dialog. This line read three for two stages and named the escalate dialog as the
+   place it did NOT stand, which was true of the coloured sample and false of the
+   product: all four escalate screens were grey. It was corrected once at stage 09,
+   from a wrong six to a right three, and the three went stale the moment the
+   rollout dressed the four. A count in a header is a claim about a corpus and
+   never says which one. The other three of the six were `out-contact`, which
    is a zone of `outage`, merged by a word boundary in the count.
 
-   THE ESCALATE DIALOG CARRIES ITS RECIPIENT UNDER `block--rcpt`, which the
-   inventory records as having no coloured rendering at all. So the component that
-   answers node 4.6 exists and the screen that needs it is still grey.
+   THE ESCALATE DIALOG CARRIES ITS RECIPIENT UNDER A PLAIN `block`, and this
+   paragraph said `block--rcpt` until stage 12. The grey wireframe writes the
+   modifier and declares its one rule in a page local style block, an `order:-1`
+   that puts the recipient first. Stage 08 ruled that `block--rcpt` takes its form
+   from `block`, and stage 09 executed the ruling by DROPPING the modifier rather
+   than declaring it: the recipient is first in source order anyway. So no
+   stylesheet in this system declares `block--rcpt`, and the four coloured escalate
+   screens do not wear it. What the modifier carried, an order that is real at 360,
+   is now held by source order alone, which no rule measures. Recorded in
+   `backlog.md` rather than fixed, because a rule for one instance is what the
+   register exists to refuse.
 
    WHO THE ESCALATION GOES TO. A name, what they are on for, and how to reach them,
    in a box of their own because an escalation names a RECIPIENT and the analyst
@@ -37,4 +49,24 @@
 .contact p{ margin: 0; font-size: var(--size-sm) }
 .contact .meta{ color: var(--text-secondary) }
 
-/* NO STATES. It is read and quoted, never pressed. */
+/* -- ONE STATE, AND IT IS A DOMAIN STATE ---------------------------------------
+   NOT INTERACTIVE, so no hover, no active and no focus ring: it is read and quoted,
+   never pressed. What it does have is a fact about the world that can be false by
+   the time it is read. A recipient comes from a rota Harrier does not own, and node
+   4.6 draws the case where the rota window ended and nobody picked it up.
+
+   THE NAME STAYS. It is struck and dimmed rather than removed, because who the
+   escalation WOULD have gone to is the first thing you need in order to chase it.
+   The boundary goes dashed on the same reasoning the product uses everywhere else
+   for a thing that is drawn and is not there.
+
+   ADDED AT STAGE 12, ordered by the screen that needed it. The inventory that
+   built this system read the whole grey corpus and still could not place this
+   state: the four screens that draw it are the escalate family, and every one of
+   them was grey, so the only rendering of a recipient the census could count was
+   the outage page's, where the person named is a duty line that is never gone. */
+.contact.is-gone{ border-style: dashed }
+.contact.is-gone .who{
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}

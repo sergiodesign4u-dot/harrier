@@ -163,6 +163,12 @@ const DROPPED = [
   { on: /^a\.opt:hover/,                  why: '.opt:hover:not(.is-chosen), because a ground that is already the answer must not move under the pointer' },
   { on: /\.btn--primary-narrow/,          why: 'deleted by the rename map. It was the same primary with a viewport twin folded into its name, and .btn--primary already carries the accent at every width' },
   { on: /^\.rows--log/,                   why: 'the log widths moved to .row--log reading --row-tracks-log. The container class survives on two screens as a name doing no work, and it is list three of the reconciliation' },
+  /* stage 12, rule R11: the level of a title follows what the screen is about, so
+     one declaration has to serve both. This matcher is literal and cannot see that
+     `:is(h1,h2)` contains `h2`, which is the right kind of blindness for a coverage
+     check: it is asking whether the string is still written, and it is not. */
+  { on: /^\.pane-head h2/,               why: 'one rule, .pane-head :is(h1,h2). At 360 a case screen does not render the queue column and the readout went with it, so seventeen screens had no h1 at all. The level follows what the URL is about and one declaration serves both' },
+  { on: /^\.dialog > header h2/,         why: 'one rule, .dialog > header :is(h1,h2), and the same reason. On the escalate family the dialog takes the whole screen at 360 and the pane behind it is not rendered, so the dialog title is the only heading that survives both widths' },
   { on: /^#sidebar|^\.nav-|^\.d-/,       why: 'the documentation panel, which is base.css and /_nav.css' },
 ];
 

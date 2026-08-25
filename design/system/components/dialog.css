@@ -39,7 +39,13 @@
   padding: var(--space-4);
   border-bottom: var(--rule-edge);
 }
-.dialog > header h2{
+/* `:is(h1,h2)`, and the reason is the same as pane-head's: the level follows what
+   the screen is about at EVERY width. On the escalate family the dialog takes the
+   whole screen at 360 and the pane behind it is not rendered, so the dialog's title
+   is the only heading that survives both widths and it is the h1. On the reject
+   family the scrim is `--desk-only`, the dialog is the half that goes, and the h1
+   stays with the case. One declaration, both levels, no pixel moved. */
+.dialog > header :is(h1, h2){
   margin: 0;
   font: 600 var(--size-lg)/var(--leading-tight) var(--font-sans);
 }

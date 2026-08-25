@@ -34,10 +34,15 @@
 /* -- whole record. One instance, and it is on the list of one offs -----------
    When every snapshot in a log entry has fallen out of the window there is nothing
    left to annotate, so the tombstone takes the whole block: two pixels of dashed
-   border and the sentence centred. It stands once, on `log-snapshot-gone`, which
-   is one instance short of a variant by this system's own rule. It is carried
-   rather than dropped because the alternative is a screen with a class nothing
-   paints, and step 9 decides whether one use earns a name. */
+   border and the sentence centred. It stands once, and this paragraph named the
+   WRONG SCREEN from stage 08 until stage 12: it said `log-snapshot-gone`, and the
+   one instance is on `entry-beyond-retention`. `log-snapshot-gone` carries a plain
+   `tomb`, which is the difference between an entry whose snapshot died and a
+   window that never reached back this far. Found by the agent that built the log
+   in colour, which is the first reader that had both screens in front of it.
+   Still one instance, still one short of a variant by this system's own rule, and
+   still carried rather than dropped because the alternative is a screen with a
+   class nothing paints. */
 .tomb--all{
   border-width: 2px;
   padding: var(--space-5);

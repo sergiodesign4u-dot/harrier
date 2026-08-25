@@ -335,3 +335,13 @@
    queue-list.html and pushed the page sideways at 1440. Scoped to benches that hold
    a stage so the other 73 component pages keep the sizing they were measured with. */
 .k-bench:has(.k-stage) > .k-bench-half{ min-width: 0 }
+
+/* THE SAME CURE FOR A DEMONSTRATION THAT SCROLLS RATHER THAN ONE THAT IS A STAGE.
+   `keyrow` has two fixed cells and a label, so its own minimum is about 450px, and
+   the component is right to have one: it stands on a screen that is not rendered
+   below the width point at all, and ragged key cells down twenty rows would destroy
+   the only thing the keyboard map is for. The bench half still has to be allowed to
+   be narrower than that, or the page pushes sideways at 360 while the demonstration
+   inside it sits in a scroller doing nothing. Added at stage 12, and the rule above
+   is the same finding one component earlier. */
+.k-bench:has(.k-wrap-x) > .k-bench-half{ min-width: 0 }

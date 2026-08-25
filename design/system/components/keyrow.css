@@ -1,0 +1,116 @@
+/* keyrow :: MOLECULE
+   READS. Ink: --text-secondary. Line: --rule-hair. Geometry: --font-mono,
+   --leading-tight, --size-xs, --size-sm, --space-1, --space-2, --space-3.
+   CONTAINS. key, and on the `--set` form an input.
+   PAGE. design/kit/keyrow.html   STANDS ON. 21 instances on 1 screen, node 0.5,
+   the keyboard map. 17 of the base form and 4 of `--set`.
+
+   A ROW YOU READ, INSIDE A LIST YOU CHOOSE FROM. It stands in `optlist`, which
+   is the same bordered stack the reject dialog uses, and it is NOT an `opt`.
+   That distinction is the whole reason this file exists rather than a variant
+   being added over there, and it is the same distinction stage 08 made when it
+   split `state` out of `chip`: an `opt` is a link with four states because
+   choosing a reason is something the analyst DOES, and every row here is inert
+   by the screen's own first sentence, "every key below is inert right now".
+   Seventeen unanswerable rows inside a component whose file says it is a link
+   would have flipped a fifth of that component's population into a lie.
+
+   SO `optlist` HAS TWO FILLINGS AND STILL IS NOT A PATTERN, and the reason is not
+   the count. `opt` carries a key, a label and where the reason goes; this carries
+   key or keys, a label with a sub line, and when the key is live. Two sets of zones
+   in one container is the anatomy rule of stage 08 one rung up. What makes a
+   PATTERN is narrower: a rule written inside one component that names another AND
+   is conditioned on the host's filling. There is no such rule here, because each
+   row declares its own box and the container declares only its border.
+
+   -- zones ---------------------------------------------------------------------
+   `keys` is a cell rather than a key. A row can print two arrows, a range written
+   `1 to 6`, or a modifier combination, so the cell wraps and holds its width:
+   ragged key cells down a column of twenty rows destroy the one thing the map is
+   for, which is finding a key by running your eye down the left.
+
+   `kwhere` names the control that TEACHES the key, and it is the map's real
+   argument: a shortcut nobody prints anywhere is a shortcut only this page knows
+   about. Four rows say `nowhere yet` in a `key--none`, and the legend counts them.
+
+   `kscope` says when the key is live, and it is not `routes`. `opt`'s right hand
+   cell means where this reason sends the case; here the same position means under
+   what condition the key fires. Same drawing, different claim, and the claim is
+   why the map is grouped by what a key does rather than by which key it is.
+   ---------------------------------------------------------------------------- */
+
+.keyrow{
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: var(--rule-hair);
+}
+.keyrow:last-child{ border-bottom: none }
+
+/* the key cell. Fixed so the column reads down, wrapping so a combination fits */
+.keyrow .keys{
+  flex: 0 0 7.375rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* A KEY KEEPS ITS OWN HEIGHT HERE. Without this the cell's default `stretch`
+     pulls every key box to the height of its line, so a key stood at 15px on this
+     screen and 13 on every button in the product. The grey stretched them too, and
+     a wireframe drawing something one way is not a decision. Found by the box
+     comparison against the stand at stage 12. */
+  align-items: baseline;
+  gap: var(--space-1);
+}
+/* the word between two keys in a range, `1 to 6`. Centred against the key boxes
+   rather than sitting on their baseline, because it is not one of them */
+.keyrow .keys .ksep{
+  align-self: center;
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+.keyrow .lbl{ flex: 1 1 auto; min-width: 0 }
+
+/* what prints this key, on its own line under the label */
+.keyrow .kwhere{
+  display: block;
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* when the key is live. Wider than `opt`'s cell and allowed to wrap, because a
+   condition is a clause and a destination is a noun */
+.keyrow .kscope{
+  margin-left: auto;
+  flex: 0 0 9.5rem;
+  text-align: right;
+  white-space: normal;
+  line-height: var(--leading-tight);
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+}
+
+/* -- form. One axis, two values -----------------------------------------------
+   `--set` is the other half of the map: not a key you press but a control that
+   decides whether the keys fire at all, off or behind a modifier. It drops the
+   key cell and the scope cell and grows a native `select`, which is the one
+   place in this product that has one.
+
+   CENTRED RATHER THAN ON THE BASELINE, and it is the only difference in the box:
+   a row whose right hand item is a control aligns to the control, while a row of
+   text aligns to the text. */
+.keyrow--set{
+  align-items: center;
+  font-size: var(--size-sm);
+}
+/* `input` is width:100%, which inside this flex row would take the whole of it */
+.keyrow--set .input{ flex: 0 0 auto; width: auto }
+
+/* -- NO STATES, AND IT IS NOT INTERACTIVE --------------------------------------
+   Nothing here is answerable. The one thing on the row that can be operated is
+   the `select` on the `--set` form, and that carries its own states as an input.
+   This is the difference from `opt` stated as code rather than as prose. */

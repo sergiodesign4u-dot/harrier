@@ -48,10 +48,10 @@
 <div class="screen">
 <div class="o-wrap">
 
-<p class="o-sub">Stage 07 &middot; UI + Visual</p>
+<p class="o-sub">Stage 07 &middot; UI + Visual, completed by stage 12 &middot; Rollout</p>
 <h1 class="o-h" style="margin-top:0">The product in colour</h1>
-<p class="o-lede">Every screen here is a <b>copy</b> of its grey wireframe that owns the visual layer and nothing else. Structure, text and the set of states stay the property of <code>wireframes/</code>, and the structural diff of every page is <b>exactly zero bytes</b>, asserted after each edit rather than believed.</p>
-<p class="o-lede">A screen is not painted. It is assembled from <a href="kit/kit.html">the kit</a>, and a detail that is missing goes into the kit first and onto a screen second.</p>
+<p class="o-lede">Every screen here is a <b>copy</b> of its grey wireframe that owns the visual layer and nothing else. Structure, text and the set of states stay the property of <code>wireframes/</code>, which has not changed by a character since stage 05.</p>
+<p class="o-lede">A screen is not painted. It is assembled from <a href="kit/why.html">the system</a>, and a detail that is missing goes into the system first and onto a screen second. <b>Not one of these 62 files contains a line of CSS of its own</b>: no <code>@media</code>, no <code>transition</code>, no <code>&lt;style&gt;</code> tag, no hex outside an inline icon, and no class the system does not declare. That is measured on every page by <a href="kit/checks.html"><code>screens.mjs</code></a> rather than asserted. <b>Two <code>style</code> attributes survive on two screens</b>, and the instrument reports them as declared exemptions rather than as zero, which is the difference between a thing nobody checked and a thing we decided to carry.</p>
 
 <div class="o-strip" id="tally"></div>
 
@@ -67,10 +67,21 @@
   <a href="concept/concept.html"><b>The visual language</b><span>Where the palette, the two families and the square corner came from, each value with its origin.</span></a>
 </div>
 
-<h2 class="o-h" id="known">What this stage has not done yet</h2>
-<p class="o-lede"><b>Nothing here reaches into the frozen folder any more.</b> Not a stylesheet, not a script. <code>design/_shell.js</code> renders the top bar and the strip, and it keeps the old function's name and signature because that call lives inside each page's own markup. All 51 pages were rendered at both viewports before and after: <b>102 of 102 renderings byte identical</b>.</p>
-<p class="o-lede"><b>Two compatibility aliases survive out of thirty, and the three files that need them are named.</b> Three pages carry an inline <code>style</code> attribute in the body using a stage 04 spacing name. A <code>&lt;style&gt;</code> block lives in the head and seven of those were hoisted into the kit; an attribute lives in the body, and rewriting one would end the zero diff for the sake of a spacing value.</p>
-<p class="o-lede"><b>Two images exist and are on no screen.</b> The door and the systemic mark are generated and graded to the palette, and the four screens allowed to carry them are not in colour yet.</p>
+<h2 class="o-h" id="rollout">The rollout, and what it found</h2>
+<p class="o-sub">Ten pages built by three batches of subagents, from a contract in a file</p>
+<p class="o-lede"><b>The last ten pages went in at stage 12, and the stage decided nothing.</b> It dressed what was already drawn in what was already built: three batches cut by flow, one contract passed verbatim, and every agent forbidden to write a line of appearance. What it produced instead of decisions is a list of things the documentation could not answer, and that list is the input to the handoff.</p>
+<div class="o-kit">
+  <a href="kit/docs/rollout.md"><b>The rollout journal</b><span>The estimate over all 62 pages with each one&rsquo;s IA node, the three batches, the canonical fixtures named once, the subagent contract in full, the journal of what the system had to gain, and the questions the agents had to ask.</span></a>
+  <a href="kit/checks.html"><b>Seventeen instruments</b><span>Three of them written here: whether a screen file is only markup, whether the coverage map and the disk agree in both directions, and the census of every control, taken for the first time over the whole product rather than the sample.</span></a>
+  <a href="kit/docs/backlog.md"><b>What is still open</b><span>Every row names who closes it. Three of them were opened by this stage and each is a rule refused rather than a thing forgotten.</span></a>
+</div>
+<p class="o-lede"><b>The most expensive defect of the stage was in the instrument, not in the work.</b> The canonical fixture table listed six log entries where the screen draws seven, and gave the fourth as a verdict by R. Idrissi at Meridian Health. That is word for word the one entry the product&rsquo;s central claim requires <b>not</b> to exist: the queue shows that case as decided and unrecorded, a verdict whose write did not land. The table existed to stop ten agents from drifting and would have handed the forbidden fixture to every one of them. It was caught by an agent doing what the contract tells it to do and the author of the table had not: hold the table against the screen.</p>
+
+<h2 class="o-h" id="known">What is still open</h2>
+<p class="o-lede"><b>Nothing here reaches into the frozen folder.</b> Not a stylesheet, not a script, and no link in the body of any screen. <code>design/_shell.js</code> renders the top bar and the strip, and it keeps the old function&rsquo;s name and signature because that call lives inside each page&rsquo;s own markup.</p>
+<p class="o-lede"><b>Two inline <code>style</code> attributes survive on two screens</b>, with two compatibility tokens in <code>tokens.css</code> that exist only to keep them resolving. Each is a one instance value, and a variant on one instance breaks the rule that one use is not a role. They are declared exemptions in the instrument that would otherwise report them, which is how this project carries a thing it has decided not to fix.</p>
+<p class="o-lede"><b>Neither webfont is loaded</b>, so <code>Archivo</code> and <code>IBM Plex Mono</code> resolve from the reader&rsquo;s own machine and fall back everywhere else. The token is correct and what is missing is a link in the document, which is a build decision and a new external dependency. It is the one item on the backlog whose answer costs money.</p>
+<p class="o-lede"><b>Six nodes have no wireframe and are not here</b>, and they were never in this stage&rsquo;s scope: the two client summary screens, the three autonomy screens and permission denied. A rollout dresses what exists, and drawing a wireframe for them would mean unfreezing a folder that has been frozen since stage 05.</p>
 
 </div>
 </div>
@@ -78,9 +89,10 @@
 <script>
   window.DESIGN_NAV_BASE = '';
   window.NAV_SECTIONS = [
-    { id:'map',   label:'Coverage' },
-    { id:'kit',   label:'Kit and tokens' },
-    { id:'known', label:'Not done yet' },
+    { id:'map',     label:'Coverage' },
+    { id:'kit',     label:'Kit and tokens' },
+    { id:'rollout', label:'The rollout' },
+    { id:'known',   label:'Still open' },
   ];
 </script>
 <script src="_nav.js"></script>
@@ -99,8 +111,13 @@
       if (s.total) { drawn++; if (s.colour===s.total) whole++; } });
     tally.innerHTML =
       '<div><p class="k">In colour</p><p class="n">'+col+'</p><p class="w">pages, and '+whole+' of the '+drawn+' drawn screens complete with every state</p></div>'+
-      '<div><p class="k">Still grey</p><p class="n">'+(tot-col)+'</p><p class="w">pages, waiting for the rollout, which is its own stage</p></div>'+
-      '<div><p class="k">Structural diff</p><p class="n">0</p><p class="w">bytes, on every coloured page, asserted after each edit</p></div>'+
+      /* the third cell was "still grey, waiting for the rollout" until stage 12 and
+         the rollout closed it. It reports the same number and it has to say what the
+         number now means: zero left is the answer to a different question from zero
+         so far. The fourth is the promise this stage carries instead of the pixel
+         diff, which the rollout has no baseline for: these pages never existed. */
+      '<div><p class="k">Still grey</p><p class="n">'+(tot-col)+'</p><p class="w">pages. The rollout closed the last ten at stage 12</p></div>'+
+      '<div><p class="k">CSS in a screen file</p><p class="n">0</p><p class="w">lines, on all 62. Measured by screens.mjs, not asserted</p></div>'+
       '<div><p class="k">Stylesheets</p><p class="n">1</p><p class="w"><code>system/index.css</code>, and nothing else is linked</p></div>';
   }
 

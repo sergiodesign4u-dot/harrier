@@ -50,7 +50,7 @@
 @import url("components/label.css");
 @import url("components/arriving.css");
 
-/* ---- MOLECULES. Atoms in a fixed arrangement. 34 -------------------------
+/* ---- MOLECULES. Atoms in a fixed arrangement. 36 -------------------------
    Four subgroups, agreed before the build. Order inside the level is the row
    family, then the slots, then the furniture of a zone, then notices and input. */
 
@@ -60,6 +60,10 @@
 @import url("components/sev.css");
 @import url("components/frow.css");
 @import url("components/opt.css");
+/* added at stage 12 with node 0.5. It stands in `optlist` beside `opt` and is not
+   one: an `opt` is a link with four states and every row of the keyboard map is
+   inert. Placed here rather than at the foot of the file, which is the rule. */
+@import url("components/keyrow.css");
 @import url("components/rota.css");
 
 /* slots: a heading and a free space. No variant matrix, and their pages say so */
@@ -82,6 +86,10 @@
 @import url("components/banner.css");
 @import url("components/toast.css");
 @import url("components/outage.css");
+/* node 8.1, added at stage 12. The same shape as `outage` one screen along: the
+   fourth systemic state, and the first the census could not see, because its only
+   rendering was grey. */
+@import url("components/miss.css");
 @import url("components/field.css");
 @import url("components/expand.css");
 @import url("components/doorcard.css");

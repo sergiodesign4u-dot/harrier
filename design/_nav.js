@@ -49,25 +49,36 @@ window.DESIGN_NAV = {
         {slug:"other", label:"None of the six fits", colour:true},
         {slug:"write-failed", label:"Did not write, 4.9", colour:true},
       ]},
-    { screen:"escalate", node:"4.6", label:"Escalate", cluster:"4", scope:"MVP", grey:true, colour:1, total:4,
+    { screen:"escalate", node:"4.6", label:"Escalate", cluster:"4", scope:"MVP", grey:true, colour:4, total:4,
       states:[
         /* THE SELF SUFFICIENCY TEST OF STAGE 09, and the only screen in this registry
            built after the system rather than before it. It is here rather than in a
            folder of examples because a screen assembled from the system is a screen
            of the PRODUCT: stages 10 and 11 adapt and animate it with the rest, and 13
-           hands it over. What it found is four rows in design/kit/docs/backlog.md. */
+           hands it over. What it found is four rows in design/kit/docs/backlog.md.
+           ITS THREE STATES ARE BATCH 1 OF STAGE 12, and the batch was the contract
+           gate rather than a drawing: three states of a screen whose fourth was
+           already accepted is the one shape in which a defect of the CONTRACT is
+           separable from a defect of a screen. Three came back in the report. */
         {slug:"", label:"Default", colour:true},
-        {slug:"from-expired", label:"Opened from 4.7", colour:false},
-        {slug:"no-recipient", label:"Nobody on the rota", colour:false},
-        {slug:"write-failed", label:"Did not write, 4.9", colour:false},
+        {slug:"from-expired", label:"Opened from 4.7", colour:true},
+        {slug:"no-recipient", label:"Nobody on the rota", colour:true},
+        {slug:"write-failed", label:"Did not write, 4.9", colour:true},
       ]},
-    { screen:"log", node:"5.1", label:"Decision log", cluster:"5", scope:"MVP", grey:true, colour:0, total:5,
+    { screen:"log", node:"5.1", label:"Decision log", cluster:"5", scope:"MVP", grey:true, colour:5, total:5,
       states:[
-        {slug:"", label:"Default", colour:false},
-        {slug:"narrowing", label:"Narrowing, 5.2", colour:false},
-        {slug:"not-found", label:"Not findable, 5.3", colour:false},
-        {slug:"selected", label:"Entry selected", colour:false},
-        {slug:"snapshot-gone", label:"Snapshot gone, 5.5", colour:false},
+        /* BATCH 2 OF STAGE 12, the whole of a node in one hand. The five share a row
+           grammar, a scope bar and one set of seven log fixtures, and split between
+           two agents they would have disagreed about the timestamps. What the batch
+           found is in design/kit/docs/rollout.md: two stale component headers, a
+           motion index that had counted the sample, and the canonical data table's
+           own fourth entry, which was word for word the one log entry the product's
+           central claim requires NOT to exist. */
+        {slug:"", label:"Default", colour:true},
+        {slug:"narrowing", label:"Narrowing, 5.2", colour:true},
+        {slug:"not-found", label:"Not findable, 5.3", colour:true},
+        {slug:"selected", label:"Entry selected", colour:true},
+        {slug:"snapshot-gone", label:"Snapshot gone, 5.5", colour:true},
       ]},
     { screen:"entry", node:"5.4", label:"Log entry, ?as-of", cluster:"5", scope:"MVP", grey:true, colour:5, total:5,
       states:[
@@ -106,9 +117,15 @@ window.DESIGN_NAV = {
         {slug:"signed-out", label:"Signed out deliberately", colour:true},
         {slug:"idp-error", label:"Identity provider failed", colour:true},
       ]},
-    { screen:"not-found", node:"8.1", label:"Not found", cluster:"8", scope:"MVP", grey:true, colour:0, total:1,
+    { screen:"not-found", node:"8.1", label:"Not found", cluster:"8", scope:"MVP", grey:true, colour:1, total:1,
       states:[
-        {slug:"", label:"Default", colour:false},
+        /* BATCH 3 OF STAGE 12, with the keyboard map, and the batch that stopped.
+           Between them they carried fifteen classes the system did not declare, and
+           the agent built nothing until the parent had entered them. What came out
+           of it is two molecules and two variants: most of the fifteen were one
+           thing written twice. `miss` is this node, and it is the only consumer of
+           --measure outside base.css and the only container query in the system. */
+        {slug:"", label:"Default", colour:true},
       ]},
     { screen:"unavailable", node:"8.2", label:"Service unavailable", cluster:"8", scope:"MVP", grey:true, colour:3, total:3,
       states:[
@@ -116,9 +133,13 @@ window.DESIGN_NAV = {
         {slug:"planned", label:"Planned maintenance", colour:true},
         {slug:"partial", label:"Part of it is down", colour:true},
       ]},
-    { screen:"keyboard", node:"0.5", label:"Keyboard map", cluster:"0", scope:"MVP", grey:true, colour:0, total:1,
+    { screen:"keyboard", node:"0.5", label:"Keyboard map", cluster:"0", scope:"MVP", grey:true, colour:1, total:1,
       states:[
-        {slug:"", label:"Open over a screen", colour:false},
+        /* AND THE `?` IN THE TOP BAR HAS A DESTINATION AT LAST. design/_shell.js
+           has printed that link on every coloured screen since stage 07, and until
+           this page existed it was a dead link product wide rather than an absent
+           page. The rollout closes it by building what the link already pointed at. */
+        {slug:"", label:"Open over a screen", colour:true},
       ]},
     { screen:"client-summary", node:"6.1", label:"Client summary draft", cluster:"6", scope:"LATER", grey:false, colour:0, total:0,
       states:[

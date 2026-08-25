@@ -4,6 +4,12 @@ Stage 05, step 1. This is the inventory, not the rewrite: nothing here has been 
 
 By the end of this stage this file is the source of truth for interface text. Stage 07 builds its kit showcase from it, stage 08 sets type on real strings from it, stage 12 takes each screen's text from it rather than writing it on the spot, and stage 13 hands it to a developer so nobody has to ask in a chat what a button says.
 
+> **Read this before looking a string up here, and it was written at stage 12 after three batches of agents met it.** The sentence above is the intention and it is not how this file is shaped. **Sections 3 and 4 are the inventory as it stood BEFORE stage 05**, exactly as the title says, and everything this stage then RULED is held as a delta in section 8, table by table. So a string looked up by key in the big tables gives you **the wording that was replaced**, not the wording that shipped.
+>
+> **The applied text is in `wireframes/`**, which is the output of stage 05 and has not moved since. Two examples of the shape, both from section 8's ruling table: `Back to the queue` became `Open the queue` on ten screens, and a sentence arguing for the design was cut out of the log's narrow banner on seven. The inventory rows still carry the first version of each.
+>
+> **Take the frozen screen. Use this file to check that a string exists and to read section 8 for why it reads the way it does.** Stage 12's first batch found six disagreements across three screens and was right to follow the screen on all six; the second and third found more, in the same direction, every time. The wrong answer here is invisible, because a screen carrying pre stage 05 wording looks perfectly well written.
+
 ---
 
 ## 1. What was read, and the count

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Key row</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Molecule</p>
+<h1 class="k-title">Key row</h1>
+<p class="k-lede">A row you read, inside a list you choose from. 21 instances on 1 screen, node 0.5, the keyboard map: 17 of the base form and 4 of <code>--set</code>.</p>
+<p class="k-note"><b>It stands in <code>optlist</code> and it is not an <code>opt</code>.</b> That distinction is why this file exists rather than a variant being added over there, and it is the same one stage 08 made when it split <code>state</code> out of <code>chip</code>: an <code>opt</code> is a link with four states because choosing a reason is something the analyst <b>does</b>, and every row here is inert by the screen&rsquo;s own first sentence, &ldquo;every key below is inert right now&rdquo;. Seventeen unanswerable rows inside a component whose file says it is a link would have flipped a fifth of that component&rsquo;s population into a lie.</p>
+<p class="k-note"><b>So <code>optlist</code> has two fillings and still is not a pattern.</b> One container, two sets of zones. That is the anatomy rule of stage 08 one rung up, which is what stage 09 calls a pattern, and it stops short of being one on the threshold stage 09 set: a pattern needs <b>three screens</b> and both fillings stand on two.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row k-wrap-x">
+      <div class="optlist" style="width:100%;max-width:560px">
+        <div class="keyrow"><span class="keys"><span class="key">&uarr;</span><span class="key">&darr;</span></span><span class="lbl">Move the selection. The pane follows, so reading costs nothing.<span class="kwhere">shown on: the list foot in the queue</span></span><span class="kscope">the list has focus</span></div>
+        <div class="keyrow"><span class="keys"><span class="key">1</span><span class="ksep">to</span><span class="key">6</span></span><span class="lbl">Pick what Clerk got wrong. One selection, one key.<span class="kwhere">shown on: each reason row in the reject dialog</span></span><span class="kscope">the reject dialog has focus and no text field does</span></div>
+        <div class="keyrow"><span class="keys"><span class="key key--none">none</span></span><span class="lbl">Each of the three has a destination and no key bound to it.<span class="kwhere">shown on: <span class="key key--none">nowhere yet</span></span></span><span class="kscope">always, and it is a pointer</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row k-wrap-x">
+      <div class="optlist" style="width:100%;max-width:560px">
+        <div class="keyrow"><span class="keys"><span class="key">&uarr;</span><span class="key">&darr;</span></span><span class="lbl">Move the selection. The pane follows, so reading costs nothing.<span class="kwhere">shown on: the list foot in the queue</span></span><span class="kscope">the list has focus</span></div>
+        <div class="keyrow"><span class="keys"><span class="key">1</span><span class="ksep">to</span><span class="key">6</span></span><span class="lbl">Pick what Clerk got wrong. One selection, one key.<span class="kwhere">shown on: each reason row in the reject dialog</span></span><span class="kscope">the reject dialog has focus and no text field does</span></div>
+        <div class="keyrow"><span class="keys"><span class="key key--none">none</span></span><span class="lbl">Each of the three has a destination and no key bound to it.<span class="kwhere">shown on: <span class="key key--none">nowhere yet</span></span></span><span class="kscope">always, and it is a pointer</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="k-parts">
+  <li><code>.keyrow</code><span>one row, inside the shared list border. Hairline under it, none under the last</span></li>
+  <li><code>.keys</code><span><b>a cell rather than a key.</b> A row can print two arrows, a range written <code>1 to 6</code>, or a modifier combination, so the cell wraps and holds its width. Ragged key cells down a column of twenty rows destroy the one thing the map is for, which is finding a key by running your eye down the left</span></li>
+  <li><code>.ksep</code><span>the word between two keys in a range. Centred against the boxes rather than sitting on their baseline, because it is not one of them</span></li>
+  <li><code>.lbl</code><span>what the key does. The same zone name <code>opt</code> uses, and the same declaration</span></li>
+  <li><code>.kwhere</code><span><b>the map&rsquo;s real argument.</b> It names the control that <b>teaches</b> the key, because a shortcut nobody prints anywhere is a shortcut only this page knows about. Four rows read <code>nowhere yet</code>, and the legend counts them out loud</span></li>
+  <li><code>.kscope</code><span>when the key is live. Wider than <code>opt</code>&rsquo;s right hand cell and allowed to wrap, because a condition is a clause and a destination is a noun</span></li>
+</ul>
+<p class="k-note"><b>Behaviour on width.</b> None, and the screen is the reason: node 0.5 hangs its dialog in a <code>scrim--desk-only</code>, so at 360 the map is not rendered at all and the page says so in a line of its own. A component that never meets the narrow width has nothing to say about it.</p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><b>form</b></td><td>base</td><td>17</td><td>a key and what it does. Reference, and the row is answerable by nothing</td></tr>
+    <tr><td><code>--set</code></td><td>4</td><td><b>the other half of the map:</b> not a key you press but the control that decides whether the keys fire at all, off or behind a modifier. It drops the key cell and the scope cell and grows a native <code>select</code>. Centred rather than on the baseline, and that is the only difference in the box: a row whose right hand item is a control aligns to the control</td></tr>
+    <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> No row on this map is more important than another. It is grouped by what a key does, and inside a group the order is the order you would learn them in</td></tr>
+  </tbody>
+</table>
+</div>
+<h3 class="k-h2"><code>--set</code>, and it is where the product&rsquo;s only <code>select</code> lives</h3>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row k-wrap-x">
+      <div class="optlist" style="width:100%;max-width:560px">
+        <div class="keyrow keyrow--set"><span class="lbl"><b>Every single character shortcut</b><span class="kwhere">a &nbsp; m &nbsp; r &nbsp; e &nbsp; 1 to 6 &nbsp; ?</span></span><select class="input" aria-label="Every single character shortcut"><option>On, the letter alone</option><option>On, but it needs Ctrl</option><option>Off</option></select></div>
+        <div class="keyrow keyrow--set"><span class="lbl">This map<span class="kwhere">?</span></span><select class="input" aria-label="Keyboard map shortcut"><option>On, the letter alone</option><option>On, but it needs Ctrl</option><option>Off</option></select></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row k-wrap-x">
+      <div class="optlist" style="width:100%;max-width:560px">
+        <div class="keyrow keyrow--set"><span class="lbl"><b>Every single character shortcut</b><span class="kwhere">a &nbsp; m &nbsp; r &nbsp; e &nbsp; 1 to 6 &nbsp; ?</span></span><select class="input" aria-label="Every single character shortcut"><option>On, the letter alone</option><option>On, but it needs Ctrl</option><option>Off</option></select></div>
+        <div class="keyrow keyrow--set"><span class="lbl">This map<span class="kwhere">?</span></span><select class="input" aria-label="Keyboard map shortcut"><option>On, the letter alone</option><option>On, but it needs Ctrl</option><option>Off</option></select></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Whole set and per group, never per key.</b> A keymap bent one key at a time is a support burden across the whole console. The <code>select</code> keeps the <b>native</b> control rather than being drawn, because a drawn select has to reimplement the popup, the keyboard and the screen reader, and gets one of the three right. Until stage 12 it was the one value of <code>input</code>&rsquo;s axis with no coloured rendering anywhere.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<p class="k-note">On the keyboard map, and nowhere else so far. It is the row shape for a list of things the analyst <b>reads</b> that sit inside the same bordered stack as things she chooses. If a second screen ever lists facts in that stack, this is the row.</p>
+<p class="k-note"><b>Where she meets it.</b> Twice: in the first week, learning the console, and again months later to check one key she half remembers. Both readings are scans down the left hand column, which is what fixes the key cell&rsquo;s width.</p>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<div class="k-vs">
+  <div class="k-do">
+    <h4>Do</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="optlist"><div class="keyrow"><span class="keys"><span class="key">a</span></span><span class="lbl">Accept Clerk&rsquo;s verdict as filed.<span class="kwhere">shown on: the Accept control in the pane</span></span><span class="kscope">a case is in the pane</span></div></div></div>
+    <p>Every row says <b>when the key is live</b>, because a key that fires while you are typing a rejection reason is a trap rather than a shortcut.</p>
+  </div>
+  <div class="k-dont">
+    <h4>Do not</h4>
+    <div class="k-cell" style="display:block;width:100%"><div class="optlist"><a class="opt" href="#rules"><span class="key">a</span><span class="lbl">Accept Clerk&rsquo;s verdict as filed.</span><span class="routes">a case is in the pane</span></a></div></div>
+    <p>Never an <code>opt</code>. It lights under the pointer and takes a focus ring, which promises that pressing it does something. Nothing on this map is answerable, and the map says so in its first line.</p>
+  </div>
+</div>
+<h3 class="k-h2">Limits</h3>
+<ul class="k-parts">
+  <li><code>R1</code><span>the map is a layer, and it carries one main action: <b>Close</b>. Nothing on it rules on a case, and the footer says so</span></li>
+  <li><code>optlist</code><span>a list holds one filling or the other, never both in the same border. The map opens a new <code>optlist</code> for each group of keys and one more for the control at the foot</span></li>
+</ul>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>It has none, and that is the component.</b> Point at any row and nothing happens. The one thing that can be operated is the <code>select</code> on the <code>--set</code> form, and that carries its own states as an <code>input</code>.</p>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row k-wrap-x">
+      <div class="optlist" style="width:100%;max-width:560px">
+        <div class="keyrow"><span class="keys"><span class="key">&uarr;</span><span class="key">&darr;</span></span><span class="lbl">Move the selection. The pane follows, so reading costs nothing.<span class="kwhere">shown on: the list foot in the queue</span></span><span class="kscope">the list has focus</span></div>
+        <div class="keyrow"><span class="keys"><span class="key">1</span><span class="ksep">to</span><span class="key">6</span></span><span class="lbl">Pick what Clerk got wrong. One selection, one key.<span class="kwhere">shown on: each reason row in the reject dialog</span></span><span class="kscope">the reject dialog has focus and no text field does</span></div>
+        <div class="keyrow"><span class="keys"><span class="key key--none">none</span></span><span class="lbl">Each of the three has a destination and no key bound to it.<span class="kwhere">shown on: <span class="key key--none">nowhere yet</span></span></span><span class="kscope">always, and it is a pointer</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row k-wrap-x">
+      <div class="optlist" style="width:100%;max-width:560px">
+        <div class="keyrow"><span class="keys"><span class="key">&uarr;</span><span class="key">&darr;</span></span><span class="lbl">Move the selection. The pane follows, so reading costs nothing.<span class="kwhere">shown on: the list foot in the queue</span></span><span class="kscope">the list has focus</span></div>
+        <div class="keyrow"><span class="keys"><span class="key">1</span><span class="ksep">to</span><span class="key">6</span></span><span class="lbl">Pick what Clerk got wrong. One selection, one key.<span class="kwhere">shown on: each reason row in the reject dialog</span></span><span class="kscope">the reject dialog has focus and no text field does</span></div>
+        <div class="keyrow"><span class="keys"><span class="key key--none">none</span></span><span class="lbl">Each of the three has a destination and no key bound to it.<span class="kwhere">shown on: <span class="key key--none">nowhere yet</span></span></span><span class="kscope">always, and it is a pointer</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>The dashed key is a variant of the atom, not a state of the row.</b> <code>key--none</code> means nothing is bound here <b>and the absence is a decision</b>, which is a different claim from a row that left the cell empty. It also absorbed a second one-off: the grey map declared the dashed key in the key cell and the same drawing again for the inline <code>nowhere yet</code> marker, in two rules that compute to one thing. <b>Two of that screen&rsquo;s eleven one-off classes were one variant of an atom that already existed.</b></p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Role</th><th>Surface</th><th>Where on the component</th><th>Dark</th><th>Light</th></tr></thead>
+  <tbody>
+    <tr><td><code>--text-secondary</code></td><td>ink 4.5:1</td><td><code>ksep</code>, <code>kwhere</code>, <code>kscope</code>, and the dashed key</td><td><span data-tok="--text-secondary" data-theme-read="dark"></span></td><td><span data-tok="--text-secondary" data-theme-read="light"></span></td></tr>
+    <tr><td><code>--line-separator</code></td><td>line, exempt</td><td>the hairline under every row but the last</td><td><span data-tok="--line-separator" data-theme-read="dark"></span></td><td><span data-tok="--line-separator" data-theme-read="light"></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>Two roles, and the row paints nothing else.</b> The label takes the ink of whatever holds it, the key is its own atom drawing its boundary from <code>currentColor</code>, and the border of the list belongs to <code>optlist</code>.</p>
+<h3 class="k-h2">Copy this</h3>
+<div class="k-code">&lt;div class="optlist"&gt;
+  &lt;div class="keyrow"&gt;
+    &lt;span class="keys"&gt;&lt;span class="key"&gt;1&lt;/span&gt;&lt;span class="ksep"&gt;to&lt;/span&gt;&lt;span class="key"&gt;6&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="lbl"&gt;Pick what Clerk got wrong.&lt;span class="kwhere"&gt;shown on: each reason row&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="kscope"&gt;the reject dialog has focus&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="keyrow keyrow--set"&gt;
+    &lt;span class="lbl"&gt;This map&lt;span class="kwhere"&gt;?&lt;/span&gt;&lt;/span&gt;
+    &lt;select class="input"&gt;&lt;option&gt;On, the letter alone&lt;/option&gt;&lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+<h3 class="k-h2">Where it stands</h3>
+<div class="k-where">
+  <a href="../keyboard.html">the keyboard map &middot; 21</a></div>
+</main>
+</div>
+<script>
+/* THE READOUT IS COMPUTED, NEVER TRANSCRIBED. Two probes, each forcing its own theme, and
+   every cell asks the browser what the token resolves to in that probe. Same instrument as
+   the contrast table on colour.html, and the reason a changed token changes this page by
+   itself instead of leaving it behind. */
+(function () {
+  var probe = {};
+  ['dark','light'].forEach(function (t) {
+    var el = document.createElement('span');
+    el.setAttribute('data-theme', t);
+    el.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden';
+    document.body.appendChild(el);
+    probe[t] = el;
+  });
+  document.querySelectorAll('[data-tok]').forEach(function (cell) {
+    var tok = cell.getAttribute('data-tok');
+    var val = getComputedStyle(probe[cell.getAttribute('data-theme-read')]).getPropertyValue(tok).trim();
+    var wrap = document.createElement('span');
+    wrap.className = 'k-val';
+    if (/^[.\d]/.test(val)) wrap.innerHTML = '<code>' + val + '</code>';
+    else wrap.innerHTML = '<i style="background:' + val + '"></i><code>' + val + '</code>';
+    cell.appendChild(wrap);
+  });
+})();
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

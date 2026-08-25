@@ -80,10 +80,22 @@
 
 */
 
-/* the standalone route's own button pair: at the desk the dialog owns the
-   primary, at 360 the pane's exit does. Written on the split because the split is
-   what knows there is nothing beside the pane. */
-.z45:has(> .case-pane.is-standalone) .pane-foot .btn.only-desk{ display: inline-flex }
+/* THE PANE'S BUTTON PAIR, AND IT IS NO LONGER ONLY THE STANDALONE ROUTE'S. At the
+   desk the dialog owns the primary and at 360 the pane's exit does, and the rule is
+   written on the split because the split is what knows there is nothing beside the
+   pane.
+
+   WHAT IT IS ACTUALLY REPAIRING, and stage 12 is where that got said out loud:
+   `.only-desk` declares `display: block`, which is a place utility deciding a
+   component's display. On a `btn`, whose own value is `inline-flex`, that turns the
+   label and the key from flex items into inline text, and the key's box goes from
+   13px to 15. It was written for the standalone route because that was the only
+   filling wearing the twins, and stage 12 put them on the paired pane too: four
+   verdict controls that are a desk decision, with escalate as the narrow twin,
+   because `CLAUDE.md` gives the phone one scenario and it is read and escalate.
+   The selector drops `.is-standalone` and covers both fillings, which is what a
+   pattern is for. */
+.z45:has(> .case-pane) .pane-foot .btn.only-desk{ display: inline-flex }
 
 
 @media (max-width:1279.98px){
@@ -101,7 +113,10 @@
   /* the reason column of the latitude ladder goes: at 360 the answer is the
      column and the explanation is a line the analyst does not have room for */
   .case-pane.is-standalone .lat .off .why{ display: none }
-  .z45:has(> .case-pane.is-standalone) .pane-foot .btn.only-desk{ display: none }
+  /* and the same selector has to turn it off again, because it outranks the
+     utility that would otherwise do it. A rule that repairs a display has to
+     carry the whole axis or it repairs it at one width and breaks it at the other. */
+  .z45:has(> .case-pane) .pane-foot .btn.only-desk{ display: none }
   .z45:has(> .case-pane.is-standalone) .pane-foot .btn.only-narrow{
     display: flex; width: 100%; justify-content: space-between;
   }

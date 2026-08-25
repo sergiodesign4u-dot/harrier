@@ -33,7 +33,15 @@
   border-bottom: var(--rule-edge);
 }
 
-.pane-head h2{
+/* -- THE TITLE, AT WHICHEVER LEVEL THE SCREEN GIVES IT ------------------------
+   `:is(h1,h2)` rather than `h2`, decided at stage 12. The paired pane was written
+   as an h2 on the reading that the queue beside it is the page. Rule R11 measured
+   the consequence: at 360 a case screen does not render the list, the readout goes
+   with it, and SEVENTEEN screens had no h1 at all. The level now follows what the
+   URL is about, which is settled in `architecture.md` under R11 and reconciles
+   node 4.1's own specification with what the screens draw. The DRAWING does not
+   change: one declaration serves both levels, so promoting the tag moves no pixel. */
+.pane-head :is(h1, h2){
   margin: 0;
   font: 600 var(--size-lg)/var(--leading-tight) var(--font-sans);
   color: var(--text-primary);

@@ -1,7 +1,7 @@
 # Harrier
 
 Project boundary: languages 1 (English); brand or existing design system none; screens approx 9.
-Scope decision: built as a portfolio case for a Design Lead home assignment. The track was declared 01 to 07 and stopping after UI + Visual; it did not stop. **Stage 08 shipped `design/system/`, a two level token package and 73 component files that every screen now links**, and the track continues to handoff. What made the extension worth it is in `docs/decisions.md` under 2026-08-24: the kit was not a sketch, and the sample was not five screens but 51. Full colour goes to **Case Queue with Case File in the detail pane**, which is one working screen in two states, plus Case File as a standalone route for a permalink and for mobile. The rest of the IA stays as wireframes.
+Scope decision: built as a portfolio case for a Design Lead home assignment. The track was declared 01 to 07 and stopping after UI + Visual; it did not stop. **Stage 08 shipped `design/system/`, a two level token package and 73 component files that every screen now links, and stage 12 made it 75**, and the track continues to handoff. What made the extension worth it is in `docs/decisions.md` under 2026-08-24: the kit was not a sketch, and the sample was not five screens but 51. **Stage 12 closed the last ten, so the whole product is in colour: 62 pages across 13 screens, and the sample and the corpus are now the same thing.** The six nodes that never had a wireframe are named as work outside the rollout rather than quietly dropped.
 
 ## Product overview
 

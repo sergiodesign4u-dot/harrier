@@ -17,10 +17,19 @@
    -- list. THE LOG'S WIDTHS MOVED TO THE ROW AND THIS CONTAINER HAS NO HALF ------
    `.rows--log` used to set `--row-tracks` on the container and the row read it.
    The row reads `--row-tracks-log` directly now, so this file declares nothing for
-   the log and an earlier draft claimed it did. **`.rows--log` therefore survives on
-   two screens as a name doing no work**, and it goes to list three of the
-   reconciliation rather than being quietly deleted: it is a hook a rollout may
-   still want, and deciding that is not this file's job. */
+   the log and an earlier draft claimed it did. **`.rows--log` therefore survives as
+   a name doing no work**, and it goes to list three of the reconciliation rather
+   than being quietly deleted: it is a hook a rollout may still want, and deciding
+   that is not this file's job.
+
+   IT SAID TWO SCREENS AND IT IS SEVEN, which is the count moving under a sentence
+   rather than the sentence being wrong: the two were `case-history` and its
+   superseded state, the only log shaped screens in colour at stage 08, and the
+   rollout added the five of node 5.1. The reading does not change and the number
+   did, which is what a count written inside prose does every time the sample
+   grows. The rollout is the deciding stage the paragraph was waiting for, and it
+   KEPT the hook: seven screens wearing a name that paints nothing is a cheaper
+   thing to carry than a rename across seven screens to remove it. */
 
 .rows{
   flex: 1 1 auto;

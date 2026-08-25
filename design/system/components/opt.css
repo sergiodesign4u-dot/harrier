@@ -5,8 +5,11 @@
    CONTAINS. key.
 
    PAGE. design/kit/opt.html
-   STANDS ON. 62 instances across 8 screens: the reject dialog's reason list 60,
-   and the second axis 2.
+   STANDS ON. 45 instances across 7 screens in the finished product, 44 of them
+   anchors and one a label. It read 62 across 8 until stage 12, and the 17 that
+   left are the keyboard map's rows, which became `keyrow` on the argument that an
+   `opt` you cannot answer is a lie. Having taken them out, the count had to move: the reject dialog's reason list 42,
+   the second axis 2, and the escalate dialog's fallback recipient 1.
 
    DESIGN PRINCIPLE 3 IS PAID FOR HERE. The override is one key and it teaches,
    and rejecting Clerk costs four taps against accept's two. This component is

@@ -175,6 +175,50 @@ Every row above was ruled on. Three were withdrawn on verification, which is the
 
 ---
 
-## Measurement after the system (step 6)
+## Measurement after the system, taken at stage 12
 
-Reserved. The same walk, the same two widths, the same instrument, run again once the system is in place. Every row of section 5 has to come back closed, and the closing is what the second measurement proves rather than asserts.
+**This section said "Reserved" for four stages**, and the honest reading of that is not that the measurement was skipped: it is that the walk was a script written from scratch each time somebody remembered to run it, so there was nothing to point the section at. **It is an instrument now**, `design/kit/checks/census.mjs`, and it runs on either corpus with the same criterion, the same two widths and the same snapshot-first rule this file opens with.
+
+**And it is the first measurement taken on the whole product.** Stage 08 ran the walk twice and both times over the 52 coloured screens, which was the sample. The rollout made the corpus and the sample the same thing.
+
+| | Stage 08, the sample | Stage 12, the product |
+|---|---|---|
+| Pages | 52 | **62** |
+| Renderings | 104 | **124** |
+| Nodes matching the criterion | 3784 | **5106** |
+| Visible | 3394 | **4479** |
+| **Of those, product** | 1308 | **1555** (1064 at 1440, 491 at 360) |
+| Documentation chrome, excluded | 2086 | **2924** |
+| Distinct classes worn by a control | | **28** |
+
+**The first version of this table was printed before the last edits landed and did not reproduce.** It read 5098, 4546 and 1622 against a re-run of 5106, 4479 and 1555, and the difference is the corrections the critique produced: three heading tags, four verdict controls that stopped rendering at 360, and the keyboard trigger dropped below the point. **A table this section calls a measurement has to be re-run after the last edit or it is a transcription**, which is the defect this whole file is about, made inside the file that names it.
+
+### 1. A control with no form: empty, and the second corpus is what makes that sayable
+
+This is the list that cannot be produced from the coloured corpus alone, because it asks about something that is **not** in colour. It was five rows at stage 08 and it is zero now, and the closing is a fact about files rather than a claim:
+
+| Form | Where it had no rendering | Where it stands now |
+|---|---|---|
+| `select` | nowhere in colour, the only form primitive with none | **`keyboard`**, four of them, as `<select class="input">`. `input.css` names it as the one value of its axis that had never been drawn |
+| `block--rcpt` | the four escalate screens, all grey | **dropped rather than declared.** Stage 08 ruled it takes its form from `block` and stage 09 executed that by removing the modifier: the recipient is a plain `block` and is first in source order anyway |
+| `z5--paper` | three log screens, grey | **`is-paper`**, which is what it collapsed into at stage 08. It stands on three log screens and on `keyboard` |
+| `z4--solo` | `not-found`, grey | **`not-found`**, in colour, holding `miss` |
+| `dialog--map` | `keyboard`, grey | **`keyboard`**, in colour, with `--width-dialog-wide` |
+
+### 2. One job, several forms: 16 rows, and every one of them is a ruling working
+
+Collapsed by text at 1440, with viewport twins and `is-` states folded out of the key. **Folding the states out is what makes the list readable**: the first run of the instrument reported 18 rows and nine of them were a row that was selected sitting beside a row that was not.
+
+| The shape | What it is |
+|---|---|
+| `a.chip` beside `button.chip` on the same label, 29 buttons and 3 links for `All tenants`, and 4 to 2 on the log's two ghost chips | **The stage 08 ruling, working per screen state.** A chip that filters is a `<button>` and a chip that navigates is an `<a>`, and which one each is comes from where it goes. On `log` and `log-selected` the chip opens the narrowing screen and is a link; on `log-narrowing` and `log-snapshot-gone` the narrowing has already happened, so every chip in the bar is a filter to remove |
+| `a.row` beside `a.row.row--log`, five rows of the table | The queue row and the log row, which is one component with two track sets. It reads as a divergence only because the fixtures are the same case in both lists, which is the canon working |
+| `a.rail-out`, `a.btn`, `a.btn--quiet` and `a.link` all reading `Open the log` | **Four jobs, not four forms.** The rail's own exit, a button in a foot, a quiet button in a dialog, and an inline link inside a sentence. Row 9 of section 5 ruled this at stage 08 and the rollout added the fourth |
+| `Escalate e` as `btn` 11 times and `btn--primary` twice | Ruled at stage 08 and still deliberate: escalation is the main action where it is the only exit, and an ordinary one everywhere else. **The rollout added the narrow twin**, which is the same decision at a second width |
+| `Try again` in three forms | Withdrawn at stage 08 on verification, and it stays withdrawn: the `<button>` submits a form on the door, and the two links are links |
+
+### 3. A class nobody wears: none, and one was found and removed on the way
+
+`qbanner` was carried on one coloured screen after the stage 08 rename map removed it from five, wearing a name whose declaration had moved to the parent. Found by `screens.mjs` on its first run and taken off.
+
+Three names are worn and declare nothing, and all three are declared exemptions with a written reason rather than survivors: `queue-list`, the pattern's own name, which `compose.mjs` counts by; `rows--log`, a hook the rollout was asked to decide about and kept; and `claim--against`, ruled at this stage to stay undrawn.

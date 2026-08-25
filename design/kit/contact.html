@@ -63,7 +63,7 @@
   <tbody>
     <tr><td><b>recipient</b></td><td>base</td><td>3</td><td>the only form. All three renderings name the same duty line and differ only in what they tell you to say, which is a copy decision and not a variant</td></tr>
     <tr><td><b>emphasis</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Prohibited.</b> No accent ground and no filled plate. A contact is read when something has already gone wrong, and a box that shouts on a page whose whole subject is an outage adds nothing the page has not said</td></tr>
-    <tr><td><b>unreachable</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>Backlog.</b> The escalate dialog needs a rendering for a named recipient who is no longer on the rota, and the grey wireframe draws one: a dashed border with the name struck through. That screen has no coloured rendering yet, so the state has no home here. It arrives with node 4.6</td></tr>
+    <tr><td><b>unreachable</b></td><td><code>.is-gone</code></td><td>1</td><td><b>A state, not a variant, and it arrived at stage 12 with node 4.6.</b> A recipient read from a rota can be wrong by the time it is read. The boundary goes dashed and the name is struck and dimmed, and the name STAYS: who it would have gone to is the first thing you need in order to chase it. See States below</td></tr>
   </tbody>
 </table>
 </div>
@@ -88,7 +88,7 @@
 <p class="k-note">At 360 nothing about the box changes and nothing needs to: it is already a single column, and the name is the only thing above 14px. This is the one surface in the product where the phone rendering is the important one, and the layout was chosen so there would be no second rendering to keep true.</p>
 
 <h2 class="k-h" id="states">States</h2>
-<p class="k-lede"><b>It has none, and it is not interactive.</b> It is read and quoted, never pressed. There is no link inside it either: the number is a value the provider declares and Harrier does not carry one, so there is nothing here to open.</p>
+<p class="k-lede"><b>No interaction states, and one domain state.</b> It is read and quoted, never pressed, so there is no hover, no active and no focus ring, and no link inside it either: the number is a value the provider declares and Harrier does not carry one. What it does have is <code>.is-gone</code>, which is a fact about the world rather than a response to a pointer.</p>
 <div class="k-bench">
   <div class="k-bench-half" data-theme="dark">
     <p class="k-bench-tag">dark, shipped</p>
@@ -116,7 +116,35 @@
   </div>
 </div>
 <p class="k-note"><b>The absence of a hover is the useful fact here.</b> Every other bordered box in the product that you can do something with lights under the pointer. This one does not, and that is how it reads as a thing to copy down rather than a thing to click when the page around it has stopped working.</p>
-<p class="k-note"><b>One state is owed and is not here.</b> A recipient read from a rota can be wrong by the time you read it, and the grey escalate screen already draws that case. Until that screen is built in colour, this component has one form and the variants table says so rather than leaving the row out.</p>
+<h3 class="k-h2"><code>.is-gone</code>, the recipient who left the rota</h3>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="contact is-gone">
+          <span class="who">S. Varga</span>
+          <p class="meta">SOC lead &middot; rota window ended <b>2h</b> ago, and nobody picked it up</p>
+          <p><b>Nobody is on the next level.</b> Named anyway, because who it would have gone to is the first thing you need in order to chase it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div style="width:100%;max-width:420px">
+        <div class="contact is-gone">
+          <span class="who">S. Varga</span>
+          <p class="meta">SOC lead &middot; rota window ended <b>2h</b> ago, and nobody picked it up</p>
+          <p><b>Nobody is on the next level.</b> Named anyway, because who it would have gone to is the first thing you need in order to chase it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>Two roles carry it and neither is a new one.</b> The strike and the dim are <code>--text-secondary</code>, the ink the <code>meta</code> line already uses, so the name drops to the level of its own qualification instead of disappearing. The dashed boundary is the same <code>--rule-edge</code> at a different style, which is why the pair in the two themes is automatic and this state needed no token of its own.</p>
+<p class="k-note"><b>It was owed from stage 08 and could not be placed until now.</b> The census read the whole grey corpus and still could not count this state: the four screens that draw it are the escalate family, all four of them grey, so the only recipient it could see was the outage page&rsquo;s duty line, which is never gone.</p>
 
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <div class="k-wrap-x">

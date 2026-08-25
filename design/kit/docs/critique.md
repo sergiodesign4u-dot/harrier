@@ -6,6 +6,104 @@ One file, one section per stage. It exists because the alternative is the chat: 
 
 ---
 
+# Stage 12, Rollout
+
+**Two instruments, and one of them could not run.** The plugin's own job state records `Codex CLI is not installed or is missing required runtime support`, read out of the job file rather than assumed, which matters because this project has already paid once for a dependency reported unavailable that was not. The mechanical half was run by the instruments in `design/kit/checks/` instead, and the substitution is named here rather than made quietly, with a count against every class so that a class nobody checked cannot read like a class that is clean. The second instrument was a reader with clean context, given the half a grep cannot do. **And the fan out was the third, run three times**: every agent read the documentation of stages 08 to 11 for the first time, and what it had to ask is section 7 of `rollout.md`.
+
+## 1. What the fan out found, before the critique
+
+Three batches, and each returned something the documents got wrong rather than something a screen got wrong.
+
+| # | What | Where | Found by |
+|---|---|---|---|
+| 1 | **`microcopy.md` is the inventory as it stood BEFORE stage 05, and the frozen wireframe is the corrected copy**, which is the reverse of what the contract said. A string looked up by key gives the wording that was replaced | `voice/docs/microcopy.md`, sections 3 and 4 against section 8 | batch 1, six disagreements on three screens, right on all six |
+| 2 | **The canonical fixture table listed a log entry the product's central claim requires not to exist.** Six entries where the screen draws seven, and the fourth given as `Meridian Health rejected by R. Idrissi`, which is the queue's `decided` plus `unrecorded` row word for word | `rollout.md` section 2, written by the parent | batch 2, holding the table against the screen |
+| 3 | **The parent's heading ruling was wrong twice**, for three of the five log states and for the keyboard map, and the second would have shipped a screen with no `h1` at 360 | the R11 table | `rules.mjs`, then batch 3 reading the corpus |
+| 4 | `inventory.md` section 8 named eleven one-off classes on the keyboard map and **five of the eleven are on a different page** | `inventory.md` | batch 3, and it was the input to the batching |
+| 5 | Two component headers naming the wrong screen and a count that had aged from two to seven | `tomb.css`, `rows.css` | batch 2 |
+| 6 | The motion index counted the coloured sample as if it were the corpus | `motion.md` section 5 | batch 2 |
+| 7 | `<meta name="description">` does not exist anywhere in this product and the contract asked for one | the contract | batch 1 |
+
+## 2. What the instruments found on their own first runs
+
+| Instrument | On itself | On the product |
+|---|---|---|
+| `screens.mjs` | 59 hex values that were the caret entity `&#9662;`, and three classes that are declared exemptions | **`qbanner`**, removed from five screens by the stage 08 rename map and left on the sixth |
+| `coverage-map.mjs` | it read the registry by slicing from the first mention of the global's NAME, and handed prose to a JavaScript parser | nothing |
+| `census.mjs` | 18 rows of "one job, several forms" where nine were a selected row beside an unselected one | **twelve textareas rendering as raw browser controls inside a dark dialog since stage 09** |
+
+**The last one is the most invisible defect this project has found.** `input.css` is class based and the escalate family wrote bare elements, so its three prompts had the user agent's monospace, grey border and 2px padding on a dark themed dialog. It survived stages 09, 10 and 11 and every instrument in the folder: contrast passes because the browser's own colours happen to clear the floor, geometry compares stand pairs, the usage rules do not look at fields, and **a class that is missing is not a forbidden sign**, so the file reading instrument could not see it either. The stage's own example screen was one of the four.
+
+## 3. The critique, and it is 24 findings in six classes
+
+The reader was asked for six classes in order of value and returned findings in all of them, plus seven it withdrew on verification. Every one below was verified before being reported and again before being fixed.
+
+### The product contradicting itself, which was the class it was pointed at
+
+| # | What | Fixed |
+|---|---|---|
+| 1 | **`escalate-from-expired` drew `Accept` as the primary action on a case whose evidence has aged out**, four inches under its own sentence saying a verdict filed now would rest on evidence nobody can produce in April. `case-expired`, the screen you arrive from, renders one button; `keyboard` teaches `e` as "the only live control on a case whose evidence has aged out" | yes. The foot is one button, and R1 still holds |
+| 2 | **`keyboard`'s narrow banner said the phone exits are accept and escalate.** Measured at 360: one control, `Escalate`, and all six reject screens carry the opposite claim in product copy | yes, the sentence. Half of it was made false by this stage's own foot fix, which is the honest version of the finding |
+| 3 | **The same banner said the keyboard trigger is dropped at 360, and the trigger rendered at 360 on every authenticated screen**, 34 by 30 pixels, offering a phone a map of keys | yes, one line in `z1.css`. Node 0.5 had been saying so since stage 04 |
+| 4 | **The queue said Clerk contained a case at Norsk Marine 52 minutes ago and the log's newest entries did not have it**, inside the window and required by `CLAUDE.md`'s append only rule. The canon table reasoned carefully about the one entry that must NOT exist and never asked which queue rows REQUIRE one | yes. The entry is in the log and the foot reads 8 of 34 |
+| 5 | `log-narrowing` says a query resolves two ways and both targets carry different filters | **no, and the reason is the prototype's shape.** Every state is its own page here, so a link is a demonstration of a state rather than the continuation of a query. Recorded rather than repaired |
+| 6 | The `?` row on the map is filed as `nowhere yet` while the top bar prints `?` as the control's whole label | **no.** The row's own clause names the exception, and the alternative is editing a counted claim in product copy against a definition written this stage |
+
+### Counts and claims the finished product no longer matched: nine, all fixed
+
+`architecture.md`'s R11 table put five log states in one row where three belong in another, listed neither new screen, and quoted 104 renderings against a measured 124; the paragraph under it still told a new screen to work around a defect the paragraph above declared closed. The register said 73 in three places and 34 molecules in a fourth. `contact.css` said three screens and it is seven, in the same header this stage had already corrected once. `opt.css` counted a population this stage removed 17 members from, and two documents repeated "62 of the 63" which is neither the grey number nor the coloured one. `key.css`'s **corrected** count double counted six keys. `link.css` counted 24 where its own breakdown summed to 26 and the product has 35. `motion.md`'s **corrected** row named a screen that has never carried the component. `census.md` published a table the instrument does not print. `overview.html` had four links missing their `kit/` prefix and read the instrument's exemption list as a zero. `checks.html` said fourteen instruments while its own closing paragraph counted to sixteen and the folder held seventeen, with `census.mjs` named nowhere on the page.
+
+**Three of those nine are corrections this stage made that were themselves wrong**, which is the finding rather than the numbers: `key.css`, `motion.md` and `census.md` were all edited this stage to fix a stale count, and all three came out wrong in a new way. A count is not fixed by being rewritten. It is fixed by being measured at the moment it is written down, and re-measured after the last edit.
+
+### A prohibition written and not run: one, and it was this stage's own
+
+`optlist.css` declared **"a list holds one filling or the other, never both inside the same border"** and paid none of the three costs section 11 of `architecture.md` defines for a new rule: no row in section 10, no function in `rules.mjs`, and a Limits block on one of the three components it names. It is **R12** now, one selector, and it reports 9 held and nothing broken.
+
+### The reason two files gave for `optlist` not being a pattern was false in both directions
+
+Both said "a pattern needs three screens and both fillings stand on two". The `opt` filling stands on seven and `keyrow` on one. **The conclusion was right and the reason was not**, and the real reason is the definition stage 09 wrote: a rule moves to `patterns/` when a selector inside one component names another AND is conditioned on the host's filling. There is no such rule here. A container holding a component is anatomy.
+
+### What a handoff reader would have had to ask
+
+`rollout.md` ruled on twelve backlog rows and `backlog.md` marked none of them, so the file presented twelve dead rows under a heading that says "Open, with an owner". There is a "Closed at stage 12" section now, and the rows above it are left standing with their original reasons: **a backlog whose closed rows vanish reads as a backlog nobody ever opened.** Three more rows named stage 12 and were not in the twelve: the forty five dead links, which the rollout closed silently by building what they pointed at, and the two `amend` rows, which nobody read. **`amend` is settled by the screen rather than by a document**: `case-amend.html` has no scrim and no dialog, so amending is an edit in place and the question of whether its scrim is `--desk-only` dissolves.
+
+### And seven findings were withdrawn on verification
+
+`keyrow` as a duplicate of `opt` and `miss` as a duplicate of `outage`: both share most of a box and differ in every zone, which is the system's own splitting criterion and the exact precedent of `state` out of `chip`. `key.css`'s "six wear the variant" against `keyrow.html`'s "four rows read that way": both right, counting different things. `census.mjs` printing twelve rows under a heading that says sixteen: a declared display cap. Two fixture pairs that looked like one case in two contradictory states and are two cases hours apart. A row in `reading-conventions.md` that is stale and belongs to stage 05. **A finder that never withdraws anything has not verified anything**, and the reader was asked for this section by name.
+
+### And the box comparison found one more, after every fix was in
+
+**A place utility was deciding a component's display**, and the fix for the Reject at 360 contradiction is what made it the majority case. `.only-desk` declares `display: block`. On a `btn`, whose own value is `inline-flex`, that turns the label and the key from flex items into inline text and takes the key's box from 13px to 15.
+
+It was already known and already cured, **once**: `case-pane.css` carries a rule reasserting `inline-flex` on the standalone route's foot, written at stage 09 for the three screens that wore the twins. Putting the twins on the paired pane made it four more, and the box comparison against the stand reported it as four unexplained differences the moment it did. The selector drops `.is-standalone` now and covers both fillings, **and it had to carry the narrow half too**: a rule that repairs a display outranks the utility that would otherwise turn it off, so repairing one width breaks the other.
+
+**The instrument that caught it is the one that compares a component on a screen against the same component on its own page**, and it caught it because the representative it picks changed. That is worth naming: it means the check is sampling, and a defect on a minority instance can sit under it. The two `key` rows it also reported were the same cause one level down, plus a flex cell stretching its keys to the height of the line, which the grey did too and which a wireframe drawing something one way does not make a decision.
+
+### And the width sweep found the last one, on the newest screen
+
+**45 findings at 42 widths, all of them one selector.** `miss` put `--measure` on the COLUMN and not on the text, which is the mistake `base.css` warns about in as many words: a measure is counted in characters, and text at two sizes in one column stops at two different pixel widths. The column is 66ch of 15px type and the notes are 11px, so they ran 81 characters at 480 and 89 at 520.
+
+**It is the same finding stage 10 wrote down and the same width.** "The longest line in this product is not at 2560, it is at 520", because below the point the layout is one column and the smallest text in the product fills it. The rule was written, the reason was written, and the next component still put the cap in the wrong place. It is `max-width: var(--measure)` on the note now, and the sweep reports nothing at any width from 360 to 2560.
+
+## 4. What is clean, with the number in front of it
+
+| | |
+|---|---|
+| Usage rules R1 to R12, 62 screens, both widths | **124 renderings, 0 broken** |
+| Width sweep, 320 to 2560, 49 widths | **3038 readings, nothing breaks from 360 up** |
+| Box comparison against the stand | **42 pairs, 0 unexplained** |
+| CSS in a screen file, ten signs | **0 on 62 pages**, 5 declared exemptions |
+| Coverage map, both directions | **62 records, 62 opened, 0 green over nothing, 0 in nobody's count** |
+| Contrast, every text node, both themes and widths | **252 renderings on the product, 364 on the stand, 0 failures** |
+| Motion | **one number per role, 0 outside the register, 0 above 1ms under reduce, 0 that stopped existing** |
+| Coverage of the deleted `kit.css` | **367 selectors, 0 declared nowhere** |
+| Dead internal links, links into `wireframes/`, em dashes | **0, 0 and 0** |
+| `wireframes/` | **unchanged** |
+
+**There are no pixel comparisons in this stage and there cannot be**: these ten pages had no coloured version to compare against, because they never existed. The purity measurement replaces the pixel promise and is a stronger claim about a different thing.
+
+---
+
 # Stage 11, Animation
 
 **The census came back empty, and that is the finding the stage started from.** A search over all four corpora and computed style on **122,458 elements over 282 renderings** at two widths: zero transitions, zero keyframes, zero animations, source and output agreeing. Zero durations, zero curves, zero expensive properties, zero `transition: all`, and zero animations obeying `prefers-reduced-motion` because there were none to obey.

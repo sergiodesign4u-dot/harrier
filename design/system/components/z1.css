@@ -95,5 +95,13 @@
      and cost the same: a bar three lines deep at every width under the point. Three
      items are 119px wide, so the line it lands on is decided by what else is on it. */
   .z1 nav{ order: 3; flex: 1 1 auto; min-width: 0; gap: var(--space-3); overflow-x: auto }
+  /* THE KEYBOARD TRIGGER GOES, AND NODE 0.5 HAD BEEN SAYING SO SINCE STAGE 04. The
+     map's own narrow rendering reads "the keyboard map is a desk surface and its
+     trigger is dropped at this width rather than moved", and the trigger was not
+     dropped: it stood in the bar on every authenticated screen at 360, 34 by 30
+     pixels, offering a phone a map of keys the phone has no keyboard for. Found at
+     stage 12 by a reader holding the sentence against the rendering, on the first
+     day the sentence had a coloured screen to stand on. */
+  .z1 .kmap{ display: none }
 }
 /* focus-visible is global. The bar itself has no states. */

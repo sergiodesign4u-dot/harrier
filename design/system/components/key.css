@@ -5,8 +5,21 @@
    role, and that is the component rather than an omission.
 
    PAGE. design/kit/key.html
-   STANDS ON. 152 instances across 34 screens: inside .btn 85, inside .opt 45,
-   and 22 on the keyboard map, which keeps its own eleven one-off classes.
+   STANDS ON. 161 in the markup across 34 screens. At 1440 a browser renders 160
+   of them and the one it does not is a viewport twin. By ancestor: inside `.btn`
+   88, inside `.opt` 45, in the keyboard map's own key cell 22, and 5 standing
+   alone in prose. Six wear the `--none` variant.
+
+   THE FIRST CORRECTION OF THIS LINE WAS ALSO WRONG, and the way it was wrong is
+   worth more than the number: it counted 33 "on the keyboard map", which
+   double counted the six keys that sit inside that screen's own buttons. A total
+   that adds up is not a decomposition that is right.
+
+   THIS LINE READ 152 AND SAID THE KEYBOARD MAP "KEEPS ITS OWN ELEVEN ONE-OFF
+   CLASSES", and stage 12 ended that: the map is built from the system, its
+   eleven collapsed into two molecules and two variants, and one of the two
+   variants is this atom's. A count in prose ages the moment the corpus grows,
+   and this one aged by having its subject rebuilt underneath it.
 
    NOT INTERACTIVE. It is a picture of a key, never a control. The thing you press
    it on is the control, and the key has no states.
@@ -26,6 +39,11 @@
   border: 1px solid currentColor;
   border-radius: var(--radius-ui);
   padding: 0 var(--space-1);
+  /* A KEY NAME NEVER BREAKS. `Ctrl + Home` and `Shift + Tab` are two words with
+     a space in them and they are one key, so a wrap turns one control into what
+     reads as two. Added at stage 12 with node 0.5, the one screen that prints a
+     modifier combination; every earlier use was a single character. */
+  white-space: nowrap;
 }
 
 /* AN EMPTY KEY SLOT RENDERED AS AN EMPTY BOX. The shell's foot() always emits the
@@ -33,3 +51,30 @@
    nobody can press. Found at stage 07 and carried here as part of the component
    rather than as a patch on the button. */
 .key:empty{ display: none }
+
+/* -- ONE VARIANT, AND IT ARRIVED AT STAGE 12 WITH NODE 0.5 --------------------
+   `--none` is a key that is not bound. The keyboard map lists the three global
+   destinations, Queue, Shift and Log, and prints `none` in the key cell for all
+   three, because each has a destination and no key: **the absence is a decision
+   somebody made rather than a line somebody forgot**, and a row that simply left
+   the cell empty would say the opposite. The boundary goes dashed, which is the
+   same device `contact.is-gone` and `tomb` use for a thing that is drawn and is
+   not there, and the ink drops to secondary so the word does not read as a key
+   you could press.
+
+   IT ABSORBED A SECOND ONE-OFF, AND THAT IS THE FINDING RATHER THAN THE VARIANT.
+   The grey map declares `.keys .key.is-none` in the key cell and `.kgap` inline
+   in prose, in two rules, and they compute to the SAME thing: a dashed boundary
+   at the secondary ink around a mono `--size-xs` word. `kgap` marks the rows
+   whose key no control prints anywhere, and the map's own legend counts them out
+   loud, so it is a marker rather than a decoration. Two of the eleven one-off
+   classes on that screen were one variant of an atom that already existed.
+
+   A VARIANT AND NOT A STATE. This file says the key has no states because it is
+   a picture of a key rather than a control, and that is still true: `--none` is
+   what this key IS, not something that has happened to it. The grey wrote it as
+   `is-none`, and the register's own grammar decides the name here. */
+.key--none{
+  border-style: dashed;
+  color: var(--text-secondary);
+}

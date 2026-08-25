@@ -2,9 +2,18 @@
    READS. Fill: --bg-surface. Line: --rule-hair. Geometry: --radius-ui, --size-sm,
    --space-2, --space-3.
    CONTAINS. btn, on the ones that offer to copy.
-   PAGE. design/kit/addr.html   STANDS ON. 5 renderings across 5 screens, all of
-   them node 5.4's states. The header said six; the sixth is node 8.1's `nf-addr`,
-   which the inventory explicitly keeps out of the kit.
+   PAGE. design/kit/addr.html   STANDS ON. 6 renderings across 6 screens: five are
+   node 5.4's states and the sixth is node 8.1, which arrived at stage 12.
+
+   THE SIXTH WAS PREDICTED HERE AND THEN FOUND HERE. This header said "the header
+   said six; the sixth is node 8.1's `nf-addr`, which the inventory explicitly
+   keeps out of the kit", and it was right in both halves: the class was the same
+   component under another name, and the inventory was right to keep it out while
+   the only screen carrying it was grey. The rollout built that screen and nothing
+   had to be written: `nf-addr` was `addr` declaration for declaration, down to
+   `overflow-wrap: anywhere` on the code. **A count that was wrong when written
+   became correct by the product growing into it**, which is the one direction this
+   kind of error is allowed to resolve in.
 
    THE ADDRESS OF A THING, RENDERED SO IT CAN BE TAKEN. A log entry's `?as-of`
    permalink, and the address a deep link was heading for before the door asked

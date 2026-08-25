@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Decision log, not findable, in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="system/index.css">
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<div class="screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4 queue-list queue-list--log" aria-labelledby="lh">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <button class="chip chip--solid" type="button">Actor: R. Idrissi &times;</button>
+        <button class="chip chip--solid" type="button">Meridian Health &times;</button>
+        <button class="chip chip--solid" type="button">2026-06-01 to 2026-06-30 &times;</button>
+        <button class="chip chip--ghost" type="button">Any decision &#9662;</button>
+      </div>
+
+      <h2 id="lh" class="readout"><b>No entry matches this scope</b> <span class="dim">4 filters, 1 tenant</span></h2>
+
+      <div class="banner only-narrow"><b>The decision log is a desk surface.</b> The phone has one scenario in this product, a paged case read and escalated, and answering an auditor is not it.<br><br>One thing here does open on a phone: <b>a single entry at its own address</b>, because a permalink can arrive anywhere.<span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>
+      <div class="banner"><b>Actor: R. Idrissi is what emptied it.</b> Remove it and 4 entries come back, all ruled by D. Okonkwo. The chip is marked in the bar above, where the question was asked.<span class="act"><a class="btn" href="log.html">Remove Actor: R. Idrissi</a></span></div>
+
+      <div class="rows rows--log" role="grid" aria-labelledby="lh" tabindex="0">
+        <p class="empty"><b>Nothing matched, and the pane is the next attempt.</b>
+          Not a shrug and not an illustration: the fields on the right are the search, prefilled with what you already narrowed to.</p>
+      </div>
+
+      <p class="qfoot">
+        <span>no rows in this scope</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
+        <span class="only-desk"><kbd>Enter</kbd> opens the entry at its own address</span>
+        <span>order: newest first, always. Nothing here is sorted by urgency</span>
+      </p>
+    </section>
+
+    <aside class="z5 case-pane is-paper" aria-labelledby="ph">
+      <div class="pane-head">
+        <h1 id="ph">Find the decision</h1>
+        <p class="sub">Someone asked you a question, so this is the start of the next attempt rather than the end of this one</p>
+      </div>
+      <div class="pane-body">
+        <div class="seek">
+          <div class="field"><label class="label" for="cid">Case id, if the client quoted one</label><input class="input" id="cid" placeholder="C-4417"></div>
+          <div class="field"><label class="label" for="ten">Tenant</label><input class="input" id="ten" value="Meridian Health"></div>
+          <div class="field"><label class="label" for="dr">Date range, UTC</label><input class="input" id="dr" value="2026-06-01 to 2026-06-30"></div>
+          <div class="field"><label class="label" for="act">Who decided it</label><input class="input" id="act" value="R. Idrissi"><p class="hint">Leave this empty to search every analyst in your provider scope</p></div>
+        </div>
+        <section class="block">
+          <h3>What emptied it</h3>
+          <p class="nar"><b>Actor: R. Idrissi.</b> Without it, <b>4 entries</b> match, all of them ruled by D. Okonkwo. You did not work that shift, which is exactly the case the log exists for.</p>
+        </section>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary" href="log.html">Search without the actor <span class="key">Enter</span></a>
+        <a class="btn btn--quiet" href="entry-beyond-retention.html">Try 2024 instead</a>
+        <a class="btn btn--quiet" href="log.html">Clear all four</a>
+      </div>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="_shell.js"></script>
+<script>WF_SHELL({ current:'log', strip:'live' });</script>
+<script>
+  /* the panel of this stage, in its own namespace. Not the roadmap: a screen of the product
+     is not a step of the process, and mixing them is what made the sidebar unreadable. */
+  window.DESIGN_NAV_BASE = '';
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

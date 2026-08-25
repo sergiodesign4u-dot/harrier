@@ -223,7 +223,10 @@
                            writing a track list of their own */
 
   /* the four things that stop growing, plus the measure */
-  --measure:           66ch;  /* a single column of prose. 0 uses */
+  --measure:           66ch;  /* a single column of prose. Read by base.css on 14 kinds
+                                 of prose at stage 10, and by `miss` at stage 12, which
+                                 is the one component that would run 1200px wide without
+                                 it. It had 0 uses through stages 08 and 09 */
   --width-sheet:       47.5rem;  /* a case standing alone with no list beside it */
   --width-frame:       51.25rem; /* the framed record */
   --width-dialog:      32.5rem;  /* the dialog. NO ORIGIN in kit.css and none in DESIGN.md, and

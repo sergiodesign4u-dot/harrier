@@ -109,6 +109,14 @@ const RULES = [
     } },
   { id: 'R11', name: 'one h1 per screen',
     run: d => (d.h1 > 1 ? `${d.h1} h1 elements` : d.h1 === 0 ? 'no h1' : true) },
+  /* R12 arrived at stage 12 with `keyrow`, and it is the cheapest rule in the file
+     because it is one selector. `optlist` is a container with TWO fillings now: a
+     list of reasons you choose from and a list of keys you read. They share a border
+     and hairlines and nothing else, and a list holding both inside one border reads
+     as one question with an answer you cannot give. */
+  { id: 'R12', name: 'a list holds one filling, never both',
+    run: d => (d.optlistMixed ? `${d.optlistMixed} list(s) holding an opt and a keyrow inside one border`
+             : d.optlists ? true : null) },
 ];
 
 const collect = () => {
@@ -168,6 +176,8 @@ const collect = () => {
     navToFleet: ([...document.querySelectorAll('.z1 nav a, .navitem')]
       .find(e => /fleet/i.test(e.textContent) || /fleet/i.test(e.getAttribute('href') || '')) || {}).textContent || '',
     h1: all('h1').length,
+    optlists: all('.optlist').length,
+    optlistMixed: all('.optlist').filter(e => e.querySelector('.opt') && e.querySelector('.keyrow')).length,
   };
 };
 

@@ -4,8 +4,13 @@
    --text-hover, on the UNDERLINE rather than on a border.
 
    PAGE. design/kit/link.html
-   STANDS ON. 24 instances across 24 screens, inside whatever encloses them:
-   .gnote 15, .expand 6, .nar 2, .empty 2, and one in Z6.
+   STANDS ON. 35 instances across 28 screens, measured on the finished product.
+   It was 24 on 24 until stage 12, and the breakdown beside it never summed to 24
+   either. The rollout added nine on the new screens and dressed two more on
+   `shift-assembling` that were standing bare, which is the interesting half: this
+   file's own count of two inside an `.empty` was the evidence that they should
+   have carried the class, so the count was right about the world and wrong about
+   the markup at the same time.
 
    IT HAD NO DECLARATION ANYWHERE, and that is what made it dangerous rather
    than merely unnamed. Stage 07 shipped 151 browser blue links across 27

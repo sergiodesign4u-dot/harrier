@@ -863,3 +863,82 @@ The second was better, and it came from an instrument that is not a motion instr
 ### The safety net was not written, and that is the answer
 
 The pack allows a blanket rule on `*` as a last resort, after an audit passes without it. The audit passed without it. Writing it then would only make it impossible to see a component that reads no token, which is the defect the net is supposed to insure against: **an instrument must not hide the thing it is looking for.**
+
+---
+
+## 2026-08-25 &middot; The rollout decided nothing, and that is why what it found is worth reading
+
+Stage 12 built the last 10 of the product's 62 pages in colour. It drew nothing new: three batches of subagents dressed what stage 04 had already structured and stage 05 had already worded, in a system that stages 08 to 11 had already finished. **The rule the whole stage stands on is that a rollout multiplies rather than decides**, so anything left open reaches the fan out and gets answered ten different ways by ten agents, each of them plausibly.
+
+That rule is also what makes the stage's output a list of defects rather than a list of screens.
+
+### What had to be closed before an agent was launched
+
+Three declared lists, and the third took most of the day.
+
+- **`census.md`, a control with no form: empty**, and the five forms with no coloured rendering were verified in the system rather than in the document. **One of the five was verified wrongly**: a search for `block--rcpt` returned `contact.css`, and it returns that file's HEADER. The name is in a comment describing the grey markup, and no stylesheet declares it. The ruling was executed by dropping the modifier rather than by giving it a form, so the conclusion held and the evidence did not. **A grep for a name in a folder whose stylesheets carry more prose than rules is not evidence that the name is declared**, which is the same defect the tenth sign of the new screen instrument was written to avoid, made by the person who wrote it.
+- **`motion.md`, needs a state: one row**, `.doorhelp summary`, on five screens that have been in colour since stage 07. No agent of this stage meets it, so it keeps its owner.
+- **`backlog.md`, twelve rows naming this stage.** Two closed by measurement and stage 10 had already closed one of them without noticing. Four were rulings. One was closed by reading the screen instead of the pattern file that complained about it: the log's narrow banner, which the backlog asked for, was written at stage 04 and worded at stage 05.
+
+### R11 was in the way, and it would have grown before anybody noticed
+
+**Seventeen coloured screens had no `h1` at 360.** At that width a case screen does not render the queue column, the readout is the `h1`, and the heading leaves with what carries it. Underneath it two node specifications disagreed: `case-file.md` section 7 says "one h1, the case and its client", and nineteen screens made the readout the `h1` and the case an `h2`.
+
+**Ruled in favour of the node, and the rule is measurable rather than editorial: exactly one heading renders at every width, and that one is the `h1`.** Where the pane carries a case, the pane head takes it and the readout drops to `h2`. Where the pane is at rest, the readout keeps it. Where the dialog takes the whole screen at 360, the dialog title takes it.
+
+Three declarations changed and no pixel moved: two `h2` selectors became `:is(h1, h2)`. **One value did move and it is the interesting one.** `.readout` had no `margin` of its own and was taking the browser's `0.67em` for an `h1`, which would have become `0.83em` under the new tag and pushed two hundred rows down four pixels on seventeen screens. It declares `var(--space-2)` now, 8px against the 8.375 the element was deciding, and that 0.375 per side is the whole of the deliberate change. **It is the fourth time in this project the ELEMENT was deciding a value nobody had written**, and the class is one instrument short by construction: the value is not wrong in any file, so nothing that reads a file can see it, and it only shows up when the tag changes underneath it.
+
+The rule then caught the parent twice more. The heading ruling handed to batch 2 was wrong for three of the five log states, and the one handed to batch 3 was wrong for the keyboard map, which would have shipped with no `h1` at 360, the exact defect just closed on seventeen. **Both were caught, one by the rule's own function and one by the agent reading the corpus, and neither was derivable from the documents.** That is the argument for a prohibition being a function rather than a paragraph, made twice in one stage against the person who wrote the paragraph.
+
+### The worst defect of the stage was in the instrument
+
+The canonical fixture table exists so that ten agents do not drift on the numbers. It listed **six** log entries where the screen draws seven, dropped one, and gave the fourth as `Meridian Health rejected by R. Idrissi`.
+
+That is not a transcription slip like the other two. It is **word for word the one log entry the product's central claim requires not to exist**: the queue draws Meridian Health wearing `decided` and `unrecorded`, a verdict whose write did not land, and an entry for it would break the thing the whole product rests on. **The table would have handed the forbidden fixture to every agent that read it.** It was caught by an agent doing what the contract tells every agent to do and the author of the table had not: hold the table against the screen.
+
+### Three batches, cut by flow, and the last one stopped
+
+The first was the contract gate rather than a drawing: three states of a screen whose fourth was already accepted, which is the one shape in which a defect of the CONTRACT is separable from a defect of a screen. It returned three, and all three changed the contract:
+
+- **`microcopy.md` is the inventory as it stood BEFORE stage 05 and the frozen wireframe is the corrected copy**, which is the reverse of what the pack assumes. Sections 3 and 4 of that file are the step 1 inventory and everything stage 05 ruled is held as a delta in section 8, so a string looked up by key gives the wording that was replaced. Batch 1 found six disagreements on three screens and got all six right by following the screen. **This is the single most expensive thing in the contract to get wrong, because the wrong answer is invisible**: a screen carrying pre stage 05 wording looks perfectly well written.
+- **`<meta name="description">` does not exist anywhere in this product** and the contract asked for one. Every node is behind authentication and `noindex`, so stage 03b wrote no SEO block. The agent produced a question rather than a description, which is the right outcome and a line that should not have been in the contract.
+- The title rule for a state file was written nowhere and had to be derived from the accepted corpus.
+
+The second built the whole of node 5.1 in one hand, so that five screens sharing a row grammar and one set of fixtures could not disagree about their timestamps.
+
+**The third stopped and built nothing**, which was the expected outcome and is the reason the stage has an enrichment journal at all. Its two screens carried fifteen classes the system did not declare, and the census had seen every one of them and ruled them out on "one use is not a role". **What the rule could not see is that most of the fifteen were one thing written twice.** They collapsed into two molecules and two variants:
+
+| The one-offs | Where they went |
+|---|---|
+| seven classes on the keyboard map | **`keyrow`**, one molecule with five zones and one variant. Two of the seven differ only by a margin, one is another component's zone under a different name, and one is a whole container that already existed |
+| two more | **`key--none`**, one variant of an atom that already existed. The two rules compute to the same thing |
+| five on `not-found` | **`miss`**, one molecule with four zones, which is the shape `outage` already has one node along |
+| one | **`addr`**, whose own header had been naming that exact instance since stage 08 |
+
+**A threshold that counts NAMES cannot tell eleven components from four**, and that is the finding rather than the components.
+
+### `opt` was left alone, and the refusal is the decision
+
+The keyboard map's seventeen rows could have been `opt`, and building them that way would have taken that component from 62 instances, all interactive, to 79 with 17 that are not. `opt.css` says in as many words "IT IS A LINK, AND THAT WAS A DECISION, and that is also why it has states at all". **Seventeen unanswerable rows inside it would have flipped a fifth of its population into a lie**, which is the same argument stage 08 used to split `state` out of `chip`. So `optlist` has two fillings now and is still not a pattern: that needs three screens and both fillings stand on two.
+
+### The product contradicted itself, and the last screen is what made it visible
+
+`design/case.html` rendered all four verdict controls at 360. `design/reject.html` carries a banner in product copy reading **"Reject is a desk action. On a phone the exit is escalate, and only escalate."** Both were accepted screens, and pressing Reject from a phone landed on the screen that says Reject does not exist on a phone.
+
+Node 4.1 section 8 says "**4.1 does not render at 360**" and node 4.2 owns that width as "the read and escalate surface". `CLAUDE.md` says mobile is a read and escalate surface, not the full console. And `case-standalone.html`, which is node 4.2, already had the correct markup: all four `only-desk` plus a narrow twin carrying escalate alone. **The pattern was in the corpus and four screens had not taken it.** Fixed in the coloured copies, which is what the stage's rule requires: a defect found in the frozen grey is named out loud and cured in colour, never upstream.
+
+### What the stage refused to build
+
+Three orders, and the refusals are worth as much as the components. A 12px margin between two blocks on one screen: refused, because a place class for one instance is what the register exists to prevent, and the drawing is four pixels tighter than the grey deliberately. A `block--rcpt` modifier carrying an order at 360: refused for the same reason, and recorded, because what it protects is real and no rule measures it. And `claim--against`, on 41 pages and drawing nothing since stage 04: ruled to stay undrawn, because the `tag` inside it says "points the other way" in words, which is the cheapest correct thing.
+
+### Three instruments were written, and each found something on its first run
+
+**`screens.mjs`** asks whether a screen file is only markup, and it is the only instrument in the folder that reads a file rather than a browser: the defect it looks for is a line of authorship, and a rule that never fires is still a rule in the wrong file. Its first run reported 59 hex values and 51 unknown classes and almost all of it was the instrument, which is the point of running it before trusting it. One was real: `qbanner`, removed from five screens by the stage 08 rename map and left on the sixth.
+
+**`coverage-map.mjs`** walks the registry and the disk in both directions, because the coverage map is a declared list and reading the table cannot check the table. **It does not require the map to be all green**: a green row over an unfinished screen and a vanished row for something we chose not to build are the same lie told two ways.
+
+**`census.mjs`** is the walk that section 6 of `census.md` had said "Reserved" about for four stages. The honest reading of that absence is not that the measurement was skipped but that it was a script written from scratch each time somebody remembered to run it. It found the stage's most invisible defect on its first run: **twelve textareas on the escalate family had been rendering as raw browser controls, monospace at 13.3px with the user agent's grey border, inside a dark dialog, since stage 09.** `input.css` is class based and those screens wrote bare elements. It survived stages 09, 10 and 11 and every instrument in the folder, because contrast passes when the browser's own colours happen to clear the floor, the usage rules do not look at fields, and **a class that is missing is not a forbidden sign**. The stage's own example screen was one of the four.
+
+### What is not here, and it was never in scope
+
+Six nodes have no wireframe: the two client summary screens, the three autonomy screens and permission denied. A rollout dresses what exists, and drawing a wireframe for them would mean unfreezing a folder frozen since stage 05, which is a decision above this stage. They are work **outside** the rollout rather than work after the handoff, and stage 13 takes one of them for its own exam.

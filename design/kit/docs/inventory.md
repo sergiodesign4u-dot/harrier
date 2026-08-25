@@ -180,11 +180,42 @@ This inventory reads **jobs** off the grey wireframes: what is clickable at all,
 
 ---
 
+### A note on which corpus a number came from, added at stage 12
+
+**Every count in this file was taken on a corpus, and until now no row said which.** Stage 08 counted the grey, because colour held 52 pages of 62 and a count on the sample would have been a statement about the sample. Stage 12 closed that gap, so the two corpora now agree about which screens exist, and they still disagree about the numbers on a handful of components: the rollout renamed classes, split one component in two, and dressed markup that had been standing bare.
+
+The rows corrected at stage 12 against a browser census over all 62 coloured screens are `key`, `optlist`, `opt`, `contact`, `link`, `addr` and `arriving`. **Everything else in this file still carries a stage 08 number**, and a reader who needs an exact one should take it from `design/kit/checks/census.mjs` rather than from here. Divergences a browser reports today, none of them a defect and all of them the product moving: `chip` 122 on 38 rather than 44, `btn` 160 on 57, `navitem` 165 on 55, `row` 260 on 34, `state` 195 on 40.
+
 ## 8. One-off, 25 classes
 
 Not in the kit. 18 of the 25 sit on two pages: `keyboard.html` carries 11 (`keys`, `kwhere`, `kscope`, `kgap`, `kk`, `ksep`, `legend`, `pal`, `d`, `t`, `do`) and `not-found.html` carries 7 (`nf`, `nf-note`, `nf-say`, `nf-exits`, `nf-addr`, `nf-note--sep`, `seek`). The rest are single state helpers: `gone-all`, `is-gone`, `esc-first`, `dialog--map`, `is-none`, `rmp`, `rmp-row`.
 
 **`keyboard.html` is worth naming.** Eleven one-off classes on one page means the keyboard map is effectively its own small design system, and design principle 5 puts keyboard before mouse. If it ever gets a second page, all eleven become kit candidates at once.
+
+### And the two lists above are both wrong, found at stage 12 by the agent sent to build those two screens
+
+**This is the failure mode this project keeps paying for: a list written beside a count instead of out of it.** The count of eleven is right and five of the eleven names are not on that page at all.
+
+| What the paragraph says | What is on the page |
+|---|---|
+| `keyboard.html`: `keys`, `kwhere`, `kscope`, `kgap`, `kk`, `ksep`, **`legend`, `pal`, `d`, `t`, `do`** | The last five are on **`wireframes/overview.html`**, the stage 04 hub, and appear **zero times** on the keyboard map. What is on it and filed elsewhere: `rmp`, `rmp-row`, `is-none`, and **`.what`, which is named in no list in this document at all** |
+| `not-found.html` carries 7, including **`seek`** | `seek` is on **`log-not-found.html`**, a different screen and a different node. The real count is **6**, one of which is `nf-addr`, which `addr.css` had already claimed by name |
+| The single state helpers include `rmp`, `rmp-row`, `is-none` | They are keyboard map classes and belong in that row, which is what makes the eleven a coincidence rather than a count |
+
+**The real numbers, measured rather than transcribed: 10 undeclared classes on `keyboard` and 5 on `not-found`.** Both lists were the input to the stage 12 batching, which is the one thing that makes the error expensive rather than untidy.
+
+### What stage 12 did with them
+
+The paragraph above guessed right about the shape and wrong about the threshold: it said a second page would make all eleven kit candidates at once. What happened instead is that **the eleven collapsed into two components and two variants**, because most of the eleven were one thing written twice.
+
+| The one-offs | Where they went |
+|---|---|
+| `keys`, `ksep`, `kwhere`, `kk`, `kscope`, `.what`, `rmp-row` | **`keyrow`**, one new molecule with five zones and one variant. `kwhere` and `kk` differ only by a margin and are one zone; `.what` is `opt`'s `lbl` under another name; `rmp-row` is the `--set` form |
+| `is-none`, `kgap` | **`key--none`**, one variant of an atom that already existed. The two rules compute to the same thing: a dashed boundary at the secondary ink around a mono word |
+| `rmp` | **`optlist`**, character for character. The only obstacle was prose, and the prose was corrected |
+| `nf`, `nf-say`, `nf-exits`, `nf-note`, `nf-note--sep` | **`miss`**, one new molecule with four zones, which is the shape `outage` already has one node along |
+| `nf-addr` | **`addr`**, whose own header had been naming this instance since stage 08 |
+| `dialog--map`, `esc-first`, `is-gone`, `gone-all` | already ruled: declared, dropped as dead, entered as `contact.is-gone`, and awaiting a second instance |
 
 ---
 
@@ -346,7 +377,7 @@ Section 7 above said the difference between the two lists is the brief for the r
 
 **All three levels exceed eight, so all three carry a second sort by purpose**, agreed before the build. Inside `Organisms` the split is not by purpose but by containment: an organism may contain another organism and the ladder has no fourth rung, so the ones that contain none go first.
 
-**This table is the checklist and it is not shortened.** A component with no file, no page, no registry entry or no `@import` in its own group does not exist, and step 5 ends with all of them closed. **The register is 73**: it was 62 when this line was first written, lost two in round 1 when `input` absorbed `textarea` and `select`, and gained thirteen at step 5 that the browser census had never seen.
+**This table is the checklist and it is not shortened.** A component with no file, no page, no registry entry or no `@import` in its own group does not exist, and step 5 ends with all of them closed. **The register is 75**: it was 62 when this line was first written, lost two in round 1 when `input` absorbed `textarea` and `select`, gained thirteen at step 5 that the browser census had never seen, and gained two more at **stage 12**, `keyrow` and `miss`, which the census HAD seen and ruled out because the only screens carrying them were still grey.
 
 **Nineteen rows were here twice and are here once.** The organisms were listed as a plan before round 3 was built, with empty State and Built columns and no link, and then listed again as they were finished. The table read 98 rows against a register of 73, and **a checklist with nineteen empty cells in it is the exact class of defect this file is meant to catch in other people's work**. Found at stage 09 by a mechanical audit counting the rows against the register.
 
@@ -374,6 +405,7 @@ Section 7 above said the difference between the two lists is the brief for the r
 |  |  | `sev` | `components/sev.css` | [`sev.html`](../sev.html) | none, not interactive | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
 |  |  | `frow` | `components/frow.css` | [`frow.html`](../frow.html) | hover | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **response**, a ground at 120ms |
 |  |  | `opt` | `components/opt.css` | [`opt.html`](../opt.html) | chosen, hover, active, focus | **round 2** | **does not adapt**. a row of a reason list inside a dialog | **response**, a ground at 120ms |
+|  |  | `keyrow` | `components/keyrow.css` | [`keyrow.html`](../keyrow.html) | none, not interactive, and that is the whole reason it is not an `opt` | **stage 12**, ordered by node 0.5 | **does not adapt**, and it has a floor of about 450px. Two fixed cells so the key column reads down. Node 0.5 is not rendered below the width point at all | **does not move**. Nothing on it is answerable, and the `select` on the `--set` form carries its own as an `input` |
 |  |  | `rota` | `components/rota.css` | [`rota.html`](../rota.html) | none, not interactive | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
 | Molecules | slots | `block` | `components/block.css` | [`block.html`](../block.html) | none, a slot | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
 |  |  | `nar` | `components/nar.css` | [`nar.html`](../nar.html) | none, a slot | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
@@ -390,6 +422,7 @@ Section 7 above said the difference between the two lists is the brief for the r
 | Molecules | notices and input | `banner` | `components/banner.css` | [`banner.html`](../banner.html) | none, not interactive | **round 2** | **the point**. a zone of the shell, and the shell is the only thing that measures the viewport | **does not move**. No interactive state to move between |
 |  |  | `toast` | `components/toast.css` | [`toast.html`](../toast.html) | the dismiss only | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **response**, a boundary and ink, on the close control at 120ms |
 |  |  | `outage` | `components/outage.css` | [`outage.html`](../outage.html) | none, not interactive | **round 2** | **does not adapt**. a centred message. A wider outage notice is not a better one | **does not move**. No interactive state to move between |
+|  |  | `miss` | `components/miss.css` | [`miss.html`](../miss.html) | none, not interactive. Two links and one button inside it carry their own | **stage 12**, ordered by node 8.1 | **container**, and it is the only component in the system that gets BIGGER at the narrow width: the two exits take a tap target below 30rem. The threshold is registered in `responsive.md` section 6. It is also the only consumer of `--measure` outside `base.css` | **does not move**. The column is read |
 |  |  | `field` | `components/field.css` | [`field.html`](../field.html) | none, not interactive | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
 |  |  | `expand` | `components/expand.css` | [`expand.html`](../expand.html) | the element’s own | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
 |  |  | `doorcard` | `components/doorcard.css` | [`doorcard.html`](../doorcard.html) | none, not interactive | **round 2** | **does not adapt**. the card on it, capped by its own width | **does not move**. No interactive state to move between |
@@ -399,7 +432,7 @@ Section 7 above said the difference between the two lists is the brief for the r
 | Molecules |  | `lat` | `components/lat.css` | [`lat.html`](../lat.html) | none, not interactive | **step 5, and it was not in the register** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
 | Molecules |  | `bline` | `components/bline.css` | [`bline.html`](../bline.html) | hover, active, focus | **step 5, and it was not in the register** | **fluid**. grows and wraps with the pane or the column it stands in | **response**, a ground at 120ms |
 | Molecules |  | `cons` | `components/cons.css` | [`cons.html`](../cons.html) | is-empty | **step 5, and it was not in the register** | **does not adapt**. inside a dialog, and it takes the measure with the rest of the prose | **does not move**. No interactive state to move between |
-| Molecules |  | `contact` | `components/contact.css` | [`contact.html`](../contact.html) | none, not interactive | **step 5, and it was not in the register** | **does not adapt**. three instances, all on a system state, where width adds nothing | **does not move**. No interactive state to move between |
+| Molecules |  | `contact` | `components/contact.css` | [`contact.html`](../contact.html) | **`is-gone`**, one domain state and no interaction states | **step 5, and it was not in the register**. The state arrived at **stage 12**, ordered by `escalate-no-recipient` | **does not adapt**. Seven instances, three on a system state and four inside the escalate dialog, and width adds nothing to either | **does not move**. A domain state is a fact about the world, not a response, so there is nothing to move between |
 | Molecules |  | `covers` | `components/covers.css` | [`covers.html`](../covers.html) | none, not interactive | **step 5, and it was not in the register** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
 | Molecules |  | `axisb` | `components/axisb.css` | [`axisb.html`](../axisb.html) | none, not interactive | **step 5, and it was not in the register** | **does not adapt**. the second axis of a rejection, inside a dialog | **does not move**. No interactive state to move between |
 | Molecules |  | `sa-offer` | `components/sa-offer.css` | [`sa-offer.html`](../sa-offer.html) | none, not interactive | **step 5, and it was not in the register** | **does not adapt**. the standalone route, capped at `--width-sheet` on purpose | **does not move**. No interactive state to move between |
@@ -427,7 +460,7 @@ Section 7 above said the difference between the two lists is the brief for the r
 |  |  | `screen` | `components/screen.css` | [`screen.html`](../screen.html) | none, not interactive | **round 3** | **the point**. a zone of the shell, and the shell is the only thing that measures the viewport | **does not move**. No interactive state to move between |
 |  |  | `shell` | `components/shell.css` | [`shell.html`](../shell.html) | none, not interactive | **round 3** | **the point**. a zone of the shell, and the shell is the only thing that measures the viewport | **does not move**. No interactive state to move between |
 
-**73 rows, 73 built. Every component is closed, and `kit.css` is deleted.** The register grew and shrank three times and section 13 says why. Round 0 was two components together rather than one: the button is the reference component, and its dominant content form is label plus key at 83 of 157, so a reference that could not show its own dominant form would not have been one. `key` therefore leaves the marks group with five rather than six.
+**75 rows, 75 built. Every component is closed, and `kit.css` is deleted.** The register grew and shrank three times and section 13 says why. Round 0 was two components together rather than one: the button is the reference component, and its dominant content form is label plus key at 83 of 157, so a reference that could not show its own dominant form would not have been one. `key` therefore leaves the marks group with five rather than six.
 
 **The register lost two rows in round 1, and the reason is the splitting criterion rather than a cut.** `input`, `textarea` and `select` were three rows with the same anatomy, which here is none at all: no child zones, no order, and one declaration between them. What differs is which element the browser needs for the kind of answer being collected, and that is a variant axis. The register already treated it as one a level up, where `field` carries "control: textarea 21, input 9". **Atoms go from 19 to 17 and the total from 62 to 60.** Consolidation runs in both directions: step 2 split `chip` in two and took seven things off the variant list, and this is the same criterion reaching a row it had not.
 
@@ -455,7 +488,7 @@ Section 7 above said the difference between the two lists is the brief for the r
 | Organism | `doc` | 5 | 5 | `h1`, `.stampline` | the document body of a log entry: a screen that is a page rather than a console |
 | Organism | `frame` | 5 | 5 | holds `rail` and `rail-foot` | **the framed record.** `--width-frame` is a token in `tokens.css` and its consumer was not in the register. The marking is a frame and not a banner: a banner scrolls away, and somebody who arrives by permalink and reads the middle must still know what they are reading |
 
-**The register is 73: 18 atoms, 34 molecules, 21 organisms.** It was 62 at step 2, went to 60 in round 1 when `input` absorbed `textarea` and `select`, and goes to 73 here. **The scope is not cut:** the pack is explicit that a system without a component that stands on a screen is incomplete by definition, and every one of these stands on at least three.
+**The register is 75: 18 atoms, 36 molecules, 21 organisms.** It was 62 at step 2, went to 60 in round 1 when `input` absorbed `textarea` and `select`, went to 73 here, and to 75 at stage 12 with `keyrow` and `miss`. **The scope is not cut:** the pack is explicit that a system without a component that stands on a screen is incomplete by definition, and every one of these stands on at least three.
 
 **Eight of the twenty one were not components and each has a home.** `doorbtn`, `doormark` and `doordest` are zones of `doorcard`; `out-contact` is a zone of `outage`; `sa-fresh` and `sa-route` are zones of the standalone pane head; `z6-more` is a zone of Z6; `gone-all` is one instance and becomes `tomb--all`. **`icon` has zero instances anywhere** and goes to list three of the reconciliation as a class nobody wears: it is the stage 07 icon class, superseded by the CSS masks.
 
