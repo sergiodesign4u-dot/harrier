@@ -2,7 +2,7 @@
    ============================================================================
    A prohibition written only in prose is a prohibition nobody runs. Every rule in
    the "Usage rules" section of design/kit/docs/architecture.md is a function here,
-   and the section and this file are the same eleven rules in the same order.
+   and the section and this file are the same thirteen rules in the same order.
 
      node design/kit/checks/rules.mjs                  the grey corpus, 62 screens
      node design/kit/checks/rules.mjs design           the coloured screens
@@ -15,7 +15,7 @@
    when the rules were written, and that is what stage 09 step 5 is for.
 
    EVERY RULE IS MEASURED AT BOTH VIEWPORTS AND ON WHAT RENDERS. Three of the
-   eleven are true at 1440 and false at 360 or the other way round, and one of them
+   thirteen are true at 1440 and false at 360 or the other way round, and one of them
    only became correct when the counter stopped reading the markup and started
    reading the box: two primary actions in the document are one primary action on
    the screen when the second is the viewport twin of the first.
@@ -35,7 +35,7 @@ const only = process.argv[3];
 const PAGES = only ? [only] : fs.readdirSync(dir)
   .filter(f => f.endsWith('.html') && f !== 'overview.html').sort();
 
-/* ---- the eleven, in the order of the section ------------------------------
+/* ---- the thirteen, in the order of the section ----------------------------
    Each returns null when the rule does not apply to this screen, a string when it
    is broken, and true when it held. The `where` field is what a person reads when
    it breaks: the rule's name is not enough to find the element. */
@@ -117,6 +117,18 @@ const RULES = [
   { id: 'R12', name: 'a list holds one filling, never both',
     run: d => (d.optlistMixed ? `${d.optlistMixed} list(s) holding an opt and a keyrow inside one border`
              : d.optlists ? true : null) },
+  /* R13 arrived at stage 13, and it exists because the defect it forbids shipped on 21
+     screens for two stages while the showcase documented the opposite. `expand` has two
+     fillings: one with a head, which closes, and one without, which never had anything to
+     close. A head written on a `div` is the failure: it renders as an unstyled `summary`
+     with a UA triangle and no disclosure behind it, which is exactly what the chevron on
+     the old div promised and could not do. The second half is the reason the handover note
+     is the filling WITHOUT a head: its head carries a link to the case, and a link inside a
+     `summary` cannot be reached, because the click belongs to the disclosure. */
+  { id: 'R13', name: 'an expansion with a head is a details, and no head holds a link',
+    run: d => (d.headOnDiv ? `${d.headOnDiv} expansion(s) with a head that is not a details`
+             : d.headWithLink ? `${d.headWithLink} expansion head(s) holding a link`
+             : d.expandHeads ? true : null) },
 ];
 
 const collect = () => {
@@ -178,6 +190,9 @@ const collect = () => {
     h1: all('h1').length,
     optlists: all('.optlist').length,
     optlistMixed: all('.optlist').filter(e => e.querySelector('.opt') && e.querySelector('.keyrow')).length,
+    expandHeads:  all('.expand').filter(e => e.querySelector(':scope > summary')).length,
+    headOnDiv:    all('.expand').filter(e => e.querySelector(':scope > summary') && e.tagName !== 'DETAILS').length,
+    headWithLink: all('.expand').filter(e => e.querySelector(':scope > summary a')).length,
   };
 };
 

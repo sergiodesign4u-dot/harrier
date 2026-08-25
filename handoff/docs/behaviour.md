@@ -50,6 +50,7 @@ A behaviour with no source does not get a row. It goes to section 6, NOT SETTLED
 | 3 | `queue.html` | Up and Down move the selected row **and the pane follows**. Focus stays in the list | `queue.html`, pane redrawn | node 3.1 section 6 |
 | 4 | `queue.html` | `Enter` moves focus INTO the pane, which is what makes the verdict keys live | `case.html` in the pane | node 3.1 section 6 |
 | 4b | `queue.html` at 360 | `Enter` navigates instead, because there is no second pane | `case-standalone.html` | node 3.1 section 6, node 4.2 section 4 |
+| 4c | `case.html` | The head of an expansion opens the working **in place**, under the claim it belongs to. It arrives closed on every screen, and it is the only thing in the pane the analyst has to ask for | `case.html`, nothing else moves | screen `case.html` |
 | 5 | `case.html` | `a` accepts | `queue-decided.html` | screen `case.html`, node 4.1 section 6 |
 | 6 | `case.html` | `r` rejects and opens the reason dialog | `reject.html` | screen `case.html` |
 | 7 | `case.html` | `m` amends the narrative **in place**. No dialog and no scrim | `case-amend.html` | screen `case-amend.html`, node 4.1 section 5 |
@@ -79,6 +80,7 @@ A behaviour with no source does not get a row. It goes to section 6, NOT SETTLED
 | Domain, taken | `queue-taken.html` | The row wears `taken`, with a name and since when. **Filing is still allowed**: a real collision is recorded by the log rather than prevented by a lock | node 3.1 section 5 |
 | Domain, Clerk not investigating | `queue-clerk-down.html` | The queue is **complete** and says so: nothing is missing and nothing new arrives until Clerk is back | screen |
 | Systemic, notices | `queue-notice.html`, `queue-notices.html` | One notice, and the stack at its ceiling | screen, node 8.4 |
+| Depth, closed and open | every case screen | `expand` is a native `details` and open is the element's own state, so nothing here is a class and nothing is remembered between screens. **Closed is how it arrives**, which is what makes design principle 2 true rather than stated: opening one is a signal that Clerk has not made its case. The handover notes on `shift.html` are the same component with no head and they never close | screen `case.html`, screen `shift.html` |
 
 ### Validation
 
@@ -239,7 +241,7 @@ Behaviour with no source. **Two rows**, both raised by the readers rather than b
 
 | Flow | Described | Steps | States | Validation rules | Edge cases |
 |---|---|---|---|---|---|
-| Main job, rule on the case | yes | 12 | 17 | 10 | 5 |
+| Main job, rule on the case | yes | 13 | 18 | 10 | 5 |
 | R1, pick up and hand off a shift | yes | 5 | 5 | in the main table | 3 |
 | R2, answer for it later | yes | 5 | 7 | in the main table | 7 |
 | Flow 4, get in and arrive | yes | 5 | 5 | in the main table | 4 |

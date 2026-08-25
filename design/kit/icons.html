@@ -208,7 +208,7 @@
   <thead><tr><th>Glyph</th><th>On</th><th>Uses</th><th>Why it earned the space</th></tr></thead>
   <tbody>
     <tr><td><code>source</code></td><td><code>.src::after</code></td><td>131 on 24 pages</td><td>the strongest case in the product: an evidence line names its source, and nothing said the source <b>opens somewhere else</b></td></tr>
-    <tr><td><code>expand</code></td><td><code>.expand::before</code></td><td>27 on 23 pages</td><td>design principle 2 is cheapest correct thing first, depth one key away, and depth had no mark on it at all</td></tr>
+    <tr><td><code>expand</code></td><td><code>.expand &gt; summary::before</code></td><td>21 on 21 pages</td><td>design principle 2 is cheapest correct thing first, depth one key away, and depth had no mark on it at all. <b>It hung off the box until stage 13 and hangs off the head now</b>, so the 6 expansions with no head carry no mark: the glyph promises a control, and it now cannot appear where there is none</td></tr>
     <tr><td><code>keyboard</code></td><td><code>.kmap</code> in Z1</td><td>1 per screen</td><td>it rendered a literal question mark, the one glyph in the shell that says nothing about what it opens. The accessible name is already Keyboard map, so replacing the visible character loses nothing</td></tr>
   </tbody>
 </table>
@@ -218,9 +218,9 @@
 
 <h2 class="k-h" id="source">One source, and the copy that cannot read it</h2>
 <p class="k-note">The sixteen live in <code>design/system/icons.js</code> as an ordered list of primitives: a path keeps its <code>d</code> string, a rect its four numbers, a circle its three. They are not flattened to path data, because four of the sixteen are drawn with a rect or a circle and so are the masks, and flattening would make every comparison below report a difference in the text where there is none in the drawing.</p>
-<p class="k-note"><b>The second copy is real and it is named here rather than hidden.</b> A CSS mask takes a data URI and cannot read a JavaScript object, so <code>source</code>, <code>expand</code> and <code>keyboard</code> are written again: once in <code>design/kit/kit.css</code>, and once more in the component file that uses each one as that component is written. Nothing renders the two side by side, so a correction made to one would leave the other on the old geometry and no page would look wrong. What replaces trust is a check:</p>
+<p class="k-note"><b>The second copy is real and it is named here rather than hidden.</b> A CSS mask takes a data URI and cannot read a JavaScript object, so <code>source</code>, <code>expand</code> and <code>keyboard</code> are written again: once in the component file that uses each one, and once more wherever a second component draws the same glyph. Nothing renders the two side by side, so a correction made to one would leave the other on the old geometry and no page would look wrong. What replaces trust is a check:</p>
 <div class="i-run">node design/kit/checks/icons.mjs</div>
-<p class="k-note">It decodes every mask data URI it finds in <code>kit.css</code> and in every component file, parses the SVG back into the same primitives, and compares them character for character. It carries no table of which mask ought to be which glyph: each one is matched against the whole set, so a mask that matches nothing is reported as an unregistered glyph rather than passing quietly. <b>The run against the current files matches all three on geometry and finds no unregistered mask.</b> It finds the stroke instead.</p>
+<p class="k-note">It decodes every mask data URI it finds in every component file, parses the SVG back into the same primitives, and compares them character for character. It carries no table of which mask ought to be which glyph: each one is matched against the whole set, so a mask that matches nothing is reported as an unregistered glyph rather than passing quietly. <b>The run against the current files matches all three on geometry and finds no unregistered mask.</b> It finds the stroke instead.</p>
 
 <h3 class="k-h2">Finding: the same glyph is two weights</h3>
 <p class="k-note"><b><code>.icon</code> in <code>design/kit/kit.css</code> and <code>.k-icon</code> in <code>design/kit/_page.css</code> both declare <code>stroke-width: 1.5</code>. Every mask data URI declares <code>stroke-width="1.8"</code>.</b> Those two rules are the only stroke widths written as CSS anywhere under <code>design/</code>, and the 1.8 has no comment beside it in any file that carries it and no row in <code>DESIGN.md</code>. The geometry agrees exactly, character for character, so this is not a drawing that drifted: it is one drawing painted 20 per cent heavier in the product than on the stand that documents it.</p>
@@ -634,7 +634,7 @@ window.NAV_SECTIONS = [
      design/kit/kit.css; the multiplication is done here. */
   var SITES = [
     { where: '<code>.src::after</code>, 131 uses', box: 11, stroke: HEAVY, src: 'mask data URI' },
-    { where: '<code>.expand::before</code>, 27 uses', box: 12, stroke: HEAVY, src: 'mask data URI' },
+    { where: '<code>.expand &gt; summary::before</code>, 21 uses', box: 12, stroke: HEAVY, src: 'mask data URI' },
     { where: '<code>.z1 .kmap::before</code>, 1 per screen', box: 16, stroke: HEAVY, src: 'mask data URI' },
     { where: '<code>.icon</code>, the product default', box: 20, stroke: SW, src: 'kit.css' },
     { where: '<code>.icon--sm</code>', box: 16, stroke: SW, src: 'kit.css' },

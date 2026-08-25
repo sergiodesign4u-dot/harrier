@@ -16,7 +16,18 @@
    the boundary and the underline under the state word, which is the one place in
    the product an underline is used on something that is not a link. */
 
+/* IT IS WRITTEN AS A `p` AND CARRIED THE BROWSER'S PARAGRAPH MARGIN, 11px above and
+   11 below, which nothing had reset. Two consequences and the second is the one that
+   was reported. The strip floated in 22px of dead space on every screen that has one,
+   against a design principle that calls density the feature. And the split below it
+   began 11px lower than the strip's own rule, so the vertical divider between the
+   list and the pane started BELOW the horizontal one and the corner between them was
+   left open: a line stopping in mid air beside a line that does not meet it.
+
+   `annun.css` records this exact defect on the annunciator, found by a reader with
+   clean context, and the strip that carries the annunciator had it too. Stage 13. */
 .z2{
+  margin: 0;
   flex: 0 0 auto;
   min-height: var(--zone-strip);
   display: flex;

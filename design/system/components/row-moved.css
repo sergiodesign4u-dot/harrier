@@ -34,6 +34,15 @@
   transition: background-color var(--dur-fast) var(--ease-standard);
 }
 .row-moved > *{ min-width: 0; overflow-wrap: anywhere }
+/* THE TABLE FILLS ITS BLOCK AND THE SENTENCE STILL STOPS AT THE MEASURE, which is
+   two requirements one track cannot hold. `what changed` was declared `minmax(0,44ch)`,
+   so the four tracks summed to 597 of the block's 811 at 1440 and to 597 of 1190 at
+   1920: STATE and WHEN floated in the middle of the block with a quarter of the width
+   dead to their right, while the rule above them spanned the whole of it. The track is
+   now the one that grows, and the CAP MOVES ONTO THE TEXT, which is where base.css says
+   a measure belongs. The second cell is the only one with no class of its own, and it is
+   addressed by position because the anatomy is four zones in a fixed order. Stage 13. */
+.row-moved > *:nth-child(2){ max-width: var(--measure) }
 
 .row-moved .when  { font-family: var(--font-mono); font-size: var(--size-xs);
                     color: var(--text-secondary); text-align: right }

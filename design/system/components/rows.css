@@ -52,4 +52,11 @@
 }
 .rows--log{ grid-template-columns: var(--row-tracks-log) }
 .rows > .row{ grid-column: 1 / -1; grid-template-columns: subgrid }
+/* AND EVERYTHING THAT IS NOT A ROW SPANS THEM ALL. Making the list a grid made a grid
+   ITEM of every child, and a list holds more than rows: the empty state, the arriving
+   bar, the annotation. Each of them was placed in the first track, 90px wide, so the
+   empty state rendered three words to a line with its button as a tall narrow box and
+   the loading bar became a stub in the severity column. The tracks belong to the rows;
+   nothing else in the list knows about them. Stage 13. */
+.rows > *:not(.row){ grid-column: 1 / -1 }
 /* NO STATES. */

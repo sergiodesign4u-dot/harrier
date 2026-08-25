@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="../_nav.css">
 <link rel="stylesheet" href="system/index.css">
 <style>
-/* PAGE-LOCAL, prefix o-. The hub's own furniture. Nothing here restyles a component. */
+/* PAGE-LOCAL, prefix o-. The hub's own furniture. ONE rule here restyles a component, and
+   it is the last declaration in this block with the measurement that forced it. */
 .o-wrap{padding:var(--space-5) var(--space-6) var(--space-7);max-width:1180px}
 .o-lede{max-width:74ch;font-size:var(--size-md);line-height:var(--leading);margin:0 0 var(--space-4)}
 .o-h{font:600 var(--size-xl)/var(--leading-tight) var(--font-sans);letter-spacing:-.02em;
@@ -40,6 +41,25 @@
 .o-kit a:hover{background:var(--bg-surface)}
 .o-kit b{display:block;font-size:var(--size-md);font-weight:600;margin-bottom:var(--space-2)}
 .o-kit span{font-size:var(--size-sm);color:var(--text-secondary);line-height:1.45}
+
+/* ---- and the one exception, which is the panel defect of 2026-08-25 by a third road ----
+   This hub wears the generic `.shell` and links `system/index.css`, so
+   `components/shell.css` gives it the PRODUCT shell: `height:100vh` and
+   `align-items:stretch`, right for a screen that scrolls inside its own zones and wrong
+   for a document that scrolls as one. Measured at 1440 in the shipped dark theme:
+     .shell    900px tall, align-items stretch, against a document running to 3340px
+     #sidebar  position sticky from base.css, and it still left the page: its
+               getBoundingClientRect().top went 0 to -2440 over the scroll, against
+               0 to 0 on design/kit/btn.html, which is the same chrome without the clash
+   A sticky element sticks only inside its containing block, so the panel travelled for one
+   viewport and the reader was given an empty column for the remaining 2440px.
+
+   THE OFFSET IS NOT RESTORED HERE, and that is the difference from design/concept/_stand.css.
+   That file puts back `top:56px` because research/_page.css owns its column and that column
+   carries top padding. This page has no such sheet: base.css's own `top:0` is correct for a
+   surface without it, and the kit pages measure 0 to 0 on exactly that. Restoring 56 here
+   would be copying a cure rather than reading one. Stage 13. */
+.shell{align-items:flex-start;height:auto;min-height:100vh}
 </style>
 </head>
 <body>
@@ -50,8 +70,8 @@
 
 <p class="o-sub">Stage 07 &middot; UI + Visual, completed by stage 12 &middot; Rollout</p>
 <h1 class="o-h" style="margin-top:0">The product in colour</h1>
-<p class="o-lede">Every screen here is a <b>copy</b> of its grey wireframe that owns the visual layer and nothing else. Structure, text and the set of states stay the property of <code>wireframes/</code>, which has not changed by a character since stage 05.</p>
-<p class="o-lede">A screen is not painted. It is assembled from <a href="kit/why.html">the system</a>, and a detail that is missing goes into the system first and onto a screen second. <b>Not one of these 62 files contains a line of CSS of its own</b>: no <code>@media</code>, no <code>transition</code>, no <code>&lt;style&gt;</code> tag, no hex outside an inline icon, and no class the system does not declare. That is measured on every page by <a href="kit/checks.html"><code>screens.mjs</code></a> rather than asserted. <b>Two <code>style</code> attributes survive on two screens</b>, and the instrument reports them as declared exemptions rather than as zero, which is the difference between a thing nobody checked and a thing we decided to carry.</p>
+<p class="o-lede">Every screen here is a <b>copy</b> of its grey wireframe that owns the visual layer and nothing else. Structure, text and the set of states stay the property of <code>wireframes/</code>, which has not changed by a character since stage 05. <b>One screen is a copy of nothing:</b> node 7.1 Tenant detail never had a wireframe, so its four states are derived from the state matrix of 3.5 and no pixel comparison against a grey original is claimed.</p>
+<p class="o-lede">A screen is not painted. It is assembled from <a href="kit/why.html">the system</a>, and a detail that is missing goes into the system first and onto a screen second. <b>Not one of these 66 files contains a line of CSS of its own</b>: no <code>@media</code>, no <code>transition</code>, no <code>&lt;style&gt;</code> tag, no hex outside an inline icon, and no class the system does not declare. That is measured on every page by <a href="kit/checks.html"><code>screens.mjs</code></a> rather than asserted. <b>Two <code>style</code> attributes survive on two screens</b>, and the instrument reports them as declared exemptions rather than as zero, which is the difference between a thing nobody checked and a thing we decided to carry.</p>
 
 <div class="o-strip" id="tally"></div>
 

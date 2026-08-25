@@ -178,7 +178,7 @@
 <h2 class="k-h" id="usage">Usage rules</h2>
 <p class="k-note">Three classes of prohibition, and only the first has a home on a component page: <b>substitution</b> ("this needs a tag rather than a badge") lives as the rule and antirule block there and is not repeated here. <b>Composition</b> and <b>context</b> cannot be written as an antirule at all, because no other component is the right one to take. The component is correct and its count or its neighbour is not.</p>
 <p class="k-note">The Components column names <b>patterns as well as components</b>, because a rule about a count is most often a rule about the filling that does the counting.</p>
-<p class="k-note"><b>Every rule below is also a function.</b> <code>design/kit/checks/rules.mjs</code> is these eleven in this order, measured at 1440 and at 360, on what renders rather than on what is in the markup. A prohibition written only in prose is a prohibition nobody runs, and three of these are true at one width and false at the other.</p>
+<p class="k-note"><b>Every rule below is also a function.</b> <code>design/kit/checks/rules.mjs</code> is these thirteen in this order, measured at 1440 and at 360, on what renders rather than on what is in the markup. A prohibition written only in prose is a prohibition nobody runs, and three of these are true at one width and false at the other. <b>The twelfth arrived at stage 12 and the thirteenth at stage 13</b>, each because a rule had been written as a sentence in a stylesheet and had paid none of what section 11 says a new rule costs.</p>
 
 <div class="k-wrap-x">
 <table class="k-table">
@@ -195,6 +195,8 @@
     <tr><td>R9</td><td>One selected row at a time, and none at 360</td><td>composition, context</td><td>counter: 23 screens, maximum of one; zero at 360 by node 3.1</td><td>row, rows, queue-list</td></tr>
     <tr><td>R10</td><td>The fleet has no route and no navigation item</td><td>context</td><td><code>docs/decisions.md</code>: a route would make the differentiator a place you go</td><td>fleet, navitem, z5</td></tr>
     <tr><td>R11</td><td>One <code>h1</code> per screen</td><td>composition</td><td><code>voice/docs/critique.md</code>: two node specifications disagree on 19 screens</td><td>readout, pane-head, case-pane</td></tr>
+    <tr><td>R12</td><td>An <code>optlist</code> holds one filling or the other, never both inside the same border</td><td>composition</td><td>stage 12: <code>optlist</code> gained a second filling, <code>keyrow</code>, when node 0.5 was built. An <code>opt</code> is a link you answer and a <code>keyrow</code> is a row you read</td><td>optlist, opt, keyrow</td></tr>
+    <tr><td>R13</td><td>An expansion that has a head is a <code>details</code>, and no head holds a link</td><td>composition</td><td>stage 13: 21 screens carried <code>div.expand</code> with a chevron on it and no control behind it, while this stand described <code>details.expand</code>. The second half is why the handover note keeps no head: its head links to the case, and a link inside a <code>summary</code> cannot be reached</td><td>expand, link</td></tr>
   </tbody>
 </table>
 </div>

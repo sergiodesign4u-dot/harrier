@@ -46,7 +46,10 @@
    the variant list for exactly that reason and the margin then belonged to nobody, so the
    banner ran the full width of the column at 360 on two screens. The parent owns it now,
    which is what step 2 ruled, and the class is gone from the markup. */
-.z4 > .banner{ margin: var(--space-3) var(--space-4) 0 }
+/* AND IT HAS AIR UNDER IT. The bottom margin was zero, so the banner's border sat
+   directly on the sticky header of the table below it: two rules touching, and the
+   banner read as part of the table rather than as a notice about it. Stage 13. */
+.z4 > .banner{ margin: var(--space-3) var(--space-4) }
 
 /* context, not variants: the children paint differently, Z4 does not */
 .z4--entry,

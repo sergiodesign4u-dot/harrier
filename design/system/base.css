@@ -267,6 +267,13 @@ h1, h2, h3{ text-wrap: pretty }
   #sidebar,.z1,.z2{ display:none }
   .frame{ border:2px solid #000; margin:0 }
   .rail { position:static; background:#fff; color:#000; border-bottom:2px solid #000 }
-  .expand{ display:block }
+  /* AN EXPANSION IS OPEN IN PRINT, and from stage 13 that costs a different rule.
+     While it was a div, `display:block` was enough because nothing was ever hidden.
+     Now it is a native `details` and the UA hides the body in ::details-content, so
+     that is the thing unhidden here; `display` on the box would leave a closed
+     disclosure printed as its own label. The mark goes, because a chevron on paper
+     points at a control nobody can press. */
+  .expand::details-content{ content-visibility: visible }
+  .expand > summary::before{ display:none }
   .doc  { padding:16pt }
 }

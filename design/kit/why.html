@@ -160,7 +160,7 @@
   <a class="w-door w-door--stop" href="architecture.html#usage">
     <span class="q">what may I not do</span>
     <b>Usage rules</b>
-    <span>Eleven prohibitions of composition and context, each with the count or the decision it came from, and each one also a function in <code>design/kit/checks/rules.mjs</code>. <b>Run them against your screen rather than reading them.</b></span>
+    <span>Thirteen prohibitions of composition and context, each with the count or the decision it came from, and each one also a function in <code>design/kit/checks/rules.mjs</code>. <b>Run them against your screen rather than reading them.</b></span>
   </a>
 </div>
 <p class="k-note"><b>Both themes are accepted even though the product ships one.</b> A screen carries no theme code, no toggle and no <code>data-theme</code> attribute: the pair is a property of the token level rather than a feature, and <code>base.css</code> is the one place the page's ground and ink are set, so flipping the theme needs no rule anywhere else. The switch lives in this stand's panel and not in the product, and there is no <code>prefers-color-scheme</code> anywhere in the system, deliberately: the console's ground is a decision about a room at 03:00 rather than about an operating system setting. What that obliges you to do is still real. <b>A component that breaks in the theme nobody ships still breaks</b>, and the person who finds out is the developer at handoff, so a new role and every one of its states is written in both themes at the moment it is founded, and the finished screen is rendered twice.</p>

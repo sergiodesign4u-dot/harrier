@@ -16,7 +16,7 @@
 
 <p class="k-eyebrow">Molecule</p>
 <h1 class="k-title">Expansion</h1>
-<p class="k-lede">The depth, one key away. 32 instances across 28 screens: inside a block 27 and on the door 5.</p>
+<p class="k-lede">The depth, one key away. <b>27 instances across 23 screens</b>, every one of them inside a block. Of the 27, <b>21 have a head and close</b>, and 6 do not.</p>
 <p class="k-note"><b>Design principle 2 ends here.</b> Cheapest correct thing first, depth one key away: the expansion IS the depth. The claim reads without it, the working is inside it, and <b>the analyst who trusts the verdict never opens one</b>. More explanation is not more trust, and past a point it reduces it.</p>
 
 <h2 class="k-h" id="anatomy">Anatomy</h2>
@@ -42,9 +42,9 @@
 </div>
 <ul class="k-parts">
   <li><code>details.expand</code><span>the whole thing. A <b>native</b> <code>details</code>, and that is the component</span></li>
-  <li><code>summary</code><span>the line you press. It stays visible when the expansion is closed and it says what is inside rather than saying more</span></li>
+  <li><code>summary</code><span>the line you press. It stays visible when the expansion is closed and it says what is inside rather than saying more. <b>It is also the switch between the two fillings:</b> a filling with a head closes, a filling without one never had anything to close</span></li>
   <li>the left rail<span>2px in <code>--line-separator</code>, so the open expansion reads as an aside on the claim rather than as a new section</span></li>
-  <li><code>::before</code><span><b>the mark, one of the three icons this product applies.</b> It earned its space because depth had no mark on it at all. <b>It sits inside the padding box, centred on the first line</b>, which is the line it points at. It used to hang 11px to the left of the border and 9px above that line: two offsets, neither measured, and together they put the glyph in open space with nothing beside it, reading as an orphan rather than as a mark on anything</span></li>
+  <li><code>summary::before</code><span><b>the mark, one of the three icons this product applies.</b> It earned its space because depth had no mark on it at all. <b>It hangs off the head and not off the box</b>, and that is what keeps the two fillings honest: a filling with no head loses the mark by construction rather than by a second class somebody has to remember. As a flex item of the line it labels it carries no offsets at all, and it holds wherever the type scale goes next. It used to be an absolutely positioned pseudo of the container, 11px to the left of the border and 9px above the optical centre: two unmeasured offsets that together put the glyph in open space with nothing beside it, reading as an orphan rather than as a mark on anything</span></li>
 </ul>
 
 <h2 class="k-h" id="variants">Variants</h2>
@@ -52,16 +52,18 @@
 <table class="k-table">
   <thead><tr><th>Axis</th><th>Value</th><th>Uses</th><th>The rule</th></tr></thead>
   <tbody>
-    <tr><td><b>element</b></td><td><code>details</code></td><td>32</td><td><b>Step 2 ruled it and step 6 executes it.</b> The reason is not tidiness: a <code>div</code> that expands has to reimplement the keyboard, the accessible name and the open state, and <code>details</code> has all three for free. It is also why print works, where the rule in <code>base.css</code> opens every expansion on the page</td></tr>
+    <tr><td><b>element</b></td><td><code>details</code></td><td>21</td><td><b>Step 2 of stage 08 ruled it, step 6 did not execute it, and stage 13 did.</b> For two stages 21 screens carried a <code>div</code> with this chevron drawn on it and no control behind it, while this page described the element you see now. The reason is not tidiness: a <code>div</code> that expands has to reimplement the keyboard, the accessible name and the open state, and <code>details</code> has all three for free. It is also why print works, where the rule in <code>base.css</code> opens every expansion on the page</td></tr>
+    <tr><td><b>element</b></td><td><code>div</code></td><td>6</td><td><b>The filling with no head</b>, and the only one. Three handover notes on <a class="link" href="../shift.html">Shift</a> and three on its sealed twin</td></tr>
+    <tr><td><b>filling</b></td><td>head / no head</td><td>21 / 6</td><td><b>A handover note does not close.</b> It is read because the shift was taken, so hiding it would hide the reason the screen exists. Its head also carries a link to the case, and a link inside a <code>summary</code> cannot be reached, because the click belongs to the disclosure. That is R13</td></tr>
     <tr><td><b>kind</b></td><td><span class="k-none">no values</span></td><td>&ndash;</td><td><b>It is a slot:</b> what is inside is whatever the claim needed to show</td></tr>
     <tr><td><b>overlay</b></td><td><span class="k-none">forbidden</span></td><td>&ndash;</td><td><b>It expands in place and never over the block.</b> Design principle 5 forbids an overlay that hides the evidence being decided on, and this is the component most likely to have been drawn as one</td></tr>
   </tbody>
 </table>
 </div>
-<p class="k-note"><b>Five <code>summary</code> elements on the door are absorbed by this component.</b> They were doing the same job under a different name, which is what the rename map at step 2 is for.</p>
+<p class="k-note"><b>The five <code>summary</code> elements on the door are NOT absorbed by this component, and that plan is dropped here rather than left standing.</b> The rename map at step 2 read them as the same job under a different name. They are not: the door’s help is a question on a full page with one form on it, and this is depth on a claim inside a list of evidence. Giving the door a bordered surface with a left rail would say there is working to check where there is only an answer to a question. <code>doorhelp</code> keeps its own summary and its own file.</p>
 
 <h2 class="k-h" id="use">When to use it</h2>
-<p class="k-note">Under a claim, when there is working worth showing and not worth showing first. Twenty seven of the thirty two are exactly that; the other five are the door’s help.</p>
+<p class="k-note">Under a claim, when there is working worth showing and not worth showing first. All 27 are exactly that. The door’s help looks like one and is not: see the note under Variants.</p>
 <p class="k-note"><b>Where she meets it.</b> On the cases she does not believe. That is the measure of the component: opening one is a signal that Clerk has not made its case, and a product where every expansion gets opened has a verdict problem rather than a disclosure problem.</p>
 
 <h2 class="k-h" id="rules">Rule and anti-rule</h2>
@@ -78,15 +80,24 @@
   </div>
 </div>
 
+<h3 class="k-h2" id="limits">Limits</h3>
+<p class="k-note">Rules of <b>composition</b> and <b>context</b>, which no anti-rule can carry: nothing else is the right component to take, and what is wrong is the count or the neighbour. Every one of them is a function in <code>design/kit/checks/rules.mjs</code>. Full table with sources on <a class="link" href="architecture.html#usage">Architecture</a>.</p>
+<ul class="k-limits">
+  <li><b>R13.</b> An expansion that has a head is a <code>details</code>, and no head holds a link. A head written on a <code>div</code> renders as an unstyled <code>summary</code> with a UA triangle and nothing behind it, which is exactly what the chevron on the old div promised and could not do. A link in a head is unreachable, because the click belongs to the disclosure.</li>
+  <li><b>R3.</b> No overlay covers the detail pane. This component is the one most likely to have been drawn as one.</li>
+</ul>
+
 <h2 class="k-h" id="states">States</h2>
-<p class="k-lede"><b>Open and closed are the element’s own state and need no class.</b> Press the summary.</p>
+<p class="k-lede"><b>Open and closed are the element’s own state and need no class.</b> Press the summary. Closed is how every one of the 21 arrives on the screen, and that is the whole point of the component: the analyst who trusts the verdict never opens one.</p>
 <div class="k-bench">
   <div class="k-bench-half" data-theme="dark">
     <p class="k-bench-tag">dark, shipped</p>
     <div class="k-bench-row">
       <div style="width:100%;max-width:440px">
         <p class="nar" style="margin:0"><span class="when">04:14</span>Token replay from a new ASN, 3 of 3 sessions.</p>
+        <details class="expand"><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened, all from one ASN that this tenant has not used in 90 days. The baseline is 0 of 412.</details>
         <details class="expand" open><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened, all from one ASN that this tenant has not used in 90 days. The baseline is 0 of 412.</details>
+        <div class="expand">The filling with no head. It carries the whole note, because a handover note is read exactly once and hiding it would hide the reason the screen exists.</div>
       </div>
     </div>
   </div>
@@ -95,12 +106,25 @@
     <div class="k-bench-row">
       <div style="width:100%;max-width:440px">
         <p class="nar" style="margin:0"><span class="when">04:14</span>Token replay from a new ASN, 3 of 3 sessions.</p>
+        <details class="expand"><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened, all from one ASN that this tenant has not used in 90 days. The baseline is 0 of 412.</details>
         <details class="expand" open><summary>how Clerk counted this</summary>Three sessions in the six hours before the case opened, all from one ASN that this tenant has not used in 90 days. The baseline is 0 of 412.</details>
+        <div class="expand">The filling with no head. It carries the whole note, because a handover note is read exactly once and hiding it would hide the reason the screen exists.</div>
       </div>
     </div>
   </div>
 </div>
 <p class="k-note">Focus-visible lands on the summary through <code>base.css</code>. <b>Nothing here declares a hover</b>, because the summary is one line of text rather than a plate, and a ground under it would make the closed expansion look like a control that does something.</p>
+
+<h3 class="k-h2" id="motion">Motion</h3>
+<div class="k-wrap-x">
+<table class="k-table">
+  <thead><tr><th>Moment</th><th>Work</th><th>Duration</th><th>Curve</th><th>Under reduce</th></tr></thead>
+  <tbody>
+    <tr><td>the mark turns as the expansion opens</td><td><b>response</b></td><td><code>--dur-fast</code></td><td><code>--ease-standard</code></td><td>1ms through the token, <b>and the expansion still opens</b></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="k-note"><b>One moment, and it is the cheapest of the three works.</b> The glyph is drawn pointing down, so open is its rest and closed is the rotation: what turns is an acknowledgement that the key landed, not an arrival. Nothing else here moves. The body does not slide, because a height that animates is a height the browser recomputes every frame, and this component stands 21 times in a list the analyst reads at speed. What <code>prefers-reduced-motion</code> drops is the movement and never the state.</p>
 
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <div class="k-wrap-x">
@@ -117,8 +141,8 @@
 <div class="k-code">&lt;details class="expand"&gt;&lt;summary&gt;how Clerk counted this&lt;/summary&gt;Three sessions in six hours.&lt;/details&gt;</div>
 <h3 class="k-h2">Where it stands</h3>
 <div class="k-where">
-  <a href="../case.html">inside a block &middot; 27</a>
-  <a href="../index-signed-out.html">the door&rsquo;s help &middot; 5</a></div>
+  <a href="../case.html">under a claim, with a head &middot; 21</a>
+  <a href="../shift.html">a handover note, no head &middot; 6</a></div>
 </main>
 </div>
 <script>

@@ -76,6 +76,12 @@ This file exists because the alternative is silence. A thing that was found, con
 |---|---|---|---|
 | **`.doorhelp summary` is a control with no state.** It carries `cursor: pointer`, it is the only thing on the sign in page anybody clicks besides the button, and its file says "NO STATES". It is the only control in this product with no hover at all | `design/system/components/door.css`, and the five sign in screens | **Motion lands on states and never creates them.** Drawing a hover here would be inventing a state at the motion stage, which is the pattern this project rules against by name: a class the product never wears animates nothing and documents a lie. It is an order against stage 08's five things, and the smallest one in the backlog | whenever the door is next opened, and it is a ten minute job that nobody should do inside a stage that is not allowed to |
 
+## Opened by stage 13, when the showcase and the product were found to disagree
+
+| What is missing | Where it is visible | Why it was deferred | Who closes it |
+|---|---|---|---|
+| **No instrument compares the showcase against the product.** Every check in `design/kit/checks/` measures the product against itself: the rendered box against the declared token, the file against the register, one width against another. Not one of them reads what a component page **prescribes** and holds it against what the screens carry. `expand.html` has published a **Copy this** line reading `<details class="expand">` since stage 08 while every product screen carried `<div class="expand">`, and nothing could see the difference. **Cost: 21 instances on 21 screens, wrong for two stages** | `design/kit/expand.html`, its Copy this block, against any case screen before stage 13 | **The class is invisible to everything that already runs here.** To a text detector a component page is prose; to a browser it is a rendered page; and the sentence in it naming which ELEMENT to write is neither. A rendering comparison cannot help either, because the showcase renders its own correct markup: both sides looked right, separately. The shape of the cure is known and it is a new instrument rather than an edit, which is not a thing a documentation pass may write | **a check, not a correction.** It parses the `k-code` block on every component page, extracts the element and the class it prescribes, and compares that against what `design/*.html` actually carries for that class. Owner: the user, with the next instrument written for `design/kit/checks/` |
+
 ## Closed at stage 12, and the rows above are left standing rather than deleted
 
 **A backlog whose closed rows vanish reads as a backlog nobody ever opened.** Every row named here is still written above, under the stage that opened it, with the reason it was deferred intact. This section says what happened to it, because the difference between "considered and closed" and "never noticed" is the whole value of having looked.
@@ -99,6 +105,17 @@ This file exists because the alternative is silence. A thing that was found, con
 ### And three rows are NOT closed, which is why they are still above
 
 `div.expand` does not become `details.expand`: it needs 23 summary sentences, which is microcopy, and it moves to the handoff. Neither webfont is loaded, which costs money and a request. And `.doorhelp summary` still has no state, on five screens this stage never touched.
+
+**The first sentence above was wrong twice, and stage 13 measured both halves.** It needed **one** summary sentence and not 23: the 27 instances carry **7** distinct bodies, and 6 of the 7 are handover notes that already open on a tenant and an analyst, which is their own head. And the owner it names contradicts the row itself, which said stage 09. The correction is the row below rather than an edit here, because this paragraph is what stage 12 believed and the belief is the finding.
+
+## Closed at stage 13, and the row above is left standing rather than deleted
+
+| The row | What stage 13 did |
+|---|---|
+| **`div.expand` does not become `details.expand`** | **Closed, and the price was wrong by a factor of 23.** 21 instances on 21 screens are now `<details class="expand"><summary>How this was read</summary>`, closed by default, and the 6 handover notes stay a `div` with no head by decision rather than by omission. **The row priced the work at 23 invented sentences; the real count of distinct bodies is 7, and 6 of those already carry their own head, so the true cost was one sentence.** The row also named the wrong owner twice: it said "stage 09, with the microcopy that goes with it" while the stage 12 paragraph above says it moves to the handoff, and the two were never reconciled. The mark moved from `.expand::before` to `.expand > summary::before`, so a filling with no head loses it by construction; the print block in `base.css` now unhides `::details-content` instead of setting `display` on the box, because a native `details` hides its body there and a closed disclosure would otherwise print as its own label. It is rule **R13** in `architecture.md` and a function in `rules.mjs`: **39 held, 93 not applicable, 0 broken** over the coloured corpus at 1440 and 360 |
+| **The absorption of the door's five `summary` into this component** | **Dropped out loud rather than deferred.** It was a plan in the stage 08 rename map and it never executed. The door's help is a question on a full page with one form on it; `expand` is depth on a claim inside a list of evidence, and this component's bordered surface would tell the reader there is working to check where there is only an answer. `doorhelp` stays a zone of `doorcard`, declared in `door.css`, and the component's count falls from **32 across 28 screens to 27 across 23** |
+
+**One part of the row is genuinely still open and it is a new row above**, under *Opened by stage 13*: nothing in `design/kit/checks/` compares what a component page prescribes against what the product carries, which is why this sat for two stages with both halves looking correct on their own.
 
 ## Closed by the reconciliation itself
 

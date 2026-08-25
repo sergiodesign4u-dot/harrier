@@ -27,4 +27,6 @@
   align-content: start;
 }
 .rows-moved > .row-moved{ grid-column: 1 / -1; grid-template-columns: subgrid }
+/* the same: a list holds more than its rows, and the tracks are the rows' business */
+.rows-moved > *:not(.row-moved){ grid-column: 1 / -1 }
 /* NO STATES. */

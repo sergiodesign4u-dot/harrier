@@ -129,7 +129,7 @@
           <h3>Evidence, 9 signals</h3>
           <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="case.html">Entra sign in</a></div>
           <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="case.html">Entra sign in</a></div>
-          <div class="expand">Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</div>
+          <details class="expand"><summary>How this was read</summary>Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</details>
           <div class="claim"><span class="txt">No MFA prompt on the second use</span><a class="src" href="case.html">Entra sign in</a></div>
           <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
           <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>

@@ -34,8 +34,17 @@
   text-transform: uppercase;
 }
 
-/* the qualifier: what the marking applies to, in the sentence's own voice */
-.rail .soft{ font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .72 }
+/* the qualifier: what the marking applies to, in the sentence's own voice.
+   AND IT CARRIES THE MEASURE, WHICH THE BAND MUST NOT. Capping `.rail` itself stopped
+   the inverted band at 53 per cent of the framed record, which is the one thing this
+   file says it must never do; freeing it let the sentence run 148 characters at 1290,
+   which the width sweep found on all five entry screens. The band is not prose and
+   the sentence is, and `.soft` is where the sentence already lives, so the measure
+   goes on it and the plate spans. This is what base.css means by putting a measure on
+   the text rather than on its container, and `.rail` is the one place in this product
+   where the two are separable without changing any markup. Stage 13. */
+.rail .soft{
+  max-width: var(--measure); font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .72 }
 
 /* the way out of the record, in a border of the rail's own ink */
 .rail .rail-out{

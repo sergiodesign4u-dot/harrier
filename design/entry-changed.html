@@ -37,7 +37,7 @@
           <h3>The evidence as it stood, 9 signals</h3>
           <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><span class="src">Entra sign in</span></div>
           <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><span class="src">Entra sign in</span></div>
-          <div class="expand">Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</div>
+          <details class="expand"><summary>How this was read</summary>Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</details>
           <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><span class="src">Exchange audit</span></div>
           <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><span class="src">Entra, EDR</span></div>
           <div class="claim claim--against"><span class="txt"><span class="tag">points the other way</span>this user has travelled to this region twice in 90 days</span><span class="src">tenant baseline</span></div>

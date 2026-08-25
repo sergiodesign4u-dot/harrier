@@ -105,7 +105,15 @@
    was correct for its 11px prose and wrong for the hairline drawn on the same
    element: the rule stopped 82px short of the address box above it and ended in mid
    air. The cap moves onto the text, which is where base.css says a measure belongs,
-   and the border keeps the column. Stage 13. */
+   and the border keeps the column. Stage 13.
+
+   `> *` WAS NOT THE TEXT, AND THAT COST A SECOND ROUND. The cure above capped the two
+   `b` elements and left the rest of the paragraph a BARE TEXT NODE, which no selector
+   reaches: the note went back to 81ch at 480 and 89 at 520, at 45 widths, and the
+   instrument reported it as one page rather than as the same page 45 times. base.css
+   says a bordered box cannot have its border span and its text capped at once WITHOUT A
+   WRAPPER THE MARKUP DOES NOT HAVE, and this is that sentence collected: the wrapper is
+   now in the markup, one bare `span`, and `> *` finally means the text. */
 .miss .note--sep{
   max-width: none;
   border-top: var(--rule-hair);

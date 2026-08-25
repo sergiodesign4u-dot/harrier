@@ -78,6 +78,13 @@ window.IA_NAV = [
   { node:'6.1',  label:'Client summary draft',          type:'page',    group:'pages',  scope:'LATER', file:null },
   { node:'6.2',  label:'Editing and sending',           type:'state',   group:'pages',  scope:'LATER', file:null },
   /* 7 grant the rope */
+  /* 7.1 HAS A BUILT SCREEN AND `file` STAYS null, WHICH IS NOT AN OVERSIGHT. `file` in this
+     registry names the node's own SPECIFICATION page under ia/, and the tally on structure.html
+     counts those. There is no ia/docs/pages/7.1.md and no ia/tenant-detail.html, so a filename
+     here would be a 404 in the panel and a written specification claimed where none exists.
+     What was built on 2026-08-26 is the COLOURED SCREEN, design/tenant.html and three states,
+     and its registry is design/_nav.js. Scope stays LATER: the MVP did not change. Grounds in
+     docs/decisions.md, 2026-08-26, and the row in ia/docs/sitemap.md under cluster 7. */
   { node:'7.1',  label:'Tenant detail',                 type:'page',    group:'pages',  scope:'LATER', file:null },
   { node:'7.2',  label:'Autonomy grants',               type:'page',    group:'pages',  scope:'LATER', file:null },
   { node:'7.3',  label:'Grant change',                  type:'dialog',  group:'pages',  scope:'LATER', file:null },

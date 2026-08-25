@@ -30,7 +30,14 @@
 }
 .bline:first-of-type{ border-top: var(--rule-hair) }
 
-.bline .n{ font: 700 var(--size-lg)/1 var(--font-mono); text-align: right;
+/* THE FIGURE IS CENTRED IN ITS COLUMN AND NOT FLUSHED RIGHT, and the trade is worth
+   naming because right alignment is the correct default for a COLUMN OF FIGURES: it
+   lines up the units digit so two numbers can be compared down the page. These are not
+   that. `18 waiting` and `6 closed by Clerk alone` count different things and are never
+   subtracted, so there is nothing to line up, and flushing them right left the single
+   digit sitting a whole character further from the sentence it heads than the double
+   digit. Centred, every figure sits the same distance from its own line. Stage 13. */
+.bline .n{ font: 700 var(--size-lg)/1 var(--font-mono); text-align: center;
            color: var(--text-primary) }
 /* A COUNT OF ZERO IS STILL A COUNT and it recedes rather than disappearing:
    `0 unrecorded` is the line the analyst most needs to see stay at zero. */

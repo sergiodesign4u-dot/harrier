@@ -365,7 +365,7 @@ The rename map of step 2 executed on **52 coloured screens**, plus the generator
 | the standalone head | `.pane-head` under a standalone pane | `.pane-head--standalone` | 3 |
 | the navigation item | `.z1 nav a`, a descendant selector on an element | `.navitem`, `.navitem.is-current`, in `design/_shell.js` | 132 at runtime |
 
-**One row of the map was NOT executed and it is in `backlog.md` with the reason.** `div.expand` to `details.expand` is not a rename: a `details` collapses by default and needs a `summary`, and a summary is a **string**. Executing it here would have meant inventing 23 sentences, and a string belongs to `voice/docs/microcopy.md`.
+**One row of the map was NOT executed and it is in `backlog.md` with the reason.** `div.expand` to `details.expand` is not a rename: a `details` collapses by default and needs a `summary`, and a summary is a **string**. Executing it here would have meant inventing 23 sentences, and a string belongs to `voice/docs/microcopy.md`. **The 23 was never counted. It is 7 distinct bodies and 6 of them already carry a head, so the price was one sentence**, and the row is closed at stage 13. The last section of this file is what happened.
 
 ### Found by the migration, and every one is a cascade defect
 
@@ -507,3 +507,65 @@ The cap stays where it was earned, below the split point, where the sweep found 
 ### One report was refused
 
 `?as-of=2026-08-` breaking across lines was reported at medium-high confidence. `stamp.css` says outright that the address wraps anywhere on purpose, because **a timestamp that is cut off is worse than one that breaks in the middle**. A finding that is not a defect is a defect of the finder.
+
+---
+
+## FOUR MORE FROM THE OWNER'S OWN READING, AND ONE OF THEM WAS MINE (stage 13)
+
+The owner walked the built screens and pointed at four things. Every one turned out to have a cause a stage away from where it showed.
+
+### The corner between the strip and the split was open
+
+`#wf-z2` is written as a `p` by the shell and **carried the browser's paragraph margin**, 11px above and below, which nothing had reset. Two consequences, and the reported one is the second: the strip floated in 22px of dead space on every screen that has one, and the split below it began 11px lower than the strip's own rule, so the vertical divider between the list and the pane started BELOW the horizontal one and the corner between them stayed open.
+
+`annun.css` already records this exact defect on the annunciator, found by a reader with clean context at stage 08. The strip that CARRIES the annunciator had it too, and nobody had looked at the parent after fixing the child.
+
+### The empty state rendered in a 90px column, and that was mine
+
+Moving the grid tracks onto the list closed the header alignment on three lists. It also **made a grid item of every child**, and a list holds more than rows: the empty state, the arriving bar, the annotation. All three were placed in the first track, 90px wide, so `Nothing is waiting on a decision.` came out three words to a line with its button as a tall narrow box.
+
+**The tracks belong to the rows and nothing else in the list knows about them.** One declaration, and it should have been in the first version.
+
+### The banner put its action in the middle of its own sentence
+
+The action zone carries a control and, on one screen, the reason there is nothing for the control to do. Side by side, that reason sat between the banner's text and its button, so the button read as dropped into the middle of the notice. The zone is a column now: control at its head, reason under it, both to the right. And the banner had **no bottom margin at all**, so its border lay directly on the sticky header of the table below it, two rules touching.
+
+### The instrument was wrong about the record band, not the component
+
+The width sweep reported `.rail` at **148 characters** and it was right about the number and wrong about the subject. The record band is a full bleed plate carrying a label, a timestamp, a sentence and a way out on one line. **Nobody reads the plate; they read the sentence**, and the sentence has its own element. Obeying the reading would have capped the plate at 53 per cent of the framed record, which is the one thing `rail.css` says must never happen.
+
+The corpus of the instrument was corrected rather than the component: it measures `.rail .soft` and excludes `.rail` and `.rail-foot` by name. The same reasoning already stands in that file for `.wrapline`, and it is the rule the file opens with: **a measure is a property of a run of text somebody reads across.**
+
+---
+
+## THE COMPONENT THE SHOWCASE DESCRIBED AND THE PRODUCT DID NOT CARRY (stage 13)
+
+`expand` shipped as a `<div>` with a chevron drawn on it and no control behind it. **21 instances on 21 screens, and every one of them charged its depth to every read**, which is the opposite of the principle the component exists to serve: the cheapest correct thing first, depth one key away. Step 2 of stage 08 ruled the move to a native `details`; step 6 did not execute it. `design/kit/expand.html` and section 9b of `inventory.md` have both described `details.expand` ever since, down to a **Copy this** line the product did not match.
+
+### Why no instrument could see it, and that half is worth more than the fix
+
+Every check in `design/kit/checks/` measures the product against itself. The rendered box against the declared token. The file against the register. One width against the other. **Not one of them measures the product against its own showcase**, and this defect lives exactly there: both sides were internally correct and only the pair was wrong. A component page is prose to a text detector and a rendered page to a browser, and the sentence in it that names which ELEMENT to write is neither. The class is now a row in `backlog.md` with an owner, because the cure is a check and not a correction: parse the `k-code` block on each component page, take the element and the class it prescribes, and hold that against what `design/*.html` carries for that class.
+
+### What moved
+
+| What | From | To | Why |
+|---|---|---|---|
+| the element | `div.expand`, always open | `details.expand`, closed by default, on **21** of the 27 | The disclosure the principle promises did not exist. One head was invented, `How this was read`, and it is the only new string in the change: the 27 instances carry 7 distinct bodies and 6 of them are handover notes that already open on a tenant and an analyst |
+| the mark | `.expand::before`, absolutely positioned on the box | `.expand > summary::before`, a flex item of the head | **The rule became structural instead of remembered.** A filling with no head loses the mark by construction, so the chevron now means one thing everywhere: there is depth here and you are not paying for it |
+| the motion | none. The component had no state to move between | `transform` on the mark, `--dur-fast` and `--ease-standard`, `rotate(-90deg)` closed to `rotate(0deg)` open | Response, an acknowledgement that the key landed. **No token was created**: the height opens the way the browser opens it, and a height is the property `motion.md` forbids by name. Under reduce the token takes it to 1ms and the disclosure still opens |
+| the print block in `base.css` | `.expand{ display:block }` | `.expand::details-content{ content-visibility: visible }`, plus the mark hidden | A native `details` hides its body in `::details-content`, so `display` on the box would have printed a closed disclosure as its own label. Verified in Chromium with print media emulation: the closed expansion renders at its full open height, mark gone |
+| the count | **32 instances across 28 screens** | **27 across 23** | The published number was a plan, not a reading: it counted the door's five `summary` as this component under another name. The absorption is dropped rather than deferred, and `doorhelp` stays a zone of `doorcard` |
+
+### The two fillings, and the second is a decision rather than an exception
+
+**6 of the 27 keep no head and never close:** the three handover notes on `shift` and the three on `shift-sealed`. A handover note is read **because** the shift was taken, so hiding it would hide the reason the screen exists. And its head is a link to the case, which inside a `summary` cannot be clicked, because the click belongs to the disclosure. Both halves are rule **R13** in `architecture.md` and a function in `rules.mjs`: an expansion that has a head is a `details`, and no head holds a link. **39 held, 93 not applicable, 0 broken** over the coloured corpus at 1440 and 360.
+
+### Measured on `design/case.html`, 1440, dark
+
+| | |
+|---|---|
+| Closed | **48px** |
+| Open | **100px** |
+| Head ink against the expansion ground | **14.18:1** |
+| The mark against the same ground | **7.33:1** |
+| The head | natively tabbable, and the ring is the global one |

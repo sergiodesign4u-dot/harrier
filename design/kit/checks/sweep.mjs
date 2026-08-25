@@ -102,7 +102,16 @@ for (const w of WIDTHS) {
          counting them reported 95ch on the annunciator at 520 on every screen in the
          product. A measure is a property of something somebody READS ACROSS. */
       let measure = 0, measureOn = '';
-      for (const el of document.querySelectorAll('.nar, .cons, .sub, .k-lede, .k-note, p')) {
+      /* `.rail .soft` IS IN THE CORPUS AND `.rail` IS NOT, and the pair is the whole
+         point of the rule. The record band is a full bleed plate carrying a label, a
+         timestamp, a sentence and a way out on one line; it is not read across, its
+         SENTENCE is, and the sentence has its own element. Measuring the plate reported
+         148 characters at 1290 while the sentence inside it sat at the measure, and
+         obeying that reading would have capped the plate at 53 per cent of the framed
+         record, which is the one thing rail.css says must never happen. Same reasoning
+         as `.wrapline` below: a measure is a property of a run of text somebody reads
+         across. Stage 13. */
+      for (const el of document.querySelectorAll('.nar, .cons, .sub, .k-lede, .k-note, .rail .soft, p')) {
         if (!vis(el) || !el.textContent.trim()) continue;
         if (el.querySelector('p, div, section')) continue;
         if (el.closest('.z1, .z2, .qfoot, .readout, .stamp, .fleet-more, .annun')) continue;
@@ -116,9 +125,22 @@ for (const w of WIDTHS) {
            measured 86 characters at 640 and there is no line there to be long. */
         if (el.querySelector('a, button, .btn') &&
             ![...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
-        if (el.matches('.z1, .z2, .qfoot, .readout, .stamp, .fleet-more, .annun')) continue;
+        if (el.matches('.z1, .z2, .qfoot, .readout, .stamp, .fleet-more, .annun, .rail, .rail-foot')) continue;
+        /* THE MEASURE IS THE LONGEST LINE THE BROWSER LAID OUT, NOT THE WIDTH OF THE BOX,
+           and the difference is the whole reason this reading was wrong three times.
+           A box is a container the moment anything inside it carries its own cap: the
+           record plate at 148ch, the row of controls at 86, the closing note on the 404
+           at 89, and in every one of them the line somebody reads across was inside the
+           declared limit. A Range over the element's contents returns one rect per LINE
+           BOX, which is exactly the run of text a measure is a property of, so the widest
+           of them is the measure and no skip list is needed to say so. Stage 13. */
         const fs2 = parseFloat(getComputedStyle(el).fontSize);
-        const ch = el.getBoundingClientRect().width / (fs2 * 0.5);
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const rects = [...r.getClientRects()];
+        if (!rects.length) continue;
+        const widest = Math.max(...rects.map(x => x.width));
+        const ch = widest / (fs2 * 0.5);
         if (ch > measure) { measure = ch; measureOn = (el.className || el.tagName).toString().slice(0, 24); }
       }
       /* anything sticking out of the page box */
@@ -174,11 +196,17 @@ if (below.length) {
    the point; a finding between points is the thing three screenshots cannot see. */
 const chasms = [...new Set(real.filter(x => Math.abs(x.w - bp) > 12).map(x => x.w))].sort((a, b) => a - b);
 if (chasms.length) console.log('\n  CHASM WIDTHS (not the point, and something is wrong): ' + chasms.join(', '));
+/* TWO LINES PER PAGE AND PER KIND, AND THE REST IS COUNTED OUT LOUD. A cap that does
+   not say it capped reads as coverage: 45 readings of one defect printed as two lines,
+   and the run looked like a page with a couple of loose widths rather than one element
+   wrong at every width above 480. Stage 13. */
 const shown = {};
+let hidden = 0;
 for (const x of real) {
   const k = x.kind + '|' + x.f;
-  if ((shown[k] = (shown[k] || 0) + 1) > 2) continue;
+  if ((shown[k] = (shown[k] || 0) + 1) > 2) { hidden++; continue; }
   console.log(`  ${String(x.w).padStart(5)}  ${x.kind.padEnd(20)} ${x.f.padEnd(30)} ${x.what}`);
 }
+if (hidden) console.log(`\n  ${hidden} further reading(s) NOT LISTED: two per page and per kind are printed, and the rest of a repeat is the same finding at another width. Distinct page and kind pairs above: ${Object.keys(shown).length}.`);
 if (!real.length) console.log('\n  Nothing breaks at any width from ' + FLOOR + ' to 2560.\n');
 process.exitCode = real.length ? 1 : 0;

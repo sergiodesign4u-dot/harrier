@@ -241,7 +241,7 @@
   --row-tracks-log:   4.625rem 7.75rem minmax(0,28ch) minmax(0,40ch) minmax(0,28ch) 6.625rem 8.625rem;
                         /* the SAME seven zones at the log's widths. A variant of the row, not
                            another component: nothing appears and nothing disappears */
-  --row-tracks-moved: 8.25rem minmax(0,44ch) 7.25rem 2.75rem;
+  --row-tracks-moved: 8.25rem minmax(0,1fr) 7.25rem 4rem;
                         /* FOUR zones, and that is why the shift brief's line is a component of
                            its own. No severity and no `to check`: a pointer is not a thing to
                            triage, it is a thing that already happened.

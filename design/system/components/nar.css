@@ -39,6 +39,16 @@
    wrapped line lands on the sentence. Conditioned on a `when` existing, because a
    narration without one is a plain paragraph. Stage 13. */
 .nar:has(> .when){ padding-left: 46px; text-indent: -46px }
+/* AND THE INDENT IS TAKEN BACK OFF THE CHILDREN, or the time paints outside the pane.
+   `text-indent` INHERITS, and an `inline-block` starts its own block formatting context,
+   so the negative indent that hangs the first line lands a SECOND time inside the time
+   itself: the glyphs painted 46px left of their own box, which put them past the left
+   edge of the detail pane, where the pane clipped all but the last digit. The box was
+   never wrong, and that is why no instrument saw it: every geometry check in
+   design/kit/checks/ reads getBoundingClientRect, which reported the time exactly where
+   it belonged while the browser painted it somewhere else. Found by the owner reading a
+   rendered screen. Stage 13. */
+.nar:has(> .when) > *{ text-indent: 0 }
 
 .nar .when{
   display: inline-block;

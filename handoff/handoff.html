@@ -75,7 +75,7 @@
 <div class="ho-edge">
   <span class="ho-lbl">Read this first</span>
   <p><b>This is a fully assembled clickable product, not an application.</b> There is no data layer, no API, no router and no state. Every screen is a static document showing canonical fixture data: seven tenants and one canonical case, held identical across every surface that draws them.</p>
-  <p><b>States live in separate files, not behind a switch.</b> A screen with eight states is eight files, named <code>&lt;screen&gt;-&lt;state&gt;.html</code>. That is why there are 62 files for 13 screens, and it is deliberate: a state you can link to is a state that can be reviewed.</p>
+  <p><b>States live in separate files, not behind a switch.</b> A screen with eight states is eight files, named <code>&lt;screen&gt;-&lt;state&gt;.html</code>. That is why there are 66 files for 14 screens, and it is deliberate: a state you can link to is a state that can be reviewed.</p>
   <p><b>What was planned differently is in the backlog</b>, with a reason and an owner on every row. See <a href="#left">what is deliberately not done</a>.</p>
 </div>
 </section>
@@ -86,9 +86,9 @@
 <div class="tw"><table>
 <thead><tr><th>Folder</th><th>What is in it</th><th>Who opens it</th></tr></thead>
 <tbody>
-<tr><td><code>design/</code></td><td><b>The product in colour.</b> 62 pages, every state of every screen. Not one of them contains a line of CSS: no <code>style</code> block, no <code>@media</code>, no <code>transition</code>, no colour value, and no class the system does not declare</td><td>Everyone. This is the product</td></tr>
+<tr><td><code>design/</code></td><td><b>The product in colour.</b> 66 pages, every state of every screen. Not one of them contains a line of CSS: no <code>style</code> block, no <code>@media</code>, no <code>transition</code>, no colour value, and no class the system does not declare</td><td>Everyone. This is the product</td></tr>
 <tr><td><code>design/system/</code></td><td><b>The code of the design system</b>, and it lifts out whole: two token levels, 75 component files, 4 patterns, one entry point at <code>index.css</code></td><td>Anyone changing how anything looks</td></tr>
-<tr><td><code>design/kit/</code></td><td><b>The stand that shows the system.</b> A page per component with five blocks each, the foundations, the rules of use and the eleven prohibitions</td><td>Anyone assembling a screen</td></tr>
+<tr><td><code>design/kit/</code></td><td><b>The stand that shows the system.</b> A page per component with five blocks each, the foundations, the rules of use and the thirteen prohibitions</td><td>Anyone assembling a screen</td></tr>
 <tr><td><code>design/kit/responsive.html</code></td><td><b>How it behaves at any width.</b> One breakpoint, in <code>rem</code>, and the ladder that decides when a breakpoint is even allowed</td><td>The first question a developer asks</td></tr>
 <tr><td><code>design/kit/motion.html</code></td><td><b>How it moves</b>, with the actual numbers rather than "about two hundred milliseconds". One duration for response, one period for status, and what happens under reduced motion</td><td>The second question</td></tr>
 <tr><td><code>design/kit/checks/</code></td><td><b>Twenty instruments.</b> Every prohibition in this project is also a function that measures it in a browser, because a rule that lives only in prose is a rule nobody runs</td><td>Anyone before claiming their work is finished</td></tr>
@@ -97,7 +97,7 @@
 <tr><td><code>ia/</code></td><td><b>The structure.</b> A specification per node with its state matrix, keyboard model, addressing and permissions. This is what a screen has to satisfy</td><td>Before drawing anything new</td></tr>
 <tr><td><code>research/</code>, <code>design/concept/</code></td><td><b>Where it came from.</b> The market, the people, the jobs, and why the visual language is this one</td><td>When a decision looks arbitrary</td></tr>
 <tr><td><code>docs/decisions.md</code></td><td><b>Why, for everything.</b> Half of every "why did they do that" is already answered here</td><td>You in a year</td></tr>
-<tr><td><code>wireframes/</code></td><td><b>History of the process, frozen since stage 05, and not a source of truth.</b> The same 62 pages in grey. They exist so the colour could be proved a remap rather than a repaint, and they are the frozen witness. Do not edit them and do not read a behaviour out of them: the coloured screen is the product</td><td>Nobody, day to day</td></tr>
+<tr><td><code>wireframes/</code></td><td><b>History of the process, frozen since stage 05, and not a source of truth.</b> 62 pages in grey, the originals of every coloured page except the four of node 7.1, which never had a wireframe. They exist so the colour could be proved a remap rather than a repaint, and they are the frozen witness. Do not edit them and do not read a behaviour out of them: the coloured screen is the product</td><td>Nobody, day to day</td></tr>
 </tbody>
 </table></div>
 <p class="note">Two rename maps, and they are in one file under two headings, which is worth knowing before you go looking: <code>design/kit/docs/inventory.md</code> section 10 carries the stage 08 map, and the later renames, <code>nf</code> to <code>miss</code> among them, are in section 8.</p>

@@ -603,9 +603,9 @@ Text for every family below is `voice/docs/microcopy.md`, section 4, under the h
 | `--clay-600` | nothing | `--text-sev-high` | 34 |
 | `--color-focus` | nothing | `--focus-ring` | all 62 |
 | `--dur-cycle` | `arriving` | read directly only | 4 |
-| `--dur-fast` | `bline`, `btn`, `chip`, `frow`, `input`, `link`, `navitem`, `opt`, `row`, `row-moved`, `src`, `toast`, `z1` | read directly only | 63 |
+| `--dur-fast` | `bline`, `btn`, `chip`, `expand`, `frow`, `input`, `link`, `navitem`, `opt`, `row`, `row-moved`, `src`, `toast`, `z1` | read directly only | 63 |
 | `--ease-enter` | nothing | read directly only | 0 |
-| `--ease-standard` | `arriving`, `bline`, `btn`, `chip`, `frow`, `input`, `link`, `navitem`, `opt`, `row`, `row-moved`, `src`, `toast`, `z1` | read directly only | 63 |
+| `--ease-standard` | `arriving`, `bline`, `btn`, `chip`, `expand`, `frow`, `input`, `link`, `navitem`, `opt`, `row`, `row-moved`, `src`, `toast`, `z1` | read directly only | 63 |
 | `--focus-ring` | `base` | read directly only | all 62 |
 | `--font-mono` | `annun`, `anote`, `axisb`, `bline`, `block`, `covers`, `doc`, `door`, `fleet-more`, `frow`, `key`, `keyrow`, `label`, `mark`, `nar`, `opt`, `outage`, `prov`, `qfoot`, `rail`, `rail-foot`, `rec`, `rota`, `row`, `row-moved`, `sev`, `src`, `stamp`, `state`, `tag`, `toast`, `z1`, `z2`, `z6` | read directly only | 63 |
 | `--font-sans` | `base`, `btn`, `chip`, `contact`, `dialog`, `doc`, `door`, `input`, `miss`, `outage`, `pane-head`, `z1` | read directly only | all 62 |
@@ -647,7 +647,7 @@ Text for every family below is `voice/docs/microcopy.md`, section 4, under the h
 | `--space-2` | `addr`, `annun`, `anote`, `axisb`, `banner`, `bline`, `block`, `btn`, `case-pane`, `chip`, `chips-hd`, `claim`, `cons`, `contact`, `covers`, `dialog`, `doc`, `door`, `empty`, `expand`, `frow`, `gnote`, `input`, `keyrow`, `lat`, `miss`, `nar`, `navitem`, `opt`, `outage`, `pane-foot`, `prov`, `qfoot`, `rail`, `rail-foot`, `readout`, `rota`, `row`, `row-moved`, `scopebar`, `sev`, `stamp`, `state`, `z1`, `z6` | `--s2` | 63 |
 | `--space-3` | `addr`, `annun`, `anote`, `axisb`, `banner`, `bline`, `btn`, `case-pane`, `cons`, `contact`, `dialog`, `door`, `expand`, `fleet-more`, `frow`, `input`, `keyrow`, `lat`, `miss`, `nar`, `opt`, `outage`, `pane-body`, `pane-foot`, `pane-head`, `rail`, `rail-foot`, `rota`, `row`, `row-moved`, `sa-offer`, `scopebar`, `toast`, `tomb`, `z1`, `z2`, `z4`, `z6` | read directly only | 63 |
 | `--space-4` | `brief`, `dialog`, `doc`, `door`, `doorcard`, `empty`, `expand`, `fleet-more`, `frow`, `miss`, `outage`, `pane-body`, `pane-foot`, `pane-head`, `qfoot`, `queue-list`, `rail`, `rail-foot`, `readout`, `row`, `row-moved`, `scopebar`, `shift-brief`, `z1`, `z2`, `z4`, `z6` | `--s4` | 63 |
-| `--space-5` | `brief`, `doc`, `door`, `doorcard`, `empty`, `frame`, `miss`, `outage`, `pane-body`, `scrim`, `toast`, `tomb`, `z1` | read directly only | 58 |
+| `--space-5` | `brief`, `doc`, `door`, `doorcard`, `empty`, `expand`, `frame`, `miss`, `outage`, `pane-body`, `scrim`, `toast`, `tomb`, `z1` | read directly only | 58 |
 | `--space-6` | `brief`, `outage`, `scrim`, `z6` | read directly only | 23 |
 | `--space-7` | `dialog`, `door`, `empty`, `miss`, `outage`, `sa-offer` | read directly only | 58 |
 | `--text-accent` | `annun`, `expand`, `frow`, `row`, `z2` | `--nav-active`, `--nav-badge` | 48 |

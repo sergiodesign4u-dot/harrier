@@ -264,10 +264,16 @@
 </div>
 <script>
   window.NAV_BASE = '../../';
+  /* THE SEPARATOR IS THE CHARACTER, NOT ITS NAME. A label here is a JavaScript string
+     handed to the panel, and the panel writes it with textContent, so `&middot;` printed
+     as its own eight characters in the sidebar of this page and nowhere else. /_nav.js
+     now decodes a character reference before it writes, so the class cannot come back;
+     the value is written as what it is here, because a data field carrying markup is
+     what produced the defect. Read from the DOM at 1440 and at 360: `A · Ledger`. */
   window.NAV_SECTIONS = [
-    { id:'a',   label:'A &middot; Ledger' },
-    { id:'b',   label:'B &middot; Case led' },
-    { id:'c',   label:'C &middot; Wide bench' },
+    { id:'a',   label:'A · Ledger' },
+    { id:'b',   label:'B · Case led' },
+    { id:'c',   label:'C · Wide bench' },
     { id:'cmp', label:'The three compared' },
     { id:'stop',label:'Chosen' },
   ];

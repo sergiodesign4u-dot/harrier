@@ -34,6 +34,13 @@
 import fs from 'fs';
 import path from 'path';
 
+/* THE LIST WAS THE SYSTEM AND THE STAND, AND IT MISSED THE TWO SHEETS THAT PAINT THE
+   DOCUMENTS. `research/_page.css` and `design/concept/_stand.css` are the two page-local
+   sheets this project has already been bitten by twice: the first silently restyles
+   anything reusing `.note`, `.lede` or `.s1` to `.s5`, and the second exists only because
+   of it. An instrument whose corpus is the code it trusts is checking the half that was
+   never the problem. Both added at stage 13, after an agent editing `_stand.css` found it
+   had to count its own braces by hand. */
 const FILES = [
   'design/system/tokens.css',
   'design/system/base.css',
@@ -41,6 +48,8 @@ const FILES = [
   'design/system/places.css',
   'design/system/utilities.css',
   'design/kit/_page.css',
+  'research/_page.css',
+  'design/concept/_stand.css',
   ...fs.readdirSync('design/system/components').map(f => 'design/system/components/' + f),
   ...fs.readdirSync('design/system/patterns').map(f => 'design/system/patterns/' + f),
 ];

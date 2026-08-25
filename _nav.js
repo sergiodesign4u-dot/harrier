@@ -109,13 +109,31 @@ window.NAV = [
   })[0] || null;
   var nextPage = nextItem ? (pagesOf(nextItem).filter(function(p){ return !p.done && !p.skip; })[0] || null) : null;
 
+  /* A LABEL IS DATA, AND PEOPLE WRITE MARKUP INTO IT ANYWAY. Read back from the DOM at
+     1440 and at 360, the three section links of design/concept/directions.html rendered
+     the seventeen characters `A &middot; Ledger` instead of `A · Ledger`. Nothing here
+     was wrong: a label is a JavaScript string, every one of them is written with
+     textContent, and textContent does not decode a character reference. Correcting the
+     three strings cures that page; decoding here cures the CLASS, and the class is what
+     recurs, because this file is one registry and 133 pages declare labels against it.
+     IT CANNOT INTRODUCE MARKUP. The only string ever handed to innerHTML is a match of
+     the pattern below, which admits nothing but `&`, `#`, letters, digits and `;`, so no
+     tag, no attribute and no url can be built out of it; the decoded result then goes to
+     textContent like every label before it. A label carrying a real `<` is left byte for
+     byte alone and prints as itself, because it is data and not markup. */
+  var decoder = document.createElement('textarea');
+  function asText(s){
+    return String(s == null ? '' : s).replace(/&(#\d+|#x[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]{1,31});/g,
+      function(ref){ decoder.innerHTML = ref; return decoder.value; });
+  }
+
   function badge(text){ var b = document.createElement('span'); b.className = 'nav-badge nav-badge-' + text.toLowerCase(); b.textContent = text; return b; }
   function sectionList(){
     var s = document.createElement('ul'); s.className = 'nav-sections';
     SECTIONS.forEach(function(sec){
       var li = document.createElement('li');
       var a = document.createElement('a');
-      a.href = '#' + sec.id; a.className = 'nav-section'; a.setAttribute('data-section', sec.id); a.textContent = sec.label;
+      a.href = '#' + sec.id; a.className = 'nav-section'; a.setAttribute('data-section', sec.id); a.textContent = asText(sec.label);
       li.appendChild(a); s.appendChild(li);
     });
     return s;
@@ -125,7 +143,7 @@ window.NAV = [
     var a = document.createElement(page ? 'a' : 'span');
     if (page) a.href = BASE + page;
     a.className = 'nav-link' + (isCur ? ' is-current' : '');
-    a.textContent = label;
+    a.textContent = asText(label);
     if (tag) a.appendChild(badge(tag));
     s.appendChild(a);
     if (isCur && SECTIONS.length) s.appendChild(sectionList());
@@ -152,7 +170,7 @@ window.NAV = [
     var top;
     if (target) { top = document.createElement('a'); top.href = BASE + target.page; }
     else { top = document.createElement('span'); }               // ще не роблений етап: не лінк
-    top.className = 'nav-top'; top.textContent = item.label;
+    top.className = 'nav-top'; top.textContent = asText(item.label);
     if (!isActive) {                                             // на власній сторінці бейджа не буває
       if (item.wip) top.appendChild(badge('WIP'));               // у роботі: сторінка вже існує, тож це ЛІНК, а не сірий напис
       else if (item === nextItem) top.appendChild(badge('Next'));
@@ -163,7 +181,7 @@ window.NAV = [
     if (isActive && item.children) {                             // гармошка: під-лінки лише під активним етапом
       var sub = document.createElement('ul'); sub.className = 'nav-sub';
       item.children.forEach(function(c){
-        if (c.subhead) { var h = document.createElement('li'); h.className = 'nav-subhead'; h.textContent = c.subhead; sub.appendChild(h); return; }
+        if (c.subhead) { var h = document.createElement('li'); h.className = 'nav-subhead'; h.textContent = asText(c.subhead); sub.appendChild(h); return; }
         var isCur = (c === current);
         var tag = (c === nextPage && !isCur) ? 'Next' : (c.skip ? 'OFF' : ((!c.done && !isCur) ? 'SOON' : null));
         sub.appendChild(subItem(c.label, (c.done || isCur) ? c.page : null, isCur, tag));
@@ -195,7 +213,7 @@ window.NAV = [
   var bar = document.createElement('div'); bar.className = 'nav-bar';
   var barName = document.createElement('span'); barName.className = 'nav-bar-name';
   var openStage = NAV.filter(function(it){ return it.page && here.indexOf(it.page) === 0; })[0];
-  barName.textContent = openStage ? openStage.label : 'Design process';
+  barName.textContent = asText(openStage ? openStage.label : 'Design process');
   var burger = document.createElement('button');
   burger.type = 'button'; burger.className = 'nav-burger'; burger.textContent = 'Stages';
   burger.setAttribute('aria-expanded', 'false');

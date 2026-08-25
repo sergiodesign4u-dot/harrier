@@ -1,21 +1,46 @@
 /* expand :: MOLECULE
    ----------------------------------------------------------------------------
    READS. Fill: --bg-surface. Ink: --text-accent on the mark. Line:
-   --line-separator. Geometry: --size-sm, --space-2, --space-3, --space-4.
-   CONTAINS. link, 6 times out of 32.
+   --line-separator. Geometry: --size-sm, --space-2, --space-3, --space-5.
+   Motion: --dur-fast, --ease-standard.
+   CONTAINS. summary, 21 times out of 27. link, 6 times, and never in a summary.
 
    PAGE. design/kit/expand.html
-   STANDS ON. 32 instances across 28 screens: `block` 27 and `doorhelp` 5.
+   STANDS ON. 27 instances across 23 screens, all of them inside a `block`.
+   THE COUNT WAS 32 ACROSS 28 UNTIL STAGE 13, and the extra five were a plan rather
+   than a reading: the rename map at step 2 of stage 08 read the door's five `summary`
+   as this component under another name. They are not. The door's help is a question
+   on a full page with one form on it, and this is depth on a claim inside a list of
+   evidence. `doorhelp` keeps its own summary and its own file, and the plan is dropped
+   out loud here rather than left standing in a count nobody could reproduce.
 
    DESIGN PRINCIPLE 2 ENDS HERE. Cheapest correct thing first, depth one key
    away: the expansion IS the depth. The claim reads without it and the working
    is inside it, and the analyst who trusts the verdict never opens one.
    ----------------------------------------------------------------------------
-   IT BECOMES A NATIVE `details` AND ABSORBS FIVE `summary` ON THE DOOR. Step 2
-   ruled it and step 6 executes it. The reason is not tidiness: a div that
-   expands has to reimplement the keyboard, the accessible name and the open
-   state, and `details` has all three for free. It is also why print works, where
-   the rule in base.css opens every expansion on the page.
+   IT IS NOW A NATIVE `details`, AND FOR TWO STAGES IT WAS NOT. Step 2 of stage 08
+   ruled the move and step 6 did not execute it, so 27 instances shipped as a `div`
+   with a chevron drawn on them and nothing behind it: the mark promised a control
+   and there was no control. The cost is not cosmetic. An expansion that cannot
+   close charges its depth to EVERY read, which is the exact thing principle 2
+   calls harmful, and it did so on 21 screens while the file above claimed the
+   opposite. The backlog priced the fix at 23 invented sentences; the real count of
+   distinct bodies is 7, of which 6 already carry their own head. One sentence.
+   Found by the owner reading the rendered screen and asking what the block was for.
+
+   `details` is used rather than a div plus script because a div that expands has to
+   reimplement the keyboard, the accessible name and the open state, and `details`
+   has all three for free. It is also why print works, where the rule in base.css
+   opens every expansion on the page.
+
+   THE MARK BELONGS TO THE SUMMARY, NOT TO THE BOX, and that is what keeps the two
+   fillings honest. A handover note on `shift` is an `expand` with NO summary: it is
+   read because the shift was taken, and hiding it would hide the reason the screen
+   exists. Its head also carries a link, and a link inside a `summary` cannot be
+   clicked, because the click belongs to the disclosure. Hanging the chevron off
+   `> summary` means that note loses the mark by construction rather than by a
+   second class somebody has to remember. The mark now means one thing on every
+   screen: there is depth here and you are not paying for it.
 
    IT EXPANDS IN PLACE AND NEVER OVER THE BLOCK. Design principle 5 forbids an
    overlay that hides the evidence being decided on, and this is the component
@@ -23,7 +48,6 @@
    ---------------------------------------------------------------------------- */
 
 .expand{
-  position: relative;
   margin: var(--space-2) 0 var(--space-3) var(--space-4);
   padding: var(--space-2) var(--space-3);
   border-left: 2px solid var(--line-separator);
@@ -31,47 +55,76 @@
   font-size: var(--size-sm);
 }
 
+/* the label of the disclosure. `list-style:none` plus the webkit marker kills the
+   UA triangle, which is a pointer at a fixed size that no scale of ours reaches. */
+.expand > summary{
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--space-5);
+  cursor: pointer;
+  list-style: none;
+}
+/* THE GAP UNDER THE HEAD BELONGS TO THE OPEN STATE AND NOT TO THE HEAD. Declared on the
+   summary itself it also ran while the expansion was CLOSED, so a box with one line in it
+   carried 8px of padding above and 16 below: the head sat visibly high in its own plate,
+   and a component whose whole job is to cost nothing until it is asked was the tallest
+   quiet thing in the block. Stage 13. */
+.expand[open] > summary{ margin-bottom: var(--space-2) }
+.expand > summary::-webkit-details-marker{ display: none }
+
 /* THE MARK IS ONE OF THE THREE ICONS THIS PRODUCT APPLIES, and it earned its
    space because depth had no mark on it at all. Painted as a CSS mask with
    background:currentColor, so it inherits, and set in the accent because
-   pointing at where more is kept is one of the accent's four jobs. */
-/* THE MARK HUNG OUTSIDE THE BOX AND ABOVE ITS OWN LINE, and it read as an orphan
-   rather than as a mark on anything. It sat 11px to the LEFT of the border, in the
-   gutter between the block and the edge of the pane, and 9px ABOVE the optical
-   centre of the first line: two independent offsets, neither of them measured, and
-   together they put the glyph in open space with nothing beside it.
+   pointing at where more is kept is one of the accent's four jobs.
 
-   It is now inside the padding box and centred on the first line, which is the line
-   it points at. `top` is half the difference between the line box and the glyph, so
-   it holds wherever the type scale goes next, and the sentence is indented by the
-   glyph's own width plus a gap rather than being pushed by a magic number.
-   Stage 13. */
-.expand{ padding-left: calc(var(--space-3) + var(--space-4)) }
-.expand::before{
+   It sits IN the line it labels rather than beside the box: as an absolutely
+   positioned pseudo of the container it hung 11px left of the border and 9px above
+   the optical centre, two unmeasured offsets that together put the glyph in open
+   space with nothing next to it (stage 13). As a flex item of the summary it has
+   no offsets at all, and it holds wherever the type scale goes next. */
+.expand > summary::before{
   content: "";
-  position: absolute;
-  left: var(--space-3);
-  top: calc(var(--space-2) + (1.45em - 12px) / 2);
+  flex: 0 0 auto;
   width: 12px;
   height: 12px;
   color: var(--text-accent);
   background: currentColor;
+  transform: rotate(-90deg);
+  transition: transform var(--dur-fast) var(--ease-standard);
   -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
           mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
 }
 
-/* -- NO VARIANTS -------------------------------------------------------------
-   It is a slot: what is inside is whatever the claim needed to show.
+/* -- STATES ------------------------------------------------------------------
+   OPEN AND CLOSED ARE THE ELEMENT'S OWN STATE and need no class. The glyph is
+   drawn pointing down, so open is its rest and closed is the rotation, and the
+   turn is the RESPONSE work: an acknowledgement that the key landed, at the fast
+   duration. `prefers-reduced-motion` takes it to 1ms through the token, and the
+   disclosure still opens, because what is dropped is the movement and not the
+   state.
 
-   -- STATES: the browser's, and that is the point of using `details`. Open and
-   closed are the element's own state and need no class; focus-visible lands on
-   the summary through base.css. Nothing here declares a hover, because the
-   summary is the control and it is one line of text rather than a plate. */
+   focus-visible lands on the summary through base.css. Nothing here declares a
+   hover, because the summary is the control and it is one line of text rather
+   than a plate. */
+.expand[open] > summary::before{ transform: rotate(0deg) }
+
+/* -- NO VARIANTS -------------------------------------------------------------
+   It is a slot: what is inside is whatever the claim needed to show. The two
+   fillings are told apart by the presence of a `summary`, which is the control
+   itself and not a flag: a filling with a summary closes, a filling without one
+   never had anything to close.
+
+   -- LIMITS
+   A LINK NEVER GOES IN THE SUMMARY. The click belongs to the disclosure, so the
+   link is unreachable by mouse and ambiguous by keyboard. A filling whose head
+   has to be clickable is the filling that does not close. */
 
 /* THE MASK NOW PAINTS AT THE WEIGHT THE SET DECLARES. It carried 1.8 while every CSS rule in
    the project draws the same glyph at 1.5, with no comment and no row in DESIGN.md: one
    drawing at two weights, 20 per cent apart, and the geometry identical on both sides.
    Found by design/kit/checks/icons.mjs, which decodes every mask data URI and compares it
    against design/system/icons.js character for character. The third applied glyph, the
-   keyboard map trigger in Z1, still carries 1.8 and follows in the organisms round with the
-   file that owns it. Row in tokens-audit.md. */
+   keyboard map trigger in Z1, carried 1.8 too and was closed in the organisms round with the
+   file that owns it: all three masks now read 1.5, and the check reports 0 stroke findings.
+   Row in tokens-audit.md. */

@@ -89,11 +89,22 @@
    On the reconnecting queue it holds a disabled button and the sentence saying why
    there is nothing for a button to do. The two were siblings with nothing declared,
    so at the desk the sentence began exactly on the button's border at a zero pixel
-   gap, and at 360 it ran three lines underneath it. Neither was a decision; the
-   pair had simply never been drawn. It is a row with a gap now, and the reason
-   recedes, because it qualifies the control rather than competing with it. */
-.banner .act{ display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) }
-.banner .act .why{ flex: 1 1 14rem; min-width: 0; color: var(--text-secondary) }
+   gap, and at 360 it ran three lines underneath it. Neither was a decision; the pair
+   had simply never been drawn.
+
+   THE CONTROL IS ON TOP AND ITS REASON IS UNDER IT, not beside it. Set side by side
+   the sentence sat between the banner's own text and its button, so the button read
+   as dropped into the middle of the notice; stacked, the zone is one object with the
+   control at its head. The reason recedes, because it qualifies the control rather
+   than competing with it, and it holds the control's own width plus a little. */
+.banner .act{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+  text-align: right;
+}
+.banner .act .why{ max-width: 22ch; color: var(--text-secondary) }
 
 /* -- emphasis. One axis, two values, and nothing else on it -------------------
    Quiet is for a banner that reports rather than interrupts. Four instances, and

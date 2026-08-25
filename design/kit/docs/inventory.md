@@ -74,7 +74,7 @@ Stage 07 step 2. Read **out of all 62 wireframe screens plus `wireframes/_nav.js
 | `empty` | 6 | 6 | | `--tight` |
 | `tomb` | 7 | 7 | | the record that is gone |
 | `gnote` | 48 | 27 | | |
-| `expand` | 27 | 23 | `summary` | the depth-one-key-away control |
+| `expand` | 27 | 23 | `summary` on 21, and the body. The 6 that carry no head hold a `link` instead | **filling:** a head 21, no head 6. The depth-one-key-away control, and **this census count is the one that held**: section 9b's 32 over 28 was a plan rather than a reading |
 | `rota` | 7 | 7 | `who` + `role`, and `is-now` | who is on shift. `who` alone is 28 uses on 14 pages |
 | `toast` | 4 | 2 | | `--alert` |
 | `doorcard` | 5 | 5 | `doormark`, `doorform`, `doorbtn`, `doorhelp` | the sign-in card |
@@ -167,7 +167,7 @@ The same visible action carried by different class signatures. **21 found.** The
 | Control | Why it is alone |
 |---|---|
 | `select` | four uses on **one** page. In the kit on the form-primitive exception |
-| `summary` / `expand` | 27 uses over 23 pages and **no styled family of its own**: it is the depth-one-key-away control of design principle 2 and it has never been given a component |
+| `summary` / `expand` | 27 uses over 23 pages and **no styled family of its own**: it is the depth-one-key-away control of design principle 2 and it has never been given a component. **Closed in two moves.** Stage 08 gave it `components/expand.css` and a page; stage 13 gave it the element, because until then it was a `div` that never closed and the control the principle promises did not exist. 21 of the 27 now carry a `summary`; the 6 handover notes on `shift` and `shift-sealed` do not, by decision, and section 9b says why |
 | `a.bline` | 3 uses, 3 pages, a link form that belongs to nothing |
 | `a.t-x` | 3 uses, 2 pages |
 | **checkbox, radio, toggle** | **absent from the whole product.** `optlist`/`opt` is the radio pattern implemented as a list of links with a keyboard letter. It works and it is not a radio, so the kit owes a decision: keep the pattern and name it, or introduce the primitive |
@@ -276,7 +276,7 @@ The paragraph above guessed right about the shape and wrong about the threshold:
 | `empty` | 6 | 6 | **density:** base 4, `--tight` 2. **A slot**, 5 zone sets on 6 instances | `rows` 5, `block` 1 |
 | `tomb` | 7 | 7 | **none. A slot**, 5 zone sets on 7 instances | `block` 7 |
 | `gnote` | 48 | 27 | **none. A slot**, 8 zone sets, one form | `block` 46, and four others |
-| `expand` | 32 | 28 | **none.** Moves to a native `<details>`, absorbing the five `summary` on the door | `block` 27, `doorhelp` 5 |
+| `expand` | **27** | **23** | **filling:** a head 21, no head 6. The component is a native `details` and the head is its `summary` | `block` 27 |
 | `rota` | 7 | 7 | **state:** `is-now` on one row | `block` 7 |
 | `toast` | 4 | 2 | **kind:** base 3, `--alert` 1, which swaps the dismiss control for a hold | `z6` 4 |
 | `doorcard` | 5 | 5 | banner and block are optional zones | `door` 5 |
@@ -285,6 +285,10 @@ The paragraph above guessed right about the shape and wrong about the threshold:
 | `fleet-more` | 10 | 10 | none | `z5` 10 |
 
 **Six molecules stopped pretending to be compositions.** `block`, `nar`, `prov`, `gnote`, `empty` and `tomb` between them show 71 distinct zone sets and **one computed form each**. They are slots: a heading and a free space. Their pages say so in as many words, so nobody looks for a variant matrix that does not exist.
+
+**`expand` read 32 over 28 and that was a plan, not a reading. Corrected at stage 13 to 27 over 23.** The row counted the five `summary` on the sign in door as this component under another name, and **that absorption is dropped rather than deferred**. The line is corrected here instead of deleted, because a plan that quietly disappears reads as a plan that was carried out. The door's help is a question on a full page with one form on it; `expand` is depth on a claim inside a list of evidence. Giving the door this component's bordered surface would tell the reader there is working to check where there is only an answer, so `doorhelp` stays a zone of `doorcard` and is declared in `door.css`. The corrected count is `grep -ro 'class="expand"' design/*.html | wc -l` = 27 and `grep -rl` = 23, and section 1 above had it right all along.
+
+**The two fillings, and the second is a decision.** 21 instances carry a head, a `summary` reading `How this was read`, and close by default. **6 carry no head and never close:** the three handover notes on `shift` and the three on `shift-sealed`. A handover note is read because the shift was taken, so hiding it would hide the reason the screen exists, and its own head is a link to the case, which inside a `summary` cannot be reached because the click belongs to the disclosure. The mark hangs off `> summary` rather than off the box, so the headless filling loses the chevron **by construction** and not by a second class anybody has to remember. That is rule R13 in `architecture.md`, and it is a function in `rules.mjs`.
 
 ### 9c. Organisms, 19
 
@@ -346,8 +350,8 @@ Named so the count of 62 is legible, and so nobody reinstates them.
 | `.rows--moved .row` | `.row-moved` | 5 | 30 |
 | `.rows--log` | `.rows--log`, unchanged, a variant of `rows` | 2 | 7 |
 | `.z5--paper` | `.is-paper` | 0 | 3 |
-| `div.expand` | `details.expand` | 23 | 27 |
-| `.doorhelp summary` | `details.expand` | 5 | 5 |
+| `div.expand` | `details.expand` | 21 of 27, executed at stage 13 | 27 in grey, and the grey is frozen | *the 6 handover notes stay a `div` and keep no head, which is R13's second half rather than an exception* |
+| `.doorhelp summary` | **nothing. The absorption is dropped** | 0 | 0 | *added at stage 13: the door's help is a question on a full page, not depth on a claim in an evidence list, and this component's bordered surface would say there is working to check where there is only an answer. `doorhelp` stays a zone of `doorcard`* |
 | `.opt .key` | `.key`, one declaration, border on `currentColor` | 39 | 45 |
 | `.pane-body .frow` | `.frow.frow--flush` | 12 | 12 |
 | `.dialog > footer .hint` | `.hint`, one declaration | 6 | 11 |
@@ -358,6 +362,8 @@ Named so the count of 62 is legible, and so nobody reinstates them.
 | `.z1 nav span` | **nothing. Deleted** | 0 | 0 | *added round 1: a rule for a nav item that cannot be opened, struck through in the hairline colour. The generator emits an `a` every time and has never emitted a span. A class nobody wears, and it goes to list three of the reconciliation* |
 
 **Two rows change markup and not one pixel**, so the comparison at step 8 will not see them and they are recorded here instead: the move to `details.expand` and the naming of `navitem` and `link`. **One row changes appearance and is entered as consolidated drift** in `tokens-audit.md`: `.opt .key` moves from a rule-coloured border to the host's colour, 39 places.
+
+**The `details.expand` half of that sentence turned out to be wrong, and stage 13 is what proved it.** The row did not execute at step 6, so nothing was there to compare; and when it finally executed it changed the drawing rather than only the markup. A closed disclosure is 48px where the open box was 100px, measured on `design/case.html` at 1440 in the dark theme, and the mark moved from the box to the head. **A markup change nobody executes has no pixel cost and no pixel proof either**, which is how it survived two stages inside a sentence that said it was harmless.
 
 ---
 
@@ -424,7 +430,7 @@ Section 7 above said the difference between the two lists is the brief for the r
 |  |  | `outage` | `components/outage.css` | [`outage.html`](../outage.html) | none, not interactive | **round 2** | **does not adapt**. a centred message. A wider outage notice is not a better one | **does not move**. No interactive state to move between |
 |  |  | `miss` | `components/miss.css` | [`miss.html`](../miss.html) | none, not interactive. Two links and one button inside it carry their own | **stage 12**, ordered by node 8.1 | **container**, and it is the only component in the system that gets BIGGER at the narrow width: the two exits take a tap target below 30rem. The threshold is registered in `responsive.md` section 6. It is also the only consumer of `--measure` outside `base.css` | **does not move**. The column is read |
 |  |  | `field` | `components/field.css` | [`field.html`](../field.html) | none, not interactive | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
-|  |  | `expand` | `components/expand.css` | [`expand.html`](../expand.html) | the element’s own | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **does not move**. No interactive state to move between |
+|  |  | `expand` | `components/expand.css` | [`expand.html`](../expand.html) | the element’s own, `[open]`, and it became real at **stage 13** | **round 2** | **fluid**. grows and wraps with the pane or the column it stands in | **response**, the mark rotating at 120ms. Added at stage 13 with the state: until then there was no state to move between |
 |  |  | `doorcard` | `components/doorcard.css` | [`doorcard.html`](../doorcard.html) | none, not interactive | **round 2** | **does not adapt**. the card on it, capped by its own width | **does not move**. No interactive state to move between |
 
 | Atoms | the parts of a text | `arriving` | `components/arriving.css` | [`arriving.html`](../arriving.html) | none, not interactive | **step 5, and it was not in the register** | **fluid**. grows and wraps with the pane or the column it stands in | **a cycle**, 1.4s, and a still state under reduce |

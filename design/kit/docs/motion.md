@@ -61,14 +61,14 @@ What is left inside a document is short and it is honest:
 - **The detail pane filling with a case.** A navigation. It is the single most important transition in the product and it cannot be a transition; it is the reason the inter-document fork below is a real decision rather than a footnote.
 - **The dialog appearing over the split.** A navigation, on all 11 screens that carry one.
 - **The notice stack.** A navigation. `queue-notice` and `queue-notices` are separate documents.
-- **`expand`, 23 instances on 20 screens.** It looks like a disclosure and it is not: it is a div that is always open, and the backlog carries the row about it not having become a `details`. Nothing opens, so nothing can open with motion.
+- **`expand`, 27 instances on 23 screens.** It looks like a disclosure and it is not: it is a div that is always open, and the backlog carries the row about it not having become a `details`. Nothing opens, so nothing can open with motion. **Reversed at stage 13**, when 21 of the 27 became a native `details` and the row closed. The moment it gained is **response** and not connection, so it is in B2 below rather than here: what moves is the mark on the head, and the height it opens to is the property this stage forbids by name.
 - **Anything on the point of the breakpoint.** Deliberately not animated: the point fires while somebody is dragging the edge of a window and is not looking at the content, and rebuilding a grid with motion is expensive at exactly that moment. The exception the rule allows, a surface that did not exist at the narrow width, does not arise here: the pane is not a new surface, it is a zone that stops being rendered.
 
 ### B2, the register of states: response
 
 Corpus: `docs/inventory.md`, line by line, and the "States" block of each component's page. **This corpus exists because a flow map never names the hover of a button.** It describes a route between screens, so an inventory built from screens sees connection and status in full and sees response almost not at all, and the level it hits hardest is the bottom one: atoms are made of response almost entirely.
 
-**Thirteen of the 77 components and patterns carry an interactive state**, and every one of them is a moment of response:
+**Thirteen of the 77 components and patterns carry an interactive state**, and every one of them is a moment of response. **Fourteen at stage 13**, when `expand` gained the one it had been drawn as having and did not have:
 
 | Component | Level | States declared at stage 08 | What changes |
 |---|---|---|---|
@@ -84,7 +84,10 @@ Corpus: `docs/inventory.md`, line by line, and the "States" block of each compon
 | `opt` | molecule | hover, active, is-chosen | background |
 | `bline` | molecule | hover, active | background |
 | `toast` | molecule | hover | background |
+| `expand` | molecule | **`[open]`, the element's own, and it became real at stage 13** | the mark on the head, `transform` only: `rotate(-90deg)` closed, `rotate(0deg)` open |
 | `z1` | organism | hover | colour, on the keyboard trigger |
+
+**The fourteenth row is the one this stage could not have written.** At stage 11 `expand` was a `div` that never closed, so its own line in B1 above says nothing opens and nothing can open with motion. The state arrived at stage 13 with the element, and the moment came with it: `--dur-fast` and `--ease-standard`, **120ms** measured in the browser, on `transform` and nothing else. **The height is not animated and that is the rule rather than a shortcut**: a height is the property this stage forbids by name, and the browser's own opening is what the analyst is waiting for. Under reduce the token takes the transition to 1ms and **the disclosure still opens**, because what reduce drops is the movement and not the state. No token was created for it.
 
 Plus **`:focus-visible`, declared once globally in `base.css`** and reaching every focusable element in the product: it is one moment in one place rather than thirteen.
 
@@ -94,12 +97,12 @@ Plus **`:focus-visible`, declared once globally in `base.css`** and reaching eve
 
 | | |
 |---|---|
-| Moments of **response** | 13 components with a pointer state, plus the focus ring on every focusable element |
+| Moments of **response** | 13 components with a pointer state, plus the focus ring on every focusable element. **14 at stage 13**, and the fourteenth is not a pointer state: `expand` answers a key or a click with its own `[open]` |
 | Moments of **connection** | **1**, and it is the only in-document appearance in the product |
 | Moments of **status** | **1**, reserved by its own component two stages ago |
 | Rows marked "needs a state" | **1**, and it was found by trying to animate the one connection moment. `.doorhelp summary` carries `cursor: pointer` and its file says "NO STATES": it is the only control in this product with no hover at all. It is an order for stage 08 rather than something this stage may draw, and it is a row in `backlog.md` |
 | By level: atoms | 18 in the register, **6** carry a moment |
-| molecules | 34 in the register, **6** carry a moment |
+| molecules | 34 in the register, **6** carry a moment, **7 at stage 13** with `expand` |
 | organisms | 21 in the register, **1** carries a moment |
 | patterns | 4 in the register, **0** carry a moment |
 
@@ -137,6 +140,8 @@ Three moments at most, on moments already named in the inventory, and never a du
 
 **There is no `--dur-base`, and that is the finding rather than a gap.** It was written first, at step 2, for the one moment of connection the inventory found. It has no reader, because that moment turned out to have nothing cheap to move: a `details` opens by changing a height, and a height is the property this stage forbids by name. **A token with no reader fails this system's own idle control**, so it is not carried for later, and the moment is a row in `backlog.md` instead: an order for a state rather than for a duration.
 
+**Stage 13 built 21 real `details` into the product and the register did not grow by one value.** The disclosure takes `--dur-fast` and `--ease-standard`, the two the response work already had, because what moves is the mark and not the box: the height opens the way the browser opens it. That is the argument for the paragraph above rather than against it. **The moment that would have needed `--dur-base` still does not exist**, and a stage that adds a moment and no token is the shape this register was built for.
+
 **No spring and no bounce anywhere.** They read as "something went wrong" in exactly the states where the analyst least wants to be asked a question, and the tone table has no row a spring would satisfy.
 
 **These tokens have no pair of theme**, and it is the same rule as the width tokens: the pair is a property of the semantic level, which is colour. A duration is not a colour.
@@ -149,7 +154,8 @@ The inventory above is sorted by event, and the rollout at stage 12 will ask abo
 |---|---|
 | **All 62 coloured screens** | Every control's response: `btn`, `chip`, `navitem`, `link`, `input`, `src` and the rows, whichever of them the screen carries. 120ms, `ease`, one of four properties, and never a size or a position. Plus the focus ring, which does not transition |
 | **`queue-streaming`, `shift-assembling`, `case-investigating`, `log-narrowing`** | And the filling bar, `arriving`: a 1.4s sweep, `transform` only, replaced by a still 40 per cent fill under reduce |
-| **Everything else about every screen** | Nothing, and each of those is a navigation rather than an absence: a dialog opening, a notice arriving, a verdict filed, a case selected. What carries them is the cross document transition in `base.css`, one declaration for all 62 |
+| **The 21 screens that carry an expansion with a head**: the 9 `case` screens, the 6 `reject` screens, the 3 `escalate` screens, `entry`, `entry-changed` and `keyboard` | And the mark on `expand`, answering `[open]`: `--dur-fast` and `--ease-standard`, `transform` only, `rotate(-90deg)` closed to `rotate(0deg)` open. **Added at stage 13 with the state itself.** Under reduce the token takes it to 1ms and the disclosure still opens: what is dropped is the movement, not the state. The 6 expansions on `shift` and `shift-sealed` have no head, so they carry no mark and nothing to move |
+| **Everything else about every screen** | Nothing, and each of those is a navigation rather than an absence: a dialog opening, a notice arriving, a verdict filed, a case selected. What carries them is the cross document transition in `base.css`, one declaration for all 66 |
 
 **The first row said 52 and was counting the SAMPLE. The second said four and named five screens, one of which has never carried the component.** The corpus is 62. The filling bar stands on four, and `log-narrowing` is one of them, node 5.2, where the log narrows before it draws: it was grey when this table was written, so it could not be here. **`entry-partial` was in the list and never had an `arriving` at all**, in colour or in grey, which `arriving.css` says beside its own count of four and this table contradicted.
 
@@ -180,7 +186,7 @@ Both halves were found the same way and neither by reading. The first by **the a
 
 **Answer B: one declaration, and it degrades to nothing.**
 
-Every state of every screen in this product is its own html file, 62 of them. So the single most important movement the analyst makes, a row in the queue becoming a case in the pane, **is a navigation**, and a navigation cannot be a transition. That is not a limitation of the prototype: a case has its own address by decision, because somebody opens one from a pager at 03:00.
+Every state of every screen in this product is its own html file, 66 of them, and 62 when this stage measured. So the single most important movement the analyst makes, a row in the queue becoming a case in the pane, **is a navigation**, and a navigation cannot be a transition. That is not a limitation of the prototype: a case has its own address by decision, because somebody opens one from a pager at 03:00.
 
 | Answer | What it would mean here | Taken |
 |---|---|---|

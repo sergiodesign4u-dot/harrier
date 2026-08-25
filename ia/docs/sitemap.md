@@ -260,6 +260,8 @@ Group `pages`. **LATER**, inherited. The most consequential deferral on the map.
 | **7.2 Autonomy grants** | page | Grants per action class, the evidence under each, the history of changes | 7.3 | P2-MAIN | **LATER** `[?]` |
 | **7.3 Grant change** | dialog | Carries the evidence that justified the change and the date, so the answer to "why did you widen this" is a record rather than a memory | 5.1, because a grant change is a logged action | P2-MAIN | **LATER** |
 
+**7.1 has a built screen and its scope is still LATER, and this file has no column that can hold both.** The Scope column says what the first round includes, so 7.1 keeps **LATER**: nothing about the MVP changed. What changed is on disk. `design/tenant.html` and its three states were built at stage 13 as the handoff exam, by an agent with clean context working from the handoff package alone, and the owner accepted them as work on 2026-08-26. They carry a record in `design/_nav.js` and a row on the coverage map. The node still has no specification under `ia/docs/pages/` and no grey wireframe, so its four states are **derived** from 3.5's state matrix rather than specified here, and no pixel comparison against a grey original is claimed. Grounds in `docs/decisions.md`, 2026-08-26.
+
 **The fleet ships as a view before it ships as a control.** 3.5 and 0.3 are MVP, 7.2 is LATER. That is what is left of the differentiator after stage 02: Simbian's per-tenant autonomy is configuration, and ours has to be a view. The map enacts that sentence instead of repeating it.
 
 ### Cluster 8: systemic
@@ -303,7 +305,7 @@ Agreed at the Step 4 gate, option B: **eleven carrier nodes get their own specif
 | 4.3, 4.5, 4.7, 4.8, 4.9, 4.10 case states | 4.1 state matrix, six columns | 4.7 and 4.9 are named as different failures there, which was the risk |
 | 5.2, 5.3, 5.5, 5.6 log states | 5.1 and 5.4 state matrices | 5.3 is written up as the search affordance rather than an empty state |
 | 6.1, 6.2 client summary | Node map only | Cluster 6 is LATER |
-| 7.1, 7.2, 7.3 autonomy | Node map only, plus the grant grid sketch in 0.6 | Cluster 7 is LATER |
+| 7.1, 7.2, 7.3 autonomy | Node map only, plus the grant grid sketch in 0.6. **7.1 also has a built screen since 2026-08-26 and still no specification of its own**, which is why its state set is derived rather than read off a matrix here | Cluster 7 is LATER |
 
 **The next round starts from this table**, and the first four rows are the ones with MVP scope. Nothing in it is undiscovered; the difference between written and deferred here is a page of its own versus a column in a parent's matrix.
 

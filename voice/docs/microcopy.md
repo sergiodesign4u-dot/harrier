@@ -23,7 +23,7 @@ By the end of this stage this file is the source of truth for interface text. St
 | Of them, unique to one screen or a handful | **587** |
 | SEO strings, owned by the IA node | **62** `<title>` and **13** `h1.readout`, marked in the type column |
 
-A row is one **unique string**, not one occurrence. The product is 62 pages because stage 04 gave every state its own page, so an inventory of occurrences would be several thousand rows of the same column header. The gain is not only size: two rows with the same meaning and different words are now visible side by side, which is how section 6 was produced.
+A row is one **unique string**, not one occurrence. The product was 62 pages when this inventory was taken, because stage 04 gave every state its own page, so an inventory of occurrences would be several thousand rows of the same column header. **It is 66 now**, and the four that arrived are node 7.1, accepted on 2026-08-26: their strings are in section 8d rather than in the tables above, which are declared to be the inventory as it stood before stage 05 and are not rewritten. The gain is not only size: two rows with the same meaning and different words are now visible side by side, which is how section 6 was produced.
 
 **A string is the text of one block**, so a queue row reads as one row of this table rather than seven. Where a sentence is broken by `<b>` or `<a>` in the markup, it is reassembled here.
 
@@ -127,6 +127,7 @@ Two readings of the fleet exist and they do not agree: `_nav.js` defaults to `40
 | `Z5 detail pane` | An inbox rule was created 90 seconds later , forwarding to an external address Exchange audit | evidence claim, fixture instance | inlined in each screen | 19 |
 | `Z5 detail pane` | Field correlationId matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant’s own log, 04:08 to 04:12 UTC. | expanded detail | inlined in each screen | 19 |
 | `Z5 detail pane` | Filed by Clerk 26m ago · ?as-of=2026-08-22T04:14:05Z | stamp line | inlined in each screen | 19 |
+| `Z5 detail pane` | How this was read | expansion head, **new at stage 13** and the head of the row above | inlined in each screen | 19 |
 | `Z5 detail pane` | No MFA prompt on the second use Entra sign in | evidence claim, fixture instance | inlined in each screen | 19 |
 | `Z5 detail pane` | not found no password change, and no new device enrolment Entra, EDR | evidence claim, fixture instance | inlined in each screen | 19 |
 | `Z5 detail pane` | points the other way this user has travelled to this region twice in 90 days tenant baseline | evidence claim, fixture instance | inlined in each screen | 19 |
@@ -171,6 +172,8 @@ Two readings of the fleet exist and they do not agree: `_nav.js` defaults to `40
 | `Z4 list` | Sev Client What it was What was decided, and by whom Reason State When, UTC | column headers | inlined in each screen | 5 |
 | `the door` | Sign in | SEO / IA-owned, H1 | inlined in each screen | 5 |
 | `the door` | you@yourprovider | placeholder | inlined in each screen | 5 |
+
+**One row in this table did not exist before stage 05, and it says so in its own type column.** `How this was read` was written at stage 13, when the expansion under an evidence claim became a real disclosure and needed a head. It stands here because a reader looks for the head beside the body it opens, and its full record, with the page, the zone and the rule that decided it, is section 8e. The count column is this table's, so it reads 19: the string stands on **21** screens under `design/`, and the two `entry` screens are carried in section 5.4 with the body.
 
 ---
 
@@ -486,6 +489,7 @@ Only what is unique to one screen or to a handful. Anything already described in
 | `entry-changed` | Escalated, not ruled. Handed to S. Varga, SOC lead, by R. Idrissi through the provider’s on call tool. Clerk’s conclusion, real, contain identity , stands unruled. | Clerk narrative, fixture instance | entry-partial, entry |
 | `entry-changed` | Field correlationId matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant’s own log, 04:08 to 04:12 UTC. | expanded detail | entry |
 | `entry-changed` | Harrier · Log entry, the live case has changed | SEO / IA-owned, `<title>` | - |
+| `entry-changed` | How this was read | expansion head, **new at stage 13** | entry |
 | `entry-changed` | No reason code, and that is correct rather than missing. The taxonomy in 0.7 routes rejections to tuning. An escalation routes to a person, so what it carries is the handover below. | Clerk narrative, fixture instance | entry-partial, entry |
 | `entry-changed` | Normal at this client, on that date | heading | entry-partial, entry |
 | `entry-changed` | Open C-4417 as it is now Back to this entry in the log | the pair of exits | entry-partial, entry |
@@ -1067,6 +1071,18 @@ Nothing was fanned out before this table existed. A global is a string on five s
 | `Open the queue at this tenant` and `Open the log at this tenant` | all four | Z5 pane foot | The `Open <the destination>` ruling. Never `Back to`, because every screen here is reachable from a pager link |
 
 **One string was written and taken out again.** The pane head of `tenant-moved-down` carried a `state` chip reading `moved down`. 0.8 section 6 closes the case chip set at six values and section 6b closes the entry chip set at eight, and a chip about a **tenant** is neither: it would have been a third undeclared taxonomy inside a shared component, which is the exact defect 6b exists to stop. The fact moved into the pane head's `sub`, where it is a sentence rather than a value in a closed list.
+
+### 8e. One string new at stage 13, and it is the only one the whole change needed
+
+**The expansion under an evidence claim became a real disclosure, and a disclosure needs a head.** It had shipped as a box that was always open with a chevron drawn on it, so the depth design principle 2 promises one key away was being charged to every read instead. Closing it is what the principle asks for, and a closed box has to say what is inside it before you spend the key on it.
+
+| String | Page | Zone | Rule |
+|---|---|---|---|
+| `How this was read` | 21 screens under `design/`: the 9 `case` screens, the 6 `reject` screens, the 3 `escalate` screens, `entry`, `entry-changed` and `keyboard` | Z5 detail pane, the head of the expansion under the second evidence claim | Principle 2, the cheapest correct thing first. It names what is behind the head rather than restating the claim or promising more than the two sentences hold. Second person is not used because there is no instruction in it: the head is a label on a drawer, and `voice.md` gives a label the shortest true form |
+
+**One string, and the count is the argument rather than the economy.** The 21 instances carry one body between them, so one head answers all of them. The other **6** expansions in the product are the handover notes on `shift` and `shift-sealed`, three each, and **they keep no head at all**: each already opens on the tenant and the analyst who wrote it, which is its own label, and that label is a link to the case. A link inside a `summary` cannot be reached, because the click belongs to the disclosure. A handover note is also read **because** the shift was taken, so closing it would hide the reason the screen exists. Six bodies that need no head and one that does is why the backlog's price of 23 invented sentences was wrong by 22.
+
+**Nothing else was written, and two things that look like strings are not.** The chevron is a mark rather than a word, and it now hangs off the head instead of the box, so a filling with no head loses it by construction. And the state the head announces, open or closed, is the element's own: the browser carries it, and there is no second string for the open form.
 
 ---
 

@@ -24,7 +24,7 @@ READ THESE FIRST, IN THIS ORDER. Read them from disk. Do not work from memory of
   1. CLAUDE.md                          what binds every session in this project
   2. handoff/handoff.html               what the product is and where everything lives
   3. design/system/CLAUDE.md            the ten rules that hold inside the system package
-  4. design/kit/docs/architecture.md    the rules of use and the twelve prohibitions,
+  4. design/kit/docs/architecture.md    the rules of use and the thirteen prohibitions,
                                         section 11 is how to contribute
   5. handoff/docs/behaviour.md          how the product behaves: states, edge cases,
                                         validation, and every row with its source
@@ -134,7 +134,7 @@ THE FILE, AND WITHOUT THIS PART THE SCREEN EXISTS ONLY ON DISK
 
 CHECK YOUR OWN WORK, and these are commands rather than intentions:
     node design/kit/checks/screens.mjs design <file>.html   is my screen file only markup
-    node design/kit/checks/rules.mjs design <file>.html     the twelve usage rules, both widths
+    node design/kit/checks/rules.mjs design <file>.html     the thirteen usage rules, both widths
     node design/kit/checks/contrast.mjs design/             every text node, both themes
     node design/kit/checks/focus.mjs design                 a real Tab walk, both themes
     node design/kit/checks/zoom.mjs design                  200% zoom and 200% font size

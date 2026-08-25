@@ -13,3 +13,8 @@ __pycache__/
 # without saying so. Stage 09 replaced them with checks/refactor.mjs, which compares two
 # rendered trees element by element and needs no image at all.
 design/kit/screens/
+
+# The five-minute video kit: script, teleprompter and 25 screenshots of the live
+# site. A recording aid, not an artefact of the product, and 12MB of PNG that the
+# repository has no reason to carry.
+presentation/

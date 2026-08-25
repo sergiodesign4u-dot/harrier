@@ -45,7 +45,7 @@
 
 <div class="c-run">node design/kit/checks/contrast.mjs <span>the stand, every text node, both themes, both viewports</span>
 node design/kit/checks/contrast.mjs design/ <span>the same over the coloured screens</span>
-node design/kit/checks/rules.mjs design <span>the twelve usage rules, by name, on the product</span>
+node design/kit/checks/rules.mjs design <span>the thirteen usage rules, by name, on the product</span>
 node design/kit/checks/focus.mjs design <span>a real Tab walk, both themes, is there a ring and can it be seen</span>
 node design/kit/checks/zoom.mjs design <span>browser zoom at 200%, and the reader&rsquo;s own font size at 200%</span>
 node design/kit/checks/route.mjs <span>does the handoff lead anywhere, and in how many clicks</span>
@@ -65,10 +65,11 @@ node design/kit/checks/compose.mjs <span>every composition in the grey corpus, c
 <div class="c-inst">
   <div><code class="f">rules.mjs</code><span class="stage">stage 09</span></div>
   <div>
-    <p><b>The eleven usage rules, as functions.</b> A prohibition written only in prose is a prohibition nobody runs. Each rule is measured at both viewports on what renders rather than on what is in the markup, and each may answer "not applicable": a screen with no dialog does not pass the dialog rule, it is not asked. Counting those as passes is how a suite reports green while testing nothing.</p>
-    <p><b>Two of the eleven only became correct when they stopped reading the file and started reading the box.</b> Two primary actions in a document are one primary action on a screen when the second is the viewport twin of the first. And an overlay pinned to the viewport covers a pane that sits below the fold, because the pane passes under it the moment anybody scrolls.</p>
+    <p><b>The thirteen usage rules, as functions.</b> A prohibition written only in prose is a prohibition nobody runs. Each rule is measured at both viewports on what renders rather than on what is in the markup, and each may answer "not applicable": a screen with no dialog does not pass the dialog rule, it is not asked. Counting those as passes is how a suite reports green while testing nothing.</p>
+    <p><b>Two of the thirteen only became correct when they stopped reading the file and started reading the box.</b> Two primary actions in a document are one primary action on a screen when the second is the viewport twin of the first. And an overlay pinned to the viewport covers a pane that sits below the fold, because the pane passes under it the moment anybody scrolls.</p>
+    <p><b>R13 arrived at stage 13 and it forbids two things at once:</b> an expansion that has a head must be a <code>details</code> and not a <code>div</code> wearing a chevron, and no head holds a link, because a link inside a <code>summary</code> cannot be clicked. The second half is why the six handover notes keep no head, and it is what makes the first half structural: a filling with no head loses the mark by construction. <b>39 held, 93 not applicable, 0 broken.</b></p>
   </div>
-  <div class="n"><b>12</b> rules<br><b>124</b> renderings<br><span class="c-zero"><b>0</b> broken</span><br>R11 was 17 and closed at stage 12</div>
+  <div class="n"><b>13</b> rules<br><b>132</b> renderings<br><span class="c-zero"><b>0</b> broken</span><br>R11 was 17 and closed at stage 12</div>
 </div>
 
 <div class="c-inst">
@@ -145,7 +146,7 @@ node design/kit/checks/compose.mjs <span>every composition in the grey corpus, c
   <div>
     <p>Two counts and nothing else: comment openers against terminators, and braces. <b>The cheapest instrument here and the last one written</b>, because it took a self inflicted wound to see the need for it.</p>
     <p>An edit to a comment in <code>tokens.css</code> dropped its terminator. The comment swallowed two declarations and the closing brace of the semantic block, so everything after it became <b>nested inside that block</b>, and two media queries then read <code>:root</code> as a descendant of the root, which nothing can be. <b>Both of the system's responsive primitives went dead:</b> the pane stopped narrowing below 1560 and the queue row stopped collapsing to one column at 360.</p>
-    <p><b>Every other instrument on this page passed while it was broken.</b> The contrast sweep, because nothing about colour changed. The overflow check, because a row that is suddenly 646px wide sits inside a scroll container and clips. The usage rules, because none of the eleven is about a track. The baseline comparison, because it hides the panel and reads the product's boxes, and at 1440 they were unchanged.</p>
+    <p><b>Every other instrument on this page passed while it was broken.</b> The contrast sweep, because nothing about colour changed. The overflow check, because a row that is suddenly 646px wide sits inside a scroll container and clips. The usage rules, because not one of them is about a track. The baseline comparison, because it hides the panel and reads the product's boxes, and at 1440 they were unchanged.</p>
   </div>
   <div class="n"><b>83</b> stylesheets<br><span class="c-zero"><b>0</b> unterminated</span><br><span class="c-zero"><b>0</b> unclosed</span></div>
 </div>

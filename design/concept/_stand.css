@@ -115,6 +115,43 @@
 .a-row .st{display:flex;gap:4px;justify-content:flex-end}
 .a-row .st .dr-chip{padding:3px 5px;font-size:8px}
 
+/* ---- the shell is a DOCUMENT here, and the design system says it is a screen ----
+
+   Both pages take their column from research/_page.css `.shell`, and both link
+   design/system/index.css AFTER it, which brings components/shell.css. That file claims
+   the same generic class for the PRODUCT shell: `align-items:stretch` and `height:100vh`,
+   which is right for a screen that scrolls inside its own zones. Same specificity, later
+   sheet, so it wins, and the collision is the one this file already exists for reaching
+   one step further: not the light documentation sheet this time, but the system.
+
+   Measured at 1440 in the shipped dark theme rather than read off the file:
+     .shell            height 900px, align-items stretch, while the document ran to
+                       4747px on directions.html and 6333px on concept.html
+     #sidebar          position sticky, and it still left the page: its
+                       getBoundingClientRect().top went 56 to -3544 over 3600px of scroll,
+                       against 56 to 56 on research/research.html and 0 to 0 on
+                       design/kit/btn.html, which use .shell and .k-shell without the system
+   A sticky element sticks only inside its containing block, so the panel travelled for
+   exactly one viewport and then left with the row that held it, and the reader was given
+   an empty column for the remaining 3847px. Same defect, same mechanism and same three
+   declarations as docs/decisions.md settled on 2026-08-25 for a document page;
+   design/_nav.js injects these three under the name .wf-shell for the stage 07 pages.
+
+   Below 1279.98 shell.css turns the box into a block and base.css turns the panel static,
+   so all three are inert there and the panel stacks above the article, which is what it
+   does on every other stage at 360. */
+.shell{align-items:flex-start;height:auto;min-height:100vh}
+
+/* AND THE SAME SHEET TOOK THE PANEL'S OFFSET WITH IT. base.css sets `top:0` and
+   `max-height:100vh` because the surfaces it was written for carry no top padding;
+   research/_page.css, which is the document chrome these two pages actually use, sets
+   `top:56px` and `max-height:calc(100vh - 96px)` because it does. With the system loaded
+   last, the stuck panel measured top 0 and its first roadmap link measured 0, glued to
+   the edge of the window, against 56 and 56 on both research/research.html and
+   handoff/handoff.html, which are the two other stages built on this same chrome. The
+   offset is restored to the sheet that owns the column, not invented here. */
+#sidebar{top:56px;max-height:calc(100vh - 96px)}
+
 /* ---- the dark-document layer, and why this block exists ----
 
    Both pages that load this sheet are DARK documents that link research/_page.css for their
