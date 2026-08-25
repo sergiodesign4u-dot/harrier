@@ -714,9 +714,11 @@ Seventy five components and four patterns, and **every one of them is on at leas
 
 ### Screens in the registry with no row in the map: 0
 
-**Roll call.** Screens in `design/_nav.js`: **19**. In this map: **13**, which is 62 pages. Deliberately not: **6**, and they are the LATER nodes 6.1, 6.2, 7.1, 7.2, 7.3 and 8.3, which carry a registry record with `colour: 0` and no file on disk. `design/overview.html` renders them as work not done rather than hiding them, so nothing here needed adding to the coverage map.
+**Roll call, as this map was taken.** Screens in `design/_nav.js`: **19**. In this map: **13**, which is 62 pages. Deliberately not: **6**, and they were the LATER nodes 6.1, 6.2, 7.1, 7.2, 7.3 and 8.3, which carried a registry record with `colour: 0` and no file on disk. `design/overview.html` renders them as work not done rather than hiding them, so nothing here needed adding to the coverage map.
 
 **Both directions of the reconciliation are clean:** 62 files on disk, 62 records in the registry, 0 in one and not the other. That is `design/kit/checks/coverage-map.mjs`, and it is worth running before believing any of this.
+
+**7.1 was built after this map was taken, and this paragraph is the honest form of that.** `design/tenant.html` and its three states are on disk and in the registry, `coverage-map.mjs` now reports **66 and 66, clean in both directions**, and the count of LATER screens with no grey original is still **6**, because 7.1 never had a wireframe and its record keeps `grey: false`. **It has no row in the forward table above, and that row is owed rather than missing.** Section 0 says every chain in this file was taken by opening the page in a real browser and walking the rendered DOM, because the zone of a component is its ancestry rather than its spelling and two of the components on every screen are rendered by javascript. **A row typed out of the markup would look exactly like a row that was measured**, which is the one thing this file cannot afford. Until the walk is run: 7.1 carries the `queue-list` filling of Z4 and the `case-pane` filling of Z5, and it introduces no component, no pattern and no token that the table above does not already list.
 
 ### The census, reconciled
 

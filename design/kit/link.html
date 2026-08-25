@@ -37,7 +37,7 @@
 <ul class="k-parts">
   <li><code>.link</code><span>the whole component. One element, one text node, and no colour of its own</span></li>
   <li><code>text-decoration-color</code><span>the only thing it paints. <code>--text-secondary</code> at rest, so the underline is visible without competing with the sentence it is in</span></li>
-  <li><code>text-underline-offset</code><span>2px. The type is 12.5px in most of its hosts and an underline on the baseline eats the descenders</span></li>
+  <li><code>text-underline-offset</code><span>2px. The type is 12px in most of its hosts and an underline on the baseline eats the descenders</span></li>
 </ul>
 <p class="k-note"><b>Two rules for the same thing, and both are needed.</b> <code>base.css</code> keeps a declaration on the bare <code>a</code> as the safety net: a link that carries no class still cannot come back blue. This file is the component, and step 6 puts the class on the markup.</p>
 
@@ -47,7 +47,7 @@
 <table class="k-table">
   <thead><tr><th>Axis a reader looks for</th><th>Values</th><th>Why the cell is empty</th></tr></thead>
   <tbody>
-    <tr><td>size</td><td class="k-none">&ndash;</td><td><b>Set by the container, not chosen.</b> 11px inside <code>gnote</code> on 15 screens, 12.5px inside <code>expand</code> on 6, <code>nar</code> on 2, <code>empty</code> on 2 and Z6 once. A <code>.link--sm</code> would let a link be a different size from the sentence it is in, which is the one thing it must never be</td></tr>
+    <tr><td>size</td><td class="k-none">&ndash;</td><td><b>Set by the container, not chosen.</b> 11px inside <code>gnote</code> on 15 screens, 12px inside <code>expand</code> on 6, <code>nar</code> on 2, <code>empty</code> on 2 and Z6 once. A <code>.link--sm</code> would let a link be a different size from the sentence it is in, which is the one thing it must never be</td></tr>
     <tr><td>emphasis</td><td class="k-none">&ndash;</td><td><b>Prohibited.</b> Colour is scarce in this product and a link inside a grey note is not more important than the note. What marks it is the underline</td></tr>
     <tr><td>external</td><td class="k-none">&ndash;</td><td><b>Not this component's job.</b> A source that opens somewhere else is <code>src</code>, which carries the one icon this product applies for exactly that reason. A link here never leaves the product</td></tr>
   </tbody>

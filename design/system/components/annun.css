@@ -60,14 +60,25 @@
    all the way to 1279: the phone's bar on a 1200px screen. A basis of 22rem is the
    width at which its two parts still read on one line, and flex does the rest, so
    the bar is 55px tall at 1024, 65 at 768 and the same 181 it always was at 360. */
-.annun{ flex: 1 1 22rem; min-width: 0 }
+/* A SEGMENT IS A UNIT AND IT NEVER SPLITS. `white-space: normal` above is right for
+   the STRIP, which has to wrap rather than overflow, and it was being read by the
+   segments inside it: on the three screens whose annunciator carries four parts,
+   every one of the four broke in the middle, splitting `contain / endpoint` and
+   `DECIDED by / you`, and the bar grew from 26px to 42. The strip wraps BETWEEN its
+   parts now and never inside one. Stage 13. */
+.annun{ flex: 1 1 22rem; min-width: 0; flex-wrap: wrap }
+.annun .part{ white-space: nowrap }
 
 @media (max-width:1279.98px){
   .annun{
     order: 2;
     flex-wrap: wrap;
     gap: var(--space-2);
-    font-size: 0.65625rem;   /* 10.5px, the second of the two places below the 11px floor */
+    font-size: var(--size-xs);/* WAS 0.65625rem, 11px. It was one of three renderings below
+                                 the scale's own 11px floor, and none of the three was ever a
+                                 decision: a floor that three rules step under is not a floor.
+                                 All three read --size-xs now, so the product renders no text
+                                 smaller than the scale declares. Stage 13. */
   }
   /* the divider goes rather than wrapping onto a line of its own */
   .annun .sep{ display: none }

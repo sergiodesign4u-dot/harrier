@@ -233,7 +233,7 @@ The paragraph above guessed right about the shape and wrong about the threshold:
 |---|---|---|---|---|
 | `btn` | 157 | 57 | **emphasis:** outline 65, filled `--primary` 53, soft `--quiet` 33, out of reach `[aria-disabled]` 5. **content:** label 74, label + key 83 | `pane-foot` 86, `act` 23, dialog `footer` 21, `wrapline` 6, `doorform` 6, `addr` 5, `out-act` 4 |
 | `navitem` | **132** | 44 | **state:** current 44, not current 88 | Z1 only, injected by `design/_shell.js` |
-| `link` | **24** | 24 | **size, set by the container:** 11px in `gnote` 15, 12.5px in `expand` 6, `nar` 2, `empty` 2, Z6 1 | inline, inside whatever encloses it |
+| `link` | **24** | 24 | **size, set by the container:** 11px in `gnote` 15, 12px in `expand` 6, `nar` 2, `empty` 2, Z6 1 | inline, inside whatever encloses it |
 | `key` | 152 | 34 | none. **The border follows the host**, which is the whole point of the component | `btn` 85, `opt` 45, `keys` 22 on the keyboard map |
 | `chip` | **122** | 44 | **emphasis:** outline, filled `--solid`, dashed `--ghost`. **content:** label, label + `▾` 77, label + `×` 45 | `scopebar` 122 |
 | `state` | **194** | 44 | **emphasis:** outline, filled `--solid` 46 | `states` inside a row 185, `chips-hd` 9 |

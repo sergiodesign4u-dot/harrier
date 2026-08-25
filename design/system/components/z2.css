@@ -42,6 +42,12 @@
 .z2.is-degraded b{ text-decoration: underline; text-underline-offset: 2px }
 
 @media (max-width:1279.98px){
-  .z2{ padding: 0 var(--space-3) }
+  /* IT WRAPS BETWEEN ITS CELLS RATHER THAN INSIDE THEM. At 360 the four cells were
+     each narrower than their own contents, so `Clerk is not investigating` came out
+     as two lines in 88px and `the queue is complete` as three in 71px, with the
+     separator glyph stranded beside them. A status strip is a row of facts; a fact
+     that breaks across lines stops reading as one. Stage 13. */
+  .z2{ padding: var(--space-1) var(--space-3); flex-wrap: wrap; gap: var(--space-1) var(--space-3) }
+  .z2 > *{ white-space: nowrap }
 }
 /* NO STATES. It reports. */

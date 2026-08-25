@@ -427,3 +427,83 @@ The pairs were written at step 3 and the state tokens at step 5. What this step 
 | `.readout` gains `margin: var(--space-2) 0` | **8.375px**, the browser's `0.67em` for an `h1` at 12.5px | **8px** | Rule R11 moved the `h1` on seventeen screens from the readout to the pane head, and the readout became an `h2`. It had no margin of its own, so the tag change alone would have taken it to `0.83em`, that is 10.375px, and pushed two hundred rows down four pixels on each of those screens. **0.375px per side is the whole of the deliberate change**, and it is here rather than nowhere because the value was never a decision until now |
 
 **It is the fourth time in this project the ELEMENT was deciding a value nobody had written**, after the readout's own weight, the `h1` inside `pane-head--standalone` and the heading levels themselves. The class of defect is one instrument short by construction: the value is not wrong in any file, so nothing that reads a file can see it, and it only shows up when the tag changes underneath it.
+
+---
+
+## THE SCALE STOPPED HAVING A FRACTION IN IT, AND IT HAD THREE (stage 13)
+
+Asked for by the owner, looking at `typography.html`: `--size-sm` read **12.5px**, and a scale with a half pixel in it asks the eye to read a difference the browser resolves differently at every zoom level. What the census then found was worse than the one value.
+
+**The product rendered seven distinct sizes and three of them were fractional**, taken by walking every text node of all 62 screens at both viewports:
+
+| Was | Nodes at 1440 | What it was |
+|---|---|---|
+| 22.25 / 17.75 | 17 / 149 | the two fluid headings, correct |
+| 14 | 1043 | `--size-md`, body |
+| **12.5** | **2715** | `--size-sm`, and the largest population in the product |
+| 11 | 3490 | `--size-xs`, mostly mono |
+| **10.5** | 468, at 360 only | a literal in `annun.css`, below the floor |
+| **9.5** | 4 | two literals, in `anote.css` and `toast.css`, below the floor |
+
+**The floor was the finding.** The scale declares 11px as its smallest step and three rules stepped under it, two of them with a comment saying so. A floor that three rules walk under is not a floor, and the two literals had been invisible because four text nodes do not show up in anything that counts.
+
+| Token or rule | Was | Became | Why |
+|---|---|---|---|
+| `--size-sm` | 0.78125rem, 12.5px | **0.75rem, 12px** | Exact at a 16px root. Holds the step away from 11 that 12.5 held against 14, and moves the largest text population slightly DENSER rather than looser, which is the direction design principle 5 asks for |
+| `.anote::before` | literal 9.5px | `var(--size-xs)` | It was never a decision. A label at 9.5 is a duplicated value below the declared floor |
+| `.toast .role` | literal 9.5px | `var(--size-xs)` | The same rule, written twice in two files |
+| `.annun .part` at 360 | 0.65625rem, 10.5px | `var(--size-xs)` | The comment called it "the second of the two places below the 11px floor", which is a note that the rule is being broken rather than a reason |
+
+**After: five sizes, every one whole, nothing below the declared floor.** 22.25 / 17.75 / 14 / 12 / 11 at the desk, 21 / 17 / 14 / 12 / 11 at 360.
+
+**And the change found a duplicate the token had been hiding.** `design/kit/sev.html` carried `font-size:12.5px` inline **thirteen times**, with three more on `chips-hd`, `geometry` and `outage`: a copy of a value where a reference belongs, which is the one class this project treats as a defect with no tolerance. While the token read 12.5 the copy agreed with it and said nothing. Moving the token is what made all sixteen speak. Plus **27 prose mentions** across the stand and `DESIGN.md` that named a size the system no longer has.
+
+---
+
+## THE VISUAL SWEEP OF STAGE 13, AND TWO ROOT CAUSES UNDER FORTY ONE REPORTS
+
+Three readers with clean context walked all 66 screens at both widths and returned **41 findings between them**. Deduplicated they are far fewer than that, and two causes account for eight of the reports on their own.
+
+### Cause one: `ch` resolves in the font of the element that declares it
+
+The grid tracks of every list were declared on the ROW. A `ch` is the advance of the `0` glyph in that element's own font, and the head row is 11px monospace while the body is 12px Archivo, so the same `28ch` came out 8px wider in one than in the other. **A column header could never sit over its column**, and the gap was 8px on the log, 13px on the shift list and visible on the queue.
+
+Three readers reported it as three separate defects on three separate screens. It is one line of CSS in the wrong place. The list declares the tracks once, in one font; every row is a `subgrid` of them and keeps its own padding, rule and states.
+
+| List | Head boundaries before | Body boundaries before | After |
+|---|---|---|---|
+| `rows--log` | 12, 94, 198, **391, 622**, 815, 929 | 12, 94, 198, **399, 614**, 815, 929 | identical, both |
+| `rows-moved` | 44ch at 290px | 44ch at 302px | identical, both |
+
+### Cause two: a measure on a box is not a measure on text
+
+`base.css` caps fourteen selectors at `--measure`, and its own comment says a measure belongs on the text rather than on the container. **Two of the fourteen were not text at all.** `.rail` is the inverted record header and `.rail-foot` is the rule that closes the frame. Capped inside an 820px framed record both stopped between 53 and 58 per cent of the way across: the loudest surface in the product became a light block in the left half of the record, and two horizontal rules ended in mid air.
+
+The cap stays where it was earned, below the split point, where the sweep found 11px type running 83 characters in a single column at 520.
+
+**`.prov` and `.cons` are the third and fourth, and both went back.** Each carries a border AND its prose on one element. Freed, `.prov` ran 90 and 93 characters at 2200 and 2560 on ten screens, and `.cons` ran 81 inside the dialog on ten more; the width sweep found both the moment the cap came off. **A sentence at 81 characters is a reading defect and a border stopping short is cosmetic**, so the cap wins and the visible cost is a row in `backlog.md`. Holding the rule full width while capping the sentence needs a wrapper neither markup has, and percentage padding resolves against the container rather than the element and did not hold either. That is a markup decision rather than a fix.
+
+### What else the sweep changed
+
+| Component | Was | Why it moved |
+|---|---|---|
+| `pane-head` | sticky with no `z-index` | Anything in the body establishing a stacking context painted over it. At 360 the evidence box sliced the case heading in half |
+| `dialog > footer` | hint with a basis | When the row broke it left `Cancel` at the top right and the primary at the far LEFT of a second line. The hint shrinks first now and the pair stays together |
+| `annun` | `white-space: normal` reaching the segments | On the three screens with four segments every one split mid phrase. The strip wraps between parts and never inside one |
+| `z2` at 360 | four cells narrower than their contents | `Clerk is not investigating` in two lines of 88px. It wraps between facts now |
+| `frow` head | middle track 118px | Its own header needs 132, so `TO` dropped to a second line on every fleet |
+| `row` prose tracks | `32ch` and `36ch` caps | The row stopped where its longest sentence stopped: 987px of tracks in a 2015px list at 2560. The tracks take the room, the cells carry the character count |
+| `row` tenant track, log | 6rem | Every cell in it wrapped, five of five on one screen |
+| `z6` | transparent | A layer with no ground. The list's footer read up through the gaps between the toasts, half a word at a time |
+| `toast--alert` | note in a 9em gutter | Two ragged right-aligned lines where the dismiss control used to be. It is a footnote under the message now |
+| `nar` | `when` with no hanging indent | Every wrapped timeline line went back under the timestamp, which is the one place this component exists to keep clear |
+| `expand` | mark at `left:-11px; top:2px` | Two unmeasured offsets that put the glyph in open space outside the box and above its line |
+| `empty` | capped, not centred | Centred inside its own 454px cap and off centre in the visible 1080 |
+| `miss .note--sep` | rule capped with the text | The hairline stopped 82px short of the box above it |
+| `miss .exits a` | vertical padding at every width | Padding on an inline-block grows the line box, so lines carrying an exit opened to 30.6 against 24.6 |
+| `lat` | flex rows | `margin-left:auto` moved the reason with the length of the action beside it. Subgrid, and the reason column capped |
+| 13 screens | `</b><span>` with no space | 30 missing spaces after a bold lead. A markup defect, not a styling one |
+
+### One report was refused
+
+`?as-of=2026-08-` breaking across lines was reported at medium-high confidence. `stamp.css` says outright that the address wraps anywhere on purpose, because **a timestamp that is cut off is worse than one that breaks in the middle**. A finding that is not a defect is a defect of the finder.

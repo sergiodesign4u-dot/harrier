@@ -35,7 +35,51 @@
   border-top: var(--rule-edge);
 }
 
+/* -- THE VERDICT FOOT, AND IT IS THE ONE PLACE THE MAIN JOB IS DONE ------------
+   FOUR EQUAL BUTTONS IN A ROW MADE THE MAIN ACTION A QUARTER OF ITS OWN FOOT, and
+   on a pane narrow enough the fourth wrapped and Escalate sat alone under three,
+   which reads as an afterthought rather than as the honest exit it is. Accept
+   carries the job named in CLAUDE.md; it takes the full width and the three that
+   qualify it stand under it, sharing the row equally.
+
+   IT IS CONDITIONED ON THE COUNT, not written as a variant, because one to four
+   buttons is a count and this component has said so since stage 08. A foot with
+   one, two or three actions is a row and stays a row: nothing there is competing
+   with anything. Only the foot that holds the whole verdict set arranges itself.
+
+   THE FOOT IS ALSO TALLER HERE. The decision is the point of the screen and it was
+   sharing the compactness of a foot that elsewhere holds a single `Open the log`.
+   Stage 13. */
+.pane-foot:has(> .btn:nth-of-type(4)){
+  padding: var(--space-4);
+  gap: var(--space-3);
+}
+.pane-foot:has(> .btn:nth-of-type(4)) > .btn--primary{
+  flex: 1 0 100%;
+  justify-content: center;
+  padding-block: var(--space-3);
+}
+.pane-foot:has(> .btn:nth-of-type(4)) > .btn:not(.btn--primary){
+  flex: 1 1 0;
+  justify-content: center;
+}
+
 @media (max-width:1279.98px){
   .pane-foot{ padding: var(--space-2) var(--space-3) }
+  /* AT 360 THE WHOLE ARRANGEMENT IS REVERTED, NOT JUST THE PADDING. `:nth-of-type`
+     counts what is in the DOM, and three of the four buttons here are `.only-desk`
+     and not rendered: the selector still matches, so `flex: 1 0 100%` survived and
+     turned the one remaining action into a full bleed amber bar with its label
+     hugging the left edge and 230px of empty fill beside it. `.only-narrow` sets
+     `display:block`, which beats the button's own `inline-flex`, so the centring
+     that would have hidden it was inert. The first version of this comment claimed
+     the arrangement had nothing to arrange, which was true of the intent and false
+     of the cascade. All three declarations go back. */
+  .pane-foot:has(> .btn:nth-of-type(4)){ padding: var(--space-2) var(--space-3) }
+  .pane-foot:has(> .btn:nth-of-type(4)) > .btn--primary{
+    flex: 0 1 auto;
+    padding-block: var(--space-2);
+  }
+  .pane-foot:has(> .btn:nth-of-type(4)) > .btn:not(.btn--primary){ flex: 0 1 auto }
 }
 /* NO STATES. The buttons carry theirs. */

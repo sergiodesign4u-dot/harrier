@@ -40,7 +40,7 @@
 .toast .role{
   display: block;
   margin-bottom: var(--space-1);
-  font: 700 9.5px/1 var(--font-mono);
+  font: 700 var(--size-xs)/1 var(--font-mono);
   letter-spacing: .14em;
   color: var(--text-secondary);
 }
@@ -72,11 +72,14 @@
 }
 
 /* -- kind. One axis, two values, and the second one removes a control --------- */
-.toast--alert{ border-width: 2px }
+/* THE ALERT TOAST WRAPS, AND THE NOTE IS A FOOTNOTE RATHER THAN A GUTTER. The one
+   toast that cannot be dismissed says so instead of carrying a dismiss control, and
+   that sentence was squeezed into a 9em column beside the message, where it broke
+   into two right-aligned ragged lines in the space the cross used to occupy. It is
+   a note ABOUT the alert, so it goes under it on its own line and reads in one. */
+.toast--alert{ border-width: 2px; flex-wrap: wrap }
 .toast--alert .t-hold{
-  flex: 0 0 auto;
-  align-self: center;
-  max-width: 9em;
+  flex: 1 1 100%;
   text-align: right;
   font-size: var(--size-xs);
   color: var(--text-secondary);

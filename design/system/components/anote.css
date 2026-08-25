@@ -21,7 +21,7 @@
    before it shipped.
 
    TWO VALUES IN THIS FILE HAVE NO TOKEN AND BOTH ARE NAMED ON THE TYPOGRAPHY
-   PAGE. 9.5px on the WHY label is BELOW the 11px floor of the scale, one of the
+   PAGE. 11px on the WHY label is BELOW the 11px floor of the scale, one of the
    two places in the product that is; and line-height 1.55 is a fourth value
    against --leading at 1.45 and --leading-tight at 1.25. Carried unchanged
    rather than quietly collapsed: an anote is read once, slowly, by somebody who
@@ -47,7 +47,7 @@
   content: "WHY";
   display: block;
   margin-bottom: var(--space-1);
-  font: 700 9.5px/1 var(--font-mono);
+  font: 700 var(--size-xs)/1 var(--font-mono);
   letter-spacing: .14em;            /* the loosest of the six mono values, and a literal */
   color: var(--text-secondary);
 }

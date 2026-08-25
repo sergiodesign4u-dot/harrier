@@ -29,6 +29,17 @@
 
 .nar b{ font-weight: 600; color: var(--text-primary) }
 
+/* THE TIME COLUMN IS A HANGING INDENT AND IT WAS NOT ONE, so every timeline line
+   long enough to wrap put its second line back at the left edge, underneath the
+   timestamp, and the column of times this component exists to make readable stopped
+   being a column at exactly the lines that needed it most. This file already said
+   the sentence "has to wrap under itself and not into a second column"; it wrapped
+   under the TIME instead. `text-indent` pulls the first line back by the same 46 the
+   padding pushes everything out by, so the stamp still starts at zero and every
+   wrapped line lands on the sentence. Conditioned on a `when` existing, because a
+   narration without one is a plain paragraph. Stage 13. */
+.nar:has(> .when){ padding-left: 46px; text-indent: -46px }
+
 .nar .when{
   display: inline-block;
   min-width: 46px;

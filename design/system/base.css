@@ -169,15 +169,13 @@ a:hover{ text-decoration-color:var(--text-hover) }
    of them would ever have been found by looking at 360, at 1440 or at 2560. */
 .nar,
 .gnote,
+.prov,
 .cons,
 .sub,
-.prov,
 .hint,
 .empty,
-.rail,
 .sa-fresh,
 .sa-route,
-.rail-foot,
 .chips-hd,
 .meta,
 .anote,
@@ -186,6 +184,54 @@ a:hover{ text-decoration-color:var(--text-hover) }
    82 characters at 600px before this line */
 .contact p,
 .toast p{ max-width: var(--measure) }
+
+/* NO ORPHANS IN THE SHORT PROSE. Three readers reported the same shape on different
+   screens: `6 sources,` ending a line with `24h` alone under it, `The log does not
+   reach back this far.` dropping `far.` onto its own line, `first time for this` and
+   then `tenant`. These are two and three line strings where the browser's greedy
+   line breaker has no reason to balance and every reason not to. `text-wrap: pretty`
+   asks it to avoid a short last line, and it degrades to nothing where it is not
+   supported. It is NOT put on the long prose: balancing a paragraph of ten lines
+   costs layout work for a defect that does not occur there. Stage 13. */
+.sub,
+.hint,
+.empty b,
+.claim .txt,
+.readout,
+h1, h2, h3{ text-wrap: pretty }
+
+/* THREE OF THE FOURTEEN WERE NOT PROSE, THEY WERE BANDS, and capping a band is not
+   the same operation as capping a sentence. `.rail` is the inverted record header
+   and its own file says it is "inverted across a full width" and that "the border
+   never leaves"; `.rail-foot` is the rule that closes the frame; `.prov` carries a
+   `border-top`. Capped at 66ch inside an 820px framed record, all three stopped
+   between 53 and 58 per cent of the way across, so the loudest surface in the
+   product became a light block in the left half of the record and two horizontal
+   rules ended in mid air. Every one of them was correct at 360 and correct inside
+   the 360px pane, and wrong only in the one place the cap was never reasoned for.
+
+   `.prov` AND `.cons` ARE THE THIRD AND FOURTH, AND BOTH ARE BACK IN THE LIST ABOVE,
+   because taking them out regressed the thing the cap exists for: the sweep found its sentence at 90 and 93
+   characters at 2200 and 2560 on ten screens. It carries a border AND prose on one
+   element, and holding the rule full width while capping the sentence needs either
+   a wrapper it does not have or percentage padding, which resolves against the
+   container rather than the element and did not hold either. The rule ending short
+   inside the framed record is a real defect and it is a row in `backlog.md` rather
+   than a cure that costs more than it buys. `.cons` is the same shape and the same
+   answer: freed, its sentence ran 81 characters inside the dialog on ten screens, and
+   81 characters of dense prose is a reading defect while a border stopping 32px short
+   is cosmetic. Both are one row in `backlog.md`, and the cure for both is a wrapper
+   the markup does not have, which makes it a decision rather than a fix.
+
+   THE READING THEY WERE ADDED FOR IS REAL AND IT IS NARROW. The sweep found the
+   longest line in this product at 520px, not at 2560: below the split point the
+   layout is one column and 11px type fills it at 83 characters. So the cap stays,
+   and it stays where it was earned. Above the point these three are what their own
+   files say they are. Stage 13. */
+@media (max-width:1279.98px){
+  .rail,
+  .rail-foot{ max-width: var(--measure) }
+}
 
 /* At 360 the panel stacks above the article on every surface in this project, so sticking
    it would cover a third of the one viewport that has none to spare. */

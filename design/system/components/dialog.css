@@ -79,6 +79,20 @@
 .dialog > footer .grow{ flex: 1 1 auto }
 .dialog > footer .btn { flex: 0 0 auto; white-space: nowrap }
 
+/* WHEN IT WRAPS, THE PAIR STAYS TOGETHER. The hint, the spacer and two buttons do
+   not always fit on one line: on the four escalate screens the hint is 270px and the
+   primary names its recipient, so the row broke and left `Cancel` alone at the top
+   right while the primary dropped to the far LEFT of a second line. Two actions in
+   opposite corners of one footer is not a stack, it is a collapse. The hint takes
+   the whole first line when it cannot share one, and the actions stay a pair on the
+   line below, still to the right. Stage 13. */
+.dialog > footer{ justify-content: flex-end }
+/* THE HINT SHRINKS BEFORE ANYTHING ELSE DOES. Given a basis it kept its width and
+   pushed the actions apart onto two lines instead; given zero it wraps its own small
+   print to a second line and the two actions stay together on one, which is the
+   thing that had to hold. */
+.dialog > footer .hint{ flex: 1 1 0; min-width: 0; white-space: normal }
+
 .dialog--map{ width: min(var(--width-dialog-wide), 100%) }
 
 @media (max-width:1279.98px){

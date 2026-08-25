@@ -31,9 +31,25 @@
    KEPT the hook: seven screens wearing a name that paints nothing is a cheaper
    thing to carry than a rename across seven screens to remove it. */
 
+/* THE TRACKS BELONG TO THE LIST, NOT TO EACH ROW, AND `ch` IS WHY IT MATTERS.
+   A `ch` resolves against the font of the element the track is declared on. Written
+   on `.row`, every row computed its own tracks, and the head row is 11px monospace
+   while the body is 12px Archivo: the same `28ch` came out 8px wider in one than in
+   the other, so a column header could NEVER sit over its column. It was reported by
+   three independent readers on three different lists, each as its own defect, and it
+   was one line of CSS in the wrong place.
+
+   The list declares the tracks once, in one font, and every row is a `subgrid` of
+   them. Each row keeps its own padding, its own rule underneath and its own states.
+   Stage 13. */
 .rows{
   flex: 1 1 auto;
   overflow-y: auto;
   min-height: 0;      /* without it the flex item refuses to shrink and never scrolls */
+  display: grid;
+  grid-template-columns: var(--row-tracks);
+  align-content: start;
 }
+.rows--log{ grid-template-columns: var(--row-tracks-log) }
+.rows > .row{ grid-column: 1 / -1; grid-template-columns: subgrid }
 /* NO STATES. */

@@ -25,9 +25,16 @@
    assumed, because it is the closest call in this level.
    ---------------------------------------------------------------------------- */
 
+/* STICKY WITH NO STACKING ORDER IS STICKY UNDER THE CONTENT. It has a ground and a
+   position and, until now, no `z-index`, so anything in the body that establishes a
+   stacking context of its own painted straight over it: at 360, once the pane is
+   scrolled, the evidence box sliced the case heading in half and a source link
+   landed on the window in the sub line. A header that the content scrolls UNDER is
+   the whole reason this component is sticky. Stage 13. */
 .pane-head{
   position: sticky;
   top: 0;
+  z-index: 1;
   background: inherit;      /* it takes the pane's ground, whichever it is */
   padding: var(--space-4);
   border-bottom: var(--rule-edge);

@@ -3,6 +3,7 @@
    READS. Fill: --bg-page. Ink: --text-primary, --text-secondary. Line:
    --rule-edge, --line-separator. Geometry: --radius-ui, --size-sm, --space-2,
    --space-3.
+   ZONES. say, the sentence. act, the action.
    CONTAINS. btn, on the ones that offer something.
 
    PAGE. design/kit/banner.html
@@ -43,14 +44,56 @@
    this as a media query instead made the narrow banner 42px taller at 360 on
    seventeen screens, which the comparison against the committed original caught. */
 .banner:not(.only-narrow){ display: flow-root }
-/* ORDER, NOT SPECIFICITY, DECIDES THESE TWO. They are both 0,2,0, so the later one
-   wins, and kit.css puts the float second. Written the other way round, `margin-left:
-   auto` beat the 12px left margin and the action box grew by twelve on two screens.
-   The float is on EVERY banner and the flow-root is not, which reads like a mistake
-   and is not: a floated child of a flex row is simply a flex item that ignores the
-   float, so the one declaration serves both forms. */
-.banner .act{ margin-left: auto; flex: 0 0 auto }
-.banner > .act{ float: right; margin: 0 0 var(--space-2) var(--space-3) }
+
+/* -- THE BANNER THAT CARRIES AN ACTION IS TWO COLUMNS, NOT A FLOAT ------------
+   THE FLOAT WAS THE DEFECT AND IT TOOK FIVE SCREENS TO SEE IT AS ONE. A right
+   floated action is placed on the line it happens to occur on, so the last two or
+   three lines of the sentence wrap around it and the button ends up sitting INSIDE
+   the paragraph with a ragged hole beside it. On a short banner it landed
+   mid-sentence; on a long one it left a stranded line under it. Every reading of
+   it was "something is broken here", and every one of them was right.
+
+   Two columns instead: the sentence holds its own measure on the left and the
+   action stands clear on the right, which is the arrangement the eye expects and
+   the one the float was approximating. It wraps to a stacked pair when the
+   sentence can no longer hold its basis, so 360 needs no rule of its own.
+
+   IT IS CONDITIONED ON THE ACTION EXISTING, because a banner with no action is a
+   paragraph and flow-root is right for it. 32 of the product's banners carry one.
+   THE SENTENCE HAS TO BE WRAPPED for this to work: bare text beside a <b> becomes
+   several anonymous flex items and the sentence would break into pieces at every
+   bold word. That is what `.say` is for, and it is a zone of this component in the
+   same way `.act` already was. Stage 13. */
+/* `:not(.only-narrow)` IS LOAD BEARING AND IT COST A BROKEN RULE TO LEARN. `:has()`
+   takes the specificity of its argument, so `.banner:has(> .act)` is 0,2,0 and beats
+   the 0,1,0 utility that hides a narrow-only banner at the desk. Written without the
+   `:not`, this declaration turned `display:none` back into `display:flex` and put a
+   phone-only banner on eighteen desk screens. R8 caught all eighteen. The `:not` does
+   not OVERRIDE the utility, it stops the selector matching at all, which is the same
+   shape the flow-root line above already uses. */
+.banner:not(.only-narrow):has(> .act){
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-2) var(--space-4);
+}
+.banner .say{ flex: 1 1 24rem; min-width: 0 }
+/* IT SHRINKS, AND `0 0 auto` HERE WAS A 327px OVERFLOW AT 360. The action zone is
+   not always a button: on the reconnecting queue it carries the button AND the
+   sentence saying why there is nothing for it to do, and a zone that refuses to
+   shrink pushed 658px of it off the side of a 360 phone. `0 1 auto` with min-width 0
+   costs nothing at the desk, where there is room and the content width wins anyway. */
+.banner .act{ flex: 0 1 auto; min-width: 0; margin-left: auto; align-self: center }
+
+/* THE ACTION ZONE SOMETIMES CARRIES A REASON, AND THERE WAS NO RULE BETWEEN THEM.
+   On the reconnecting queue it holds a disabled button and the sentence saying why
+   there is nothing for a button to do. The two were siblings with nothing declared,
+   so at the desk the sentence began exactly on the button's border at a zero pixel
+   gap, and at 360 it ran three lines underneath it. Neither was a decision; the
+   pair had simply never been drawn. It is a row with a gap now, and the reason
+   recedes, because it qualifies the control rather than competing with it. */
+.banner .act{ display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) }
+.banner .act .why{ flex: 1 1 14rem; min-width: 0; color: var(--text-secondary) }
 
 /* -- emphasis. One axis, two values, and nothing else on it -------------------
    Quiet is for a banner that reports rather than interrupts. Four instances, and

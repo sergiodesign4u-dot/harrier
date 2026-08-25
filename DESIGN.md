@@ -93,10 +93,12 @@ Two families, chosen on a rendered comparison of four candidates each rather tha
 
 **The scale is the wireframe's and it is inherited, not re-derived.** It was set at stage 04 against design principle 5, density is the feature, and the coloured screens did not move it.
 
+**One step moved at stage 13 and two rules stopped stepping under the scale.** `--t-sm` was `12.5px`, the only fraction on the ladder, and the product also rendered `10.5px` and `9.5px` from literals in three component files, both below the 11px this table declares as the smallest step. A floor that three rules walk under is not a floor. Five sizes render now, every one whole, nothing below `--t-xs`. Grounds and the census in `design/kit/docs/tokens-audit.md`.
+
 | Token | Value | Where it is used | Origin |
 |---|---|---|---|
 | `--t-xs` | `11px` | column heads, chips, meta | stage 04, `wireframes/_wf.css` |
-| `--t-sm` | `12.5px` | dense data: rows, tables | stage 04 |
+| `--t-sm` | `12px` | dense data: rows, tables | stage 04 at 12.5px, **whole at stage 13**: it was the only fractional step on the scale and nothing had chosen it |
 | `--t-md` | `14px` | body, controls, **and the verdict in a row** | stage 04, and step 6 of stage 06 |
 | `--t-lg` | `17px` | screen title, pane title | stage 04 |
 | `--t-xl` | `21px` | the one heading a page is allowed | stage 04 |

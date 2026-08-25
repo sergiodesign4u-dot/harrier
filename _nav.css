@@ -50,8 +50,35 @@ a.nav-link:hover{ background:color-mix(in srgb, var(--nav-active) 8%, transparen
 .nav-section:hover{ color:var(--nav-fg); }
 .nav-section.is-current{ color:var(--nav-active); }
 
+/* the bar is a narrow-width object and is not rendered where the panel is a column */
+.nav-bar{ display:none }
+
 @media (max-width: 900px){
+  /* THE ROADMAP IS A DESK INSTRUMENT and on a phone it stacked a whole page of
+     navigation above the document. It collapses to a bar carrying what is open and a
+     control that opens the rest; opened it takes at most 60% of the viewport and
+     scrolls inside itself, so the document is never pushed off the page. Stage 13. */
   #sidebar{ width:auto; flex:none; }
+  #sidebar > *{ display:none }
+  #sidebar > .nav-bar{ display:flex; align-items:center; gap:12px;
+                       padding:9px 0; border-bottom:1px solid var(--nav-rule); }
+  .nav-bar-name{ flex:1 1 auto; font-weight:600; color:var(--nav-fg); }
+  .nav-burger{ flex:0 0 auto; display:inline-flex; align-items:center; gap:7px;
+               background:none; border:1px solid var(--nav-rule); border-radius:3px;
+               color:var(--nav-muted); font:400 11.5px/1 inherit; letter-spacing:.06em;
+               text-transform:uppercase; padding:7px 10px; cursor:pointer; }
+  .nav-burger::before{ content:""; width:13px; height:9px; background:currentColor;
+    -webkit-mask:linear-gradient(currentColor 0 0) top/100% 1px no-repeat,
+                 linear-gradient(currentColor 0 0) center/100% 1px no-repeat,
+                 linear-gradient(currentColor 0 0) bottom/100% 1px no-repeat;
+            mask:linear-gradient(currentColor 0 0) top/100% 1px no-repeat,
+                 linear-gradient(currentColor 0 0) center/100% 1px no-repeat,
+                 linear-gradient(currentColor 0 0) bottom/100% 1px no-repeat; }
+  .nav-burger:hover{ color:var(--nav-fg); border-color:var(--nav-active); }
+  #sidebar.is-open{ max-height:60vh; overflow-y:auto; }
+  #sidebar.is-open > *{ display:block }
+  #sidebar.is-open > .nav-bar{ display:flex; position:sticky; top:0; background:var(--panel,#fff); }
+  #sidebar.is-open .nav-burger{ color:var(--nav-active); border-color:var(--nav-active); }
   .nav-item:not(.is-active) > .nav-top{ padding:6px 10px; }
 }
 /* 2.55:1 on the panel ground, measured in a browser. --nav-muted is the value this panel

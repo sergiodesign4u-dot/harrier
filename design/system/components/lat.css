@@ -20,20 +20,45 @@
    needs the shape of what it cannot: that is what tells her whether the agent
    should have acted rather than asked. */
 
+/* THE TRACKS BELONG TO THE TABLE, NOT TO EACH ROW. Written as a grid per row, the
+   three columns are computed six times independently and align only by luck, which
+   is what the first attempt at this did: the tracks moved row by row exactly as the
+   flex version had. `subgrid` is what makes six rows share one set of tracks while
+   each keeps its own padding and its own rule underneath. Stage 13. */
 .lat{
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  /* the third track is CAPPED rather than `auto`. As `auto` it asks for the reason's
+     max-content, 224px of one unbroken line, and in a 360 pane that left 43px for the
+     action names. The reason is secondary and it may wrap; the action name may not. */
+  /* 16ch WAS TOO TIGHT AND THE CURE MADE ITS OWN DEFECT: the longest reason went to
+     three right-aligned lines with one word alone on the last, and the ladder grew
+     past the pane so its final row was clipped by the foot. 22ch holds every reason
+     in the fixture set in two lines with no orphan, and still leaves the action
+     names their full width. */
+  grid-template-columns: auto 1fr fit-content(22ch);
   border: var(--rule-hair);
   border-radius: var(--radius-ui);
 }
+/* THE ROWS ARE A GRID BECAUSE THEY ARE A TABLE, and as a flex row they only LOOKED
+   like one. `margin-left: auto` on the reason right-aligns it against whatever space
+   is left, so the reason moved with the length of the action beside it: three rows
+   put it at one x and the fourth, whose action is a word longer and wraps, put it
+   95px further left. Four rows meant to be read down a column, one out of line, and
+   nothing was wrong with any single one of them. Three tracks, and every row lands
+   on them whatever it holds. Stage 13. */
 .lat > div{
-  display: flex;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
   gap: var(--space-2);
   align-items: baseline;
   padding: var(--space-2) var(--space-3);
   border-bottom: var(--rule-hair);
   font-size: var(--size-sm);
 }
+/* a row with no reason still has three tracks, so its action does not stretch into
+   the column the reasons occupy on the rows above and below it */
+.lat > div > *{ min-width: 0 }
 .lat > div:last-child{ border-bottom: none }
 
 /* -- the row states, and both are the ROW's rather than the mark's ------------- */
@@ -43,8 +68,7 @@
    beside a faded `no`. */
 .lat .off{ color: var(--text-secondary) }
 .lat .off .why{
-  margin-left: auto;
-  flex: 0 0 auto;
+  grid-column: 3;
   text-align: right;
   font-size: var(--size-xs);
 }

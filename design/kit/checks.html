@@ -40,12 +40,15 @@
 
 <p class="k-eyebrow">Checks</p>
 <h1 class="k-title">The instruments</h1>
-<p class="k-lede">Seventeen of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
+<p class="k-lede">Twenty of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
 <p class="k-note"><b>There are no screenshots in this system, and these are why.</b> A picture of a component is a second copy: it has to be retaken, it goes stale without saying so, and the first one taken on this stand documented a focus ring it did not contain, because a focus set from a script does not match <code>:focus-visible</code>. What the refactors of stage 08 and 09 promise is proved by rendering the tree twice and comparing it element by element, which says <b>which element moved</b> rather than how many pixels changed.</p>
 
 <div class="c-run">node design/kit/checks/contrast.mjs <span>the stand, every text node, both themes, both viewports</span>
 node design/kit/checks/contrast.mjs design/ <span>the same over the coloured screens</span>
-node design/kit/checks/rules.mjs design <span>the eleven usage rules, by name, on the product</span>
+node design/kit/checks/rules.mjs design <span>the twelve usage rules, by name, on the product</span>
+node design/kit/checks/focus.mjs design <span>a real Tab walk, both themes, is there a ring and can it be seen</span>
+node design/kit/checks/zoom.mjs design <span>browser zoom at 200%, and the reader&rsquo;s own font size at 200%</span>
+node design/kit/checks/route.mjs <span>does the handoff lead anywhere, and in how many clicks</span>
 node design/kit/checks/compose.mjs <span>every composition in the grey corpus, counted</span></div>
 
 <h2 class="k-h" id="what">What each one finds, and what it says today</h2>
@@ -198,6 +201,36 @@ node design/kit/checks/compose.mjs <span>every composition in the grey corpus, c
     <p><b>Its first list of divergences was 18 rows and half of them were the instrument</b>, folding a selected row in beside an unselected one. The form key ignores state and viewport classes now, and the list is 16.</p>
   </div>
   <div class="n"><b>5106</b> nodes<br><b>1610</b> product controls<br><b>28</b> classes worn<br><span class="c-zero"><b>0</b> controls with no form</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">focus.mjs</code><span class="stage">stage 13</span></div>
+  <div>
+    <p><b>A real <code>Tab</code> walk through the real tab sequence</b>, in both themes, on every screen. At each stop: the element, its component, whether a ring actually renders, and what that ring measures against the ground <b>behind</b> the control. Every other instrument here could prove that <code>--color-focus</code> is declared, which is not the question anyone is asking.</p>
+    <p><b>Its first finding was its own.</b> It measured the ring against the control&rsquo;s own fill instead of the ground behind it, and reported every filled control in the light theme as a failure. An outline is drawn outside the border box; that correction is in the file&rsquo;s header rather than quietly applied.</p>
+    <p><b>Then it found a real one.</b> The focus ring on the record rail measures 1.93:1 in the shipped dark theme, on five pages: the rail is the only full width inverted surface in the product, and the ring&rsquo;s pair is computed against the page ground, so on an inverted surface the pair inverts with it. Not fixed here, and a row in <code>backlog.md</code>.</p>
+  </div>
+  <div class="n"><b>17</b> control types<br><b>2</b> themes<br><span class="c-zero"><b>0</b> with no ring</span><br><b>1</b> below 3:1</div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">zoom.mjs</code><span class="stage">stage 13</span></div>
+  <div>
+    <p><b>Two different things, and confusing them is the reason this file exists.</b> Browser zoom at 200%, where every CSS pixel doubles and the layout must reach its narrow arrangement exactly as it does when the window is dragged. And separately the reader&rsquo;s own font size at 200%, which is what a breakpoint in <code>rem</code> is FOR: a person reading at twice the default sits at a desk width with a phone&rsquo;s worth of text in a line.</p>
+    <p>The width sweep proves the layout holds when the WINDOW changes. This asks the question WCAG 1.4.4 actually asks, which is what happens when the PERSON changes size.</p>
+    <p><b>Its first run reported every screen in the product</b>, because it counted the identity strip and the navigation inside it as two carriers. The stage 10 sweep had the right selector all along and this one had written its own.</p>
+  </div>
+  <div class="n"><b>132</b> readings<br><b>66</b> pages<br><span class="c-zero"><b>0</b> failures</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">route.mjs</code><span class="stage">stage 13</span></div>
+  <div>
+    <p><b>Does the handoff lead anywhere.</b> Every link in the README and on the handoff page followed to a file on disk; the click distance from the root to any artefact of the handoff; the sign <code>](</code> in the rendered html, which is a markdown link that survived into a page as its own source code; and the handoff page read at a measured 360.</p>
+    <p><b>A dead route is not findable by reading.</b> A link to a file that moved at stage 08 looks exactly like a link to one that did not.</p>
+    <p><b>Its first run reported every artefact as unreachable</b>, because it seeded the roadmap registry after walking the tree instead of before it. The finding was the instrument&rsquo;s, and the walk order is now a comment in its header.</p>
+  </div>
+  <div class="n"><b>6</b> surfaces<br><b>13</b> internal links<br><span class="c-zero"><b>0</b> dead</span><br><span class="c-zero"><b>0</b> beyond two clicks</span></div>
 </div>
 
 <h2 class="k-h" id="rule">The rule they were all written under</h2>

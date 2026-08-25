@@ -20,6 +20,17 @@
    because it is the one that cannot be dismissed; with no failure present the
    newest stays. */
 
+/* IT IS A LAYER AND IT HAD NO GROUND, which is a different failure from covering
+   the pane and the file only forbade the second one. The toasts carry a fill each;
+   the STACK did not, so the gaps between them were transparent and the list's own
+   footer legend read up through them in slices, half a word at a time. With three
+   notices it also stood over the last rows. A layer without a ground does not float
+   above the page, it interleaves with it.
+
+   THE GROUND IS THE PAGE'S OWN and the padding is what makes the gaps opaque, so
+   nothing reads through and the stack reads as one object rather than as three
+   pieces of one. It still never covers the pane: it is bottom LEFT, over the list.
+   Stage 13. */
 .z6{
   position: absolute;
   left: var(--space-4);
@@ -29,6 +40,10 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  padding: var(--space-2);
+  background: var(--bg-page);
+  border: var(--rule-edge);
+  border-radius: var(--radius-ui);
 }
 
 @media (max-width:1279.98px){

@@ -61,14 +61,28 @@
 /* -- the cells. Named zones, not a free grid ---------------------------------- */
 .row .client   { font-weight: 600; color: var(--text-primary) }
 .row .dim      { color: var(--text-secondary) }
+/* A COUNT AND AN AGE ARE ONE TOKEN EACH AND NEVER TWO LINES. `14 signals` broken
+   after the number reads as two facts stacked, and the eye has to rejoin them on
+   every row it scans. The track is sized to hold them; nowrap is what makes the
+   failure visible if it ever stops being. Stage 13. */
 .row .cost,
-.row .age      { font-family: var(--font-mono); color: var(--text-secondary); text-align: right }
-.row .states   { display: flex; flex-wrap: wrap; gap: var(--space-1) }
+.row .age      { font-family: var(--font-mono); color: var(--text-secondary); text-align: right;
+                 white-space: nowrap }
+/* THE CHIPS STACK TOWARDS THE COLUMN THEY BELONG TO. Two of them did not fit side
+   by side, wrapped, and the second sat left aligned under a right aligned first,
+   crossing the rule under the row. They are one cell and they now read as one.
+   Stage 13. */
+.row .states   { display: flex; flex-wrap: wrap; gap: var(--space-1);
+                 justify-content: flex-end; align-items: flex-start }
 .row .concluded b   { font-size: var(--size-md); color: var(--text-primary); font-weight: 600 }
 /* `above latitude here` IS latitude, so it takes the accent rather than receding */
 .row .concluded .dim{ color: var(--text-accent) }
-/* what the case IS steps back behind who it is at and what to do about it */
-.row > span:nth-child(3){ color: var(--text-secondary) }
+/* what the case IS steps back behind who it is at and what to do about it.
+   AND IT CARRIES THE MEASURE THAT USED TO BE ON ITS TRACK. Neither of these two
+   cells has a border, so capping the cell IS capping the text: the character count
+   is preserved exactly where it was and the track is free to fill the row. */
+.row > span:nth-child(3){ color: var(--text-secondary); max-width: 32ch }
+.row .concluded{ max-width: 36ch }
 .row--log .when{ font-family: var(--font-mono); font-size: var(--size-xs);
                  color: var(--text-secondary); text-align: right }
 .row--log .why { font-size: var(--size-xs); color: var(--text-secondary) }

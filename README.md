@@ -23,7 +23,7 @@ Built as a design engineering case study: thirteen stages from market research t
 - **To read it:** open any URL above. That is the accepted surface, and it is where a page is judged: a local static server cannot reproduce how the host behaves, which is why `.nojekyll` sits in the root and why acceptance never happens on localhost.
 - **To work on it:** clone the repository and open `design/index.html` in a browser. Nothing needs to be started.
 - **To publish a change:** push to `main`. GitHub Pages serves the repository root.
-- **To verify your work:** `npm i` then `npx playwright install`, and run the instruments in `design/kit/checks/`. There are nineteen of them and every prohibition in this project is one of them, because a rule that lives only in prose is a rule nobody runs.
+- **To verify your work:** `npm i` then `npx playwright install`, and run the instruments in `design/kit/checks/`. There are twenty of them and every prohibition in this project is one of them, because a rule that lives only in prose is a rule nobody runs.
 
 ## Where everything is
 

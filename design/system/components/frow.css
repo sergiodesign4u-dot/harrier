@@ -28,7 +28,11 @@
 
 .frow{
   display: grid;
-  grid-template-columns: minmax(0,1fr) 118px 92px;
+  /* THE MIDDLE TRACK WAS 118px AND ITS OWN HEADER NEEDS MORE. `Acts alone up to` at
+     11px monospace with open tracking wants about 130, so `TO` dropped to a second
+     line and made the header row a third taller than the rows under it, on every
+     screen that carries a fleet. A column narrower than its own name. Stage 13. */
+  grid-template-columns: minmax(0,1fr) 132px 92px;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   border-bottom: var(--rule-hair);

@@ -69,9 +69,14 @@
    ruled out: at the desk they are text in a sentence, and on a phone they stay
    text in a sentence and get bigger. */
 .miss .exits{ margin: 0; font-size: var(--size-md) }
+/* AND THE TAP HEIGHT IS BOUGHT ONLY WHERE IT IS NEEDED. Vertical padding on an
+   inline-block grows the line box it sits inside, so at the desk the two lines
+   carrying an exit opened to 30.6 and 32.6 against 24.6 everywhere else and the
+   paragraph read as if it had random gaps in it. A tap target is a phone problem;
+   the padding goes with the container query that already makes these bigger there,
+   and a mouse gets an even paragraph. Stage 13. */
 .miss .exits a{
   display: inline-block;
-  padding: var(--space-1) 0;
   color: var(--text-primary);
   font-weight: 600;
   text-underline-offset: 3px;
@@ -95,8 +100,18 @@
   color: var(--text-secondary);
 }
 .miss .note b{ color: var(--text-primary) }
-/* the closing note stands under no block, so it takes a rule of its own */
-.miss .note--sep{ border-top: var(--rule-hair); padding-top: var(--space-3) }
+/* the closing note stands under no block, so it takes a rule of its own.
+   AND THE RULE IS NOT CAPPED, THOUGH THE TEXT UNDER IT IS. `--measure` on the note
+   was correct for its 11px prose and wrong for the hairline drawn on the same
+   element: the rule stopped 82px short of the address box above it and ended in mid
+   air. The cap moves onto the text, which is where base.css says a measure belongs,
+   and the border keeps the column. Stage 13. */
+.miss .note--sep{
+  max-width: none;
+  border-top: var(--rule-hair);
+  padding-top: var(--space-3);
+}
+.miss .note--sep > *{ display: block; max-width: var(--measure) }
 
 /* -- behaviour on width. A CONTAINER QUERY, AND THE RUNG BELOW IT WAS TRIED ----
    The grey wrote this as a viewport query at 900, which is a number stage 10

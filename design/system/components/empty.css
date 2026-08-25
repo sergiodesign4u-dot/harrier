@@ -27,7 +27,14 @@
    failed.
    ---------------------------------------------------------------------------- */
 
+/* IT IS CENTRED IN ITS CONTAINER AND IT WAS NOT, FOR AS LONG AS IT HAS EXISTED.
+   base.css caps this component at --measure, which is right: it is prose and prose
+   is read across. But a capped box with `text-align: center` and no auto margin
+   sits hard against the left of a 1080px column and centres its text inside its own
+   454px, so the state reads as centred in a box nobody can see and off-centre in the
+   one they can. The cap was never the problem and it is not touched. Stage 13. */
 .empty{
+  margin-inline: auto;
   padding: var(--space-7) var(--space-4);
   text-align: center;
   font-size: var(--size-sm);

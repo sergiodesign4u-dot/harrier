@@ -14,9 +14,17 @@
    read from the top in one pass. A scroll box here would hide the last thing that
    moved behind a scrollbar inside a document that already scrolls. */
 
+/* THE SAME `ch` FAULT AS `rows`, AND IT WAS 13px HERE. The 44ch middle track came
+   out 290px in the head's 11px monospace and 302px in the body's 12px Archivo, so
+   STATE and WHEN stood well left of the chips and times they name. The list owns the
+   tracks; every row is a subgrid of them. Stage 13. */
 .rows-moved{
   flex: 0 0 auto;
   overflow: visible;
   border-top: var(--rule-hair);
+  display: grid;
+  grid-template-columns: var(--row-tracks-moved);
+  align-content: start;
 }
+.rows-moved > .row-moved{ grid-column: 1 / -1; grid-template-columns: subgrid }
 /* NO STATES. */

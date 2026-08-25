@@ -35,11 +35,23 @@
    space because depth had no mark on it at all. Painted as a CSS mask with
    background:currentColor, so it inherits, and set in the accent because
    pointing at where more is kept is one of the accent's four jobs. */
+/* THE MARK HUNG OUTSIDE THE BOX AND ABOVE ITS OWN LINE, and it read as an orphan
+   rather than as a mark on anything. It sat 11px to the LEFT of the border, in the
+   gutter between the block and the edge of the pane, and 9px ABOVE the optical
+   centre of the first line: two independent offsets, neither of them measured, and
+   together they put the glyph in open space with nothing beside it.
+
+   It is now inside the padding box and centred on the first line, which is the line
+   it points at. `top` is half the difference between the line box and the glyph, so
+   it holds wherever the type scale goes next, and the sentence is indented by the
+   glyph's own width plus a gap rather than being pushed by a magic number.
+   Stage 13. */
+.expand{ padding-left: calc(var(--space-3) + var(--space-4)) }
 .expand::before{
   content: "";
   position: absolute;
-  left: -11px;
-  top: 2px;
+  left: var(--space-3);
+  top: calc(var(--space-2) + (1.45em - 12px) / 2);
   width: 12px;
   height: 12px;
   color: var(--text-accent);

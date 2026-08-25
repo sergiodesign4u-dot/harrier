@@ -35,7 +35,7 @@
 
 /* THE DESTINATION READS THE SAME WAY WHETHER THE AXIS IS OPEN OR LOCKED. `.routes`
    was declared only as `.opt .routes`, so inside a locked axis it rendered at the
-   box's 12.5px sans instead of 11px mono pushed right, on two screens. Found by a
+   box's 12px sans instead of 11px mono pushed right, on two screens. Found by a
    reader with clean context. Two components declaring one cell is the price of the
    cell belonging to neither. */
 .axisb .routes{

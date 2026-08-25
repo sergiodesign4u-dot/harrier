@@ -186,7 +186,27 @@ window.NAV = [
     ul.appendChild(li);
   });
 
-  el.innerHTML = ''; el.appendChild(ul);
+  /* THE BAR, AND IT EXISTS FOR THE WIDTHS WHERE THE PANEL CANNOT BE A COLUMN.
+     Below 900 the roadmap stacked a full page of navigation above the document, and
+     hiding it outright left the reader with no way to reach any other stage, which is
+     a different failure from the one that cured. The bar carries the name of what is
+     open and a control that opens the rest; above 900 it is not rendered, because
+     there the panel IS the column and has nothing to open. */
+  var bar = document.createElement('div'); bar.className = 'nav-bar';
+  var barName = document.createElement('span'); barName.className = 'nav-bar-name';
+  var openStage = NAV.filter(function(it){ return it.page && here.indexOf(it.page) === 0; })[0];
+  barName.textContent = openStage ? openStage.label : 'Design process';
+  var burger = document.createElement('button');
+  burger.type = 'button'; burger.className = 'nav-burger'; burger.textContent = 'Stages';
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-controls', 'sidebar');
+  burger.addEventListener('click', function () {
+    var open = el.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  bar.appendChild(barName); bar.appendChild(burger);
+
+  el.innerHTML = ''; el.appendChild(bar); el.appendChild(ul);
 
   if (SECTIONS.length && 'IntersectionObserver' in window) {
     var links = {};

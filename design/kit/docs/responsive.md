@@ -204,3 +204,30 @@ This product has no tab bar and never had one. Three items have lived in the top
 | 29 queries at `max-width:900px` | `max-width:1279.98px` | The split did not fit below about 1200 and never had |
 
 **Nothing moved out of a screen file, because there was nothing there to move.** The census found zero queries and zero inline width rules in `design/*.html`, inherited from stage 07 folding three stylesheets into one and stage 08 moving every screen onto `system/index.css`. The rule is written down at this stage anyway, in `architecture.md` and in `design/system/CLAUDE.md`, because stage 12 builds twenty screens at once and a habit that is not a rule does not survive twenty authors.
+
+---
+
+## 9. The documentation panel had a point of its own, and it was the wrong one (stage 13)
+
+**Not the product, and that is why it went unmeasured for six stages.** The panel is the case study's own chrome: it lists every screen and every state, and it is what you browse the work with. No instrument in `design/kit/checks/` looks at it, because every one of them removes it first, on the correct ground that it is not part of the console.
+
+**It collapsed at 900 while the shell turns into one column at 1279.98.** Between the two numbers, which is every tablet and every small laptop, the panel rendered **full width and a full viewport tall**, and the product began underneath it. A reader arriving at 1000px got a page of navigation and no product at all.
+
+| Viewport | Panel before | Panel after |
+|---|---|---|
+| 1440 | 236px column | unchanged |
+| 1280 | 236px column | unchanged |
+| 1100 | **1100 wide, 800 tall** | 50px bar |
+| 1000 | **1000 wide, 800 tall** | 50px bar |
+| 901 | **901 wide, 800 tall** | 50px bar |
+| 360 | 800 tall | 50px bar |
+
+**One point, and it is the product's.** There was never a second decision behind 900; it was a number the panel had carried since stage 01 and nobody had held the two against each other. This is the same class as the three unnamed width literals stage 10 found in the product, one rung out from it.
+
+### And hiding it was a different failure from the one it cured
+
+The first cure left only the way back out of the stage. That fixed the height and removed the navigation: from a phone there was one link to the process index and no route to any other screen. **A control that opens it is what the collapse was missing**, not a smaller collapse.
+
+Below the point the first row is a bar: what is open on the left, a toggle on the right. Opened, the panel takes at most **60% of the viewport** and scrolls inside itself, so the document is never pushed off the page and never has to be scrolled past. The toggle carries `aria-expanded` and is not rendered above the point, where the panel is a column and has nothing to open.
+
+**Both panels, and they are two files.** `design/_nav.js` draws the one on the coloured screens and `/_nav.css` the one on the documentation pages. The second had no way out at all, so hiding its roadmap left a reader with nothing: its bar names the open stage instead.

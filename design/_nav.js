@@ -147,8 +147,29 @@ window.DESIGN_NAV = {
     { screen:"client-send", node:"6.2", label:"Editing and sending", cluster:"6", scope:"LATER", grey:false, colour:0, total:0,
       states:[
       ]},
-    { screen:"tenant", node:"7.1", label:"Tenant detail", cluster:"7", scope:"LATER", grey:false, colour:0, total:0,
+    { screen:"tenant", node:"7.1", label:"Tenant detail", cluster:"7", scope:"LATER", grey:false, colour:4, total:4,
       states:[
+        /* THE FIRST NODE OF CLUSTER 7, AND THE ONLY ONE OF THE SIX DEFERRED NODES
+           BUILT WITHOUT AN ia/docs/pages/ SPECIFICATION. There is no 7.1.md, so the
+           state set is DERIVED, which handoff/docs/one-shot.md requires to be said
+           out loud: it is the four columns of 3.5's state matrix that survive being
+           asked about ONE tenant instead of forty. `Narrowed by 3.6` does not
+           survive, because this node IS the narrowing. `Out of scope` does not
+           survive either, because a tenant outside scope renders 8.1 identically to
+           one that does not exist, which is node 8.1 and behaviour.md section 3, so
+           it is another screen rather than a state of this one.
+
+           NO LOADING STATE, AND THAT IS ALSO DERIVED RATHER THAN FORGOTTEN. Every
+           loading row in behaviour.md belongs to a list that streams or assembles;
+           3.5's matrix, which is the nearest specification this node has, carries
+           no loading column at all.
+
+           THERE IS NO GREY ORIGINAL. The node never had a wireframe, so `grey` stays
+           false and no pixel comparison was possible. None is claimed. */
+        {slug:"", label:"Default", colour:true},
+        {slug:"moved-down", label:"The ceiling moved down", colour:true},
+        {slug:"no-record", label:"No rulings yet", colour:true},
+        {slug:"stale", label:"Connection stale, 3.3", colour:true},
       ]},
     { screen:"grants", node:"7.2", label:"Autonomy grants", cluster:"7", scope:"LATER", grey:false, colour:0, total:0,
       states:[
@@ -188,10 +209,26 @@ window.DESIGN_NAV = {
 
   var frag = document.createDocumentFragment();
 
-  /* 1. out of the stage, first row */
+  /* 1. out of the stage, first row, and BELOW THE POINT IT IS ALSO THE BAR.
+     The panel is a desk instrument: it lists 66 screens and it cannot stack above a
+     phone. But hiding it outright left one link back to the process and no way to
+     reach any other screen, which is a different failure from the one it cured. So
+     below the point the first row becomes a bar carrying the way out and a control
+     that opens the rest. The button exists at every width and is not rendered above
+     the point, where the panel is a column and needs no opening. */
   var back = el('div', 'd-out');
   var backA = el('a', null, '← Design process'); backA.href = '../index.html';
-  back.appendChild(backA); frag.appendChild(back);
+  back.appendChild(backA);
+  var burger = el('button', 'd-burger', 'Screens');
+  burger.type = 'button';
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-controls', 'sidebar');
+  burger.addEventListener('click', function () {
+    var open = host.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  back.appendChild(burger);
+  frag.appendChild(back);
 
   /* 2. badge and subtitle */
   frag.appendChild(el('span', 'd-badge', 'UI + VISUAL'));
@@ -322,8 +359,44 @@ window.DESIGN_NAV = {
          panel travelled for 800px and then left with the row that held it. Measured, not
          reasoned: position computed to sticky and the panel still scrolled away. */
       (isScreen ? '' : '.wf-shell{align-items:flex-start;height:auto;min-height:100vh}') +
-      '@media (max-width:900px){#sidebar{position:static;max-height:none;overflow:visible;' +
-        'padding:14px 16px}}' +
+      /* ON A PHONE THE PANEL IS ONE LINE, AND THAT LINE IS THE WAY OUT. Static and
+         full height it stacked the whole roadmap above the screen, so a phone opened
+         this case study to a page of navigation and the product below the fold. The
+         roadmap is a desk instrument: it lists 66 screens and reading it on a phone was
+         never the point. What has to survive at 360 is the exit, because a reader who
+         arrived by link needs to know where they are. Stage 13. */
+      /* THE PANEL COLLAPSES WHERE THE SHELL DOES, AND IT USED TO COLLAPSE 380px LATER.
+         The shell turns into one column at the product's own point, 1279.98, and the
+         panel was still expanding at 900: between the two, on every tablet and every
+         small laptop, the panel rendered full width and a whole viewport tall and the
+         product began underneath it. One point, and it is the product's. */
+      '@media (max-width:1279.98px){#sidebar{position:static;max-height:none;overflow:visible;' +
+        'padding:0;border-bottom:1px solid var(--nav-rule)}' +
+        '#sidebar > *{display:none}' +
+        '#sidebar > .d-out{display:flex;align-items:center;gap:12px;margin:0;padding:9px 16px}' +
+        '#sidebar > .d-out a{flex:1 1 auto}' +
+        '.d-burger{display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;' +
+          'background:none;border:1px solid var(--nav-rule);border-radius:3px;color:var(--nav-muted);' +
+          'font:400 11.5px/1 inherit;letter-spacing:.06em;text-transform:uppercase;' +
+          'padding:7px 10px;cursor:pointer}' +
+        '.d-burger::before{content:"";width:13px;height:9px;background:currentColor;' +
+          '-webkit-mask:linear-gradient(currentColor 0 0) top/100% 1px no-repeat,' +
+            'linear-gradient(currentColor 0 0) center/100% 1px no-repeat,' +
+            'linear-gradient(currentColor 0 0) bottom/100% 1px no-repeat;' +
+          'mask:linear-gradient(currentColor 0 0) top/100% 1px no-repeat,' +
+            'linear-gradient(currentColor 0 0) center/100% 1px no-repeat,' +
+            'linear-gradient(currentColor 0 0) bottom/100% 1px no-repeat}' +
+        '.d-burger:hover{color:var(--nav-fg);border-color:var(--nav-active)}' +
+        /* opened, it takes at most half the viewport and scrolls inside itself, so the
+           product is never more than a scroll away and never pushed off the page */
+        '#sidebar.is-open{padding-bottom:14px}' +
+        '#sidebar.is-open > *{display:block}' +
+        '#sidebar.is-open > .d-out{display:flex}' +
+        '#sidebar.is-open > :not(.d-out){padding-left:16px;padding-right:16px;max-height:none}' +
+        '#sidebar.is-open{max-height:60vh;overflow-y:auto}' +
+        '#sidebar.is-open .d-burger{color:var(--nav-active);border-color:var(--nav-active)}}' +
+      /* above the point the panel is a column and the control has nothing to open */
+      '@media (min-width:1280px){.d-burger{display:none}}' +
       '.d-out{margin:0 0 14px}.d-out a{color:var(--nav-muted);text-decoration:none;font-size:12.5px}' +
       '.d-out a:hover{color:var(--nav-fg)}' +
       '.d-badge{display:inline-block;font:400 10px/1 var(--font-mono);letter-spacing:.14em;' +

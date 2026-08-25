@@ -132,7 +132,7 @@
     </ul>
   </figure>
   <ol class="i-rules">
-    <li><b>A 24 unit grid, and one square for all sixteen.</b> The <code>viewBox</code> never changes, so the set is resized by the box and never by redrawing. Three sizes are in use: 24 as the grid itself, <code>.icon</code> at 20 beside 14px text, and <code>.icon--sm</code> at 16 beside 12.5px.</li>
+    <li><b>A 24 unit grid, and one square for all sixteen.</b> The <code>viewBox</code> never changes, so the set is resized by the box and never by redrawing. Three sizes are in use: 24 as the grid itself, <code>.icon</code> at 20 beside 14px text, and <code>.icon--sm</code> at 16 beside 12px.</li>
     <li><b>A 1.5px stroke, declared in one place.</b> <code>HARRIER_ICON_GRID.stroke</code> in <code>icons.js</code>, and every <code>svg</code> on this page takes the number from there as an attribute rather than restating it in CSS. The three glyphs applied to the product do not obey this, and that is the finding at the foot of the page.</li>
     <li><b>Square terminals: butt caps, miter joins.</b> The product's radius is zero, so a rounded cap would be the only curve anywhere in it. The join matters more than it looks: a miter is what puts paint outside the path at a sharp corner, and it is why one of the two safe field breaches below is on a glyph whose path stays comfortably inside.</li>
     <li><b><code>currentColor</code>, and no colour of its own.</b> An icon inherits the severity or the accent of whatever it sits in, which is the whole point of a set on a product where colour is scarce.</li>
@@ -402,7 +402,7 @@ window.NAV_SECTIONS = [
 
   /* the three sizes, drawn with the stand's own .k-icon so the class this page
      documents is the class this page is showing */
-  var SIZES = [[24, 'the grid'], [20, '.icon, beside 14px text'], [16, '.icon--sm, beside 12.5px']];
+  var SIZES = [[24, 'the grid'], [20, '.icon, beside 14px text'], [16, '.icon--sm, beside 12px']];
   var sizeBox = document.getElementById('i-sizes');
   SIZES.forEach(function (s) {
     var d = document.createElement('div');

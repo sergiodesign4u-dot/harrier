@@ -25,7 +25,7 @@
     <p class="k-bench-tag">dark, shipped</p>
     <div class="k-bench-row">
       <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:var(--space-3)">
-        <div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
+        <div class="banner"><span class="say"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p></span><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
         <div class="banner banner--quiet"><p style="margin:0">This queue was last refreshed 4m ago.</p></div>
       </div>
     </div>
@@ -34,7 +34,7 @@
     <p class="k-bench-tag">light, the pair</p>
     <div class="k-bench-row">
       <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:var(--space-3)">
-        <div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
+        <div class="banner"><span class="say"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p></span><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
         <div class="banner banner--quiet"><p style="margin:0">This queue was last refreshed 4m ago.</p></div>
       </div>
     </div>
@@ -43,6 +43,7 @@
 <ul class="k-parts">
   <li><code>.banner</code><span>the notice, in its own boundary. It never covers anything: design principle 5 forbids an overlay that hides the evidence being decided on</span></li>
   <li><code>b</code><span>the fact, at weight 700. The sentence after it says what follows from the fact</span></li>
+  <li><code>.say</code><span><b>the sentence.</b> Required wherever there is an action, and it is not decoration: bare text beside a <code>b</code> becomes a separate anonymous flex item at every bold word, so without it the sentence breaks into pieces</span></li>
   <li><code>.act</code><span><b>optional.</b> A banner offers an action only when there is one, and 34 of the 54 offer none</span></li>
 </ul>
 
@@ -57,7 +58,8 @@
   </tbody>
 </table>
 </div>
-<p class="k-note"><b>It is <code>display:flow-root</code> above 900px, and that is a bug fix rather than a preference.</b> As a flex row it made a flex item of every element child, so a second <code>b</code> started its own line and the punctuation after it orphaned. Seen at 1440 at stage 07. The action floats right instead, which lets the sentence wrap around it. Below 900 it goes back to flex, because there the action takes its own line anyway.</p>
+<p class="k-note"><b>A banner with no action is <code>display:flow-root</code>, and that is a bug fix rather than a preference.</b> As a flex row it made a flex item of every element child, so a second <code>b</code> started its own line and the punctuation after it orphaned. Seen at 1440 at stage 07.</p>
+<p class="k-note"><b>A banner WITH an action is two columns, and the float it replaced was the defect.</b> A right floated action is placed on the line it happens to occur on, so the last lines of the sentence wrapped around it and the button ended up sitting inside the paragraph with a ragged hole beside it. On five screens it read as broken and on all five it was. The sentence holds its own measure on the left, the action stands clear on the right, and the pair stacks when the sentence can no longer hold its basis, so 360 needs no rule of its own. <b>The action zone shrinks:</b> on the reconnecting queue it carries the button and the sentence saying why there is nothing for it to do, and a zone that refused to shrink pushed 327px of it off the side of a phone.</p>
 
 <h2 class="k-h" id="use">When to use it</h2>
 <p class="k-note">At the top of a zone, when something about the whole zone has changed: Clerk is down, the connection is reconnecting, this case has already been acted on. 20 of them sit in Z4 above the queue and 16 in the detail pane.</p>
@@ -67,7 +69,7 @@
 <div class="k-vs">
   <div class="k-do">
     <h4>Do</h4>
-    <div class="k-cell" style="display:block"><div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing.</p></div></div>
+    <div class="k-cell" style="display:block"><div class="banner"><span class="say"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing.</p></div></div>
     <p>The fact, then what follows from it. The second half is the part that lets her keep working, and it is the half most notices leave out.</p>
   </div>
   <div class="k-dont">
@@ -91,7 +93,7 @@
     <p class="k-bench-tag">dark, shipped</p>
     <div class="k-bench-row">
       <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:var(--space-3)">
-        <div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
+        <div class="banner"><span class="say"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p></span><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
         <div class="banner banner--quiet"><p style="margin:0">This queue was last refreshed 4m ago.</p></div>
       </div>
     </div>
@@ -100,7 +102,7 @@
     <p class="k-bench-tag">light, the pair</p>
     <div class="k-bench-row">
       <div style="width:100%;max-width:460px;display:flex;flex-direction:column;gap:var(--space-3)">
-        <div class="banner"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
+        <div class="banner"><span class="say"><p style="margin:0"><b>Clerk is down.</b> Last correlation 26m ago, so nothing is missing and nothing new will arrive until it is back.</p></span><span class="act"><a class="btn btn--quiet" href="#anatomy">What is down</a></span></div>
         <div class="banner banner--quiet"><p style="margin:0">This queue was last refreshed 4m ago.</p></div>
       </div>
     </div>

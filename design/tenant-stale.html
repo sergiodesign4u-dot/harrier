@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Tenant detail, connection stale, in colour</title>
+<link rel="stylesheet" href="../_nav.css">
+<link rel="stylesheet" href="system/index.css">
+</head>
+<body>
+<div class="shell">
+<aside id="sidebar"></aside>
+<div class="screen">
+  <header id="wf-z1"></header>
+  <p id="wf-z2"></p>
+  <main class="z45">
+    <section class="z4 queue-list" aria-labelledby="th">
+      <div class="scopebar" role="group" aria-label="Scope and filters">
+        <a class="chip chip--solid" href="queue.html">Norsk Marine &times;</a>
+        <a class="chip chip--ghost" href="queue.html">Waiting on a decision &#9662;</a>
+        <a class="chip chip--ghost" href="queue.html">Sort: default &#9662;</a>
+      </div>
+
+      <h1 id="th" class="readout"><b>1 waiting</b> <span class="dim">at Norsk Marine, as of the last sync 6m ago. Nothing has arrived since</span></h1>
+
+      <div class="banner banner--quiet only-narrow"><span class="say"><b>The record beside this list is a desk reading.</b> Six action classes, a count and the window behind it do not survive a phone, and the phone has one scenario here: a paged case read and escalated.<br><br>What is waiting at this tenant is above, and it opens.</span><span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>
+
+      <div class="rows" role="grid" aria-labelledby="th" tabindex="0">
+        <div class="row row--head" role="row">
+          <span role="columnheader">Sev</span>
+          <span role="columnheader">Tenant</span>
+          <span role="columnheader">What it is</span>
+          <span role="columnheader">The verdict</span>
+          <span role="columnheader">To check</span>
+          <span role="columnheader">State</span>
+          <span role="columnheader">Age</span>
+        </div>
+        <a class="row" role="row" href="case-standalone-stale.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span class="client" role="gridcell">Norsk Marine</span>
+          <span role="gridcell">Ransomware precursor on FS-02</span>
+          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span role="gridcell" class="cost">14 signals</span>
+          <span class="states" role="gridcell"><i class="state">acted</i></span>
+          <span class="age" role="gridcell">52m</span>
+        </a>
+      </div>
+
+      <p class="qfoot">
+        <span>1 waiting at this tenant, as of the last sync</span>
+        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read</span>
+        <span class="only-desk"><kbd>Enter</kbd> opens the case</span>
+        <span>order: unrecorded, waiting on you, severity, age</span>
+      </p>
+    </section>
+
+    <aside class="z5 case-pane" aria-labelledby="ph">
+      <div class="pane-head">
+        <h2 id="ph">Norsk Marine</h2>
+        <p class="sub">Shipping, assets offline for days at a time &middot; in your scope &middot; acts alone up to <b>investigate</b>, as of the last sync</p>
+      </div>
+      <div class="pane-body">
+        <div class="banner"><b>This whole reading is 6m old.</b> Nothing has arrived from this tenant since the last sync, which is normal at Norsk Marine and is not the same as quiet. The record below is the last good one, and it is not refusing to load.<br><br><b>You can still decide on what is here.</b> A degraded connection does not block a verdict, and the log records what you ruled on rather than what was true afterwards.</div>
+        <section class="block">
+          <h3>The record</h3>
+          <div class="covers">
+            <span class="k">Accepted</span><span class="v"><b>18 of 20</b> of Clerk&rsquo;s verdicts, over the 30 days to the last sync</span>
+            <span class="k">The 30 days before that</span><span class="v"><b>18 of 20</b>. The same count on the same denominator, so the record held. Both readings are as of the last sync and neither has moved since</span>
+            <span class="k">What the count is of</span><span class="v">Verdicts you ruled on. A case Clerk is still investigating, and a case that left your hands unruled, are in neither number</span>
+          </div>
+        </section>
+        <section class="block">
+          <h3>Normal at this tenant</h3>
+          <p class="nar"><b>3 ransomware precursors</b> at Norsk Marine in the 90 days to the last sync, all three real.</p>
+          <p class="nar"><b>Assets offline for 6h is normal here</b>, so silence from this tenant is not evidence of anything. Nothing was reported, and nothing can be said about it.</p>
+        </section>
+        <section class="block">
+          <h3>What Clerk may do here, on this tenant</h3>
+          <div class="lat">
+            <div class="ceiling"><span class="mark">yes</span><span>Investigate</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain endpoint</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude, so it waits for you</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain network</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Remove content</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+            <div class="off"><span class="mark">no</span><span>Change policy</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+          </div>
+          <p class="gnote"><b>This ladder is as of the last sync too.</b> If the ceiling moved in the last 6m, this page does not know it. The ceiling is read here and it is not set here.</p>
+        </section>
+        <section class="block">
+          <h3>How this ceiling changed</h3>
+          <p class="nar">It has not moved in the window this reading covers. What happened in the last 6m is not held here.</p>
+          <p class="gnote"><b>Every change to a ceiling is an entry.</b> The date it changed and the evidence it changed on are in the log, alongside the rulings that earned it. <a class="link" href="log.html">Open the log at this tenant</a></p>
+        </section>
+        <p class="anote">Node 7.1 under the connection states of 0.4 and 3.3. 3.5 requires the fleet to render the last good reading marked rather than blanked, and requires the reading in the shell strip to agree with the reading in the pane, both marked stale. Norsk Marine is the tenant the fixture set holds for exactly this: a stale reading here is the normal case rather than a fault.</p>
+        <p class="stamp">Record as of <code>?as-of=2026-08-22T04:14:05Z</code> &middot; last sync 6m ago, and the window has not moved with it</p>
+      </div>
+      <div class="pane-foot">
+        <a class="btn btn--primary" href="queue.html">Open the queue at this tenant <span class="key">Enter</span></a>
+        <a class="btn btn--quiet" href="log.html">Open the log at this tenant</a>
+      </div>
+    </aside>
+  </main>
+</div>
+</div>
+<script src="_shell.js"></script>
+<script>WF_SHELL({ current:'queue', strip:'stale', annun:{ lead:'NORSK MARINE', parts:['acts alone up to <b>investigate</b>','<b>18 of 20</b> accepted, as of the last sync'] } });</script>
+<script>
+  /* the panel of this stage, in its own namespace. Not the roadmap: a screen of the product
+     is not a step of the process, and mixing them is what made the sidebar unreadable. */
+  window.DESIGN_NAV_BASE = '';
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

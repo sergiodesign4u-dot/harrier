@@ -128,7 +128,16 @@
      rather than being pure vw, because pure vw ignores the reader's own font size
      and takes the page out of zoom entirely. */
   --size-xs:   0.6875rem;  /* 11px at a 16px root. column heads, chips, meta. stage 04 */
-  --size-sm:   0.78125rem; /* 12.5px. dense data: rows, tables. stage 04 */
+  --size-sm:   0.75rem;    /* 12px. dense data: rows, tables, the narrative. WAS 12.5px, and
+                              12.5 was the only fractional step on the scale. It came out of
+                              stage 04 as a literal and nothing ever chose it: a scale whose
+                              steps are 11, 12.5 and 14 asks the eye to read a half pixel of
+                              difference, and the browser resolves that half differently at
+                              every zoom level. 12 is exact at a 16px root, it holds the step
+                              away from 11 that 12.5 had against 14, and it moves the largest
+                              text population in the product, 2715 of roughly 7500 rendered
+                              text nodes, SLIGHTLY DENSER rather than looser, which is the
+                              direction design principle 5 asks for. Stage 13. */
   --size-md:   0.875rem;   /* 14px. body, controls, and the verdict in a row. stage 04 */
   --size-lg:   clamp(1.0625rem, 0.6875rem + 0.469vw, 1.25rem);
                            /* 17px up to 1280 and 20px from 1920. The pane's title and the
@@ -207,9 +216,29 @@
      point: what makes a line readable at a glance is its MEASURE, and a measure is
      counted in characters rather than pixels. Below the ceiling they behave exactly
      as before, so nothing moves at or under 1600. */
-  --row-tracks:       5.625rem 7.5rem minmax(6.5rem,32ch) minmax(7.5rem,36ch) 4.5rem 6.25rem 2.5rem;
+  /* THE FIFTH TRACK WAS 4.5rem AND `14 signals` DID NOT FIT IN IT, on 29 rows across
+     the product: a two digit count broke to a second line and left `signals` alone
+     under it, which reads as two facts rather than one. 5rem holds the widest count
+     the fixture set has on one line. Stage 13. */
+  /* AND THE SIXTH WAS 6.25rem WHILE ITS WIDEST CHIP MEASURES 109.5. `investigating`
+     did not fit in 100px, so it hung 9.5px out of its own cell and its border cut
+     through the last letter of the neighbour. A column narrower than the longest
+     thing it is asked to hold is not a density decision. 7rem. Stage 13. */
+  /* THE TWO PROSE TRACKS ARE `1fr` AND THE MEASURE MOVED ONTO THE TEXT. Capped at
+     32ch and 36ch the row stopped where its longest sentence stopped: 987px of
+     tracks in a 2015px list at 2560, so the table filled less than half the width
+     and the age column floated a thousand pixels from the right edge it belongs on.
+     The cap was doing the right job in the wrong place. The tracks take the room and
+     the CELLS carry the character count, which is what base.css says a measure is
+     for. Stage 13. */
+  --row-tracks:       5.625rem 7.5rem minmax(6.5rem,1fr) minmax(7.5rem,1fr) 5rem 7rem 2.5rem;
                         /* stage 04. The queue row, seven zones */
-  --row-tracks-log:   4.625rem 6rem minmax(0,28ch) minmax(0,40ch) minmax(0,28ch) 6.625rem 8.625rem;
+  /* THE TENANT TRACK WAS 6rem AND EVERY CELL IN IT WRAPPED. `Larkfield Logistics`
+     and `Aubrey Dental Group` broke to two lines on every row of the log and of the
+     case history, five of five on one screen, while the columns beside them had
+     slack. Density is a goal; a column where nothing fits is a sizing miss. 7.75rem
+     holds the longest tenant in the fixture set. Stage 13. */
+  --row-tracks-log:   4.625rem 7.75rem minmax(0,28ch) minmax(0,40ch) minmax(0,28ch) 6.625rem 8.625rem;
                         /* the SAME seven zones at the log's widths. A variant of the row, not
                            another component: nothing appears and nothing disappears */
   --row-tracks-moved: 8.25rem minmax(0,44ch) 7.25rem 2.75rem;
