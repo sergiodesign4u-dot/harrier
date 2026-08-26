@@ -1486,3 +1486,161 @@ State: 20 atom sets over 50 variants, 24 molecules over 45, 19 organisms over 29
 across the three levels, 0 off in width, 0 off in position, 0 missing.** Contrast 0 failures, the
 13 usage rules broken 0 times in colour, geometry 0 unexplained differences, icons 0 differences,
 and the glyph census now returns nothing that is an icon.
+
+## 2026-08-26 · The icon set became components, and 202 drawings were invisible to the compiler
+
+**THE SET NOW EXISTS IN FIGMA THE WAY IT EXISTS IN THE PRODUCT: ONCE.** Seventeen components on
+`DS · Foundations`, one per drawing, combined into a variant set called `icon`. The geometry is
+**read out of `design/system/icons.js`** by a script that loads the file and reports a name in the
+order that the set does not carry, rather than restated on a board. `icons.js` opens by saying the
+set once existed twice and that a check was written to compare the copies rather than trust them;
+a third copy, hand drawn in a design tool, would have been the same mistake with nothing at all
+watching it.
+
+**AND EVERY GLYPH ON THE THREE LIBRARY BOARDS IS AN INSTANCE OF IT.** The compiler used to rebuild
+a masked box as its own vectors, which is right for a screen board and wrong for a library: it
+left one private drawing of `expand` per chip, per select and per keyboard row. The mask is now
+**signed shape by shape** against the same ordered list of primitives `design/kit/checks/icons.mjs`
+compares against, and a hit is placed rather than drawn. A miss still draws and is counted, because
+a glyph the set does not carry is a finding about the set.
+
+**THE HOLE WAS FOUR OF THE SIX APPLIED GLYPHS, AND 202 DRAWINGS.** The reader reads elements, and
+`expand` on a disclosure, `accept` on a chosen option, `source` on a link and `keyboard` in Z1 are
+painted on `::before` and `::after`. `getComputedStyle` on an element never sees them, so the
+boards carried three of the six and **the 118 source arrows, the 59 keyboard glyphs, the 21 turned
+carets and the 4 ticks were simply not there**. Nothing reported it: every check in this project
+reads what an element declares, and a pseudo-element declares nothing an element carries.
+
+**It is not fixed by computing a position, it is fixed by making a box.** Working out where a
+pseudo sits means redoing inline layout by hand, which is the kind of arithmetic that is right on
+the screen it was written for. Each masked pseudo is replaced by a real element carrying the
+pseudo's **own computed style, property for property**, and the original is switched off by a rule
+inserted for that one host. The browser then places it and the reader measures it like anything
+else. **The swap is accepted only if nothing moved:** every element is measured before and after,
+and a rect that shifts by more than a hundredth of a pixel voids the read. Across 130 pages, 202
+materialised and **0 rects moved**. Grey is untouched by construction, because `_wf.css` declares
+no mask anywhere, and that was measured too rather than assumed.
+
+**THE STROKE WAS DRAWN AT OVER TWICE THE PRODUCT'S WEIGHT, AND ONLY THE SWAP FOUND IT.** A mask at
+`mask-size: contain` scales the whole drawing, its 1.5 line with it, so a caret in an 11px box
+carries 0.69px of line in the browser. Resizing an SVG node keeps 1.5. Every glyph on these boards
+had been heavier than the product renders since the day masks were first compiled, and no check
+compares a stroke width against a mask's scale.
+
+**A TAIL WAS SKIPPED IN THE STRING AND STILL SELECTED IN THE RECTS.** The reader excluded a
+leading atom from the measurement and said in its own comment that it did the same for a trailing
+one. It did not: the range still ran to the end of the element, so a paragraph measured its own
+width plus whatever followed it. It went unseen for as long as no trailing atom **painted** and no
+run was compared while one did, and the source arrows exposed it at once: `Entra sign in` came out
+15.8px wider than the words, which is the arrow and its margin. **140 runs on 27 grey screens were
+carrying a width and a line count they do not have**, an `h1` among them claiming three lines and
+50px of height for a heading that is one line and 24. Carried back, rebuilt, rechecked.
+
+**AND A NON-BREAKING SPACE IS NOT COLLAPSIBLE WHITE SPACE.** Every collapse and trim in the reader
+was written with `\s`, which contains U+00A0. The keyboard map is the only place in the product
+that spaces a column with the character, and its two shortcut runs arrived with one space per gap
+and were drawn 66px and 39px narrower than the browser draws them. They are exactly the two runs
+the width check had been reporting. The browser collapses a run of collapsible white space and a
+non-breaking space is not one, which is the entire point of it.
+
+**What is left, and it is named rather than rounded off.** Ten runs of the word `Fleet` on ten
+queue screens sit 2.5px wide of Chrome: one word at 17px SemiBold, and the difference is the face
+substituted for the browser's, not the compilation. **A stage boundary is still not carried back:**
+`wireframes/` keeps its caret and its cross as characters, because icons arrive at 06 to 08 on the
+copies under `design/` and a masked drawing in the grey folder would be colour work done in the
+wrong half.
+
+**And the letter key was lifted out of the wrong host.** The entry above settled for a dim
+specimen and called it the component doing what `key.css` says. On the board it is worse than
+dim: the first letter key in the document sits inside `Accept`, whose ground is the amber the
+key's own ink is, so the variant rendered as an **empty box**. A true instance and a specimen
+that shows nothing. It is taken from a neutral host now, the same decision already made about
+not lifting one out of a control that is out of reach, and the reading it was meant to carry
+belongs in the page's words rather than in an invisible swatch.
+
+State: 17 icon components, 83 instances across the three library levels and 0 glyphs redrawn.
+**1479 runs across the three levels, 0 off in width, 0 off in position, 0 missing; 5993 grey runs,
+0 placed more than 2px off, 10 off in width.**
+
+## 2026-08-26 · A bar standing on the end of its own baseline, and every run in the file sat low
+
+**THE OWNER FOUND BOTH AT MAGNIFICATION, WHICH IS THE INSTRUMENT NOTHING HERE RUNS.** Contrast,
+geometry, tokens and rules all passed. A person looked at one glyph at forty times its size.
+
+**`latitude` had four bars at 6, 11, 16 and 21 against a baseline running 3 to 21.** Three units
+of rule before the first bar and none at all after the last, whose 1.5 stroke then hung three
+quarters of a unit past the end of the line it was standing on. It read as a drawing that had
+slipped, and it had. Bars at 6, 10, 14 and 18 now: same four heights, same baseline, **three units
+of rule at both ends and the group's centre on the baseline's centre.** The safe field check could
+not catch it, because 21.75 is inside 22: the rule the glyph broke was not a margin, it was its
+own composition.
+
+**AND EVERY TEXT NODE IN THE FILE WAS DRAWN 1.47px LOW.** A range in Chrome measures the FONT box,
+the ascent plus descent, 13px at 11px in this mono. A Figma text node is a LINE box, 15.95 here,
+and both split the leading evenly above and below the glyphs. So placing the node's top at the
+rect's top puts half a leading of air above the glyphs that the browser puts above the LINE, and
+everything sits low by exactly that half. **Invisible to a 2px position check on 7472 runs and
+plain at 6x**, where the `Enter` keycap's border ran through its own word while the browser draws
+it with a unit of air on either side. The lift is per run, because the leading is per size and per
+face, and both position checks now model it: **a check that expects the defect reports the fix.**
+
+**What did not move:** nothing in the product. `latitude` stands nowhere yet, so the fix touches
+the icon stand and the Figma set and no screen. Grey rebuilt and rechecked with it, 5993 runs
+placed within 2px, 0 off.
+
+## 2026-08-26 · The boards stopped redrawing the kit, and an instance taught the rule by refusing
+
+**A MOLECULE THAT DRAWS ITS OWN KEYCAP WILL NOT FOLLOW THE `key` ATOM WHEN IT CHANGES**, and
+following it is the only reason a library has components at all. Every box on the two upper
+boards that the page can name as an atom is now an INSTANCE of that atom's variant, and the
+subtree under it is not compiled at all: **233 of them, 31 in the molecules and 202 in the
+organisms**, on top of the 83 icons. `key` 55, `bars` 40, `state` 32, `btn` 25, `anote` 13,
+`chip` 12, `navitem` 9, `stamp` 6, `textarea` 6, `input` 3, `select` 2.
+
+**WHERE AN ATOM STANDS IS SAID BY THE ATOM SPEC, not by a second opinion.** The predicates that
+define the twenty variants are evaluated in the page and every element that answers to one is
+stamped with the atom and the variant it answers to; the reader carries the two attributes and
+the builder places instead of compiling. A second way of recognising an atom would be the same
+mistake as a second walk, and this project has already paid 193 runs of text for one of those.
+
+**WHAT AN INSTANCE ALLOWS WAS MEASURED, AND THE SECOND ANSWER IS THE TRAP.** A child of an
+instance cannot be MOVED: the assignment throws, loudly, on the third component it touches. It
+cannot be RESIZED EITHER, **and that one does not throw**. The call returns, the node keeps its
+old size, and nothing anywhere says so. A build reported **33 atoms placed** with a paragraph
+88px narrower than the box it wraps in, and the only reason it was caught is that the width check
+runs on what is on the board rather than on what the builder believes it did.
+
+So the size an instance reproduces comes from its ROOT and the constraints inside it: the atom's
+own outer box stretches with the root, a wrapped run stretches with its box, a single line
+measures itself from its own characters. That last one is what makes a keycap holding `Esc` fit
+where the specimen holds `Enter`.
+
+**AND WHETHER THAT REPRODUCED THIS OCCURRENCE IS NOT ARGUED, IT IS MEASURED.** The instance is
+placed, the words are written into it by the ordinary text pass, and then every frame and every
+run inside it is compared against what the browser measured here. What matches stays an instance
+of the kit. What does not is **detached on the spot and drawn to the browser's numbers**: 30 of
+them, and every one is a real difference rather than a rounding, a `btn` whose label is 117px
+longer, a `select` whose right-aligned mark moves with the width, a `glyph` that is 11px here and
+14 in the specimen. **A board that is linked to the library and wrong is worse than a board that
+is right and not linked**, and the count of the second kind is published rather than smoothed.
+
+**The tolerance is the board's own, and the first pass got that wrong too.** Half a pixel detached
+five atoms for 0.5 to 0.8px while the tracking correction that sets a run's width stops at six
+tenths BY DESIGN: it was demanding better than the compiler promises anywhere else. A run is held
+to what the checks hold it to and a box to one pixel, which no check downstream looks at at all.
+
+**RUNS ARE PAIRED PER BOX, NOT IN ONE FLAT ORDER.** The walk emits a button's own label AFTER
+recursing into the keycap it carries; a depth-first read of the component emits it before. Same
+two runs, two orders, and **26 buttons were refused for a mismatch that was only the sequence.**
+
+**AND THE COMPOSITION PUT A NUMBER ON AN OPEN ROW NOBODY HAD CLOSED.** The keys in the queue's
+foot are not instances of `key` and cannot be: they are `kbd` elements with their own border and
+their own ink, while `key` everywhere else is a span taking the host's colour. `qfoot.css` has
+said so since stage 08, in as many words, and sent it to reconciliation. What it did not have is
+the size of it: **147 `kbd` against 198 `key` in the coloured product.** Collapsing the two here,
+in a Figma script, would be ruling on it by hand in the one place nobody would look for the
+ruling, so it stays an open row and it stays the owner's.
+
+State: 316 instances across the three levels, 233 of them atoms. **1479 runs, 0 off in width, 0
+off in position, 0 missing; grey rebuilt on the same compiler, 5993 runs, 0 placed more than 2px
+off.** 45 paint overrides, every one where an atom really takes its host's ink.

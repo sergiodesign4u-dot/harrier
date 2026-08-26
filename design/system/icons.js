@@ -96,7 +96,14 @@ window.HARRIER_ICONS = {
   latitude: {
     label: 'latitude, how much rope Clerk has earned on this tenant',
     applied: null,
-    shapes: [ { d: 'M3 18h18' }, { d: 'M6 18V9M11 18V5M16 18v-7M21 18v-3' } ]
+    /* THE LAST BAR STOOD ON THE END OF ITS OWN BASELINE. Bars at 6, 11, 16 and 21 against a
+       baseline running 3 to 21: three units of rule before the first bar and none at all after
+       the last, whose 1.5 stroke then hung three quarters of a unit past the end of the line it
+       is standing on. Read as a drawing that had slipped, and it had. The bars are at 6, 10, 14
+       and 18 now: same four heights, same baseline, three units of rule at both ends, and the
+       group's centre is the baseline's centre. Found by the owner on a board at 40x, which is
+       the magnification no check in this project runs at. */
+    shapes: [ { d: 'M3 18h18' }, { d: 'M6 18V9M10 18V5M14 18V11M18 18V15' } ]
   },
 
   fleet: {
