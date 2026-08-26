@@ -40,7 +40,7 @@
 
 <p class="k-eyebrow">Checks</p>
 <h1 class="k-title">The instruments</h1>
-<p class="k-lede">Twenty of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
+<p class="k-lede">Twenty one of them, in <code>design/kit/checks/</code>, and each one exists because a class of defect got through everything else. They all drive a real browser, because every defect they were written for has the same shape: <b>the value is never wrong in any file, and it resolves wrong.</b> A reader sees correct text, a search sees a correct declaration, and only a rendering sees what happened.</p>
 <p class="k-note"><b>There are no screenshots in this system, and these are why.</b> A picture of a component is a second copy: it has to be retaken, it goes stale without saying so, and the first one taken on this stand documented a focus ring it did not contain, because a focus set from a script does not match <code>:focus-visible</code>. What the refactors of stage 08 and 09 promise is proved by rendering the tree twice and comparing it element by element, which says <b>which element moved</b> rather than how many pixels changed.</p>
 
 <div class="c-run">node design/kit/checks/contrast.mjs <span>the stand, every text node, both themes, both viewports</span>
@@ -49,7 +49,8 @@ node design/kit/checks/rules.mjs design <span>the thirteen usage rules, by name,
 node design/kit/checks/focus.mjs design <span>a real Tab walk, both themes, is there a ring and can it be seen</span>
 node design/kit/checks/zoom.mjs design <span>browser zoom at 200%, and the reader&rsquo;s own font size at 200%</span>
 node design/kit/checks/route.mjs <span>does the handoff lead anywhere, and in how many clicks</span>
-node design/kit/checks/compose.mjs <span>every composition in the grey corpus, counted</span></div>
+node design/kit/checks/compose.mjs <span>every composition in the grey corpus, counted</span>
+node design/kit/checks/diverge.mjs <span>the grey corpus against the coloured one, page by page</span></div>
 
 <h2 class="k-h" id="what">What each one finds, and what it says today</h2>
 
@@ -232,6 +233,16 @@ node design/kit/checks/compose.mjs <span>every composition in the grey corpus, c
     <p><b>Its first run reported every artefact as unreachable</b>, because it seeded the roadmap registry after walking the tree instead of before it. The finding was the instrument&rsquo;s, and the walk order is now a comment in its header.</p>
   </div>
   <div class="n"><b>6</b> surfaces<br><b>13</b> internal links<br><span class="c-zero"><b>0</b> dead</span><br><span class="c-zero"><b>0</b> beyond two clicks</span></div>
+</div>
+
+<div class="c-inst">
+  <div><code class="f">diverge.mjs</code><span class="stage">stage 13</span></div>
+  <div>
+    <p><b>The grey corpus against the coloured one</b>, both rendered, at 1440 and at a measured 360, rooted at <code>.wf-screen</code> against <code>.screen</code> with the documentation panel excluded. Six measures per pair: the zone signature, the element count, the tag only sequence aligned by LCS, the heading tree, the visible control count and the text runs. Classes are ignored in the tag diff, because the stage 08 rename map changes a name on every coloured page and changes no tree.</p>
+    <p><b>It exists because a claim asserted twice and never re-run went false in silence.</b> &ldquo;Every coloured page holds a structural diff of exactly zero against its grey original&rdquo; was measured at stage 06, re-asserted at stage 07, and then stood in seven files in the present tense for two stages. Nothing in this folder compared the two corpora: <code>census</code>, <code>compose</code>, <code>screens</code> and <code>rules</code> each take a corpus as an argument and read one at a time, and <code>migrate</code> and <code>refactor</code> compare <code>design/</code> against a <code>design/</code> baseline.</p>
+    <p><b>A divergence is not automatically a lag.</b> The grey is frozen, so every difference was made on the coloured side, and it is ahead, deliberate or drifted. Ahead: the stage 12 heading ruling, on 24 pages. Deliberate: <code>escalate-from-expired</code> drops Accept, because an expired snapshot no longer offers it. Only the third is a defect, and this file does not tell them apart.</p>
+  </div>
+  <div class="n"><b>124</b> renderings<br><b>62</b> pairs<br><b>45</b> diverged<br><span class="c-zero"><b>0</b> zones moved</span></div>
 </div>
 
 <h2 class="k-h" id="rule">The rule they were all written under</h2>

@@ -228,3 +228,17 @@ for (const x of broken) console.log('  BROKEN  ' + x);
 const untested = RULES.filter(r => tally.get(r.id).held === 0 && tally.get(r.id).broke === 0);
 for (const r of untested) console.log(`  UNTESTED  ${r.id}: no screen in this corpus asks it`);
 if (!broken.length) console.log(`  ${PAGES.length * 2} renderings, nothing broken.`);
+/* THE DEFAULT CORPUS IS THE FROZEN ONE, AND ITS BROKEN LIST IS NOT A WORK LIST. Run
+   with no argument this reads wireframes/, which nobody is allowed to edit, so every
+   line above is a lag rather than a defect and the reader has to be told which they
+   are looking at. The default is left as it is on purpose: the grey is the whole
+   product and the colour is still catching up, so a run that quietly read only the
+   colour would report a clean corpus by choosing one. */
+if (broken.length && dirArg.replace(/\/$/, '') === 'wireframes')
+  console.log(`\n  These are GREY figures. wireframes/ is frozen, so they are the measured lag of a
+` +
+              `  corpus nobody may fix rather than a list of defects. The coloured corpus answers the
+` +
+              `  same rules under \`node design/kit/checks/rules.mjs design\`, and the lag between the two
+` +
+              `  is measured page by page by \`node design/kit/checks/diverge.mjs\`.`);

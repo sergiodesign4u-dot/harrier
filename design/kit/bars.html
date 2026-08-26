@@ -17,7 +17,7 @@
 <p class="k-eyebrow">Atom</p>
 <h1 class="k-title">Severity bars</h1>
 <p class="k-lede">Severity, drawn as a count of lit slots. 225 instances across 34 screens, always inside <code>sev</code> and <code>sev</code> is always inside a queue row. <b>The whole component is three slots and how many of them are on.</b></p>
-<p class="k-note"><b>The severity is selected on the drawing, not on a class.</b> The markup carries three slots and lights n of them, and <code>:has()</code> counts. That is why the whole ramp landed on 32 screens at stage 06 <b>without one attribute being added to one wireframe</b>, and it is why the coloured copies still hold a structural diff of exactly zero against their grey originals.</p>
+<p class="k-note"><b>The severity is selected on the drawing, not on a class.</b> The markup carries three slots and lights n of them, and <code>:has()</code> counts. That is why the whole ramp landed on 32 screens at stage 06 <b>without one attribute being added to one wireframe</b>, and it is why the coloured copies <b>held a structural diff of exactly zero against their grey originals when that was measured, at stages 06 and 07</b>. That zero is a reading taken at a time and not a standing property: <code>wireframes/</code> is frozen, the colour kept moving, and <code>design/kit/checks/diverge.mjs</code> is what re-takes it. <b>The ramp's own markup is not among the things that moved:</b> three slots and n of them lit, byte for byte, on every pair. The one page where a bar count differs is <code>log.html</code>, which carries an extra row in colour.</p>
 
 <h2 class="k-h" id="anatomy">Anatomy</h2>
 <div class="k-bench">

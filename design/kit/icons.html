@@ -198,7 +198,7 @@
 
 
 <h2 class="k-h" id="applied">Three are applied, and each one had to earn its space</h2>
-<p class="k-note">Design principle 5 puts density first and the product read perfectly with none, so adding an icon had to be argued rather than assumed. These three are attached as <b>CSS masks rather than markup</b>, and that is not convenience: <code>wireframes/</code> is frozen and every coloured page holds a structural diff of exactly zero against its grey original. An <code>svg</code> element on a screen would end that. A mask paints the glyph with <code>background:currentColor</code>, so the icon still inherits whatever it sits in.</p>
+<p class="k-note">Design principle 5 puts density first and the product read perfectly with none, so adding an icon had to be argued rather than assumed. These three are attached as <b>CSS masks rather than markup</b>, and that is not convenience: <code>wireframes/</code> is frozen, and at stages 06 and 07 <b>every coloured page held a structural diff of exactly zero</b> against its grey original, which an <code>svg</code> element on a screen would have ended. The zero was a measurement taken then and not a standing property, and it has since gone: 45 of the 62 pairs differ. What the mask still buys is that the icons are not among the reasons, and <code>design/kit/checks/diverge.mjs</code> is what reads the rest. A mask paints the glyph with <code>background:currentColor</code>, so the icon still inherits whatever it sits in.</p>
 
 <div class="k-scene">
   <div class="i-strip" id="i-applied"></div>
