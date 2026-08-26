@@ -1867,3 +1867,35 @@ wide, read `same as at res|Queue`.
 
 State: **63 sets laid out as matrices**, widest 3856px against 17440 before, `btn` at 1948 x 416.
 Runs against Chrome unchanged at 105 / 276 / 1284, 0 off in width, 0 off in position, 0 missing.
+
+## 2026-08-27 · The label on the hole was true of seven cells and false of ten
+
+The entry above says a hole in the matrix is information and it is labelled. Checking the other
+two levels, which is what the owner asked for, found that the label itself was the defect. The
+grid had **24 empty cells and every one of them read `same as at rest`**, while only 7 states had
+actually been compiled and dropped as no-ops. The strip had hidden the absence; the matrix
+published a confident wrong reason for it.
+
+**AN EMPTY CELL MEANS ONE OF FOUR THINGS AND THEY ARE NOT INTERCHANGEABLE.** The state was
+compiled and came out identical to resting, which is 5 of them. The row declares no state at all,
+which is a head row, a plain `.src`, a headless disclosure, a signed out bar and an alert with no
+dismiss: 15. The row takes states but not this one, which is an open list that cannot be hovered
+or put out of reach while it is open: 2. Or the combination of the non-state axes simply does not
+occur in the product, which is a quiet banner carrying a control: 2.
+
+Only the dumper knows which states it threw away, so **it writes them down** and the layout reads
+the list instead of inferring a reason from a gap. The fourth sentence first read `not a control`
+and was wrong about one of the fifteen: the alert notice carries a link, it just carries no
+dismiss, so what is true of all of them is that the ROW declares no state, not that there is
+nothing to press.
+
+**AND A DROPPED STATE THAT GOT NO COLUMN LEAVES NO CELL TO WRITE IN.** `link` and `src` are the
+two: their hover is declared, it was compiled, it came out identical, and no other row put a Hover
+column on the set, so the note has nowhere to go. Inventing the column would be worse than the
+silence, because a column of one empty cell asserts the state is there to choose. It goes under
+the matrix as a line instead.
+
+Measured over all 63 sets: **0 components overlapping, 0 labels colliding with a component**,
+24 holes reading 5 / 15 / 2 / 2 across the four sentences, and 2 footnotes. And the dumps are now
+**deterministic**: all three re-dumped byte for byte identical, which the frozen transitions bought
+and nothing had proved until this pass.
