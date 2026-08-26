@@ -1690,3 +1690,180 @@ runs, 0 off in width, 0 off in position, 0 missing.
 **`wireframes/` keeps both forms**, and that is a stage boundary rather than a defect: the grey
 folder has no component system to fold anything into, and its two rules are the state stage 04
 left. It is named here so the next reader does not take the difference for drift.
+
+## 2026-08-26 · The atom instance repainted the square a mask exists to stop
+
+The render found it again, and this one had been in the library since the day the atoms were
+placed. On DS · Molecules and DS · Organisms, **25 glyphs were a solid tile with the drawing
+sitting on top of it**: the toast's dismiss, the cross and the caret on every chip, the select's
+mark in eight dialogs. The eye caught it on a 14px cross in a notice.
+
+**A masked box has two paints and only one of them is real.** `.glyph` declares
+`background: currentColor` and `mask-image`, and the background is the drawing, not the square.
+The compiler knows that: the branch that rebuilds a masked box clears the fill in the same
+breath. **An atom instance never reaches that branch.** It is placed from the library, and the
+one thing an instance genuinely lets you override is paint, so the pass that carries an
+occurrence's ink into a component put `currentColor` back on the frame as a fill, exactly as it
+does for every ordinary box. The component underneath was right. The declaration was right. The
+colour was the colour the box asked for.
+
+**Which is why nothing here could see it.** Contrast reads the product, not the board. The run
+check measures words. The geometry check measures boxes, and the box was the right size in the
+right place. **A fill is not a geometry, and there was no wrong number anywhere to find.** The
+ink now goes where the browser puts it, on the strokes of the vectors, and the frame paints
+nothing.
+
+**The same measurement found a second one underneath it, and that one had a wrong number that
+nobody was reading.** A child of an instance cannot be moved and cannot be resized, and the icon
+inside a glyph is a child of a child. `.glyph` is sized in `em`, so it is 11px in a chip and 14
+in a notice, while the atom publishes one size per icon. The toast's cross was **an 11px drawing
+pinned to the top left of a 14px box, at the 11px stroke weight**. The verification pass reads
+the frames the atom owns, and a nested instance is not one of them. A drawing whose size does not
+match the component is refused now and drawn by the compiler at the occurrence's size and weight,
+which is the rule this build already keeps: linked to the library and wrong is worse than right
+and not linked.
+
+State: 83 icon instances across the whole file, **0 hosts still painted, 0 drawings the wrong
+size**. One new refusal, `glyph icon=Dismiss: a drawing is 14.0x14.0 here and 11.0x11.0 in the
+component`, and it is the toast. The three levels re-measure at 1479 runs, 0 off in width, 0 off
+in position, 0 missing, unchanged. **No product file is touched**: in a browser the mask does its
+job and always did. This is a defect in what Figma was told, not in what ships.
+
+## 2026-08-27 · The kit stopped redrawing itself, and the states arrived from the browser
+
+Two things the owner found by looking, and one they asked for. All three are compilation: no
+product file is touched, and `wireframes/` is proved byte for byte unchanged.
+
+**A BUTTON WAS DRAWING ITS OWN KEYCAP.** The atoms page was compiled under a rule written into
+the dumper in as many words: an atom contains nothing else from the kit, so the level is not
+stamped. The register it sits beside says otherwise on its own face. `btn` holds a `key` in four
+of its variants and `chip` holds a `glyph` in all four of its, and those eleven were redrawn
+inside components whose whole promise is that you place them rather than redraw them. The second
+half of that rule was true and was a BUILD ORDER wearing the clothes of a fact: a set that does
+not exist yet cannot be instanced. The page is built in two rounds now, leaves first, in one
+clearing.
+
+**AND A PREDICATE WAS DOING TWO JOBS THAT ARE NOT THE SAME JOB.** Even stamped, only two of the
+four keycaps were placed. The key rows exclude a key inside an out of reach button and inside a
+primary one, and the reason is good: a specimen lifted from either is a dim box or an invisible
+one. Reused as a DEFINITION, that said a keycap on `Accept` is not a keycap. The register now
+marks the specimen-only half as `SPECIMEN(...)`, the dumper honours it and the stamp answers it
+true, which is the whole of the difference.
+
+Three things followed and each was found by the measurement rather than argued: the structural
+guard counted an instance as no frames and refused 43 buttons and chips at the levels above;
+a detached atom left its keycap linked, and a frame inside an instance cannot be moved, so eight
+organisms threw rather than one box; and detaching the keycap left its instance ROOT behind as an
+extra frame nobody had counted. **The constraint is read off the drawing now too:** every child
+used to be pinned top left, which is right for a label and wrong for the key at the end of a
+button, and it threw ten buttons back to being drawn.
+
+State: the builder places **305 atoms as instances** across the three levels, 29 on the atoms
+page itself, and refuses 7 and detaches 31 after measuring them, which is the rule this build
+already keeps: linked to the library and wrong is worse than right and not linked. Counted on
+the page, where a keycap inside a placed button counts too, that is **333 instances of an atom
+and 103 of an icon, with 0 hosts still painted and 0 drawings the wrong size**.
+
+## 2026-08-27 · Fifteen components declare a state and the library carried none of them
+
+A screen is a photograph and hover is something a person is DOING, so no product screen has one
+and the register could only ever find what a screen holds. The library was therefore the product
+exactly, and said by omission that nothing in this console answers to a pointer or a tab.
+
+**THE INSTRUMENT IS THE BROWSER'S OWN.** `CSS.forcePseudoState` over the debugger protocol puts
+the element into the state and the cascade runs for real. Same predicate, same element, same
+product screen, same reader: a state variant is one more compilation, not a painting of a guess.
+Two of the five are not pseudo classes and are handled as what they are. `Rest` forces nothing.
+`Disabled` is an attribute in this product, so it is SET, and that is the one place the register
+stops photographing an instance and starts making one. `Hover` and `Active` are forced alone
+rather than together, because a variant named Active that is quietly hover plus active cannot be
+read back against the rule it is a picture of.
+
+**AND `Disabled` WAS NEVER AN EMPHASIS.** It sat on that axis for one reason: an out of reach
+button exists on a real screen and a hovered one does not, so the axis that could be photographed
+got the value. Two more axes were the same mistake with a different word: `navitem` said `state`
+and meant which page you are on, and `select` said `state` for two different things at once, the
+list being open and the control being out of reach.
+
+**FOUR THINGS HAD TO BE TAUGHT BEFORE ANY OF IT WAS TRUE.**
+
+- **The reader had never looked at an outline.** The focus ring is one rule in `base.css` and it
+  is an outline with an offset; this walk reads fill, border and shadow. Every focusable thing
+  would have compiled a focus variant identical to its resting self, which is worse than not
+  carrying the state, because the board would then assert that focus does nothing. It is drawn as
+  its own rectangle, one offset out, stroked OUTSIDE, because a Figma frame carries one stroke and
+  folding a ring into a border moves the box.
+- **The command is out of band and the page had not recalculated.** Reading straight after the
+  force returns the resting values, confidently. Eighteen state variants came out identical to
+  Rest on the first run and six of them were real.
+- **The motion had to be stopped.** Every state here arrives over `--dur-fast`, so the read caught
+  the button three frames into its own transition: three consecutive reads of one hovered button
+  gave 22, 22 and 23. A compiler that cannot be run twice with the same answer is not a compiler.
+  It also fixed something nobody had noticed, which is that a skeleton's pulse was being
+  photographed at whatever frame the dump happened to land on.
+- **A set has one list of properties or it is not a set.** A head row does not hover and an alert
+  has no dismiss, so some rows of a component take a state and others cannot. Publishing those
+  without the axis hands Figma two property lists in one set, which is not a sparse matrix, it is
+  a broken one. The axis is the component's: the moment any row declares a state, every row
+  carries at least Rest.
+
+**A STATE THAT DREW NOTHING IS NOT PUBLISHED, AND THE SEVEN THAT DID NOT ARE THE MOST USEFUL
+OUTPUT OF THE WHOLE RUN.** A variant identical to Rest tells the picker there is something to
+choose and then shows the same drawing. Three classes came out:
+
+- **A real defect in the resting half of the register.** `index-deep-link.html` autofocuses its
+  field, which is right on that screen and wrong for a specimen, so the resting `input` in the
+  library was a FOCUSED input wearing the ring. The proof is that its Focus variant came out
+  identical. The dump blurs before every read now, before the prep, because a prep that opens a
+  list is allowed to focus what it opened.
+- **A declared rule that genuinely changes nothing.** `.chip--solid:hover` sets the background and
+  border it already has, which `chip.css` says out loud: the plate is the top of the ramp with no
+  step above it, the cure is a product question, and until then the pointer carries the state.
+  `.navitem:hover` brightens ink the current item already has.
+- **A state the board cannot draw.** `.link:hover` and `a.src:hover` change only the underline's
+  colour, and a Figma text node's underline takes the text's own fill. Named here rather than
+  quietly missing.
+
+**AND THE ONE PLACE A COMPONENT READS A PRIMITIVE IS NOW BOUND TO THE PRIMITIVE.** The pressed
+main action reads `--amber-600` straight, which `tokens.css` declares and explains: there is no
+semantic role for a darker accent. With no role to bind to it compiled as a raw hex on two
+components, and a hex in a library is a value nobody can follow home. The fallback is opt in per
+build, and the grey library does not ask for it.
+
+State: **64 variant sets, 211 components, 110 of them carrying a state**, 29 focus rings, 194
+variants across the three levels against 124 before. 71 states forced through the browser, 0 that
+could not be forced, 7 dropped as no-ops and every one of them named. Runs against Chrome:
+**105 / 276 / 1284, 0 off in width, 0 off in position, 0 missing**, and 0 paints left literal on
+any level. Four grey screens re-dumped through the changed reader are byte for byte what they
+were.
+
+## 2026-08-27 · The set is a matrix, and the hole in it is the most useful cell
+
+The state axis made the boards unreadable before it made them useful. Auto layout was wrapping in
+name only: `layoutWrap` was set and `primaryAxisSizingMode` was AUTO, which means the frame grows
+instead of wrapping, so **`btn` came out as thirty buttons in one line 17440px wide**. Nobody
+reads that. Worse, nobody can COMPARE across it, and comparison is the entire use of a state: the
+strip put Outline at hover eleven components away from Outline at rest.
+
+**THE AXES DECIDE THE GRID, NOT A WRAP WIDTH, AND THE LAST ONE GOES ACROSS THE TOP.** Columns are
+the state where there is one, so a column is one thing a person is DOING, read left to right in
+the order it happens: at rest, under the pointer, arrived at by tab, pressed, out of reach. Rows
+are every other axis crossed, so a row is one thing the component IS, and the eye runs down the
+list of them with the state held still. A component with no state axis gives its last axis the
+columns, which is the same rule and reads the same way, and one axis stays a line, because a line
+of three keycaps was never the problem.
+
+**A HOLE IN THE GRID IS INFORMATION AND IT IS LABELLED.** Seven states came out identical to
+resting and were not published; in a strip that absence is invisible, and here it is an empty cell
+that says `same as at rest` where the variant would have been. `.chip--solid` has two of them side
+by side and the reason is in `chip.css`: the plate is the top of the ramp with no step above it.
+
+Two things had to be got right and both were found by looking. **The labels cannot live in the
+set**, because Figma lets a component set hold components and nothing else, so the headings sit in
+a frame around it, aligned to the grid the set was just given, on the board's paper rather than on
+the product's ground. And **the hole's note has to be kept inside its own column**: left to size
+itself it ran across the gap and printed over the next cell, so `navitem`, whose columns are 90px
+wide, read `same as at res|Queue`.
+
+State: **63 sets laid out as matrices**, widest 3856px against 17440 before, `btn` at 1948 x 416.
+Runs against Chrome unchanged at 105 / 276 / 1284, 0 off in width, 0 off in position, 0 missing.
