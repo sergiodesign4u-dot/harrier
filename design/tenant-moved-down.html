@@ -15,19 +15,32 @@
   <header id="wf-z1"></header>
   <p id="wf-z2"></p>
   <main class="z45">
-    <section class="z4 queue-list" aria-labelledby="th">
+    <section class="z4 queue-list queue-list--tenant" aria-labelledby="th">
       <div class="scopebar" role="group" aria-label="Scope and filters">
         <a class="chip chip--solid" href="queue.html">Meridian Health &times;</a>
-        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip" type="button">This shift &times;</button>
         <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
       </div>
 
-      <h1 id="th" class="readout"><b>1 waiting</b> <span class="dim">at Meridian Health, and 36 ruled in the 30 days the record covers</span></h1>
+      <h1 id="th" class="readout"><b>1 waiting and 1 ruled</b> <span class="dim">at Meridian Health this shift, of 36 ruled in the 30 days the record covers</span></h1>
+      <div class="banner only-narrow"><span class="say"><b>The tenant record is a desk surface.</b> The phone has one scenario in this product, a paged case read and escalated, and reading a client&rsquo;s record is not it.<br><br>One thing here does open on a phone: <b>the case waiting at this tenant</b>, because a page can arrive anywhere.</span></div>
 
+      <!-- THE LIST HOLDS THE CLIENT'S CASES AND NOT THE QUEUE FILTERED TO THE CLIENT,
+           which is what node 7.1 asked for and what the `Waiting on a decision` chip
+           was preventing. Both rows below already stand in the corpus for this tenant
+           and nothing about either was invented: the ruled one is the case log.html
+           carries at 2026-08-21T23:12:41Z and 22:38:16Z, which shift.html reports as
+           `Credential stuffing on the VPN. Rejected, then amended 34m later. Both
+           entries stand`, and which the pane on this very screen narrates twice under
+           `How this latitude changed`. Its elapsed reading is 5h against this screen's
+           own `?as-of=2026-08-22T04:14:05Z`, which is the figure the pane already
+           prints; shift.html's 8h is measured from a later now.
+           THE SCOPE IS THE SHIFT BECAUSE THAT IS THE WINDOW IN WHICH THIS LIST IS
+           EXHAUSTIVE. Meridian Health has 36 ruled cases in the 30 day record and the
+           canon names one of them, so an unscoped list would claim 37 and draw 2. -->
       <div class="rows" role="grid" aria-labelledby="th" tabindex="0">
         <div class="row row--head" role="row">
           <span role="columnheader">Sev</span>
-          <span role="columnheader">Tenant</span>
           <span role="columnheader">What it is</span>
           <span role="columnheader">The verdict</span>
           <span role="columnheader">To check</span>
@@ -42,20 +55,33 @@
              screen closes them. -->
         <a class="row" role="row" href="case-unrecorded.html">
           <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
-          <span class="client" role="gridcell">Meridian Health</span>
           <span role="gridcell">Mass file rename on one host</span>
           <span class="concluded" role="gridcell"><b>Rejected by R. Idrissi</b></span>
           <span role="gridcell" class="cost">4 signals</span>
           <span class="states" role="gridcell"><i class="state">decided</i><i class="state state--solid">unrecorded</i></span>
           <span class="age" role="gridcell">1h</span>
         </a>
+        <!-- AND THIS ONE OPENS THE LOG RATHER THAN A CASE, which is the same gap read
+             from the other side. A ruled case's record in this corpus IS its entries,
+             both of them stand in log.html at this tenant, and log-selected is the
+             Larkfield escalation rather than this one. A wrong tenant behind a right
+             row is what the comment above is already apologising for; this row does
+             not add a second instance of it. -->
+        <a class="row" role="row" href="log.html">
+          <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
+          <span role="gridcell">Credential stuffing on the VPN</span>
+          <span class="concluded" role="gridcell"><b>Rejected, then amended by D. Okonkwo</b><br><span class="dim">both entries stand</span></span>
+          <span role="gridcell" class="cost"><span class="dim">&ndash;</span></span>
+          <span class="states" role="gridcell"><i class="state">decided</i></span>
+          <span class="age" role="gridcell">5h</span>
+        </a>
       </div>
 
       <p class="qfoot">
-        <span>1 waiting at this tenant</span>
+        <span>2 at this tenant this shift, 1 waiting and 1 ruled</span>
         <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read</span>
         <span class="only-desk"><kbd>Enter</kbd> opens the case</span>
-        <span>order: unrecorded, waiting on you, severity, age</span>
+        <span>order: unrecorded, waiting on you, severity, then what was ruled, newest first</span>
       </p>
     </section>
 

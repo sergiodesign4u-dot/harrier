@@ -15,19 +15,31 @@
   <header id="wf-z1"></header>
   <p id="wf-z2"></p>
   <main class="z45">
-    <section class="z4 queue-list" aria-labelledby="th">
+    <section class="z4 queue-list queue-list--tenant" aria-labelledby="th">
       <div class="scopebar" role="group" aria-label="Scope and filters">
         <a class="chip chip--solid" href="queue.html">Larkfield Logistics &times;</a>
-        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip" type="button">This shift &times;</button>
         <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
       </div>
 
-      <h1 id="th" class="readout"><b>1 waiting</b> <span class="dim">at Larkfield Logistics, and 36 ruled in the 30 days the record covers</span></h1>
+      <h1 id="th" class="readout"><b>1 waiting and none ruled</b> <span class="dim">at Larkfield Logistics this shift, of 36 ruled in the 30 days the record covers</span></h1>
+      <div class="banner only-narrow"><span class="say"><b>The tenant record is a desk surface.</b> The phone has one scenario in this product, a paged case read and escalated, and reading a client&rsquo;s record is not it.<br><br>One thing here does open on a phone: <b>the case waiting at this tenant</b>, because a page can arrive anywhere.</span></div>
 
+      <!-- THIS SCREEN TOOK THE SECOND CURE AND NOT THE FIRST, and the reason is the
+           fixture canon rather than the layout. Node 7.1 promises one client's cases,
+           plural, and the list held exactly one row. The cure was to fill it from what
+           already stands in the corpus for this tenant, and for Larkfield Logistics
+           there is nothing to take: every Larkfield row anywhere under design/ is
+           C-4417, the token replay below. The canon is seven tenants and five case
+           ids, and reading-conventions.md forbids a fixture that exists only to make a
+           drawing look finished. So the scope is the one window where this list is
+           EXHAUSTIVE rather than truncated, which is the shift, and the column stopped
+           being the wide half of the split instead: queue-list--tenant. What would
+           close it properly is a second Larkfield case in the canon, and that is
+           0.8's decision to make, not this screen's. -->
       <div class="rows" role="grid" aria-labelledby="th" tabindex="0">
         <div class="row row--head" role="row">
           <span role="columnheader">Sev</span>
-          <span role="columnheader">Tenant</span>
           <span role="columnheader">What it is</span>
           <span role="columnheader">The verdict</span>
           <span role="columnheader">To check</span>
@@ -36,7 +48,6 @@
         </div>
         <a class="row" role="row" href="case.html">
           <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
-          <span class="client" role="gridcell">Larkfield Logistics</span>
           <span role="gridcell">Token replay from a new ASN</span>
           <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
           <span role="gridcell" class="cost">9 signals</span>
@@ -46,10 +57,10 @@
       </div>
 
       <p class="qfoot">
-        <span>1 waiting at this tenant</span>
+        <span>1 at this tenant this shift, and it is waiting</span>
         <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read</span>
         <span class="only-desk"><kbd>Enter</kbd> opens the case</span>
-        <span>order: unrecorded, waiting on you, severity, age</span>
+        <span>order: unrecorded, waiting on you, severity, then what was ruled, newest first</span>
       </p>
     </section>
 

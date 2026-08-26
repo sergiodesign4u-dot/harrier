@@ -15,19 +15,30 @@
   <header id="wf-z1"></header>
   <p id="wf-z2"></p>
   <main class="z45">
-    <section class="z4 queue-list" aria-labelledby="th">
+    <section class="z4 queue-list queue-list--tenant" aria-labelledby="th">
       <div class="scopebar" role="group" aria-label="Scope and filters">
         <a class="chip chip--solid" href="queue.html">Aubrey Dental Group &times;</a>
-        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip" type="button">This shift &times;</button>
         <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
       </div>
 
       <h1 id="th" class="readout"><b>1 waiting</b> <span class="dim">at Aubrey Dental Group, and nothing ruled yet at this tenant</span></h1>
+      <div class="banner only-narrow"><span class="say"><b>The tenant record is a desk surface.</b> The phone has one scenario in this product, a paged case read and escalated, and reading a client&rsquo;s record is not it.<br><br>One thing here does open on a phone: <b>the case waiting at this tenant</b>, because a page can arrive anywhere.</span></div>
 
+      <!-- ONE ROW, AND ON THIS SCREEN THAT IS THE SUBJECT RATHER THAN A GAP. The chip
+           opened from `Waiting on a decision` to the shift, so the list now holds every
+           case at this tenant in the window, and there is one: the readout beside it and
+           the record in the pane both say nothing has been ruled here yet.
+           NOTHING WAS ADDED, DELIBERATELY. log.html carries an Aubrey Dental Group entry
+           accepted at 2026-08-21T21:05:33Z and shift.html reports the same case as
+           accepted 10h ago, which contradicts this screen, this screen's fleet row in
+           queue.html and the pane below, all three of which say no rulings yet. Adding
+           that row here would have made this screen agree with two files and disagree
+           with three, which is not a fix. It is raised as a fixture contradiction for
+           0.8 rather than settled on a drawing. -->
       <div class="rows" role="grid" aria-labelledby="th" tabindex="0">
         <div class="row row--head" role="row">
           <span role="columnheader">Sev</span>
-          <span role="columnheader">Tenant</span>
           <span role="columnheader">What it is</span>
           <span role="columnheader">The verdict</span>
           <span role="columnheader">To check</span>
@@ -36,7 +47,6 @@
         </div>
         <a class="row" role="row" href="case-no-baseline.html">
           <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i></i></span> Medium</span>
-          <span class="client" role="gridcell">Aubrey Dental Group</span>
           <span role="gridcell">Sign in from an unseen device</span>
           <span class="concluded" role="gridcell"><b>Real, contain identity</b><br><span class="dim">above latitude here</span></span>
           <span role="gridcell" class="cost">9 signals</span>
@@ -46,10 +56,10 @@
       </div>
 
       <p class="qfoot">
-        <span>1 waiting at this tenant</span>
+        <span>1 at this tenant this shift, and it is waiting</span>
         <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read</span>
         <span class="only-desk"><kbd>Enter</kbd> opens the case</span>
-        <span>order: unrecorded, waiting on you, severity, age</span>
+        <span>order: unrecorded, waiting on you, severity, then what was ruled, newest first</span>
       </p>
     </section>
 

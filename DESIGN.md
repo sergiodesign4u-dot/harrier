@@ -137,6 +137,8 @@ Origin: stage 04, `wireframes/_wf.css`. Nothing at stage 06 or 07 has added a st
 | `--z-strip` | `26px` | stage 04, the Z2 connection strip |
 | `--pane` | `380px`, and `320px` below the breakpoint | stage 04, the Z5 detail pane |
 | `--row-tracks` | `90px 120px minmax(104px,1fr) minmax(120px,1.2fr) 72px 100px 40px` | stage 04. It collapses to `1fr` at 360 |
+| `--row-tracks-tenant` | the same row with the tenant track taken out, six zones | node 7.1. The queue narrowed to one client repeats that cell on every row, and design principle 1 says a column that carries a constant has not earned its width. It collapses to `1fr` at 360 with the seven track row |
+| `--list-w-tenant` / `--pane-w-record` | `41rem` and `44rem` | node 7.1, and the pair is one decision: on that node the pane is the subject and the list is one client's cases, so the pane takes the share and the list takes the rest. Both floors are measured rather than chosen, and the numbers are in `design/system/tokens.css` beside them |
 | `--line` | `1px solid var(--color-hairline)` | separators |
 | `--line-ink` | `1px solid var(--color-rule)` | panel edges |
 | control boundary | `1px solid var(--color-edge)` | chip, button, `kbd`. WCAG 1.4.11 |

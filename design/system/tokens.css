@@ -212,6 +212,24 @@
      is flat until about 1500 and then grows; the ceiling is 34rem, past which a pane
      is a second page. */
   --pane-w: clamp(22.5rem, 24vw, 34rem);
+  /* AND ON ONE NODE THE TWO HALVES SWAP WHICH OF THEM IS THE SUBJECT. Everywhere
+     else the list is what she is working and the pane is the context, so the pane
+     takes a share and the list takes the rest. On node 7.1 the pane IS the client,
+     and the list beside it holds that client's cases: measured at 1440 it held ONE
+     row of 50px in 844 by 803, while the pane hid 354 to 543px of the thing the
+     screen is about. These two are that measurement as a rule. 44rem is where the
+     pane's own prose stops growing, because `--measure` caps it at 66ch, so a wider
+     pane buys height back at 12% and spends the width on nothing. 41rem is the
+     list's floor and it is MEASURED RATHER THAN ROUNDED: 570px is what the six track
+     row needs to fit, and at 576 it fits and then wraps, because the two prose tracks
+     are what the leftover is divided between and 115px each turned `Rejected, then
+     amended by D. Okonkwo` into three lines and a one line row into 71px. 656 gives
+     them 143 each, which is where every row in the fixture set comes back to one or
+     two lines. A floor set at what the row needs rather than at what it reads at is
+     the same miss `--row-tracks` records twice above. At 1280, the platform minimum,
+     the two resolve to 656 and 388 and both floors hold. */
+  --list-w-tenant: 41rem;
+  --pane-w-record: 44rem;
   /* THE TWO PROSE TRACKS TAKE A CEILING IN ch SINCE STAGE 10, and the unit is the
      point: what makes a line readable at a glance is its MEASURE, and a measure is
      counted in characters rather than pixels. Below the ceiling they behave exactly
@@ -241,6 +259,14 @@
   --row-tracks-log:   4.625rem 7.75rem minmax(0,28ch) minmax(0,40ch) minmax(0,28ch) 6.625rem 8.625rem;
                         /* the SAME seven zones at the log's widths. A variant of the row, not
                            another component: nothing appears and nothing disappears */
+  /* SIX ZONES, AND THE ONE THAT LEFT IS THE TENANT. Node 7.1 is the queue narrowed
+     to ONE client, so that cell carried the same string on every row while the scope
+     bar, the readout and the pane head each name it once already. Design principle 1
+     is the whole argument: a column that repeats a constant has not earned its width.
+     Taking the 7.5rem track out drops what the row needs from 666px to 570, and that
+     is what lets the list stop being the wide half of the split on this node without
+     the row hanging out of its own column. Stage 13. */
+  --row-tracks-tenant: 5.625rem minmax(6.5rem,1fr) minmax(7.5rem,1fr) 5rem 7rem 2.5rem;
   --row-tracks-moved: 8.25rem minmax(0,1fr) 7.25rem 4rem;
                         /* FOUR zones, and that is why the shift brief's line is a component of
                            its own. No severity and no `to check`: a pointer is not a thing to
@@ -630,7 +656,10 @@
 @media (max-width:1279.98px){
   /* the row becomes one track. The literal is --bp-split-panes and there is no
      other number in any query in this system. */
-  :root{ --row-tracks: 1fr }
+  /* AND THE SIX TRACK ROW COLLAPSES WITH IT. A second tracks token that kept its
+     grid below the point would have been the one row in the product still trying to
+     be a table on a phone. */
+  :root{ --row-tracks: 1fr; --row-tracks-tenant: 1fr }
 }
 
 

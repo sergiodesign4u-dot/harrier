@@ -133,12 +133,14 @@
   <li><b><code>scopebar</code></b><span>what you are looking at, as chips you can press. It is the first zone because the count under it is only true within it <a class="link" href="scopebar.html">page</a></span></li>
   <li><b><code>readout</code></b><span>the counted claim. One per screen, and it is the <code>h1</code> <a class="link" href="readout.html">page</a></span></li>
   <li><b><code>banner</code></b><span>optional, between the claim and the rows. It appears on 12 of the 38 and its placement belongs to the column rather than to the banner <a class="link" href="banner.html">page</a></span></li>
-  <li><b><code>rows</code></b><span>the scrollport and the grid. Seven tracks, set by <code>--row-tracks</code> <a class="link" href="rows.html">page</a></span></li>
+  <li><b><code>rows</code></b><span>the scrollport and the grid. Seven tracks, set by <code>--row-tracks</code>, and six on the <code>--tenant</code> variant, where the tenant cell would carry the same string on every row <a class="link" href="rows.html">page</a></span></li>
   <li><b><code>qfoot</code></b><span>where the keyboard is taught, and deliberately never a dialog <a class="link" href="qfoot.html">page</a></span></li>
 </ul>
 
 <h3 class="k-h2" id="width">Behaviour at width</h3>
 <p class="k-note">Below <b>1280</b>, the system's one point (<a class="link" href="responsive.html">Width</a>), <b>the log variant is not rendered</b>: the scope bar, the rows, the foot and any banner that is not <code>only-narrow</code> all go, and the narrow only line that replaces them takes a margin of <code>--space-4</code>. The queue itself renders at every width. <code>CLAUDE.md</code> gives the phone one scenario, a paged case read and escalated, and answering an auditor is not it. Above the point the column takes whatever the pane does not, and the row's two prose tracks stop growing at 32ch and 36ch rather than spending the width on a line that is scanned.</p>
+<p class="k-note"><b>The <code>--tenant</code> variant is the one place that sentence runs backwards</b>, and it arrived from a measurement. On the four screens of node 7.1 the list held <b>one row of 50px in 844 by 803</b> at 1440, roughly 94% void and the largest single expanse of empty pixels in the product, while the pane beside it was 360 wide and hid <b>354 to 543px</b> of the record the screen is about. Design principle 5 says density is the feature and no whitespace is decorative. So on that variant the pane takes the share and the list takes the rest: at 1440 they resolve to <b>656 and 548</b>, at 1920 to <b>980 and 704</b>, and at 1280, the platform minimum, to <b>656 and 388</b>. Below the point the floor is lifted again, because <code>z45</code> is a block there and 41rem left standing on a 360px phone is 296px of column hanging off the edge of the document.</p>
+<p class="k-note"><b>What the variant did not fix, and the number is here so nobody re-opens it hoping.</b> Widening the pane buys back only <b>12%</b> of its height: its body is stacked blocks of short lines rather than prose that reflows, and <code>--measure</code> caps what is prose at 66ch, so 360 to 900px of pane took the content from 1157 to 1020. The rest of what it hides is content, and the cure for content that does not fit is the scroll it already has.</p>
 
 <h2 class="k-h" id="variants">Variants</h2>
 <div class="k-wrap-x">
@@ -147,6 +149,7 @@
   <tbody>
     <tr><td><b>what the rows are about</b></td><td>base, 36 screens</td><td>The queue: what is waiting on a decision</td></tr>
     <tr><td></td><td><code>--log</code>, 2 screens</td><td><b>The log: what was decided.</b> Same five zones in the same order, so it is a variant and not a third pattern. The row tracks change and the column is not rendered at 360 at all, because the phone has one scenario and answering an auditor is not it</td></tr>
+    <tr><td></td><td><code>--tenant</code>, 3 screens</td><td><b>The queue narrowed to one client, node 7.1.</b> Same five zones again, and three things follow from the single fact that there is one tenant here rather than forty. The <b>tenant cell goes</b>, because the scope bar, the readout and the pane head each name it once already and design principle 1 says a column carrying a constant has not earned its width. The row therefore needs <b>570px rather than 666</b>. And the two halves <b>swap which of them takes the share</b>: everywhere else the list is what she is working and the pane is the context, and here the pane <i>is</i> the client, so the pane reads <code>--pane-w-record</code> and the list takes what is left, never below <code>--list-w-tenant</code></td></tr>
     <tr><td><b>the rows themselves</b></td><td><span class="k-none">not a variant</span></td><td>An <code>empty</code> where the rows go is still this pattern. Four screens do it: nothing waiting, no match for the scope, the queue taken by someone else, and the queue still assembling</td></tr>
   </tbody>
 </table>
@@ -214,6 +217,16 @@
   &hellip;
   &lt;div class="rows rows--log"&gt;&lt;a class="row row--log"&gt;&hellip;&lt;/a&gt;&lt;/div&gt;
   &lt;div class="banner only-narrow"&gt;&hellip;&lt;/div&gt;   &lt;!-- what 360 gets instead --&gt;
+&lt;/section&gt;
+
+&lt;!-- one client: the same five zones, and SIX cells in a row rather than seven --&gt;
+&lt;section class="z4 queue-list queue-list--tenant"&gt;
+  &hellip;
+  &lt;div class="rows"&gt;&lt;a class="row"&gt;
+    &lt;span class="sev"&gt;&hellip;&lt;/span&gt;              &lt;!-- no tenant cell: it is the same on every row --&gt;
+    &lt;span&gt;&hellip;&lt;/span&gt;&lt;span class="concluded"&gt;&hellip;&lt;/span&gt;
+    &lt;span class="cost"&gt;&hellip;&lt;/span&gt;&lt;span class="states"&gt;&hellip;&lt;/span&gt;&lt;span class="age"&gt;&hellip;&lt;/span&gt;
+  &lt;/a&gt;&lt;/div&gt;
 &lt;/section&gt;</div>
 <p class="k-note"><b>A new screen carrying this pattern moves two numbers</b>, and they are hard coded in four places on purpose so that none of them can drift quietly: the counts on this page, on <a class="link" href="patterns.html">Patterns</a>, in the header of <code>design/system/patterns/queue-list.css</code> and in <code>docs/inventory.md</code>. Recount with <code>node design/kit/checks/compose.mjs</code> for the grey number and by counting the class in <code>design/*.html</code> for the coloured one.</p>
 

@@ -509,6 +509,7 @@ Section 7 above said the difference between the two lists is the brief for the r
 | Pattern | File | Page | Host | Its zones | Grey | Colour | Rules moved in |
 |---|---|---|---|---|---|---|---|
 | `queue-list` | `patterns/queue-list.css` | `queue-list.html` | `z4` | scopebar, readout, banner, rows, qfoot | 38 | 29 | 2, from `z4.css` |
+| &nbsp;&nbsp;`--tenant` | the same file | the same page | `z4` | the same five | &ndash; | 3 | 3, written here |
 | `shift-brief` | `patterns/shift-brief.css` | `shift-brief.html` | `z4` | readout, banner, brief, qfoot | 7 | 7 | 2, from `z4.css` |
 | `case-pane` | `patterns/case-pane.css` | `case-pane.html` | `z5` | pane-head, pane-body, pane-foot | 38 | 29 | 9, from `z5.css` and `z45.css` |
 | `fleet` | `patterns/fleet.css` | `fleet.html` | `z5` | pane-head, frow, fleet-more | 10 | 10 | 1, from `z5.css` |
@@ -518,6 +519,8 @@ Section 7 above said the difference between the two lists is the brief for the r
 **Two classes were renamed with their rules.** `.z4--log` became `.queue-list--log` on two coloured screens and `.z4--shift` became `.shift-brief` on seven: both named the host rather than the thing they were filling it with. `wireframes/` keeps the old names, because it is frozen, and the coverage check carries the map.
 
 **Two things tried to move in and were sent back, and an audit against these files' own headers is what caught both.** `.pane-head--standalone h1` turned out to be a rule stage 08 had written in TWO places, the component's own file and `z5.css`, with the second winning on specificity so the first looked like it worked; the component keeps it and the duplicate is gone. `.sa-fresh` and `.sa-route` carry a line, a family and an ink, so moving them would have broken the one rule that makes this a level rather than a second folder of components; they stayed in `places.css`.
+
+**One variant arrived after this table was closed, and it is the only row with a dash under Grey.** `queue-list--tenant` has no grey original because node 7.1 was never drawn at stage 04: it is one of the six nodes `CLAUDE.md` names as work outside the rollout, and it arrived straight into colour. Its three rules came from nowhere else, which is the second thing that makes it unlike every other row here, and the reason they are on this level rather than in `z4.css` is the same mechanical test the paragraph above states: two of the three name a component the file does not host, and all three are conditioned on which filling the column is carrying. What it forbids on a screen is what it makes possible in the system: a width in a screen file, which is what a designer reaches for when a split is wrong on one node.
 
 **`fleet.css` has one rule and that is the finding rather than the shortfall.** The composition is carried entirely by its parts. A pattern that needs no arrangement is a pattern whose components were drawn to fit each other, which is the outcome this level is for.
 

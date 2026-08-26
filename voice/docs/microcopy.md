@@ -1077,6 +1077,20 @@ Nothing was fanned out before this table existed. A global is a string on five s
 
 **One string was written and taken out again.** The pane head of `tenant-moved-down` carried a `state` chip reading `moved down`. 0.8 section 6 closes the case chip set at six values and section 6b closes the entry chip set at eight, and a chip about a **tenant** is neither: it would have been a third undeclared taxonomy inside a shared component, which is the exact defect 6b exists to stop. The fact moved into the pane head's `sub`, where it is a sentence rather than a value in a closed list.
 
+**Six strings moved when the list stopped being the queue filtered to a client and became the client's cases**, and the two rows above that they supersede are named rather than edited, because a table that is rewritten in place stops being a record of what changed. `1 waiting` + `at <tenant>, and 36 ruled in the 30 days the record covers` and `1 waiting at this tenant` each stood on all four pages; both now hold on `tenant-stale` only, which is the one page of the four this pass did not write. The cause is structural rather than editorial: node 7.1 promises one client's **cases**, plural, and the `Waiting on a decision` chip was what kept the list at the one case waiting. What replaced it had to be a window in which the list is **exhaustive** rather than truncated, because the fixture canon holds one case per tenant and a list claiming 37 while drawing 1 is a worse claim than the one it replaced.
+
+| String | Page | Zone | Rule |
+|---|---|---|---|
+| `This shift &times;` | `tenant`, `tenant-moved-down`, `tenant-no-record` | Z4 scope bar | It replaces `Waiting on a decision &times;`, which is the string that was contradicting the node. A chip names what you are looking at, and the count under it is only true within it, so the window on the chip is the window the readout and the foot both count in. It is the log's own `This shift and the one before` one shift shorter, because a tenant list is read while the shift is being worked rather than afterwards |
+| `1 waiting and 1 ruled` + `at Meridian Health this shift, of 36 ruled in the 30 days the record covers` | `tenant-moved-down` | Z4 readout | Principle 3, twice: the readout counts what the list holds and then names the window the record beside it covers, because **two windows stand in one line on purpose** and each has to say which it is. `of 36` rather than `and 36`, because the one ruled here is one of the thirty six rather than beside them |
+| `1 waiting and none ruled` + `at Larkfield Logistics this shift, of 36 ruled in the 30 days the record covers` | `tenant` | Z4 readout | The same string with the second count at zero, which is Principle 4 doing the harder half: it says what there is none of rather than dropping the clause. **It read `and nothing else ruled here since 19:00` first and that was the wrong instinct**: it was true, it wrapped the readout to two lines at 656, and it gave one node two shapes for one claim. `19:00` is available from 2.1 and buys nothing the chip above it does not already say |
+| `1 at this tenant this shift, and it is waiting` | `tenant`, `tenant-no-record` | Z4 qfoot | Principle 3. It says what is **drawn**, which is what the queue's `7 of 18 shown` says in the same slot, and the tail is what the row's own state would otherwise have to be read to learn |
+| `2 at this tenant this shift, 1 waiting and 1 ruled` | `tenant-moved-down` | Z4 qfoot | The same, and the split is the point: a count of two that does not say two of what is a count of rows rather than a count of cases |
+| `order: unrecorded, waiting on you, severity, then what was ruled, newest first` | `tenant`, `tenant-moved-down`, `tenant-no-record` | Z4 qfoot | The queue's own order line with its tail extended, because the list now holds ruled cases under the waiting ones and an ordering rule that stops before the second group is not the ordering rule. `severity, age` became `severity, then what was ruled, newest first`: age still orders inside the first group and the sentence spends its length on the boundary instead, which is the thing a reader cannot infer |
+| `Rejected, then amended by D. Okonkwo` + `both entries stand` | `tenant-moved-down` | Z4 row, the verdict cell | Taken from `shift.html`, which already says `Rejected, then amended 34m later. Both entries stand`. One fact, one wording. The elapsed `34m later` is dropped because the row's own age column carries the time and 0.8 section 4 rule 1 keeps a duration out of a column that is not the time column |
+
+**And one cell in that row is a dash rather than a number, which is a rule and not an omission.** The `To check` column is 0.8 section 5's count of correlated signals, and it is **her** cost of checking. A case that has been ruled has been checked, and the canon holds no signal count for that case in any file, so the cell renders `&ndash;` exactly as the log's `Reason` column does on an entry that has none. Inventing one to fill the column is what `reading-conventions.md` section 7 forbids in as many words.
+
 ### 8e. One string new at stage 13, and it is the only one the whole change needed
 
 **The expansion under an evidence claim became a real disclosure, and a disclosure needs a head.** It had shipped as a box that was always open with a chevron drawn on it, so the depth design principle 2 promises one key away was being charged to every read instead. Closing it is what the principle asks for, and a closed box has to say what is inside it before you spend the key on it.
@@ -1228,3 +1242,96 @@ None of these is a text defect that step 7 could have fixed by writing a better 
 **Rules named and not written.** The trailing status slot on a line-link, where one column mixes destinations, absences, freshness and progress. Whether a footer hint may state an attempt number. Whether `.prov` has a second sense on the door, where there is nothing to count.
 
 **Two exemplars that may be wrong.** `voice.md` quotes two strings as models that contain a clause the widened Never §6 would now cut. Either the exemplars change or the rule is narrower than it reads. An agent found this and would not decide it alone, which is correct: **a rule document that quotes a violation as a model teaches the violation.**
+
+---
+
+## 10. After stage 05: the Norsk Marine fixture, corrected on the owner's ruling
+
+**This section is the only one written after stage 05.** Sections 3 and 4 are the inventory as it stood before stage 05 and are left exactly as they were, including the two rows this change makes stale: §3 line `Z4 list | High Norsk Marine Ransomware precursor on FS-02 Real, contained 14 signals acted 52m`, and §4's `log` family. A snapshot that is edited afterwards stops being a snapshot, and `voice/voice.html` mirrors those two sections, so it is left alone with them.
+
+### What was wrong
+
+The fleet gives Norsk Marine a ceiling of `Investigate`, the lowest rung: look only. The queue row for the same tenant read `Real, contained` and wore the state chip `acted`, which §6 of `ia/docs/pages/reading-conventions.md` defines as *"Clerk already did something under its latitude"*. The product's own fixtures therefore said Clerk contained a host at a tenant where it may only look, which contradicts the only surviving differentiator.
+
+**The ruling: Norsk Marine's ceiling stays `Investigate`, and what changes is what Clerk did.** §7 of `reading-conventions.md` makes Norsk the tenant where a stale reading is normal, assets offline for days at a time, and a tenant whose picture is routinely out of date is precisely the tenant where earned autonomy should stay low. Its record reads 18 of 20, the lowest of any tenant that has one, against 34 of 36 and 27 of 29 at the tenants that do hold `Contain endpoint`. So: Clerk investigated, proposed containment, and containment sat above its latitude and waited for a person.
+
+The pattern was already in the product and is followed rather than invented. Larkfield Logistics holds `Contain endpoint` and its case reads `Real, contain identity` with `above latitude here` beneath it, because containing an identity is above an endpoint ceiling. Aubrey Dental Group holds `Investigate` and reads the same way with an empty state cell.
+
+### What changed, and under which rule
+
+| # | Was | Became | Rule | Files |
+|---|---|---|---|---|
+| 21 | `Real, contained`, the Norsk Marine queue row verdict | **`Real, contain endpoint`** with **`above latitude here`** beneath it | The fixture contradicted the fleet ceiling two hundred pixels to its right. The `contain endpoint` rung and the second line are both taken from the Larkfield and Aubrey rows already on the same screen | 30 |
+| 22 | `acted`, the Norsk Marine queue row state chip | *cut*, and the state cell renders empty | `acted` means Clerk acted under its latitude. At an `Investigate` ceiling there is no action for it to name. Aubrey Dental Group, also at `Investigate` and also above latitude, already renders the cell empty | 30 |
+| 23 | `Contained by Clerk, inside this tenant's latitude` with `acted alone`, Norsk Marine, 2026-08-22T03:48:20Z, on `log` | *row removed* | The same false claim in the record, and see the ruling below | 1 |
+| 24 | `8 of 34 shown, newest first` | **`7 of 34 shown, newest first`** | Follows row 23 | 1 |
+
+### The ruling on the log entry, and why removal rather than correction
+
+**Removed.** Four reasons, and the first is the substantive one.
+
+- **After the correction there is no decision at Norsk Marine to record.** The case is still waiting on a person, 52m old, in the queue. The log records decisions, and a verdict that Clerk filed and nobody has ruled on is not one. Correcting the row's wording would have kept an entry for a decision that has not been made.
+- **The row was not in the corpus.** `wireframes/log.html` draws seven rows and says `7 of 34 shown`. The row was added to the colour after the freeze, which is where the contradiction entered.
+- **It desynced the screen from its own selected state.** The row linked to `log-selected.html`, which draws seven rows and says `7 of 34 shown, one selected`, and does not contain it. Clicking it went to a list it was not in.
+- **Correcting it in place would have needed a matching row invented on `log-selected` and a pane to go with it**, which is a new fixture rather than a repaired one.
+
+The headline `34 entries this shift and the one before, across 6 of 40 tenants` is unchanged and stays true: it counts all 34 entries, not the seven shown, and `wireframes/log.html` carries the same sentence over seven rows.
+
+### Two surfaces carrying the claim that were checked and left alone
+
+- **`log-snapshot-gone`**, whose June 2026 Norsk row reads `Contained by Clerk, inside this tenant's latitude` with `acted alone` at `2026-06-02T05:09:57Z`. It is history, not a contradiction. `entry-gone` records Norsk's retained latitude on 2026-06-08 with a ceiling of **`Contain endpoint`**, and `tenant-stale` bounds its `It has not moved` to the window that reading covers, which begins 2026-06-23. The rope was held in June and has since been withdrawn, which the product models on `tenant-moved-down`. Rewriting the row would have invented history to fix something that is not broken.
+- **`shift`, `shift-sealed`, `shift-outgoing`, `shift-unsealed` and `shift-close-failed`**, whose `Contained by Clerk, inside this tenant's latitude` is Halcyon Care, which holds `Contain endpoint`. True as written.
+
+### Where the defect came from
+
+`ia/case-queue.html`, the stage 03b mockup the wireframes were drawn from, gives this exact row `Real, contain identity` with `above latitude here` and **no state chip**, and gives `CLERK ACTED` to Larkfield Logistics instead. The two were swapped at stage 04 and the swap was carried forward by every stage after it. The correction restores the structure the IA layer had drawn, at the rung the ruling sets.
+
+### What this cost, and what found it
+
+32 screen files carried the row. It survived five stages of critique on five instruments, and the first two readers to find it were both agents with clean context. **The instrument that would have caught it does not exist**: every check in `design/kit/checks/` measures what renders against the rules of the system, and none of them reads a fixture on one half of a screen against a fixture on the other half. That is written into `design/kit/docs/backlog.md` as the gap rather than left as a lesson.
+
+---
+
+## 11. After stage 05: the Aubrey Dental Group fixture, corrected on the owner's ruling
+
+**Written after stage 05, for the same reason section 10 was, and under the same limit.** Sections 3 and 4 are the inventory as it stood before stage 05 and are not edited, including the rows this change makes stale: §3's `log` family and §4's `shift` family both quote the removed row. A snapshot that is edited afterwards stops being a snapshot, and `voice/voice.html` mirrors those two sections.
+
+### What was wrong
+
+§7 of `ia/docs/pages/reading-conventions.md` makes Aubrey Dental Group the small, quiet tenant, and the stage 04 fixture addendum gives it `C-4482` because 4.8 needs a tenant that **cannot** have a baseline. Three surfaces hold that line: `tenant-no-record` says `nothing ruled yet at this tenant` and `no verdict of Clerk's has been ruled on here`, and the fleet row on every queue screen reads `no rulings yet` against a ceiling of `Investigate` granted `at onboarding, on no rulings yet`.
+
+**Seven screens gave the tenant a record anyway.** `log` and `log-selected` drew an entry `Accepted by D. Okonkwo` at `2026-08-21T21:05:33Z`, and the five `shift` screens drew a handover pointer reporting the same case as accepted. A tenant whose whole job in the canon is to be the one with nothing to compare against cannot also hold a ruling, and the readout beside the fleet row says so in as many words.
+
+**The ruling: the canon wins and the rows go.** Aubrey's latitude stands on `no rulings yet`, and that phrase is the tenant's role rather than a passing state. Correcting the entry in place was never available: any wording that keeps an entry keeps a ruling, and one ruling is the whole distance between `no rulings yet` and a record.
+
+### What changed, and under which rule
+
+| # | Was | Became | Rule | Files |
+|---|---|---|---|---|
+| 25 | `Medium` / `Aubrey Dental Group` / `Sign in from an unseen device` / `Accepted by D. Okonkwo` / `accepted` / `2026-08-21T21:05:33Z`, one log row | *row removed* | The entry contradicted the fleet row two hundred pixels to its right on every queue screen, and the tenant record at 7.1 in as many words. See the ruling above on why removal rather than correction | 2 |
+| 26 | `7 of 34 shown, newest first` and `7 of 34 shown, one selected` | **`6 of 34 shown, newest first`** and **`6 of 34 shown, one selected`** | Follows row 25. The count says what is **drawn**, and six rows render on each screen after it | 2 |
+| 27 | `Aubrey Dental Group` / `Sign in from an unseen device. Accepted, and this tenant still has no baseline to compare against` / `decided` / `10h` on `shift` and `shift-unsealed`, `8h` on `shift-sealed`, `shift-outgoing` and `shift-close-failed`, one handover pointer | *row removed* | The same ruling in the same tenant's name. The sentence was the sharper form of the contradiction, because it asserted the acceptance and the missing baseline in one line | 5 |
+| 28 | `Six moved, and` | **`Five moved, and`** | Follows row 27. Five rows render under `What moved this shift` after it. `shift-unsealed`, `shift-sealed` and `shift-close-failed` carry a different sentence in that slot and never named the count | 2 |
+| 29 | `6 pointers, and every one of them opens a case`, `6 pointers from the record, and no notes`, `6 pointers, frozen at the seal`, `6 pointers so far, and the count is still moving`, `6 pointers, frozen at the attempt. The brief is still open` | the same five with **`5 pointers`** | Follows row 27. Counted from what renders on each screen rather than from the sentence next to it, because four of the five shapes stand on a screen that has no `Five moved` line to be wrong with | 5 |
+
+### What was checked and left standing
+
+- **`34 entries this shift and the one before, across 6 of 40 tenants`, and `Entries 34` in the pane.** Unchanged, on the ruling section 10 already took: the headline counts every entry in the window and the foot counts what is drawn, so only the foot follows a row out. The tenant count also holds: `opened`, `filed` and `acted alone` are entry chips under §6b, `C-4482` was opened and filed inside this window, and the log's own scope line says every decision on every tenant. Aubrey keeps entries in the log; what it does not keep is a **ruling**.
+- **`Open the log at this tenant`** on `tenant-no-record`, for the same reason. The destination still has something to answer with.
+- **The queue row and the case.** `C-4482` stays exactly as drawn on 29 screens: `Real, contain identity`, `above latitude here`, an empty state cell, `6m`. It is the case waiting at a tenant with no record, which is what 4.8 exists to draw.
+
+### One case or two, and it is two, which is worse
+
+The removed log entry and the live queue row share a tenant and a description. They are **not** one case drawn twice, and the arithmetic says so rather than an opinion: the queue's age column is the age of the **case**, so `6m` opens `C-4482` at about `04:34` on 2026-08-22 against that screen's reading, while the entry accepted a case at `21:05:33Z` the evening before. A ruling seven hours before the case existed is not the same case. So the corpus held **two** cases at the quiet tenant, one waiting and one ruled, wearing one description, and the second is the one the canon forbids.
+
+**The same shape survives at Bramber Retail and is not fixed here**, because no ruling covers it: `Mass mailbox rule creation` renders as a waiting queue row at `41m` and as `Accepted by R. Idrissi: benign, new admin onboarding` at `2026-08-22T02:17:30Z`, which is again a ruling before the case opened. Halcyon Care's pair, by contrast, holds: its queue row is `2h` old and Clerk's `acted alone` entry is stamped `04:02:55Z`, which is inside the life of that case rather than before it.
+
+### The two elapsed values were both right, and the screen they disagree about is not the log
+
+`10h` and `8h` are one event read from two clocks, and each is correct on its own screen. `shift-sealed` fixes its reading at about `05:12Z` (the Meridian amendment at `2026-08-21T23:12:41Z` renders as `6h`), and `shift` fixes its own at about `07:12Z` (the same amendment renders as `8h`, which is the figure the comment in `tenant-moved-down` already reconciles). Against `21:05:33Z` those clocks give `8h07m` and `10h07m`. **Neither number was the defect**, and the removal ends the question rather than settling it.
+
+**What the same arithmetic does find is a defect nobody has ruled on.** At `07:12Z` the shift `19:00 to 07:00` ended twelve minutes ago, and `shift` still reads `R. Idrissi coming on` with her marked `is-now` in the rota. The five events it reports are also the five `shift-outgoing` reports as that same shift's own, so the brief an analyst reads **on arriving** is filled with what happened after she arrived. That is one fixture question rather than five strings, and it belongs to whoever owns 2.1.
+
+### What this cost, and what found it
+
+Seven screen files carried the row and five more carried a count that followed it. It survived five stages of critique on five instruments, and the reader who found it was a person with the fixture canon open. **Unlike the Norsk Marine row, this one is in the frozen corpus**: `wireframes/log.html` draws it over `7 of 34 shown` and `wireframes/shift.html` draws it over `Six moved` and `6 pointers`. `wireframes/` is frozen and is not synced, so the divergence is deliberate and this section is where it is recorded. The instrument that would have caught it is the one section 10 already named as missing, and it is still missing: nothing in `design/kit/checks/` reads a fixture on one half of a screen against a fixture on the other half.

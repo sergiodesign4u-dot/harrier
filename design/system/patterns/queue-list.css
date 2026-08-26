@@ -16,10 +16,33 @@
    and the rows and grows a brief. Zones disappear, so by the anatomy rule of
    stage 08 it is a different thing wearing the same host.
 
-   -- one variant, and it is the log ------------------------------------------
+   -- two variants, and both change what the rows are about --------------------
    `--log` keeps all five zones and changes what the rows are about: the queue is
    what is waiting, the log is what was decided. Same zones in the same order, so
    this is a variant and not a third pattern.
+
+   `--tenant` is the queue narrowed to ONE client, node 7.1, and it arrived from a
+   measurement rather than from a wish. At 1440 the four tenant screens gave the
+   list 844 by 803px to hold ONE row of 50, roughly 94% void and the largest single
+   expanse of empty pixels in the product, while the pane beside it was 360 wide and
+   hid 354 to 543px of the record the screen is about. Design principle 5 says
+   density is the feature and no whitespace is decorative. The frame had been copied
+   from `queue.html`, where the split is reasoned for eighteen rows beside a column
+   of context; on 7.1 the pane IS the subject and the list is one client's cases.
+
+   THREE THINGS FOLLOW FROM THAT ONE FACT, and they are three because the fact is
+   one. The tenant cell goes, because it repeats a constant the scope bar, the
+   readout and the pane head each already say once. The row therefore needs 570px
+   rather than 666. And the two halves swap which of them takes the share: the pane
+   reads `--pane-w-record` and the list takes what is left, never below
+   `--list-w-tenant`.
+
+   WHAT THIS VARIANT DID NOT FIX, and the number is here so nobody re-opens it
+   hoping. Widening the pane buys back only 12% of its height, because its body is
+   stacked blocks of short lines rather than prose that reflows, and `--measure`
+   caps what is prose at 66ch: 360 to 900px of pane took the content from 1157 to
+   1020. The rest of what it hides is content, and the cure for content that does
+   not fit is a scroll, which it has.
 
    WHAT MOVED IN HERE. One block out of z4.css, and it had the shape this whole
    level exists to collect: a selector written in one component that names four
@@ -38,13 +61,35 @@
 
    AND THE BASE CLASS DECLARES NOTHING, which is worth saying because it is the
    only one of the four patterns of which that is true. `.queue-list` is worn on 29
-   screens and every rule this file owns is conditioned on the `--log` filling, so
-   the base is a NAME rather than a declaration: what it would have declared is the
+   screens and every rule this file owns is conditioned on a filling, `--log` or
+   `--tenant`, so the base is a NAME rather than a declaration: what it would have declared is the
    zone's, and it is already in `z4.css`. It is kept for two readers. The markup
    reads base plus variant everywhere else in the system, and `compose.mjs` counts
    the composition by this name. Found at stage 12 by `screens.mjs`, which cannot
    tell a name that draws nothing from a typo, and is a declared exemption there.
    ============================================================================ */
+
+/* -- the queue narrowed to one client, node 7.1 --------------------------------
+   ONE OF THESE THREE RULES NAMES A COMPONENT THIS FILE DOES NOT HOST, and that is
+   what puts all three on this level rather than in `z4.css`: the pane's share is
+   decided by which filling the COLUMN is carrying, and neither box can see the
+   other's filling from inside itself. `case-pane.css` reaches the other way across
+   the same split, for the same reason. The other two would have been at home in
+   `z4.css` and `rows.css` on their own; they are here because splitting one
+   decision across three files is how the next edit lands on two of them.
+
+   THE SHARE IS ON THE PANE AND THE FLOOR IS ON THE LIST, which is the only ordering
+   of the two that resolves at every width. The list grows from a zero basis and the
+   pane shrinks from `--pane-w-record`, so at 1280 the list hits its floor first and
+   the pane gives up what it has to; from about 1500 up the pane sits at its share
+   and the list takes everything above it. Written the other way round, with the
+   list fixed, a 1920 desk left 400px of nothing between them. */
+.queue-list--tenant{ flex: 1 1 0; min-width: var(--list-w-tenant) }
+.z45:has(> .queue-list--tenant) > .z5{ flex: 0 1 var(--pane-w-record) }
+/* SIX TRACKS, AND THE TENANT IS THE ONE THAT LEFT. The token carries the argument.
+   The row is a `subgrid` of the list by `rows.css`, so the list is the one place the
+   count can change and every row follows it. */
+.queue-list--tenant .rows{ grid-template-columns: var(--row-tracks-tenant) }
 
 @media (max-width:1279.98px){
   /* THE LOG IS NOT RENDERED AT 360, and the narrowed page says so instead of
@@ -56,4 +101,11 @@
   .queue-list--log .qfoot,
   .queue-list--log .banner:not(.only-narrow){ display: none }
   .queue-list--log .only-narrow{ margin: var(--space-4) }
+  /* AND THE FLOOR HAS TO BE LIFTED HERE OR IT IS THE DEFECT IT WAS PUT THERE TO
+     STOP. Below the point `z45` is a block, so the flex share stops meaning
+     anything and `min-width` does not: 41rem left on a 360px phone is 296px of the
+     column hanging off the right edge of the document. A rule that sets a width has
+     to carry the whole axis, which is the same lesson `case-pane.css` records one
+     file away about `display`. */
+  .queue-list--tenant{ min-width: 0 }
 }
