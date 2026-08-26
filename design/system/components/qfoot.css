@@ -2,7 +2,8 @@
    ----------------------------------------------------------------------------
    READS. Ink: --text-secondary. Line: --rule-hair, --rule-control. Geometry:
    --font-mono, --size-xs, --radius-ui, --space-1, --space-2, --space-4.
-   CONTAINS. what the product writes as `kbd`, and that is an open row.
+   CONTAINS. `key`, 3 per screen, and since 2026-08-26 that is the atom rather
+   than a second drawing of it.
 
    PAGE. design/kit/qfoot.html
    STANDS ON. 45 instances across 45 screens: one under every queue.
@@ -13,13 +14,13 @@
    out she did not have to. It is the quietest strip on the screen and it is
    deliberately never a dialog.
    ----------------------------------------------------------------------------
-   AN OPEN ROW SITS INSIDE THIS COMPONENT, and it is named rather than folded.
-   The keys in here are `kbd` elements taking secondary ink and a
-   --rule-control border, while `key` everywhere else is a span taking the host's
-   colour through currentColor. Same job, two forms. Step 2 did not rule on it
-   and this file does not collapse it silently: it goes to the reconciliation as
-   a control drawing the same thing past the system. The `key` page carries the
-   same note.
+   THE OPEN ROW THAT SAT HERE IS CLOSED, and what closed it was a count. The keys
+   in here were `kbd` elements taking secondary ink and a --rule-control border,
+   while `key` everywhere else was a span taking the host's colour through
+   currentColor. Same job, two forms, and this file refused to collapse it
+   silently for five stages because each looked right on its own screen. 147
+   against 160 is what settled it. The drawing is `key`'s now and the element is
+   `kbd` everywhere, which is what the queue's foot had right all along.
    ---------------------------------------------------------------------------- */
 
 .qfoot{
@@ -31,15 +32,6 @@
   border-top: var(--rule-hair);
   font-family: var(--font-mono);
   font-size: var(--size-xs);
-  color: var(--text-secondary);
-}
-
-/* the second form, carried unchanged until step 6 rules on it */
-.qfoot kbd{
-  font: inherit;
-  border: var(--rule-control);
-  border-radius: var(--radius-ui);
-  padding: 0 var(--space-1);
   color: var(--text-secondary);
 }
 

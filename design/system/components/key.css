@@ -5,10 +5,23 @@
    role, and that is the component rather than an omission.
 
    PAGE. design/kit/key.html
-   STANDS ON. 161 in the markup across 34 screens. At 1440 a browser renders 160
-   of them and the one it does not is a viewport twin. By ancestor: inside `.btn`
-   88, inside `.opt` 45, in the keyboard map's own key cell 22, and 5 standing
+   STANDS ON. 307 in the markup across 51 screens, since the second form was
+   folded in on 2026-08-26. 160 of them were already this component; the other
+   147 are the three keys under every queue, which the product wrote as a bare
+   `kbd` styled by `qfoot.css`. By ancestor: inside `.btn` 88, inside `.opt` 45,
+   in the queue's foot 147, in the keyboard map's own key cell 22, and 5 standing
    alone in prose. Six wear the `--none` variant.
+
+   THE ELEMENT IS `kbd`, AND IT IS PART OF THE COMPONENT RATHER THAN A DETAIL OF
+   THE MARKUP. `kbd` is the element for the name of a key somebody presses, which
+   is exactly what this draws, and the queue's foot had it right while the other
+   154 were spans. The collapse therefore ran BOTH ways: the foot gave up its
+   private drawing and the rest of the product took its element.
+
+   AND `--none` IS THE ONE THAT STAYS A SPAN. `nowhere yet` is not something you
+   can type. Wrapping it in `kbd` would say there is a key to press, which is the
+   exact opposite of what the variant exists to say, so the element carries the
+   distinction rather than decorating it.
 
    THE FIRST CORRECTION OF THIS LINE WAS ALSO WRONG, and the way it was wrong is
    worth more than the number: it counted 33 "on the keyboard map", which
@@ -24,7 +37,23 @@
    NOT INTERACTIVE. It is a picture of a key, never a control. The thing you press
    it on is the control, and the key has no states.
    ----------------------------------------------------------------------------
-   ONE ATOM, ONE DECLARATION. kit.css declared it twice with different borders:
+   ONE ATOM, ONE DECLARATION, AND IT TOOK TWO PASSES. kit.css declared it twice
+   with different borders, and stage 08 folded those two together; what it did
+   not touch was the queue's foot, which drew the same control past the system
+   with a fixed `--rule-control` line and a fixed `--text-secondary` ink.
+   `qfoot.css` named that an open row and sent it to reconciliation, and it stayed
+   open through five stages because both forms looked right on their own screen.
+   What closed it was counting: 147 against 160. THE ONE THING THAT CHANGES ON A
+   SCREEN is the border in the foot, from the fixed rule to the ink the strip
+   already carries, which is lighter on that ground rather than dimmer and is what
+   this component has always meant: the key belongs to whatever it stands in.
+
+   THE ANSWER WAS ON THE FROZEN PAGE THE WHOLE TIME. `design/kit/kit.html`, the
+   stage 07 smoke test that nothing is allowed to edit, writes `kbd class="key"`
+   and has since the day it was written.
+
+   The older half of this note, for the record: kit.css declared it twice with
+   different borders:
    currentColor inside .btn, --color-rule inside .opt. The first is the component
    and the second was a context patch, so on a filled button the key belonged to
    the button and inside an option it carried a fixed line that belonged to

@@ -1644,3 +1644,49 @@ ruling, so it stays an open row and it stays the owner's.
 State: 316 instances across the three levels, 233 of them atoms. **1479 runs, 0 off in width, 0
 off in position, 0 missing; grey rebuilt on the same compiler, 5993 runs, 0 placed more than 2px
 off.** 45 paint overrides, every one where an atom really takes its host's ink.
+
+## 2026-08-26 · The second keycap is folded in, and the row had already been closed the other way
+
+**THE OWNER RULED, AND THE FIRST THING TO SAY IS THAT THIS REVERSES A DECISION RATHER THAN
+ANSWERING AN OPEN QUESTION.** The row was not open. Stage 12 closed it in `backlog.md` and in
+`rollout.md`, as two jobs: `keyboard` uses `.key` throughout because every key on it is a key you
+are being taught, while the foot of the queue holds a key you could press right now in the list
+under your hand. That is a real distinction and it is why the split survived five stages.
+
+**It does not survive its own file.** `qfoot.css` opens by saying the foot of the queue **is where
+the keyboard is taught**: it is where the analyst who has been clicking for a week finds out she
+did not have to. So the line between teaching and pressing was drawn through the middle of one
+job, and both forms were on the same side of it. The old row is kept and marked reversed rather
+than deleted, in both places, because a register that quietly changes its own past ruling is worse
+than one that changes its mind in writing.
+
+**ONE COMPONENT, 307 OF THEM, AND THE COLLAPSE RAN BOTH WAYS.** The drawing is `key`'s: no colour
+role, the border out of `currentColor`, `nowrap` on a name like `Ctrl + Home`. The ELEMENT is the
+foot's: `kbd`, which is the element for the name of a key somebody presses, and 154 spans became
+one. **The one exception is `--none`**, which stays a span, because `nowhere yet` is not something
+you can type and a `kbd` around it would say there is a key to press, which is the exact opposite
+of what that variant exists to say.
+
+**AND THE ANSWER WAS SITTING ON THE FROZEN PAGE THE WHOLE TIME.** `design/kit/kit.html`, the stage
+07 smoke test nothing is allowed to edit, writes `kbd class="key"` and has since the day it was
+written. The product diverged from its own smoke test and the test went on passing, because what
+it tests is that the system renders, not that the product uses it.
+
+**ONE THING CHANGES ON A SCREEN, AND IT IS THE ONE WORTH CHANGING.** The keycap border in the
+queue's foot goes from a fixed `--rule-control` to the ink the strip already carries: **lighter on
+that ground rather than dimmer**, so the box stops being quieter than the word inside it. Every
+other measure is identical, geometry included, 16.63x15 and 43.02x15 before and after.
+
+**The estimate in the old row was the corpus of its day.** It said folding this changes 21
+renderings on 7 screens, which was the coloured sample at stage 09. It landed on **147 on 49**.
+
+State: `key` 307 across 51 screens, `.qfoot kbd` deleted. Contrast 0 failures over the product and
+over the stand, 0 page errors, 0 horizontal overflow at 1440 and 360; 13 usage rules 0 broken over
+132 renderings; geometry 0 unexplained; icons 0 differences; the glyph census returns the arrows
+as `kbd.key` and nothing that is an icon; links 0 failures. In Figma the foot's three keys are now
+instances of the atom, `kind=Arrow`, `kind=Arrow`, `kind=Named`, and the library measures 1479
+runs, 0 off in width, 0 off in position, 0 missing.
+
+**`wireframes/` keeps both forms**, and that is a stage boundary rather than a defect: the grey
+folder has no component system to fold anything into, and its two rules are the state stage 04
+left. It is named here so the next reader does not take the difference for drift.

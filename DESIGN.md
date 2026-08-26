@@ -53,7 +53,7 @@ Three files became one. `design/_theme.css` arrived by `git mv`, its `:root` byt
 | `--color-sev-high` | `#d9704f` | severity, high | derived from the failure hue, user decision at 06 step 5 |
 | `--color-sev-medium` | `#9d9182` | severity, medium | derived, warm neutral |
 | `--color-sev-low` | `#828e96` | severity, low | derived, cool slate |
-| `--color-edge` | `#7b7260` | the boundary of a control: chip, button, `kbd` | derived, the rule's hue raised until it clears 3:1 |
+| `--color-edge` | `#7b7260` | the boundary of a control: chip, button, field. Not the key: `key` folded the second form in on 2026-08-26 and draws its own boundary out of `currentColor` | derived, the rule's hue raised until it clears 3:1 |
 | `--color-hairline` | `#232219` | the line between rows | derived from the ground |
 
 ### 2.1 The remap, which is how the grey wireframe became the product
@@ -141,7 +141,7 @@ Origin: stage 04, `wireframes/_wf.css`. Nothing at stage 06 or 07 has added a st
 | `--list-w-tenant` / `--pane-w-record` | `41rem` and `44rem` | node 7.1, and the pair is one decision: on that node the pane is the subject and the list is one client's cases, so the pane takes the share and the list takes the rest. Both floors are measured rather than chosen, and the numbers are in `design/system/tokens.css` beside them |
 | `--line` | `1px solid var(--color-hairline)` | separators |
 | `--line-ink` | `1px solid var(--color-rule)` | panel edges |
-| control boundary | `1px solid var(--color-edge)` | chip, button, `kbd`. WCAG 1.4.11 |
+| control boundary | `1px solid var(--color-edge)` | chip, button, field. WCAG 1.4.11 |
 | `--focus` | `2px solid var(--color-accent)`, offset 1px | |
 
 **There is no shadow and no blur anywhere in the interface.** Attribute A4, depth by tone rather than by blur. The only two `box-shadow` declarations in the product are `inset 3px 0` edge markers on a selected row, which draw a line rather than a depth. Every real shadow in the brand lives on the physical objects of the brandbook plate.

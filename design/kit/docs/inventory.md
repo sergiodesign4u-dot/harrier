@@ -32,7 +32,7 @@ Stage 07 step 2. Read **out of all 62 wireframe screens plus `wireframes/_nav.js
 | Component | Uses | Pages | Variants | Note |
 |---|---|---|---|---|
 | `btn` | 157 | 57 | `--primary`, `--quiet`, `[disabled]` | the emphasis axis, section 5 |
-| `key` | 152 | 34 | inside `btn`, inside `opt` | the keyboard letter on a control. `.key:empty` collapses |
+| `key` | 307 | 51 | inside `btn`, inside `opt`, in `qfoot` | the keyboard letter on a control, on a `kbd` element. `.key:empty` collapses. 2026-08-26: absorbed `.qfoot kbd`, the second form, 147 of them |
 | `chip` | 316 | 44 | `--solid`, `--ghost`, `--state` | `--state` is **not interactive**: `cursor:default` |
 | `bars` | 225 | 34 | 3 levels, `on` / off | severity, and the colour ramp of stage 06 hangs on it |
 | `src` | 131 | 24 | | the source behind an evidence line. The control census counts 118 of them as `<a>`; the other 13 are not links |

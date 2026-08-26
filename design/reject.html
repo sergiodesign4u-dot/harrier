@@ -101,8 +101,8 @@
 
       <p class="qfoot">
         <span>7 of 18 shown, one selected</span>
-        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
-        <span class="only-desk"><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span class="only-desk"><kbd class="key">&uarr;</kbd> <kbd class="key">&darr;</kbd> read, the pane follows</span>
+        <span class="only-desk"><kbd class="key">Enter</kbd> decides, focus moves into the pane</span>
         <span>order: unrecorded, waiting on you, severity, age</span>
       </p>
     </section>
@@ -155,8 +155,8 @@
         <p class="stamp">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
       </div>
       <div class="pane-foot">
-        <a class="btn btn--primary only-desk" href="queue-decided.html">Accept <span class="key">a</span></a>
-        <a class="btn btn--primary only-narrow" href="escalate.html">Escalate <span class="key">e</span></a>
+        <a class="btn btn--primary only-desk" href="queue-decided.html">Accept <kbd class="key">a</kbd></a>
+        <a class="btn btn--primary only-narrow" href="escalate.html">Escalate <kbd class="key">e</kbd></a>
       </div>
     </aside>
   <div class="scrim scrim--desk-only">
@@ -169,13 +169,13 @@
         <section class="block">
           <h3>What Clerk got wrong</h3>
           <div class="optlist" role="radiogroup" aria-label="What Clerk got wrong">
-            <a class="opt" href="reject-chosen.html"><span class="key">1</span><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
-            <a class="opt" href="reject-axis-b.html"><span class="key">2</span><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
-            <a class="opt" href="reject-chosen.html"><span class="key">3</span><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
-            <a class="opt" href="reject-chosen.html"><span class="key">4</span><span class="lbl">Right answer, wrong scope</span><span class="routes">agent tuning</span></a>
-            <a class="opt" href="reject-chosen.html"><span class="key">5</span><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
-            <a class="opt" href="reject-tenant-normal.html"><span class="key">6</span><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
-            <a class="opt" href="reject-other.html"><span class="key">7</span><span class="lbl">Other, and say why</span><span class="routes">nowhere yet, and counted</span></a>
+            <a class="opt" href="reject-chosen.html"><kbd class="key">1</kbd><span class="lbl">Real, called benign</span><span class="routes">detection engineering</span></a>
+            <a class="opt" href="reject-axis-b.html"><kbd class="key">2</kbd><span class="lbl">Benign, called a threat</span><span class="routes">asks one more</span></a>
+            <a class="opt" href="reject-chosen.html"><kbd class="key">3</kbd><span class="lbl">Right answer, wrong reasoning</span><span class="routes">agent tuning</span></a>
+            <a class="opt" href="reject-chosen.html"><kbd class="key">4</kbd><span class="lbl">Right answer, wrong scope</span><span class="routes">agent tuning</span></a>
+            <a class="opt" href="reject-chosen.html"><kbd class="key">5</kbd><span class="lbl">Not enough evidence either way</span><span class="routes">nowhere</span></a>
+            <a class="opt" href="reject-tenant-normal.html"><kbd class="key">6</kbd><span class="lbl">Normal at this tenant</span><span class="routes">the tenant baseline, locked</span></a>
+            <a class="opt" href="reject-other.html"><kbd class="key">7</kbd><span class="lbl">Other, and say why</span><span class="routes">nowhere yet, and counted</span></a>
           </div>
         </section>
         <section class="block">
@@ -184,7 +184,7 @@
         </section>
           <p class="anote">One keystroke picks what Clerk got wrong. Where it goes is derived from that and only asked when the pairing is genuinely ambiguous, which is five of six. <b>No <code>Next</code>, and no confirmation step:</b> if rejecting costs more than accepting, the analyst accepts.</p>
       </div>
-      <footer>        <span class="hint">A reason is required</span><span class="grow"></span><a class="btn btn--quiet" href="case.html">Cancel <span class="key">Esc</span></a><span class="btn" aria-disabled="true">File the rejection <span class="key">Enter</span></span></footer>
+      <footer>        <span class="hint">A reason is required</span><span class="grow"></span><a class="btn btn--quiet" href="case.html">Cancel <kbd class="key">Esc</kbd></a><span class="btn" aria-disabled="true">File the rejection <kbd class="key">Enter</kbd></span></footer>
     </section>
   </div>
   </main>

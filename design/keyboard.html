@@ -101,8 +101,8 @@
 
       <p class="qfoot">
         <span>7 of 18 shown, one selected</span>
-        <span class="only-desk"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> read, the pane follows</span>
-        <span class="only-desk"><kbd>Enter</kbd> decides, focus moves into the pane</span>
+        <span class="only-desk"><kbd class="key">&uarr;</kbd> <kbd class="key">&darr;</kbd> read, the pane follows</span>
+        <span class="only-desk"><kbd class="key">Enter</kbd> decides, focus moves into the pane</span>
         <span>order: unrecorded, waiting on you, severity, age</span>
       </p>
     </section>
@@ -155,11 +155,11 @@
         <p class="stamp">Filed by Clerk <b>26m</b> ago &middot; <code>?as-of=2026-08-22T04:14:05Z</code></p>
       </div>
       <div class="pane-foot">
-        <a class="btn btn--primary only-desk" href="queue-decided.html">Accept <span class="key">a</span></a>
-        <a class="btn only-desk" href="case-amend.html">Amend <span class="key">m</span></a>
-        <a class="btn only-desk" href="reject.html">Reject <span class="key">r</span></a>
-        <a class="btn only-desk" href="escalate.html">Escalate <span class="key">e</span></a>
-        <a class="btn btn--primary only-narrow" href="escalate.html">Escalate <span class="key">e</span></a>
+        <a class="btn btn--primary only-desk" href="queue-decided.html">Accept <kbd class="key">a</kbd></a>
+        <a class="btn only-desk" href="case-amend.html">Amend <kbd class="key">m</kbd></a>
+        <a class="btn only-desk" href="reject.html">Reject <kbd class="key">r</kbd></a>
+        <a class="btn only-desk" href="escalate.html">Escalate <kbd class="key">e</kbd></a>
+        <a class="btn btn--primary only-narrow" href="escalate.html">Escalate <kbd class="key">e</kbd></a>
       </div>
     </aside>
   <div class="scrim scrim--desk-only">
@@ -174,17 +174,17 @@
           <h3>Move in the list</h3>
           <div class="optlist">
             <div class="keyrow">
-              <span class="keys"><span class="key">&uarr;</span><span class="key">&darr;</span></span>
+              <span class="keys"><kbd class="key">&uarr;</kbd><kbd class="key">&darr;</kbd></span>
               <span class="lbl">Move the selection. The pane follows, so reading costs nothing.<span class="kwhere">shown on: the list foot in the queue</span></span>
               <span class="kscope">the list has focus</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">Home</span><span class="key">End</span></span>
+              <span class="keys"><kbd class="key">Home</kbd><kbd class="key">End</kbd></span>
               <span class="lbl">First and last row in view.<span class="kwhere">shown on: <span class="key key--none">nowhere yet</span></span></span>
               <span class="kscope">the list has focus</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">Ctrl + Home</span><span class="key">Ctrl + End</span></span>
+              <span class="keys"><kbd class="key">Ctrl + Home</kbd><kbd class="key">Ctrl + End</kbd></span>
               <span class="lbl">First and last row of the whole list.<span class="kwhere">shown on: <span class="key key--none">nowhere yet</span></span></span>
               <span class="kscope">the list has focus</span>
             </div>
@@ -195,17 +195,17 @@
           <h3>Open and close</h3>
           <div class="optlist">
             <div class="keyrow">
-              <span class="keys"><span class="key">Enter</span></span>
+              <span class="keys"><kbd class="key">Enter</kbd></span>
               <span class="lbl">Moves focus into the pane. Arrows read, <b>Enter</b> decides, and that is what arms the three keys below.<span class="kwhere">shown on: the list foot in the queue</span></span>
               <span class="kscope">the list has focus</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">Escape</span></span>
+              <span class="keys"><kbd class="key">Escape</kbd></span>
               <span class="lbl">Deselects the case and returns the pane to the fleet.<span class="kwhere">shown on: <span class="key key--none">nowhere yet</span></span></span>
               <span class="kscope">the list or the pane has focus, and no dialog is open</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">Escape</span></span>
+              <span class="keys"><kbd class="key">Escape</kbd></span>
               <span class="lbl">Closes the dialog and <b>does not go any further</b>. One press closes, a second press deselects, so dismissing a dialog never costs you the case you had open.<span class="kwhere">shown on: the Cancel control on reject, amend and escalate</span></span>
               <span class="kscope">a dialog is open</span>
             </div>
@@ -216,27 +216,27 @@
           <h3>Rule on the case</h3>
           <div class="optlist">
             <div class="keyrow">
-              <span class="keys"><span class="key">a</span></span>
+              <span class="keys"><kbd class="key">a</kbd></span>
               <span class="lbl">Accept Clerk&rsquo;s verdict as filed.<span class="kwhere">shown on: the Accept control in the pane</span></span>
               <span class="kscope">a case is in the pane</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">m</span></span>
+              <span class="keys"><kbd class="key">m</kbd></span>
               <span class="lbl">Amend the narrative in place. Once the field has focus, letters are letters.<span class="kwhere">shown on: the Amend control in the pane</span></span>
               <span class="kscope">a case is in the pane</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">r</span></span>
+              <span class="keys"><kbd class="key">r</kbd></span>
               <span class="lbl">Reject and say what Clerk got wrong.<span class="kwhere">shown on: the Reject control in the pane</span></span>
               <span class="kscope">a case is in the pane</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">1</span><span class="ksep">to</span><span class="key">6</span></span>
+              <span class="keys"><kbd class="key">1</kbd><span class="ksep">to</span><kbd class="key">6</kbd></span>
               <span class="lbl">Pick what Clerk got wrong. One selection, one key.<span class="kwhere">shown on: each reason row in the reject dialog</span></span>
               <span class="kscope">the reject dialog has focus and no text field does</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">Enter</span></span>
+              <span class="keys"><kbd class="key">Enter</kbd></span>
               <span class="lbl">Files the rejection, and only once a reason is chosen.<span class="kwhere">shown on: the File the rejection button in the reject dialog</span></span>
               <span class="kscope">the reject dialog, outside the note field</span>
             </div>
@@ -247,12 +247,12 @@
           <h3>Leave the case open</h3>
           <div class="optlist">
             <div class="keyrow">
-              <span class="keys"><span class="key">e</span></span>
+              <span class="keys"><kbd class="key">e</kbd></span>
               <span class="lbl">Escalate to the person on the rota. Also the only live control on a case whose evidence has aged out.<span class="kwhere">shown on: the Escalate control in the pane</span></span>
               <span class="kscope">a case is in the pane</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">Enter</span></span>
+              <span class="keys"><kbd class="key">Enter</kbd></span>
               <span class="lbl"><b>Makes a line. It does not file.</b> The button files.<span class="kwhere">shown on: the footer note in the escalate dialog</span></span>
               <span class="kscope">the escalate dialog, inside a prompt</span>
             </div>
@@ -273,17 +273,17 @@
           <h3>This map</h3>
           <div class="optlist">
             <div class="keyrow">
-              <span class="keys"><span class="key">?</span></span>
+              <span class="keys"><kbd class="key">?</kbd></span>
               <span class="lbl">Opens this map from anywhere. The map is found from the control in the top bar; the key is for people who already know it is here.<span class="kwhere">shown on: <span class="key key--none">nowhere yet</span>, and the control sits in the top bar</span></span>
               <span class="kscope">no text field has focus</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">Escape</span></span>
+              <span class="keys"><kbd class="key">Escape</kbd></span>
               <span class="lbl">Closes it. Nothing behind it changed and the selection is where you left it.<span class="kwhere">shown on: the Close control below</span></span>
               <span class="kscope">the map has focus</span>
             </div>
             <div class="keyrow">
-              <span class="keys"><span class="key">Tab</span><span class="key">Shift + Tab</span></span>
+              <span class="keys"><kbd class="key">Tab</kbd><kbd class="key">Shift + Tab</kbd></span>
               <span class="lbl">Cycles through this map and wraps at either end. Nothing outside it is reachable while it is open.<span class="kwhere">shown on: nowhere, and Tab is not a shortcut</span></span>
               <span class="kscope">the map has focus</span>
             </div>
@@ -304,7 +304,7 @@
           <p class="gnote">This control sits in the map while the map is the only place keys are listed.</p>
         </section>
       </div>
-      <footer>        <span class="hint">Nothing here rules on a case. The control that turns these keys off, or makes them need a modifier, is at the foot of the list.</span><span class="grow"></span><a class="btn btn--primary" href="case.html">Close <span class="key">Esc</span></a></footer>
+      <footer>        <span class="hint">Nothing here rules on a case. The control that turns these keys off, or makes them need a modifier, is at the foot of the list.</span><span class="grow"></span><a class="btn btn--primary" href="case.html">Close <kbd class="key">Esc</kbd></a></footer>
     </section>
   </div>
   </main>
