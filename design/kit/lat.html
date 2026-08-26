@@ -16,7 +16,7 @@
 
 <p class="k-eyebrow">Molecule</p>
 <h1 class="k-title">Latitude ladder</h1>
-<p class="k-lede"><b>This is the differentiator, and it is a component.</b> 26 instances across 26 screens: for one tenant, every action Clerk could take, marked yes or no, with the ceiling shown and the reason where the answer is no.</p>
+<p class="k-lede"><b>This is the differentiator, and it is a component.</b> 26 instances across 26 screens: for one tenant, every action Clerk could take, marked yes or no, with the ceiling shown and the reason almost always where the answer is no. <b>Almost, since stage 13:</b> `unearned` carries a reason on a <code>yes</code>, because latitude granted with no record behind it is the row that most deserves her attention.</p>
 <p class="k-note"><code>CLAUDE.md</code> names calibrated trust as <b>the only surviving differentiator</b> and requires stage 04 to carry it with a concrete element on the reference screen. This ladder is that element.</p>
 <p class="k-note"><b>It was not in the register.</b> Step 2 built the register from a browser census of <b>controls</b>, and this is a container. Found at step 5 by scanning every class that owns a rule block in <code>kit.css</code> against the register: twenty one came back and thirteen were components. <code>docs/inventory.md</code> section 13 has all of them. <b>This is the one that matters most of the thirteen:</b> <code>mark</code> was written and the ladder it lives in was not, and <code>mark</code>’s own page says the three readings on the screens belong to the ladder row.</p>
 
@@ -49,7 +49,7 @@
   <li><code>.lat</code><span>the ladder, in its own hairline border</span></li>
   <li><code>.lat &gt; div</code><span>one action. The rows are the ladder and they have no class of their own</span></li>
   <li><code>mark</code><span>its own atom, 20px wide, so the yes and no column reads down</span></li>
-  <li><code>.why</code><span><b>the reason, and only where the answer is no.</b> Pushed right, 11px</span></li>
+  <li><code>.why</code><span><b>the reason, and almost always where the answer is no.</b> Pushed right, 11px. One row in the product carries it on a <code>yes</code>, and that is <code>.unearned</code> in States</span></li>
 </ul>
 
 <h2 class="k-h" id="variants">Variants</h2>
@@ -64,6 +64,7 @@
   </tbody>
 </table>
 </div>
+<p class="k-note"><b>Two more row states are conditions of the record rather than values of this axis</b>, and they are in <a class="link" href="#states">States</a>: a class this tenant had and lost, and a ceiling standing on no rulings. Each rides on one of the three above rather than replacing it.</p>
 
 <h2 class="k-h" id="use">When to use it</h2>
 <p class="k-note">In the case pane, for the tenant the case belongs to, and on the fleet where forty of them are the resting state of the right pane. It answers the third of the three MVP jobs: <b>know where the agent’s record has earned latitude</b>.</p>
@@ -85,7 +86,7 @@
 <p class="k-note">At 360 on the standalone route the reason column is dropped: the answer is the column and the explanation is a line the analyst does not have room for. That rule lives with <code>z5</code>, which is the route that changes it.</p>
 
 <h2 class="k-h" id="states">States</h2>
-<p class="k-lede"><b>It has none, and it is not interactive.</b></p>
+<p class="k-lede"><b>No interaction states, and two states of the record.</b> Nothing in the ladder is pressed, so there is no hover, no active and no focus ring. What it does have is two rows that may not read as routine, and both are facts about the tenant rather than responses to a pointer.</p>
 <div class="k-bench">
   <div class="k-bench-half" data-theme="dark">
     <p class="k-bench-tag">dark, shipped</p>
@@ -110,6 +111,59 @@
     </div>
   </div>
 </div>
+<p class="k-note"><b>The ladder with neither of them, and it is the thing the next two benches have to differ from.</b> One ceiling on its own ground, everything above it receded, and every reason on the same ink at the same weight. That sameness is correct here: nothing at this tenant has moved and nothing is standing on air.</p>
+
+<h3 class="k-h2"><code>.withdrawn</code>, the class this tenant had and does not have now</h3>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="lat" style="width:100%;max-width:400px">
+        <div class="ceiling"><span class="mark">yes</span><span>Investigate</span></div>
+        <div class="off withdrawn"><span class="mark">no</span><span>Contain endpoint</span><span class="why">withdrawn this shift, and it was granted before</span></div>
+        <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="lat" style="width:100%;max-width:400px">
+        <div class="ceiling"><span class="mark">yes</span><span>Investigate</span></div>
+        <div class="off withdrawn"><span class="mark">no</span><span>Contain endpoint</span><span class="why">withdrawn this shift, and it was granted before</span></div>
+        <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b><code>CLAUDE.md</code> binds this about a case and it is true one rung up:</b> a thing that changed must not look identical to a thing that did not. Without the class this reason was byte for byte the four under it, and the ladder was saying nothing had moved on the one screen whose whole subject is that something did. The row keeps <code>.off</code>, so the mark and the action stay exactly where they were; what moves is the reason, from <code>--text-secondary</code> at 400 to <code>--text-primary</code> at 600. It stands once in the product, on <code>tenant-moved-down</code>.</p>
+
+<h3 class="k-h2"><code>.unearned</code>, a ceiling in force with no record behind it</h3>
+<div class="k-bench">
+  <div class="k-bench-half" data-theme="dark">
+    <p class="k-bench-tag">dark, shipped</p>
+    <div class="k-bench-row">
+      <div class="lat" style="width:100%;max-width:400px">
+        <div class="ceiling unearned"><span class="mark">yes</span><span>Investigate</span><span class="why">granted at onboarding, on no rulings yet</span></div>
+        <div class="off"><span class="mark">no</span><span>Contain endpoint</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+        <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="k-bench-half" data-theme="light">
+    <p class="k-bench-tag">light, the pair</p>
+    <div class="k-bench-row">
+      <div class="lat" style="width:100%;max-width:400px">
+        <div class="ceiling unearned"><span class="mark">yes</span><span>Investigate</span><span class="why">granted at onboarding, on no rulings yet</span></div>
+        <div class="off"><span class="mark">no</span><span>Contain endpoint</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+        <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="k-note"><b>The same rule, and a different half of the declaration does the work.</b> A ceiling is already <code>--text-primary</code> at 600, so ink and weight are inert on it and the COLUMN is what moves: a ceiling never carried a reason, so it was never given the reason track. With the class the reason lands right aligned in track 3 at <code>--size-xs</code>; without it, it starts at <code>--size-sm</code> in the same track, ragged against every other reason in the ladder and hard against the action name it qualifies. It stands once in the product, on <code>tenant-no-record</code>.</p>
+<p class="k-note"><b>Node 3.5 section 7 ordered this one.</b> It calls a ceiling with too few rulings behind it the state that most deserves the analyst&rsquo;s attention, and requires the cell shown AND marked. Without the class the ladder read the same as a tenant with thirty six rulings behind the same grant, which is the reading that hides the risk rather than the reading that shows it.</p>
+<p class="k-note"><b>Neither state spends a colour, and neither spends a boundary.</b> The accent has four jobs and no fifth, and this ladder already refused it once for the ceiling. A border on one row of a subgrid comes out of THAT row&rsquo;s tracks alone, so the three columns stop lining up, which is the defect the rest of this component exists to record.</p>
 
 <h2 class="k-h" id="tech">What it reads, and where it stands</h2>
 <div class="k-wrap-x">

@@ -18,13 +18,11 @@
     <section class="z4 queue-list" aria-labelledby="th">
       <div class="scopebar" role="group" aria-label="Scope and filters">
         <a class="chip chip--solid" href="queue.html">Aubrey Dental Group &times;</a>
-        <a class="chip chip--ghost" href="queue.html">Waiting on a decision &#9662;</a>
-        <a class="chip chip--ghost" href="queue.html">Sort: default &#9662;</a>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
       </div>
 
       <h1 id="th" class="readout"><b>1 waiting</b> <span class="dim">at Aubrey Dental Group, and nothing ruled yet at this tenant</span></h1>
-
-      <div class="banner banner--quiet only-narrow"><span class="say"><b>The record beside this list is a desk reading.</b> Six action classes, a count and the window behind it do not survive a phone, and the phone has one scenario here: a paged case read and escalated.<br><br>What is waiting at this tenant is above, and it opens.</span><span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>
 
       <div class="rows" role="grid" aria-labelledby="th" tabindex="0">
         <div class="row row--head" role="row">
@@ -76,26 +74,25 @@
         <section class="block">
           <h3>What Clerk may do here, on this tenant</h3>
           <div class="lat">
-            <div class="ceiling"><span class="mark">yes</span><span>Investigate</span></div>
+            <div class="ceiling unearned"><span class="mark">yes</span><span>Investigate</span><span class="why">granted at onboarding, on no rulings yet</span></div>
             <div class="off"><span class="mark">no</span><span>Contain endpoint</span><span class="why">above this tenant&rsquo;s latitude</span></div>
             <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude, so it waits for you</span></div>
             <div class="off"><span class="mark">no</span><span>Contain network</span><span class="why">above this tenant&rsquo;s latitude</span></div>
             <div class="off"><span class="mark">no</span><span>Remove content</span><span class="why">above this tenant&rsquo;s latitude</span></div>
             <div class="off"><span class="mark">no</span><span>Change policy</span><span class="why">above this tenant&rsquo;s latitude</span></div>
           </div>
-          <p class="gnote"><b>This ceiling stands on no record at this tenant.</b> Investigate changes nothing in the environment, which is why it is granted at onboarding; every class above it is withheld until there are rulings to read. The ceiling is read here and it is not set here.</p>
+          <p class="gnote"><b>This latitude stands on no record at this tenant.</b> Investigate changes nothing in the environment, which is why it is granted at onboarding; every class above it is withheld until there are rulings to read. Latitude is read here and it is not set here.</p>
         </section>
         <section class="block">
-          <h3>How this ceiling changed</h3>
+          <h3>How this latitude changed</h3>
           <p class="nar">It has not. Investigate has been in force since Aubrey Dental Group was onboarded 9 days ago, and nothing has been granted or withdrawn since.</p>
-          <p class="gnote"><b>Every change to a ceiling is an entry.</b> The date it changed and the evidence it changed on are in the log, alongside the rulings that earned it. <a class="link" href="log.html">Open the log at this tenant</a></p>
+          <p class="gnote"><b>Every change to Clerk&rsquo;s latitude is an entry.</b> The date it changed and the evidence it changed on are in the log, alongside the rulings that earned it.</p>
         </section>
-        <p class="anote">Node 7.1, and the column 3.5 calls the one that most deserves attention: latitude in force with too few rulings to compare, which is rope granted on thin evidence. The fleet renders it as an en dash and `no rulings yet`; this node is where the reason it was granted is meant to be readable, and until 7.2 ships that reason is a reading of 5.1 rather than a control.</p>
+        <p class="anote">Node 7.1, and the column 3.5 calls the one that most deserves attention: latitude in force with too few rulings to compare.</p>
         <p class="stamp">Record as of <code>?as-of=2026-08-22T04:14:05Z</code> &middot; 30 day window, and it moves with the reading</p>
       </div>
       <div class="pane-foot">
-        <a class="btn btn--primary" href="queue.html">Open the queue at this tenant <span class="key">Enter</span></a>
-        <a class="btn btn--quiet" href="log.html">Open the log at this tenant</a>
+        <a class="btn btn--primary" href="log.html">Open the log at this tenant</a>
       </div>
     </aside>
   </main>

@@ -35,9 +35,13 @@ READ THESE FIRST, IN THIS ORDER. Read them from disk. Do not work from memory of
                                         the command that checks each line
   8. ia/docs/pages/<node>.md            the specification of your node, if it has one:
                                         its state matrix, keyboard model, addressing and
-                                        permissions. NO md means you derive the state set
-                                        from behaviour.md for the neighbouring flow and
-                                        say out loud that you did
+                                        permissions. NO md means you derive from
+                                        behaviour.md for the neighbouring flow and say out
+                                        loud that you did. DERIVE FOUR THINGS, NOT ONE:
+                                        the state set, the PROPORTIONS, the ACTIONS and
+                                        the ENTRANCES. A derivation that carries only the
+                                        states produces a screen with correct content and
+                                        no shape, no act and no way in
   9. voice/docs/voice.md                how a sentence in this product is written
  10. ia/docs/pages/reading-conventions.md   section 7, the fixture canon
 
@@ -80,6 +84,40 @@ MARKUP
   Only then does it go on your screen.
   A composition is not a pattern until it stands on three screens. Below that it is
   markup and it stays markup.
+
+WHAT YOU COPY, YOU ALSO CLAIM. This block exists because the instruction below to copy
+a skeleton verbatim, which is there to stop you inventing, is what produced the two worst
+defects the first run of this prompt shipped.
+
+  EVERY href IN A COPIED BLOCK IS A CLAIM ABOUT YOUR SCREEN'S SCOPE. On an all tenant
+  queue, a row pointing at any case is a harmless prototype shortcut and nobody sees it.
+  Copy that row onto a screen scoped to ONE tenant and the same href says the analyst can
+  reach another client's case from inside this one, which the screen's own heading denies.
+  After you copy, walk every href and ask what it now claims. Two rows shipped pointing at
+  a case at the wrong tenant, and no instrument can see it: the files all exist, so the
+  link check passes.
+
+  PROPORTIONS ARE REASONED FOR THE CONTENT OF THE SCREEN THEY CAME FROM. The split between
+  a list and a pane on design/queue.html is reasoned for eighteen rows beside a pane of
+  context. Copied onto a screen whose list holds one row and whose pane IS the subject, it
+  gives 94 per cent of the wide column to nothing while the pane hides 478 to 667px of its
+  own content at 1440 and still 199 to 389px at 1920. Ask which half of your screen is the
+  subject BEFORE you copy the frame, and say so out loud if you keep a ratio you did not
+  reason.
+
+  A MAIN ACTION DOES SOMETHING THE SCREEN CANNOT ALREADY DO. `Open the queue at this
+  tenant` shipped as the primary on a screen whose left half already is the queue at that
+  tenant: redundant and false at once, and R1 counts it as one main action either way.
+
+  A LIMITS BLOCK CARRIES SEMANTIC CONDITIONS AND NOT ONLY VISUAL ONES. `chip--ghost` does
+  not mean a quieter chip. Its own Limits say it means NOT SET YET, so wearing it on an
+  APPLIED filter tells the analyst the filter is off while it is on. Read a Limits line as
+  a condition on the data, not as a description of the drawing.
+
+  AND WHAT CHANGED MUST NOT LOOK LIKE WHAT DID NOT. CLAUDE.md binds this for a case that
+  left the analyst's hands; it holds one rung up for anything else that moved. A row whose
+  reason reads `withdrawn this shift` and which computes byte for byte identically to four
+  rows reading `above this tenant's latitude` has told her nothing.
 
 VALUES
   Colour, spacing and type come from design/system/tokens.css through var(). A token is
@@ -159,3 +197,5 @@ a guess that looks right, because a guess that looks right is the one nobody cat
 **It carries three blocks copied word for word** from `design/system/CLAUDE.md`, rules 4, 7 and 8. They are not paraphrased on purpose. Those three sentences are what holds the system together through the next twenty features, and a paraphrase is where the drift starts.
 
 **It ends by asking for a list of what was missing**, because the value of running it on somebody who does not know this product is not the screen. It is that list.
+
+**And the block WHAT YOU COPY, YOU ALSO CLAIM was written by the first run of this prompt, which is what the run was for.** An agent that had never seen this project built node 7.1 in four states from this file alone and returned a screen with zero invented classes, zero invented tokens, four state files, a registry entry, and both ISO timestamps and every count lifted correctly from `log.html` and the fixture canon. Every clause the prompt could make checkable came back essentially perfect. What it could not make checkable is what a screen is FOR: the prompt is a manufacturing specification, and it had no vocabulary for proportions, for entrances, for what a main action owes, or for a Limits line that constrains the data rather than the drawing. So the instruction to copy a skeleton verbatim, which exists to prevent invention, imported an 844 to 360 split reasoned for eighteen rows into a screen with one, and imported a neighbouring screen's row hrefs into a scoped screen where they became a contradiction. **The critique of that screen is therefore a critique of this file**, and the four paragraphs above are what it cost.

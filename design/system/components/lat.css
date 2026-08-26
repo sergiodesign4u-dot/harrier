@@ -8,7 +8,10 @@
    trust as the only surviving differentiator and requires stage 04 to carry it
    with a concrete element on the reference screen. This ladder is that element:
    for one tenant, every action Clerk could take, marked yes or no, with the
-   ceiling shown and the reason where the answer is no.
+   ceiling shown and the reason almost always where the answer is no. ALMOST, since stage
+   13: `unearned` carries one on a `yes`, because latitude granted with no record behind it
+   is the row that most deserves the analyst's attention and the reason is the whole point
+   of showing it.
 
    IT WAS NOT IN THE REGISTER EITHER, which is the finding that matters most out
    of the thirteen: `mark` was written and the ladder it lives in was not, and
@@ -61,7 +64,7 @@
 .lat > div > *{ min-width: 0 }
 .lat > div:last-child{ border-bottom: none }
 
-/* -- the row states, and both are the ROW's rather than the mark's ------------- */
+/* -- the row states, and all four are the ROW's rather than the mark's --------- */
 
 /* ABOVE LATITUDE HERE. The whole line recedes, so the mark and its label go
    together: a dimming that lived in `mark` would leave the label at full strength
@@ -76,6 +79,52 @@
 /* THE CEILING: the highest action the agent may take on this tenant. A surface and
    weight 600, not a colour: the accent has four jobs and no fifth. */
 .lat .ceiling{ background: var(--bg-surface); font-weight: 600 }
+
+/* TWO MORE, AND BOTH ARE ROWS THAT MAY NOT READ AS ROUTINE. CLAUDE.md binds this
+   about a case and it is true one rung up: a thing that changed must not look
+   identical to a thing that did not.
+
+   `withdrawn` IS THE CLASS THIS TENANT HAD AND DOES NOT HAVE NOW. On
+   tenant-moved-down the reason reading `withdrawn this shift, and it was granted
+   before` computed rgb(170,163,151) at weight 400 in dark and rgb(103,95,80) at
+   400 in light: byte identical to the four rows under it reading `above this
+   tenant's latitude`. The ladder was saying nothing had moved on the one screen
+   whose whole subject is that something did.
+
+   `unearned` IS A CEILING IN FORCE WITH NO RECORD BEHIND IT. 3.5 section 7 calls
+   it the state that most deserves the analyst's attention and requires it shown
+   AND marked; on tenant-no-record the ceiling row carried no reason at all, so
+   the ladder read the same as a tenant with thirty six rulings behind the same
+   grant.
+
+   THE ANSWER IS THE SAME AND THE REASON IS THE NEWS, so the reason is what moves
+   and the mark stays where it is. Both take --text-primary at 600, which is the
+   ceiling's own weight and the ladder's own reading ink. No colour is spent: the
+   accent has four jobs and no fifth, and this ladder already refused it once four
+   lines above. No boundary is spent either: a border on a row of a subgrid comes
+   out of THAT row's tracks alone, so the three columns stop lining up, which is
+   the defect the top of this file exists to record.
+   After: rgb(233,228,218) at 600 in dark and rgb(17,17,15) at 600 in light,
+   beside a neighbouring reason unchanged at rgb(170,163,151) and rgb(103,95,80).
+
+   AND THE TWO STATES ARE CARRIED BY DIFFERENT DECLARATIONS IN THE SAME BLOCK,
+   which is worth saying rather than leaving to be discovered. On `withdrawn` the
+   row is an `off`, so the ink and the weight are what move and the column was
+   already set. On `unearned` the row is a `ceiling`, already primary at 600, so
+   the ink and the weight are inert there and the COLUMN is what moves: a ceiling
+   never carried a reason, so it was never given the reason column. Measured on
+   tenant-no-record at 1440, with the class and without it, same box at 1251 to
+   1411: 11px right aligned in track 3 with it, 12px aligned to the start of the
+   same track without it, ragged against every other reason in the ladder and
+   hard against the action name it qualifies. */
+.lat .withdrawn .why,
+.lat .unearned .why{
+  grid-column: 3;
+  text-align: right;
+  font-size: var(--size-xs);
+  color: var(--text-primary);
+  font-weight: 600;
+}
 
 /* NO STATES. It is a reading of the record and there is nothing to press. The
    reason column is dropped on the standalone route, which is that route's rule and

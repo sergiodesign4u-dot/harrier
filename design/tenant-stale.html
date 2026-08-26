@@ -18,13 +18,11 @@
     <section class="z4 queue-list" aria-labelledby="th">
       <div class="scopebar" role="group" aria-label="Scope and filters">
         <a class="chip chip--solid" href="queue.html">Norsk Marine &times;</a>
-        <a class="chip chip--ghost" href="queue.html">Waiting on a decision &#9662;</a>
-        <a class="chip chip--ghost" href="queue.html">Sort: default &#9662;</a>
+        <button class="chip" type="button">Waiting on a decision &times;</button>
+        <button class="chip chip--ghost" type="button">Sort: default &#9662;</button>
       </div>
 
       <h1 id="th" class="readout"><b>1 waiting</b> <span class="dim">at Norsk Marine, as of the last sync 6m ago. Nothing has arrived since</span></h1>
-
-      <div class="banner banner--quiet only-narrow"><span class="say"><b>The record beside this list is a desk reading.</b> Six action classes, a count and the window behind it do not survive a phone, and the phone has one scenario here: a paged case read and escalated.<br><br>What is waiting at this tenant is above, and it opens.</span><span class="act"><a class="btn" href="queue.html">Open the queue</a></span></div>
 
       <div class="rows" role="grid" aria-labelledby="th" tabindex="0">
         <div class="row row--head" role="row">
@@ -36,6 +34,14 @@
           <span role="columnheader">State</span>
           <span role="columnheader">Age</span>
         </div>
+        <!-- No case screen stands at Norsk Marine: every case in the corpus is C-4417 at
+             Larkfield Logistics, and C-4482 at Aubrey Dental Group. This destination is the
+             least wrong of the two available and the tenant is what stays wrong about it.
+             case-standalone-stale is the ONLY case screen whose reading is stale, and
+             freshness is the whole subject of this screen: the strip, the readout, the record
+             and the ladder all say the same 6m here, and a live case reached from them would
+             contradict four readings instead of one. The cure is a Norsk Marine case screen,
+             which is outside this pass. -->
         <a class="row" role="row" href="case-standalone-stale.html">
           <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
           <span class="client" role="gridcell">Norsk Marine</span>
@@ -80,24 +86,23 @@
           <div class="lat">
             <div class="ceiling"><span class="mark">yes</span><span>Investigate</span></div>
             <div class="off"><span class="mark">no</span><span>Contain endpoint</span><span class="why">above this tenant&rsquo;s latitude</span></div>
-            <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude, so it waits for you</span></div>
+            <div class="off"><span class="mark">no</span><span>Contain identity</span><span class="why">above this tenant&rsquo;s latitude</span></div>
             <div class="off"><span class="mark">no</span><span>Contain network</span><span class="why">above this tenant&rsquo;s latitude</span></div>
             <div class="off"><span class="mark">no</span><span>Remove content</span><span class="why">above this tenant&rsquo;s latitude</span></div>
             <div class="off"><span class="mark">no</span><span>Change policy</span><span class="why">above this tenant&rsquo;s latitude</span></div>
           </div>
-          <p class="gnote"><b>This ladder is as of the last sync too.</b> If the ceiling moved in the last 6m, this page does not know it. The ceiling is read here and it is not set here.</p>
+          <p class="gnote"><b>This ladder is as of the last sync too.</b> If Clerk&rsquo;s latitude moved in the last 6m, this page does not know it. Latitude is read here and it is not set here.</p>
         </section>
         <section class="block">
-          <h3>How this ceiling changed</h3>
+          <h3>How this latitude changed</h3>
           <p class="nar">It has not moved in the window this reading covers. What happened in the last 6m is not held here.</p>
-          <p class="gnote"><b>Every change to a ceiling is an entry.</b> The date it changed and the evidence it changed on are in the log, alongside the rulings that earned it. <a class="link" href="log.html">Open the log at this tenant</a></p>
+          <p class="gnote"><b>Every change to Clerk&rsquo;s latitude is an entry.</b> The date it changed and the evidence it changed on are in the log, alongside the rulings that earned it.</p>
         </section>
-        <p class="anote">Node 7.1 under the connection states of 0.4 and 3.3. 3.5 requires the fleet to render the last good reading marked rather than blanked, and requires the reading in the shell strip to agree with the reading in the pane, both marked stale. Norsk Marine is the tenant the fixture set holds for exactly this: a stale reading here is the normal case rather than a fault.</p>
+        <p class="anote">Node 7.1 under 3.3. The last good reading is marked rather than blanked, and the strip and the pane have to agree.</p>
         <p class="stamp">Record as of <code>?as-of=2026-08-22T04:14:05Z</code> &middot; last sync 6m ago, and the window has not moved with it</p>
       </div>
       <div class="pane-foot">
-        <a class="btn btn--primary" href="queue.html">Open the queue at this tenant <span class="key">Enter</span></a>
-        <a class="btn btn--quiet" href="log.html">Open the log at this tenant</a>
+        <a class="btn btn--primary" href="log.html">Open the log at this tenant</a>
       </div>
     </aside>
   </main>
