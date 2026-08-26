@@ -1429,3 +1429,60 @@ The grey boards went to **5993 of 5993 placed within 2px, from 34 off**, and 598
 pages that document the system demonstrated the exact thing the system had just replaced. Both
 load it now, and `input.html` says in its own table that the select left on 2026-08-26 and links
 to it: its lede claimed three values on an axis that has two.
+
+## 2026-08-26 · One ground on a list, a key set from a census, and 140 icons that were typed as text
+
+**THE HOVER ON THE DRAWN SELECT DID NOT EXIST, and the reason is in the palette rather than in
+the rule.** `--bg-hover` is `--warm-900` in the dark theme and so is `--bg-surface`, which is the
+ground the list stands on: the row under the pointer was painted the exact colour it already was.
+Two grounds competing for one strip made it worse than nothing, because hovering the CHOSEN row
+replaced its `--bg-selected` with the dimmer `--bg-hover` and the selection appeared to switch
+off. **One ground means the row you are on; the tick and the weight mean the row that is chosen.**
+Two questions, two signals, and neither has to out-shout the other.
+
+**THE KEY SET IS A CENSUS AND NOT A WISH.** Seven values on one axis, read off what the product
+actually prints on a key: 56 letters, 47 digits, 36 named, 3 combinations, 2 arrows, 2 symbols and
+5 naming nowhere. **There is no command, option or shift symbol in it**, because Harrier does not
+use one: the keyboard map says `On, but it needs Ctrl` in words, and a glyph for a modifier this
+product never prints would be a key nobody can press.
+
+**AND 140 ICONS WERE STANDING IN THE COPY AS CHARACTERS.** The caret on a chip that opens, 81 of
+them, the cross on a chip and a toast that dismisses, 56, and the arrow after `open the queue`, 3.
+An icon typed as a character is still an icon and it is the worst kind, four times over. It is a
+different drawing on every machine, and two of the three were **already in `icons.js` as real
+geometry that the product was ignoring**. It is read aloud as "times" and "black down pointing
+small triangle", and on the chips it sat inside the button's accessible name. It is not aligned:
+`chip.css` records in as many words that one scope bar held three chips at three heights because
+**the caret glyph is taller than the cross**. And nothing could find it, because every check here
+reads roles, tokens, contrast or geometry and a character in a string is none of those.
+
+**The line is the character's JOB, not its code point,** and the same census found 365 more that
+stay. `·` is a separator, 235 of them, which is punctuation with an ink role of its own. `–` is 30
+readings of "no value". And the 100 arrows inside a `kbd` or a `key` are **the name of the key
+somebody presses**: drawing those would say the key has a picture on it, and it has a character on
+it, the same as `a` and `Enter`.
+
+They are one atom, `glyph`, sized in `em` so it follows its host, taking no colour role for the
+same reason `key` takes none, and always `aria-hidden` because in this product the drawing is
+never the only thing saying what a control does. `next` is the seventeenth glyph in the set and
+the only new drawing: the digest's routes ended in a typed arrow and there was nothing to replace
+it with.
+
+**THE CHECK COULD NOT SEE THE MASKS IT WAS BUILT TO COMPARE.** `icons.mjs` matched `mask:` and
+`-webkit-mask:` and the new atom declares `mask-image`, because its repeat, position and size are
+shared by every value of the set. Three glyphs went onto 140 places and the check reported four
+masks and no change: not comparing them because it could not see them, which is the one failure
+mode a discovering check exists to avoid. It reads the longhand now, finds six, and matches all
+six character for character.
+
+**And a specimen may not inherit a state it is not showing.** The first letter key the walk found
+sat inside an out of reach button at .61 opacity. It is taken from a live control now, and the one
+that remains dim is the key inside the PRIMARY button at .85, which is the component doing exactly
+what `key.css` says it exists to do: the border follows the host. **That is a real limit of an
+atoms page**, and it is named rather than hidden: an atom whose whole point is that it takes its
+host's ink cannot be honest about its ink outside one.
+
+State: 20 atom sets over 50 variants, 24 molecules over 45, 19 organisms over 29. **1479 runs
+across the three levels, 0 off in width, 0 off in position, 0 missing.** Contrast 0 failures, the
+13 usage rules broken 0 times in colour, geometry 0 unexplained differences, icons 0 differences,
+and the glyph census now returns nothing that is an icon.

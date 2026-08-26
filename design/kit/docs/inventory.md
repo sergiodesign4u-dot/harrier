@@ -234,7 +234,8 @@ The paragraph above guessed right about the shape and wrong about the threshold:
 | `btn` | 157 | 57 | **emphasis:** outline 65, filled `--primary` 53, soft `--quiet` 33, out of reach `[aria-disabled]` 5. **content:** label 74, label + key 83 | `pane-foot` 86, `act` 23, dialog `footer` 21, `wrapline` 6, `doorform` 6, `addr` 5, `out-act` 4 |
 | `navitem` | **132** | 44 | **state:** current 44, not current 88 | Z1 only, injected by `design/_shell.js` |
 | `link` | **24** | 24 | **size, set by the container:** 11px in `gnote` 15, 12px in `expand` 6, `nar` 2, `empty` 2, Z6 1 | inline, inside whatever encloses it |
-| `key` | 152 | 34 | none. **The border follows the host**, which is the whole point of the component | `btn` 85, `opt` 45, `keys` 22 on the keyboard map |
+| `key` | 152 | 34 | **kind, seven values, and every one is a census:** letter 56, digit 47, named 36 (Enter, Esc, Home, End, Tab), combination 3 (`Ctrl + Home`), arrow 2, symbol 2, `--none` 5. **The border follows the host**, which is the whole point of the component | `btn` 85, `opt` 45, `keys` 22 on the keyboard map |
+| `glyph` | **140** | **46** | **icon:** `--menu` 81, `--dismiss` 56, `--next` 3. New on 2026-08-26, and every instance replaced a character that had been typed into product copy | `chip` 137, `t-x` 3, `bline` 3, and the drawn `select`'s mark |
 | `chip` | **122** | 44 | **emphasis:** outline, filled `--solid`, dashed `--ghost`. **content:** label, label + `▾` 77, label + `×` 45 | `scopebar` 122 |
 | `state` | **194** | 44 | **emphasis:** outline, filled `--solid` 46 | `states` inside a row 185, `chips-hd` 9 |
 | `bars` | 225 | 34 | **severity:** high 56, medium 71, low 46, read by `:has()` off the count of lit bars | `sev` 225, and `sev` is only ever inside `row` |

@@ -79,7 +79,9 @@ window.HARRIER_ICONS = {
 
   reject: {
     label: 'reject, the override, one key away',
-    applied: null,
+    /* AND IT DISMISSES, which is the same reading one rung down: reject a case,
+       dismiss a filter, dismiss a notice. 56 crosses were typed as U+00D7. */
+    applied: '.glyph--dismiss',
     shapes: [ { d: 'M5 5l14 14M19 5L5 19' } ]
   },
 
@@ -141,8 +143,14 @@ window.HARRIER_ICONS = {
     label: 'depth, one key away',
     /* AND THE SELECT TOOK IT TOO, on 2026-08-26, when the platform's arrow left.
        Down means the same thing on both: there is more under this. */
-    applied: '.expand::before, .select__mark',
+    applied: '.expand::before, .select__mark, .glyph--menu',
     shapes: [ { d: 'M4 8l8 8 8-8' } ]
+  },
+
+  next: {
+    label: 'the line is a route: open the queue, open the log',
+    applied: '.glyph--next',
+    shapes: [ { d: 'M4 12h16' }, { d: 'M13 5l7 7-7 7' } ]
   },
 
   keyboard: {
@@ -154,10 +162,14 @@ window.HARRIER_ICONS = {
 
 /* The order the stand draws them in. Declared rather than left to object key
    order, because the grouping above is by intent and the page shows the set as a
-   set. Sixteen names, and the check script asserts the count. */
+   set. Seventeen names since 2026-08-26, and the check script asserts the count.
+   `next` is the one addition, and it is the only glyph in the set that was not
+   already drawn when the set was written: the digest's routes ended in a typed
+   arrow and there was nothing to replace it with. */
 window.HARRIER_ICON_ORDER = [
   'case', 'file', 'accept', 'amend', 'reject', 'escalate', 'latitude', 'window',
-  'fleet', 'log', 'source', 'expand', 'filter', 'shift', 'keyboard', 'evidence'
+  'fleet', 'log', 'source', 'expand', 'filter', 'shift', 'keyboard', 'evidence',
+  'next'
 ];
 
 /* The declared geometry of the set. Read by the stand so that the numbers on the

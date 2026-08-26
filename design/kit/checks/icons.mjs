@@ -107,11 +107,16 @@ for (const file of CSS) {
   const abs = path.resolve(file);
   if (!fs.existsSync(abs)) continue;
   const text = fs.readFileSync(abs, 'utf8');
-  const re = /(-webkit-mask|mask)\s*:\s*url\("(data:image\/svg\+xml,[^"]+)"\)/g;
+  /* THE LONGHAND COUNTS TOO. The pattern read `mask:` and `-webkit-mask:` only, and the
+     `glyph` atom declares `mask-image` on its own because its repeat, position and size are
+     shared by every value of the set. Three glyphs were applied to 140 places and this check
+     reported four masks and no change: it was not comparing them because it could not see
+     them, which is the failure mode a discovering check exists to avoid. */
+  const re = /(-webkit-mask|mask)(-image)?\s*:\s*url\("(data:image\/svg\+xml,[^"]+)"\)/g;
   let m;
   while ((m = re.exec(text))) {
     let svg;
-    try { svg = decodeURIComponent(m[2].replace(/^data:image\/svg\+xml,/, '')); }
+    try { svg = decodeURIComponent(m[3].replace(/^data:image\/svg\+xml,/, '')); }
     catch (e) { parseErrs.push(`${file}: could not decode a mask URI, ${e.message}`); continue; }
     if (!found.has(svg)) found.set(svg, { files: new Set(), count: 0, prop: new Set() });
     const rec = found.get(svg);
@@ -162,7 +167,7 @@ console.log(`source: ${SRC}`);
 console.log(`glyphs declared: ${Object.keys(ICONS).length}   draw order: ${ORDER.length}`);
 const missingFromOrder = Object.keys(ICONS).filter(n => !ORDER.includes(n));
 const missingFromSet   = ORDER.filter(n => !ICONS[n]);
-if (Object.keys(ICONS).length !== 16) problems.push(`the set is ${Object.keys(ICONS).length} glyphs, not 16`);
+if (Object.keys(ICONS).length !== 17) problems.push(`the set is ${Object.keys(ICONS).length} glyphs, not 17`);
 missingFromOrder.forEach(n => problems.push(`${n} is in the set and not in the draw order`));
 missingFromSet.forEach(n => problems.push(`${n} is in the draw order and not in the set`));
 

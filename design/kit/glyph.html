@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Glyph</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Glyph</h1>
+<p class="k-lede">A drawing standing inside a control. <b>140 instances across 46 screens</b>, and every one of them replaced a character that had been typed into product copy on 2026-08-26.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-lede">One box, one mask, no colour of its own. It is sized in <code>em</code> so it follows whatever it stands in: a chip is 11px and a digest line is 12.5, and a glyph carrying a pixel size would be the wrong size in one of them.</p>
+<div class="k-demo k-demo--pad">
+  <span class="chip">All tenants <i class="glyph glyph--menu" aria-hidden="true"></i></span>
+  <span class="chip">Waiting on a decision <i class="glyph glyph--dismiss" aria-hidden="true"></i></span>
+  <span style="font-size:var(--size-sm);color:var(--text-secondary)">open the queue <i class="glyph glyph--next" aria-hidden="true"></i></span>
+</div>
+<div class="k-code">&lt;i class="glyph glyph--menu" aria-hidden="true"&gt;&lt;/i&gt;</div>
+<p class="k-note"><b>It is always <code>aria-hidden</code>.</b> There is no case in this product where the drawing is the only thing saying what a control does: the chip carries its filter's name, the toast's dismiss carries an <code>aria-label</code>, and the digest's line is a sentence. <b>A glyph that has to be announced is a glyph in the wrong place.</b></p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<table class="k-tbl">
+  <tr><th style="width:9rem"><code>--menu</code></th><td class="num">81</td><td><i class="glyph glyph--menu"></i></td><td>there is more under this. The <code>expand</code> glyph, the same drawing the disclosure and the select carry, and it means the same thing in all three</td></tr>
+  <tr><th><code>--dismiss</code></th><td class="num">56</td><td><i class="glyph glyph--dismiss"></i></td><td>this goes away. The <code>reject</code> glyph, one rung down from the verdict: reject a case, dismiss a filter, dismiss a notice</td></tr>
+  <tr><th><code>--next</code></th><td class="num">3</td><td><i class="glyph glyph--next"></i></td><td><b>the seventeenth glyph and the only new drawing here.</b> The digest's routes ended in a typed arrow and the set had nothing to replace it with. Same 24 grid, same 1.5 weight, and it is <code>escalate</code> turned a quarter</td></tr>
+</table>
+
+<h2 class="k-h" id="why">Why it exists</h2>
+<p class="k-lede"><b>An icon typed as a character is still an icon, and it is the worst kind.</b> Three were standing in this product as text, and each one cost four things at once.</p>
+<table class="k-tbl">
+  <tr><th style="width:12rem">A different drawing everywhere</th><td>the shape, the weight and the optical size of <code>U+25BE</code> come from whichever font the platform resolves. Two of the three were already in <code>icons.js</code> as real geometry and the product was ignoring them</td></tr>
+  <tr><th>It is read aloud</th><td>a screen reader says <b>times</b> and <b>black down-pointing small triangle</b>. The cross on a toast was spared that by an <code>aria-label</code>; the 137 on chips sat inside the button's accessible name</td></tr>
+  <tr><th>It is not aligned</th><td>a text glyph sits on the baseline at whatever height its font gives it. <code>chip.css</code> records, in as many words, that one scope bar held three chips at three heights and that <b>the caret glyph is taller than the cross</b></td></tr>
+  <tr><th>Nothing could find it</th><td>every check here reads roles, tokens, contrast or geometry, and a character in a string is none of those. <code>design/kit/checks/glyphs.mjs</code> reads every character the product renders that is not a letter, a digit or ordinary punctuation</td></tr>
+</table>
+
+<h2 class="k-h" id="limits">What is not a glyph</h2>
+<p class="k-lede"><b>The line is the character's job, not its code point.</b> The same census found 365 more and none of them moves here.</p>
+<table class="k-tbl">
+  <tr><th style="width:9rem"><code>&middot;</code></th><td class="num">235</td><td>a <b>separator</b>, which is punctuation. It has an ink role of its own, <code>--text-divider</code>, and the contrast sweep exempts it with that reason written down</td></tr>
+  <tr><th><code>&ndash;</code></th><td class="num">30</td><td>a reading of <b>no value</b> in a record cell. Punctuation</td></tr>
+  <tr><th><code>&uarr;</code> <code>&darr;</code></th><td class="num">100</td><td><b>the name of the key somebody presses</b>, inside a <code>kbd</code> or a <code>key</code>. Drawing those would say the key has a picture on it, and it has a character on it, the same as <code>a</code> and <code>Enter</code></td></tr>
+</table>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede"><b>None, and it is never the control.</b> It stands inside one. The chip, the toast's dismiss and the digest's line carry hover, focus and out of reach, and the glyph takes their ink through <code>currentColor</code> without declaring anything. A glyph that lit up on its own would be a second control inside the first.</p>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<table class="k-tbl">
+  <tr><th style="width:9rem">Colour</th><td><b>none.</b> <code>currentColor</code> only, which makes it the second atom in the system that takes no colour role, after <code>key</code> and for the same reason</td></tr>
+  <tr><th>Geometry</th><td><code>1em</code> square, <code>vertical-align: -0.09em</code>, and the 24 unit drawing scaled by <code>contain</code></td></tr>
+  <tr><th>The second copy</th><td>a CSS mask cannot read JavaScript, so each drawing is carried twice: once in <code>design/system/icons.js</code> and once as a data URI here. <code>design/kit/checks/icons.mjs</code> decodes every mask it finds and compares it against the set <b>character for character</b>, which is the only thing that keeps the copy honest</td></tr>
+  <tr><th>Stands on</th><td><code>chip</code> 137, <code>t-x</code> on the toast 3, <code>bline</code> in the shift digest 3, and the drawn <code>select</code>'s mark</td></tr>
+</table>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },
+  { id:'why', label:'Why it exists' },{ id:'limits', label:'What is not a glyph' },
+  { id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

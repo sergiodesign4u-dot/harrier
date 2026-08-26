@@ -97,7 +97,7 @@
     var value = document.createElement('span');
     value.className = 'select__value';
     var mark = document.createElement('span');
-    mark.className = 'select__mark';
+    mark.className = 'glyph glyph--menu select__mark';
     mark.setAttribute('aria-hidden', 'true');
     control.appendChild(value);
     control.appendChild(mark);

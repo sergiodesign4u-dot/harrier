@@ -87,15 +87,13 @@
   white-space: nowrap;
 }
 
+/* THE MARK IS THE `glyph` ATOM AND NO LONGER A PRIVATE COPY OF ONE. It carried its own
+   mask until 2026-08-26, which was two declarations of one drawing before the set had a
+   component for it. All this rule keeps is what is contextual: the colour it recedes to and
+   the turn it takes when the list opens. */
 .select__mark{
-  flex: 0 0 auto;
-  width: 12px;
-  height: 12px;
   color: var(--text-secondary);
-  background: currentColor;
   transition: transform var(--dur-fast) var(--ease-standard);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
-          mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
 }
 
 /* -- the list ----------------------------------------------------------------
@@ -145,10 +143,15 @@
   height: 10px;
   background: transparent;
 }
-.select__opt[aria-selected="true"]{
-  background: var(--bg-selected);
-  font-weight: 600;
-}
+/* THE CHOSEN ROW CARRIES NO GROUND OF ITS OWN, and that is the cure for a defect the owner
+   saw before any check did. `--bg-hover` is `--warm-900` in the dark theme and so is
+   `--bg-surface`, which is the ground this list stands on: the row under the pointer was
+   painted the exact colour it was already, so hover did not exist here. Two grounds competing
+   for one strip made it worse rather than better, because hovering the CHOSEN row replaced its
+   `--bg-selected` with the dimmer `--bg-hover` and the selection appeared to switch off.
+   ONE GROUND MEANS THE ROW YOU ARE ON. The tick and the weight mean the row that is chosen.
+   Two questions, two signals, and neither has to out-shout the other. */
+.select__opt[aria-selected="true"]{ font-weight: 600 }
 .select__opt[aria-selected="true"]::before{
   color: var(--text-accent);
   background: currentColor;
@@ -178,7 +181,7 @@
    `aria-activedescendant` names the keyboard's row and `.is-active` paints it;
    the pointer sets the same class on enter rather than painting a `:hover` of
    its own. That is why there is no `.select__opt:hover` rule in this file. */
-.select__opt.is-active{ background: var(--bg-hover) }
+.select__opt.is-active{ background: var(--bg-selected) }
 
 /* OUT OF REACH. `input.css` says a field that cannot be filled is not shown, and
    that is still true of the product: zero disabled fields in either corpus. It

@@ -1,0 +1,111 @@
+/* glyph :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Nothing but currentColor and geometry: --dur-fast, --ease-standard.
+   It is the second atom in the system that takes NO colour role, and for the same
+   reason `key` does: it belongs to whatever it stands in and must not argue with
+   it. Where it is dimmer than its host, the HOST is dimmer.
+   PAGE. design/kit/glyph.html
+   STANDS ON. 140 instances across 46 screens, replacing the same number of
+   characters typed into product copy.
+
+   ----------------------------------------------------------------------------
+   AN ICON TYPED AS A CHARACTER IS STILL AN ICON, AND IT IS THE WORST KIND.
+   Three of them were standing in this product as text: the caret on a chip that
+   opens (81), the cross on a chip and on a toast that dismisses (56), and the
+   arrow after `open the queue` (3). Every one of them was a drawing doing a
+   drawing's job, typed as U+25BE, U+00D7 and U+2192, and that costs four things
+   at once.
+
+   IT IS A DIFFERENT DRAWING ON EVERY MACHINE. The shape, the weight and the
+   optical size of U+25BE come from whichever font the platform resolves, which is
+   the same argument that took the select's popup away from the operating system.
+   Two of the three were already in `icons.js` as real geometry, drawn at the
+   set's 1.5 weight on its 24 grid, and the product was ignoring them.
+
+   IT IS READ ALOUD. A screen reader says "times" and "black down-pointing small
+   triangle". The cross on a toast was already spared that by an `aria-label` on
+   its host; the 137 on chips were not, and the character sat inside the button's
+   accessible name.
+
+   IT IS NOT ALIGNED. A text glyph sits on the baseline at whatever height its
+   font gives it, which is how one scope bar came to hold three chips at three
+   heights: `chip.css` records that the caret is taller than the cross, in as many
+   words, as a measured defect it had to work around.
+
+   AND NOTHING COULD FIND IT. Every check in this project reads roles, tokens,
+   contrast or geometry. A character in a string is none of those, so 140 icons
+   stood in the copy of a system that has an icon set and a checker for it. Found
+   by reading every character the product renders that is not a letter, a digit or
+   ordinary punctuation, which is `design/kit/checks/glyphs.mjs`.
+
+   ----------------------------------------------------------------------------
+   WHAT IS NOT A GLYPH, AND THE LINE IS THE CHARACTER'S JOB RATHER THAN ITS CODE
+   POINT. The same census found 365 more characters and none of them moves here.
+   `·` is a SEPARATOR, 235 of them, which is punctuation and has its own ink role.
+   `–` is 30 readings of "no value", which is punctuation too. And the 100 arrows
+   inside a `kbd` or a `key` are the NAME OF THE KEY somebody presses: drawing
+   those would say the key has a picture on it, and it has a character on it, the
+   same as `a` and `Enter`.
+   ----------------------------------------------------------------------------
+   IT IS SIZED IN `em` SO IT FOLLOWS ITS HOST. A chip is 11px and a shift line is
+   12.5, and a glyph that carried a pixel size of its own would be the wrong size
+   in one of them. The 24 unit drawing is scaled by `contain`, so the weight rides
+   the size the way the set intends.
+   ---------------------------------------------------------------------------- */
+
+.glyph{
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.09em;
+  background: currentColor;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+}
+
+/* -- the set, and each value is a glyph that already existed --------------------
+   `menu` is `expand` and `dismiss` is `reject`, both read out of icons.js at the
+   set's own 1.5 weight. The second copy of each drawing is decoded and compared
+   character for character by design/kit/checks/icons.mjs, which is the only thing
+   that keeps a mask honest: a CSS mask cannot read JavaScript. */
+
+/* THERE IS MORE UNDER THIS. The same drawing the disclosure and the select carry,
+   and it means the same thing in all three: down, and there is more. */
+.glyph--menu{
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* THIS GOES AWAY. The same drawing the reject verdict carries, and the reading is
+   the same one rung down: reject a case, dismiss a filter, dismiss a notice. */
+.glyph--dismiss{
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M5%205l14%2014M19%205L5%2019%22%2F%3E%3C%2Fsvg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M5%205l14%2014M19%205L5%2019%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* AND THIS ONE IS NEW, WHICH IS SAID OUT LOUD BECAUSE THE OTHER TWO ARE NOT.
+   `next` is the seventeenth glyph in the set and it exists because the digest's
+   three lines end in one: `open the queue` goes somewhere, and the arrow is what
+   says the line is a route rather than a sentence. Drawn on the same 24 grid at
+   the same 1.5 weight, and it is `escalate` turned a quarter: the up arrow that
+   already existed, with the shaft along x. */
+.glyph--next{
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%2012h16%22%2F%3E%3Cpath%20d%3D%22M13%205l7%207-7%207%22%2F%3E%3C%2Fsvg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%2012h16%22%2F%3E%3Cpath%20d%3D%22M13%205l7%207-7%207%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* -- NO STATES, AND IT IS NEVER THE CONTROL ------------------------------------
+   It stands inside one. The chip, the toast's dismiss and the digest's line carry
+   hover, focus and out of reach, and the glyph takes their ink through
+   `currentColor` without declaring anything. A glyph that lit up on its own would
+   be a second control inside the first.
+
+   IT IS ALWAYS `aria-hidden`. There is no case in this product where the drawing
+   is the only thing saying what a control does: the chip carries its filter's
+   name, the toast's dismiss carries an `aria-label`, and the digest's line is a
+   sentence. A glyph that has to be announced is a glyph in the wrong place. */

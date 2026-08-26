@@ -20,7 +20,7 @@
 @import url("tokens.css");
 @import url("base.css");
 
-/* ---- ATOMS. The smallest thing with a name. 19 ---------------------------
+/* ---- ATOMS. The smallest thing with a name. 20 ---------------------------
    Three subgroups, agreed before the build, because a level with more than about
    eight components needs a second sort or nobody can find anything in it. The
    order inside the level is controls, then marks, then the parts of a text, and
@@ -40,6 +40,7 @@
 @import url("components/select.css");
 
 /* marks: read, never pressed. None of them has a state */
+@import url("components/glyph.css");
 @import url("components/key.css");
 @import url("components/state.css");
 @import url("components/bars.css");
