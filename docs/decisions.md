@@ -1343,3 +1343,46 @@ State at the close: 62 grey boards and 62 coloured screens at 0 errors and 0 ove
 360, contrast 0 failures over 364 renderings, the 13 usage rules broken 0 times on the coloured
 corpus and 0 times for R1 and R8 on the grey, icons 0 differences, and `DS · Atoms` at 19 sets and
 42 variants with the drawn select carrying its open list.
+
+## 2026-08-26 · The other two levels, and the checks that reported their own rule as a defect
+
+`DS · Molecules` and `DS · Organisms`, built by the same compiler as the atoms and the grey
+screens. **24 sets over 45 variants and 19 sets over 29**, every variant read off a real instance
+on a real product screen, and **not one literal paint left inside a component on any of the three
+levels**: 73, 230 and 1523 bound.
+
+**The variant axes are the register's, and nothing here invented one.** Where the register calls a
+component a SLOT, meaning many zone sets and one computed form, it takes one row: `block` shows 43
+distinct zone sets and is still one drawing, and 43 specimens of it would be a catalogue of its
+CONTENT. Three organisms are the whole screen. `shell`, `screen` and `z45` are 1204 wide by
+construction, and they are carried anyway, because the register names nineteen and dropping the
+three biggest would be deciding that the top of the ladder does not count.
+
+**The spec was split from the dumper so that three levels are three specs and one instrument.**
+That is the lesson from the atom build, which began with a private copy of the walk and lost two
+rules the screen compiler had already paid for.
+
+**Two selectors were wrong and both were readings rather than guesses.** `rail-foot` is its own
+class in the coloured system and a modifier in the grey, so the first organism run found eighteen
+of nineteen. And the atom register named a chip content form, plain label, that the product has
+never shipped: 122 chips, 77 with a caret and 45 with a cross, and not one bare.
+
+**THE INTERESTING PART IS THAT THE CHECK WAS WRONG TWICE AND THE BUILD WAS RIGHT BOTH TIMES.**
+A right-aligned run that wraps is given its whole content box and right-aligned inside it, which
+reproduces the browser exactly; comparing its origin against the leftmost of its lines reported a
+42.8px miss on a timestamp that is pixel correct. A wrapped run that does NOT own its box begins
+after a leading atom and is given what is LEFT of the line, `cbx + cbw - fx`; expecting the whole
+box reported a flat +46 on every timeline entry in the pane, which is the timestamp's indent.
+**A check that models a different rule from the thing it checks reports the rule, not a defect**,
+and both of these are now written the same way in `ds-check.py`, `poscheck.py` and
+`23-check-all.py`. The grey boards improved from 5970 to 5974 correct widths on the same evidence,
+which is the measure of how much of that number had been the check.
+
+What is left: **11 readings of 1259 on the organisms, 0.9%**, two strings, both mono, both about
+6px narrow. `24m` measures 26.41px in the browser for three characters of 11px mono, which is one
+character more than it has: the browser's range includes a trailing space and Figma's auto width
+does not. Position is exact on all 1259. It is a measurement artefact and it is named rather than
+chased.
+
+The four pages now: `DS · Foundations` with 87 bound swatches in both themes, and Atoms,
+Molecules and Organisms at 19, 24 and 19 sets.
