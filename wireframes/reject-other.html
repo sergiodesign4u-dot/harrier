@@ -65,9 +65,9 @@
           <span class="sev" role="gridcell"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span> High</span>
           <span class="client" role="gridcell">Norsk Marine</span>
           <span role="gridcell">Ransomware precursor on FS-02</span>
-          <span class="concluded" role="gridcell"><b>Real, contained</b></span>
+          <span class="concluded" role="gridcell"><b>Real, contain endpoint</b><br><span class="dim">above latitude here</span></span>
           <span role="gridcell" class="cost">14 signals</span>
-          <span class="states" role="gridcell"><i class="chip chip--state">acted</i></span>
+          <span class="states" role="gridcell"></span>
           <span class="age" role="gridcell">52m</span>
         </a>
         <a class="row" role="row" href="case-no-baseline.html">
@@ -137,7 +137,7 @@
           <h3>Evidence, 9 signals</h3>
           <div class="claim"><span class="txt">A refresh token was presented from <b>ASN 41xxx</b>, first time for this tenant</span><a class="src" href="case.html">Entra sign in</a></div>
           <div class="claim"><span class="txt">The same token was used from the corporate range <b>4 minutes earlier</b></span><a class="src" href="case.html">Entra sign in</a></div>
-          <div class="expand">Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</div>
+          <details class="expand"><summary>How this was read</summary>Field <code>correlationId</code> matches across both sign ins, which is what makes it the same token rather than two. Read from the tenant&rsquo;s own log, 04:08 to 04:12 UTC.</details>
           <div class="claim"><span class="txt">No MFA prompt on the second use</span><a class="src" href="case.html">Entra sign in</a></div>
           <div class="claim"><span class="txt">An inbox rule was created <b>90 seconds later</b>, forwarding to an external address</span><a class="src" href="case.html">Exchange audit</a></div>
           <div class="claim claim--absence"><span class="txt"><span class="tag">not found</span>no password change, and no new device enrolment</span><a class="src" href="case.html">Entra, EDR</a></div>
@@ -165,7 +165,7 @@
       </div>
       <div class="pane-foot">
         <a class="btn btn--primary only-desk" href="queue-decided.html">Accept <span class="key">a</span></a>
-        <a class="btn btn--primary-narrow" href="escalate.html">Escalate <span class="key">e</span></a>
+        <a class="btn btn--primary only-narrow" href="escalate.html">Escalate <span class="key">e</span></a>
       </div>
     </aside>
   <div class="scrim scrim--desk-only">

@@ -35,7 +35,13 @@ HEAD = ('        <div class="row row--head" role="row">\n'
 BASE_ROWS = [
     ('Medium','Meridian Health','Mass file rename on one host','Rejected by R. Idrissi',None,'4 signals',['decided','unrecorded!'],'1h','case-unrecorded.html',''),
     ('High','Larkfield Logistics','Token replay from a new ASN','Real, contain identity','above latitude here','9 signals',[],'27m','case.html',''),
-    ('High','Norsk Marine','Ransomware precursor on FS-02','Real, contained',None,'14 signals',['acted'],'52m','case.html',''),
+    # NORSK MARINE'S LATITUDE IS `Investigate`, AND THIS ROW SAID CLERK HAD CONTAINED THE HOST.
+    # Two of the product's own statements, the row and the fleet's ceiling, could not be true at
+    # once: the tenant sits at 18 of 20 with `Investigate`, so containment here is ABOVE the
+    # latitude and is proposed rather than done. The verdict now names the action it wants and
+    # carries the same `above latitude here` Larkfield does, and the `acted` chip is gone,
+    # because nothing acted. Cured on the coloured side on 2026-08-26 and carried back here.
+    ('High','Norsk Marine','Ransomware precursor on FS-02','Real, contain endpoint','above latitude here','14 signals',[],'52m','case.html',''),
     ('Medium','Aubrey Dental Group','Sign in from an unseen device','Real, contain identity','above latitude here','9 signals',[],'6m','case-no-baseline.html',''),
     ('Medium','Halden Freight','Impossible travel, two offices','Benign, sanctioned VPN rollout',None,'6 signals',[],'4m','case.html',''),
     ('Low','Halcyon Care','Beaconing to a new domain','Real, contained',None,'5 signals',['acted'],'2h','case.html',''),

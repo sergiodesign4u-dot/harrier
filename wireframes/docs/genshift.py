@@ -166,13 +166,17 @@ MOVED = [
     ('Meridian Health',
      'Credential stuffing on the VPN. Rejected, then amended 34m later. <b>Both entries stand</b>, and the second says what it corrected',
      ['decided'], 'case.html'),
-    ('Aubrey Dental Group',
-     'Sign in from an unseen device. Accepted, and this tenant still has no baseline to compare against',
-     ['decided'], 'case-no-baseline.html'),
+    # AUBREY DENTAL GROUP WAS ACCEPTED HERE AND BY THE CANON IT HAS NO RULINGS AT ALL. The line
+    # even said so in its own words, "still has no baseline to compare against", one clause after
+    # claiming a decision was taken on it. Removed rather than reworded, for the same reason as
+    # the log entry: the fleet draws a dash for this tenant and the two could not both be true.
+    # ITS TIMESTAMP WAS A SECOND CONTRADICTION AND IT LEAVES WITH THE ROW. `10h` put the event at
+    # 18:14, before the 19:00 start of the very shift that was reporting it, while the log gave
+    # the same event 7h. Cured on the coloured side on 2026-08-26 and carried back here.
 ]
 
-INCOMING_WHEN = ['2h', '3h', '3h', '5h', '8h', '10h']
-OUTGOING_WHEN = ['31m', '1h', '1h', '3h', '6h', '8h']
+INCOMING_WHEN = ['2h', '3h', '3h', '5h', '8h']
+OUTGOING_WHEN = ['31m', '1h', '1h', '3h', '6h']
 
 
 def moved_rows(whens, frozen=False):
@@ -195,7 +199,7 @@ def moved_grid(whens, frozen=False):
             % (MOVED_HEAD, moved_rows(whens, frozen)))
 
 
-MOVED_TAIL = ('          <p class="gnote">Six moved, and '
+MOVED_TAIL = ('          <p class="gnote">Five moved, and '
               '<b>the Meridian rejection has no log entry</b> because its write never landed. That is '
               'exactly why it is a line here: the log cannot tell the next analyst about a decision '
               'the log never received.</p>\n')
@@ -307,7 +311,7 @@ page('shift.html', 'Shift brief', 'live',
      sect('What waits on a decision', WAITS + CLERK_ALONE)
      + sect('What moved this shift', moved_grid(INCOMING_WHEN) + MOVED_TAIL)
      + sect('Notes left on cases', notes_read()),
-     '6 pointers, and every one of them opens a case',
+     '5 pointers, and every one of them opens a case',
      'Handed from D. Okonkwo. Twelve hours, and what is left of them',
      PANE_REST,
      pfoot([('Open the queue', 'Enter', 'queue.html', ' btn--primary'),
@@ -324,7 +328,7 @@ page('shift-outgoing.html', 'Shift brief, handing over', 'live',
      + sect('What waits on a decision', WAITS + CLERK_ALONE)
      + sect('What moved this shift, so far', moved_grid(OUTGOING_WHEN) + MOVED_TAIL)
      + sect('Notes you left on cases', notes_edit()),
-     '6 pointers so far, and the count is still moving',
+     '5 pointers so far, and the count is still moving',
      'Yours, open, and it seals when you say so',
      PANE_REST,
      pfoot([('Seal the brief', 'Enter', 'shift-sealed.html', ' btn--primary'),
@@ -409,7 +413,7 @@ page('shift-sealed.html', 'Shift brief, sealed', 'live',
               'Nothing on this page changes now. D. Okonkwo reads it as it stands, and his own '
               'pointers are live because the brief he opens is his.</p>\n')
      + sect('Notes left on cases', notes_read(author='R. Idrissi')),
-     '6 pointers, frozen at the seal',
+     '5 pointers, frozen at the seal',
      'Sealed by R. Idrissi, 2m ago',
      PANE_REST,
      pfoot([('Sign out', '', 'index.html', ' btn--primary'),
@@ -431,7 +435,7 @@ page('shift-close-failed.html', 'Shift brief, the close did not write', 'live',
               'attempt.</b> The counts stopped when the seal was tried, so what is on screen is what '
               'would have been sealed. Nothing was lost.</p>\n')
      + sect('Notes you left on cases', notes_edit()),
-     '6 pointers, frozen at the attempt. The brief is still open',
+     '5 pointers, frozen at the attempt. The brief is still open',
      'Yours, and still open. The seal is what failed, not the brief',
      PANE_REST,
      pfoot([('Try again', 'Enter', 'shift-sealed.html', ' btn--primary'),
@@ -459,7 +463,7 @@ page('shift-unsealed.html', 'Shift brief, nobody sealed it', 'live',
             'Halden Freight. None of it was written down.<br><br>'
             'The cases themselves still hold their own history, so the answer is on <b>each case</b> '
             'rather than here, and it costs a case at a time instead of one page.</div>\n'),
-     '6 pointers from the record, and no notes',
+     '5 pointers from the record, and no notes',
      'Never sealed. Assembled by Clerk, unsigned by anyone',
      PANE_REST,
      pfoot([('Open the queue', 'Enter', 'queue.html', ' btn--primary'),

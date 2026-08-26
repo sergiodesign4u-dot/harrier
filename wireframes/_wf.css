@@ -104,7 +104,14 @@ a:hover{text-decoration-color:var(--ink)}
 .z1 .kmap:hover{color:var(--ink);border-color:var(--ink)}
 
 /* Z2 connection strip, node 0.4. Never silent when connected */
+/* THE STRIP IS A `<p>` AND NOTHING TOOK THE BROWSER'S MARGIN OFF IT, so Z2 floated with 11px
+   of air above and below on all 55 screens that carry it, and the top of every one of them
+   sat 22px lower than the coloured screen it is paired with. Nothing in this file declared a
+   margin, so nothing flagged one: the defect was an ABSENT rule, the same class as the 151
+   blue links, and it was found by putting the two renderings side by side rather than by
+   reading either. design/system/components/z2.css has carried margin:0 since stage 08. */
 .z2{flex:0 0 auto;min-height:var(--z-strip);display:flex;align-items:center;gap:var(--s3);
+    margin:0;
     padding:0 var(--s4);border-bottom:var(--line);background:var(--fill);
     font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
 .z2 b{color:var(--ink);font-weight:700}
@@ -122,7 +129,9 @@ a:hover{text-decoration-color:var(--ink)}
    ============================================================ */
 .scopebar{display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center;
           padding:var(--s3) var(--s4);border-bottom:var(--line)}
-.readout{padding:var(--s2) var(--s4);border-bottom:var(--line);font-size:var(--t-sm)}
+/* The same absent rule as .z2 above: the browser's margin resolved to 8.375px here, where the
+   product's own component file says var(--space-2), which is 8. */
+.readout{margin:var(--s2) 0;padding:var(--s2) var(--s4);border-bottom:var(--line);font-size:var(--t-sm)}
 .readout b{font-weight:700}
 .readout .dim{color:var(--soft)}
 
@@ -194,6 +203,19 @@ a:hover{text-decoration-color:var(--ink)}
 .claim .tag::after{content:"\00a0\00a0"}
 .expand{margin:var(--s2) 0 var(--s3) var(--s4);border-left:2px solid var(--hair);
         padding:var(--s2) var(--s3);font-size:var(--t-sm);background:var(--fill)}
+/* THE EXPANSION HAS A HEAD, AND WITHOUT ONE IT PROMISED A CONTROL THAT WAS NOT THERE. The body
+   was always open, so design principle 2, "cheapest correct thing first, depth one key away",
+   was drawn as depth already spent. 21 of the 27 expansions are a `details` with a `summary`;
+   the other six HOLD A LINK and stay a `div`, because a head that is itself a control cannot
+   also carry one. The caret is a glyph and not an icon, which is the same licence the scope
+   chips already use for their `&#9662;`, so the grey contract at the top of this file holds. */
+.expand > summary{cursor:pointer;list-style:none;font-weight:600}
+.expand > summary::-webkit-details-marker{display:none}
+.expand > summary::before{content:"\25B8\00a0";color:var(--soft)}
+.expand[open] > summary::before{content:"\25BE\00a0"}
+/* the gap belongs to the OPEN state and not to the head, or a closed expansion carries the air
+   of an open one under a line of text */
+.expand[open] > summary{margin-bottom:var(--s2)}
 
 .prov{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
       border-top:var(--line);padding-top:var(--s2)}
@@ -368,7 +390,12 @@ a.opt:hover{background:var(--fill)}
        display:flex;gap:var(--s4);flex-wrap:wrap}
 .qfoot kbd{font:inherit;border:1px solid var(--hair);border-radius:var(--radius);padding:0 var(--s1)}
 .fleet-more{padding:var(--s3) var(--s4);font-family:var(--mono);font-size:var(--t-xs);color:var(--soft)}
-.qbanner{margin:var(--s3) var(--s4) 0}
+/* AND IT HAS AIR UNDER IT. The bottom margin was zero, so the banner's border sat directly on
+   the sticky header of the table below it: two rules touching, and the banner read as part of
+   the table rather than as a notice about it. The same sentence stands in
+   design/system/components/z4.css, because it is the same finding, made on the coloured side
+   first and carried back here rather than rediscovered. */
+.qbanner{margin:var(--s3) var(--s4)}
 
 /* The case pane: the narrative, the latitude ladder and the snapshot stamp. On 44 pages. */
 .nar{margin:0;font-size:var(--t-sm)}
@@ -560,10 +587,14 @@ a.opt:hover{background:var(--fill)}
      "on a phone the exit is escalate, and only escalate". Accept is `only-desk` there, so the
      footer lost its primary with it and the one action the screen names rendered as an
      ordinary outlined button. Found by the final sweep, which counted primaries per page and
-     flags zero as loudly as it flags two. This class is the narrow half of that pair: at the
-     desk the dialog owns the primary, at 360 the pane's exit does. */
-  .btn--primary-narrow{background:var(--ink);color:var(--paper);font-weight:600}
-  .btn--primary-narrow .key{opacity:.85}
+     flags zero as loudly as it flags two.
+
+     `.btn--primary-narrow` WAS THE FIX AND IT ONLY DID HALF THE JOB. It repainted the button
+     at 360 and never hid it at the desk, so on all six reject screens a second action sat in
+     the pane foot while the dialog was open, and 4.4 says the dialog owns the primary there.
+     It is gone: the markup uses `btn--primary only-narrow`, which is display driven, does hide
+     at the desk, and is the utility this file already had. Two names for one job was the
+     defect `.only-desk` was consolidated out of at step 2 of this same section. */
 }
 
 

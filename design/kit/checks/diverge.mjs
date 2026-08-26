@@ -312,6 +312,10 @@ if (missing.length) console.log(`\nNO SCREEN ROOT FOUND on ${missing.length}: ${
 if (greyOnly.length) console.log(`\nGREY WITH NO COLOURED TWIN   ${greyOnly.length}: ${greyOnly.join(', ')}`);
 if (colourOnly.length) console.log(`COLOUR WITH NO GREY TWIN     ${colourOnly.length}: ${colourOnly.join(', ')}`);
 
-console.log(`\nA divergence is not automatically a lag. wireframes/ is frozen, so every`);
-console.log(`difference was made on the coloured side, and it is ahead, deliberate or drifted.`);
-console.log(`Only the third is a defect, and this file does not tell them apart.\n`);
+console.log(`\nA divergence is not automatically a lag, and SINCE 2026-08-26 IT IS NOT AUTOMATICALLY`);
+console.log(`ON THE COLOURED SIDE EITHER. This file used to close by saying wireframes/ was frozen,`);
+console.log(`so every difference had been made in colour; the folder is now kept in step, the`);
+console.log(`frozen state is the tag wireframes-frozen-04, and a difference can start on either`);
+console.log(`side. What is deliberate: a stage boundary, since grey carries stage 05 DRAFT strings`);
+console.log(`by rule, and a screen that exists only in colour. What is a defect: the same fact`);
+console.log(`stated two ways. This file still does not tell them apart.\n`);

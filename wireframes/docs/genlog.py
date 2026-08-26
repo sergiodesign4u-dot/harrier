@@ -46,8 +46,12 @@ SHIFT_ROWS = [
   ('2026-08-21T22:38:16Z','High','Meridian Health','Credential stuffing on the VPN',
    'Rejected by D. Okonkwo', 'Detection is too broad', ['superseded!'],
    'Corrected 34m later by the entry above. Nothing was edited and nothing was removed.'),
-  ('2026-08-21T21:05:33Z','Medium','Aubrey Dental Group','Sign in from an unseen device',
-   'Accepted by D. Okonkwo', None, ['accepted'], ''),
+  # AUBREY DENTAL GROUP HAD A RULING HERE AND BY THE CANON IT HAS NONE. The fixture set makes
+  # this the one client with no record yet: the fleet draws a dash and `no rulings yet`, and
+  # that dash is what the empty-baseline case on 4.8 stands on. A log entry accepting a case
+  # for that tenant made the two halves of the product disagree about the same client, and it
+  # is the reason the entry is removed rather than reworded. Cured on the coloured side on
+  # 2026-08-26 and carried back here. The counters below move with it.
 ]
 
 def rows(items, selected=None, href=None):
@@ -128,7 +132,7 @@ def page(fname, title, chips, h1, body, foot, pane, current='log'):
 page('log.html', 'Decision log', CHIPS,
      '<b>34 entries</b> <span class="dim">this shift and the one before, across 6 of 40 tenants</span>',
      grid(rows(SHIFT_ROWS)),
-     LFOOT % '7 of 34 shown, newest first',
+     LFOOT % '6 of 34 shown, newest first',
      covers('All tenants in your provider scope. No actor filter, no decision filter',
             '34', '<b>2026-08-21T19:00:00Z</b> to now'))
 
@@ -232,7 +236,7 @@ ENTRY = ("""    <aside class="z5 z5--paper" aria-labelledby="ph">
 page('log-selected.html', 'Decision log, entry selected', CHIPS,
      '<b>34 entries</b> <span class="dim">this shift and the one before, one selected</span>',
      grid(rows(SHIFT_ROWS, selected='2026-08-22T04:41:12Z')),
-     LFOOT % '7 of 34 shown, one selected',
+     LFOOT % '6 of 34 shown, one selected',
      ENTRY)
 
 # ---------------------------------------------------------------------------- 5. snapshot gone, 5.5
