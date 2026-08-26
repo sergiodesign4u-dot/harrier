@@ -235,10 +235,18 @@ if (!broken.length) console.log(`  ${PAGES.length * 2} renderings, nothing broke
    product and the colour is still catching up, so a run that quietly read only the
    colour would report a clean corpus by choosing one. */
 if (broken.length && dirArg.replace(/\/$/, '') === 'wireframes')
-  console.log(`\n  These are GREY figures. wireframes/ is frozen, so they are the measured lag of a
+  console.log(`\n  These are GREY figures, and the folder stopped being frozen on 2026-08-26: it is
 ` +
-              `  corpus nobody may fix rather than a list of defects. The coloured corpus answers the
+              `  KEPT IN STEP now, so a line here is a defect somebody may fix rather than a lag
 ` +
-              `  same rules under \`node design/kit/checks/rules.mjs design\`, and the lag between the two
+              `  nobody may touch. What is carried back is a CONTRADICTION or a defect and never a
+` +
+              `  stage boundary, which is why R11 stands at 21: a grey dialog has no h1 because the
+` +
+              `  heading it would carry is a stage 05 string this folder does not hold. The coloured
+` +
+              `  corpus answers the same rules under \`node design/kit/checks/rules.mjs design\`, and
+` +
+              `  the difference between the two
 ` +
               `  is measured page by page by \`node design/kit/checks/diverge.mjs\`.`);

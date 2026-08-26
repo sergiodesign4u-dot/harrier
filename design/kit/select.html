@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harrier &middot; Select</title>
+<link rel="stylesheet" href="../../_nav.css">
+<link rel="stylesheet" href="../system/index.css">
+<link rel="stylesheet" href="_page.css">
+</head>
+<body>
+<div class="k-shell">
+<aside id="sidebar"></aside>
+<main class="k-main">
+
+<p class="k-eyebrow">Atom</p>
+<h1 class="k-title">Select</h1>
+<p class="k-lede">One answer out of a short, known set. <b>4 instances across 1 screen</b>, all of them on the keyboard map, where each row says whether its shortcut is on, needs a modifier, or is off. It is the only component in this system whose keyboard is a file of its own.</p>
+
+<h2 class="k-h" id="anatomy">Anatomy</h2>
+<p class="k-lede">Four zones and an order: the control, the value it currently holds, the mark that says there is more under it, and the list. <b>That is why it is a component and not a variant of <code>input</code></b>: the splitting criterion in the register is anatomy, and until 2026-08-26 this had none, because the platform drew all of it.</p>
+
+<div class="k-demo k-demo--pad">
+  <div style="max-width:320px">
+    <label class="label" for="k-sel-a">Rule on the case</label>
+    <select class="input" id="k-sel-a">
+      <option>On, the letter alone</option>
+      <option>On, but it needs Ctrl</option>
+      <option>Off</option>
+    </select>
+  </div>
+</div>
+<p class="k-note"><b>That is live.</b> Point at it, open it, walk it with the arrows, type <code>o</code> twice. Nothing on this page is a picture of the component.</p>
+
+<div class="k-code">&lt;select class="input" id="scope"&gt;
+  &lt;option&gt;On, the letter alone&lt;/option&gt;
+&lt;/select&gt;
+&lt;script src="system/select.js"&gt;&lt;/script&gt;</div>
+<p class="k-note"><b>The markup is a native <code>select</code> and stays one.</b> The script wraps it, paints a control over it and writes the answer back into it, so a form still submits the element the browser understands and nothing downstream has to know the drawing exists. <b>The class goes on the element, never on a wrapper.</b></p>
+
+<h2 class="k-h" id="variants">Variants</h2>
+<p class="k-lede">None. <b>The count of options is a count.</b> Every instance in the product offers three, and a fourth would change nothing here.</p>
+
+<h2 class="k-h" id="use">When to use it</h2>
+<table class="k-tbl">
+  <tr><th>Use it</th><td>one answer out of a short set that is known in advance, where the answers are a closed list rather than a search</td></tr>
+  <tr><th>Do not</th><td>for two answers. That is a pair of controls or a switch, and a list of two is a list somebody has to open to learn there was nothing to choose</td></tr>
+  <tr><th>Do not</th><td>for a long list. Past about a dozen the question is a search and the component is a field with suggestions under it, which this system does not have and which goes to <code>backlog.md</code> rather than being bent out of this one</td></tr>
+  <tr><th>Do not</th><td>to fire an action. A control that changes the screen the moment it is picked is a menu, and a menu is not this: this holds a value until something else is pressed</td></tr>
+</table>
+
+<h2 class="k-h" id="rules">Rule and anti-rule</h2>
+<p class="k-lede"><b>It left <code>input</code>, and the file it left argued against this in writing.</b> The argument is kept rather than deleted, because it is the reason the native control stood for six stages and it is still the reason to be careful here.</p>
+<table class="k-tbl">
+  <tr><th style="width:12rem">What <code>input.css</code> said</th>
+      <td>a drawn select has to reimplement the popup, the keyboard and the screen reader, <b>and gets one of the three right</b></td></tr>
+  <tr><th>What changed</th>
+      <td>the owner decided on 2026-08-26 that the platform's popup does not belong inside a console whose whole claim is that it is calibrated. The arrow, the plate, the ink and the type of the open list were the operating system's, and different on every machine a case is opened from</td></tr>
+  <tr><th>So the price is paid</th>
+      <td>all three are implemented. The popup is in <code>select.css</code>, the keyboard is in <code>design/system/select.js</code> as a real implementation, and the screen reader is served by a <code>combobox</code> that owns a <code>listbox</code> through <code>aria-activedescendant</code></td></tr>
+  <tr><th class="k-none">Never</th>
+      <td>a <code>div</code> with a click handler on it. If the next screen needs a control like this one and reaches for a shortcut, it takes this component or it takes the native element. There is no third thing</td></tr>
+</table>
+
+<h2 class="k-h" id="limits">Limits</h2>
+<table class="k-tbl">
+  <tr><th style="width:12rem">Arrows do not commit</th>
+      <td>while the list is open, moving does not change the answer. This differs from the platform on Windows and agrees with it on macOS, and the reason is the one screen it stands on: <b>a shortcut map is a set of settings</b>, and somebody walking down it with the keyboard must not change four of them on the way past</td></tr>
+  <tr><th>The options are never focusable</th>
+      <td>focus stays on the control the whole time. Tab therefore leaves, the way it does on the native element, rather than trapping somebody inside a list of three rows</td></tr>
+  <tr><th>It does not run under the point</th>
+      <td>below <code>--bp-split-panes</code> the control is handed back to the native <code>select</code>. <b>A phone puts a wheel under one that no list of rows can beat</b>, it is reachable one handed, and it never opens off the bottom of a 360 screen</td></tr>
+  <tr><th>One list at a time</th>
+      <td>a pointer down anywhere outside closes it. There is no rule keeping two open at once because there is nothing that opens a second one while the first has focus</td></tr>
+</table>
+
+<h2 class="k-h" id="states">States</h2>
+<p class="k-lede">Live, in both themes. Point at the control, reach it with Tab, then press <b>Enter</b>.</p>
+
+<div class="k-demo k-demo--pad">
+  <div style="display:flex;gap:var(--space-6);flex-wrap:wrap">
+    <div style="width:250px">
+      <label class="label" for="k-sel-b">At rest, and hover</label>
+      <select class="input" id="k-sel-b">
+        <option>On, the letter alone</option>
+        <option>On, but it needs Ctrl</option>
+        <option>Off</option>
+      </select>
+    </div>
+    <div style="width:250px">
+      <label class="label" for="k-sel-c">Out of reach</label>
+      <select class="input" id="k-sel-c" disabled>
+        <option>On, the letter alone</option>
+        <option>On, but it needs Ctrl</option>
+        <option>Off</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<table class="k-tbl">
+  <tr><th style="width:9rem">hover</th><td>the boundary answers and the ground does not move. A field's ground is the page, and a plate under it while the pointer passes would read as it being filled in. <code>--line-hover</code></td></tr>
+  <tr><th>focus-visible</th><td>the ring is declared once, in <code>base.css</code>, and this file repeats none of it. It stands <b>outside</b> the boundary at 1px offset and does not replace it</td></tr>
+  <tr><th>open</th><td>the mark turns by the same half turn the disclosure uses, in the same direction, at <code>--dur-fast</code>. The boundary takes the hover line as well, because a control with a list hanging off it is not at rest</td></tr>
+  <tr><th>the active row</th><td><b>the pointer and the keyboard land on the same row.</b> There is deliberately no <code>:hover</code> rule on an option: the pointer sets the same class the keyboard sets, so a person moving by keyboard while the pointer rests elsewhere never sees two rows offered at once</td></tr>
+  <tr><th>the chosen row</th><td>ground <b>and</b> a tick. A row told apart by its background alone is a row nobody can tell apart in a high contrast mode, where the ground is dropped and the glyph is not</td></tr>
+  <tr><th>out of reach</th><td>the whole control dimmed by <code>--opacity-disabled</code>, never a repaint. <b>The product has zero of these</b> and the system draws it anyway, because a system that cannot show a control out of reach hands the next person a decision to invent</td></tr>
+  <tr><th class="k-none">active</th><td>does not exist. The pointer goes down and the list opens, which is a state this file already draws</td></tr>
+</table>
+
+<h2 class="k-h" id="tech">What it reads, and where it stands</h2>
+<table class="k-tbl">
+  <tr><th style="width:9rem">Fill</th><td><code>--bg-page</code> on the control, <code>--bg-surface</code> on the list, <code>--bg-selected</code> on the chosen row, <code>--bg-hover</code> on the active one</td></tr>
+  <tr><th>Ink</th><td><code>--text-primary</code>, <code>--text-secondary</code> on the mark, <code>--text-accent</code> on the tick</td></tr>
+  <tr><th>Line</th><td><code>--rule-control</code> on the control, <code>--rule-edge</code> on the list, <code>--line-hover</code>, and <code>--color-focus</code> through <code>base.css</code></td></tr>
+  <tr><th>Geometry</th><td><code>--radius-ui</code>, <code>--space-1</code> to <code>--space-3</code>, <code>--opacity-disabled</code>, <code>--dur-fast</code>, <code>--ease-standard</code>, <code>--bp-split-panes</code></td></tr>
+  <tr><th>Glyphs</th><td><code>expand</code> for the mark and <code>accept</code> for the tick, both from <code>design/system/icons.js</code>, both applied as masks so they take <code>currentColor</code>. The second copy of each drawing is compared character for character by <code>design/kit/checks/icons.mjs</code></td></tr>
+  <tr><th>No shadow</th><td>and that is not an oversight. <b>There is not one <code>box-shadow</code> in this system.</b> A dialog is told from the screen by a scrim and a toast by its own edge, so a shadow here would be a device the product does not own, introduced for one component with four instances</td></tr>
+  <tr><th>Stands on</th><td><code>design/keyboard.html</code>, 4 instances, inside <code>keyrow--set</code></td></tr>
+</table>
+
+</main>
+</div>
+<script>
+window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },
+  { id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },
+  { id:'limits', label:'Limits' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
+</script>
+<script src="_nav.js"></script>
+<script src="../system/select.js"></script>
+</body>
+</html>

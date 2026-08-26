@@ -1040,3 +1040,306 @@ Node 6.1 Client summary draft was built in four states by an agent with clean co
 **What is carried back is a contradiction or a defect, never a stage boundary.** Interface strings here stay stage 05 drafts, because `_wf.css` says so in its own words and copying final copy back would erase the boundary the stage exists to draw. The four `tenant*` screens that exist only in colour are not drawn here after the fact: a wireframe made after the UI is a low-fidelity screenshot, and that is the one thing the reconciliation must not turn this folder into.
 
 **And the generators are 61 pages behind the corpus, which is the finding the reconciliation nearly walked into.** Rule 4 of `wireframes/CLAUDE.md` said pages come from the generators and a hand edit is lost the next time one runs. Stage 05 edited the rendered output and never back-ported, so the source now says `wants to contain` where voice ruled `proposes`, `Next` where microcopy ruled `Open your provider's sign in`, and it puts IA node numbers inside product copy. Re-running all thirteen generators rewrote **61 of 62 pages, every one in visible text**, backwards. The first attempt at this reconciliation did exactly that and was reverted; the cures were then written on the pages and mirrored into the generators, and the rule now says the two are out of step and names which way. The trap the rule warned about is the one it fell into, and no instrument was looking because every check in this project compares a rendering to a rendering, never a source to its own output.
+
+## 2026-08-26 · A string diff at zero, and the two sides still did not agree on the arrangement
+
+The reconciliation above closed the paired string diff at 0 of 62 and the owner opened the two
+screens side by side and said he still could not see the difference. He was right, and the
+reason is that the instrument was the wrong one: **a string diff proves the two sides say the
+same words and says nothing about where those words sit.** The pane foot held the same four
+buttons in the same order and drew them as a two by two block in grey against Accept full width
+over three that qualify it in colour, and no check in this project would ever have reported it.
+
+**His argument is why it matters, and it is stronger than the rule I had written.** New
+wireframes are drawn by reading existing wireframes. A grey corpus that arranges a zone one way
+while the product arranges it another does not merely look dated: it teaches the next screen the
+wrong block priority, and the error compounds every time the folder is used as a source. The
+answer I gave first, that arrangement was a stage boundary and stayed on the coloured side, was
+wrong. **Colour, type family, icons, shadows and motion are a stage boundary. Where a block sits
+and how wide it runs is block priority, which is exactly what this folder owns.**
+
+**The instrument built for it compares ARRANGEMENT and is blind to type and palette by
+construction.** For every container holding two or more children it takes two scale free
+readings: how many rows the children wrap into, and each child's width as a fraction of the
+container's content box. It anchors containers by their own signature plus the nearest classed
+ancestor, because the trail from `body` does not match across two shells. It found 159 row
+divergences and 229 share divergences on 1511 shared containers over 61 paired pages.
+
+**Two of its own readings were defects and both were found by disbelieving a large number.**
+`101 pages` of a three row ladder was baseline alignment putting three children of one flex row
+at three tops a pixel apart; a row is now a cluster with a 6px tolerance. And the share of a
+container is meaningless for an INLINE child, whose rect is the union of the lines it happens to
+span rather than a box, so the metric now runs only where there is a layout: a flex or grid
+container, or one whose children are all block level. Those two corrections took the report from
+159 and 229 down to 12 and 182 with nothing carried back for either.
+
+**Five things were carried back, and every one of them is geometry.**
+
+- **The verdict foot.** Four equal buttons made the main action a quarter of its own foot.
+  Accept takes the full width and the three that qualify it share the row under it, conditioned
+  on the count rather than written as a variant, and reverted at 360 exactly as the product
+  reverts it.
+- **The latitude ladder is a table and as a flex row it only looked like one.** `margin-left:
+  auto` right-aligned each reason against whatever space its own row left over, so six rows
+  meant to be read down a column landed at different x. Three tracks with `subgrid`, the third
+  `fit-content(22ch)` rather than `auto`.
+- **`--measure` had no reader.** It was declared in `_wf.css` and `var(--measure)` appeared
+  nowhere else in the file, so a token sat there for two stages reading nothing while the width
+  sweep reported 46 page and class pairs running past 66 characters, up to 96ch. The same
+  fourteen selectors carry it in `base.css`, plus the two queue cells that are read rather than
+  scanned and the sentence inside the record's rail. This one finding closes both reports at
+  once: 229 share divergences fell to 52.
+- **`.rota` had markup on seven pages and not one rule in this file**, so three spans that are
+  a row stacked into three lines. This is the class the arrangement diff exists to find and no
+  other instrument here can see it: the strings are right, the page does not overflow, and the
+  component simply has no CSS.
+- **The state chips stack towards their own column** instead of the second sitting left aligned
+  under a right aligned first and crossing the rule under the row.
+
+After them the row divergences stand at **4, all one finding**: the annunciator wraps onto two
+lines in colour and one in grey. **That one is not carried back, because the grey is the side
+that is right** and this folder does not fix the product. The remaining 182 share readings are
+all the same ladder's middle track, and the authored rule is character for character identical
+on the two sides (`auto 1fr fit-content(22ch)`): the pixels differ because the glyphs do, which
+is the boundary working as intended. `text-wrap: pretty` was likewise left on the coloured side.
+
+## 2026-08-26 · The count broke away from its noun, and geometry could not see it
+
+The owner opened the queue on both sides and pointed at `14 signals`: one line in colour, two
+in grey. The arrangement diff had just reported the pair clean, and it was right about what it
+measured and measuring the wrong thing. **A count cell has no element children, so a walk that
+only enters containers of two or more never reaches it**, and a share of a container cannot
+separate a decision from a consequence: a box is narrower because somebody capped it or because
+the glyphs are smaller, and the reading is identical.
+
+**The instrument that can see it reads the DECISIONS rather than the pixels.** `layoutprops.mjs`
+compares, for every element both sides have, the computed properties that control layout and
+wrapping: `white-space`, `float`, `display`, `position`, `text-align`, the flex and grid
+properties, and `max-width` and `min-width` as a KIND rather than a value, because the pixel is
+where the font gets back in. A difference in `white-space` is something a person wrote, and a
+type face cannot produce one. First reading: **2452 readings, 100 distinct, over 5684 shared
+elements.**
+
+**The cell the owner pointed at was two findings, not one.** `white-space` was `normal` where the
+product says `nowrap`, and the TO CHECK track was 72px where the product gives it 80. Either
+alone leaves the count on two lines.
+
+**What was carried back, and all of it is a decision about layout.** The queue tracks belong to
+the LIST and every row is a `subgrid` of them, so a column head can sit over its column instead
+of two grids agreeing by luck; everything in the list that is not a row spans all seven, because
+making the list a grid makes a grid item of the empty state and the arriving bar. The seven track
+values converted from the product's rem. `nowrap` on the two count cells and on every shortcut
+key. The annunciator wraps BETWEEN its parts and never inside one, which retires a `nowrap` that
+overflowed at the declared minimum. The dialog's hint takes the room the buttons leave. The
+banner's action zone puts its control on top and its reason under it, right aligned, where the
+two had been siblings with nothing declared between them. The digest count is centred in its
+track. The alert's hold goes under the message on its own line instead of into two ragged lines
+beside it. The second axis's routes column, which had a rule inside `.opt` and none inside
+`.locked`.
+
+**One carry-back was a regression I wrote and the instrument caught on the next pass.** Restoring
+a button's own `inline-flex` under the `only-desk` utility, written as
+`.btn.only-desk,.btn.only-narrow`, outranked `.only-narrow{display:none}` and put the 360 only
+button on the desk on eight screens. It is scoped to the one that shows at each width now. **A
+cure measured only against the defect it was written for is half a measurement.**
+
+`2452 readings and 100 distinct` fell to **54 and 7**, and the arrangement diff's row divergences
+fell from 4 to **0**. The string diff held at 0 of 61 and the gate at 0 errors and 0 overflow at
+1440 and 360. Count cells on more than one line: **400 measured on each side, 0 wrapped on
+either.**
+
+**What is deliberately NOT carried back, and each has a reason rather than a shrug.** The banner
+is `flow-root` with a floated action here and flex there: the float is this folder's own cure for
+the bold runs splitting into separate flex items, found by four agents on 30 pages, and the
+product's flex version would reopen it. The arrangement INSIDE the action zone was carried; the
+container was not. `position:relative` on the doorcard and the outage anchors nothing absolutely
+positioned in the product, so copying it here would be copying a declaration with no reader, and
+it goes on the list for the coloured side instead. `text-wrap: pretty` is type rendering. And the
+182 remaining share readings are the latitude ladder's middle track, where the authored rule is
+character for character identical on both sides: the pixels differ because the glyphs do.
+
+## 2026-08-26 · A keycap is display:inline, and that is how the words landed on top of it
+
+Figma was rebuilt from the reconciled grey and the owner found this on the board: in the queue
+foot, `read, the pane follows` was drawn across the second keycap, and the first keycap held both
+arrows. **No check here would have reported it.** The width check compares each run's width to
+Chrome and every run was within 1.5px; the position check compares each run's origin and the run
+had exactly the origin the dump gave it. The dump was wrong.
+
+**The rule was already written and its test was the wrong test.** The dumper says an atom that
+appears between words splits the line and stays per-run, and it decided what an atom is with
+`!isInline`. A `<kbd>` is `display:inline` and carries a border, so it passed as ordinary inline
+content: `↑ ↓ read, the pane follows` merged into ONE run beginning at the first keycap's x, and
+the two keycaps were ALSO emitted as frames. In a browser the glyph sits inside its own box and
+the words begin after it; in Figma the merged run is one string in a substituted face and drifts
+across both boxes.
+
+**An inline child that PAINTS is a box, and a box splits the line.** That is the sentence the
+test was missing. The predicate now asks whether the child has a background or a visible border
+rather than what its `display` is, and a painting inline child disqualifies the merge outright
+rather than being treated as a lead or a tail: its box is placed by the browser, so the run has
+to start after it, and only per-run emission survives a substituted face. Corpus wide, runs
+merging a keycap glyph with words went from 7 to **0**, and the foot now reads with each arrow
+inside its own box and the words beginning at 158.0, which is the second box's right edge to the
+tenth of a pixel.
+
+**Same class as three earlier ones and it is worth naming as a class:** merging is only legal
+where the browser actually ran an inline formatting context, and every time this has been wrong
+it was wrong about what counts as one. Flex children looked inline and were not. Floats looked
+like splitters and were not. A bordered `<kbd>` looked like inline content and was not.
+
+The rebuild: 62 boards, 4268 frames, 5784 runs, 0 paints left literal, 223 `bars` instances, 62
+boards pinned to the narrow mode, 0 runs missing, 99.7% of runs within 1.5px of Chrome and 99.4%
+placed within 2px. `--row-tracks` changed value in the carry-back, so the Wireframe variable
+collection was rebuilt too, and rebuilding a collection drops every board's explicit mode pin
+without dropping its bindings: the pin is restored explicitly and the audit is what says so.
+
+## 2026-08-26 · The board drew what the browser hides, and three more the render found
+
+The keyboard map's tail was painted across its own footer. **`.dialog > .body` is 665 tall with
+1256 of content**: Chromium clips it and the compiler set `clipsContent = false` on every frame
+it made, hardcoded. Every box now carries whether its overflow is visible and the frame clips
+when it is not, which is 204 of 4268 frames. The differential overlap detector, which asks only
+for pairs that collide ON THE BOARD and not in Chrome, went from 273 unusable readings to 44,
+and the 44 are a dialog legitimately over a list paired to the wrong instance of a repeated
+string.
+
+**Then the render found three the detector could not.** Exporting a board as a PNG and looking at
+it is the one instrument here that has no theory about what a defect is.
+
+- **A `<br>` was swallowed.** It is `display:inline`, it paints nothing, so it was neither an
+  atom nor text, and joining the runs put `D. Okonkwo` hard against `Could not reach`. It
+  contributes a newline now, and the leading and trailing trim was narrowed so it cannot eat one.
+- **`WHEN` wrapped in a 44px column.** The product gives that track 64. Same class as
+  `14 signals`, and the leaf wrap diff had it in its list at `2 lines here in 28px, 1 there in 48`
+  while I was reading the top of that list rather than the whole of it.
+- **The log table's second track was 96px against the product's 124.** The three flexible tracks
+  stay in `fr` rather than the product's `ch` on purpose: `ch` resolves against the element's own
+  font, which is exactly the bug the product's own comment records, and it would put a type
+  dependence into a grey table.
+
+Final state: 62 boards, 5784 runs, 0 literal paints, 223 instances, 62 pinned, 0 runs missing,
+99.7% within 1.5px of Chrome. The grey gate holds at 0 errors and 0 overflow at 1440 and 360.
+
+## 2026-08-26 · The design system in Figma, and a second copy of one walk cost 193 runs of text
+
+The owner asked for the system as its own pages, split, with the atoms as components that later
+screens are assembled from. Two pages so far: `DS · Foundations` and `DS · Atoms`.
+
+**Nothing on either page holds a copy of a value.** Every swatch is BOUND to its variable, so the
+foundations page cannot drift from `tokens.css`: it is the same object, not a picture of one.
+Semantic is drawn twice, dark and light, and the two columns are the same variables with the
+frame's mode pinned. And both of the product's faces, **Archivo and IBM Plex Mono, exist in
+Figma**, so the coloured half needs no substitution at all, unlike the grey, whose `SF Mono` is
+absent and lands on Menlo.
+
+**The atoms are compiled from real instances on real screens**, located by a predicate rather
+than written into a specimen page. `key` carries no border of its own by design, its host gives
+it one, and a specimen drawn in isolation would quietly lose that. Nineteen sets, forty variants,
+144 paints, **0 left literal**.
+
+**Three variants the register names do not exist, and that is a finding rather than a gap.** The
+inventory says chip has three content forms, label, label + `▾` and label + `×`. The product
+ships 122 chips and every one carries a marker: 77 with the caret, 45 with the cross. The plain
+label chip was never built. It is reported, not invented.
+
+**Binding by colour alone is not possible in this palette, and the fix was already written in
+`tokens.css`.** In the dark theme 34 semantic roles resolve to **13 distinct values**: `bg-invert`
+and `text-primary` are the same ink, `bg-action` and `text-accent` the same amber. A flat map
+would bind a background to a text role. So the compiler now takes the SURFACE as an argument and
+holds three maps, and a role is matched against the map for what it paints. That is the stage 08
+rule about ink, fill and line, executed rather than restated. Inside a surface the only remaining
+collisions are a base role against its own hover twin, and the base wins, which is right for an
+atom at rest.
+
+**And the expensive part: I wrote a second copy of the walk.** The atom dumper began with its own
+reader, and it lost the two rules the screen compiler had already paid for, so `stamp` and `hint`
+painted over themselves within the hour. Both dumpers now import ONE reader from `wf-read.mjs`,
+which templates its root; the proof it changed nothing is that all **63 dumps came back byte
+identical**, and the wireframe rebuild reported the same 4268 frames and 17401 bound paints.
+
+**That refactor is what found the real defect, and it had been there since the first build.** In
+the merge branch, an atom skipped from the merged paragraph then had its text switched off in the
+recursion as well, so it was never drawn at all. `was 34 of 36` was missing from **72 instances
+across 16 grey boards** and nothing could see it: every check reads the dump, and the dump is
+where it was already gone. One line, fixed in one file rather than two, and the corpus went from
+5784 runs to **5977**, 193 recovered. The board check holds at 99.6% within 1.5px of Chrome and
+0 runs missing.
+
+## 2026-08-26 · The select left input, and the banner's reason left the button
+
+Four readings from the owner, in one pass. Three were defects and the fourth was a
+question I owed a straight answer to.
+
+**THE SELECT.** `input.css` had argued in writing, since stage 08, that input, textarea and
+select are ONE component because all three have the same anatomy: none at all, and that a drawn
+select has to reimplement the popup, the keyboard and the screen reader and gets one of the three
+right. That was the correct default and it is why the native control stood for six stages. The
+owner overruled it: the platform's arrow and popup are drawn by the operating system, a different
+shape, weight and ink on every machine a case is opened from, inside a console whose whole claim
+is that it is calibrated.
+
+**So it split, on the system's own criterion.** Drawn, it has a control, a value, a mark and a
+list, which is four zones and an order, and the splitting rule in the register is anatomy and
+nothing else. Atoms go from 17 to 18. **And all three halves are paid for rather than dodged**:
+the popup is in `select.css`, the keyboard is `design/system/select.js` as a real implementation
+(Enter, Space, Alt+Down, arrows, Home, End, Escape, Tab, type-ahead with a repeat that cycles),
+and the reader is served by a `combobox` owning a `listbox` through `aria-activedescendant`, so
+focus never leaves the control and Tab still leaves. **Arrows do not commit while the list is
+open**, which differs from the platform on Windows and agrees with it on macOS, and the reason is
+the one screen it stands on: a shortcut map is a set of settings, and walking down it must not
+change four of them on the way past. **Under `--bp-split-panes` the native element takes the
+control back**, because a phone puts a wheel under a `select` that no drawn list beats.
+
+**The mark is the set's own glyph and not a character.** `expand`, already in `icons.js`, already
+carried by the disclosure: down means the same thing on both. Nothing new was drawn.
+`icons.mjs` decodes every mask and matches it against the set: 4 glyphs, 0 geometry differences.
+
+**The disabled state was drawn although the product has none of them.** `input.css` says a field
+that cannot be filled is not shown, and that is still true of all 66 screens. It is not a reason
+for the SYSTEM to have no answer: a library that cannot show a control out of reach hands the next
+person a decision to invent, and they invent it on the screen. The count stays at zero and the
+page says so.
+
+**THE BANNER, and the arrangement the owner rejected was mine from four hours earlier.** Stage 13
+stacked the reason under the control, right aligned, at 22 characters. It reads as a stranded
+paragraph. It is a SECOND LINE OF THE NOTICE: it leaves the action zone in the markup on both
+screens that carry one, takes its place under the sentence at the same left edge, and the control
+centres against the whole block. **And it carries no cap**, which was the second reading: I had
+given it `--measure`, and `.say` directly above it has none, so a shorter right edge underneath
+reads as the sentence having been chopped. Two lines of one notice share one right edge.
+
+**The banner became a grid, and the reason is measurable.** As a wrapping flex row the reason did
+not go to a line of its own even at `flex-basis: 100%`, because `max-width` clamps the flex base
+size before the line is broken: it arrived 450px wide, everything fitted, and the notice read as
+three columns. Two declared tracks say it once. Carried back to the grey the same day.
+
+**IS IT AN ERROR, AND SHOULD IT BE COLOURED.** The straight answer is no, and the product already
+has the reason written down. Neither banner the owner was looking at is an error: `The queue is
+complete` and `Marked as of the last sync` both report a fact about the state of the screen.
+`banner.html` prohibits a severity axis in as many words, and the ground is not aesthetic: **a red
+banner would say the SCREEN has a severity, and screens do not.** Severity belongs to cases, it is
+`bars` and the `--text-sev-*` roles, and borrowing it here would make the one place the analyst
+reads real severity mean two things. The distinction the owner is sensing is real, though, and the
+system does not draw it: `Held locally, unrecorded` is materially worse than `The decision log is
+a desk surface` and the two look identical. That is a live question and it goes to the owner
+rather than being settled here.
+
+**THREE SPECIFICITY TRAPS IN ONE SESSION, ALL THE SAME SHAPE.** `:has()` takes the specificity of
+its argument and a compound beats a bare utility class, so `.banner:has(> .act)` and
+`.btn.only-desk` each outranked the 0,1,0 rule that hides a viewport twin. R8 reported six
+screens showing a desk-only control at 360, which is exactly what that rule exists for, and it
+found MY defect rather than an old one. Both are guarded now and R8 stands at 0 on both corpora.
+
+**And the compiler was drawing a mask as a filled square.** The system applies its icons as CSS
+masks over `background: currentColor`, so a compiler reading fill and border painted a solid block
+where the chevron is: the one thing the owner asked to have fixed arrived in Figma as a box. The
+reader now carries the data URI through and the builder rebuilds it as real vectors, stroked in
+the ink the box was going to be filled with. **Its first version used a regular expression and
+died**, because the walk is stored as a template literal and a template literal eats one level of
+backslash; string surgery survives being quoted, which is the only property that matters there.
+
+State at the close: 62 grey boards and 62 coloured screens at 0 errors and 0 overflow at 1440 and
+360, contrast 0 failures over 364 renderings, the 13 usage rules broken 0 times on the coloured
+corpus and 0 times for R1 and R8 on the grey, icons 0 differences, and `DS · Atoms` at 19 sets and
+42 variants with the drawn select carrying its open list.

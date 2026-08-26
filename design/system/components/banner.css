@@ -71,40 +71,78 @@
    phone-only banner on eighteen desk screens. R8 caught all eighteen. The `:not` does
    not OVERRIDE the utility, it stops the selector matching at all, which is the same
    shape the flow-root line above already uses. */
+/* AND IT IS A GRID RATHER THAN A WRAPPING FLEX ROW, WHICH THE REASON IS WHAT FORCED.
+   As flex the sentence and the reason were two items on one line with the button after
+   them, and `flex-basis:100%` on the reason did not push it to a line of its own,
+   because `max-width` clamps the flex base size before the line is broken: the reason
+   arrived 450px wide, everything fitted, and the notice read as three columns. Two
+   declared tracks say it once and cannot be argued out of by content. The text column
+   takes what is left, the action column takes what it needs, and the action spans both
+   rows so it centres against the whole block rather than against the first line of it. */
 .banner:not(.only-narrow):has(> .act){
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
   gap: var(--space-2) var(--space-4);
 }
-.banner .say{ flex: 1 1 24rem; min-width: 0 }
+.banner:not(.only-narrow):has(> .act) > .say,
+.banner:not(.only-narrow):has(> .act) > .why{ grid-column: 1 }
+.banner:not(.only-narrow):has(> .act) > .act{
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: center;
+}
+.banner .say{ min-width: 0 }
 /* IT SHRINKS, AND `0 0 auto` HERE WAS A 327px OVERFLOW AT 360. The action zone is
    not always a button: on the reconnecting queue it carries the button AND the
    sentence saying why there is nothing for it to do, and a zone that refuses to
    shrink pushed 658px of it off the side of a 360 phone. `0 1 auto` with min-width 0
    costs nothing at the desk, where there is room and the content width wins anyway. */
-.banner .act{ flex: 0 1 auto; min-width: 0; margin-left: auto; align-self: center }
+.banner .act{ min-width: 0 }
 
-/* THE ACTION ZONE SOMETIMES CARRIES A REASON, AND THERE WAS NO RULE BETWEEN THEM.
-   On the reconnecting queue it holds a disabled button and the sentence saying why
-   there is nothing for a button to do. The two were siblings with nothing declared,
-   so at the desk the sentence began exactly on the button's border at a zero pixel
-   gap, and at 360 it ran three lines underneath it. Neither was a decision; the pair
-   had simply never been drawn.
+/* THE REASON LEFT THE ACTION ZONE, AND THE ARRANGEMENT IT LEFT WAS MINE. Stage 13
+   stacked the reason under the control, right aligned, in 22 characters: the control
+   at the head of its zone, the reason receding under it. It reads badly and the owner
+   said so on sight. A ragged right column of 22 characters hanging under a button is
+   not a qualifier, it is a stranded paragraph, and on the two screens that carry one
+   it was the loudest thing in the banner.
 
-   THE CONTROL IS ON TOP AND ITS REASON IS UNDER IT, not beside it. Set side by side
-   the sentence sat between the banner's own text and its button, so the button read
-   as dropped into the middle of the notice; stacked, the zone is one object with the
-   control at its head. The reason recedes, because it qualifies the control rather
-   than competing with it, and it holds the control's own width plus a little. */
-.banner .act{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-2);
-  text-align: right;
+   IT IS A SECOND LINE OF THE NOTICE, NOT A FOOTNOTE ON THE BUTTON. Semantically it
+   qualifies the control: `nothing to open` explains why the button cannot be pressed.
+   Visually that is not where it belongs, because it is a SENTENCE, and every other
+   sentence in this component starts at the same left edge and runs the same measure.
+   So it moves out of `act` in the markup on both screens and takes its place under
+   `say`, ranged left, in the secondary ink. The control then has one thing in it and
+   centres against the whole sentence block rather than against a stack of two.
+   2026-08-26, on the owner's reading. */
+.banner .act{ display: flex; align-items: center }
+/* AND IT IS NOT CAPPED, WHICH IS THE SECOND THING THE OWNER CAUGHT. It was 22ch
+   inside the action zone, and when it moved out I gave it `--measure`. Both are
+   wrong here for the same reason: `.say` directly above it runs the full text
+   column and carries no cap at all, so a shorter right edge on the line under it
+   reads as the sentence having been chopped rather than as a measure being kept.
+   Two lines of one notice share one right edge. The measure belongs to prose that
+   stands alone in a column; this stands under another sentence and takes its
+   width. 2026-08-26, on the owner's reading. */
+.banner .why{ color: var(--text-secondary) }
+
+/* UNDER THE POINT IT IS ONE COLUMN, AND THE ACTION GOES BACK UNDER THE SENTENCE.
+   Two declared tracks do not negotiate: at 390 the text column took what was left
+   after a button, which is a 200px column of prose beside a control nobody was
+   going to press yet. The point is the product's own --bp-split-panes, written as
+   a literal because `@media` cannot read a variable, which is the stage 10 finding
+   and the same shape pane-foot.css and z5.css already use. The action ranges left
+   rather than right, because on one column there is nothing for it to range
+   against and a lone button on the right edge of a phone reads as a mistake. */
+@media (max-width: 1279.98px){
+  .banner:not(.only-narrow):has(> .act){ grid-template-columns: minmax(0, 1fr) }
+  .banner:not(.only-narrow):has(> .act) > .act{
+    grid-column: 1;
+    grid-row: auto;
+    align-self: start;
+    justify-self: start;
+  }
 }
-.banner .act .why{ max-width: 22ch; color: var(--text-secondary) }
 
 /* -- emphasis. One axis, two values, and nothing else on it -------------------
    Quiet is for a banner that reports rather than interrupts. Four instances, and

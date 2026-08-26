@@ -62,7 +62,7 @@
 /* -- STATES ------------------------------------------------------------------
    No ground move. A field's ground is the page and a plate under it while the
    pointer passes would read as it being filled in. The boundary answers. */
-.input:hover{ border-color: var(--line-hover) }
+.input:hover:not([aria-disabled="true"]):not(:disabled){ border-color: var(--line-hover) }
 
 /* focus-visible is global, in base.css, and here it is the state that matters
    most: this is the one component whose whole job is to be typed into, so it is
@@ -71,7 +71,27 @@
    the edge that identifies it while it is being used.
 
    ACTIVE DOES NOT EXIST. There is no pressed moment: the pointer goes down and
-   the field takes focus, which is a state this file already draws.
-   OUT OF REACH DOES NOT EXIST EITHER. A field that cannot be filled is not
-   shown; where the product has nothing to ask it renders the answer as text.
-   Zero disabled fields in either corpus. */
+   the field takes focus, which is a state this file already draws. */
+
+/* OUT OF REACH IS DRAWN NOW, AND THE OLD READING IS KEPT RATHER THAN DELETED.
+   This file said: a field that cannot be filled is not shown, where the product
+   has nothing to ask it renders the answer as text, zero disabled fields in
+   either corpus. All three of those are still true of the PRODUCT and none of
+   them is a reason for the SYSTEM to have no answer. A design system that cannot
+   show a control out of reach hands the next person a decision to invent, and
+   the next person invents it on the screen, which is the one place this project
+   has spent three stages getting things out of. Added on the owner's decision,
+   2026-08-26, with the count still at zero and said out loud on the page.
+
+   IT IS OPACITY ON THE WHOLE CONTROL, NEVER A REPAINT. The same reading `btn`
+   takes: dim what is there rather than draw a second, paler version of it, so a
+   theme, a ramp or a boundary correction reaches it without anybody remembering
+   to. The token has a pair, .54 light and .61 dark, because the same dimming does
+   not read the same against opposite grounds. */
+.input[aria-disabled="true"],
+.input:disabled{
+  opacity: var(--opacity-disabled);
+  cursor: default;
+}
+/* and it does not answer the pointer, which is the whole of what out of reach
+   means: hover is already gated on the attribute above. */

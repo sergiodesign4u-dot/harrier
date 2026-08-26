@@ -20,7 +20,7 @@
 @import url("tokens.css");
 @import url("base.css");
 
-/* ---- ATOMS. The smallest thing with a name. 18 ---------------------------
+/* ---- ATOMS. The smallest thing with a name. 19 ---------------------------
    Three subgroups, agreed before the build, because a level with more than about
    eight components needs a second sort or nobody can find anything in it. The
    order inside the level is controls, then marks, then the parts of a text, and
@@ -32,6 +32,12 @@
 @import url("components/link.css");
 @import url("components/chip.css");
 @import url("components/input.css");
+/* AND select LEFT input ON 2026-08-26. It was a value of input's `control` axis
+   while it was the native element and had no anatomy; drawn, it has a control, a
+   value, a mark and a list, and anatomy is the splitting criterion. It sits after
+   input rather than at the end of the file, because the level group is the order
+   and a component appended to the bottom is how the ladder comes apart. */
+@import url("components/select.css");
 
 /* marks: read, never pressed. None of them has a state */
 @import url("components/key.css");

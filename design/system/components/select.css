@@ -1,0 +1,212 @@
+/* select :: ATOM
+   ----------------------------------------------------------------------------
+   READS. Fill: --bg-page, --bg-surface, --bg-selected, --bg-hover. Ink:
+   --text-primary, --text-secondary, --text-accent. Line: --rule-control,
+   --line-hover, --rule-edge, and --color-focus through base.css. Geometry:
+   --size-md, --font-sans, --leading, --radius-ui, --space-1 to --space-3,
+   --opacity-disabled, --dur-fast, --ease-standard, --bp-split-panes.
+   CONTAINS. the `expand` glyph from icons.js, as a mask, and nothing else from
+   the kit.
+   PAGE. design/kit/select.html
+   STANDS ON. 4 instances across 1 screen, all of them on the keyboard map,
+   where each row says whether its shortcut is on, needs a modifier, or is off.
+
+   ----------------------------------------------------------------------------
+   IT LEFT `input`, AND THE SYSTEM'S OWN CRITERION IS WHAT SENT IT.
+   `input.css` argued at length that input, textarea and select are ONE
+   component because all three have the same anatomy: none at all. That was true
+   of the NATIVE control and it stops being true here. A drawn select has a
+   control, a value, a mark and a list of options, which is four zones and an
+   order, and the splitting criterion in inventory.md section 9 is anatomy and
+   nothing else. So it splits. Atoms go from 17 back to 18.
+
+   AND THE FILE IT LEFT ARGUED AGAINST THIS, IN WRITING, WHICH IS WORTH KEEPING
+   RATHER THAN QUIETLY DELETING. `input.css` said: a drawn select has to
+   reimplement the popup, the keyboard and the screen reader, and gets one of the
+   three right. That is the correct default and it is why the native control
+   stood for six stages. The owner overruled it on 2026-08-26, so the price is
+   paid rather than dodged: the popup is drawn here, the keyboard is in
+   design/system/select.js as a real implementation rather than a click handler,
+   and the screen reader is served by a `combobox` that owns a `listbox` with
+   `aria-activedescendant`, which is the pattern that works when focus never
+   leaves the control. What this component may NOT become is a div with a click
+   handler on it. Grounds in docs/decisions.md.
+
+   THE NATIVE ONE IS STILL THE RIGHT ANSWER ON A PHONE and the product keeps it
+   there: under the point the control hands over to the platform, because a
+   drawn list cannot beat the wheel a phone puts under a `select` and should not
+   try. That branch is at the foot of this file.
+
+   ----------------------------------------------------------------------------
+   THE MARK IS THE SET'S OWN GLYPH AND NOT A CHARACTER. It was the browser's, and
+   the browser's arrow is drawn by the platform: a different shape, weight and
+   colour on every machine the case is opened from, inside a console whose whole
+   argument is that it is calibrated. It reads `expand` from icons.js, the same
+   drawing the disclosure carries, at the set's own 1.5 weight, as a mask so it
+   takes `currentColor` and follows the control's ink into every state. The
+   second copy of the geometry is checked by design/kit/checks/icons.mjs, which
+   decodes every mask it finds and matches it against the set.
+   ---------------------------------------------------------------------------- */
+
+.select{
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* -- the closed control. THE SAME DRAWING AS `input`, DELIBERATELY -------------
+   A field is a field: the boundary identifies it, the ground is the page, and
+   the reader must not have to learn that this one is a different kind of box.
+   Every value below is the one `input.css` declares, and where the two must
+   agree they read the same token rather than the same number. */
+.select__control{
+  font: var(--size-md)/var(--leading) var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-page);
+  border: var(--rule-control);
+  border-radius: var(--radius-ui);
+  padding: var(--space-2) var(--space-3);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+
+/* THE VALUE TAKES THE ROOM AND THE MARK NEVER MOVES. `1fr` on the value rather
+   than `margin-left:auto` on the mark: the mark then sits at one x whatever the
+   value is, and four rows of these read as a column. That is the same finding
+   the latitude ladder paid for at stage 13. */
+.select__value{
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.select__mark{
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  color: var(--text-secondary);
+  background: currentColor;
+  transition: transform var(--dur-fast) var(--ease-standard);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%208l8%208%208-8%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+}
+
+/* -- the list ----------------------------------------------------------------
+   IT IS A PLATE, NOT A PANE, so it takes the raised surface and an edge rather
+   than the page ground: it sits OVER content and has to be told from it.
+   AND IT CASTS NO SHADOW, WHICH IS NOT AN OVERSIGHT. There is not one
+   `box-shadow` in this system. A dialog is told from the screen by a scrim and a
+   toast by its own edge, so a shadow here would be a device the product does not
+   own, introduced for one component with four instances. The surface is one step
+   off the page and the edge closes it, which is how every other raised thing in
+   Harrier is told from what it covers. */
+.select__list{
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: var(--space-1) 0;
+  list-style: none;
+  max-height: 15rem;
+  overflow-y: auto;
+  background: var(--bg-surface);
+  border: var(--rule-edge);
+  border-radius: var(--radius-ui);
+}
+.select__list[hidden]{ display: none }
+
+.select__opt{
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font: var(--size-md)/var(--leading) var(--font-sans);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+/* THE CHOSEN ONE IS MARKED IN INK, NOT ONLY IN GROUND. A row told apart by its
+   background alone is a row nobody can tell apart in a high contrast mode, where
+   the ground is dropped and the tick is not. The mark is a glyph in the accent
+   and the row keeps its ground as well, so the two say it together. */
+.select__opt::before{
+  content: "";
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+}
+.select__opt[aria-selected="true"]{
+  background: var(--bg-selected);
+  font-weight: 600;
+}
+.select__opt[aria-selected="true"]::before{
+  color: var(--text-accent);
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%2012.5l5%205L20%206.5%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M4%2012.5l5%205L20%206.5%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+}
+
+/* -- STATES -------------------------------------------------------------------
+   NO GROUND MOVE ON THE CONTROL, the same reading `input.css` gives: a field's
+   ground is the page, and a plate under it while the pointer passes would read
+   as it being filled in. The boundary answers. */
+.select__control:hover:not([aria-disabled="true"]){ border-color: var(--line-hover) }
+
+/* focus-visible is global, in base.css, and it is not repeated here: thirty per
+   component copies is how thirty rings drift apart. */
+
+/* OPEN IS A STATE OF THE CONTROL AND THE MARK SAYS SO, by the same turn the
+   disclosure uses, in the same direction, at the same duration. The boundary
+   also takes the hover line while the list is open, because a control with a
+   list hanging off it is not at rest. */
+.select__control[aria-expanded="true"]{ border-color: var(--line-hover) }
+.select__control[aria-expanded="true"] .select__mark{ transform: rotate(180deg) }
+
+/* THE POINTER AND THE KEYBOARD LAND ON ONE ROW, NOT TWO. A drawn list has two
+   ways to say which option is under consideration and they must be the same row,
+   or a person moving by keyboard while the pointer rests elsewhere sees two.
+   `aria-activedescendant` names the keyboard's row and `.is-active` paints it;
+   the pointer sets the same class on enter rather than painting a `:hover` of
+   its own. That is why there is no `.select__opt:hover` rule in this file. */
+.select__opt.is-active{ background: var(--bg-hover) }
+
+/* OUT OF REACH. `input.css` says a field that cannot be filled is not shown, and
+   that is still true of the product: zero disabled fields in either corpus. It
+   is drawn here anyway and the difference is deliberate. A control that opens a
+   list has a state a text field does not: the answer exists, the list exists,
+   and this person may not change it. The shift digest is where that will land.
+   It is a whole control dimmed by opacity, never a repaint, so nothing has to be
+   kept in step by hand. */
+.select__control[aria-disabled="true"]{
+  opacity: var(--opacity-disabled);
+  cursor: default;
+}
+
+/* -- NO VARIANTS ---------------------------------------------------------------
+   The count of options is a count. Every instance in the product offers three,
+   and a fourth would change nothing here. */
+
+/* -- behaviour on width --------------------------------------------------------
+   UNDER THE POINT THE PLATFORM TAKES IT BACK, and this is the one place in the
+   system where the native control is the better drawing. A phone puts a wheel
+   under a `select` that no list of rows can beat, it is reachable one handed,
+   and it never opens off the bottom of a 360 screen. The point is the product's
+   own --bp-split-panes, 80rem. The literal is written here because `@media`
+   cannot read a variable, which is the stage 10 finding, and select.js reads the
+   token so the query and the script cannot disagree by hand. */
+@media (max-width: 1279.98px){
+  .select > .select__control,
+  .select > .select__list{ display: none }
+  .select > .select__native{ display: block }
+}
+.select__native{ display: none }

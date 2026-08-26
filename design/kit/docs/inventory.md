@@ -249,7 +249,7 @@ The paragraph above guessed right about the shape and wrong about the threshold:
 | `label` | 31 | 15 | none | `field` 30, `optlist` 1 |
 | `input` | 9 | 6 | **type:** text, email | `field` 9 |
 | `textarea` | 21 | 9 | none | `field` 21 |
-| `select` | 4 | **1** | none. **No coloured rendering anywhere**, form taken from `input` | `rmp-row`, a one-off class |
+| `select` | 4 | **1** | **state:** closed, open, out of reach. **It left `input` on 2026-08-26** and became its own component: drawn, it has a control, a value, a mark and a list, which is four zones and an order, and anatomy is the splitting criterion. Its keyboard is `design/system/select.js` | `keyrow--set` on the keyboard map |
 
 **Three atoms are new and none of them is new work.** `navitem` and `link` were already standing on the screens with no class at all, 132 and 24 times, painted by descendant selectors. `state` is the half of `chip` that is not a control. Naming them is the whole of the change.
 

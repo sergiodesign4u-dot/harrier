@@ -64,7 +64,10 @@ window.HARRIER_ICONS = {
 
   accept: {
     label: 'accept, the verdict that agrees with Clerk',
-    applied: null,
+    /* two consumers now, and the second is not a verdict: the tick on the chosen
+       option of a drawn select is the same drawing doing the same job, which is
+       saying THIS ONE. A second glyph for it would be two drawings of one word. */
+    applied: '.select__opt[aria-selected="true"]::before',
     shapes: [ { d: 'M4 12.5l5 5L20 6.5' } ]
   },
 
@@ -136,7 +139,9 @@ window.HARRIER_ICONS = {
 
   expand: {
     label: 'depth, one key away',
-    applied: '.expand::before',
+    /* AND THE SELECT TOOK IT TOO, on 2026-08-26, when the platform's arrow left.
+       Down means the same thing on both: there is more under this. */
+    applied: '.expand::before, .select__mark',
     shapes: [ { d: 'M4 8l8 8 8-8' } ]
   },
 

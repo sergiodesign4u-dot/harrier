@@ -91,8 +91,14 @@ a:hover{text-decoration-color:var(--ink)}
 .z1 .spacer{flex:1 1 auto}
 
 /* Z3 annunciator, node 0.3. A fixed slot, read only in the MVP */
+/* IT TAKES THE ROOM IT NEEDS AND WRAPS BETWEEN ITS PARTS, NEVER INSIDE ONE. `nowrap` on
+   the strip made it overflow at 1280, the declared minimum, and `normal` on the strip broke
+   `contain / endpoint` and `DECIDED by / you` in the middle. The strip wraps and the part
+   does not. */
 .annun{display:flex;align-items:center;gap:var(--s3);font-family:var(--mono);font-size:var(--t-xs);
-       border:var(--line-ink);padding:var(--s1) var(--s3);white-space:nowrap}
+       border:var(--line-ink);padding:var(--s1) var(--s3);
+       white-space:normal;flex:1 1 22rem;min-width:0;flex-wrap:wrap}
+.annun .part{white-space:nowrap}
 .annun b{font-weight:700}
 .annun .sep{color:var(--hair)}
 .annun .ovrd{background:var(--ink);color:var(--paper);padding:0 var(--s1);font-weight:700}
@@ -145,11 +151,25 @@ a:hover{text-decoration-color:var(--ink)}
 /* ============================================================
    THE ROW, node 3.1 section 4. Canonical: 5.1 reuses it or says why not
    ============================================================ */
-.rows{flex:1 1 auto;overflow-y:auto;min-height:0}
+/* THE TRACKS BELONG TO THE LIST, NOT TO EACH ROW. Written on the row, every row computes
+   its own set and they line up by luck of the pixel; the head row is mono and the body is
+   not, so a column head sitting over its column is not something either row can guarantee
+   alone. The list declares them once and every row is a `subgrid` of them, keeping its own
+   padding, its own rule and its own states. Everything in the list that is NOT a row spans
+   them all: making the list a grid makes a grid item of the empty state, the arriving bar
+   and the annotation, and each of them would otherwise be placed in the 90px first track.
+   Same structure as design/system/components/rows.css. */
+.rows{flex:1 1 auto;overflow-y:auto;min-height:0;
+      display:grid;grid-template-columns:var(--row-tracks);align-content:start}
+.rows > *{grid-column:1 / -1}
+.rows > .row{grid-template-columns:subgrid}
 .row{display:grid;grid-template-columns:var(--row-tracks);gap:var(--s2);align-items:start;
      padding:var(--s2) var(--s4);border-bottom:var(--line);font-size:var(--t-sm);
      text-decoration:none;color:inherit;line-height:1.35}
-:root{--row-tracks:90px 120px minmax(104px,1fr) minmax(120px,1.2fr) 72px 100px 40px}
+/* TO CHECK WAS 72px AND `14 signals` DID NOT FIT IN IT, so the count broke away from its
+   noun and the cell read as two lines where the product reads as one. The seven tracks are
+   the product's, converted from its rem to this folder's px. */
+:root{--row-tracks:90px 120px minmax(104px,1fr) minmax(120px,1fr) 80px 112px 40px}
 .row > *{min-width:0;overflow-wrap:anywhere}
 .row--head{position:sticky;top:0;background:var(--fill);border-bottom:var(--line-ink);
            font:600 var(--t-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;
@@ -160,8 +180,20 @@ a:hover{text-decoration-color:var(--ink)}
 .row .client{font-weight:600}
 .row .concluded b{font-weight:600}
 .row .dim{color:var(--soft)}
-.row .cost,.row .age{font-family:var(--mono);color:var(--soft);text-align:right}
-.row .states{display:flex;flex-wrap:wrap;gap:var(--s1)}
+/* A COUNT NEVER LEAVES ITS NOUN. `14 signals` on two lines is not a wrap, it is two
+   readings, and the cell exists to be scanned down a column. */
+.row .cost,.row .age{font-family:var(--mono);color:var(--soft);text-align:right;
+                     white-space:nowrap}
+/* THE CHIPS STACK TOWARDS THE COLUMN THEY BELONG TO. Two that did not fit side by side
+   wrapped, and the second sat left aligned under a right aligned first, crossing the rule
+   under the row. They are one cell and they read as one. */
+.row .states{display:flex;flex-wrap:wrap;gap:var(--s1);justify-content:flex-end;
+             align-items:flex-start}
+/* THE MEASURE ON THE TWO CELLS THAT ARE READ RATHER THAN SCANNED. Neither carries a
+   border, so capping the cell IS capping the text and the track stays free to fill the
+   row. Same two numbers in design/system/components/row.css. */
+.row > span:nth-child(3){max-width:32ch}
+.row .concluded{max-width:36ch}
 
 /* severity, node 0.8: glyph plus the word, three levels */
 .bars{display:inline-flex;gap:2px;align-items:flex-end;height:12px}
@@ -180,6 +212,17 @@ a:hover{text-decoration-color:var(--ink)}
 .pane-body{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s5)}
 .pane-foot{margin-top:auto;position:sticky;bottom:0;background:inherit;
            padding:var(--s3) var(--s4);border-top:var(--line-ink);display:flex;gap:var(--s2);flex-wrap:wrap}
+
+/* THE VERDICT FOOT, AND FOUR EQUAL BUTTONS MADE THE MAIN ACTION A QUARTER OF ITS OWN FOOT.
+   Accept carries the main job named in CLAUDE.md; the three that qualify it stand under it and
+   share the row. Conditioned on the COUNT, not written as a variant: a foot with one, two or
+   three actions is a row and stays a row, because nothing there competes. Block priority is
+   what this folder owns, so this is a contradiction carried back rather than a stage boundary.
+   The same arrangement in the coloured product is design/system/components/pane-foot.css. */
+.pane-foot:has(> .btn:nth-of-type(4)){padding:var(--s4);gap:var(--s3)}
+.pane-foot:has(> .btn:nth-of-type(4)) > .btn--primary{flex:1 0 100%;justify-content:center;
+                                                     padding-block:var(--s3)}
+.pane-foot:has(> .btn:nth-of-type(4)) > .btn:not(.btn--primary){flex:1 1 0;justify-content:center}
 
 .block{display:flex;flex-direction:column;gap:var(--s2)}
 .block > h3{margin:0;font:600 var(--t-xs)/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
@@ -241,8 +284,9 @@ a:hover{text-decoration-color:var(--ink)}
 .btn--quiet{border-color:var(--hair);color:var(--soft)}
 .btn[disabled],.btn[aria-disabled="true"]{border-color:var(--hair);color:var(--soft);
      background:var(--paper);cursor:not-allowed}
+/* A SHORTCUT IS ONE GLYPH IN A BOX AND IT NEVER BREAKS. */
 .btn .key{font-family:var(--mono);font-size:var(--t-xs);border:1px solid currentColor;
-          border-radius:var(--radius);padding:0 var(--s1);opacity:.75}
+          border-radius:var(--radius);padding:0 var(--s1);opacity:.75;white-space:nowrap}
 .btn--primary .key{opacity:.85}
 
 .field{display:flex;flex-direction:column;gap:var(--s1)}
@@ -263,11 +307,13 @@ a:hover{text-decoration-color:var(--ink)}
 .opt.is-chosen{background:var(--fill)}
 a.opt:hover{background:var(--fill)}
 .opt .key{font-family:var(--mono);font-size:var(--t-xs);border:var(--line-ink);
-          border-radius:var(--radius);padding:0 var(--s1);flex:0 0 auto}
+          border-radius:var(--radius);padding:0 var(--s1);flex:0 0 auto;white-space:nowrap}
 .opt.is-chosen .key{background:var(--ink);color:var(--paper)}
 .opt .lbl{flex:1 1 auto;min-width:0}
-.opt .routes{margin-left:auto;font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
-             flex:0 0 auto;text-align:right}
+/* THE SAME ZONE STANDS INSIDE `.locked` ON THE SECOND AXIS and had no rule there, so where
+   the reason was a locked statement rather than a choice it lost its column. */
+.opt .routes,.locked .routes{margin-left:auto;font-family:var(--mono);font-size:var(--t-xs);
+             color:var(--soft);flex:0 0 auto;text-align:right}
 .dialog > header h2{margin:0;font:600 var(--t-lg)/var(--lh-tight) var(--ui)}
 
 /* ============================================================
@@ -403,14 +449,52 @@ a.opt:hover{background:var(--fill)}
 .nar b{font-weight:600}
 .nar .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
            display:inline-block;min-width:46px}
-.lat{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
-.lat > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+/* THE MEASURE, AND IT HAD NO READER. `--measure` was declared at the bottom of this file
+   and `var(--measure)` appears nowhere else in it, so a token stood here for two stages
+   reading nothing. The width sweep measured the consequence: 46 page and class pairs run
+   past 66 characters, up to 96ch on a shift note. It is ON THE TEXT and not on its
+   container, because the container holds blocks that should fill the pane and a measure is
+   a property of a line somebody reads ACROSS. The same fourteen selectors carry it in
+   design/system/base.css. */
+.nar,.gnote,.prov,.cons,.sub,.hint,.empty,.sa-fresh,.sa-route,.chips-hd,.meta,.anote,
+.contact p,.toast p{max-width:var(--measure)}
+/* THE BAND MUST NOT TAKE THE MEASURE AND ITS SENTENCE MUST. Capping `.rail` would stop the
+   inverted band at half the framed record, which is the one thing that band may never do;
+   without a cap the sentence ran 148 characters. `.soft` is where the sentence already
+   lives. The rest of `.rail` is still page local on five screens under an INLINE marker
+   that names this file as its destination, and that debt is not paid here. */
+.rail .soft{max-width:var(--measure)}
+
+/* THE LADDER IS A TABLE, AND AS A FLEX ROW IT ONLY LOOKED LIKE ONE. `margin-left:auto` on
+   the reason right-aligns it against whatever space is left, so the reason moved with the
+   length of the action beside it and the rows stopped sharing a column. `subgrid` is what
+   makes every row land on one set of three tracks while each keeps its own padding and its
+   own rule. The third track is CAPPED rather than `auto`: as `auto` it asks for the
+   reason's max-content and leaves the action names nothing. */
+.lat{display:grid;grid-template-columns:auto 1fr fit-content(22ch);
+     border:var(--line);border-radius:var(--radius)}
+.lat > div{display:grid;grid-column:1 / -1;grid-template-columns:subgrid;
+           gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
            border-bottom:var(--line);font-size:var(--t-sm)}
+.lat > div > *{min-width:0}
 .lat > div:last-child{border-bottom:none}
-.lat .mark{font-family:var(--mono);font-size:var(--t-xs);flex:0 0 20px}
+.lat .mark{font-family:var(--mono);font-size:var(--t-xs)}
 .lat .off{color:var(--soft)}
-.lat .off .why{margin-left:auto;text-align:right;font-size:var(--t-xs);flex:0 0 auto}
+.lat .off .why{grid-column:3;text-align:right;font-size:var(--t-xs)}
 .lat .ceiling{background:var(--fill);font-weight:600}
+
+/* THE ROTA HAD MARKUP ON SEVEN PAGES AND NOT ONE RULE IN THIS FILE, so three spans that
+   are a row stacked into three lines. Same shape as the ladder above it, and the same
+   rules stand in design/system/components/rota.css. */
+.rota{display:flex;flex-direction:column;border:var(--line);border-radius:var(--radius)}
+.rota > div{display:flex;gap:var(--s2);align-items:baseline;padding:var(--s2) var(--s3);
+            border-bottom:var(--line);font-size:var(--t-sm)}
+.rota > div:last-child{border-bottom:none}
+.rota .who{font-weight:600;white-space:nowrap}
+.rota .role{color:var(--soft);font-size:var(--t-xs)}
+.rota .when{margin-left:auto;white-space:nowrap;font-family:var(--mono);
+            font-size:var(--t-xs);color:var(--soft)}
+.rota .is-now{background:var(--fill)}
 .stamp{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
        border-top:var(--line);padding-top:var(--s2);overflow-wrap:anywhere}
 .chips-hd{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
@@ -427,7 +511,11 @@ a.opt:hover{background:var(--fill)}
    an ISO 8601 string does not fit in the 40px the relative age used.
    Everything except the stamp is FLUID, for the same reason the queue's row is: the pane is
    resizable, and the prototype's own 244px panel means the screen runs in about 1040 at 1280. */
-.rows--log{--row-tracks:74px 96px minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr) 106px 138px}
+/* THE SECOND TRACK WAS 96px AND THE PRODUCT GIVES IT 124. Same class as the queue's TO
+   CHECK: a fixed column this folder never widened. The three flexible tracks stay in `fr`
+   rather than the product's `ch`, on purpose: `ch` resolves against the element's own font
+   and would put a type dependence into a grey table. */
+.rows--log{--row-tracks:74px 124px minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr) 106px 138px}
 /* The stamp never breaks mid string: half an ISO 8601 on each line is not the grammar
    0.8 defined. If it stops fitting, that is a measurable failure rather than an ugly wrap. */
 .rows--log .when{font-family:var(--mono);font-size:var(--t-xs);color:var(--soft);
@@ -467,13 +555,49 @@ a.opt:hover{background:var(--fill)}
    specificity as `.only-narrow{display:none}` above and sits later in the file, so it won
    the cascade and showed the 360 only block at 1440 on twenty two pages. */
 .banner:not(.only-narrow){display:flow-root}
-.banner > .act{float:right;margin:0 0 var(--s2) var(--s3)}
+/* THE ACTION ZONE SOMETIMES CARRIES A REASON, AND THERE WAS NO RULE BETWEEN THEM. On the
+   reconnecting queue it holds a disabled control and the sentence saying why there is
+   nothing for it to do; the two were siblings with nothing declared between them, so the
+   sentence began on the control's border at a zero pixel gap. THE CONTROL IS ON TOP AND ITS
+   REASON IS UNDER IT, not beside it. The float stays: it is this folder's own cure for the
+   bold runs splitting into flex items, and the arrangement INSIDE the zone is independent
+   of it. Same arrangement in design/system/components/banner.css. */
+/* THE BANNER THAT CARRIES AN ACTION IS TWO DECLARED TRACKS, NOT A FLOAT AND NOT A
+   WRAPPING ROW. The reason under the control, right aligned in 22 characters, was the
+   arrangement this folder was given on 2026-08-26 and the owner rejected it on sight: a
+   ragged right column hanging under a button is a stranded paragraph, not a qualifier.
+   It is a SECOND LINE OF THE NOTICE. It leaves the action zone in the markup, takes its
+   place under the sentence at the same left edge in the secondary ink, and carries no
+   cap of its own, because `.say` above it has none and a shorter right edge on the line
+   underneath reads as the sentence having been chopped. The control then holds one
+   thing and centres against the whole block. Same arrangement, and the same reasons, in
+   design/system/components/banner.css. */
+/* `:not(.only-narrow)` IS LOAD BEARING, and it is the trap the coloured file already
+   paid for: `:has()` takes the specificity of its argument, so `.banner:has(> .act)` is
+   0,2,0 and beats the 0,1,0 utility that hides a narrow-only banner at the desk. Without
+   it this rule turns `display:none` back into `display:grid`. */
+.banner:not(.only-narrow):has(> .act){display:grid;grid-template-columns:minmax(0,1fr) auto;
+                    align-items:start;gap:var(--s2) var(--s4);float:none}
+.banner:not(.only-narrow):has(> .act) > .say,
+.banner:not(.only-narrow):has(> .act) > .why{grid-column:1}
+.banner:not(.only-narrow):has(> .act) > .act{grid-column:2;grid-row:1 / -1;align-self:center;
+                           float:none;margin:0;display:flex;align-items:center}
+.banner .why{color:var(--soft)}
 
 /* 2. `.only-narrow` HAD NO COMPLEMENT, so three generators privately invented `.esc-desk`,
    `.out-desk` and `.only-desk` for the identical job. Three names for one utility is not
    three mistakes, it is one hole in this file found three times. */
 .only-desk{display:block}
 .only-desk-i{display:inline}
+/* A UTILITY SAYS WHETHER SOMETHING SHOWS, NOT WHAT IT IS. `display:block` on a button
+   overrode the button's own `inline-flex`, so its label and its key stopped being flex items
+   and the key rendered as a block under the word. The utility keeps its job and the
+   component keeps its display.
+   IT IS SCOPED TO THE ONE THAT IS SHOWN HERE, and that is not a detail. Written as
+   `.btn.only-desk,.btn.only-narrow` it outranked `.only-narrow{display:none}` above and put
+   the 360 only button on the desk on eight screens. The complement is restored inside the
+   narrow block, where `.only-narrow` is the one that shows. */
+.btn.only-desk{display:inline-flex}
 
 /* 3. `.pane-foot` IS STICKY AND NEVER STUCK. `min-height:100vh` let the shell grow with its
    content, so there was no scroll container for `bottom:0` to resolve against and the pane's
@@ -505,9 +629,21 @@ a.opt:hover{background:var(--fill)}
      fixed it privately for one screen; every other pane kept the defect. */
   .z5,.z5.is-paper{overflow:visible}
   .pane-foot{padding:var(--s2) var(--s3)}
+  /* 14. AND THE VERDICT ARRANGEMENT GOES BACK AT 360, NOT JUST THE PADDING. `:nth-of-type`
+     counts what is in the DOM, so on a pane where three of the four are `.only-desk` and not
+     rendered the selector still matches and `flex:1 0 100%` turns the one remaining action
+     into a full bleed bar. All three declarations revert. */
+  .pane-foot:has(> .btn:nth-of-type(4)){padding:var(--s2) var(--s3);gap:var(--s2)}
+  .pane-foot:has(> .btn:nth-of-type(4)) > .btn--primary{flex:0 1 auto;padding-block:var(--s2)}
+  .pane-foot:has(> .btn:nth-of-type(4)) > .btn:not(.btn--primary){flex:0 1 auto}
   .claim{flex-wrap:wrap}
   .claim .src{margin-left:auto}
-  .only-desk,.only-desk-i{display:none}
+  /* AND THE BUTTON'S OWN DISPLAY HAS TO BE HIDDEN AT ITS OWN SPECIFICITY. Restoring
+     `inline-flex` to a `.btn.only-desk` above is 0,2,0 and this line was 0,1,0, so the
+     desk-only control stayed on six reject screens at 360 and R8 reported every one.
+     Third time this session that `:has()` or a compound beat a bare utility class. */
+  .only-desk,.only-desk-i,.btn.only-desk{display:none}
+  .btn.only-narrow{display:inline-flex}
 }
 
 /* 7. A SECTION HEADING IS NOT ALWAYS AN h3. In the pane it sits under the pane's h2, so h3 is
@@ -629,9 +765,11 @@ a.opt:hover{background:var(--fill)}
 .toast .t-x:hover{border-color:var(--ink);color:var(--ink)}
 /* The failure notice is not dismissible while the verdict is unrecorded, so it carries no
    close control at all. A disabled X would be a control that argues with itself. */
-.toast--alert{border-width:2px}
-.toast--alert .t-hold{flex:0 0 auto;align-self:center;font-size:var(--t-xs);color:var(--soft);
-                      text-align:right;max-width:9em}
+/* THE HOLD IS A NOTE ABOUT THE ALERT, SO IT GOES UNDER IT AND READS IN ONE LINE. Beside the
+   message it broke into two right aligned ragged lines in the space the dismiss used to
+   occupy, and `max-width:9em` was the width that produced them. */
+.toast--alert{border-width:2px;flex-wrap:wrap}
+.toast--alert .t-hold{flex:1 1 100%;font-size:var(--t-xs);color:var(--soft);text-align:right}
 
 @media (max-width:900px){
   /* 8.4 state matrix, the 360 column: bottom, full width, above the safe area. There is no
@@ -673,7 +811,7 @@ a.opt:hover{background:var(--fill)}
    The rest below is the same criterion applied honestly: a rule on two or more screens lives
    here. Everything that stayed inline after this is genuinely used once.
    --------------------------------------------------------------------------------------- */
-.dialog > footer .hint{font-size:var(--t-xs);color:var(--soft)}
+.dialog > footer .hint{font-size:var(--t-xs);color:var(--soft);flex:1 1 0;min-width:0}
 .nar--sep{margin-top:var(--s3)}
 .cons--gap{margin-top:var(--s2)}
 .empty--tight{padding:var(--s5)}
@@ -689,6 +827,12 @@ a.opt:hover{background:var(--fill)}
    rules inline. */
 @media (max-width:900px){
   .z4--log .scopebar,.z4--log .rows,.z4--log .qfoot,
+  /* AND UNDER THE POINT IT IS ONE COLUMN, with the action back under the sentence.
+     Two declared tracks do not negotiate: at 360 the text column took what was left
+     after a button. It ranges left, because on one column there is nothing to range
+     against and a lone control on the right edge of a phone reads as a mistake. */
+  .banner:not(.only-narrow):has(> .act){grid-template-columns:minmax(0,1fr)}
+  .banner:not(.only-narrow):has(> .act) > .act{grid-column:1;grid-row:auto;align-self:start;justify-self:start}
   .z4--log .banner:not(.only-narrow){display:none}
   .z4--log .only-narrow{margin:var(--s4)}
 }
