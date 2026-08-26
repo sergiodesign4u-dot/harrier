@@ -191,5 +191,8 @@
 window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:'Variants' },{ id:'use', label:'When to use it' },{ id:'rules', label:'Rule and anti-rule' },{ id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
+<!-- a page that shows a `select.input` has to load the component that draws it, or the
+     platform draws the popup instead and the stand shows the one thing the system replaced. -->
+<script src="../system/select.js"></script>
 </body>
 </html>

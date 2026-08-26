@@ -1386,3 +1386,46 @@ chased.
 
 The four pages now: `DS · Foundations` with 87 bound swatches in both themes, and Atoms,
 Molecules and Organisms at 19, 24 and 19 sets.
+
+## 2026-08-26 · Three defects on the board, one cause behind two of them, and the same escape trap a third time
+
+The owner read the library and found three. All three were the compiler and none was the product.
+
+**THE TOAST AND THE DISCLOSURE WERE ONE DEFECT.** `STATUS` sat under its own message and
+`How this was read` under its own paragraph. Both are a LEAD ATOM: a block element before the
+first text, `.role` inside the toast's `p` and `summary` inside `details`. The reader already
+skipped the lead's TEXT from the merged string and then measured the paragraph with
+`selectNodeContents(e)`, which still includes the lead, so the rects began at the ATOM's top.
+Where the lead is inline-block on the same line, which is what a timeline entry's timestamp is,
+that costs nothing and it went unseen for four builds. Where the lead is a block on a line of its
+own it costs a whole line. The range starts after the lead now.
+
+**THE THIRD WAS A LOST SPACE, and finding it took two wrong fixes first.** `read, the pane
+follows` began exactly on the keycap's border. The merged string is trimmed and the rect was not,
+so the run was placed at the SPACE and drawn without it. The first cure walked the element with a
+node iterator and hit the text INSIDE the first keycap, which sits before the lead: the range
+start went backwards past its own end. The second walked from the range's own start and was
+correct and still did nothing, and that is the finding worth keeping.
+
+**IT WAS THE TEMPLATE LITERAL EATING A BACKSLASH, FOR THE THIRD TIME IN ONE SESSION.** The reader
+is stored as a template so both dumpers can root it where they need to. `/\s/` written once
+arrives at the browser as `/s/` and matches the LETTER s, so the scan for the first non-space
+character returned true on the space itself. It had already killed a regular expression outright
+earlier the same day, and before that it turned a comment's backtick into the end of the string.
+The file now says so at the top, in the place somebody will be standing when it happens again.
+
+**And every one of those was invisible to the numbers until it was fixed.** The board check
+compares the dump to the board; a defect that is already in the dump passes. What found them was
+a person looking at the page, twice, and both times after the checks had reported clean.
+
+The measure of the cure. Across the three library levels: **1476 runs, 0 off in width, 0 off in
+position, 0 missing**, where before this pass the organisms alone carried 31 width misses I had
+called a trailing-space artefact and could not account for arithmetically. They were this bug.
+The grey boards went to **5993 of 5993 placed within 2px, from 34 off**, and 5981 of 5993 within
+1.5px in width, the remaining 12 being the SF Mono substitution the grey cannot avoid.
+
+**AND THE LIVE STAND STILL SHOWED THE PLATFORM'S POPUP.** `design/kit/input.html` and
+`keyrow.html` carry a `select.input` and did not load the component that draws it, so the two
+pages that document the system demonstrated the exact thing the system had just replaced. Both
+load it now, and `input.html` says in its own table that the select left on 2026-08-26 and links
+to it: its lede claimed three values on an axis that has two.

@@ -16,9 +16,9 @@
 
 <p class="k-eyebrow">Atom</p>
 <h1 class="k-title">Input</h1>
-<p class="k-lede">The one component whose whole job is to be typed into. 34 instances across 15 screens, always inside a <code>field</code>: the rejection reason, the escalation recipient, the client summary draft, the sign in form and the queue's search.</p>
+<p class="k-lede">The one component whose whole job is to be typed into. <b>Two values on its axis since 2026-08-26, not three:</b> the select left and is <a class="link" href="select.html">its own atom</a>. 30 instances across 15 screens, always inside a <code>field</code>: the rejection reason, the escalation recipient, the client summary draft, the sign in form and the queue's search.</p>
 
-<p class="k-note"><b>Three rows of the step 2 register turned out to be one component, and writing the file is what found it.</b> <code>input</code>, <code>textarea</code> and <code>select</code> were listed separately. The splitting criterion is <b>anatomy</b>, meaning the set of child zones and their order, and all three have the same anatomy: <b>none at all</b>. What differs is which element the browser needs for the kind of answer being collected, and that is a variant axis. The register itself already treated it as one a level up, where <code>field</code> carries <b>control: textarea 21, input 9</b>. <b>Atoms go from 19 to 17 and the register from 62 to 60.</b></p>
+<p class="k-note"><b>Three rows of the step 2 register turned out to be one component, and two of the three still are.</b> The reading below was written at stage 08 and it held until the select was drawn; it is kept rather than deleted, because it is the argument that has to be answered before a control leaves this file again. <b>What broke it: a drawn select has anatomy and a native one has none.</b> <code>input</code>, <code>textarea</code> and <code>select</code> were listed separately. The splitting criterion is <b>anatomy</b>, meaning the set of child zones and their order, and all three have the same anatomy: <b>none at all</b>. What differs is which element the browser needs for the kind of answer being collected, and that is a variant axis. The register itself already treated it as one a level up, where <code>field</code> carries <b>control: textarea 21, input 9</b>. <b>Atoms go from 19 to 17 and the register from 62 to 60.</b></p>
 
 <h2 class="k-h" id="anatomy">Anatomy</h2>
 <div class="k-bench">
@@ -48,7 +48,7 @@
 </ul>
 
 <h2 class="k-h" id="variants">Variants</h2>
-<p class="k-lede">One axis, three values, <b>and the axis declares nothing at all</b>. Look at the file: below the comment there is no rule. The three take the same single declaration and differ only in the element.</p>
+<p class="k-lede">One axis, <b>two values since the select left</b>, and the axis still declares nothing at all. Look at the file: below the comment there is no rule. Both take the same single declaration and differ only in the element the browser needs for the kind of answer being collected.</p>
 <div class="k-wrap-x">
 <table class="k-table">
   <thead><tr><th>control</th><th>Uses</th><th>Rendered</th><th>The rule</th></tr></thead>
@@ -61,7 +61,7 @@
         <td>several lines, and <b>how many is <code>rows</code> in the markup rather than CSS</b>: 2 for a note, 3 for a rejection reason, 4 for an amendment. How much room to offer is a fact about the question being asked, not about the component</td></tr>
     <tr><td><code>select</code></td><td class="num">4</td>
         <td style="min-width:190px"><select class="input" aria-label="example, a choice"><option>Rule on the case</option><option>Leave the case open</option><option>Keyboard map</option></select></td>
-        <td><b>the native control, never a drawn one.</b> A drawn select has to reimplement the popup, the keyboard and the screen reader, and gets one of the three right. It is also the one value with <b>no coloured rendering anywhere</b>: all four stand on the keyboard map, which keeps its eleven one-off classes and is outside the system until step 6 rules otherwise</td></tr>
+        <td><b>IT LEFT THIS COMPONENT ON 2026-08-26 and is now <a class="link" href="select.html">its own atom</a>.</b> This file argued that a drawn select has to reimplement the popup, the keyboard and the screen reader and gets one of the three right, and that argument is why the native control stood for six stages. The owner overruled it: the platform draws the arrow and the popup, and they are a different shape, weight and ink on every machine a case is opened from. Drawn, it has a control, a value, a mark and a list, which is four zones and an order, and <b>anatomy is the splitting criterion</b>. The row above is live and it is the new component</tr>
     <tr><td><b>size</b></td><td class="num">&ndash;</td><td class="k-none">prohibited</td>
         <td>one size. A field smaller than the body text is a field somebody will mistype into</td></tr>
     <tr><td><b>error</b></td><td class="num">0</td><td class="k-none">a row in the backlog</td>
@@ -186,5 +186,8 @@ window.NAV_SECTIONS = [{ id:'anatomy', label:'Anatomy' },{ id:'variants', label:
   { id:'states', label:'States' },{ id:'tech', label:'What it reads' }];
 </script>
 <script src="_nav.js"></script>
+<!-- a page that shows a `select.input` has to load the component that draws it, or the
+     platform draws the popup instead and the stand shows the one thing the system replaced. -->
+<script src="../system/select.js"></script>
 </body>
 </html>
