@@ -1916,13 +1916,15 @@ dialog an **absent box rather than a dim one**, on the eleven screens where the 
 the point: six `reject`, four `escalate`, and the keyboard map. Not a wrong colour, a missing
 element, and the stylesheet is right, which is why nothing that reads a stylesheet could see it.
 
-**202 DRAWINGS LIVE ON A PSEUDO ELEMENT AND THE READER READS ELEMENTS.** The keyboard map in the
-top bar (59), the arrow after an external source (118), the disclosure caret (21) and the marker
-on the active option (4). `wf-pseudo.mjs` already solved this for the library boards by
-substitution under a proof, so the screen dumper calls it rather than growing a second copy: a
-first attempt wrote that walk into the shared reader and was reverted for exactly that reason.
-**A pseudo carrying CHARACTERS is the same problem wearing words**, and it took a second pass to
-see: `anote::before` writes the label `WHY` (79) and `tag::after` writes the two NON-BREAKING
+**THE 202 DRAWINGS ON PSEUDO ELEMENTS WERE ALREADY SOLVED AND THE SCREEN PATH DID NOT CALL IT.**
+The entry of 2026-08-26 above found them and wrote `wf-pseudo.mjs`, which materialises each one
+by substitution under a proof; that was wired into the library dumper and nowhere else, so the
+screen compilation would have shipped without the keyboard map (59), the source arrow (118), the
+caret (21) and the tick (4). This is a class of its own and it is not a new finding: **a solved
+defect reachable from one caller is an unsolved defect for every other**. A first attempt here
+wrote that walk into the shared reader instead and was reverted, because a second copy of a walk
+is how the two come to disagree.
+**WHAT IS NEW IS THE PSEUDO CARRYING CHARACTERS**, and it took a second pass to see: `anote::before` writes the label `WHY` (79) and `tag::after` writes the two NON-BREAKING
 SPACES (44) that separate a tag from the sentence it introduces. Losing the second is what
 printed `NOT FOUNDNo password change` on eleven screens. The reader has a paragraph about
 `\00a0` warning that it is not collapsible white space: it was protecting the character inside a
