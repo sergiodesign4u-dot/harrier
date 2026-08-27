@@ -112,6 +112,16 @@ Rules, not mood, and the whole set is in `voice/docs/voice.md`. Five that must h
 
 React with TypeScript. Virtualised tables for lists in the hundreds. Server-sent events for live queue updates. ClickHouse for telemetry, Postgres for cases, verdicts and the audit log. Claude for case narrative, verdict drafting and client summaries.
 
+## Handoff
+
+**The product is handed over, so a question that has an answer only in a chat has no answer.** `handoff/` is the exit from the project rather than a part of the design: it does not restate `design/` and `design/kit/`, it LEADS to them and adds the four things no page can answer. How the product behaves, with a source on every row and a list of what is not settled: `handoff/docs/behaviour.md`. What every screen is assembled from, and its reverse list derived by INVERTING the same data rather than by a second pass over the code: `handoff/docs/map.md`. What accessibility was verified and by which command: `handoff/docs/a11y.md`. And the prompt that adds a feature: `handoff/docs/one-shot.md`, which is the prompt itself and not advice about one. The page that leads to all of them is `handoff/handoff.html`.
+
+**Documentation references code and never restates it.** A `#hex`, a pixel figure, a finished interface string or a piece of CSS written inside `handoff/` is a defect with a mechanical instrument, not a shortcut, because the copy goes stale in a week and then shows yesterday's truth with a confident face. Name the token, the component and the variant instead. A measurement the exam took is not a restated value and does not fall under this.
+
+**A solved defect reachable from one caller is an unsolved defect for every other**, and this project has now paid it twice: a materialiser written for the library boards was never called by the screen path, and a check written for one corpus never ran on the other. When something is fixed, name every caller that should reach it.
+
+**An instrument that has never found anything is not a clean result, it is an untested instrument.** Canary it with a file that must fail, or report that it did not run. Two of this project's stages ended with a tool returning an empty list and an exit code of zero while being incapable of returning anything else.
+
 ## Where things live
 
 - Rules that must hold every session: this file. Budget 200 lines. No statuses, no chronicle.

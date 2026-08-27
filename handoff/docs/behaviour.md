@@ -93,9 +93,9 @@ A behaviour with no source does not get a row. It goes to section 6, NOT SETTLED
 | **The note is optional** in every reject state | `reject*.html` | node 4.4 section 6 |
 | **An escalation requires a recipient.** With nobody on the rota the primary is `aria-disabled` and the footer says so | `escalate-no-recipient.html` | screen |
 | **`Enter` inside a handover prompt makes a line, it does not file.** The button files. Stated in the footer of every escalate state | `escalate*.html` | screen |
-| **The handover prompts are optional but prompted.** Three of them, one at 360 | node 4.6 section 6 |
-| **An amendment carries no reason code.** The amended text is the reason, and it is already structured by being the verdict record's own field | node 4.1 section 5 |
-| **The log has no editing control at all.** Not disabled: absent | node 5.1 section 6 |
+| **The handover prompts are optional but prompted.** Three of them, one at 360 | `escalate*.html`, three `textarea` carrying `Optional, and prompted anyway` | node 4.6 section 6 |
+| **An amendment carries no reason code.** The amended text is the reason, and it is already structured by being the verdict record's own field | `case-amend.html` | node 4.1 section 5 |
+| **The log has no editing control at all.** Not disabled: absent | `log*.html`, five states, no control on any of them | node 5.1 section 6 |
 
 ### Edge cases
 

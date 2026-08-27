@@ -2015,3 +2015,84 @@ wrapping differences are sub pixel and go both directions. One run in grey still
 leading, `if the case is still open, or` on `not-found`, whose rect tops are not evenly spaced at
 all. The library is published at 1440 only, so at 360 what changes shape with width cannot be an
 instance of it and was drawn: that is a fact about the library rather than about those boards.
+
+## 2026-08-27 · Stage 13 closes, and the section that answers the package's own question was empty
+
+The stage had been standing at `wip` with all five documents written, the exam run twice and the
+page built. Step 8 is the closing pass, and its job is to run the instruments that read what
+EXISTS plus one that reads what was SUPPOSED to exist. The second kind is the reason the stage
+was not closed a day earlier.
+
+**THE MOST EXPENSIVE FINDING WAS A PLACEHOLDER ON THE PAGE.** The section titled *How to add a
+feature* carried the literal words `Section filled by step 7.`, and the stylesheet rule written
+for its prompt block had **zero users in the file that declares it**. That section is the one
+thing the whole package exists to answer. Nothing else could have found it: the page renders, the
+link check passes, the section is in the navigation, and every reader of the package so far had
+been given the prompt as a FILE rather than sent to the page. It is written now, and it carries
+the two halves a prompt of this kind needs: the route to the three documents this stage produced,
+and the block about the file and its registration, without which a screen exists only on disk.
+
+**A CHECKLIST THAT DECLARED TWO VALUES WAS USING FOUR.** `a11y.md` opens by saying the status has
+exactly two values and there is no third, then carries `confirmed as specified`, `confirmed by
+inspection` and `confirmed as a written decision` on five rows. The honest fix is not to invent a
+test for them but to stop calling them confirmed: these pages have no runtime, so a rule about
+`Escape` not escaping a dialog, or about a shortcut yielding to a text field, is a **requirement
+on the implementation** rather than a property of this repository. The file now declares three
+values and says why the third exists.
+
+**AND ONE OF THOSE ROWS CREDITED A TOKEN THAT DOES NOT EXIST.** It said `--color-edge` was added
+rather than raise `--line-edge` past 2.997:1. No such role is in `tokens.css` and none was added.
+The true answer was one role away and better: `--line-edge` is a DIVIDER, which 1.4.11 does not
+cover, and the boundary of a control is `--line-control`, which already carries 3:1. A wrong
+sentence that reads like a decision is the class this project has the hardest time seeing, and it
+took an instrument reading the checklist against the stylesheet to find it.
+
+**A RULE WAS QUOTED IN TWO PLACES AFTER IT HAD BEEN REPLACED.** The README and the handoff page
+both said the grey folder is frozen since stage 05 and must not be edited. The rule changed on
+2026-08-26: it is kept IN STEP rather than frozen, a defect is carried back into it and a stage
+boundary is not. Both are corrected, and the half that still binds, never read a behaviour out of
+it, is now the emphasis rather than a clause.
+
+**THE PRODUCT HAS CHANGED SINCE STAGE 12 CLOSED, AND THE BASELINE IS NAMED RATHER THAN ASSUMED.**
+`git diff 585e97e..HEAD` over `design/*.html`, `design/system/**` and `design/kit/*.html` is
+**147 files, 3075 lines added and 916 removed**. The stage contract allows exactly one exception,
+the exam screen of step 7, so the gate fires. It is recorded rather than waved through: none of it
+is this stage inventing. It is the drawn select taking the platform's popup away, the icon set
+becoming components, the key census, the four screens of node 7.1, and the corrections each of
+those found, all of it accepted by the owner as it landed and every piece already carrying its own
+entry in this file. **What the gate correctly catches is that a package documenting a product is
+documenting a moving one**, and the answer is the count and the baseline, in writing.
+
+**THE THIRD INSTRUMENT RETURNED NOTHING, FOR THE SECOND TIME IN THE SAME STAGE.** `impeccable`'s
+deterministic detector was canaried with a file carrying a failing contrast pair, a forbidden
+transition, an empty button, two headings and a marketing sentence. Empty list, exit 0. Its static
+engine imports four packages inside a `try` and falls back to a regular expression when they do
+not resolve, and none of them resolve here. It is a backlog row now with an owner, because the
+rule of evidence in `CLAUDE.md` names more than one instrument and one of the named ones cannot
+contribute. **An instrument that has never found anything is not a clean result.**
+
+**WHAT WAS CLEARED, WITH THE REASON, RATHER THAN FIXED.** Five duplicate-instead-of-reference
+findings: two are figures the exam MEASURED a copied proportion costing, one is the evidence the
+row exists to give, and two are interface strings that still match the inventory exactly, in a
+product that addresses a string by its text because it has no keys. The two characters `](` in a
+page, which sit inside a code element where they are the name of the check that looks for them.
+Five paths naming no file, four of them named in the record of their own deletion. And the README
+reading `In progress` against a registry flag reading `done:true`, which is not a divergence: the
+two flags answer different questions and the registry says so at the top of itself.
+
+**THE COUNTS THIS STAGE ENDS ON.** The reader of step 1 returned 13 questions of its own, 10 it
+could not answer and 3 it answered wrongly; of the 10, three were really absent, four had been
+decided long ago and written nowhere, and **two were present and not where it looked**, which is
+a route defect rather than a documentation one. The rollout's twenty readers contributed 15 more.
+The exam ran twice: 7 gaps on node 7.1, which was accepted as work and is in the product, and 10
+on node 6.1, which was a probe and was deleted. **The second list is longer than the first and
+that is not smoothed over**: none of the first run's gaps recurred, and what grew is the IA and
+voice layers being genuinely empty for a cluster the track deferred. Three of those became backlog
+rows with owners. The product stands at **66 pages across 14 screens**.
+
+**AND THE ONE THING THE PAGE KEEPS AGAINST ITS OWN RULE, WITH THE MEASUREMENT.** Documentation
+here references code and never restates it, and the handoff page holds three literal colours in
+its own style block. They stay: the block is a DARK panel on a light documentation page, and
+reusing the light page's roles for it is the exact class this project has already paid for twice,
+where a document inherited a palette that was not its own. Measured instead of argued: 14.27:1 for
+the body of that block and 11.05:1 for its emphasis.

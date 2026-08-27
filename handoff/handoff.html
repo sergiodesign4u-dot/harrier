@@ -97,7 +97,7 @@
 <tr><td><code>ia/</code></td><td><b>The structure.</b> A specification per node with its state matrix, keyboard model, addressing and permissions. This is what a screen has to satisfy</td><td>Before drawing anything new</td></tr>
 <tr><td><code>research/</code>, <code>design/concept/</code></td><td><b>Where it came from.</b> The market, the people, the jobs, and why the visual language is this one</td><td>When a decision looks arbitrary</td></tr>
 <tr><td><code>docs/decisions.md</code></td><td><b>Why, for everything.</b> Half of every "why did they do that" is already answered here</td><td>You in a year</td></tr>
-<tr><td><code>wireframes/</code></td><td><b>History of the process, frozen since stage 05, and not a source of truth.</b> 62 pages in grey, the originals of every coloured page except the four of node 7.1, which never had a wireframe. They exist so the colour could be proved a remap rather than a repaint, and they are the frozen witness. Do not edit them and do not read a behaviour out of them: the coloured screen is the product</td><td>Nobody, day to day</td></tr>
+<tr><td><code>wireframes/</code></td><td><b>History of the process, and not a source of truth.</b> 62 pages in grey, the originals of every coloured page except the four of node 7.1, which never had a wireframe. They exist so the colour could be proved a remap rather than a repaint, and they are the witness that proof stands on. <b>Never read a behaviour out of them: the coloured screen is the product.</b> They stay grey, and since 2026-08-26 they are kept in step rather than frozen: a defect found later is carried back into them, a stage boundary is not</td><td>Nobody, day to day</td></tr>
 </tbody>
 </table></div>
 <p class="note">Two rename maps, and they are in one file under two headings, which is worth knowing before you go looking: <code>design/kit/docs/inventory.md</code> section 10 carries the stage 08 map, and the later renames, <code>nf</code> to <code>miss</code> among them, are in section 8.</p>
@@ -138,7 +138,35 @@
 <section id="feature">
 <h2>How to add a feature</h2>
 <p class="h2sub">The prompt, ready to paste</p>
-<p>Section filled by step 7.</p>
+<p><a href="docs/one-shot.md"><b>handoff/docs/one-shot.md</b></a> <b>is not advice about prompts, it is the prompt.</b> Copy it, put your feature where it says, paste it. It was written for the exam this stage ran and it has been through that exam twice, on two different features, with two agents that had never seen this repository: node 7.1 Tenant detail, which is in the product, and node 6.1 Client summary draft, which was a probe and was deleted.</p>
+<p><b>This page carries its opening rather than all of it, and the reason is a rule of the package.</b> Documentation here references code and never restates it, so a second copy of a 180 line prompt on this page would be the one that goes stale. What is worth having in front of you is the shape: the prompt is a ROUTE before it is an instruction, and the first thing it does is send the reader to the three files this stage produced.</p>
+<div class="ho-prompt">You are adding a feature to Harrier, an adjudication console for analysts at managed
+detection and response providers. The repository is a fully assembled clickable product
+with no data layer, no API and no router: every screen is a static html document showing
+canonical fixture data. Your job is to add one more, to the same standard as the 66 that
+are already there.
+
+<b>THE FEATURE: &lt;name the node or the job here&gt;</b>
+
+READ THESE FIRST, IN THIS ORDER. Read them from disk. Do not work from memory of them.
+
+  1. CLAUDE.md                          what binds every session in this project
+  2. handoff/handoff.html               what the product is and where everything lives
+  3. design/system/CLAUDE.md            the ten rules that hold inside the system package
+  4. design/kit/docs/architecture.md    the rules of use and the thirteen prohibitions
+  <b>5. handoff/docs/behaviour.md          how the product behaves: states, edge cases,
+                                        validation, and every row with its source
+  6. handoff/docs/map.md                what the neighbouring screens are assembled from,
+                                        and what moves if you touch a token
+  7. handoff/docs/a11y.md               the accessibility your work has to satisfy, with
+                                        the command that checks each line</b>
+  8. ia/docs/pages/&lt;node&gt;.md            the specification of your node, if it has one
+
+<i>... and the rest is in handoff/docs/one-shot.md: voice, markup, geometry, motion,
+behaviour, fixtures, what you copy you also claim, the file and its registration,
+and eight commands that check your own work.</i></div>
+<p><b>The part nobody thinks to ask for is the last block, and without it the screen exists only on disk.</b> A screen goes flat in <code>design/</code> with no subfolder, one file per state named <code>&lt;screen&gt;-&lt;state&gt;.html</code>, it links exactly two stylesheets, it carries the design only panel the other screens carry, and <b>it is registered in <code>design/_nav.js</code></b>. Without that last line the coverage map does not know it exists and the hub will not render it. Its strings go into <code>voice/docs/microcopy.md</code> section 8 with a page and a zone.</p>
+<p><b>And it forbids inventing in the file of a screen without forbidding growth</b>, which are two different things and the difference is the whole of it. No <code>@media</code>, no <code>transition</code>, no <code>animation</code>, no <code>@keyframes</code>, no <code>&lt;style&gt;</code> and no <code>style=</code> in a screen: those words are copied out of <code>design/system/CLAUDE.md</code> rather than paraphrased. What is missing appears in the SYSTEM first, as a complete component with its five parts, and only then stands on the screen.</p>
 </section>
 
 <section id="decides">
@@ -161,7 +189,31 @@
 <p class="h2sub">What readers with no context could not find, and where the answer is now</p>
 <p>Every question on this page came from somebody who had never seen this product. The full log, with each question, where the reader looked for it, the verdict on whether the answer really was missing, and what closed it, is <a href="docs/onboarding-gaps.md"><b>handoff/docs/onboarding-gaps.md</b></a>.</p>
 <p>It has two halves and they are counted separately on purpose. <b>Twenty agents</b> built the last ten screens of the product from a written contract, each reading the design documentation for the first time, and what they had to ask is the first half. <b>One reader</b> was given the repository and this stage's own question, which is different: not one screen from a briefing but the whole product from the README down.</p>
-<p class="note">The summary of what the exam found is filled by step 8.</p>
+<p><b>The numbers, and the two halves stay apart.</b> The reader of this stage returned <b>13</b> questions of its own: 10 it could not answer and 3 it answered wrongly, which is the more expensive list. Of the 10, three were <b>really absent</b>, four were <b>decided long ago and written down nowhere</b>, and two were <b>present and not where it looked</b>, which is a defect of the route rather than of the documentation. The rollout's twenty readers contributed <b>15</b> more, 12 of them really absent. The exam then ran twice, on two features, with two agents that had never seen this repository: <b>7 gaps</b> on node 7.1 and <b>10</b> on node 6.1.</p>
+<p><b>The second list is longer than the first and that is said out loud rather than smoothed.</b> None of the first run's gaps recurred, and the agent cites the paragraph that closed each one. What grew is not the package: of the second run's nine, about three are this handoff and five are the IA and the voice layer being genuinely empty for a cluster the track deferred. A feature with no node specification costs the reader more than a feature with one, and that is a fact about the map rather than about the guide.</p>
+<div class="tw"><table>
+<tr><th>Was unclear</th><th>Became</th></tr>
+<tr><td><b>Where does a new interface string get written down?</b> The inventory says of itself that its sections 3 and 4 are the wording as it stood before stage 05, so a lookup there returns the text that was replaced</td><td>The most expensive row in the table, because it is the first thing every feature needs. Answered in the text section of <a href="docs/one-shot.md"><b>one-shot.md</b></a>: a new string is written against <code>voice.md</code>, lands in <code>microcopy.md</code> section 8 as a ruled row with its page and its zone, and the screen carries it verbatim</td></tr>
+<tr><td><b>Which wins when a node specification and the built screen disagree?</b> The precedence was stated three different ways in three files and never as one rule</td><td>Written once, at the head of <a href="docs/behaviour.md"><b>behaviour.md</b></a>: the IA node owns behaviour and states, the built coloured screen owns markup and applied text, and the microcopy ruling table owns why a string reads the way it does</td></tr>
+<tr><td><b>Where is the grey to colour rename map?</b> The grey original of a screen carries one set of class names and the coloured one carries another</td><td><b>Present, and not where it looked.</b> A route defect: the section called The rename map holds the stage 08 map, and the stage 12 renames sit in a different section under a different heading. Both are now named in the route above, with what each covers</td></tr>
+<tr><td><b>Are the coloured screens generated, and what happens if a grey generator is re-run?</b></td><td>Decided long ago and written nowhere. The grey was produced once by its generators and they have not run since stage 05; the colour is authored and it is the product. Re-running a generator would rebuild the witness, not the product</td></tr>
+<tr><td><b>Should a new screen carry the design annotations the others do?</b></td><td><b>Present, and the reader did not see it</b>, because the answer is a count rather than a sentence: 40 of the coloured pages carry one and 22 do not, and it happened to open two of the 22. Stated in <code>one-shot.md</code>: an annotation is where a node number, a zone label or an argument for the design goes, and a screen with nothing of that kind to say carries none</td></tr>
+</table></div>
+<p><b>And the critique of this stage, by class.</b> Four instruments: an independent read only pass, this session's own pass over the code and in the browser, the two reader sets above, and one that returned nothing because it could not run.</p>
+<div class="tw"><table>
+<tr><th>Class</th><th>Found</th><th>By</th><th>Outcome</th></tr>
+<tr><td>A section of this page never filled</td><td>2</td><td>Claude</td><td><b>Fixed.</b> How to add a feature carried the words <i>filled by step 7</i>, and the stylesheet rule written for its prompt block had zero users</td></tr>
+<tr><td>A token named that does not exist</td><td>1</td><td>Codex</td><td><b>Fixed.</b> The accessibility checklist credited a role that was never added; the real answer is that the boundary of a control is a different role and already carries its threshold</td></tr>
+<tr><td>A status the file's own rule forbids</td><td>5</td><td>Codex, then counted again</td><td><b>Fixed.</b> The checklist declared two values and used four. The rows that no instrument can run are now called what they are, and the rule declares three</td></tr>
+<tr><td>A table row missing a cell</td><td>3</td><td>Codex</td><td><b>Fixed.</b> Three validation rules had lost the column naming where they render</td></tr>
+<tr><td>A rule quoted after it was replaced</td><td>2</td><td>Codex</td><td><b>Fixed</b> in both places. This page and the README still said the grey folder was frozen and must not be edited; the rule changed on 2026-08-26 and now says it is kept in step</td></tr>
+<tr><td>Form</td><td>1</td><td>Claude</td><td><b>Fixed.</b> The README had no closing line break, which drops its last status row out of any parser</td></tr>
+<tr><td>Duplicate instead of a reference</td><td>5</td><td>Codex</td><td><b>Cleared, with the reason on each.</b> Two are measurements from the exam rather than restated values, one is the evidence a row exists to give, and two are interface strings that still match the inventory exactly. This product addresses a string by its text because it has no keys</td></tr>
+<tr><td>A markdown link that survived into a page</td><td>1</td><td>Claude</td><td><b>Cleared.</b> The two characters sit inside a code element on the checks page, where they are the name of the check itself</td></tr>
+<tr><td>A path naming no file</td><td>5</td><td>Claude</td><td><b>Cleared.</b> All five are named in the record of their own deletion</td></tr>
+<tr><td>The product changed after it was accepted</td><td>147 files</td><td>Claude</td><td><b>Carried to the decision record</b> with the baseline named. Every change is owner accepted work that landed after stage 12 closed, and none of it is this stage inventing</td></tr>
+<tr><td>An instrument that returned nothing because it cannot run</td><td>1</td><td>Claude</td><td><b>Said out loud, for the second time this stage.</b> Its detector was given a file carrying a failing contrast pair, a forbidden transition, an empty button, two headings and a marketing sentence, and returned an empty list</td></tr>
+</table></div>
 </section>
 
 </main>
