@@ -1899,3 +1899,117 @@ Measured over all 63 sets: **0 components overlapping, 0 labels colliding with a
 24 holes reading 5 / 15 / 2 / 2 across the four sentences, and 2 footnotes. And the dumps are now
 **deterministic**: all three re-dumped byte for byte identical, which the frozen transitions bought
 and nothing had proved until this pass.
+
+## 2026-08-27 · The product is in Figma at two widths, and six things were missing from every board before it was
+
+The library was finished and the product was not: three DS pages held 194 variants and the 66
+coloured pages of `design/` existed as zero frames. Compiling them is one command, and the
+decision worth recording is that it was not run first. The corpus was read with the browser and
+compared against the library before anything was drawn, and that comparison found **six classes
+of defect, none of which is visible in any file**. Every one was fixed in what Figma is told. No
+file under `design/` was touched, and the working tree stayed clean throughout.
+
+**A COLOUR CHROMIUM DOES NOT SERIALISE AS `rgb()` READS AS NO COLOUR AT ALL.** `color-mix(in
+srgb, ...)` comes back as `color(srgb r g b / a)`, and the reader knew only the first form, so it
+returned null. `--bg-scrim` is the product's one `color-mix`, which made the scrim behind every
+dialog an **absent box rather than a dim one**, on the eleven screens where the thing it dims is
+the point: six `reject`, four `escalate`, and the keyboard map. Not a wrong colour, a missing
+element, and the stylesheet is right, which is why nothing that reads a stylesheet could see it.
+
+**202 DRAWINGS LIVE ON A PSEUDO ELEMENT AND THE READER READS ELEMENTS.** The keyboard map in the
+top bar (59), the arrow after an external source (118), the disclosure caret (21) and the marker
+on the active option (4). `wf-pseudo.mjs` already solved this for the library boards by
+substitution under a proof, so the screen dumper calls it rather than growing a second copy: a
+first attempt wrote that walk into the shared reader and was reverted for exactly that reason.
+**A pseudo carrying CHARACTERS is the same problem wearing words**, and it took a second pass to
+see: `anote::before` writes the label `WHY` (79) and `tag::after` writes the two NON-BREAKING
+SPACES (44) that separate a tag from the sentence it introduces. Losing the second is what
+printed `NOT FOUNDNo password change` on eleven screens. The reader has a paragraph about
+`\00a0` warning that it is not collapsible white space: it was protecting the character inside a
+string and never noticed the character had not reached the string.
+
+**161 ITALIC RUNS WERE DRAWN UPRIGHT.** `.state` is IBM Plex Mono Italic, and the slant is what
+separates a machine's note from the analyst's words. The style ladder carried weight only. Both
+families have the full italic set in Figma, so nothing falls back; the count of substitutions is
+reported rather than assumed. **The first patch found zero of them**, because runs are described
+in TWO places in the reader and every one of the 161 takes the second: a `.state` is one word in
+its own box.
+
+**THE WHOLE LIBRARY WAS COMPILED INSIDE 1204px OF A 1440px PAGE.** The DS dumper was the only one
+of four that never hid `#sidebar`, the prototype's own navigation panel. The cost was not
+cosmetic: the top bar WRAPS at 1204, so the published `z1` was 71px tall and 1204 wide while the
+product's is 56 and 1440, and every organism that measures itself against the viewport was
+published 236px narrow. A board 236px narrower than the product looks exactly like the product,
+which is why it stood. Hiding it took placement on `queue.html` from **8 instances to 20**.
+
+**A CORRECTION FOR A SUBSTITUTED FACE WAS APPLIED WHERE NO FACE IS SUBSTITUTED.** The builder
+nudges tracking until a run occupies the width the browser gave it, which is right when Figma
+draws Menlo where the product asked for SF Mono. It also EXTRAPOLATES the learned delta onto
+wrapped runs of the same face and size, and the coloured corpus has both its families for real,
+so what it learned was sub pixel noise. Squeezing by 0.076px a character was enough: `Token
+replay from a new ASN · High · 9 signals · 6 sources, 24h` measures **332.28 in Chrome inside a
+328 box and wraps, and measured 328.00 on the board and did not**. Two lines in the product, one
+on the board, and the width check cannot see it because the box is 328 either way. The carry is
+now gated on substitution.
+
+**A PARAGRAPH MADE ENTIRELY OF SPANS WAS NOT TREATED AS A PARAGRAPH.** The merge asked for a bare
+text node, and `<h1 class="readout"><b>19:00 to 07:00 UTC</b> <span class="dim">R. Idrissi coming
+on ...</span></h1>` has none: the only text directly inside it is the space between the two,
+which trims to nothing. The halves were emitted as separate runs, and a separate run is placed at
+the LEFT OF ALL ITS LINES. At 1440 the dim half never wraps and the split is invisible; at 360 it
+wraps back under the bold half and the board prints one on top of the other. **142 elements in
+the product are shaped this way, 134 in the grey corpus**, and the number that wrap is 4 at 1440
+and 18 at 360.
+
+**AND AN EMPTY LINE IS A LINE.** `lines` was the count of distinct rect tops, and a blank line
+made by two `<br>` produces no rect. The builder derives the leading from it as
+`h - (lines - 1) * lh`, so a paragraph with one blank line reported a font box 17px taller than
+any font it uses and the correction came out **negative**: the block was placed 7px low and the
+annotation on the shift brief printed over the button beneath it. This is the same compensation
+written earlier because every run sat 1.47px high, firing four times as hard in the other
+direction. 7 runs at 1440, 19 at 360, 7 in grey.
+
+**THE INSTRUMENT THAT FOUND THE LAST TWO WAS WRONG FIRST, AND THAT IS THE ENTRY.** Width against
+Chrome was already 100.0% and says nothing about wrapping: a box is 328 whether the text inside
+it takes one line or two. A line count was added and reported 74 mismatches, **17 of which were
+the checker**: it compared Figma's height in line boxes against `t.lines`, and `t.lines`
+over counts a mixed size paragraph because an 11px tag beside a 14px sentence sits on a different
+rect top while SHARING the line. Measuring both sides the same way, as a height in line boxes,
+took it to 5. Then a picture: both renderings drawn into one canvas and differenced. The number
+alone proves nothing, because two renderers never agree on a glyph edge, but the IMAGE separates
+the two cases at a glance. Thin ghosting everywhere is antialiasing; **one block printing two
+clearly offset copies of every line is a placement error**, and that is how the leading was found
+after three instruments had passed the same board.
+
+**WHAT THE BOARDS ARE.** 66 pages across 14 screens at a measured 1440 and a measured 360, one
+board per state, families in rows and states in columns. Every colour is bound to the semantic
+role for the surface it paints, so both pages follow the Dark and Light modes of the Semantic
+collection; the 34 roles in Figma are exactly the 38 in `tokens.css` less the four that are
+border shorthands built from a colour role that is itself a variable. What is a component is an
+INSTANCE of the library; what could not reproduce its component node for node was refused and
+drawn, because a board that is linked and wrong is worse than one that is right and not linked.
+
+```
+UI · 1440    66 / 66 built    1022 kit instances    806 refused    209 detached
+UI · 360     66 / 66 built     479 kit instances    410 refused    147 detached
+paints bound to a role 19088 and 8531, paints left literal 0 and 0
+width against Chrome 100.0% and 100.0%, runs not found 0, boards overlapping 0
+lines against Chrome 99.9% (4 of 6168) and 99.5% (12 of 2615)
+masked and lettered pseudo elements materialised 325 and 387, rects moved 0 and 0
+```
+
+**AND THE GREY CORPUS WAS REBUILT RATHER THAN LEFT ALONE.** Three of the seven reader changes are
+dead in grey and were proved so by re dumping it byte for byte at every step. Two are not:
+**158 state chips are italic in grey too, and 134 elements have the same all spans paragraph
+shape.** A stage boundary is not carried back and a DEFECT is, so all 62 grey boards were
+recompiled from the same reader. The dumps in `dumps/` were already stale by the focus ring
+feature on the three sign in pages, which is the same class again: a store that no longer matches
+the instrument that wrote it.
+
+**WHAT IS LEFT, NAMED RATHER THAN QUIET.** 806 refusals at 1440 are not failures of the compiler:
+they are the register saying a component has fewer declared anatomies than the product renders,
+and the largest single line of them is `z1`, which is now a backlog row. 4 and 12 residual
+wrapping differences are sub pixel and go both directions. One run in grey still derives a bad
+leading, `if the case is still open, or` on `not-found`, whose rect tops are not evenly spaced at
+all. The library is published at 1440 only, so at 360 what changes shape with width cannot be an
+instance of it and was drawn: that is a fact about the library rather than about those boards.
