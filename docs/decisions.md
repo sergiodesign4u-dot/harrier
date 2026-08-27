@@ -2096,3 +2096,297 @@ its own style block. They stay: the block is a DARK panel on a light documentati
 reusing the light page's roles for it is the exact class this project has already paid for twice,
 where a document inherited a palette that was not its own. Measured instead of argued: 14.27:1 for
 the body of that block and 11.05:1 for its emphasis.
+
+---
+
+## 2026-08-27 · The light theme reached the product, and what it found was that half of its own contrast sweep had never run
+
+The console gained a second control in the top bar, beside the analyst's name: one button, a sun
+while the dark theme runs and a moon while the light one does. It was asked for as an icon and it
+is one. **What it actually bought is in the second half of this entry**, and the button is the
+cheaper half.
+
+### The decision it reverses, said out loud rather than quietly amended
+
+Stage 08 built the light theme as a property of the token level and then decided not to ship the
+switch: the pair existed to prove that the semantic level really can be overridden independently,
+and `handoff/handoff.html` said in as many words that it **is not a feature of the product** and
+that the only switch reaching it was in the panel of the documentation stand. `CLAUDE.md` called it
+a named debt, `DESIGN.md` repeated it, and so did `why.html`, `architecture.html` and
+`architecture.md`. All six now say something else, and each one names the date rather than being
+edited into looking like it always said this.
+
+**The default did not move, and that is the part that had to be defended.** With nothing stored the
+console is dark. `prefers-color-scheme` is **deliberately never read**, and the reason is the same
+one that chose the ground: dark was decided against the reading research and carried by the rota,
+79 per cent of these teams running 24/7 with a case opened from a phone at 03:00. A laptop that
+happens to be in light mode is not evidence about that rota. The analyst can now answer the
+question herself, once, and be remembered; the machine cannot answer it for her.
+
+### The finding: 134 of 268 renderings were the dark theme wearing a light label
+
+`design/kit/checks/contrast.mjs` seeds a theme by writing a key into `localStorage`, and the key it
+wrote was `harrier-kit-theme`. **Nothing under `design/` ever read that key.** The stand read it;
+the product did not, because the product had no switch and therefore no code that looked. So every
+light rendering of a product screen was the dark theme again, and the instrument reported clean for
+both halves, at stage 12 and again at stage 13.
+
+It was measured rather than reasoned. `--bg-page` on `queue.html`, with the key seeded to `light`,
+came back `#11110f`, which is the dark page. On `design/kit/color.html` under the identical seed it
+came back `#f8f7f4`. One surface flipped and one did not.
+
+**This is the project's own rule about untested instruments, in the one shape it had not taken
+before.** The previous cases were a check that could not return a finding and a check that never
+ran on the second corpus. This one ran, on the right corpus, and asked for a state the corpus was
+incapable of entering. It printed a number that was true of what it rendered and false of what it
+claimed to render.
+
+**One instrument was never affected, and the difference decides which claims had to be re-earned.**
+`focus.mjs` sets `data-theme` on the document directly instead of seeding a key, so its light half
+rendered light from the day it was written. One instrument **drove** the theme and one **asked** for
+it, and only the one that asked could be ignored.
+
+### What the first real pass found: one failure in 268 renderings, and it was in the chrome
+
+The whole product, both themes, 1440 and a measured 360: **one** failure. `overview.html`, light,
+1440, the current item of the documentation panel at **4.41:1 against a floor of 4.5**.
+
+The cause is worth the line it takes. The panel marks its current item with its own ink at a
+10 per cent wash of that same ink. **The wash and the ink are the same hue**, so a heavier wash
+walks the ground *towards* the ink rather than away from it. In dark the two start far apart and
+10 per cent costs nothing; in light they start close and it cost the entire margin. Three
+alternatives were measured in the browser rather than guessed at, and `/_nav.css` carries all
+three beside the value:
+
+| wash | dark | light |
+|---|---|---|
+| ink at 10%, as it stood | 6.27 | **4.41** |
+| ink at 6%, taken | 6.71 | 4.65 |
+| no wash at all | 7.33 | 5.02 |
+| the line role at 22% | 6.11 | 4.17 |
+
+A wash of the line role is worse in light at every strength, because that role is **darker** than
+the light page and this ink is dark already. Six per cent is the value, chosen by the tighter of the
+two themes, and the wash keeps its job.
+
+**Everything else held**, which is the more interesting result: 0 failures over 67 pages in a theme
+that had never been rendered on a single one of them. The discipline that every role is written
+twice, in the same edit, against the opposite ground, is what that number is measuring.
+
+### Two glyphs, because a control with two states and one glyph is half a control
+
+The set went from seventeen to nineteen. `sun` is the only glyph in it built out from the centre
+rather than drawn as an object: rays from radius 7 to radius 10, which puts their outer ends on 2
+and 22 exactly, the declared safe field, with the disc at radius 5 leaving two units of gap. Every
+number in it is an integer including the four diagonals, because 5 and 7 are the pair whose radii
+land closest to 7 and 10 without a decimal. `moon` is two arcs and the only closed curve in the
+set, with an outer edge whose centre falls within a fifth of a unit of the box centre, so it
+balances on its own ink without being nudged there.
+
+`checks/icons.mjs` matched both masks against the source **character for character** on the first
+run, at 1.5, butt caps, miter joins, `viewBox 0 0 24 24`. The declared count in that check moved
+from 17 to 19 with the set.
+
+### The head script, and the class of failure it belongs to
+
+The theme has to be on the root element **before the first frame**. `design/_shell.js` is loaded at
+the foot of the body, which is after the browser has drawn the page, so a theme applied there is
+applied to a screen the reader has already seen in the other one. That is why
+`design/system/theme.js` is a file of its own, linked from the head of all 67 pages under `design/`.
+
+**A screen that forgets it does not look broken from any angle.** It renders in the shipped dark
+theme, and the bar quietly comes back with **one** control instead of two, because the shell refuses
+to render a button that cannot change anything. Nothing on the page is wrong; there is simply less
+of it. This project has a rule for exactly this: a prohibition written only in prose is a
+prohibition nobody runs. So it is a function in `design/kit/checks/screens.mjs`, and it was
+**canaried** by taking the line out of `log.html`: the check named the page, and the rendered bar
+carried one control beside a neighbour carrying two, in the same browser, seconds apart.
+
+The function's own first run was wrong and that is recorded in it: it read the string the check
+already strips script bodies from, and reported all 66 pages as missing a file every one of them
+had.
+
+### One key for the whole project
+
+`harrier-kit-theme` became `harrier-theme`, in `design/system/theme.js`, `design/kit/_nav.js` and
+`contrast.mjs`. The old name was accurate while the stand held the only switch. Which ground a
+person reads on is a property of the person rather than of the surface, so the stand and the
+product now remember one answer, and every check that seeds a theme seeds one key.
+
+### Three documents were found saying something that had stopped being true
+
+**`design/kit/scrim.html`** reported the light theme scrim as a defect **repaired rather than
+found**: the paragraph and the fix landed in the same commit, `c43b2a7`, and the page went on
+reporting it as open for two stages. Measured on `reject.html` in both themes on the day of this
+entry: dark resolves to `color(srgb 0.0667 0.0667 0.0588 / 0.78)` over `#11110f` and light to
+`color(srgb 0.9725 0.9686 0.9569 / 0.78)` over `#f8f7f4`. The veil follows its own theme. The class
+the page names is still true and is kept: `contrast.mjs` could not have caught either state, because
+it composites a text node's **ancestors** and a scrim is a sibling laid over them.
+
+**`design/kit/icons.html`** carried its counts as words in prose on a page whose entire argument is
+that every number on it is measured at render time. It said sixteen while `icons.js` declared
+seventeen, and it said three glyphs were applied while the strip four lines below it drew six. Both
+were stale before this change and would have been staler after it. Every count on that page is now
+read off `HARRIER_ICONS`, and the applied table is **generated** from the same list the strip is:
+only the reason and the measured usage are written by a person, so a glyph applied to the product
+without a row there is no longer possible.
+
+**`design/kit/checks/route.mjs`** had been failing since the row that records the `](` finding was
+written, because that row writes those two characters inside backticks and the link regex could not
+tell a code span from a link. The href it reported was half a table row. Fenced blocks and inline
+spans now come out of a markdown file before either pattern runs over it; html is left alone,
+because `](` in rendered html is sign 3 of that same check and is measured separately on the page.
+Canaried with a genuinely dead link, which it caught by name.
+
+### What this did not touch, named so it is not mistaken for an oversight
+
+**`wireframes/` is not redrawn.** A contradiction or a defect is carried back to the grey corpus; a
+new control is neither. It is work that arrived after the freeze, and drawing it there after the
+fact is the thing that folder's rule forbids.
+
+**The Figma boards are one control behind.** The 66 boards at 1440 and 360 were compiled from the
+dark product before this change, so every one of them shows a bar with a single control. Nothing
+about them is wrong as a record of what was compiled; they are simply older than the product now,
+and recompiling them is a separate run with the plugin connected.
+
+**The two `z1--out` pages carry no theme control**, and that is a decision rather than a gap: that
+bar drops the navigation, the map and the annunciator because there is nothing to navigate to and no
+agent to report on, and a preference control on a page that says the console is unavailable is
+noise.
+
+**Accepted in a browser and not yet on the live URL.** Everything above was measured against the
+working tree.
+
+---
+
+## 2026-08-27 · The two fluid floors moved a pixel, and the Figma file got the type system it had been drawing without
+
+Two changes on the owner's ruling, and a third that fell out of trying to make the second one
+possible.
+
+### One. `--size-lg` runs 18 to 20 and `--size-xl` runs 22 to 26
+
+The floors were 17 and 21. **Only the floors moved**, so the ramps narrow rather than shift: the
+anchors are still 1280 and 1920, the product's own two widths, and the ceilings were already
+right. What gains is the band the product is most often read in, because at 360 and at 1280 these
+two tokens are the screen title and the one heading a screen is allowed, and those are the
+declared minimum and the on-call phone.
+
+**Both middle terms now share the addend `0.875rem`.** Solving 18 at 1280 against 20 at 1920, and
+22 at 1280 against 26 at 1920, both land the intercept on 14px. The old pair shared `0.6875rem`
+for the same reason, and it is worth keeping visible: an addend that stops matching is the sign
+that one end of one ramp was moved and the other was not.
+
+Measured after, on the whole product, and every instrument was already written:
+
+| Instrument | Reading |
+|---|---|
+| `contrast.mjs design/` | 268 renderings, both themes, 1440 and a measured 360. **0 failures** |
+| `rules.mjs design` | 132 renderings, **nothing broken**, R11 included |
+| `screens.mjs design` | 66 pages, **0** in every class |
+| `sweep.mjs` | 49 widths, **3234 readings, nothing breaks from 360 to 2560** |
+| `zoom.mjs design` | 132 readings at browser zoom 200% and reader font size 200%. **0 failures** |
+
+**Two pages stopped transcribing the range.** `typography.html` and `responsive.html` carried
+`17px to 20px` and `21px to 26px` as typed text and would have gone on printing them. They parse
+the floor and the ceiling out of the token's own `clamp` declaration now. The Figma Foundations
+board had the same defect in a worse form: it printed `22.25px` and `17.75px`, the values Chrome
+resolved at 1440, with nothing to say they were one point on a ramp. **That is the mismatch the
+owner spotted, and neither number was wrong.** It reads `22 to 26px, 23 here` now.
+
+### Two. Eighty nine text styles, attached to 13,297 runs
+
+The file had **zero** text styles. Colour was already bound, and bound properly, to the Semantic
+collection's variables, so the boards follow a mode switch; type was raw on every node. A design
+system whose type exists only as numbers on ten thousand nodes is not a system, and this is the
+one thing a person opening the file would look for and not find.
+
+The set is **discovered, not invented**: every style is a signature that already renders on a
+board, and the boards are compiled from the running product. The name is the token.
+`Sans/md/600` is `--font-sans` at `--size-md` at weight 600. Where a size is fluid the name
+carries the pixel value too, `Sans/lg 18.5/600`, because `--size-lg` is 18 on the 360 boards and
+18.5 on the 1440 ones and a set that hid that would be lying about the one interesting thing in
+the scale.
+
+| Page | Text nodes | Runs bound | Styles used |
+|---|---|---|---|
+| DS · Foundations | 248 | 248 | 18 |
+| DS · Atoms | 228 | 233 | 27 |
+| DS · Molecules | 393 | 451 | 42 |
+| DS · Organisms | 1259 | 1515 | 56 |
+| UI · 1440 | 6196 | 7390 | 59 |
+| UI · 360 | 2643 | 3460 | 51 |
+| | **10,967** | **13,297**, 0 failed | **89 distinct** |
+
+On `UI · 1440`, 5445 nodes carry one style for the whole node, 751 are paragraphs whose runs each
+carry their own, and **none carries no style at all**.
+
+### Three. What had to be removed first, and it turned out to be buying almost nothing
+
+**A letter spacing override detaches a Figma text style.** Asked of the API rather than assumed:
+apply a style to a range, nudge the tracking of the same range, and the range comes back with no
+style at all. The builder had a per run width nudge, written for the grey corpus where Figma
+substitutes a face the product names and does not have, and it corrected the tracking of every
+single line run until it occupied the width Chrome gave it. **That made 407 distinct type
+signatures out of a scale with five sizes**, 151 of which wanted the same name as another. No
+style set can hold on that.
+
+Turned off for the coloured boards, and the cost was measured rather than argued:
+
+| | with the nudge | without it |
+|---|---|---|
+| type signatures across six pages | 407, with 151 name collisions | **89, with none** |
+| runs within 1.5px of Chrome, 1440 | 6168 of 6168 | **6165 of 6168** |
+| runs within 1.5px of Chrome, 360 | 2615 of 2615 | **2615 of 2615** |
+
+**Three runs.** The correction existed because Chrome renders a substituted face with metrics
+Figma does not reproduce, and the coloured corpus has both of its families for real, so on this
+corpus it was correcting noise. It stays on for the grey wireframe boards, where the substitution
+is real and the boards carry no styles.
+
+**The one cost that is real is line wrapping at 360**, and it is reported rather than hidden: runs
+whose line count matches Chrome went from 2602 of 2615 to 2592 of 2615, ten runs, all of them
+paragraphs that break at four lines in one and three in the other. At 1440 it went from 6164 of
+6168 to 6163. That is the price of a node's leading coming from a style rather than from itself,
+and at 99.1 and 99.9 per cent it is worth paying for a file that has a type system in it.
+
+### What is not done
+
+The **grey wireframe boards were not rebuilt** and did not need to be: `wireframes/_wf.css` is a
+separate stylesheet and neither change reaches it. They keep the width nudge and they have no text
+styles, which is correct for what they are.
+
+### A fixed box is measured against the window and a board has no window
+
+**Found by the owner looking at the 360 boards**, where the notice stack stood in the middle of
+the queue, on top of the rows, with the list continuing underneath it. Nothing about the value was
+wrong. At 360 `z6` is `position: fixed; bottom: 0`, which on a phone is right and is the one place
+in this product a stack is pinned to the viewport; the page there is 1668 tall and the window is
+900, so the stack was drawn at **785**, which is 47 per cent down the board.
+
+**The same defect had a second half nobody had looked at.** On the four escalate screens at 360 the
+scrim is fixed and 900 tall, and because a fixed layer is out of flow the document behind it
+measures **209**. The frame was built at 209 and the dialog inside it hung **691px past the end of
+its own frame**.
+
+The rule is one sentence and it covers both. **A fixed box is laid out against the viewport; on a
+board the viewport is the frame.** So the dumper records the inset, top and bottom, because that is
+what says which edge the box was anchored to, and the builder re-reads the anchor against the
+frame: bottom to bottom, top to top, and a box that spanned the whole window spans the whole frame.
+The frame grows rather than cropping when a fixed layer is taller than the document behind it.
+
+| | before | after |
+|---|---|---|
+| `z6`, `queue-notice` at 360 | y 785 on a 1668 frame | **y 1553, flush with the frame bottom** |
+| `z6`, `queue-notices` at 360 | y 738 on a 1719 frame | **y 1557, flush** |
+| `scrim`, the four escalate screens at 360 | 900 tall on a 209 frame | **frame 900, scrim 0 to 900** |
+
+**It moves the whole subtree**, boxes and text runs alike: the stack holds three toasts and their
+words, and moving the ground out from under them would have been worse than leaving it where it
+was. Seventeen fixed boxes exist across the two corpora, eleven of them scrims at 1440 that already
+spanned their own frame exactly and did not move.
+
+Everything re-measured after: **66 of 66 boards at both widths, widths 100.0 per cent within
+1.5px at 1440 and 360, 0 overlapping boards, 0 literal paints**, and the 89 text styles reattached
+to all 13,297 runs with **0 created**, which is the guard confirming that not one type signature
+changed.

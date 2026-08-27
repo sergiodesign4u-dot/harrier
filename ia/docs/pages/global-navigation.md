@@ -54,6 +54,7 @@ Clients leads to 7.1, and the whole of cluster 7 is LATER. An item that leads no
 | Clients | Absent in the MVP | 7.1, later |
 | Analyst identity and shift | Not a menu. A statement of what the audit log will record against | 2.1 |
 | Keyboard map trigger | Opens 0.5 | 0.5 |
+| Theme control | **Added 2026-08-27.** Switches the ground between dark and light and remembers the answer. Goes nowhere: it is the only control in the bar that is a button rather than a link | stays here |
 
 **Icons carry labels, always.** Material Design 3, same page: "Each destination is represented by an icon and label text. One navigation destination is always active." An icon only navigation in a console used six hours a day saves pixels the product does not need and costs recognition it does.
 
@@ -70,6 +71,7 @@ Clients leads to 7.1, and the whole of cluster 7 is LATER. An item that leads no
 | Clients | **Not rendered in the MVP** | n/a | n/a | n/a | n/a |
 | Identity and shift | Full | Full | Behind the menu control | Full | Full |
 | Keyboard map trigger | Present | Present | **Not rendered.** No keyboard at 360 | Present | Present |
+| Theme control | Present | Present | **Present, and this is the only element of the bar that is kept at 360 where the other control is dropped** | Present | Present. It changes nothing that is recorded |
 
 **Navigation does not react to a stale connection.** The strip in Z2 does, and the list in Z4 does. Making the menu react as well would spread one fault across three places and teach the analyst to read three things to learn one.
 
@@ -102,6 +104,8 @@ Navigation has no route of its own. What it does own is the **entry route of eac
 A tab bar with three destinations, icon plus label, one always active. Positioned at the bottom, which is where Material puts it: "The nav bar is positioned at the bottom of windows for convenient access."
 
 **The keyboard map trigger is dropped rather than moved.** There is no keyboard.
+
+**The theme control is kept, and the two decisions are the same decision read twice.** A trigger is dropped at this width when the width takes its subject away, and the width does not take away the ground a screen is read on: it makes it matter more. The scenario this product declares for 360 is a case opened from a phone at 03:00, which is exactly when a person has an opinion about a light screen.
 
 **The identity and shift line moves behind the menu control.** It is still recorded against every action; it is just not what the analyst needs in view while reading a case at 03:00.
 

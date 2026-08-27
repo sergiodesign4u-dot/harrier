@@ -195,7 +195,11 @@
 </div>
 <p class="k-note"><b>Two rows and both of them are empty, which is the point.</b> The outermost component in a design system reading no colour at all is what keeps the theme a property of the root rather than something a container can override on its way down.</p>
 <h3 class="k-h2">Copy this</h3>
-<div class="k-code">&lt;body&gt;
+<div class="k-code">&lt;head&gt;
+  &lt;script src="system/theme.js"&gt;&lt;/script&gt;   &lt;!-- above the stylesheet, and it is not optional --&gt;
+  &lt;link rel="stylesheet" href="system/index.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
 &lt;div class="shell"&gt;
   &lt;aside id="sidebar"&gt;&lt;/aside&gt;         &lt;!-- the project panel. Chrome, not product --&gt;
   &lt;div class="screen"&gt;
@@ -208,6 +212,7 @@
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;/body&gt;</div>
+<p class="k-note"><b>The one line in the head is the theme, and it is in the head because of when it runs.</b> <code>design/system/theme.js</code> puts the chosen ground on the root element before the first frame; <code>design/_shell.js</code> is loaded at the foot of the body, which is after the browser has already drawn the page in the other one. A screen that omits it does not break: it renders dark, and <b>the bar quietly comes back with one control instead of two</b>, because the shell will not render a button that cannot change anything. That is the failure this note exists to make loud, since nothing about the page looks wrong.</p>
 <p class="k-note"><b>A screen is not drawn, it is assembled:</b> this skeleton, plus classes from the system, plus the screen&rsquo;s own content. Nothing on a screen carries a style of its own, and a detail that is missing goes into a component file first and onto the screen second. The five zones are node 0.1 of the IA and each has its own page: <a href="z1.html">Z1</a>, <a href="z2.html">Z2</a>, <a href="z4.html">Z4</a>, <a href="z5.html">Z5</a>, <a href="z6.html">Z6</a>.</p>
 <h3 class="k-h2">Where it stands</h3>
 <div class="k-where">

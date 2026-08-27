@@ -51,7 +51,7 @@
           <span class="spacer"></span>
           <a class="kmap" href="#anatomy" title="Keyboard map" aria-label="Keyboard map">?</a>
           <p class="annun" aria-label="Clerk&rsquo;s latitude across the fleet"><b>FLEET</b><span class="sep">|</span><span class="part">40 tenants</span><span class="sep">|</span><span class="part">acts alone up to <b>contain network</b> at 3</span><span class="sep">|</span><span class="part"><b>1</b> moved down</span></p>
-          <span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span>
+          <span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span><button class="theme" type="button" aria-label="Switch to the light theme">Theme</button>
         </header>
       </div>
     </div>
@@ -66,7 +66,7 @@
           <span class="spacer"></span>
           <a class="kmap" href="#anatomy" title="Keyboard map" aria-label="Keyboard map">?</a>
           <p class="annun" aria-label="Clerk&rsquo;s latitude across the fleet"><b>FLEET</b><span class="sep">|</span><span class="part">40 tenants</span><span class="sep">|</span><span class="part">acts alone up to <b>contain network</b> at 3</span><span class="sep">|</span><span class="part"><b>1</b> moved down</span></p>
-          <span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span>
+          <span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span><button class="theme" type="button" aria-label="Switch to the light theme">Theme</button>
         </header>
       </div>
     </div>
@@ -77,7 +77,8 @@
   <li><code>.wordmark</code><span>the product&rsquo;s name at <code>--size-lg</code>, weight 600, tracking &minus;.01em. It is a word and not a mark, and it opens nothing</span></li>
   <li><code>nav</code><span>a bare element selector inside <code>.z1</code>, holding the three MVP sections. Each item is <code>navitem</code>, and Clients arrives with cluster 7</span></li>
   <li><code>.spacer</code><span><code>flex:1 1 auto</code>. A place rather than a thing, and it is what puts everything after it on the right</span></li>
-  <li><code>.kmap</code><span><b>the one control.</b> A bordered box painting a 16px mask, with <code>font-size:0</code> so the character inside it never renders and the accessible name still does</span></li>
+  <li><code>.kmap</code><span><b>the first of the two controls.</b> A bordered box painting a 16px mask, with <code>font-size:0</code> so the character inside it never renders and the accessible name still does</span></li>
+  <li><code>.theme</code><span><b>the second control, and the only one in the product that changes how the console is read.</b> The same box as the map trigger to the pixel, and the only difference is that it is a <code>button</code> rather than a link, because it goes nowhere. It paints the <code>sun</code> in the dark theme and the <code>moon</code> in the light one, and the pair on the bench above is what proves it: the attribute is read as an <b>ancestor</b>, so the light half shows the moon while this page stays dark</span></li>
   <li><code>.annun</code><span>the annunciator, its own molecule. Its accessible name follows the state, because with a tenant selected it is that tenant&rsquo;s latitude and with nothing selected it is the fleet&rsquo;s</span></li>
   <li><code>.z1--out .note</code><span>mono at <code>--size-xs</code>, and the only text the bar carries when there is nothing to navigate to</span></li>
 </ul>
@@ -124,7 +125,7 @@
 </ul>
 
 <h2 class="k-h" id="states">States</h2>
-<p class="k-lede"><b>The bar itself has none.</b> One thing inside it does: point at the keyboard map.</p>
+<p class="k-lede"><b>The bar itself has none.</b> Two things inside it do, and they take the same one: point at either control.</p>
 <div class="k-bench">
   <div class="k-bench-half" data-theme="dark">
     <p class="k-bench-tag">dark, shipped</p>
@@ -135,7 +136,7 @@
           <nav aria-label="Sections"><a href="#states" aria-current="page">Queue</a><a href="#states">Shift</a><a href="#states">Log</a></nav>
           <span class="spacer"></span>
           <a class="kmap" href="#states" aria-label="Keyboard map">?</a>
-          <span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span>
+          <span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span><button class="theme" type="button" aria-label="Switch to the light theme">Theme</button>
         </header>
       </div>
     </div>
@@ -158,7 +159,7 @@
           <nav aria-label="Sections"><a href="#states" aria-current="page">Queue</a><a href="#states">Shift</a><a href="#states">Log</a></nav>
           <span class="spacer"></span>
           <a class="kmap" href="#states" aria-label="Keyboard map">?</a>
-          <span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span>
+          <span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span><button class="theme" type="button" aria-label="Switch to the light theme">Theme</button>
         </header>
       </div>
     </div>
@@ -174,6 +175,7 @@
   </div>
 </div>
 <p class="k-note"><b>The map trigger takes ink and line together.</b> <code>--text-hover</code> on the glyph and <code>--line-hover</code> on the border, and this rule is one of the two <code>--line-hover</code> was read off in the first place. The other is the toast&rsquo;s dismiss.</p>
+<p class="k-note"><b>The theme control takes the same two, and it was written by copying the rule rather than by inventing one.</b> That is the argument for it being the same box: two controls in one bar that respond differently to the same gesture read as two systems. Neither response moves anything, because both borders are already drawn at rest and only their colour changes.</p>
 <p class="k-note"><b>Focus is global and it is not redeclared here.</b> The three navigation items each carry their own current state, which belongs to <code>navitem</code>, and the bar does not know which of them is which.</p>
 
 
@@ -222,7 +224,10 @@
   &lt;span class="spacer"&gt;&lt;/span&gt;
   &lt;a class="kmap" href="keyboard.html" aria-label="Keyboard map"&gt;?&lt;/a&gt;
   &lt;p class="annun" aria-label="&hellip;"&gt;&lt;b&gt;FLEET&lt;/b&gt;&hellip;&lt;/p&gt;
+  &lt;span class="mono dim"&gt;R. Idrissi&lt;/span&gt;
+  &lt;button class="theme" type="button" aria-label="Switch to the light theme"&gt;Theme&lt;/button&gt;
 &lt;/header&gt;</div>
+<p class="k-note"><b>The label on the theme control is not in the markup you copy, it is written from the state.</b> <code>design/_shell.js</code> subscribes to <code>design/system/theme.js</code> and rewrites both the accessible name and the title on every change, from the same value that picks the glyph. That is why the drawing and the words can never disagree: one state writes both. The button is not rendered at all on a page that did not load <code>theme.js</code>, because a control that cannot change anything is worse than no control.</p>
 <h3 class="k-h2">Where it stands</h3>
 <div class="k-where">
   <a href="../queue.html">the queue &middot; injected</a>

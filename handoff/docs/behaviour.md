@@ -219,6 +219,7 @@ A behaviour with no source does not get a row. It goes to section 6, NOT SETTLED
 | Partial | `unavailable-partial.html` | The part, named. The fallback contact is shown **only if the down part matters to a decision** | node 8.2 section 5 |
 | Not found | `not-found.html` | Two exits, and the copy does not change with how she arrived | node 8.1 section 5 |
 | Keyboard map | `keyboard.html` | Opening it makes the underlying screen **inert**, per the dialog pattern. `Escape` closes the map and **does not propagate**, so it does not also deselect the case. Verdict keys are inert while the map has focus. **Not rendered at 360** | node 0.5 section 8 |
+| Which ground the console is read on | Every authenticated screen, Z1 | The second control in the bar switches between the dark and the light theme and the choice is **remembered across screens and across sessions**, under the key `harrier-theme` in `localStorage`. **The default is dark and `prefers-color-scheme` is never read.** The accessible name names the theme it will GIVE you and is rewritten from the same state that picks the glyph. **It is the one control the bar keeps at 360**, where the keyboard map trigger is dropped. It is not rendered on the two `z1--out` pages, which carry no navigation and no agent to report on | the file of the screen: `design/system/theme.js` and `design/_shell.js`, added 2026-08-27 |
 
 ---
 

@@ -569,3 +569,41 @@ Every check in `design/kit/checks/` measures the product against itself. The ren
 | Head ink against the expansion ground | **14.18:1** |
 | The mark against the same ground | **7.33:1** |
 | The head | natively tabbable, and the ring is the global one |
+
+---
+
+## THE TWO FLUID FLOORS, RAISED ON THE OWNER'S RULING (2026-08-27)
+
+The third named source of a visual change is a decision by the owner, and this is one. Nothing
+was measured into it and nothing found it: it was asked for.
+
+| Token | Was | Is | Where the value comes from |
+|---|---|---|---|
+| `--size-lg` | `clamp(1.0625rem, 0.6875rem + 0.469vw, 1.25rem)`, 17px to 20px | `clamp(1.125rem, 0.875rem + 0.3125vw, 1.25rem)`, 18px to 20px | the floor, on the owner's ruling. The ceiling and both anchors are unchanged |
+| `--size-xl` | `clamp(1.3125rem, 0.6875rem + 0.781vw, 1.625rem)`, 21px to 26px | `clamp(1.375rem, 0.875rem + 0.625vw, 1.625rem)`, 22px to 26px | the same |
+
+**Only the floors moved, so the ramps narrow rather than shift.** The anchors are still the
+product's own two widths, 1280 and 1920, and the ceiling at 1920 was already right. What gains
+is the band the product is most often read in: at 360 and at 1280 these two tokens are the
+screen title and the one heading a screen is allowed, and those are the widths of the declared
+minimum and the on-call phone.
+
+**Both middle terms now share the addend `0.875rem`, and that is arithmetic rather than
+tidying.** Solving 18 at 1280 against 20 at 1920, and 22 at 1280 against 26 at 1920, both land
+the intercept on 14px. The old pair shared `0.6875rem` for the same reason. An addend that
+stops matching is the sign that one end of one ramp was moved and the other was not.
+
+### Measured after, on the whole product
+
+| Instrument | Reading |
+|---|---|
+| `contrast.mjs design/` | 268 renderings over 67 pages, both themes, 1440 and a measured 360. **0 failures**, 0 overflow, 0 page errors |
+| `rules.mjs design` | 132 renderings. **Nothing broken**, R11 included, which is the one a bigger heading could have taken down |
+| `screens.mjs design` | 66 pages, **0** in every class |
+| `sweep.mjs` | 66 pages over 49 widths, **3234 readings, nothing breaks from 360 to 2560** |
+| `zoom.mjs design` | 132 readings at browser zoom 200% and reader font size 200%. **0 failures** |
+
+**The two pages that printed the range stopped transcribing it.** `design/kit/typography.html`
+and `design/kit/responsive.html` carried `17px to 20px` and `21px to 26px` as typed text, and
+on the day the floors moved both would have gone on printing the old pair with a confident
+face. They now parse the floor and the ceiling out of the token's own `clamp` declaration.

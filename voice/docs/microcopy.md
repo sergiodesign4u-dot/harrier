@@ -1335,3 +1335,27 @@ The removed log entry and the live queue row share a tenant and a description. T
 ### What this cost, and what found it
 
 Seven screen files carried the row and five more carried a count that followed it. It survived five stages of critique on five instruments, and the reader who found it was a person with the fixture canon open. **Unlike the Norsk Marine row, this one is in the frozen corpus**: `wireframes/log.html` draws it over `7 of 34 shown` and `wireframes/shift.html` draws it over `Six moved` and `6 pointers`. `wireframes/` is frozen and is not synced, so the divergence is deliberate and this section is where it is recorded. The instrument that would have caught it is the one section 10 already named as missing, and it is still missing: nothing in `design/kit/checks/` reads a fixture on one half of a screen against a fixture on the other half.
+
+---
+
+## 12. After stage 05: the theme control, added 2026-08-27
+
+The top bar gained its second control, and with it the first two strings this product has ever written about how the console is READ rather than about what is in it. Both are accessible names, both are also the tooltip, and **neither is ever visible as text**: the button carries `font-size:0`, the same trick the keyboard map trigger has used since stage 07, so the word inside it exists for a browser with the stylesheet off and for nothing else.
+
+| Where | String | Kind | Lives in | Screens |
+|---|---|---|---|---|
+| Z1 | Switch to the light theme | accessible name and tooltip, dark running | `design/_shell.js` | 55 |
+| Z1 | Switch to the dark theme | accessible name and tooltip, light running | `design/_shell.js` | 55 |
+| Z1 | Theme | the word inside the button, never rendered | `design/_shell.js` | 55 |
+
+### Why the string names the destination and not the state
+
+`Switch to the light theme` while the light theme is running would be false, and `Light theme` in both states is not false but says nothing: a person who cannot see the screen has no way to tell whether it is a label or an offer. The name is written from the same value that picks the glyph, in one subscription in `design/_shell.js`, so **the drawing and the words cannot disagree**. The sun and `Switch to the light theme` are one state seen twice.
+
+### The two rules it was checked against, and the one it does not touch
+
+**Speak to the analyst, second person.** An imperative is second person without the pronoun, and it is shorter, which is the other rule: length is a cost she pays forty times a shift and this string is one she reads once a year.
+
+**No count, no invented noun.** `theme` is the ordinary word and the product coins nothing here. `ground` is what this project's own documentation calls it, and it is documentation language rather than interface language: an analyst reading `Switch to the light ground` would stop and think, which is the whole failure this rule exists to prevent.
+
+**And the rule about counts does not apply, which is worth saying out loud.** The bar now holds two controls and no string anywhere says so. The count lives in `design/system/components/z1.css` and on the component page, which is where an argument about the product's own parts belongs.

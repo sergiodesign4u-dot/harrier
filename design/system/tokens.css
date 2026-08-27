@@ -139,15 +139,33 @@
                               text nodes, SLIGHTLY DENSER rather than looser, which is the
                               direction design principle 5 asks for. Stage 13. */
   --size-md:   0.875rem;   /* 14px. body, controls, and the verdict in a row. stage 04 */
-  --size-lg:   clamp(1.0625rem, 0.6875rem + 0.469vw, 1.25rem);
-                           /* 17px up to 1280 and 20px from 1920. The pane's title and the
+  --size-lg:   clamp(1.125rem, 0.875rem + 0.3125vw, 1.25rem);
+                           /* 18px up to 1280 and 20px from 1920. The pane's title and the
                               screen's title. THE TWO ENDS ARE THE PRODUCT'S OWN TWO WIDTHS:
                               1280 is the declared minimum and 1920 the top of the declared
                               primary band, so the type grows across exactly the band the
-                              analyst sits in and is stage 04's value everywhere below it. */
-  --size-xl:   clamp(1.3125rem, 0.6875rem + 0.781vw, 1.625rem);
-                           /* 21px up to 1280 and 26px from 1920, on the same two anchors.
+                              analyst sits in and is the floor everywhere below it.
+
+                              THE FLOOR WAS 17px UNTIL 2026-08-27, on a user decision. Both
+                              ends of the band were kept and only the floor moved, so the
+                              ramp narrows rather than shifting: 18 to 20 instead of 17 to 20.
+                              What that buys is the width nobody was looking at. At 360 and at
+                              1280 this is the size of a screen title and a pane title, and
+                              those two widths are where the product is most often read; the
+                              ceiling at 1920 was already right and did not need touching. */
+  --size-xl:   clamp(1.375rem, 0.875rem + 0.625vw, 1.625rem);
+                           /* 22px up to 1280 and 26px from 1920, on the same two anchors.
                               The one heading a screen is allowed, which is the readout.
+                              The floor was 21px until 2026-08-27, moved with --size-lg and
+                              for the same reason.
+
+                              THE TWO MIDDLE TERMS NOW SHARE AN ADDEND, 0.875rem, and that is
+                              arithmetic rather than tidying: solving 18 at 1280 with 20 at
+                              1920 and solving 22 at 1280 with 26 at 1920 both land the
+                              intercept on 14px. The old pair shared 0.6875rem for the same
+                              kind of reason and it is worth keeping visible, because an
+                              addend that stops matching is the sign that one end of one ramp
+                              was moved without the other.
 
                               THE FIRST DRAFT OF BOTH OF THESE WAS WRONG AND THE MEASUREMENT
                               SAID SO. The middle terms were solved for 360 rather than for

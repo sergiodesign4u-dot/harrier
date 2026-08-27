@@ -344,7 +344,13 @@ window.KIT_NAV = {
      came back painted in the light theme's secondary ink, at 3.0 on the panel ground. Found by
      a contrast sweep over every text node, which is the only instrument that sees it, because
      the file is correct and it is the CASCADE that is wrong. They carry data-theme-set now. */
-  var KEY = 'harrier-kit-theme';
+  /* ONE KEY FOR THE WHOLE PROJECT since 2026-08-27. It was `harrier-kit-theme` while
+     the stand held the only switch in the repository, and the name was accurate then.
+     The product carries one now, in the top bar, and which ground a person reads on is
+     a property of the person rather than of the surface, so the two remember the same
+     answer. design/system/theme.js declares the same string and every check that seeds
+     a theme seeds one key. */
+  var KEY = 'harrier-theme';
   function apply(t) {
     if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     else document.documentElement.removeAttribute('data-theme');

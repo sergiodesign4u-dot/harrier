@@ -161,8 +161,12 @@ FIXTURES
 THE FILE, AND WITHOUT THIS PART THE SCREEN EXISTS ONLY ON DISK
   - It goes FLAT in design/, beside the others. No subfolder.
   - One file per state, named <screen>-<state>.html. The base state is <screen>.html.
-  - It links exactly two stylesheets: ../_nav.css and system/index.css. Copy the head and
-    the body skeleton from a neighbouring screen of the same shape, verbatim.
+  - It links exactly two stylesheets: ../_nav.css and system/index.css, and ONE script in
+    the head, <script src="system/theme.js"></script>, above them. Copy the head and the
+    body skeleton from a neighbouring screen of the same shape, verbatim. The head script
+    is not decoration: it puts the chosen theme on the root element before the first frame,
+    and a screen that omits it renders dark and comes back with one control in the bar
+    instead of two, with nothing about it looking wrong.
   - It carries the design only panel the other screens carry: <aside id="sidebar"></aside>,
     <script src="_shell.js"></script> with its WF_SHELL call, and <script src="_nav.js">.
   - REGISTER IT in design/_nav.js: the screen's record with its node, cluster, scope, and
@@ -173,6 +177,10 @@ THE FILE, AND WITHOUT THIS PART THE SCREEN EXISTS ONLY ON DISK
 CHECK YOUR OWN WORK, and these are commands rather than intentions:
     node design/kit/checks/screens.mjs design <file>.html   is my screen file only markup
     node design/kit/checks/rules.mjs design <file>.html     the thirteen usage rules, both widths
+    node design/kit/checks/contrast.mjs design/ <file>.html a ratio for every text node, BOTH
+                                                           themes and both widths. The light
+                                                           half is real only because the head
+                                                           script is there
     node design/kit/checks/contrast.mjs design/             every text node, both themes
     node design/kit/checks/focus.mjs design                 a real Tab walk, both themes
     node design/kit/checks/zoom.mjs design                  200% zoom and 200% font size

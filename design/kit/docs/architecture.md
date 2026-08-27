@@ -77,7 +77,9 @@ Every role is written twice at the moment it is founded, once in `:root` and onc
 
 **The pair is not a mirror.** Contrast is computed against the opposite ground, so the light theme takes a different step of the same ramp rather than the same primitive. Where a value genuinely clears its threshold from both directions, it stays, and the comment beside it carries both measurements so it can be seen that this was measured rather than skipped.
 
-`:root` carries the **dark** theme, because that is what the product ships. The light theme is the pair, and it is the first concrete form of the debt `CLAUDE.md` names.
+`:root` carries the **dark** theme, because that is what the product ships with nothing stored. The light theme is the pair, and since 2026-08-27 it is also a feature: the second control in the top bar reaches it, `design/system/theme.js` puts it on the root element before the first frame, and the stand and the product remember the same answer under one key, `harrier-theme`.
+
+**The pair stopped being a proof and became a surface, and that is what the change was worth.** While the only switch was in the stand, the product's own contrast sweep seeded a key nothing under `design/` read, so **134 of its 268 renderings were the dark theme wearing a light label** and it reported clean for both halves. The first pass that actually rendered light returned one failure across 67 pages, in the panel chrome rather than in the system.
 
 ---
 
@@ -290,7 +292,9 @@ Then, and only then, four homes and a fifth that is forbidden:
 
 ### A new SCREEN of the product
 
-Flat in `design/`, beside the others, named after its node. It links `system/index.css` and nothing else, it carries the design panel through `design/_nav.js`, its shell comes from `design/_shell.js`, and it is registered in `design/_nav.js` so it appears on the coverage map of `design/overview.html`. **There is no folder of examples**: a screen assembled out of the system is a screen of the product, and the stages after this one adapt it, animate it and hand it over with the rest.
+Flat in `design/`, beside the others, named after its node. It links `system/index.css` and nothing else, **it loads `system/theme.js` from its head, above the stylesheet**, it carries the design panel through `design/_nav.js`, its shell comes from `design/_shell.js`, and it is registered in `design/_nav.js` so it appears on the coverage map of `design/overview.html`. **There is no folder of examples**: a screen assembled out of the system is a screen of the product, and the stages after this one adapt it, animate it and hand it over with the rest.
+
+**The head script is the one line of a screen that fails silently, so it is a function rather than a sentence.** `design/system/theme.js` puts the chosen ground on the root element before the first frame; `design/_shell.js` runs at the foot of the body, after the browser has drawn the page. A screen that omits it renders in the shipped dark theme and **the bar comes back with one control instead of two**, because the shell will not render a button that cannot change anything. Nothing about the page looks wrong. `design/kit/checks/screens.mjs` reports it by name, and it was canaried on 2026-08-27 by taking the line out of `log.html`: the check named the page, and the rendered bar carried one control beside a neighbour carrying two.
 
 Before it is accepted, run `node design/kit/checks/rules.mjs design <screen>.html` and answer every rule by name. A rule the screen breaks is fixed **on the screen**, because that is an assembly error rather than a gap in the system; a rule that turns out to be wrong or too narrow comes back to section 10 with a correction and a reason.
 

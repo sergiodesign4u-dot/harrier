@@ -1,23 +1,25 @@
 /* z1 :: ORGANISM
    READS. Fill: --bg-page. Ink: --text-primary, --text-secondary, --text-hover.
    Line: --rule-edge, --rule-hair, --line-hover. Structure: --zone-top.
-   CONTAINS. navitem, annun, and the keyboard map trigger.
+   CONTAINS. navitem, annun, the keyboard map trigger and the theme control.
    PAGE. design/kit/z1.html   STANDS ON. 57 instances across 57 screens, and
    \x60the class is in no html file\x60: design/_shell.js injects the whole bar.
 
-   THE TOP BAR, NODE 0.2. 56px, and it holds FIVE things in a fixed order: the
+   THE TOP BAR, NODE 0.2. 56px, and it holds SIX things in a fixed order: the
    wordmark, the three navigation items, the annunciator, the analyst's name, and
-   one control. An earlier draft of this file said four and left the name out,
+   two controls. An earlier draft of this file said four and left the name out,
    which a reader with clean context caught against the generator. It is
    the only zone that is the same on every authenticated screen, which is why the
    generator owns it and why an inventory taken from the screens has no header in
    it and does not notice.
 
-   ONE CONTROL IN THE WHOLE BAR, and it is the way into the keyboard map. It
-   rendered a literal question mark until stage 07: the one glyph in the shell
-   that says nothing about what it opens. The accessible name is already Keyboard
-   map, so replacing the visible character loses nothing and the icon is the third
-   of the three this product applies.
+   TWO CONTROLS IN THE WHOLE BAR SINCE 2026-08-27, and the first of them is the
+   way into the keyboard map. It rendered a literal question mark until stage 07:
+   the one glyph in the shell that says nothing about what it opens. The
+   accessible name is already Keyboard map, so replacing the visible character
+   loses nothing. The second control changes the ground the console is read on,
+   it is at the foot of this file, and it is why the count in this paragraph is
+   dated rather than left standing as a number.
 
    THE MASK PAINTS AT 1.5 HERE. It carried 1.8 in kit.css against a set that
    declares 1.5 everywhere in CSS, with no comment and no row in DESIGN.md.
@@ -103,5 +105,76 @@
      stage 12 by a reader holding the sentence against the rendering, on the first
      day the sentence had a coloured screen to stand on. */
   .z1 .kmap{ display: none }
+  /* AND THE THEME CONTROL STAYS, named here doing nothing so that the next reader
+     of this query sees a decision rather than an omission. The two controls are
+     the same box and only one of them is dropped, because only one of them offers
+     a phone something a phone does not have. */
 }
 /* focus-visible is global. The bar itself has no states. */
+
+/* -- the ground, and the second control the bar has ever carried -------------
+   THE BAR HELD ONE CONTROL FROM STAGE 04 UNTIL 2026-08-27 and now holds two, so
+   the paragraph at the head of this file moved with it rather than being left to
+   read as current. The two are deliberately the same box: same border, same
+   padding, same 16px mask, same response, because they are the same KIND of
+   thing. A control that changes how the console is read has no business looking
+   more important than the case the analyst is ruling on.
+
+   IT KEEPS ITS PLACE AT 360 AND THE KEYBOARD MAP DOES NOT. The map was dropped
+   there because a phone has no keyboard to map; the ground a screen is read on
+   is the one preference that matters MORE on a phone at three in the morning
+   than at the desk. So the narrow bar goes from no control to one, and the one
+   it keeps is the one the width argues for.
+
+   TWO GLYPHS, ONE BUTTON, AND THE STATE PICKS. It names the theme it will give
+   you, so the sun stands while the dark theme runs. The accessible name is
+   written by design/_shell.js from the same state that picks the glyph, so a
+   drawing that says one thing and a label that says another is not reachable.
+
+   THE PADDING AND THE BOX ARE THE MAP TRIGGER'S, LITERAL FOR LITERAL. They are
+   two numbers off the scale rather than tokens, and they are copied on purpose:
+   the argument for this control is that it is the same box as the one already
+   in the bar, and a token that later moved one of them would make that false. */
+.z1 .theme{
+  flex: 0 0 auto;
+  font-size: 0;
+  line-height: 0;
+  padding: 6px 8px;
+  border: var(--rule-hair);
+  border-radius: var(--radius-ui);
+  /* the reset, declared rather than inherited. A button brings its own family,
+     its own size and its own grey ground from the browser, and the chip found
+     the same thing at stage 08: what a component does not declare, the element
+     decides. */
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+}
+.z1 .theme::before{
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%225%22%2F%3E%3Cpath%20d%3D%22M12%202v3M12%2019v3M2%2012h3M19%2012h3M5%205l2%202M17%2017l2%202M19%205l-2%202M5%2019l2-2%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%225%22%2F%3E%3Cpath%20d%3D%22M12%202v3M12%2019v3M2%2012h3M19%2012h3M5%205l2%202M17%2017l2%202M19%205l-2%202M5%2019l2-2%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+}
+/* THE ATTRIBUTE IS READ AS AN ANCESTOR AND NOT AS A ROOT SELECTOR, so a bar drawn
+   inside a light wrapper on design/kit/z1.html shows the moon while the page
+   around it stays dark. `:root[data-theme="light"]` would have been correct on
+   every screen of the product and wrong on the one page that has to show the two
+   themes side by side. */
+[data-theme="light"] .z1 .theme::before{
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M20%2014.5A8.5%208.5%200%201%201%209.5%204%207.5%207.5%200%200%200%2020%2014.5z%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+          mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22butt%22%20stroke-linejoin%3D%22miter%22%3E%3Cpath%20d%3D%22M20%2014.5A8.5%208.5%200%201%201%209.5%204%207.5%207.5%200%200%200%2020%2014.5z%22%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;
+}
+/* RESPONSE. The same two properties as the map trigger, named one by one, and
+   nothing here moves: the border is already drawn in rest, so hovering changes
+   its colour rather than adding it. */
+.z1 .theme{
+  transition: border-color var(--dur-fast) var(--ease-standard),
+              color        var(--dur-fast) var(--ease-standard);
+}
+.z1 .theme:hover{ color: var(--text-hover); border-color: var(--line-hover) }

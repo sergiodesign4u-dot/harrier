@@ -121,6 +121,24 @@ for (const f of PAGES) {
   const stray = links.filter(h => h !== 'system/index.css' && h !== '../_nav.css');
   if (stray.length) rows.push({ f, name: 'a stylesheet that is not the system', n: stray.length, eg: stray.join(' ') });
 
+  /* THE HEAD SCRIPT THAT IS NOT OPTIONAL, and it is the only row here that reports a
+     MISSING thing rather than an added one. design/system/theme.js puts the chosen ground
+     on the root element before the first frame; design/_shell.js runs at the foot of the
+     body, which is after the browser has drawn the page. A screen that omits the head
+     script does not look broken from any angle: it renders in the shipped dark theme, and
+     the bar quietly comes back with one control instead of two, because the shell refuses
+     to render a button that cannot change anything. Exactly the class of defect a prose
+     rule never catches, which is why it is a function.
+
+     IT READS `raw` AND NOT `markup`, and the first run of it got that wrong and reported
+     all 66 pages as missing a file every one of them has. `markup` replaces a whole
+     script element, attributes and all, with an empty one, because a fixture string
+     inside the shell call is data rather than appearance. The src of a script is the one
+     thing in this file that has to be read before that happens. */
+  const heads = [...raw.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m => m[1]);
+  if (!heads.includes('system/theme.js'))
+    rows.push({ f, name: 'no theme.js in the head', n: 1, eg: 'the bar will render one control instead of two' });
+
   /* and the class nobody declared */
   const used = new Set();
   for (const m of markup.matchAll(/class="([^"]*)"/g))
@@ -136,7 +154,7 @@ const byKind = new Map();
 for (const r of rows) byKind.set(r.name, (byKind.get(r.name) || 0) + r.n);
 const KINDS = ['@media','transition','animation','@keyframes','<style> tag','style attribute',
                'a hex','a px value','a font family','a stylesheet that is not the system',
-               'a class the system does not declare'];
+               'no theme.js in the head','a class the system does not declare'];
 for (const k of KINDS) console.log('  ' + (byKind.get(k) || 0 ? '  ' : '  ') + String(byKind.get(k) || 0).padStart(4) + '  ' + k);
 
 if (exemptions.size) {

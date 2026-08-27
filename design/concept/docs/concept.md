@@ -150,6 +150,8 @@ Now: **saturation is spent on two closed sets and on nothing else.** The accent 
 
 **The counter is answered, not dismissed.** Piepenbrock measures reading. This screen is mostly scanning counts and chips and then deciding, and voice Principle 2 already made prose the exception. **If that reading of the task is wrong, the ground is wrong.**
 
+**Signed 2026-08-27, and the attribute did not change.** The light theme is now reachable from the top bar, so the first sentence of this section reads `The console is dark by default` rather than `Light is a named debt`. **The decision above is untouched**: with nothing stored the ground is dark, and `prefers-color-scheme` is deliberately never read, because a machine that happens to be light is not evidence about the rota that carried this choice. What changed is the last line of the section rather than the section: the reading of the task can now be wrong for one analyst without the ground being wrong for the product. A2 is unaffected. The control spends no accent at all, taking `--text-secondary` like the keyboard trigger beside it, so the closed sets are still two and still the same two.
+
 **Dark does not lift the ban.** Eight of ten results at step 1 were dark plus electric blue or violet. **The reflex was the palette, not the ground.**
 
 **Three constraints halation forces, without which dark is done badly:** never pure white on pure black, both ends pull in; body text at weight 400 or above, never 300 on dark; monospace at small sizes gets slightly open tracking.

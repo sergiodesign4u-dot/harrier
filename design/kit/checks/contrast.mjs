@@ -65,7 +65,13 @@ for (const theme of ['dark','light']) {
     const ctx = await b.newContext({ viewport: { width: vw, height: 900 } });
     const p = await ctx.newPage();
     p.on('pageerror', e => errs.push(`${theme} ${vw} :: ${e.message}`));
-    await p.addInitScript(t => { try { localStorage.setItem('harrier-kit-theme', t); } catch(e){} }, theme);
+    /* THE PRODUCT IGNORED THIS SEED UNTIL 2026-08-27, and the sweep reported clean for
+       both halves anyway. Only design/kit/ read the key, so every light rendering of a
+       screen under design/ was the dark theme wearing a light label: 134 of the 268
+       renderings on the last run before the switch shipped. Measured rather than
+       reasoned, by reading --bg-page off queue.html with the key seeded to light and
+       getting #11110f. The one key below is what makes the light half real. */
+    await p.addInitScript(t => { try { localStorage.setItem('harrier-theme', t); } catch(e){} }, theme);
     for (const f of pages) {
       await p.goto('file://' + kit + f);
       await p.waitForLoadState('networkidle');

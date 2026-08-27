@@ -85,9 +85,11 @@ Corpus: `docs/inventory.md`, line by line, and the "States" block of each compon
 | `bline` | molecule | hover, active | background |
 | `toast` | molecule | hover | background |
 | `expand` | molecule | **`[open]`, the element's own, and it became real at stage 13** | the mark on the head, `transform` only: `rotate(-90deg)` closed, `rotate(0deg)` open |
-| `z1` | organism | hover | colour, on the keyboard trigger |
+| `z1` | organism | hover | colour and boundary, on **both** controls since 2026-08-27: the keyboard trigger and the theme control |
 
 **The fourteenth row is the one this stage could not have written.** At stage 11 `expand` was a `div` that never closed, so its own line in B1 above says nothing opens and nothing can open with motion. The state arrived at stage 13 with the element, and the moment came with it: `--dur-fast` and `--ease-standard`, **120ms** measured in the browser, on `transform` and nothing else. **The height is not animated and that is the rule rather than a shortcut**: a height is the property this stage forbids by name, and the browser's own opening is what the analyst is waiting for. Under reduce the token takes the transition to 1ms and **the disclosure still opens**, because what reduce drops is the movement and not the state. No token was created for it.
+
+**The fifteenth moment took no new row, and that is the point of writing it down.** The theme control added on 2026-08-27 is the same work as the keyboard trigger beside it, RESPONSE, so it reads `--dur-fast` and `--ease-standard` and names `border-color` and `color` one by one. **The change of theme itself is deliberately not a moment.** Stage 11 already paid for that lesson at 2000ms: a response in this product is a colour transition, so a crossing between two grounds puts every component mid crossing, and the contrast sweep read three of them at 3.64:1 against a floor of 4.5. Nothing crosses here. The attribute lands on the root element and the whole page is in the other theme on the next frame.
 
 Plus **`:focus-visible`, declared once globally in `base.css`** and reaching every focusable element in the product: it is one moment in one place rather than thirteen.
 

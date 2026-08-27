@@ -27,6 +27,8 @@ Stage 13, step 3.
 
 **Addressing text:** this product's inventory has no abstract key. A string is addressed by **node section plus page plus zone** in `microcopy.md`, and that is what the text column of every family below names. Never the text itself: a copied string goes stale silently and the documentation starts showing pre correction wording with a confident face. And for a string that does not exist yet, the rules for writing one are `voice/docs/voice.md`, with the ruling table in `microcopy.md` section 8 as its home.
 
+**What changed on 2026-08-27, and why no row below moved.** The top bar gained a second control, the theme switch. It is anatomy of `z1` rather than a component of its own, exactly as the keyboard map trigger has always been, so a fresh browser walk returns the same table: `z1` is still one instance per page and the component count is unchanged at 75. **Section 3 does not move either, and that was checked rather than assumed:** the control reads only tokens `.kmap` was already reading, so no idle token woke up and no live one went quiet. What did move is in `handoff/docs/a11y.md`. And the bar now carries a control at 360 where it carried none, because the map trigger is dropped there and the theme control is not.
+
 ---
 
 ## 1. Forward: screen to zone to component

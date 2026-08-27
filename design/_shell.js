@@ -1,6 +1,13 @@
 /* design/_shell.js :: Z1 and Z2, and the last thing that tied the coloured product to a
  * folder stage 05 froze.
  *
+ * SINCE 2026-08-27 IT ALSO RENDERS THE THEME CONTROL, and that is the one thing in
+ * here that is not pure markup: the button is wired to design/system/theme.js, which
+ * has already run in the head of the page. The split is deliberate. The theme has to
+ * be on the root element before the first frame, which is earlier than this file
+ * exists; the control that changes it belongs to the bar, which is this file's job.
+ * So the decision lives in the system package and the button lives here.
+ *
  * Every page under design/ was loading wireframes/_nav.js for one reason: it defines
  * WF_SHELL, which injects the top bar and the connection strip. That script also renders the
  * wireframe stage panel into #sidebar and injects the panel's stylesheet, both of which this
@@ -81,7 +88,29 @@ window.WF_SHELL = function (o) {
          font-size:var(--t-xs), a stage 04 name, which is why kit.css carries a compatibility
          alias block. Written here through the kit's own name instead, and the alias stays
          only for the per-screen blocks that still use the old names. */
-      '<span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span>';
+      '<span class="mono dim" style="font-size:var(--size-xs)">R. Idrissi</span>' +
+      /* THE SECOND CONTROL THE BAR HAS EVER CARRIED, and it stands last, beside the
+         name, because it is a preference of the person rather than a part of the
+         case. It is rendered only when design/system/theme.js is on the page: a
+         button that cannot change anything is worse than no button, and a screen
+         that forgot the script in its head would otherwise ship a dead one. */
+      (window.HARRIER_THEME
+        ? '<button class="theme" type="button">Theme</button>'
+        : '');
+
+    /* The label is written from the state and not from a guess, and the glyph is
+       picked from the same attribute by design/system/components/z1.css. It names
+       the theme it will GIVE you, which is the same sentence the drawing makes:
+       the sun and `Switch to the light theme` are one state seen twice. */
+    var tb = z1.querySelector('.theme');
+    if (tb && window.HARRIER_THEME) {
+      window.HARRIER_THEME.onChange(function (t) {
+        var label = t === 'light' ? 'Switch to the dark theme' : 'Switch to the light theme';
+        tb.setAttribute('aria-label', label);
+        tb.setAttribute('title', label);
+      });
+      tb.addEventListener('click', function () { window.HARRIER_THEME.toggle(); });
+    }
   }
 
   var z2 = document.getElementById('wf-z2');

@@ -105,9 +105,10 @@
 
 <section id="theme">
 <h2>Which theme is the real one</h2>
-<p class="h2sub">Dark, and the light one is proof rather than a feature</p>
-<p><b>The console ground is dark and that is what ships.</b> <code>:root</code> carries it. The light theme exists as <code>[data-theme="light"]</code>, it is complete, every role is paired into it, and <b>it is not a feature of the product</b>: the only switch that reaches it is in the panel of the documentation stand.</p>
-<p>It is there for two reasons. It is the proof that the semantic level really can be overridden independently, which is the whole argument for having a semantic level. And it is a named debt: a light theme is wanted and has not been decided on.</p>
+<p class="h2sub">Dark by default, and the light one is now a control rather than a proof</p>
+<p><b>The console ground is dark and that is what ships.</b> <code>:root</code> carries it, and with nothing stored that is what a person gets. The light theme exists as <code>[data-theme="light"]</code>, it is complete, every role is paired into it, and <b>since 2026-08-27 the analyst can reach it</b>: the second control in the top bar, beside the name, and the choice is remembered.</p>
+<p><b>The default is a decision and not an accident, so do not make it follow the machine.</b> <code>prefers-color-scheme</code> is deliberately never read. The dark ground was argued against the reading research and settled on the rota that 79 per cent of these teams run; an operating system that happens to be light is not evidence about that rota. If you are asked to make the console follow the system, that is a product decision with an owner, not a default anyone should quietly flip.</p>
+<p class="note">Two consequences for you, and the second is the one that bites. <b>A colour role is written twice, in the same edit</b>, and the two values are not the same primitive: contrast is computed against the opposite ground, so the light side takes a different step of the ramp. A role written once loses its focus ring in the other theme, and nothing but reading the two lines side by side finds it. And <b>a new screen must link <code>design/system/theme.js</code> from its head</b>, above the stylesheet. Omit it and nothing looks broken: the screen renders dark and the bar quietly comes back with one control instead of two.</p>
 <p class="note">The consequence for you is one line: <b>a colour role is written twice, in the same edit</b>, and the two values are not the same primitive. Contrast is computed against the opposite ground, so the light side takes a different step of the ramp. A role written once loses its focus ring in the other theme, and nothing but reading the two lines side by side finds it.</p>
 </section>
 

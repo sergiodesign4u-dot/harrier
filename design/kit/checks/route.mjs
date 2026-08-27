@@ -26,8 +26,17 @@ const ROOT = process.cwd();
 const bad = [];
 
 /* ---- 1. every link resolves ---------------------------------------------- */
+/* CODE IS NOT A LINK, and this cost a false failure on 2026-08-27. The row in
+   onboarding-gaps.md that RECORDS the `](` finding writes those two characters inside
+   backticks, which is exactly how design/kit/checks.html was cleared of the same thing:
+   inside a code element they are the name of the check rather than a link. The regex
+   below could not tell the difference and reported a dead link whose href was half a
+   table row. Fenced blocks and inline spans come out of a markdown file before either
+   pattern is run over it; an html file is left alone, because `](` in rendered html is
+   sign 3 of this check and is measured separately on the page itself. */
 function links(file) {
-  const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  let src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  if (file.endsWith('.md')) src = src.replace(/```[\s\S]*?```/g, '').replace(/`[^`\n]*`/g, '');
   const out = [];
   for (const m of src.matchAll(/href="([^"]+)"/g)) out.push(m[1]);
   for (const m of src.matchAll(/\]\(([^)]+)\)/g)) out.push(m[1]);          // markdown

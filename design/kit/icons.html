@@ -113,8 +113,8 @@
 
 <p class="k-eyebrow">Foundations</p>
 <h1 class="k-title">Icons</h1>
-<p class="k-lede">Sixteen glyphs on a 24 unit grid, written once in <code>design/system/icons.js</code>. <b>Every drawing on this page is built from that file at render time</b>, and so is every number: the boxes, the centres and the two audits below are measured off the rasterised paint when the page loads, not transcribed from anywhere.</p>
-<p class="k-note">This is also the honest page of the five foundations, for two reasons that have not changed. <b>Thirteen of the sixteen stand on no screen at all</b>, and the page says which three do. And the set still exists twice, because a CSS mask cannot read JavaScript: the three applied glyphs are carried a second time as data URIs in the files that use them. That copy is named at the foot of this page and it is now checked rather than trusted.</p>
+<p class="k-lede"><span data-icount="total" data-cap="1"></span> glyphs on a 24 unit grid, written once in <code>design/system/icons.js</code>. <b>Every drawing on this page is built from that file at render time</b>, and so is every number: the boxes, the centres and the two audits below are measured off the rasterised paint when the page loads, not transcribed from anywhere.</p>
+<p class="k-note">This is also the honest page of the five foundations, for two reasons that have not changed. <b><span data-icount="idle"></span> of the <span data-icount="total"></span> stand on no screen at all</b>, and the page says which <span data-icount="applied"></span> do. And the set still exists twice, because a CSS mask cannot read JavaScript: the <span data-icount="applied"></span> applied glyphs are carried a second time as data URIs in the files that use them. That copy is named at the foot of this page and it is now checked rather than trusted.</p>
 
 
 <h2 class="k-h" id="anatomy">Anatomy</h2>
@@ -132,8 +132,8 @@
     </ul>
   </figure>
   <ol class="i-rules">
-    <li><b>A 24 unit grid, and one square for all sixteen.</b> The <code>viewBox</code> never changes, so the set is resized by the box and never by redrawing. Three sizes are in use: 24 as the grid itself, <code>.icon</code> at 20 beside 14px text, and <code>.icon--sm</code> at 16 beside 12px.</li>
-    <li><b>A 1.5px stroke, declared in one place.</b> <code>HARRIER_ICON_GRID.stroke</code> in <code>icons.js</code>, and every <code>svg</code> on this page takes the number from there as an attribute rather than restating it in CSS. The three glyphs applied to the product do not obey this, and that is the finding at the foot of the page.</li>
+    <li><b>A 24 unit grid, and one square for all <span data-icount="total"></span>.</b> The <code>viewBox</code> never changes, so the set is resized by the box and never by redrawing. Three sizes are in use: 24 as the grid itself, <code>.icon</code> at 20 beside 14px text, and <code>.icon--sm</code> at 16 beside 12px.</li>
+    <li><b>A 1.5px stroke, declared in one place.</b> <code>HARRIER_ICON_GRID.stroke</code> in <code>icons.js</code>, and every <code>svg</code> on this page takes the number from there as an attribute rather than restating it in CSS. The <span data-icount="applied"></span> glyphs applied to the product do not obey this, and that is the finding at the foot of the page.</li>
     <li><b>Square terminals: butt caps, miter joins.</b> The product's radius is zero, so a rounded cap would be the only curve anywhere in it. The join matters more than it looks: a miter is what puts paint outside the path at a sharp corner, and it is why one of the two safe field breaches below is on a glyph whose path stays comfortably inside.</li>
     <li><b><code>currentColor</code>, and no colour of its own.</b> An icon inherits the severity or the accent of whatever it sits in, which is the whole point of a set on a product where colour is scarce.</li>
     <li><b>Paint stays inside the safe field, 2 to 22.</b> Not the path: the paint. A stroke is centred on the contour, so half of it sits outside, and a rectangle drawn at 2 is already 0.75 over the line. The field keeps a gap between two glyphs set beside each other and stops a glyph touching the edge of a control it sits in. <b id="i-rule5">Measured below.</b></li>
@@ -150,7 +150,7 @@
 
 <h2 class="k-h" id="balance">Optical balance</h2>
 <p class="k-note"><b>The box is measured by paint, not by path.</b> Each glyph is stroked onto an offscreen canvas at 20 times scale with the set's own stroke width, butt caps and miter joins, and the box is the extent of every pixel at half coverage or more. That catches what <code>getBBox()</code> cannot: half the stroke standing outside the contour, and a miter standing further out again. The quantum is one twentieth of a unit, so every figure here is good to 0.05.</p>
-<p class="k-note">The solid amber rectangle on each cell below is that measured box, and the dashed one is the safe field. Six glyphs are shown, chosen by the page rather than by hand: the widest, the narrowest, the tallest, the shortest and the two nearest the median area. The full sixteen are in the table.</p>
+<p class="k-note">The solid amber rectangle on each cell below is that measured box, and the dashed one is the safe field. Six glyphs are shown, chosen by the page rather than by hand: the widest, the narrowest, the tallest, the shortest and the two nearest the median area. The full <span data-icount="total"></span> are in the table.</p>
 
 <div class="k-scene">
   <div class="i-strip" id="i-balance"></div>
@@ -191,26 +191,22 @@
 <p class="k-note" id="i-centre-note"></p>
 
 
-<h2 class="k-h" id="set">The set, all sixteen</h2>
-<p class="k-note">Each on its own grid with the safe field. Thirteen of these stand on no screen. They exist so the set can be judged as a set, and so that the first icon anyone reaches for is taken from here rather than drawn again. <b>Every icon added to the product is a decision with no wireframe behind it</b>, which is exactly the class of thing that drifts if it is not settled once.</p>
+<h2 class="k-h" id="set">The set, all <span data-icount="total"></span></h2>
+<p class="k-note">Each on its own grid with the safe field. <span data-icount="idle" data-cap="1"></span> of these stand on no screen. They exist so the set can be judged as a set, and so that the first icon anyone reaches for is taken from here rather than drawn again. <b>Every icon added to the product is a decision with no wireframe behind it</b>, which is exactly the class of thing that drifts if it is not settled once.</p>
 <div class="i-set" id="i-set"></div>
 <p class="k-note"><b>The product contains zero <code>svg</code> elements across all 62 screens</b>, confirmed by grep and recorded in <code>docs/inventory.md</code> section 5. Two thirds of the content axis of the control census is therefore empty: no control anywhere carries an icon before its label, and none carries an icon alone.</p>
 
 
-<h2 class="k-h" id="applied">Three are applied, and each one had to earn its space</h2>
-<p class="k-note">Design principle 5 puts density first and the product read perfectly with none, so adding an icon had to be argued rather than assumed. These three are attached as <b>CSS masks rather than markup</b>, and that is not convenience: <code>wireframes/</code> is frozen, and at stages 06 and 07 <b>every coloured page held a structural diff of exactly zero</b> against its grey original, which an <code>svg</code> element on a screen would have ended. The zero was a measurement taken then and not a standing property, and it has since gone: 45 of the 62 pairs differ. What the mask still buys is that the icons are not among the reasons, and <code>design/kit/checks/diverge.mjs</code> is what reads the rest. A mask paints the glyph with <code>background:currentColor</code>, so the icon still inherits whatever it sits in.</p>
+<h2 class="k-h" id="applied"><span data-icount="applied" data-cap="1"></span> are applied, and each one had to earn its space</h2>
+<p class="k-note">Design principle 5 puts density first and the product read perfectly with none, so adding an icon had to be argued rather than assumed. These <span data-icount="applied"></span> are attached as <b>CSS masks rather than markup</b>, and that is not convenience: <code>wireframes/</code> is frozen, and at stages 06 and 07 <b>every coloured page held a structural diff of exactly zero</b> against its grey original, which an <code>svg</code> element on a screen would have ended. The zero was a measurement taken then and not a standing property, and it has since gone: 45 of the 62 pairs differ. What the mask still buys is that the icons are not among the reasons, and <code>design/kit/checks/diverge.mjs</code> is what reads the rest. A mask paints the glyph with <code>background:currentColor</code>, so the icon still inherits whatever it sits in.</p>
 
 <div class="k-scene">
   <div class="i-strip" id="i-applied"></div>
 </div>
 <div class="k-wrap-x">
 <table class="k-table">
-  <thead><tr><th>Glyph</th><th>On</th><th>Uses</th><th>Why it earned the space</th></tr></thead>
-  <tbody>
-    <tr><td><code>source</code></td><td><code>.src::after</code></td><td>131 on 24 pages</td><td>the strongest case in the product: an evidence line names its source, and nothing said the source <b>opens somewhere else</b></td></tr>
-    <tr><td><code>expand</code></td><td><code>.expand &gt; summary::before</code></td><td>21 on 21 pages</td><td>design principle 2 is cheapest correct thing first, depth one key away, and depth had no mark on it at all. <b>It hung off the box until stage 13 and hangs off the head now</b>, so the 6 expansions with no head carry no mark: the glyph promises a control, and it now cannot appear where there is none</td></tr>
-    <tr><td><code>keyboard</code></td><td><code>.kmap</code> in Z1</td><td>1 per screen</td><td>it rendered a literal question mark, the one glyph in the shell that says nothing about what it opens. The accessible name is already Keyboard map, so replacing the visible character loses nothing</td></tr>
-  </tbody>
+  <thead><tr><th>Glyph</th><th>On</th><th>Uses, measured 2026-08-27</th><th>Why it earned the space</th></tr></thead>
+  <tbody id="i-applied-rows"></tbody>
 </table>
 </div>
 <p class="k-note"><b>Not applied, and the reasons are the argument rather than an omission.</b> The four verdict actions already carry a keyboard letter, so an icon would be a third signal for one action. The six state chips are words that are already the shortest form of themselves. Severity is a count of bars and a colour and does not need a third. And an icon on a banner or an empty state would be decoration on a surface that exists to be read once and left.</p>
@@ -239,7 +235,7 @@
 <p class="k-note">The check names the files each mask stands in, so the table above does not: it names the selector, which does not move. The box sizes are read from <code>design/kit/kit.css</code>: the mask sits in a square element with <code>no-repeat center/contain</code>, so a 24 unit stroke lands on the screen scaled by the box. <b>The column on the right is that arithmetic, computed in this page.</b> It is what makes the difference more than a number in a file: the keyboard glyph is a 16px box in the shell, and <code>.icon--sm</code> is also 16px, so the same glyph at the same size is 1.20px in the product and 1.00px on this page.</p>
 
 <h3 class="k-h2">Recommendation</h3>
-<p class="k-note"><b>Bring the masks to 1.5 and check what breaks, rather than raising the set to 1.8.</b> Three reasons, in order. The set is sixteen glyphs and the masks are three, so 1.5 is the majority and the documented value. The 1.8 makes the one safe field breach in the applied trio worse, not better: <span id="i-kb-worse"></span>. And the likely reason for 1.8, which is that a 1.5 stroke in an 11px box lands at <span id="i-src-thin"></span> and goes grey on a 1x display, is a case for a hinted small size in the set rather than for a second weight nobody wrote down. <b>Nothing here changes the product masks.</b> This page reports; the change is a decision with its own line in <code>docs/decisions.md</code>.</p>
+<p class="k-note"><b>Bring the masks to 1.5 and check what breaks, rather than raising the set to 1.8.</b> Three reasons, in order. The set is <span data-icount="total"></span> glyphs and the masks are <span data-icount="applied"></span>, so 1.5 is the majority and the documented value. The 1.8 makes the one safe field breach in the applied trio worse, not better: <span id="i-kb-worse"></span>. And the likely reason for 1.8, which is that a 1.5 stroke in an 11px box lands at <span id="i-src-thin"></span> and goes grey on a 1x display, is a case for a hinted small size in the set rather than for a second weight nobody wrote down. <b>Nothing here changes the product masks.</b> This page reports; the change is a decision with its own line in <code>docs/decisions.md</code>.</p>
 
 </main>
 </div>
@@ -252,7 +248,7 @@ window.NAV_SECTIONS = [
   { id:'field',   label:'Audit: the safe field' },
   { id:'centre',  label:'Audit: the centre' },
   { id:'set',     label:'The set, all sixteen' },
-  { id:'applied', label:'Three applied' },
+  { id:'applied', label:'What is applied' },
   { id:'source',  label:'One source, one copy' }
 ];
 
@@ -601,8 +597,62 @@ window.NAV_SECTIONS = [
   var setBox = document.getElementById('i-set');
   ORDER.forEach(function (n) { setBox.appendChild(figure(n, { field: true }, n)); });
 
+  /* ---- every count on this page, read off the source ---------------------
+     THE PROSE USED TO CARRY THE NUMBERS AS WORDS and it went stale twice without
+     anyone noticing: the set said sixteen while icons.js declared seventeen, and
+     it said three were applied while the strip four lines below it drew six. This
+     page already computes every measurement it prints, and there is no reason its
+     counts should be the one thing transcribed by hand. They are read off
+     HARRIER_ICONS now, which means the next glyph that joins the set corrects this
+     page by existing. */
+  var WORDS = ['zero','one','two','three','four','five','six','seven','eight','nine','ten',
+               'eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen',
+               'eighteen','nineteen','twenty'];
+  var NAMES = Object.keys(ICONS);
+  var appliedNames = ORDER.filter(function (n) { return ICONS[n].applied; });
+  var COUNT = { total: NAMES.length, applied: appliedNames.length,
+                idle: NAMES.length - appliedNames.length };
+  document.querySelectorAll('[data-icount]').forEach(function (el) {
+    var n = COUNT[el.getAttribute('data-icount')];
+    var w = WORDS[n] || String(n);
+    el.textContent = el.hasAttribute('data-cap') ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+  });
+
+  /* ---- the applied table, built from the same list as the strip -----------
+     Only the last two columns are written by a person. The glyph and the selector
+     come from icons.js, so a glyph applied to the product without a row here is
+     not possible: the row appears whether or not anybody remembered to add it,
+     and an empty reason is then visible as an empty cell. */
+  var APPLIED_NOTE = {
+    source:   { uses: '131 on 24 pages',
+                why: 'the strongest case in the product: an evidence line names its source, and nothing said the source <b>opens somewhere else</b>' },
+    expand:   { uses: '112 on 49 pages, across its three selectors',
+                why: 'design principle 2 is cheapest correct thing first, depth one key away, and depth had no mark on it at all. <b>It hung off the box until stage 13 and hangs off the head now</b>, so the expansions with no head carry no mark: the glyph promises a control, and it cannot appear where there is none' },
+    keyboard: { uses: '59, one per authenticated screen',
+                why: 'it rendered a literal question mark, the one glyph in the shell that says nothing about what it opens. The accessible name is already Keyboard map, so replacing the visible character loses nothing' },
+    accept:   { uses: '4 on 1 page',
+                why: 'the tick on the chosen option of a drawn select, and it is the verdict glyph rather than a second drawing of it. Both say <b>this one</b>, and two drawings of one word is how a set starts to drift' },
+    reject:   { uses: '56 on 42 pages',
+                why: 'the only mark in the product that means REMOVE THIS. A filter chip drops its own filter and a notice dismisses itself, and both act on the thing they sit inside rather than routing anywhere' },
+    next:     { uses: '3 on 3 pages',
+                why: 'the one glyph in the set that was not already drawn when the set was written. The shift digest ended its routes in a typed arrow and there was nothing to replace it with' },
+    sun:      { uses: '59, one per authenticated screen',
+                why: 'the theme control names the ground it will GIVE you, so the sun stands while the dark theme runs. Added 2026-08-27 with <code>moon</code>, and they arrived together because a control with two states and one glyph is half a control' },
+    moon:     { uses: '59, the same control in the other theme',
+                why: 'the same button under <code>[data-theme="light"]</code>. It is the only pair in the set where two glyphs are one control, and it is also the only selector here that is conditioned on the theme rather than on the element' }
+  };
+  var rows = document.getElementById('i-applied-rows');
+  if (rows) appliedNames.forEach(function (n) {
+    var note = APPLIED_NOTE[n] || { uses: '', why: '' };
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td><code>' + n + '</code></td>' +
+                   '<td><code>' + ICONS[n].applied.replace(/</g, '&lt;') + '</code></td>' +
+                   '<td>' + note.uses + '</td><td>' + note.why + '</td>';
+    rows.appendChild(tr);
+  });
+
   var appBox = document.getElementById('i-applied');
-  ORDER.filter(function (n) { return ICONS[n].applied; }).forEach(function (n) {
+  appliedNames.forEach(function (n) {
     appBox.appendChild(figure(n, { field: true }, '<b>' + n + '</b><br>' + ICONS[n].applied));
   });
 

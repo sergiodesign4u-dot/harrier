@@ -164,19 +164,54 @@ window.HARRIER_ICONS = {
     label: 'the keyboard map in Z1',
     applied: '.z1 .kmap::before',
     shapes: [ { rect: [2, 6, 20, 12] }, { d: 'M6 10h1M10 10h1M14 10h1M18 10h1M6 14h12' } ]
+  },
+
+  /* -- the ground the console is read on ------------------------------------
+     TWO GLYPHS FOR ONE CONTROL, and they are two rather than one because the
+     control has two readings and the drawing is the only thing that carries the
+     difference at a glance. The button names the theme it will GIVE you, so the
+     sun stands while the dark theme is running and the moon stands while the
+     light one is. The accessible name says the same sentence in words, which is
+     why the two never disagree: one state writes both.
+
+     The sun is the only glyph in the set built out from the centre rather than
+     drawn as an object. Its rays start at radius 7 and end at radius 10, which
+     puts their outer ends on 2 and 22 exactly, the safe field, and the disc at
+     radius 5 leaves a gap of two units all the way round. Every number in it is
+     an integer, including the four diagonals, because 5 and 7 are the pair whose
+     radii come closest to 7 and 10 without a decimal.
+
+     The moon is two arcs and it is the only closed curve in the set. Its outer
+     edge is a circle of radius 8.5 whose centre lands within a fifth of a unit of
+     the box centre, so the crescent balances on its own ink without being nudged
+     there by hand. */
+
+  sun: {
+    label: 'the light theme, offered by the one control in Z1 that changes the ground',
+    applied: '.z1 .theme::before',
+    shapes: [ { circle: [12, 12, 5] },
+              { d: 'M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M5 19l2-2' } ]
+  },
+
+  moon: {
+    label: 'the dark theme, offered by the same control while the light one is running',
+    applied: '[data-theme="light"] .z1 .theme::before',
+    shapes: [ { d: 'M20 14.5A8.5 8.5 0 1 1 9.5 4 7.5 7.5 0 0 0 20 14.5z' } ]
   }
 };
 
 /* The order the stand draws them in. Declared rather than left to object key
    order, because the grouping above is by intent and the page shows the set as a
-   set. Seventeen names since 2026-08-26, and the check script asserts the count.
-   `next` is the one addition, and it is the only glyph in the set that was not
+   set. Nineteen names since 2026-08-27, and the check script asserts the count.
+   `next` was the first addition, and it is the only glyph in the set that was not
    already drawn when the set was written: the digest's routes ended in a typed
-   arrow and there was nothing to replace it with. */
+   arrow and there was nothing to replace it with. `sun` and `moon` are the second
+   and they arrived together, because the control they are applied to has two
+   states and a glyph that stood for only one of them would be half a control. */
 window.HARRIER_ICON_ORDER = [
   'case', 'file', 'accept', 'amend', 'reject', 'escalate', 'latitude', 'window',
   'fleet', 'log', 'source', 'expand', 'filter', 'shift', 'keyboard', 'evidence',
-  'next'
+  'next', 'sun', 'moon'
 ];
 
 /* The declared geometry of the set. Read by the stand so that the numbers on the

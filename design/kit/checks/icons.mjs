@@ -167,7 +167,7 @@ console.log(`source: ${SRC}`);
 console.log(`glyphs declared: ${Object.keys(ICONS).length}   draw order: ${ORDER.length}`);
 const missingFromOrder = Object.keys(ICONS).filter(n => !ORDER.includes(n));
 const missingFromSet   = ORDER.filter(n => !ICONS[n]);
-if (Object.keys(ICONS).length !== 17) problems.push(`the set is ${Object.keys(ICONS).length} glyphs, not 17`);
+if (Object.keys(ICONS).length !== 19) problems.push(`the set is ${Object.keys(ICONS).length} glyphs, not 19`);
 missingFromOrder.forEach(n => problems.push(`${n} is in the set and not in the draw order`));
 missingFromSet.forEach(n => problems.push(`${n} is in the draw order and not in the set`));
 

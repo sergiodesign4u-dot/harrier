@@ -63,10 +63,10 @@
 <p class="k-note">Five sizes, live, in real product strings from <code>voice/docs/microcopy.md</code> and the coloured screens rather than in filler. The token is on the left and the class that carries it, where there is one, beside it.</p>
 
 <div class="k-scale">
-  <code>--size-xl &middot; 21px to 26px<br>the one heading a page is allowed<br><b class="t-fluid">fluid</b></code>
+  <code>--size-xl &middot; <span data-fluid="--size-xl"></span><br>the one heading a page is allowed<br><b class="t-fluid">fluid</b></code>
   <div style="font:600 var(--size-xl)/var(--leading-tight) var(--font-sans);letter-spacing:-.02em">18 waiting across 12 of 40 tenants</div>
 
-  <code>--size-lg &middot; 17px to 20px<br>screen title, pane title<br><b class="t-fluid">fluid</b></code>
+  <code>--size-lg &middot; <span data-fluid="--size-lg"></span><br>screen title, pane title<br><b class="t-fluid">fluid</b></code>
   <div style="font:600 var(--size-lg)/var(--leading-tight) var(--font-sans)">Fleet</div>
 
   <code>--size-md &middot; 14px<br>body, controls, the verdict in a row</code>
@@ -171,6 +171,33 @@ window.NAV_SECTIONS = [
   function tick(){ el.textContent = 'at ' + document.documentElement.clientWidth +
     'px: --size-lg is ' + px('--size-lg') + ' and --size-xl is ' + px('--size-xl') + '.'; }
   tick(); addEventListener('resize', tick);
+})();
+
+/* THE TWO ENDS OF EACH FLUID SIZE, PARSED FROM THE TOKEN'S OWN DECLARATION rather than
+   typed here. They were typed here until 2026-08-27, and on the day the floors moved from
+   17 and 21 to 18 and 22 both pages went on printing the old pair with a confident face.
+   A clamp names its own floor and ceiling, `getPropertyValue` hands back the declaration
+   verbatim, and the root font size turns rem into px. A range cannot be measured at one
+   width, and this is the next best thing: it is read from the same string the browser
+   resolves. */
+(function () {
+  var root = getComputedStyle(document.documentElement);
+  var rem = parseFloat(root.fontSize) || 16;
+  function ends(tok) {
+    var d = root.getPropertyValue(tok).trim();
+    var m = d.match(/^clamp\(([^,]+),.*,([^)]+)\)$/);
+    if (!m) return d;
+    var toPx = function (t) {
+      t = t.trim();
+      var n = parseFloat(t);
+      if (t.slice(-3) === 'rem') n = n * rem;
+      return (Math.round(n * 100) / 100) + 'px';
+    };
+    return toPx(m[1]) + ' to ' + toPx(m[2]);
+  }
+  document.querySelectorAll('[data-fluid]').forEach(function (el) {
+    el.textContent = ends(el.getAttribute('data-fluid'));
+  });
 })();
 </script>
 <script src="_nav.js"></script>

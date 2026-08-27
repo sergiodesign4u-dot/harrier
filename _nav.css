@@ -22,8 +22,19 @@
 a.nav-top:hover{ background:color-mix(in srgb, var(--nav-active) 8%, transparent); }
 .nav-item.is-done    > .nav-top{ color:var(--nav-fg); }        /* зроблений етап: звичайний лінк */
 .nav-item.is-soon    > .nav-top{ color:var(--nav-muted); cursor:default; }
+/* THE WASH IS 6 PER CENT AND IT WAS 10 UNTIL 2026-08-27, when the light theme
+   reached a product screen for the first time and this line became the one failure
+   in 268 renderings. The wash and the ink are the SAME HUE, so a heavier wash walks
+   the ground towards the ink rather than away from it. In dark the two start far
+   apart and 10 per cent costs nothing; in light they start close and it cost the
+   whole margin. Measured on overview.html, both themes, ground composited:
+     ink at 10%   dark 6.27   light 4.41   <- the failure, floor 4.5
+     ink at  6%   dark 6.71   light 4.65
+     no wash      dark 7.33   light 5.02
+   A wash of the line role was measured too and is worse in light at every strength,
+   because that role is DARKER than the light page and this ink is dark already. */
 .nav-item.is-active  > .nav-top{ color:var(--nav-active); font-weight:600;
-          background:color-mix(in srgb, var(--nav-active) 10%, transparent); }
+          background:color-mix(in srgb, var(--nav-active) 6%, transparent); }
 .nav-item.is-partial > .nav-top{ color:var(--nav-fg); }
 .nav-item.is-wip     > a.nav-top{ color:var(--nav-fg); }      /* етап у роботі, сторінка вже є: звичайний лінк */
 /* Етап у роботі, сторінки ЩЕ немає: рендерер віддає span, і темний колір обіцяв би клік,
